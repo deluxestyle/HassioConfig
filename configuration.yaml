@@ -172,7 +172,3 @@ panel_iframe:
     title: Statistik
     url: !secret grafana_url
     icon: mdi:elevation-rise
-  # tasmoadmin:
-    # title: TasmoAdmin
-    # icon: mdi:lightbulb-on
-    # url: !secret tasmoadmin_url
