@@ -61,10 +61,6 @@ logbook:
       - group
       - calendar
 
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
-
 # Discover some devices automatically
 discovery:
 
