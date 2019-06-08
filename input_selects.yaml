@@ -1,0 +1,48 @@
+scenes_living_room:
+    name: "Szenen"
+    options:
+      - --
+      - Wohnzimmer Licht
+      - Sehr hell
+      - Gedimmt
+      - Lesen
+      - Konzentrieren
+      - Energie tanken
+      - Entspannen
+      - Nachtlicht
+    initial: '--'
+
+scenes_bed_room:
+    name: "Szenen"
+    options:
+      - --
+      - Hell
+      - Nachtlicht
+      - Gedimmt
+    initial: '--'
+
+avr_source:
+    name: AVR Quelle
+    icon: mdi:playlist-play
+    options:
+        - --
+        - Telekom
+        - TV
+        - AirPlay
+        - Turntable
+        - vTuner
+        - Home Network
+
+vacuum_rooms:
+    name: Räume
+    icon: mdi:broom
+    options:
+        - --
+        - Wohnzimmer
+        - Schlafzimmer
+        - Büro
+        - Katzenklo
+        - Bad
+        - Küche
+        - Flur
+        - Klo

@@ -1,0 +1,600 @@
+- id: update_notification
+  alias: Benachrichtigung - Update HASS
+  trigger:
+  - entity_id: updater.updater
+    platform: state
+  action:
+  - data:
+      message: There is a new Home Assistant release available
+    service: notify.ios_iphonex
+- id: family_not_home
+  alias: Abwesenheitsschaltung
+  trigger:
+  - entity_id: sensor.presence
+    platform: state
+    to: not_home
+  condition:
+  - condition: state
+    entity_id: calendar.privat_putzfrau
+    state: 'off'
+  action:
+  - data:
+      entity_id: light.lights_all
+    service: light.turn_off
+  - data:
+      entity_id: light.steckdose
+    service: light.turn_off
+  - data: {}
+    service: script.1532175994947
+  - data:
+      entity_id: automation.benachrichtigung_bewegung_erkannt
+    service: automation.turn_on
+  - data:
+      entity_id: light.steckdose_3
+    service: light.turn_off
+- id: camera_cctv_off
+  alias: Kamera Surveillance - aus
+  trigger:
+  - entity_id: input_boolean.camera_cctv
+    from: 'on'
+    platform: state
+    to: 'off'
+  action:
+  - service: shell_command.surveillance_off
+- id: camera_cctv_on
+  alias: Kamera Surveillance - an
+  trigger:
+  - entity_id: input_boolean.camera_cctv
+    from: 'off'
+    platform: state
+    to: 'on'
+  action:
+  - service: shell_command.surveillance_on
+- id: scenes_living_room
+  alias: 'Lichtszenen: Wohnzimmer auswählen'
+  trigger:
+  - entity_id: input_select.scenes_living_room
+    platform: state
+  condition:
+  - condition: template
+    value_template: '{{ states.input_select.scenes_living_room.state != "--" }}'
+  action:
+  - data:
+      group_name: Wohnzimmer
+    data_template:
+      scene_name: '{{ states.input_select.scenes_living_room.state }}'
+    service: hue.hue_activate_scene
+  - data:
+      entity_id: input_select.scenes_living_room
+      option: --
+    service: input_select.select_option
+- id: scenes_bed_room
+  alias: 'Lichtszenen: Schlafzimmer auswählen'
+  trigger:
+  - entity_id: input_select.scenes_bed_room
+    platform: state
+  condition:
+  - condition: template
+    value_template: '{{ states.input_select.scenes_bed_room.state != "--" }}'
+  action:
+  - data:
+      group_name: Schlafzimmer
+    data_template:
+      scene_name: '{{ states.input_select.scenes_bed_room.state }}'
+    service: hue.hue_activate_scene
+  - data:
+      entity_id: input_select.scenes_bed_room
+      option: --
+    service: input_select.select_option
+- id: scenes_reset_living_room
+  alias: 'Lichtszenen: Wohnzimmer zurücksetzen'
+  trigger:
+    platform: state
+    entity_id: light.lights_living_room
+    from: 'on'
+    to: 'off'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.scenes_living_room
+      option: --
+- id: scenes_reset_bed_room
+  alias: 'Lichtszenen: Schlafzimmer zurücksetzen'
+  trigger:
+    platform: state
+    entity_id: light.schlafzimmer
+    from: 'on'
+    to: 'off'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.scenes_bed_room
+      option: --
+- id: switch_leselampe
+  alias: Lichtschalter - Leselampe
+  trigger:
+  - event_data:
+      click_type: single
+      entity_id: binary_sensor.switch_158d0002131462
+    event_type: xiaomi_aqara.click
+    platform: event
+  action:
+  - data:
+      entity_id: light.leselampe
+    entity_id: light.leselampe
+    service: light.toggle
+- id: switch2
+  alias: Lichtschalter - Küchenlampe
+  trigger:
+  - event_data:
+      click_type: single
+      entity_id: binary_sensor.wall_switch_158d00025303aa
+    event_type: xiaomi_aqara.click
+    platform: event
+  action:
+  - data:
+      entity_id: light.lights_kitchen
+    service: light.toggle
+- id: xiaomi_vacuum_notification_off
+  alias: 'Xiaomi Staubsauger: fertig'
+  trigger:
+  - entity_id: sensor.xiaomi_vacuum_status
+    platform: state
+    to: Returning home
+  action:
+  - data:
+      message: 'Staubsauger fertig - Dauer: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaning_time
+        }} min - gesaugte Fläche: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaned_area
+        }} qm | Fehler {{ states.counter.xiaomo_errors.state }}'
+    service: notify.ios_iphonex
+  - data:
+      entity_id: input_select.vacuum_rooms
+      option: --
+    service: input_select.select_option
+- id: xiaomi_vacuum_notification_on
+  alias: 'Xiaomi Staubsauger: gestartet'
+  trigger:
+  - entity_id: vacuum.xiaomi_vacuum_cleaner
+    from: docked
+    platform: state
+    to: cleaning
+  action:
+  - data:
+      data:
+        push:
+          category: vacuum_stop
+      message: Staubsauger gestartet
+    service: notify.ios_iphonex
+- id: xiaomi_vacuum_notification_blocked
+  alias: 'Xiaomi Staubsauger: Fehler'
+  trigger:
+  - entity_id: sensor.xiaomi_vacuum_status
+    platform: state
+    to: Error
+  condition:
+  - condition: template
+    value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.error != ''Clean
+      main brush'' }}'
+  action:
+  - data:
+      data:
+        push:
+          category: vacuum_stop
+      message: 'Staubsauger blockiert - Error: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.error
+        }} '
+    service: notify.ios_iphonex
+- id: '1521743370575'
+  alias: 'Heizung: Abwesenheitsschaltung'
+  trigger:
+  - entity_id: sensor.presence
+    platform: state
+    to: not_home
+  condition:
+  - below: '10'
+    condition: numeric_state
+    entity_id: sensor.dark_sky_temperature
+  - condition: state
+    entity_id: switch.radiator_on_off
+    state: 'on'
+  action:
+  - data: {}
+    service: script.1540232132608
+  - data:
+      message: 'Heizung: Abwesenheitsschaltung'
+    service: notify.ios_iphonex
+- id: '1521894687949'
+  alias: 'Xiaomi Staubsauger: Täglich saugen'
+  trigger:
+  - at: '16:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: device_tracker.anni
+    state: not_home
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  - condition: template
+    value_template: '{{ as_timestamp(utcnow()) + 1200 - as_timestamp(states.vacuum.xiaomi_vacuum_cleaner.last_updated)  >
+      10080 }}'
+  action:
+  - data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+    service: vacuum.start
+  - data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      fan_speed: Max
+    service: vacuum.set_fan_speed
+- id: '1523001167559'
+  alias: 'Xiaomi Staubsauger: Neustart'
+  trigger:
+  - entity_id: sensor.xiaomi_vacuum_status
+    platform: state
+    to: Error
+  condition:
+  - condition: template
+    value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.error == ''Clean
+      main brush'' }}'
+  action:
+  - data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+    service: vacuum.start
+  - data:
+      entity_id: counter.xiaomo_errors
+    service: counter.increment
+- id: '1532176861984'
+  alias: Sonos starten
+  trigger:
+  - entity_id: device_tracker.iphonex
+    platform: state
+    to: home
+  condition:
+  - after: 08:00:00
+    before: '20:00:00'
+    condition: time
+  - condition: state
+    entity_id: device_tracker.anni
+    state: not_home
+  action:
+    data: {}
+    service: script.1532173931522
+  initial_state: false
+- id: '1532273712071'
+  alias: Harman Kardon AVR - Quelle auswählen
+  trigger:
+  - entity_id: input_select.avr_source
+    platform: state
+  condition:
+  - condition: template
+    value_template: '{{ states.input_select.avr_source.state != "--" }}'
+  action:
+  - data_template:
+      entity_id: media_player.harman_kardon_avr
+      source: '{% if states.input_select.avr_source.state == "Telekom" %}STB {% elif
+        states.input_select.avr_source.state ==  "AirPlay" %}Audio {% elif states.input_select.avr_source.state
+        ==  "TV" %}TV {% elif states.input_select.avr_source.state ==  "Home Network"
+        %}Home Network {% elif states.input_select.avr_source.state ==  "vTurner"
+        %}vTuner {% elif states.input_select.avr_source.state ==  "Turntable" %}AUX
+        {% endif %}'
+    service: media_player.select_source
+  - data:
+      entity_id: input_select.avr_source
+      option: --
+    service: input_select.select_option
+- id: '1533660030341'
+  alias: Harman Kardon AVR - verbinden
+  trigger:
+  - entity_id: device_tracker.avr151
+    platform: state
+    to: home
+  condition: []
+  action:
+  - data:
+      entity_id: media_player.harman_kardon_avr
+    service: media_player.volume_down
+- id: '1533984172028'
+  alias: 'Xiaomi Staubsauger: Stoppen nach Push'
+  trigger:
+  - event_data:
+      actionName: STOP_VACUUM
+    event_type: ios.notification_action_fired
+    platform: event
+  condition: []
+  action:
+  - data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+    service: vacuum.return_to_base
+- id: '1538505553055'
+  alias: 'Heizung: Badfenster offen'
+  trigger:
+  - entity_id: binary_sensor.door_window_sensor_158d00022f13a0
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - service: script.1538502214360
+- id: dsfasdfasdfsafsadfsdfdsf
+  alias: 'Heizung: Bad Timer'
+  trigger:
+  - platform: template
+    value_template: '{{ states(''sensor.time'') == (states.input_datetime.radiator_bath_1.attributes.timestamp
+      | int | timestamp_custom(''%H:%M'', False)) }}'
+  condition:
+  - condition: state
+    entity_id: sensor.presence
+    state: home
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - service: script.1538646823835
+- id: '1540494970737'
+  alias: Benachrichtigung - Bewegung erkannt
+  initial_state: false
+  trigger:
+  - entity_id: binary_sensor.motion_sensor_158d00023e77cb
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      message: Bewegung erkannt
+    service: notify.ios_iphonex
+- id: '1540974552306'
+  alias: Benachrichtigung - Luftfeuchtigkeit
+  trigger:
+  - above: '62'
+    entity_id: sensor.humidity_158d0001b8c96c
+    platform: numeric_state
+  - above: '62'
+    entity_id: sensor.humidity_158d0001b8c998
+    platform: numeric_state
+  - above: '62'
+    entity_id: sensor.humidity_158d0002239fb5
+    platform: numeric_state
+  - above: '62'
+    entity_id: sensor.oeq1667238_humidity
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: device_tracker.iphonex
+    state: home
+  action:
+  - data:
+      message: 'Luftfeuchtigkeit zu hoch - Schlafzimmer: {{ states.sensor.humidity_158d0001b8c96c.state
+        }} % - Wohnzimmer {{ states.sensor.humidity_158d0001b8c998.state }} % - Küche:
+        {{ states.sensor.humidity_158d0002239fb5.state }} % - Büro: {{ states.sensor.oeq1667238_humidity.state
+        }} % '
+    service: notify.ios_iphonex
+- id: '1541096569503'
+  alias: Bewegungsmelder - Alarm
+  initial_state: false
+  trigger:
+  - entity_id: binary_sensor.motion_sensor_158d00023e77cb
+    platform: state
+    to: 'on'
+  condition:
+  - below: '10'
+    condition: numeric_state
+    entity_id: sensor.illumination_158d00023e77cb
+  - after: '23:30:00'
+    before: 05:00:00
+    condition: time
+  action:
+  - data:
+      gw_mac: 7811DCB258D1
+      ringtone_id: 0
+      ringtone_vol: 20
+    service: xiaomi_aqara.play_ringtone
+  - delay: 00:02:00
+  - data: {}
+    service: script.1541097052191
+- id: '1542650541048'
+  alias: 'Xiaomi Staubsauger: Sensor kritisch'
+  trigger:
+  - below: '4'
+    entity_id: sensor.xiaomi_vacuum_sensor_dirty_left
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      message: 'Sensor reinigen: {{ states.sensor.xiaomi_vacuum_sensor_dirty_left.state
+        }} h übrig'
+      notification_id: xiaomi_sensor
+      title: Xiaomi StaubRobo
+    service: persistent_notification.create
+- id: '1542974689604'
+  alias: Anwesenheitsschaltung
+  trigger:
+  - entity_id: sensor.presence
+    platform: state
+    to: home
+  condition: []
+  action:
+  - data:
+      entity_id: automation.benachrichtigung_bewegung_erkannt
+    service: automation.turn_off
+- id: '1543074323979'
+  alias: Benachrichtigung - Abwesend
+  trigger:
+  - entity_id: sensor.presence
+    platform: state
+    to: not_home
+  condition: []
+  action:
+  - data:
+      message: Niemand zu Hause
+    service: notify.ios_iphonex
+- id: '1543619209115'
+  alias: Starte HomeKit
+  trigger:
+  - event: start
+    platform: homeassistant
+  condition: []
+  action:
+  - delay: 00:01:30
+  - service: homekit.start
+- id: '1543669218842'
+  alias: 'Xiaomi Staubsauger: Zonenreinigung'
+  trigger:
+  - entity_id: input_select.vacuum_rooms
+    platform: state
+  condition:
+  - condition: template
+    value_template: '{{ states.input_select.vacuum_rooms.state != "--" }}'
+  action:
+  - data_template:
+      entity_id: "{% if is_state(\"input_select.vacuum_rooms\", \"Wohnzimmer\") %}\n\
+        \  script.1543666947492\n{% elif is_state(\"input_select.vacuum_rooms\", \"\
+        Schlafzimmer\") %}\n  script.1543666909272\n{% elif is_state(\"input_select.vacuum_rooms\"\
+        , \"Bad\") %}\n  script.1543666985219\n{% elif is_state(\"input_select.vacuum_rooms\"\
+        , \"Küche\") %}\n  script.1543666771838\n{% elif is_state(\"input_select.vacuum_rooms\"\
+        , \"Flur\") %}\n  script.1543666867257\n{% elif is_state(\"input_select.vacuum_rooms\"\
+        , \"Klo\") %}\n  script.1543666831509\n{% elif is_state(\"input_select.vacuum_rooms\"\
+        , \"Katzenklo\") %}\n  script.1543667402104\n{% elif is_state(\"input_select.vacuum_rooms\"\
+        , \"Büro\") %}\n  script.1543666580682\n{% endif %}\n"
+    service: script.turn_on
+- id: '1544816542688'
+  alias: 'Xiaomi Staubsauger: Error stop'
+  trigger:
+  - entity_id: sensor.xiaomi_vacuum_status
+    platform: state
+    to: Error
+  condition: []
+  action:
+  - data:
+      entity_id: automation.xiaomi_staubsauger_automatisch_starten
+    service: automation.turn_off
+  - data:
+      entity_id: automation.xiaomi_staubsauger_taglich_saugen
+    service: automation.turn_off
+  - data:
+      message: Automatisierungen deaktiviert
+      notification_id: xiaomi_sensor
+      title: Xiaomi StaubRobo
+    service: persistent_notification.create
+- id: '1544899204871'
+  alias: Harmony - Steckdosenleiste
+  trigger:
+  - entity_id: remote.harmony_hub
+    platform: state
+    to: Steckdosenleiste
+  condition: []
+  action:
+  - data:
+      entity_id: light.steckdose
+    service: light.turn_on
+- id: '1547393321318'
+  alias: Heizungsschaltung
+  trigger:
+  - event_data:
+      click_type: single
+      entity_id: binary_sensor.switch_158d000213621b
+    event_type: xiaomi_aqara.click
+    platform: event
+  condition: []
+  action:
+  - data:
+      entity_id: switch.radiator_on_off
+    service: switch.toggle
+- id: '1548418632803'
+  alias: 'Xiaomi Staubsauger: Zähler zurücksetzen'
+  trigger:
+  - entity_id: vacuum.xiaomi_vacuum_cleaner
+    from: docked
+    platform: state
+    to: cleaning
+  condition: []
+  action:
+  - data:
+      entity_id: counter.xiaomo_errors
+    service: counter.reset
+- id: '1550439793222'
+  alias: 'Xiaomi Staubsauger: Abwesenheit'
+  trigger:
+  - entity_id: sensor.presence
+    platform: state
+    to: not_home
+  condition:
+  - condition: state
+    entity_id: calendar.privat_putzfrau
+    state: 'off'
+  - condition: state
+    entity_id: vacuum.xiaomi_vacuum_cleaner
+    state: docked
+  - after: 07:00
+    before: '18:00'
+    condition: time
+  action:
+  - data:
+      data:
+        push:
+          category: vacuum_trigger
+      message: Staubsauger starten?
+    service: notify.mobile_app_iphonex
+- id: '1550439982602'
+  alias: 'Xiaomi Staubsauger: Starten nach Push'
+  trigger:
+  - event_data:
+      actionName: TRIGGER_VACUUM
+    event_type: ios.notification_action_fired
+    platform: event
+  condition: []
+  action:
+  - data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+    service: vacuum.start
+  - data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      fan_speed: Max
+    service: vacuum.set_fan_speed
+- id: '1553418352092'
+  alias: Heizung aus - Temperatur
+  trigger:
+  - above: '10'
+    entity_id: sensor.dark_sky_temperature
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: input_boolean.automation_radiator
+    state: 'on'
+  action:
+  - data:
+      entity_id: switch.radiator_on_off
+    service: switch.turn_off
+- id: '1553418411637'
+  alias: Heizung an - Temperatur
+  trigger:
+  - below: '10'
+    entity_id: sensor.dark_sky_temperature
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: input_boolean.automation_radiator
+    state: 'on'
+  action:
+  - data:
+      entity_id: switch.radiator_on_off
+    service: switch.turn_on
+- id: '1554536389566'
+  alias: Sonos stoppen
+  trigger:
+  - entity_id: device_tracker.iphonex
+    platform: state
+    to: not_home
+  condition: []
+  action:
+  - data:
+      entity_id: media_player.schlafzimmer
+    service: media_player.turn_off
+  - data:
+      entity_id: media_player.bad
+    service: media_player.turn_off

@@ -1,0 +1,33 @@
+auto_start: False
+filter:
+  include_entities:
+    - light.gateway_light_7811dcb258d1
+    - light.sonoff_office
+    - light.nachttischlampe_wolfgang
+    - light.nachttischlampe_anita
+    - light.lights_kitchen
+    - light.lights_living_room
+    - climate.oeq1701003
+    - climate.oeq1696358
+    - climate.oeq1696369
+    - climate.int0000002
+    - script.1532173931522
+    - script.1532175994947
+    - light.steckdose_2
+    - light.steckdose_4
+    - light.onoff_plug_1
+    - media_player.bad
+    - media_player.schlafzimmer
+    - switch.radiator_on_off
+    - switch.power_plug_multimedia
+    - switch.power_plug_printer
+    - script.1538068809592
+    - script.1538057479069
+    - script.1538072504227
+entity_config:
+    media_player.schlafzimmer:
+      feature_list:
+        - feature: play_pause
+    media_player.bad:
+      feature_list:
+        - feature: play_pause

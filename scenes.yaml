@@ -1,0 +1,31 @@
+# - name: lights_on_living_room
+  # entities:
+    # light.decke: on 
+    # light.tisch: on 
+    # light.leselampe: on  
+    
+# - name: lights_off_living_room
+  # entities:
+    # light.decke: off 
+    # light.tisch: off 
+    # light.leselampe: off      
+    
+# - name: lights_off
+  # entities:
+    # light.decke: off
+    # light.tisch: off  
+    # light.leselampe: off
+    # light.schlafzimmer: off
+    # #light.hue_white_lamp_1: off
+    # light.gateway_light_7811dcb258d1: off
+    # light.sonoff_office: off
+    
+# - name: lights_on
+  # entities:
+    # light.decke: on
+    # light.tisch: on  
+    # light.leselampe: on
+    # light.schlafzimmer: on
+    # #light.hue_white_lamp_1: on
+    # light.gateway_light_7811dcb258d1: on
+    # light.sonoff_office: on

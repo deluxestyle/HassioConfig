@@ -1,0 +1,179 @@
+- platform: fritzbox_netmonitor
+  host: 192.168.200.1
+#- platform: fritzbox_callmonitor
+
+- platform: systemmonitor
+  resources:
+      - type: memory_free
+      - type: memory_use
+      - type: memory_use_percent
+      - type: processor_use
+      - type: disk_use_percent
+        arg: /
+      - type: disk_use
+        arg: /
+      - type: disk_free
+        arg: /
+      - type: load_1m 
+      - type: load_5m
+      - type: load_15m
+
+- platform: template
+  sensors:
+      valve_bed_room:
+        friendly_name: "Schlafzimmer Ventil"
+        unit_of_measurement: "%"
+        value_template: '{{ states.climate.oeq1696369.attributes.valve }}'
+      valve_office:
+        friendly_name: "Büro Ventil"
+        unit_of_measurement: "%"
+        value_template: '{{ states.climate.oeq1714751.attributes.valve }}'
+      valve_living_room:
+        friendly_name: "Wohnzimmer Ventil"
+        unit_of_measurement: "%"
+        value_template: '{{ states.climate.oeq1696358.attributes.valve }}'
+      valve_bath:
+        friendly_name: "Bad Ventil"
+        unit_of_measurement: "%"
+        value_template: '{{ states.climate.oeq1701003.attributes.valve }}'
+      battery_radiator_office_1:
+        friendly_name: "Batterie Thermostat Büro"
+        value_template: '{{ states.climate.oeq1667238.attributes.battery }}'
+      battery_radiator_office_2:
+        friendly_name: "Batterie Heizung Büro"
+        value_template: '{{ states.climate.oeq1714751.attributes.battery }}'
+      battery_radiator_bedroom:
+        friendly_name: "Batterie Heizung Schlafzimmer"
+        value_template: '{{ states.climate.oeq1696369.attributes.battery }}'
+      battery_radiator_livingroom:
+        friendly_name: "Batterie Heizung Wohnzimmer"
+        value_template: '{{ states.climate.oeq1696358.attributes.battery }}'
+      battery_radiator_bath:
+        friendly_name: "Batterie Heizung Bad"
+        value_template: '{{ states.climate.oeq1701003.attributes.battery }}'
+      battery_sensor_bedroom:
+        friendly_name: "Batterie Sensor Schlafzimmer"
+        value_template: '{{ states.sensor.humidity_158d0001b8c96c.attributes.battery_level }}'
+      battery_sensor_livingroom:
+        friendly_name: "Batterie Sensor Wohnzimmer"
+        value_template: '{{ states.sensor.humidity_158d0001b8c998.attributes.battery_level }}'
+      battery_sensor_kitchen:
+        friendly_name: "Batterie Sensor Küche"
+        value_template: '{{ states.sensor.humidity_158d0001b8c998.attributes.battery_level }}'
+      battery_sensor_outdoor:
+        friendly_name: "Batterie Sensor Outdoor"
+        value_template: '{{ states.sensor.humidity_158d00023258bd.attributes.battery_level }}'
+      battery_sensor_motion:
+        friendly_name: "Batterie Sensor Motion"
+        value_template: '{{ states.binary_sensor.motion_sensor_158d00023e77cb.attributes.battery_level }}'
+      battery_sensor_door:
+        friendly_name: "Batterie Sensor Motion Door/Window"
+        value_template: '{{ states.binary_sensor.door_window_sensor_158d00022f13a0.attributes.battery_level }}'
+      battery_sensor_button_1:
+        friendly_name: "Batterie Sensor Button 1"
+        value_template: '{{ states.binary_sensor.switch_158d0002131462.attributes.battery_level }}'
+      battery_sensor_button_2:
+        friendly_name: "Batterie Sensor Button 2"
+        value_template: '{{ states.binary_sensor.switch_158d000213621b.attributes.battery_level }}'
+      battery_sensor_wall_switch:
+        friendly_name: "Batterie Sensor Wall Switch"
+        value_template: '{{ states.binary_sensor.wall_switch_158d00025303aa.attributes.battery_level }}'      
+      battery_sensor_wall_switch_double:
+        friendly_name: "Batterie Sensor Wall Switch Double"
+        value_template: '{{ states.binary_sensor.wall_switch_both_158d000254275c.attributes.battery_level }}'
+      xiaomi_vacuum_status:
+        friendly_name: "Staubsauger Status"
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.status }}'
+      xiaomi_vacuum_main_brush_left:
+        friendly_name: "Staubsauger Main Brush"
+        unit_of_measurement: 'h'
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.main_brush_left }}'
+      xiaomi_vacuum_side_brush_left:
+        friendly_name: "Staubsauger Side Brush"
+        unit_of_measurement: 'h'
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.side_brush_left }}'
+      xiaomi_vacuum_filter_left:
+        friendly_name: "Staubsauger Filter"
+        unit_of_measurement: 'h'
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.filter_left }}'
+      xiaomi_vacuum_sensor_dirty_left:
+        friendly_name: "Staubsauger Sensor"
+        unit_of_measurement: 'h'
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.sensor_dirty_left }}'
+      xiaomi_vacuum_sensor_battery:
+        friendly_name: "Staubsauger Batterie"
+        unit_of_measurement: '%'
+        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}'
+        icon_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_icon }}'
+      sonos_grouped:
+        friendly_name: "Sonos gruppiert"
+        value_template: >-
+            {% if states.media_player.schlafzimmer.attributes.sonos_group | regex_search( "media_player.bad", ignorecase=FALSE) %}
+              on
+            {% else %}
+              off
+            {% endif %}
+      radiator_bed_room_keylock:
+        friendly_name: "Tastensperre Schlafzimmer"
+        value_template: '{{ states.homematic.ccu2.attributes.block_bed_room }}'
+      radiator_living_room_keylock:
+        friendly_name: "Tastensperre Wohnzimmer"
+        value_template: '{{ states.homematic.ccu2.attributes.block_living_room	 }}'
+      radiator_office_keylock:
+        friendly_name: "Tastensperre Büro"
+        value_template: '{{ states.homematic.ccu2.attributes.block_office }}'
+      radiator_bath_keylock:
+        friendly_name: "Tastensperre Bad"
+        value_template: '{{ states.homematic.ccu2.attributes.block_bath }}'
+      remote_state:
+        friendly_name: "Multimedia"
+        value_template: '{{ states.remote.harmony_hub.attributes.current_activity }}'
+      presence:
+        friendly_name: Anwesenheit
+        value_template: >
+            {% if is_state('device_tracker.anni', 'home') or is_state('device_tracker.iphonex', 'home')  %}
+              home
+            {% else %}
+              not_home
+            {% endif %}
+      dark_sky_temperature:
+        friendly_name: Temperatur
+        value_template: '{{ states.weather.dark_sky.attributes.temperature }}'
+      sonos_volume_sync:
+        friendly_name: Sonos Lautstärke
+        value_template: '{{ states.media_player.schlafzimmer.attributes.volume_level }}'
+
+# - platform: cert_expiry
+  # host: raspberrypi.xpvirv5oypo6duyr.myfritz.net
+  # port: 8123
+
+- platform: uptime
+  name: online_time
+  unit_of_measurement: hours 
+
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+    - 'date_time'
+    - 'time_date'
+
+- platform: glances
+  host: 127.0.0.1
+  username: !secret system_user
+  password: !secret system_password
+  version: 3
+  resources:
+    - disk_use_percent
+    - disk_use
+    - disk_free
+    - memory_use_percent
+    - memory_use
+    - memory_free
+    - processor_load
+    - process_running
+    - process_total 
+    - process_thread
+    - process_sleeping
+    - cpu_use_percent
+    - cpu_temp

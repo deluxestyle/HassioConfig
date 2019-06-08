@@ -1,0 +1,204 @@
+################################################
+## customize
+################################################
+homeassistant:
+  customize:
+    automation.battery_persistent_notification:
+      friendly_name: Batterie Alarm
+      icon: mdi:battery-alert
+    script.battery_persistent_notification_clear:
+      icon: mdi:bell-off-outline
+    input_number.battery_alert_homatic:
+      friendly_name: 'Homematic'
+    input_number.battery_alert_xiaomi:
+      friendly_name: 'Xiaomi'
+
+################################################
+## Group
+################################################
+group:
+  battery_status_xiaomi:
+    name: Xiaomi Batterie Status
+    view: false
+    entities:
+      - sensor.battery_sensor_bedroom
+      - sensor.battery_sensor_button_1
+      - sensor.battery_sensor_button_2
+      - sensor.battery_sensor_door
+      - sensor.battery_sensor_kitchen
+      - sensor.battery_sensor_livingroom
+      - sensor.battery_sensor_motion
+      - sensor.battery_sensor_outdoor
+      - sensor.battery_sensor_wall_switch
+      - sensor.battery_sensor_wall_switch_double
+
+  battery_status_homeatic:
+    name: Homeatic Batterie Status
+    view: false
+    entities:
+      - sensor.battery_radiator_bath
+      - sensor.battery_radiator_bedroom
+      - sensor.battery_radiator_livingroom
+      - sensor.battery_radiator_office_1
+      - sensor.battery_radiator_office_2
+
+################################################
+## Input Boolean
+################################################
+input_boolean:
+  low_batteries:
+    name: Niedriger Batteriestatus
+    icon: mdi:battery-alert
+
+################################################
+## Input Number
+################################################
+input_number:
+  battery_alert_homatic:
+    mode: slider
+    min: 2.0
+    max: 4.0
+    step: 0.1
+    initial: 2.8
+
+  battery_alert_xiaomi:
+    mode: slider
+    min: -1
+    max: 60
+    step: 1
+    initial: 27
+
+################################################
+## Automation
+################################################
+automation:
+- alias: reset_batterie_message
+  initial_state: 'on'
+  trigger:
+  - at: 00:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.low_batteries
+    service: input_boolean.turn_off
+- alias: battery_persistent_notification
+  initial_state: 'on'
+  trigger:
+    - platform: time_pattern
+      minutes: '/15'
+      seconds: 00
+    - platform: state
+      entity_id:
+        - input_number.battery_alert_homatic
+        - input_number.battery_alert_xiaomi
+  action:
+    - condition: state
+      entity_id: input_boolean.low_batteries
+      state: 'off'
+    - condition: template
+      value_template: &low_battery_check >
+        {% macro battery_level() %}
+        {% for entity_id in states.group.battery_status_homeatic.attributes.entity_id if (
+          states(entity_id) is not none
+          and (
+            (
+              (
+                states(entity_id) is number
+                or states(entity_id) | length == states(entity_id)| int | string | length
+                or states(entity_id) | length == states(entity_id)| float | string | length
+              )
+              and states(entity_id)| float < states.input_number.battery_alert_homatic.state | float
+            )
+            or states(entity_id) | lower == 'low'
+            or states(entity_id) | lower == 'unknown'
+            or states(entity_id) | lower == 'unavailable'
+          )
+        ) -%}
+          {{ state_attr(entity_id, "friendly_name") }} ({{ states(entity_id) }})
+        {% endfor -%}
+
+        {% for entity_id in states.group.battery_status_xiaomi.attributes.entity_id if (
+          states(entity_id) is not none
+          and (
+            (
+              (
+                states(entity_id) is number
+                or states(entity_id) | length == states(entity_id)| int | string | length
+                or states(entity_id) | length == states(entity_id)| float | string | length
+              )
+              and states(entity_id)| float < states.input_number.battery_alert_xiaomi.state | float
+            )
+            or states(entity_id) | lower == 'low'
+            or states(entity_id) | lower == 'unknown'
+            or states(entity_id) | lower == 'unavailable'
+          )
+        ) -%}
+          {{ state_attr(entity_id, "friendly_name") }} ({{ states(entity_id) }})
+        {% endfor -%}
+
+        {% endmacro %}
+        {{ battery_level() | trim != "" }}
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.low_batteries
+    - service: persistent_notification.create
+      data_template:
+        title: "Niedriger Batteriestatus"
+        notification_id: low_battery_alert
+        message: &message >
+          {% macro battery_level() %}
+          {% for entity_id in states.group.battery_status_homeatic.attributes.entity_id if (
+            states(entity_id) is not none
+            and (
+              (
+                (
+                  states(entity_id) is number
+                  or states(entity_id) | length == states(entity_id)| int | string | length
+                  or states(entity_id) | length == states(entity_id)| float | string | length
+                )
+                and states(entity_id)| float < states.input_number.battery_alert_homatic.state | float
+              )
+              or states(entity_id) | lower == 'low'
+              or states(entity_id) | lower == 'unknown'
+              or states(entity_id) | lower == 'unavailable'
+            )
+          ) -%}
+            {{ state_attr(entity_id, "friendly_name") }} ({{ states(entity_id) }})
+          {% endfor -%}
+      
+          {% for entity_id in states.group.battery_status_xiaomi.attributes.entity_id if (
+            states(entity_id) is not none
+            and (
+              (
+                (
+                  states(entity_id) is number
+                  or states(entity_id) | length == states(entity_id)| int | string | length
+                  or states(entity_id) | length == states(entity_id)| float | string | length
+                )
+                and states(entity_id)| float < states.input_number.battery_alert_xiaomi.state | float
+              )
+              or states(entity_id) | lower == 'low'
+              or states(entity_id) | lower == 'unknown'
+              or states(entity_id) | lower == 'unavailable'
+            )
+          ) -%}
+            {{ state_attr(entity_id, "friendly_name") }} ({{ states(entity_id) }})
+          {% endfor -%}
+      
+          {% endmacro %}
+          {{ battery_level() }}
+
+################################################
+## Scripts
+################################################
+script:
+  battery_persistent_notification_clear:
+    alias: Alarm zurücksetzen
+    sequence:
+      - data:
+          entity_id: input_boolean.low_batteries
+        service: input_boolean.turn_off
+      - data:
+          notification_id: low_battery_alert
+        service: persistent_notification.dismiss

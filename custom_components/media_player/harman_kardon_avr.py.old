@@ -1,0 +1,181 @@
+"""
+Support for interface with an Harman/Kardon or JBL AVR.
+
+For more details about this platform, please refer to the documentation at
+https://home-assistant.io/components/media_player.harman_kardon_avr/
+"""
+import logging
+import socket
+
+import voluptuous as vol
+
+import homeassistant.helpers.config_validation as cv
+from homeassistant.components.media_player import (
+    SUPPORT_NEXT_TRACK, SUPPORT_PAUSE, SUPPORT_PREVIOUS_TRACK,
+    SUPPORT_TURN_OFF, SUPPORT_VOLUME_MUTE, SUPPORT_VOLUME_STEP,
+    SUPPORT_PLAY, MediaPlayerDevice, PLATFORM_SCHEMA, SUPPORT_TURN_ON)
+from homeassistant.const import (
+    CONF_HOST, CONF_NAME, STATE_UNKNOWN, CONF_PORT, STATE_OFF, STATE_ON)
+
+_LOGGER = logging.getLogger(__name__)
+
+DEFAULT_NAME = 'Harman Kardon AVR'
+DEFAULT_PORT = 10025
+DEFAULT_TIMEOUT = 0
+
+SUPPORT_HARMAN_KARDON_AVR = SUPPORT_PAUSE | SUPPORT_VOLUME_STEP | \
+                            SUPPORT_VOLUME_MUTE | SUPPORT_PREVIOUS_TRACK | \
+                            SUPPORT_NEXT_TRACK | SUPPORT_TURN_OFF | \
+                            SUPPORT_TURN_ON | SUPPORT_PLAY
+
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
+    vol.Required(CONF_HOST): cv.string,
+    vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
+    vol.Optional(CONF_PORT, default=DEFAULT_PORT): cv.port,
+})
+
+
+def setup_platform(hass, config, add_devices, discover_info=None):
+    """Set up the AVR platform."""
+    name = config.get(CONF_NAME)
+    host = config.get(CONF_HOST)
+    port = config.get(CONF_PORT)
+
+    avr_remote = HarmanKardonAVR(name, host, port)
+    if avr_remote is None:
+        _LOGGER.warning("Could not connect to AVR")
+        return False
+    add_devices([avr_remote], True)
+
+
+class HarmanKardonAVR(MediaPlayerDevice):
+    """Representation of a Harman Kardon AVR / JBL AVR TV."""
+
+    def __init__(self, name, host, port):
+        """Initialize a new HarmanKardonAVR."""
+        self._name = name
+        self._host = host
+        self._port = port
+        self._state = STATE_UNKNOWN
+        # Connect the socket on start
+        self._socket = self._get_new_socket()
+
+    def _get_new_socket(self):
+        try:
+            _new_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            _new_socket.connect((self._host, self._port))
+            return _new_socket
+        except ConnectionError as connection_error:
+            _LOGGER.warning("Connection error: %s", connection_error)
+            return None
+        except socket.gaierror as socket_gaierror:
+            _LOGGER.warning("Address-related error: %s", socket_gaierror)
+            return None
+        except socket.error as socket_error:
+            _LOGGER.warning("Connection error: %s", socket_error)
+            return None
+
+    def update(self):
+        """Update the state of this media_player."""
+        return self._socket is not None
+
+    @property
+    def name(self):
+        """Return the name of the device."""
+        return self._name
+
+    @property
+    def state(self):
+        """Return the state of the device."""
+        return self._state
+
+    @property
+    def is_volume_muted(self):
+        """Muted status not available."""
+        return False
+
+    @property
+    def supported_features(self):
+        """Flag media player features that are supported."""
+        return SUPPORT_HARMAN_KARDON_AVR
+
+    def turn_off(self):
+        """Turn off the AVR."""
+        self._send_a_command("power-off")
+        self._state = STATE_OFF
+
+    def select_source(self, source):
+        """Select the input source, source same as on-screen menu."""
+        self._send_a_command("source-selection", source)
+
+    def turn_on(self):
+        """Turn the AVR on."""
+        self._send_a_command("power-on")
+        self._state = STATE_ON
+
+    def volume_up(self):
+        """Volume up the AVR."""
+        self._send_a_command("volume-up")
+
+    def volume_down(self):
+        """Volume down AVR."""
+        self._send_a_command("volume-down")
+
+    def mute_volume(self, mute):
+        """Send mute command."""
+        self._send_a_command("mute-toggle")
+
+    def media_play(self):
+        """Send play command.."""
+        self._send_a_command("play")
+
+    def media_pause(self):
+        """Send pause command."""
+        self._send_a_command("pause")
+
+    def media_next_track(self):
+        """Send next track command."""
+        self._send_a_command("next")
+
+    def media_previous_track(self):
+        """Send the previous track command."""
+        self._send_a_command("previous")
+
+    def _send_a_command(self, command, param=""):
+        xml = """<?xml version="1.0" encoding="UTF-8"?>
+        <harman>
+            <avr>
+                <common>
+                    <control>
+                        <name>""" + command + """</name>
+                        <zone>Main Zone</zone>
+                        <para>""" + param + """</para>
+                    </control>
+                </common>
+            </avr>
+        </harman>"""
+        command = """POST AVR HTTP/1.1\r\nHost: :""" + str(self._port) \
+                  + """\r\nUser-Agent: Harman Kardon AVR Remote """\
+                  + """Controller /2.0""" \
+                  + """\r\nContent-Length: """ + str(xml.__len__()) \
+                  + """\r\n\r\n""" + xml
+
+        if self._socket is None:
+            self._socket = self._get_new_socket()
+        if self._socket is None:
+            _LOGGER.warning("Cannot connect to AVR")
+            return
+        try:
+            resp = self._socket.sendto(command.encode(),
+                                       (self._host, self._port))
+            if resp == 0:
+                self._socket.close()
+                self._socket = None
+                _LOGGER.warning("Send fail, disconnecting from AVR")
+        except (BrokenPipeError, ConnectionError) as connect_error:
+            _LOGGER.warning("Connection error, retrying. %s", connect_error)
+            self._socket = None
+            self._socket = self._get_new_socket()
+            if self._socket is not None:
+                # retrying after broken pipe error
+                self._socket.sendto(command.encode(), (self._host, self._port))

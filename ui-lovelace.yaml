@@ -1,0 +1,641 @@
+resources:
+  - url: /customcards/github/thomasloven/card-tools.js?track=true
+    type: js
+  - url: /customcards/mini-media-player-bundle.js?track=true
+    type: module
+  - url: /customcards/github/custom-cards/tracker-card.js?track=true
+    type: module
+  - url: /customcards/github/thomasloven/fold-entity-row.js?track=true
+    type: js
+  - url: /customcards/github/thomasloven/time-input-row.js?track=true
+    type: js
+  - url: /customcards/github/maykar/compact-custom-header.js?track=true
+    type: module
+  - url: /customcards/vertical-stack-in-card.js?track=true
+    type: js
+  - url: /customcards/github/custom-cards/button-card.js?track=true
+    type: module
+  - url: /customcards/github/nervetattoo/simple-thermostat.js?track=true
+    type: module
+  - url: /customcards/group-card.js?track=true
+    type: js  
+  - url: /customcards/github/thomasloven/popup-card.js?track=true
+    type: js
+  - url: /customcards/tiles-card.js?track=true
+    type: js
+# -----------------------------
+
+# -----------------------------
+## music player
+x-music-player: &music-player
+  icon: 'mdi:speaker-wireless'
+  hide:
+    power_state: false
+    source: false
+    icon: true
+    progress: true
+  group: true
+  artwork: none
+  source: full
+  more_info: false
+  replace_mute: stop
+  
+## vacuum_buttons
+x-vacuum-buttons: &vacuum-buttons
+  #color: auto
+  show_name: false
+  color_type: icon
+  color: rgb(68, 115, 158)
+  entity: vacuum.xiaomi_vacuum_cleaner
+  size: 60%
+
+## buttons_general
+x-buttons_general: &buttons_general
+  global_settings:
+    align: 'center middle'
+    orientation: horizontal
+    label:
+      color:
+        value: white
+    label_sec:
+      color:
+        value: white
+    icon:
+      color:
+        value: white
+# -----------------------------
+
+# -----------------------------
+## Views
+title: Home
+views:
+##### Licht #####
+  - title: Licht
+    id: light
+    icon: mdi:ceiling-light
+    popup_cards:
+      light.lights_kitchen:
+        title: Küchenlichter
+        card:
+          type: entities
+          entities:
+            - light.deckenlicht
+            - light.steckdose_2
+            - light.steckdose_4
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - light.lights_living_room
+          - input_select.scenes_living_room
+          - type: custom:fold-entity-row
+            head: 
+              type: section
+              label: Lampen
+            items:
+              - light.decke
+              - light.tisch
+              - light.leselampe
+          # - type: section
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - light.lights_bed_room
+          - input_select.scenes_bed_room
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Lampen
+            items:
+              - light.nachttischlampe_wolfgang
+              - light.nachttischlampe_anita
+              - light.schlafzimmer
+          # - type: section
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - light.sonoff_office
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - light.lights_kitchen
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - light.gateway_light_7811dcb258d1
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: custom:tiles-card
+            card_settings:
+              columns: 1
+              row_height: 45px
+              padding: 10px
+            <<: *buttons_general
+            entities:
+              - entity: light.lights_all
+                label: Alle Lichter
+                row: 1
+                column: 1
+                background:
+                  value_on: '#03A9F4'
+                  value_off: '#999999'
+      - type: 'custom:compact-custom-header'
+        main_config: true
+        menu: show
+        notifications: show
+        options: show
+        swipe: true
+        exceptions:
+          - conditions:
+              user_agent: iPhone
+            config:
+              options: hide
+
+##### Heizung #####
+  - title: Heizung
+    id: radiator
+    icon: mdi:radiator
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - climate.oeq1701003
+          - sensor.humidity_158d00023258bd
+          - binary_sensor.door_window_sensor_158d00022f13a0
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Timer
+            items:
+              - automation.heizung_bad_timer
+              - entity: input_datetime.radiator_bath_1
+                name: Startzeit
+                type: custom:time-input-row
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Mehr
+            items:
+              - script.1538502214360
+              - switch.radiator_bath_keylock
+              - sensor.temperature_158d00023258bd
+              - sensor.valve_bath
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - climate.oeq1696358
+          - sensor.humidity_158d0001b8c998
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Mehr
+            items:
+              - script.1538143929416
+              - switch.radiator_living_room_keylock
+              - sensor.temperature_158d0001b8c998
+              - sensor.valve_living_room
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - climate.oeq1696369
+          - sensor.humidity_158d0001b8c96c
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Mehr
+            items:
+              - script.1538143964007
+              - switch.radiator_bed_room_keylock
+              - sensor.temperature_158d0001b8c96c
+              - sensor.valve_bed_room
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - climate.int0000002
+          - sensor.oeq1667238_humidity
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Mehr
+            items:
+              - script.1538143893265
+              - switch.radiator_office_keylock
+              - sensor.oeq1667238_temperature
+              - sensor.valve_office
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - sensor.temperature_158d0002239fb5
+          - sensor.humidity_158d0002239fb5
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: custom:tiles-card
+            card_settings:
+              columns: 1
+              row_height: 45px
+              padding: 10px
+            <<: *buttons_general
+            entities:
+              - entity: switch.radiator_on_off
+                label: Heizung
+                row: 1
+                column: 1
+                background:
+                  value_on: '#03A9F4'
+                  value_off: '#999999'
+          - type: entities
+            show_header_toggle: false
+            entities: 
+              - type: section
+              - input_boolean.automation_radiator
+              - automation.heizung_abwesenheitsschaltung
+      - type: 'custom:compact-custom-header'
+
+#### Staubsauger #####
+  - title: Staubsauger
+    id: vacuum
+    icon: mdi:robot-vacuum
+    cards:
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - vacuum.xiaomi_vacuum_cleaner
+              - sensor.xiaomi_vacuum_sensor_battery
+              - type: section
+          - type: horizontal-stack
+            cards:
+              - type: "custom:button-card"
+                color_type: blank-card
+              - type: "custom:button-card"
+                icon: mdi:play
+                <<: *vacuum-buttons
+                tap_action:
+                  action: call-service
+                  service: vacuum.start
+                  service_data:
+                    entity_id: vacuum.xiaomi_vacuum_cleaner
+              - type: "custom:button-card"
+                color_type: blank-card
+              - type: "custom:button-card"
+                icon: mdi:pause
+                <<: *vacuum-buttons
+                tap_action:
+                  action: call-service
+                  service: vacuum.pause
+                  service_data:
+                    entity_id: vacuum.xiaomi_vacuum_cleaner
+              - type: "custom:button-card"
+                color_type: blank-card
+              - type: "custom:button-card"
+                icon: mdi:home
+                <<: *vacuum-buttons
+                tap_action:
+                  action: call-service
+                  service: vacuum.return_to_base
+                  service_data:
+                    entity_id: vacuum.xiaomi_vacuum_cleaner
+              - type: "custom:button-card"
+                color_type: blank-card
+              - type: "custom:button-card"
+                icon: mdi:map-marker
+                <<: *vacuum-buttons
+                tap_action:
+                  action: call-service
+                  service: vacuum.locate
+                  service_data:
+                    entity_id: vacuum.xiaomi_vacuum_cleaner
+              - type: "custom:button-card"
+                color_type: blank-card
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: Automatisierung
+                items:
+                  - automation.xiaomi_staubsauger_abwesenheit
+                  - automation.xiaomi_staubsauger_taglich_saugen
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: Zonen (Räume)
+                items:
+                  - input_select.vacuum_rooms
+                  # - script.1543667402104 
+                  # - script.1543666580682
+                  # - script.1543666947492
+                  # - script.1543666909272
+                  # - script.1543666985219
+                  # - script.1543666771838
+                  # - script.1543666867257
+                  # - script.1543666831509
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: Wartung
+                items:
+                  - automation.xiaomi_staubsauger_neustart
+                  - automation.xiaomi_staubsauger_error_stop
+                  - counter.xiaomo_errors
+                  - type: section
+                  - type: custom:fold-entity-row
+                    head: sensor.xiaomi_vacuum_side_brush_left
+                    items:
+                      - script.1547995869377
+                  - type: custom:fold-entity-row
+                    head: sensor.xiaomi_vacuum_sensor_dirty_left
+                    items:
+                      - script.1547995682348
+                  - type: custom:fold-entity-row
+                    head: sensor.xiaomi_vacuum_main_brush_left
+                    items:
+                      - script.1547995909810
+                  - type: custom:fold-entity-row
+                    head: sensor.xiaomi_vacuum_filter_left
+                    items:
+                      - script.1547995832032
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: Benachrichtigungen
+                items:
+                  - automation.xiaomi_staubsauger_fehler
+                  - automation.xiaomi_staubsauger_fertig
+                  - automation.xiaomi_staubsauger_gestartet
+      - type: 'custom:compact-custom-header'
+
+##### Musik #####
+  - title: Musik
+    id: music
+    icon: mdi:music-box-outline
+    cards:
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - type: custom:mini-media-player
+                entity: media_player.schlafzimmer
+                <<: *music-player
+                sonos:
+                  show_group_count: true
+                  sync_volume: true
+                  entities:
+                    - entity_id: media_player.schlafzimmer
+                      name: Sonos Schlafzimmer
+                    - entity_id: media_player.bad
+                      name: Sonos Bad
+          - type: conditional
+            conditions:
+              - entity: sensor.sonos_grouped
+                state: "off"
+            card:
+              type: entities
+              entities:
+                - type: custom:mini-media-player
+                  entity: media_player.bad
+                  <<: *music-player
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: Automatisierung
+                items:
+                  - automation.sonos_starten
+                  - automation.sonos_stoppen
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: Wecker
+                items:
+                  - script.1534621188695
+                  - script.1534621226775
+      - type: 'custom:compact-custom-header'
+
+##### Entertainment #####
+  - title: Entertainment
+    id: entertainment
+    icon: mdi:arrow-right-drop-circle-outline
+    cards:
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - sensor.remote_state
+              - type: section
+          - type: horizontal-stack
+            cards:
+              - type: "custom:button-card"
+                color_type: blank-card
+              - type: "custom:button-card"
+                entity: script.1538068809592
+                size: 60%
+                show_name: false
+              - type: "custom:button-card"
+                color_type: blank-card
+              - type: "custom:button-card"
+                entity: script.1538057479069
+                size: 60%
+                show_name: false
+              - type: "custom:button-card"
+                color_type: blank-card
+              - type: "custom:button-card"
+                entity: script.1538072504227
+                size: 60%
+                show_name: false
+              - type: "custom:button-card"
+                color_type: blank-card
+              - type: "custom:button-card"
+                entity: light.steckdose
+                size: 60%
+                show_name: false
+              - type: "custom:button-card"
+                color_type: blank-card
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: AVR 151
+                items:
+                  - type: custom:mini-media-player
+                    entity: media_player.harman_kardon_avr
+                    hide:
+                        # power: true
+                        controls: true
+                        # source: true
+                    volume_stateless: true
+                    group: true
+                    artwork: none
+                    more_info: false
+                  - input_select.avr_source
+      - type: 'custom:compact-custom-header'
+
+##### Steckdosen #####
+  - title: Steckdosen
+    id: socket
+    icon: mdi:power-socket-eu
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - light.steckdose
+          - type: section
+          - light.steckdose_3
+      - type: 'custom:compact-custom-header'
+
+##### Personen #####
+  - title: Personen
+    id: presence
+    icon: mdi:account-multiple
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - device_tracker.iphonex
+          - device_tracker.anni
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Automatisierung
+            items:
+              - automation.abwesenheitsschaltung
+              - automation.anwesenheitsschaltung
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - binary_sensor.motion_sensor_158d00023e77cb
+          - sensor.illumination_158d00023e77cb
+          - type: section
+          - automation.bewegungsmelder_alarm
+          - script.1541097052191
+          - type: section
+          - automation.benachrichtigung_bewegung_erkannt
+      # - type: entities
+        # show_header_toggle: false
+        # entities:
+          # - input_boolean.camera_cctv
+      # - type: conditional
+        # conditions:
+          # - entity: input_boolean.camera_cctv
+            # state: "on"
+        # card:
+          # type: picture-entity
+          # entity: camera.ffmpeg
+          # camera_image: camera.ffmpeg
+          # show_info: true
+          # tap_action: dialog
+          # title: Kamera
+      - type: 'custom:compact-custom-header'
+
+##### Auto ##### 
+  - title: BMW X2
+    id: bmw_x2
+    icon: mdi:car-hatchback
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - type: custom:fold-entity-row
+            head: device_tracker.x2_sdrive18i
+            items:
+              - type: section
+              - binary_sensor.x2_sdrive18i_door_lock_state
+              - binary_sensor.x2_sdrive18i_lids
+              - binary_sensor.x2_sdrive18i_windows
+              - sensor.x2_sdrive18i_mileage
+              - sensor.x2_sdrive18i_remaining_fuel
+              - sensor.x2_sdrive18i_remaining_range_total
+              - binary_sensor.x2_sdrive18i_lights_parking
+              - binary_sensor.x2_sdrive18i_condition_based_services
+              - binary_sensor.x2_sdrive18i_check_control_messages
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Funktionen
+            items:
+              - lock.x2_sdrive18i_lock
+              - script.1543166767000
+              - script.1543167202912
+              - script.1543167430941
+              - script.1543218125342
+      - type: map
+        default_zoom: 14
+        entities:
+          - entity: device_tracker.x2_sdrive18i
+      - type: 'custom:compact-custom-header'
+
+##### Sonstiges #####
+  - title: Sonstiges
+    id: other
+    icon: mdi:library-books
+    popup_cards:
+      automation.battery_persistent_notification:
+        title: Status
+        card:
+          type: entities
+          entities:
+            - type: custom:group-card
+              card:
+                type: entities
+                show_header_toggle: false
+              group: group.battery_status_homeatic
+            - type: custom:group-card
+              card:
+                type: entities
+                show_header_toggle: false
+              group: group.battery_status_xiaomi
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - weather.dark_sky
+          - sun.sun
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - sensor.pressure_158d0002239fb5
+          - sensor.pressure_158d00023258bd
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - sensor.fritz_netmonitor
+          # - type: custom:fold-entity-row
+          #   head:
+          #     type: section
+          #     label: Gastzugang
+          #   items:
+          #     - script.1543087176551
+          #     - script.1543087223684
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - sensor.online_time
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - automation.battery_persistent_notification
+          - script.battery_persistent_notification_clear
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Batteriewerte
+            items:
+              - input_number.battery_alert_homatic
+              - input_number.battery_alert_xiaomi
+      - type: custom:tracker-card
+        title: " "
+        available_text: Verfügbar
+        current_text: Aktuell
+        update_all_text: "alle aktualisieren"
+        trackers:
+          - sensor.custom_card_tracker
+          - sensor.custom_component_tracker
+      - type: 'custom:compact-custom-header'

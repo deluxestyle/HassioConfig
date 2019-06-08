@@ -1,0 +1,446 @@
+'1532173931522':
+  alias: Sonos_Start
+  sequence:
+  - data:
+      entity_id: media_player.bad, media_player.schlafzimmer
+      master: media_player.schlafzimmer
+    service: sonos.join
+  - data:
+      entity_id: media_player.schlafzimmer
+      source: Superfly FM
+    service: media_player.select_source
+  - data:
+      entity_id: media_player.bad, media_player.schlafzimmer
+      volume_level: '0.10'
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.schlafzimmer
+    service: media_player.media_play
+'1532175994947':
+  alias: Sonos_Stop
+  sequence:
+  - data:
+      entity_id: media_player.bad, media_player.schlafzimmer
+    service: media_player.media_stop
+'1534539954375':
+  alias: Xiaomi Staubsauger einschalten
+  sequence:
+  - data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+    service: vacuum.turn_on
+'1534540060262':
+  alias: Xiaomi Staubsauger ausschalten
+  sequence:
+  - data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+    service: vacuum.turn_off
+'1534621188695':
+  alias: sonos_bed_room_alarm_enable
+  sequence:
+  - data:
+      alarm_id: '324'
+      enabled: 'true'
+      entity_id: media_player.schlafzimmer
+    service: sonos.update_alarm
+'1534621226775':
+  alias: sonos_bed_room_alarm_disable
+  sequence:
+  - data:
+      alarm_id: '324'
+      enabled: 'false'
+      entity_id: media_player.schlafzimmer
+    service: sonos.update_alarm
+'1535747172583':
+  alias: Heizung Schlafzimmer sperren
+  sequence:
+  - data:
+      entity_id: homematic.ccu2
+      name: block_bed_room
+      value: 'true'
+    service: homematic.set_variable_value
+'1535747298118':
+  alias: Heizung Schlafzimmer entsperren
+  sequence:
+  - data:
+      entity_id: homematic.ccu2
+      name: block_bed_room
+      value: 'false'
+    service: homematic.set_variable_value
+'1535749160991':
+  alias: Heizung Wohnzimmer sperren
+  sequence:
+  - data:
+      entity_id: homematic.ccu2
+      name: block_living_room
+      value: 'true'
+    service: homematic.set_variable_value
+'1535749518298':
+  alias: Heizung Wohnzimmer entsperren
+  sequence:
+  - data:
+      entity_id: homematic.ccu2
+      name: block_living_room
+      value: 'false'
+    service: homematic.set_variable_value
+'1535749599600':
+  alias: Heizung Büro sperren
+  sequence:
+  - data:
+      entity_id: homematic.ccu2
+      name: block_office
+      value: 'true'
+    service: homematic.set_variable_value
+'1535749633757':
+  alias: Heizung Büro entsperren
+  sequence:
+  - data:
+      entity_id: homematic.ccu2
+      name: block_office
+      value: 'false'
+    service: homematic.set_variable_value
+'1538057479069':
+  alias: Fernseher ausschalten
+  sequence:
+  - data:
+      entity_id: remote.harmony_hub
+    service: remote.turn_off
+'1538068809592':
+  alias: Entertainment - Telekom
+  sequence:
+  - data:
+      activity: Fernsehen Telekom
+      entity_id: remote.harmony_hub
+    service: remote.turn_on
+'1538072504227':
+  alias: Entertainment - Musik
+  sequence:
+  - data:
+      activity: Musik hören
+      entity_id: remote.harmony_hub
+    service: remote.turn_on
+'1538128738934':
+  alias: Samsung UE55j6250 ausschalten
+  sequence:
+  - data:
+      command: PowerOff
+      device: '57574101'
+      entity_id: remote.harmony_hub
+    service: remote.send_command
+'1538129107690':
+  alias: Harman Kardon AVR off
+  sequence:
+  - data:
+      command: PowerOff
+      device: '57574103'
+      entity_id: remote.harmony_hub
+    service: remote.send_command
+'1538143115062':
+  alias: Telekom MR 400 off
+  sequence:
+  - data:
+      command: PowerToggle
+      device: '57574102'
+      entity_id: remote.harmony_hub
+    service: remote.send_command
+'1538143893265':
+  alias: Heizung Büro ausschalten
+  sequence:
+  - data:
+      entity_id: climate.int0000002
+      temperature: 4.5
+    service: climate.set_temperature
+  - data:
+      entity_id: climate.int0000002
+      operation_mode: manual
+    service: climate.set_operation_mode
+'1538143929416':
+  alias: Heizung Wohnzimmer ausschalten
+  sequence:
+  - data:
+      entity_id: climate.oeq1696358
+      temperature: 4.5
+    service: climate.set_temperature
+  - data:
+      entity_id: climate.oeq1696358
+      operation_mode: manual
+    service: climate.set_operation_mode
+'1538143964007':
+  alias: Heizung Schlafzimmer ausschalten
+  sequence:
+  - data:
+      entity_id: climate.oeq1696369
+      temperature: 4.5
+    service: climate.set_temperature
+  - data:
+      entity_id: climate.oeq1696369
+      operation_mode: manual
+    service: climate.set_operation_mode
+'1538167052403':
+  alias: Telekom MR 400 on
+  sequence:
+  - data:
+      command: PowerToggle
+      device: '57574102'
+      entity_id: remote.harmony_hub
+    service: remote.send_command
+'1538167144011':
+  alias: Samsung UE55j6250 einschalten
+  sequence:
+  - data:
+      command: PowerOn
+      device: '57574101'
+      entity_id: remote.harmony_hub
+    service: remote.send_command
+'1538167294875':
+  alias: Harman Kardon AVR on
+  sequence:
+  - data:
+      command: PowerOn
+      device: '57574103'
+      entity_id: remote.harmony_hub
+    service: remote.send_command
+'1538501968289':
+  alias: Heizung Bad sperren
+  sequence:
+  - data:
+      entity_id: homematic.ccu2
+      name: block_bath
+      value: 'true'
+    service: homematic.set_variable_value
+'1538502054685':
+  alias: Heizung Bad entsperren
+  sequence:
+  - data:
+      entity_id: homematic.ccu2
+      name: block_bath
+      value: 'false'
+    service: homematic.set_variable_value
+'1538502214360':
+  alias: Heizung Bad ausschalten
+  sequence:
+  - data:
+      entity_id: climate.oeq1701003
+      temperature: 4.5
+    service: climate.set_temperature
+  - data:
+      entity_id: climate.oeq1701003
+      operation_mode: manual
+    service: climate.set_operation_mode
+'1538646823835':
+  alias: Heizung Bad einschalten
+  sequence:
+  - data:
+      entity_id: climate.oeq1701003
+      temperature: 22
+    service: climate.set_temperature
+'1540232132608':
+  alias: Heizung StandBy
+  sequence:
+  - data:
+      entity_id: climate.int0000002
+      operation_mode: auto
+    service: climate.set_operation_mode
+  - data:
+      entity_id: climate.oeq1696358
+      operation_mode: auto
+    service: climate.set_operation_mode
+  - data:
+      entity_id: climate.oeq1696369
+      operation_mode: auto
+    service: climate.set_operation_mode
+  - data:
+      entity_id: input_boolean.radiator_on_off
+    service: input_boolean.turn_on
+  - condition: state
+    entity_id: binary_sensor.door_window_sensor_158d00022f13a0
+    state: 'off'
+  - data:
+      entity_id: climate.oeq1701003
+      temperature: 10
+    service: climate.set_temperature
+'1541097052191':
+  alias: Xiaomi Gateway - Alarm ausschalten
+  sequence:
+  - data:
+      gw_mac: 7811DCB258D1
+    service: xiaomi_aqara.stop_ringtone
+'1541264856783':
+  alias: Heizung ausschalten
+  sequence:
+  - data: {}
+    service: script.1538502214360
+  - service: script.1538143893265
+  - service: script.1538143964007
+  - service: script.1538143929416
+  - data:
+      entity_id: input_boolean.radiator_on_off
+    service: input_boolean.turn_off
+'1543087176551':
+  alias: Gastzugang aktivieren
+  sequence:
+  - data: {}
+    service: fritzbox_guestwifi.turn_on
+'1543087223684':
+  alias: Gastzugang deaktivieren
+  sequence:
+  - data: {}
+    service: fritzbox_guestwifi.turn_off
+'1543166767000':
+  alias: BMW X2 - Klimanlage
+  sequence:
+  - data:
+      vin: WBAYH11080EM67022
+    service: bmw_connected_drive.activate_air_conditioning
+'1543167202912':
+  alias: BMW X2 - Hupe
+  sequence:
+  - data:
+      vin: WBAYH11080EM67022
+    service: bmw_connected_drive.sound_horn
+'1543167430941':
+  alias: BMW X2 - Lichthupe
+  sequence:
+  - data:
+      vin: WBAYH11080EM67022
+    service: bmw_connected_drive.light_flash
+'1543218125342':
+  alias: BMW X2 - Update
+  sequence:
+  - data: {}
+    service: bmw_connected_drive.update_state
+'1543666580682':
+  alias: Xiaomi SaugRobo - Büro
+  sequence:
+  - data:
+      command: app_zoned_clean
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      params:
+      - - 21713
+        - 22537
+        - 27663
+        - 25887
+        - 1
+    service: vacuum.send_command
+'1543666771838':
+  alias: Xiaomi SaugRobo - Küche
+  sequence:
+  - data:
+      command: app_zoned_clean
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      params:
+      - - 19870
+        - 22641
+        - 21620
+        - 25991
+        - 1
+    service: vacuum.send_command
+'1543666831509':
+  alias: Xiaomi SaugRobo - Klo
+  sequence:
+  - data:
+      command: app_zoned_clean
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      params:
+      - - 17925
+        - 22017
+        - 19175
+        - 25567
+        - 1
+    service: vacuum.send_command
+'1543666867257':
+  alias: Xiaomi SaugRobo - Flur
+  sequence:
+  - data:
+      command: app_zoned_clean
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      params:
+      - - 16818
+        - 20376
+        - 25118
+        - 22626
+        - 1
+    service: vacuum.send_command
+'1543666909272':
+  alias: Xiaomi SaugRobo - Schlafzimmer
+  sequence:
+  - data:
+      command: app_zoned_clean
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      params:
+      - - 19788
+        - 15101
+        - 23538
+        - 21601
+        - 1
+    service: vacuum.send_command
+'1543666947492':
+  alias: Xiaomi SaugRobo - Wohnzimmer
+  sequence:
+  - data:
+      command: app_zoned_clean
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      params:
+      - - 23607
+        - 14678
+        - 27657
+        - 20628
+        - 1
+    service: vacuum.send_command
+'1543666985219':
+  alias: Xiaomi SaugRobo - Bad
+  sequence:
+  - data:
+      command: app_zoned_clean
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      params:
+      - - 25071
+        - 20852
+        - 26921
+        - 22652
+        - 1
+    service: vacuum.send_command
+'1543667402104':
+  alias: Xiaomi SaugRobo - Katzenklo
+  sequence:
+  - data:
+      command: app_zoned_clean
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      params:
+      - - 21847
+        - 22630
+        - 23947
+        - 24330
+        - 1
+    service: vacuum.send_command
+'1547995682348':
+  alias: Sensor gereinigt
+  sequence:
+  - data:
+      command: reset_consumable
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      params: sensor_dirty_time
+    service: vacuum.send_command
+'1547995832032':
+  alias: Filter gewechselt
+  sequence:
+  - data:
+      command: reset_consumable
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      params: filter_work_time
+    service: vacuum.send_command
+'1547995869377':
+  alias: Seitenbürste gewechselt
+  sequence:
+  - data:
+      command: reset_consumable
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      params: side_brush_work_time
+    service: vacuum.send_command
+'1547995909810':
+  alias: Hauptbürste gewechselt
+  sequence:
+  - data:
+      command: reset_consumable
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      params: main_brush_work_time
+    service: vacuum.send_command
