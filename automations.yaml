@@ -539,7 +539,7 @@
         push:
           category: vacuum_trigger
       message: Staubsauger starten?
-    service: notify.mobile_app_iphonex
+    service: notify.ios_iphonex
 - id: '1550439982602'
   alias: 'Xiaomi Staubsauger: Starten nach Push'
   trigger:
