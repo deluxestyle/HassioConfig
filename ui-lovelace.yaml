@@ -520,14 +520,10 @@ views:
           - script.1541097052191
           - type: section
           - automation.benachrichtigung_bewegung_erkannt
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - input_boolean.camera_cctv
       - type: conditional
         conditions:
-          - entity: input_boolean.camera_cctv
-            state: "on"
+          - entity: device_tracker.hikam_4452
+            state: "home"
         card:
           type: picture-entity
           entity: camera.ffmpeg
