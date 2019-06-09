@@ -499,9 +499,9 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - device_tracker.iphonex
+          # - device_tracker.iphonex
           - person.wolfgang
-          - device_tracker.anni
+          # - device_tracker.anni
           - person.anita
           - type: custom:fold-entity-row
             head:
@@ -531,9 +531,9 @@ views:
         card:
           type: picture-entity
           entity: camera.ffmpeg
-          camera_image: camera.ffmpeg
-          show_info: true
-          tap_action: dialog
+          # camera_image: camera.ffmpeg
+          # show_info: true
+          # tap_action: dialog
           title: Kamera
       - type: 'custom:compact-custom-header'
 
