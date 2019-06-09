@@ -520,21 +520,21 @@ views:
           - script.1541097052191
           - type: section
           - automation.benachrichtigung_bewegung_erkannt
-      # - type: entities
-        # show_header_toggle: false
-        # entities:
-          # - input_boolean.camera_cctv
-      # - type: conditional
-        # conditions:
-          # - entity: input_boolean.camera_cctv
-            # state: "on"
-        # card:
-          # type: picture-entity
-          # entity: camera.ffmpeg
-          # camera_image: camera.ffmpeg
-          # show_info: true
-          # tap_action: dialog
-          # title: Kamera
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - input_boolean.camera_cctv
+      - type: conditional
+        conditions:
+          - entity: input_boolean.camera_cctv
+            state: "on"
+        card:
+          type: picture-entity
+          entity: camera.ffmpeg
+          camera_image: camera.ffmpeg
+          show_info: true
+          tap_action: dialog
+          title: Kamera
       - type: 'custom:compact-custom-header'
 
 ##### Auto ##### 

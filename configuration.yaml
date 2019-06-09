@@ -44,6 +44,7 @@ recorder:
       - binary_sensor
       - climate
       - calendar
+      - camera
     entities:
       - sun.sun
       - automation.battery_persistent_notification
@@ -172,3 +173,9 @@ panel_iframe:
     title: Statistik
     url: !secret grafana_url
     icon: mdi:elevation-rise
+
+ffmpeg:
+
+camera:
+  - platform: ffmpeg
+    input: -rtsp_transport tcp -i rtsp://192.168.200.40:554/onvif1

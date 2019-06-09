@@ -1,5 +1,5 @@
 camera_cctv:
-    name: Kameraaufnahme
+    name: Kamera
     icon: mdi:cctv
     
 automation_xiaomi_vacuum:

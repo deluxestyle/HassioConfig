@@ -194,7 +194,7 @@ script.1534621226775:
   friendly_name: Wecker ausschalten
   icon: mdi:alarm-off
 input_boolean.camera_cctv:
-  friendly_name: Aufnahme
+  friendly_name: Kamera
 group.radiator_living_room:
   control: hidden
 group.radiator_bed_room:
