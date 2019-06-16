@@ -628,6 +628,13 @@ views:
             items:
               - input_number.battery_alert_homatic
               - input_number.battery_alert_xiaomi
+      - type: 'custom:compact-custom-header'
+
+##### System #####
+  - title: System
+    id: other
+    icon: mdi:settings-outline
+    cards:
       - type: custom:tracker-card
         title: " "
         available_text: Verfügbar
