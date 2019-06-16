@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<main_log>info</main_log>
+<upnp_log>info</upnp_log>
+<util_log>warn</util_log>
+<raop_log>info</raop_log>
+<log_limit>-1</log_limit>
+<enabled>1</enabled>
+<max_volume>100</max_volume>
+<codec>flc</codec>
+<metadata>1</metadata>
+<artwork></artwork>
+<latency>1000:2000</latency>
+<drift>0</drift>
+<device>
+<udn>uuid:RINCON_B8E937553EFA01400</udn>
+<name>Schlafzimmer+</name>
+<mac>bb:bb:37:55:3e:fa</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>uuid:RINCON_000E58C54B1201400</udn>
+<name>Bad+</name>
+<mac>bb:bb:58:c5:4b:12</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>uuid:859d8429-9c50-46a3-964f-ae1648c77dd7</udn>
+<name>[TV] UE55J6250+</name>
+<mac>bb:bb:6e:af:22:02</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>uuid:3dcc7100-f76c-11dd-87af-9c645e1779ea</udn>
+<name>AVR 151S_1510S 9c645e1779ea+</name>
+<mac>bb:bb:5e:17:79:eb</mac>
+<enabled>1</enabled>
+</device>
