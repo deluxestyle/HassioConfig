@@ -18,12 +18,6 @@
 <enabled>1</enabled>
 </device>
 <device>
-<udn>uuid:RINCON_000E58C54B1201400</udn>
-<name>Bad+</name>
-<mac>bb:bb:58:c5:4b:12</mac>
-<enabled>1</enabled>
-</device>
-<device>
 <udn>uuid:859d8429-9c50-46a3-964f-ae1648c77dd7</udn>
 <name>[TV] UE55J6250+</name>
 <mac>bb:bb:6e:af:22:02</mac>

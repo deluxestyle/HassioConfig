@@ -612,6 +612,13 @@ views:
           #   items:
           #     - script.1543087176551
           #     - script.1543087223684
+      - type: 'custom:compact-custom-header'
+
+##### System #####
+  - title: System
+    id: other
+    icon: mdi:settings-outline
+    cards:
       - type: entities
         show_header_toggle: false
         entities:
@@ -628,13 +635,6 @@ views:
             items:
               - input_number.battery_alert_homatic
               - input_number.battery_alert_xiaomi
-      - type: 'custom:compact-custom-header'
-
-##### System #####
-  - title: System
-    id: other
-    icon: mdi:settings-outline
-    cards:
       - type: custom:tracker-card
         title: " "
         available_text: Verfügbar

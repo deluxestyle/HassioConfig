@@ -16,3 +16,4 @@ custom_components/__pycache__
 *pycache*
 .storage/custom_updater.cards
 .cloud/*
+airsonos.xml
