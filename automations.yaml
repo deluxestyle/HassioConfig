@@ -32,24 +32,6 @@
   - data:
       entity_id: light.steckdose_3
     service: light.turn_off
-- id: camera_cctv_off
-  alias: Kamera Surveillance - aus
-  trigger:
-  - entity_id: input_boolean.camera_cctv
-    from: 'on'
-    platform: state
-    to: 'off'
-  action:
-  - service: shell_command.surveillance_off
-- id: camera_cctv_on
-  alias: Kamera Surveillance - an
-  trigger:
-  - entity_id: input_boolean.camera_cctv
-    from: 'off'
-    platform: state
-    to: 'on'
-  action:
-  - service: shell_command.surveillance_on
 - id: scenes_living_room
   alias: 'Lichtszenen: Wohnzimmer auswählen'
   trigger:

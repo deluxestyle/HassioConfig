@@ -176,7 +176,7 @@
       operation_mode: manual
     service: climate.set_operation_mode
 '1538167052403':
-  alias: Telekom MR 400 on
+  alias: Telekom MR 401 on
   sequence:
   - data:
       command: PowerToggle
