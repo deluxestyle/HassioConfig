@@ -32,12 +32,11 @@ x-music-player: &music-player
   hide:
     power_state: false
     source: false
-    icon: true
-    progress: true
+    # rogress: true
   group: true
   artwork: none
   source: full
-  more_info: false
+  # more_info: false
   replace_mute: stop
   
 ## vacuum_buttons
