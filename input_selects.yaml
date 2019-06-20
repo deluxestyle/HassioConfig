@@ -2,10 +2,9 @@ scenes_living_room:
     name: "Szenen"
     options:
       - --
-      - Wohnzimmer Licht
+      - Lesen
       - Sehr hell
       - Gedimmt
-      - Lesen
       - Konzentrieren
       - Energie tanken
       - Entspannen
