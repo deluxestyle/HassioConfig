@@ -386,51 +386,51 @@ views:
     id: music
     icon: mdi:music-box-outline
     cards:
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: entities
-            show_header_toggle: false
-            entities:
-              - type: custom:mini-media-player
-                entity: media_player.schlafzimmer
-                <<: *music-player
-                sonos:
-                  show_group_count: true
-                  sync_volume: true
-                  entities:
-                    - entity_id: media_player.schlafzimmer
-                      name: Sonos Schlafzimmer
-                    - entity_id: media_player.bad
-                      name: Sonos Bad
-          - type: conditional
-            conditions:
-              - entity: sensor.sonos_grouped
-                state: "off"
-            card:
-              type: entities
+      # - type: custom:vertical-stack-in-card
+      #   cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - type: custom:mini-media-player
+            entity: media_player.schlafzimmer
+            <<: *music-player
+            sonos:
+              show_group_count: true
+              sync_volume: true
               entities:
-                - type: custom:mini-media-player
-                  entity: media_player.bad
-                  <<: *music-player
-          - type: entities
-            show_header_toggle: false
+                - entity_id: media_player.schlafzimmer
+                  name: Sonos Schlafzimmer
+                - entity_id: media_player.bad
+                  name: Sonos Bad
+      - type: conditional
+        conditions:
+          - entity: sensor.sonos_grouped
+            state: "off"
+        card:
+          type: entities
+          entities:
+            - type: custom:mini-media-player
+              entity: media_player.bad
+              <<: *music-player
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Automatisierung
+            padding: 5
             entities:
-              - type: custom:fold-entity-row
-                head:
-                  type: section
-                  label: Automatisierung
-                padding: 5
-                entities:
-                  - automation.sonos_starten
-                  - automation.sonos_stoppen
-              - type: custom:fold-entity-row
-                head:
-                  type: section
-                  label: Wecker
-                padding: 5
-                entities:
-                  - script.1534621188695
-                  - script.1534621226775
+              - automation.sonos_starten
+              - automation.sonos_stoppen
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Wecker
+            padding: 5
+            entities:
+              - script.1534621188695
+              - script.1534621226775
       - type: 'custom:compact-custom-header'
 
 ##### Entertainment #####
