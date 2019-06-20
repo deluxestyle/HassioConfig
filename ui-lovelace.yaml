@@ -32,7 +32,7 @@ x-music-player: &music-player
   hide:
     power_state: false
     source: false
-    # rogress: true
+    progress: true
   group: true
   artwork: none
   source: full
