@@ -92,7 +92,8 @@ views:
             head: 
               type: section
               label: Lampen
-            items:
+            padding: 5
+            entities:
               - light.decke
               - light.tisch
               - light.leselampe
@@ -106,7 +107,8 @@ views:
             head:
               type: section
               label: Lampen
-            items:
+            padding: 5
+            entities:
               - light.nachttischlampe_wolfgang
               - light.nachttischlampe_anita
               - light.schlafzimmer
@@ -166,7 +168,8 @@ views:
             head:
               type: section
               label: Timer
-            items:
+            padding: 5
+            entities:
               - automation.heizung_bad_timer
               - entity: input_datetime.radiator_bath_1
                 name: Startzeit
@@ -175,7 +178,8 @@ views:
             head:
               type: section
               label: Mehr
-            items:
+            padding: 5
+            entities:
               - script.1538502214360
               - switch.radiator_bath_keylock
               - sensor.temperature_158d00023258bd
@@ -189,7 +193,8 @@ views:
             head:
               type: section
               label: Mehr
-            items:
+            padding: 5
+            entities:
               - script.1538143929416
               - switch.radiator_living_room_keylock
               - sensor.temperature_158d0001b8c998
@@ -203,7 +208,8 @@ views:
             head:
               type: section
               label: Mehr
-            items:
+            padding: 5
+            entities:
               - script.1538143964007
               - switch.radiator_bed_room_keylock
               - sensor.temperature_158d0001b8c96c
@@ -217,7 +223,8 @@ views:
             head:
               type: section
               label: Mehr
-            items:
+            padding: 5
+            entities:
               - script.1538143893265
               - switch.radiator_office_keylock
               - sensor.oeq1667238_temperature
@@ -315,14 +322,16 @@ views:
                 head:
                   type: section
                   label: Automatisierung
-                items:
+                padding: 5
+                entities:
                   - automation.xiaomi_staubsauger_abwesenheit
                   - automation.xiaomi_staubsauger_taglich_saugen
               - type: custom:fold-entity-row
                 head:
                   type: section
                   label: Zonen (Räume)
-                items:
+                padding: 5
+                entities:
                   - input_select.vacuum_rooms
                   # - script.1543667402104 
                   # - script.1543666580682
@@ -336,32 +345,38 @@ views:
                 head:
                   type: section
                   label: Wartung
-                items:
+                padding: 5
+                entities:
                   - automation.xiaomi_staubsauger_neustart
                   - automation.xiaomi_staubsauger_error_stop
                   - counter.xiaomo_errors
                   - type: section
                   - type: custom:fold-entity-row
                     head: sensor.xiaomi_vacuum_side_brush_left
-                    items:
+                    padding: 5
+                    entities:
                       - script.1547995869377
                   - type: custom:fold-entity-row
                     head: sensor.xiaomi_vacuum_sensor_dirty_left
-                    items:
+                    padding: 5
+                    entities:
                       - script.1547995682348
                   - type: custom:fold-entity-row
                     head: sensor.xiaomi_vacuum_main_brush_left
-                    items:
+                    padding: 5
+                    entities: 
                       - script.1547995909810
                   - type: custom:fold-entity-row
                     head: sensor.xiaomi_vacuum_filter_left
-                    items:
+                    padding: 5
+                    entities:
                       - script.1547995832032
               - type: custom:fold-entity-row
                 head:
                   type: section
                   label: Benachrichtigungen
-                items:
+                padding: 5
+                entities:
                   - automation.xiaomi_staubsauger_fehler
                   - automation.xiaomi_staubsauger_fertig
                   - automation.xiaomi_staubsauger_gestartet
@@ -405,14 +420,16 @@ views:
                 head:
                   type: section
                   label: Automatisierung
-                items:
+                padding: 5
+                entities:
                   - automation.sonos_starten
                   - automation.sonos_stoppen
               - type: custom:fold-entity-row
                 head:
                   type: section
                   label: Wecker
-                items:
+                padding: 5
+                entities:
                   - script.1534621188695
                   - script.1534621226775
       - type: 'custom:compact-custom-header'
@@ -420,7 +437,7 @@ views:
 ##### Entertainment #####
   - title: Entertainment
     id: entertainment
-    icon: mdi:arrow-right-drop-circle-outline
+    icon: mdi:theater
     cards:
       - type: custom:vertical-stack-in-card
         cards:
@@ -464,7 +481,8 @@ views:
                 head:
                   type: section
                   label: AVR 151
-                items:
+                padding: 5
+                entities:
                   - type: custom:mini-media-player
                     entity: media_player.harman_kardon_avr
                     hide:
@@ -507,7 +525,8 @@ views:
             head:
               type: section
               label: Automatisierung
-            items:
+            padding: 5
+            entities:
               - automation.abwesenheitsschaltung
               - automation.anwesenheitsschaltung
       - type: entities
@@ -543,8 +562,8 @@ views:
         entities:
           - type: custom:fold-entity-row
             head: device_tracker.x2_sdrive18i
-            items:
-              - type: section
+            padding: 5
+            entities:
               - binary_sensor.x2_sdrive18i_door_lock_state
               - binary_sensor.x2_sdrive18i_lids
               - binary_sensor.x2_sdrive18i_windows
@@ -558,7 +577,8 @@ views:
             head:
               type: section
               label: Funktionen
-            items:
+            padding: 5
+            entities:
               - lock.x2_sdrive18i_lock
               - script.1543166767000
               - script.1543167202912
@@ -632,7 +652,8 @@ views:
             head:
               type: section
               label: Batteriewerte
-            items:
+            padding: 5
+            entities:
               - input_number.battery_alert_homatic
               - input_number.battery_alert_xiaomi
       - type: custom:tracker-card
