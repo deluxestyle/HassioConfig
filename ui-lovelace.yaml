@@ -594,22 +594,6 @@ views:
   - title: Sonstiges
     id: other
     icon: mdi:library-books
-    popup_cards:
-      automation.battery_persistent_notification:
-        title: Status
-        card:
-          type: entities
-          entities:
-            - type: custom:group-card
-              card:
-                type: entities
-                show_header_toggle: false
-              group: group.battery_status_homeatic
-            - type: custom:group-card
-              card:
-                type: entities
-                show_header_toggle: false
-              group: group.battery_status_xiaomi
     cards:
       - type: entities
         show_header_toggle: false
@@ -638,6 +622,22 @@ views:
   - title: System
     id: other
     icon: mdi:settings-outline
+    popup_cards:
+      automation.battery_persistent_notification:
+        title: Status
+        card:
+          type: entities
+          entities:
+            - type: custom:group-card
+              card:
+                type: entities
+                show_header_toggle: false
+              group: group.battery_status_homeatic
+            - type: custom:group-card
+              card:
+                type: entities
+                show_header_toggle: false
+              group: group.battery_status_xiaomi
     cards:
       - type: entities
         show_header_toggle: false
