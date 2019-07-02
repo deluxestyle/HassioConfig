@@ -161,6 +161,7 @@ views:
         show_header_toggle: false
         entities:
           - climate.oeq1701003
+          - sensor.temperature_158d00023258bd
           - sensor.humidity_158d00023258bd
           - binary_sensor.door_window_sensor_158d00022f13a0
           - type: custom:fold-entity-row
@@ -181,7 +182,6 @@ views:
             entities:
               - script.1538502214360
               - switch.radiator_bath_keylock
-              - sensor.temperature_158d00023258bd
               - sensor.valve_bath
       - type: entities
         show_header_toggle: false
