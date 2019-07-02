@@ -23,6 +23,8 @@ resources:
     type: js
   - url: /customcards/tiles-card.js?track=true
     type: js
+  - url: /customcards/multiple-entity-row.js?track=true
+    type: js
 # -----------------------------
 cch:
   main_config: true
@@ -160,8 +162,13 @@ views:
         show_header_toggle: false
         entities:
           - climate.oeq1701003
-          - sensor.temperature_158d00023258bd
-          - sensor.humidity_158d00023258bd
+          - entity: sensor.temperature_158d00023258bd
+            type: custom:multiple-entity-row
+            primary:
+              entity: sensor.humidity_158d00023258bd
+              name: false
+          # - sensor.temperature_158d00023258bd
+          # - sensor.humidity_158d00023258bd
           - binary_sensor.door_window_sensor_158d00022f13a0
           - type: custom:fold-entity-row
             head:
@@ -186,7 +193,12 @@ views:
         show_header_toggle: false
         entities:
           - climate.oeq1696358
-          - sensor.humidity_158d0001b8c998
+          # - sensor.humidity_158d0001b8c998
+          - entity: sensor.temperature_158d0001b8c998
+            type: custom:multiple-entity-row
+            primary:
+              entity: sensor.humidity_158d0001b8c998
+              name: false
           - type: custom:fold-entity-row
             head:
               type: section
@@ -195,13 +207,18 @@ views:
             entities:
               - script.1538143929416
               - switch.radiator_living_room_keylock
-              - sensor.temperature_158d0001b8c998
+              # - sensor.temperature_158d0001b8c998
               - sensor.valve_living_room
       - type: entities
         show_header_toggle: false
         entities:
           - climate.oeq1696369
-          - sensor.humidity_158d0001b8c96c
+          # - sensor.humidity_158d0001b8c96c
+          - entity: sensor.temperature_158d0001b8c96c
+            type: custom:multiple-entity-row
+            primary:
+              entity: sensor.humidity_158d0001b8c96c
+              name: false
           - type: custom:fold-entity-row
             head:
               type: section
@@ -210,13 +227,18 @@ views:
             entities:
               - script.1538143964007
               - switch.radiator_bed_room_keylock
-              - sensor.temperature_158d0001b8c96c
+              # - sensor.temperature_158d0001b8c96c
               - sensor.valve_bed_room
       - type: entities
         show_header_toggle: false
         entities:
           - climate.int0000002
-          - sensor.oeq1667238_humidity
+          # - sensor.oeq1667238_humidity
+          - entity: sensor.oeq1667238_temperature
+            type: custom:multiple-entity-row
+            primary:
+              entity: sensor.oeq1667238_humidity
+              name: false
           - type: custom:fold-entity-row
             head:
               type: section
@@ -225,13 +247,18 @@ views:
             entities:
               - script.1538143893265
               - switch.radiator_office_keylock
-              - sensor.oeq1667238_temperature
+              # - sensor.oeq1667238_temperature
               - sensor.valve_office
       - type: entities
         show_header_toggle: false
         entities:
-          - sensor.temperature_158d0002239fb5
-          - sensor.humidity_158d0002239fb5
+          # - sensor.temperature_158d0002239fb5
+          # - sensor.humidity_158d0002239fb5
+          - entity: sensor.temperature_158d0002239fb5
+            type: custom:multiple-entity-row
+            primary:
+              entity: sensor.humidity_158d0002239fb5
+              name: false
       - type: custom:vertical-stack-in-card
         cards:
           - type: custom:tiles-card
