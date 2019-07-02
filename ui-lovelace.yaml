@@ -24,7 +24,17 @@ resources:
   - url: /customcards/tiles-card.js?track=true
     type: js
 # -----------------------------
-
+cch:
+  main_config: true
+  menu: show
+  notifications: show
+  options: show
+  swipe: true
+  exceptions:
+    - conditions:
+        user_agent: iPhone
+      config:
+        options: hide
 # -----------------------------
 ## music player
 x-music-player: &music-player
@@ -140,17 +150,6 @@ views:
                 background:
                   value_on: '#03A9F4'
                   value_off: '#999999'
-      - type: 'custom:compact-custom-header'
-        main_config: true
-        menu: show
-        notifications: show
-        options: show
-        swipe: true
-        exceptions:
-          - conditions:
-              user_agent: iPhone
-            config:
-              options: hide
 
 ##### Heizung #####
   - title: Heizung
@@ -255,7 +254,6 @@ views:
               - type: section
               - input_boolean.automation_radiator
               - automation.heizung_abwesenheitsschaltung
-      - type: 'custom:compact-custom-header'
 
 #### Staubsauger #####
   - title: Staubsauger
@@ -379,7 +377,6 @@ views:
                   - automation.xiaomi_staubsauger_fehler
                   - automation.xiaomi_staubsauger_fertig
                   - automation.xiaomi_staubsauger_gestartet
-      - type: 'custom:compact-custom-header'
 
 ##### Musik #####
   - title: Musik
@@ -431,7 +428,6 @@ views:
             entities:
               - script.1534621188695
               - script.1534621226775
-      - type: 'custom:compact-custom-header'
 
 ##### Entertainment #####
   - title: Entertainment
@@ -494,7 +490,6 @@ views:
                     artwork: none
                     more_info: true
                   - input_select.avr_source
-      - type: 'custom:compact-custom-header'
 
 ##### Steckdosen #####
   - title: Steckdosen
@@ -507,7 +502,6 @@ views:
           - light.steckdose
           - type: section
           - light.steckdose_3
-      - type: 'custom:compact-custom-header'
 
 ##### Personen #####
   - title: Personen
@@ -550,7 +544,6 @@ views:
           # show_info: true
           # tap_action: dialog
           title: Kamera
-      - type: 'custom:compact-custom-header'
 
 ##### Auto ##### 
   - title: BMW X2
@@ -588,7 +581,6 @@ views:
         default_zoom: 14
         entities:
           - entity: device_tracker.x2_sdrive18i
-      - type: 'custom:compact-custom-header'
 
 ##### Sonstiges #####
   - title: Sonstiges
@@ -616,7 +608,6 @@ views:
           #   items:
           #     - script.1543087176551
           #     - script.1543087223684
-      - type: 'custom:compact-custom-header'
 
 ##### System #####
   - title: System
@@ -664,4 +655,3 @@ views:
         trackers:
           - sensor.custom_card_tracker
           - sensor.custom_component_tracker
-      - type: 'custom:compact-custom-header'
