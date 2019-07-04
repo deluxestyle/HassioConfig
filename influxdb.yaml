@@ -52,4 +52,7 @@ include:
     - sensor.glances_sleeping
     - sensor.glances_thread
     - sensor.glances_total
+    - sensor.x1_sdrive18i_mileage
+    - sensor.x1_sdrive18i_remaining_fuel
+    - sensor.x1_sdrive18i_remaining_range_total
 
