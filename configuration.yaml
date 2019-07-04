@@ -1,10 +1,4 @@
 homeassistant:
-  name: Home
-  latitude: !secret latitude
-  longitude: !secret longitude
-  elevation: 141
-  unit_system: metric
-  time_zone: Europe/Berlin
   customize: !include customize.yaml
   packages: !include_dir_named packages
 
@@ -156,11 +150,11 @@ yeelight:
     192.168.200.42:
       name: Nachttischlampe Anita
 
-bmw_connected_drive:
- name:
-   username: !secret bmw_user
-   password: !secret bmw_password
-   region: "rest_of_world"
+# bmw_connected_drive:
+#  name:
+#    username: !secret bmw_user
+#    password: !secret bmw_password
+#    region: "rest_of_world"
 
 custom_updater:
   track:
@@ -183,8 +177,3 @@ stream:
 camera:
   - platform: ffmpeg
     input: -rtsp_transport tcp -i rtsp://192.168.200.40:554/onvif1
-
-# hacs:
-#   token: !secret git_tokken
-
-# logger:
