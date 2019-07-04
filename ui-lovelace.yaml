@@ -36,7 +36,8 @@ cch:
     - conditions:
         user_agent: iPhone
       config:
-        options: hide
+        options: show
+        notifications: overflow
 # -----------------------------
 ## music player
 x-music-player: &music-player
