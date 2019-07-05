@@ -38,6 +38,10 @@ cch:
       config:
         options: show
         notifications: overflow
+    - conditions:
+        user: anita
+      config:
+        hide_tabs: 8,10
 # -----------------------------
 ## music player
 x-music-player: &music-player
