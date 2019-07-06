@@ -18,6 +18,9 @@ lovelace:
   
 api:
 
+alexa:
+  smart_home:
+
 updater:
   include_used_components: true
 
