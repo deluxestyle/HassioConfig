@@ -580,3 +580,17 @@
   - data:
       entity_id: media_player.bad
     service: media_player.turn_off
+- id: '1563024961089'
+  alias: 'Xiaomi Staubsauger: Hauptbürste wechseln'
+  trigger:
+  - below: '3'
+    entity_id: sensor.xiaomi_vacuum_main_brush_left
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      message: 'Hauptbürste reinigen: {{ states.sensor.xiaomi_vacuum_main_brush_left
+        }} h übrig'
+      notification_id: xiaomi_brush
+      title: Xiaomi StaubRobo Hauptbürste
+    service: persistent_notification.create
