@@ -1,0 +1,18 @@
+smart_home:
+  filter:
+    include_entities:
+      - climate.oeq1701003
+      - climate.oeq1696358
+      - climate.oeq1696369
+      - climate.int0000002
+      - switch.radiator_on_off
+      - light.lights_kitchen
+      - light.lights_living_room
+      - light.nachttischlampe_anita
+      - light.nachttischlampe_wolfgang
+      - light.schlafzimmer
+      - light.sonoff_office
+      - light.tisch
+      - light.decke
+      - light.leselampe
+      - light.tisch
