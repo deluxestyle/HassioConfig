@@ -589,7 +589,7 @@
   condition: []
   action:
   - data:
-      message: 'Sensor reinigen: {{ states.sensor.xiaomi_vacuum_main_brush_left.state
+      message: 'Hauptbürste reinigen: {{ states.sensor.xiaomi_vacuum_main_brush_left.state
         }} h übrig'
       notification_id: xiaomi_brush
       title: Xiaomi StaubRobo Hauptbürste

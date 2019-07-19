@@ -152,7 +152,7 @@
   - data:
       entity_id: climate.int0000002
       operation_mode: manual
-    service: climate.set_operation_mode
+    service: climate.set_hvac_mode
 '1538143929416':
   alias: Heizung Wohnzimmer ausschalten
   sequence:
@@ -163,7 +163,7 @@
   - data:
       entity_id: climate.oeq1696358
       operation_mode: manual
-    service: climate.set_operation_mode
+    service: climate.set_hvac_mode
 '1538143964007':
   alias: Heizung Schlafzimmer ausschalten
   sequence:
@@ -174,7 +174,7 @@
   - data:
       entity_id: climate.oeq1696369
       operation_mode: manual
-    service: climate.set_operation_mode
+    service: climate.set_hvac_mode
 '1538167052403':
   alias: Telekom MR 401 on
   sequence:
@@ -225,7 +225,7 @@
   - data:
       entity_id: climate.oeq1701003
       operation_mode: manual
-    service: climate.set_operation_mode
+    service: climate.set_hvac_mode
 '1538646823835':
   alias: Heizung Bad einschalten
   sequence:
@@ -239,15 +239,15 @@
   - data:
       entity_id: climate.int0000002
       operation_mode: auto
-    service: climate.set_operation_mode
+    service: climate.set_hvac_mode
   - data:
       entity_id: climate.oeq1696358
       operation_mode: auto
-    service: climate.set_operation_mode
+    service: climate.set_hvac_mode
   - data:
       entity_id: climate.oeq1696369
       operation_mode: auto
-    service: climate.set_operation_mode
+    service: climate.set_hvac_mode
   - data:
       entity_id: input_boolean.radiator_on_off
     service: input_boolean.turn_on
