@@ -21,6 +21,8 @@ resources:
     type: js  
   - url: /customcards/github/thomasloven/popup-card.js?track=true
     type: js
+  - url: /customcards/github/thomasloven/card-mod.js
+    type: module
   - url: /customcards/tiles-card.js?track=true
     type: js
   - url: /customcards/multiple-entity-row.js?track=true
