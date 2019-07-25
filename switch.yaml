@@ -126,3 +126,12 @@
         turn_off:
           - service: light.turn_off
             entity_id: light.steckdose_3
+    power_plug_plug_3:
+        friendly_name: Steckdose 3
+        value_template: "{{ is_state('light.on_off_plug_1', 'on') }}"
+        turn_on:
+          - service: light.turn_on
+            entity_id: light.on_off_plug_1
+        turn_off:
+          - service: light.turn_off
+            entity_id: light.on_off_plug_1

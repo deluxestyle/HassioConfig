@@ -536,6 +536,8 @@ views:
           - light.steckdose
           - type: section
           - light.steckdose_3
+          - type: section
+          - light.on_off_plug_1
 
 ##### Personen #####
   - title: Personen
