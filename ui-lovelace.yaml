@@ -537,11 +537,7 @@ views:
           - type: section
           - light.steckdose_3
           - type: section
-<<<<<<< HEAD
           - light.ventilator
-=======
-          - light.on_off_plug_1
->>>>>>> 8b7e27b98f82401ad86aeff6626509c2d7244e85
 
 ##### Personen #####
   - title: Personen
