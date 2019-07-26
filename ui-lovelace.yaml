@@ -669,6 +669,10 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
+          - automation.tagliches_backup
+      - type: entities
+        show_header_toggle: false
+        entities:
           - sensor.online_time
       - type: entities
         show_header_toggle: false
