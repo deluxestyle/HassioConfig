@@ -43,7 +43,7 @@ cch:
     - conditions:
         user: anita
       config:
-        hide_tabs: 8,10
+        hide_tabs: 7,9,10
 # -----------------------------
 ## music player
 x-music-player: &music-player
