@@ -1,31 +1,29 @@
 resources:
-  - url: /customcards/github/thomasloven/card-tools.js?track=true
+  - url: /community_plugin/compact-custom-header/compact-custom-header.js
+    type: module
+  - url: /community_plugin/mini-media-player/mini-media-player.js
+    type: module
+  - url: /community_plugin/lovelace-card-tools/card-tools.js
     type: js
-  - url: /customcards/mini-media-player-bundle.js?track=true
-    type: module
-  - url: /customcards/github/custom-cards/tracker-card.js?track=true
-    type: module
-  - url: /customcards/github/thomasloven/fold-entity-row.js?track=true
+  - url: /community_plugin/lovelace-fold-entity-row/fold-entity-row.js
     type: js
-  - url: /customcards/github/thomasloven/time-input-row.js?track=true
+  - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
     type: js
-  - url: /customcards/github/maykar/compact-custom-header.js?track=true
+  - url: /community_plugin/button-card/button-card.js
     type: module
-  - url: /customcards/vertical-stack-in-card.js?track=true
-    type: js
-  - url: /customcards/github/custom-cards/button-card.js?track=true
+  - url: /community_plugin/simple-thermostat/simple-thermostat.js
     type: module
-  - url: /customcards/github/nervetattoo/simple-thermostat.js?track=true
-    type: module
-  - url: /customcards/group-card.js?track=true
+  - url: /community_plugin/group-card/group-card.js
     type: js  
-  - url: /customcards/github/thomasloven/popup-card.js?track=true
+  - url: /community_plugin/lovelace-popup-card/popup-card.js
     type: js
-  - url: /customcards/github/thomasloven/card-mod.js
+  - url: /community_plugin/lovelace-card-mod/card-mod.js
     type: module
-  - url: /customcards/tiles-card.js?track=true
+  - url: /community_plugin/lovelace-multiple-entity-row/multiple-entity-row.js
     type: js
-  - url: /customcards/multiple-entity-row.js?track=true
+  - url: /local/tiles-card.js?track=true
+    type: js
+  - url: /local/github/thomasloven/time-input-row.js #DEPRECATED https://www.home-assistant.io/components/input_datetime/
     type: js
 # -----------------------------
 cch:
@@ -687,11 +685,11 @@ views:
             entities:
               - input_number.battery_alert_homatic
               - input_number.battery_alert_xiaomi
-      - type: custom:tracker-card
-        title: " "
-        available_text: Verfügbar
-        current_text: Aktuell
-        update_all_text: "alle aktualisieren"
-        trackers:
-          - sensor.custom_card_tracker
-          - sensor.custom_component_tracker
+      # - type: custom:tracker-card
+      #   title: " "
+      #   available_text: Verfügbar
+      #   current_text: Aktuell
+      #   update_all_text: "alle aktualisieren"
+      #   trackers:
+      #     - sensor.custom_card_tracker
+      #     - sensor.custom_component_tracker

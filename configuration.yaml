@@ -159,14 +159,6 @@ bmw_connected_drive:
    password: !secret bmw_password
    region: "rest_of_world"
 
-custom_updater:
-  track:
-    - cards
-    - components
-  card_urls:
-    - https://raw.githubusercontent.com/kalkih/mini-media-player/master/tracker.json
-    - https://raw.githubusercontent.com/maykar/custom-lovelace/master/tracker.json
-
 panel_iframe:
   grafana:
     title: Statistik
@@ -180,3 +172,6 @@ stream:
 camera:
   - platform: ffmpeg
     input: -rtsp_transport tcp -i rtsp://192.168.200.40:554/onvif1
+
+hacs:
+  token: 616048cba19bc283fcd7d4814de9433dda0f0641
