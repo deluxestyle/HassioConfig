@@ -284,6 +284,7 @@ views:
               - type: section
               - input_boolean.automation_radiator
               - automation.heizung_abwesenheitsschaltung
+              - automation.benachrichtigung_luftfeuchtigkeit
 
 #### Staubsauger #####
   - title: Staubsauger
