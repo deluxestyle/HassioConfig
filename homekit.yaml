@@ -18,6 +18,7 @@ filter:
     - light.onoff_plug_1
     - media_player.bad
     - media_player.schlafzimmer
+    - media_player.kuche
     - switch.radiator_on_off
     - switch.power_plug_multimedia
     - switch.power_plug_printer
@@ -39,6 +40,9 @@ entity_config:
       feature_list:
         - feature: play_pause
     media_player.bad:
+      feature_list:
+        - feature: play_pause
+    media_player.kuche:
       feature_list:
         - feature: play_pause
     sensor.temperature_158d0001b8c96c:
