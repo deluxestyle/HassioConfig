@@ -53,7 +53,17 @@ x-music-player: &music-player
   source: full
   # more_info: false
   replace_mute: stop
-  
+  sonos:
+    show_group_count: true
+    sync_volume: true
+    entities:
+      - entity_id: media_player.schlafzimmer
+        name: Sonos Schlafzimmer
+      - entity_id: media_player.bad
+        name: Sonos Bad
+      - entity_id: media_player.kuche
+        name: Sonos Küche
+
 ## vacuum_buttons
 x-vacuum-buttons: &vacuum-buttons
   #color: auto
@@ -422,24 +432,18 @@ views:
           - type: custom:mini-media-player
             entity: media_player.schlafzimmer
             <<: *music-player
-            sonos:
-              show_group_count: true
-              sync_volume: true
-              entities:
-                - entity_id: media_player.schlafzimmer
-                  name: Sonos Schlafzimmer
-                - entity_id: media_player.bad
-                  name: Sonos Bad
-      - type: conditional
-        conditions:
-          - entity: sensor.sonos_grouped
-            state: "off"
-        card:
-          type: entities
-          entities:
-            - type: custom:mini-media-player
-              entity: media_player.bad
-              <<: *music-player
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - type: custom:mini-media-player
+            entity: media_player.bad
+            <<: *music-player
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - type: custom:mini-media-player
+            entity: media_player.kuche
+            <<: *music-player
       - type: entities
         show_header_toggle: false
         entities:
