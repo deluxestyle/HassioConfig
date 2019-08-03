@@ -39,7 +39,7 @@ cch:
     - conditions:
         user: anita
       config:
-        hide_tabs: 7,9,10
+        hide_tabs: 7
 # -----------------------------
 ## music player
 x-music-player: &music-player
@@ -619,33 +619,6 @@ views:
         entities:
           - entity: device_tracker.x1_sdrive18i
 
-##### Sonstiges #####
-  - title: Sonstiges
-    id: other
-    icon: mdi:library-books
-    cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - weather.dark_sky
-          - sun.sun
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - sensor.pressure_158d0002239fb5
-          - sensor.pressure_158d00023258bd
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - sensor.fritz_netmonitor
-          # - type: custom:fold-entity-row
-          #   head:
-          #     type: section
-          #     label: Gastzugang
-          #   items:
-          #     - script.1543087176551
-          #     - script.1543087223684
-
 ##### System #####
   - title: System
     id: other
@@ -670,14 +643,18 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
+          - weather.dark_sky
+          - sun.sun
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - sensor.pressure_158d0002239fb5
+          - sensor.pressure_158d00023258bd
+      - type: entities
+        show_header_toggle: false
+        entities:
           - automation.tagliches_backup
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - sensor.online_time
-      - type: entities
-        show_header_toggle: false
-        entities:
+          - type: section
           - automation.battery_persistent_notification
           - script.battery_persistent_notification_clear
           - type: custom:fold-entity-row
@@ -688,3 +665,11 @@ views:
             entities:
               - input_number.battery_alert_homatic
               - input_number.battery_alert_xiaomi
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - sensor.online_time
+      # - type: entities
+      #   show_header_toggle: false
+      #   entities:
+          - sensor.fritz_netmonitor
