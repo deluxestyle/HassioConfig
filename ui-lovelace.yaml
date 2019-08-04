@@ -55,7 +55,7 @@ x-music-player: &music-player
   replace_mute: stop
   sonos:
     show_group_count: true
-    sync_volume: true
+    #sync_volume: true
     entities:
       - entity_id: media_player.schlafzimmer
         name: Sonos Schlafzimmer
