@@ -84,52 +84,6 @@ light.lights_all:
 light.lights_living_room:
   friendly_name: Wohnzimmerlicht
   icon: mdi:ceiling-light
-group.bed_room:
-  control: hidden
-  order: 3
-group.others:
-  control: hidden
-  order: 4
-group.devices:
-  control: hidden
-group.diagram_humidity:
-  control: hidden
-group.family:
-  control: hidden
-group.fritz:
-  control: hidden
-group.kitchen:
-  control: hidden
-  order: 7
-group.weather:
-  control: hidden
-  order: 8
-group.light:
-  control: hidden
-group.lights_bed_room:
-  control: hidden
-group.lights_floor:
-  control: hidden
-  order: 6
-group.lights_group:
-  control: hidden
-  order: 1
-group.lights_living_room:
-  control: hidden
-group.lights_office:
-  control: hidden
-group.living_room:
-  control: hidden
-  order: 2
-group.music:
-  control: hidden
-group.office:
-  control: hidden
-  order: 5
-group.presence:
-  control: hidden
-group.radiator:
-  control: hidden
 sensor.battery_radiator_office_1:
   icon: mdi:battery-50
 sensor.battery_radiator_office_2:
@@ -158,27 +112,18 @@ sensor.pws_weather:
   friendly_name: Zusammenfassung
 counter.xiaomo_runs:
   friendly_name: 'Gesaugt heute:'
-group.vacuum:
-  control: hidden
-group.vacuum_group:
-  control: hidden
 sensor.xiaomi_vacuum_main_brush_left:
   friendly_name: Hauptbürste
   icon: mdi:blur-linear
 sensor.xiaomi_vacuum_side_brush_left:
   friendly_name: Seitenbürste
   icon: mdi:blur-linear
-group.power_sockets:
-  control: hidden
-  friendly_name: 'Steckdosen '
 light.steckdose_3:
   friendly_name: Drucker
   icon: mdi:printer
 light.steckdose_4:
   friendly_name: Küchenspot - rechts
   icon: mdi:spotlight-beam
-group.power_sockets_group:
-  control: hidden
 script.1532173931522:
   friendly_name: 'Sonos: Superfly FM starten'
   icon: mdi:play
@@ -195,12 +140,6 @@ script.1534621226775:
   icon: mdi:alarm-off
 input_boolean.camera_cctv:
   friendly_name: Kamera
-group.radiator_living_room:
-  control: hidden
-group.radiator_bed_room:
-  control: hidden
-group.radiator_office:
-  control: hidden
 script.1536178184062:
   icon: mdi:bullhorn
 script.1536178219164:
@@ -262,8 +201,6 @@ input_datetime.radiator_bath_1:
   friendly_name: Startzeit
 automation.bewegungsmelder_alarm:
   icon: mdi:alarm-light
-light.hgrp0000015422:
-  hidden: true
 light.schlafzimmer:
   friendly_name: Deckenlicht
   icon: mdi:ceiling-light
@@ -273,12 +210,8 @@ sensor.xiaomi_vacuum_filter_left:
 sensor.xiaomi_vacuum_sensor_dirty_left:
   friendly_name: Sensor
   icon: mdi:blur-linear
-script.1543087176551:
-  icon: mdi:wifi
-script.1543087223684:
-  icon: mdi:wifi-off
 sensor.fritz_netmonitor:
-  friendly_name: Fritz.Box
+  friendly_name: Fritz.Box 7590
 automation.xiaomi_staubsauger_automatisch_starten:
   friendly_name: Automatisch starten
 automation.xiaomi_staubsauger_taglich_saugen:
@@ -315,15 +248,6 @@ script.1543666909272:
 script.1543666947492:
   friendly_name: Wohnzimmer
   icon: mdi:broom
-input_number.radiator_temp_living_room:
-  friendly_name: Soll °C
-input_number.radiator_temp_office:
-  friendly_name: Soll °C
-  unit_of_measurement: °C
-input_number.radiator_temp_bath:
-  friendly_name: Soll °C
-input_number.radiator_temp_bed_room:
-  friendly_name: Soll °C
 light.lights_bed_room:
   friendly_name: Schlafzimmerlicht
 light.nachttischlampe_wolfgang:
@@ -366,8 +290,6 @@ device_tracker.anni:
   icon: mdi:cellphone
 sensor.dark_sky_temperature:
   friendly_name: aktuelle Temperatur
-sensor.dark_sky_apparent_temperature:
-  friendly_name: gefühlte Temperatur
 weather.dark_sky:
   friendly_name: Wetter
 switch.radiator_on_off:

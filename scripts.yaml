@@ -275,16 +275,6 @@
   - data:
       entity_id: input_boolean.radiator_on_off
     service: input_boolean.turn_off
-'1543087176551':
-  alias: Gastzugang aktivieren
-  sequence:
-  - data: {}
-    service: fritzbox_guestwifi.turn_on
-'1543087223684':
-  alias: Gastzugang deaktivieren
-  sequence:
-  - data: {}
-    service: fritzbox_guestwifi.turn_off
 '1543166767000':
   alias: BMW X1 - Klimanlage
   sequence:

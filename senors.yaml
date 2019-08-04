@@ -1,6 +1,5 @@
 - platform: fritzbox_netmonitor
   host: 192.168.200.1
-#- platform: fritzbox_callmonitor
 
 - platform: systemmonitor
   resources:
@@ -105,14 +104,6 @@
         unit_of_measurement: '%'
         value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}'
         icon_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_icon }}'
-      sonos_grouped:
-        friendly_name: "Sonos gruppiert"
-        value_template: >-
-            {% if states.media_player.schlafzimmer.attributes.sonos_group | regex_search( "media_player.bad", ignorecase=FALSE) %}
-              on
-            {% else %}
-              off
-            {% endif %}
       radiator_bed_room_keylock:
         friendly_name: "Tastensperre Schlafzimmer"
         value_template: '{{ states.homematic.ccu2.attributes.block_bed_room }}'
@@ -139,13 +130,6 @@
       dark_sky_temperature:
         friendly_name: Temperatur
         value_template: '{{ states.weather.dark_sky.attributes.temperature }}'
-      sonos_volume_sync:
-        friendly_name: Sonos Lautstärke
-        value_template: '{{ states.media_player.schlafzimmer.attributes.volume_level }}'
-
-# - platform: cert_expiry
-  # host: raspberrypi.xpvirv5oypo6duyr.myfritz.net
-  # port: 8123
 
 - platform: uptime
   name: online_time
