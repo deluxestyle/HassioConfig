@@ -612,7 +612,7 @@
 - id: '1564908105933'
   alias: 'RPI: RAM'
   trigger:
-  - above: '85'
+  - above: '78'
     entity_id: sensor.glances_ram_used_percent
     platform: numeric_state
   condition: []
@@ -620,4 +620,16 @@
   - data:
       message: 'RAM Auslastung zu hoch: {{ states.sensor.glances_ram_used_percent.state
         }} % '
+    service: notify.ios_iphonex
+- id: '1564988736274'
+  alias: 'Notification: Heizung Bad'
+  trigger:
+  - above: '0'
+    entity_id: sensor.valve_bath
+    platform: numeric_state
+  condition: []
+  action:
+  - alias: ''
+    data:
+      message: Bad Ventil offen
     service: notify.ios_iphonex
