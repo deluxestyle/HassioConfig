@@ -142,22 +142,32 @@
     - 'date_time'
     - 'time_date'
 
-- platform: glances
-  host: 127.0.0.1
-  username: !secret system_user
-  password: !secret system_password
-  version: 3
+# - platform: glances
+#   host: 127.0.0.1
+#   username: !secret system_user
+#   password: !secret system_password
+#   version: 3
+#   resources:
+#     - disk_use_percent
+#     - disk_use
+#     - disk_free
+#     - memory_use_percent
+#     - memory_use
+#     - memory_free
+#     - processor_load
+#     - process_running
+#     - process_total 
+#     - process_thread
+#     - process_sleeping
+#     - cpu_use_percent
+#     - cpu_temp
+
+- platform: systemmonitor
   resources:
-    - disk_use_percent
-    - disk_use
-    - disk_free
-    - memory_use_percent
-    - memory_use
-    - memory_free
-    - processor_load
-    - process_running
-    - process_total 
-    - process_thread
-    - process_sleeping
-    - cpu_use_percent
-    - cpu_temp
+    - type: disk_use_percent
+    - type: disk_use
+    - type: disk_free
+    - type: memory_use_percent
+    - type: memory_use
+    - type: memory_free
+    - type: processor_use

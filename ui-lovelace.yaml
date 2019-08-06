@@ -673,3 +673,18 @@ views:
       #   show_header_toggle: false
       #   entities:
           - sensor.fritz_netmonitor
+      - type: glance
+        columns: 4
+        show_name: false
+        entities:
+          - entity: sensor.memory_use_percent
+            name: Memory
+          - entity: sensor.memory_use
+            name: Memory
+          - entity: sensor.disk_use_percent
+            name: Disk
+          - entity: sensor.disk_use
+            name: Disk
+          - entity: sensor.processor_use_2
+            name: CPU
+            icon: mdi:poll-box

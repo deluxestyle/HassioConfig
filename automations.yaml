@@ -613,12 +613,15 @@
   alias: 'RPI: RAM'
   trigger:
   - above: '80'
-    entity_id: sensor.glances_ram_used_percent
+    entity_id: sensor.memory_use_percent
+    platform: numeric_state
+  - above: '80'
+    entity_id: sensor.memory_use_percent_2
     platform: numeric_state
   condition: []
   action:
   - data:
-      message: 'RAM Auslastung zu hoch: {{ states.sensor.glances_ram_used_percent.state
+      message: 'RAM Auslastung zu hoch: {{ states.sensor.memory_use_percent.state
         }} % '
     service: notify.ios_iphonex
 - id: '1564988736274'
