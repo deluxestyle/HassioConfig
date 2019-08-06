@@ -612,7 +612,7 @@
 - id: '1564908105933'
   alias: 'RPI: RAM'
   trigger:
-  - above: '78'
+  - above: '80'
     entity_id: sensor.glances_ram_used_percent
     platform: numeric_state
   condition: []
