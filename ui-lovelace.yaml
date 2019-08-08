@@ -447,6 +447,7 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
+          - script.1532173931522
           - type: custom:fold-entity-row
             head:
               type: section
