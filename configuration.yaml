@@ -170,5 +170,5 @@ camera:
   - platform: ffmpeg
     input: -rtsp_transport tcp -i rtsp://192.168.200.40:554/onvif1
 
-hacs:
-  token: !secret git_token
+# hacs:
+#   token: !secret git_token
