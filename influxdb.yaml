@@ -68,4 +68,5 @@ include:
     - sensor.memory_free_2
     - sensor.processor_use
     - sensor.processor_use_2
+    - sensor.cpu_temperature
 

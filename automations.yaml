@@ -632,7 +632,6 @@
     platform: numeric_state
   condition: []
   action:
-  - alias: ''
-    data:
+  - data:
       message: Bad Ventil offen
     service: notify.ios_iphonex

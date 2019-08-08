@@ -108,12 +108,20 @@
   alias: Entertainment - Telekom
   sequence:
   - data:
+      entity_id: light.steckdose
+    service: light.turn_on
+  - delay: 00:00:02
+  - data:
       activity: Fernsehen Telekom
       entity_id: remote.harmony_hub
     service: remote.turn_on
 '1538072504227':
   alias: Entertainment - Musik
   sequence:
+  - data:
+      entity_id: light.steckdose
+    service: light.turn_on
+  - delay: 00:00:02
   - data:
       activity: Musik hören
       entity_id: remote.harmony_hub

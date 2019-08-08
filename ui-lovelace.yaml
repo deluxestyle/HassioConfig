@@ -481,19 +481,19 @@ views:
               - type: "custom:button-card"
                 color_type: blank-card
               - type: "custom:button-card"
-                entity: script.1538068809592
+                entity: switch.tv_switch
                 size: 60%
                 show_name: false
               - type: "custom:button-card"
                 color_type: blank-card
+              # - type: "custom:button-card"
+              #   entity: script.1538057479069
+              #   size: 60%
+              #   show_name: false
+              # - type: "custom:button-card"
+              #   color_type: blank-card
               - type: "custom:button-card"
-                entity: script.1538057479069
-                size: 60%
-                show_name: false
-              - type: "custom:button-card"
-                color_type: blank-card
-              - type: "custom:button-card"
-                entity: script.1538072504227
+                entity: switch.music_switch
                 size: 60%
                 show_name: false
               - type: "custom:button-card"
@@ -669,9 +669,6 @@ views:
         show_header_toggle: false
         entities:
           - sensor.online_time
-      # - type: entities
-      #   show_header_toggle: false
-      #   entities:
           - sensor.fritz_netmonitor
       - type: glance
         columns: 4
@@ -688,3 +685,6 @@ views:
           - entity: sensor.processor_use_2
             name: CPU
             icon: mdi:poll-box
+          - entity: sensor.cpu_temperature
+            name: CPU Temp
+            icon: mdi:thermometer
