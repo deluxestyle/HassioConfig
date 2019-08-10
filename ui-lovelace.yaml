@@ -508,7 +508,7 @@ views:
                 icon: mdi:volume-plus
                 color: rgb(68, 115, 158)
                 size: 75%
-                tap_acion:
+                tap_action:
                   action: call-service
                   service: media_player.volume_up
                   service_data:
