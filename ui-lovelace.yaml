@@ -513,6 +513,15 @@ views:
                   service: media_player.volume_up
                   service_data:
                     entity_id: media_player.harman_kardon_avr
+              - type: custom:button-card
+                color: rgb(68, 115, 158)
+                size: 75%
+                icon: mdi:volume-off
+                tap_action:
+                  action: call-service
+                  service: script.toggle
+                  service_data:
+                    entity_id: script.1565444624817
               - type: "custom:button-card"
                 color_type: blank-card
           - type: entities
@@ -524,17 +533,6 @@ views:
                   label: AVR 151
                 padding: 5
                 entities:
-                  - type: custom:mini-media-player
-                    entity: media_player.harman_kardon_avr
-                    hide:
-                        power: true
-                        controls: true
-                        source: true
-                        icon: true
-                    volume_stateless: true
-                    group: true
-                    artwork: none
-                    more_info: true
                   - input_select.avr_source
 
 ##### Steckdosen #####

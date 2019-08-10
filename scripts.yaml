@@ -442,3 +442,10 @@
       entity_id: vacuum.xiaomi_vacuum_cleaner
       params: main_brush_work_time
     service: vacuum.send_command
+'1565444624817':
+  alias: Harman Kardon Mute
+  sequence:
+  - data_template:
+        entity_id: media_player.harman_kardon_avr
+        is_volume_muted: "{{ not state_attr('media_player.harman_kardon_avr', 'is_volume_muted') }}"
+    service: media_player.volume_mute
