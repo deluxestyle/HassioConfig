@@ -174,6 +174,7 @@ counter.counter_mailbox:
   icon: mdi:mailbox
 sensor.remote_state:
   friendly_name: Aktuell
+  icon: mdi:remote-tv
 script.1538143893265:
   icon: mdi:radiator-off
 script.1538143964007:

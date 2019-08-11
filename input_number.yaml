@@ -1,0 +1,6 @@
+# sonos_volume:
+#   name: Lautstärke
+#   mode: slider
+#   min: 0.0
+#   max: 100.0
+#   step: 1
