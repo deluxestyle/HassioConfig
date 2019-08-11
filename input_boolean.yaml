@@ -12,12 +12,3 @@ automation_radiator:
 
 radiator_on_off:
     name: heizungsstatus
-
-# sonos_kitchen:
-#     name: Sonos Küche
-
-# sonos_bath:
-#     name: Sonos Bad
-
-# sonos_bedroom:
-#     name: Sonos Schlafzimmer

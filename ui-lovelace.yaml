@@ -51,11 +51,11 @@ x-music-player: &music-player
   group: true
   artwork: none
   source: full
-  # more_info: false
+  more_info: false
   replace_mute: stop
   sonos:
     show_group_count: true
-    #sync_volume: true
+    sync_volume: true
     entities:
       - entity_id: media_player.schlafzimmer
         name: Sonos Schlafzimmer
@@ -121,7 +121,6 @@ views:
               - light.decke
               - light.tisch
               - light.leselampe
-          # - type: section
       - type: entities
         show_header_toggle: false
         entities:
@@ -136,7 +135,6 @@ views:
               - light.nachttischlampe_wolfgang
               - light.nachttischlampe_anita
               - light.schlafzimmer
-          # - type: section
       - type: entities
         show_header_toggle: false
         entities:
@@ -180,8 +178,6 @@ views:
             primary:
               entity: sensor.humidity_158d00023258bd
               name: false
-          # - sensor.temperature_158d00023258bd
-          # - sensor.humidity_158d00023258bd
           - binary_sensor.door_window_sensor_158d00022f13a0
           - type: custom:fold-entity-row
             head:
@@ -206,7 +202,6 @@ views:
         show_header_toggle: false
         entities:
           - climate.oeq1696358
-          # - sensor.humidity_158d0001b8c998
           - entity: sensor.temperature_158d0001b8c998
             type: custom:multiple-entity-row
             primary:
@@ -220,13 +215,11 @@ views:
             entities:
               - script.1538143929416
               - switch.radiator_living_room_keylock
-              # - sensor.temperature_158d0001b8c998
               - sensor.valve_living_room
       - type: entities
         show_header_toggle: false
         entities:
           - climate.oeq1696369
-          # - sensor.humidity_158d0001b8c96c
           - entity: sensor.temperature_158d0001b8c96c
             type: custom:multiple-entity-row
             primary:
@@ -240,13 +233,11 @@ views:
             entities:
               - script.1538143964007
               - switch.radiator_bed_room_keylock
-              # - sensor.temperature_158d0001b8c96c
               - sensor.valve_bed_room
       - type: entities
         show_header_toggle: false
         entities:
           - climate.int0000002
-          # - sensor.oeq1667238_humidity
           - entity: sensor.oeq1667238_temperature
             type: custom:multiple-entity-row
             primary:
@@ -260,13 +251,10 @@ views:
             entities:
               - script.1538143893265
               - switch.radiator_office_keylock
-              # - sensor.oeq1667238_temperature
               - sensor.valve_office
       - type: entities
         show_header_toggle: false
         entities:
-          # - sensor.temperature_158d0002239fb5
-          # - sensor.humidity_158d0002239fb5
           - entity: sensor.temperature_158d0002239fb5
             type: custom:multiple-entity-row
             primary:
@@ -371,14 +359,6 @@ views:
                 padding: 5
                 entities:
                   - input_select.vacuum_rooms
-                  # - script.1543667402104 
-                  # - script.1543666580682
-                  # - script.1543666947492
-                  # - script.1543666909272
-                  # - script.1543666985219
-                  # - script.1543666771838
-                  # - script.1543666867257
-                  # - script.1543666831509
               - type: custom:fold-entity-row
                 head:
                   type: section
