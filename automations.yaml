@@ -634,3 +634,27 @@
   - data:
       message: Bad Ventil offen
     service: notify.ios_iphonex
+- id: '1565633489639'
+  alias: Sonos Wecker an
+  trigger:
+  - entity_id: calendar.privat_urlaub
+    platform: state
+    to: 'off'
+  - entity_id: calendar.arbeit_businesstrip
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - service: script.1534621188695
+- id: '1565633579364'
+  alias: Sonos Wecker aus
+  trigger:
+  - entity_id: calendar.privat_urlaub
+    platform: state
+    to: 'on'
+  - entity_id: calendar.arbeit_businesstrip
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - service: script.1534621226775
