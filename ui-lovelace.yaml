@@ -549,16 +549,6 @@ views:
             entities:
               - automation.abwesenheitsschaltung
               - automation.anwesenheitsschaltung
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - binary_sensor.motion_sensor_158d00023e77cb
-          - sensor.illumination_158d00023e77cb
-          - type: section
-          - automation.bewegungsmelder_alarm
-          - script.1541097052191
-          - type: section
-          - automation.benachrichtigung_bewegung_erkannt
       - type: conditional
         conditions:
           - entity: device_tracker.hikam_4452
@@ -570,6 +560,16 @@ views:
           # show_info: true
           # tap_action: dialog
           title: Kamera
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - binary_sensor.motion_sensor_158d00023e77cb
+          - sensor.illumination_158d00023e77cb
+          - type: section
+          - automation.bewegungsmelder_alarm
+          - script.1541097052191
+          - type: section
+          - automation.benachrichtigung_bewegung_erkannt
 
 ##### Auto ##### 
   - title: BMW X1
