@@ -6,16 +6,13 @@
       master: media_player.schlafzimmer
     service: sonos.join
   - data:
-      entity_id: media_player.schlafzimmer
-      source: Superfly FM
-    service: media_player.select_source
-  - data:
       entity_id: media_player.bad, media_player.schlafzimmer, media_player.kuche
-      volume_level: '0.10'
+      volume_level: '0.12'
     service: media_player.volume_set
   - data:
       entity_id: media_player.schlafzimmer
-    service: media_player.media_play
+      source: Superfly.fm
+    service: media_player.select_source
 '1532175994947':
   alias: Sonos_Stop
   sequence:
@@ -446,6 +443,7 @@
   alias: Harman Kardon Mute
   sequence:
   - data_template:
-        entity_id: media_player.harman_kardon_avr
-        is_volume_muted: "{{ not state_attr('media_player.harman_kardon_avr', 'is_volume_muted') }}"
+      entity_id: media_player.harman_kardon_avr
+      is_volume_muted: '{{ not state_attr(''media_player.harman_kardon_avr'', ''is_volume_muted'')
+        }}'
     service: media_player.volume_mute
