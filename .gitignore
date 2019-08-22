@@ -7,13 +7,12 @@ home-assistant_v2.db
 home-assistant.log
 git_token.txt
 .homekit.state
-.storage/*
 .uuid
 .HA_VERSION
 home-assistant_v2.db-shm
 home-assistant_v2.db-wal
 custom_components/__pycache__
 *pycache*
-.storage/custom_updater.cards
 .cloud/*
 airsonos.xml
+.storage/*
