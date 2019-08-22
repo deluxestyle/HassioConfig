@@ -15,7 +15,6 @@ smart_home:
       - light.tisch
       - light.decke
       - light.leselampe
-      - light.tisch
       - switch.tv_switch
       - switch.power_plug_printer
       - switch.power_plug_multimedia

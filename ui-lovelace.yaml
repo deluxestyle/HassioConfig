@@ -527,7 +527,7 @@ views:
           - type: section
           - light.steckdose_3
           - type: section
-          - light.ventilator
+          - light.steckdose_5
 
 ##### Personen #####
   - title: Personen

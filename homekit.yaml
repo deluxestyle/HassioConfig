@@ -15,7 +15,6 @@ filter:
     - script.1532175994947
     - light.steckdose_2
     - light.steckdose_4
-    - light.onoff_plug_1
     - media_player.bad
     - media_player.schlafzimmer
     - media_player.kuche
@@ -23,9 +22,6 @@ filter:
     - switch.power_plug_multimedia
     - switch.power_plug_printer
     - switch.power_plug_plug_3
-    # - script.1538068809592
-    # - script.1538057479069
-    # - script.1538072504227
     - sensor.temperature_158d0001b8c96c
     - sensor.temperature_158d0001b8c998
     - sensor.temperature_158d0002239fb5
