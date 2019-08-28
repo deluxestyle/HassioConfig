@@ -70,4 +70,5 @@ include:
     - sensor.processor_use_2
     - sensor.cpu_temperature
     - device_tracker.x1_sdrive18i
+    - sensor.online_time
 
