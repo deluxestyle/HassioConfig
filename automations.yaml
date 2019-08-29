@@ -1,8 +1,9 @@
 - id: update_notification
   alias: Benachrichtigung - Update HASS
   trigger:
-  - entity_id: updater.updater
+  - entity_id: binary_sensor.updater
     platform: state
+    to: 'on'
   action:
   - data:
       message: There is a new Home Assistant release available
