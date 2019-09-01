@@ -60,9 +60,9 @@ logbook:
       - calendar
 
 # Discover some devices automatically
-discovery:
-  ignore:
-    - homekit
+# discovery:
+  # ignore:
+  #   - homekit
 
 group: !include groups.yaml
 automation: !include automations.yaml
