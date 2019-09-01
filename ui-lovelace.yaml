@@ -608,6 +608,22 @@ views:
         entities:
           - entity: device_tracker.x1_sdrive18i
 
+##### Weather #####
+  - title: Wetter
+    id: weather
+    icon: mdi:weather-partly-snowy-rainy
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - weather.dark_sky
+          - sun.sun
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - sensor.pressure_158d0002239fb5
+          - sensor.pressure_158d00023258bd    
+
 ##### System #####
   - title: System
     id: other
@@ -629,16 +645,6 @@ views:
                 show_header_toggle: false
               group: group.battery_status_xiaomi
     cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - weather.dark_sky
-          - sun.sun
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - sensor.pressure_158d0002239fb5
-          - sensor.pressure_158d00023258bd
       - type: entities
         show_header_toggle: false
         entities:

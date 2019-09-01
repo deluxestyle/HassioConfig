@@ -337,7 +337,7 @@ sensor.battery_sensor_wall_switch:
 sensor.battery_sensor_wall_switch_double:
   icon: mdi:battery-50
 binary_sensor.x1_sdrive18i_door_lock_state:
-  friendly_name: Schlösser
+  friendly_name: Status
 binary_sensor.x1_sdrive18i_windows:
   friendly_name: Fenster
 binary_sensor.x1_sdrive18i_lids:
