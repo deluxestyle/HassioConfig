@@ -28,9 +28,6 @@
   - data: {}
     service: script.1532175994947
   - data:
-      entity_id: automation.benachrichtigung_bewegung_erkannt
-    service: automation.turn_on
-  - data:
       entity_id: light.steckdose_3
     service: light.turn_off
 - id: scenes_living_room
@@ -151,9 +148,9 @@
 - id: xiaomi_vacuum_notification_blocked
   alias: 'Xiaomi Staubsauger: Fehler'
   trigger:
-  - entity_id: sensor.xiaomi_vacuum_status
+  - entity_id: vacuum.xiaomi_vacuum_cleaner
     platform: state
-    to: Error
+    to: error
   condition:
   - condition: template
     value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.error != ''Clean
@@ -659,3 +656,14 @@
   condition: []
   action:
   - service: script.1534621226775
+- id: '1567492774371'
+  alias: Yeelight Error
+  trigger:
+  - entity_id: device_tracker.yeelink_light_bslamp2_miio164
+    platform: state
+    to: not_home
+  condition: []
+  action:
+  - data:
+      message: Nachttischlampe offline
+    service: notify.ios_iphonex

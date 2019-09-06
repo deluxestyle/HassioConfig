@@ -48,7 +48,7 @@ sensor.humidity_158d0001b8c998:
   friendly_name: Luftfeuchtigkeit Wohnzimmer
   icon: mdi:water-percent
 light.gateway_light_7811dcb258d1:
-  friendly_name: Xiaomi Nachtlicht
+  friendly_name: Flur Nachtlicht
   icon: mdi:weather-night
 sensor.illumination_7811dcb258d1:
   friendly_name: Lichtmesser
@@ -251,6 +251,7 @@ script.1543666947492:
   icon: mdi:broom
 light.lights_bed_room:
   friendly_name: Schlafzimmerlicht
+  icon: mdi:ceiling-light
 light.nachttischlampe_wolfgang:
   icon: mdi:lamp
 light.nachttischlampe_anita:
