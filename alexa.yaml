@@ -18,3 +18,4 @@ smart_home:
       - switch.tv_switch
       - switch.power_plug_printer
       - switch.power_plug_multimedia
+      - switch.vacuum

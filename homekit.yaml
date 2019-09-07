@@ -33,6 +33,7 @@ filter:
     - sensor.oeq1667238_humidity
     - switch.tv_switch
     - switch.music_switch
+    - switch.vacuum
 entity_config:
     media_player.schlafzimmer:
       feature_list:

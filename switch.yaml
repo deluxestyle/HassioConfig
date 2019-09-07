@@ -125,7 +125,7 @@
         turn_off:
           - service: script.turn_on
             entity_id: script.1538057479069
-    ###### Steckdosen (nur für HomeKit/Alexa) ######
+    ###### Switches (nur für HomeKit/Alexa) ######
     power_plug_multimedia:
         friendly_name: Steckdosenleiste
         value_template: "{{ is_state('light.steckdose', 'on') }}"
@@ -153,3 +153,14 @@
         turn_off:
           - service: light.turn_off
             entity_id: light.steckdose_5
+    vacuum:
+        friendly_name: Staubsauger
+        value_template: "{{ is_state('vacuum.xiaomi_vacuum_cleaner', 'cleaning')}}"
+        turn_on:
+          - service: vacuum.start
+            entity_id: vacuum.xiaomi_vacuum_cleaner
+        turn_off:
+          - service: vacuum.start
+            entity_id: vacuum.return_to_base
+
+        
