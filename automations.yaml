@@ -606,8 +606,8 @@
       notification_id: backup
       title: Backup
     service: persistent_notification.create
-  - data: {}
-    service: clean_up_snapshots_service.clean_up
+  - delay: 00:05:00
+  - service: clean_up_snapshots_service.clean_up
 - id: '1564908105933'
   alias: 'RPI: RAM'
   trigger:
