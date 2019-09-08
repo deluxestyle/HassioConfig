@@ -160,7 +160,5 @@
           - service: vacuum.start
             entity_id: vacuum.xiaomi_vacuum_cleaner
         turn_off:
-          - service: vacuum.start
-            entity_id: vacuum.return_to_base
-
-        
+          - service: vacuum.return_to_base
+            entity_id: vacuum.xiaomi_vacuum_cleaner
