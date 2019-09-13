@@ -11,7 +11,7 @@
     service: media_player.volume_set
   - data:
       entity_id: media_player.schlafzimmer
-      source: Superfly.fm
+      source: Superfly FM
     service: media_player.select_source
 '1532175994947':
   alias: Sonos_Stop

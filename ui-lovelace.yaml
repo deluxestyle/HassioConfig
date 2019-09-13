@@ -592,17 +592,17 @@ views:
               - binary_sensor.x1_sdrive18i_lights_parking
               - binary_sensor.x1_sdrive18i_condition_based_services
               - binary_sensor.x1_sdrive18i_check_control_messages
-          - type: custom:fold-entity-row
-            head:
-              type: section
-              label: Funktionen
-            padding: 5
-            entities:
-              - lock.x1_sdrive18i_lock
-              - script.1543166767000
-              - script.1543167202912
-              - script.1543167430941
-              - script.1543218125342
+          # - type: custom:fold-entity-row
+          #   head:
+          #     type: section
+          #     label: Funktionen
+          #   padding: 5
+          #   entities:
+          #     - lock.x1_sdrive18i_lock
+          #     - script.1543166767000
+          #     - script.1543167202912
+          #     - script.1543167430941
+          #     - script.1543218125342
       - type: map
         default_zoom: 14
         entities:
