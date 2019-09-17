@@ -379,6 +379,7 @@ views:
                     padding: 5
                     entities:
                       - script.1547995682348
+                      - automation.xiaomi_staubsauger_sensor_kritisch
                   - type: custom:fold-entity-row
                     head: sensor.xiaomi_vacuum_main_brush_left
                     padding: 5
@@ -389,6 +390,7 @@ views:
                     padding: 5
                     entities:
                       - script.1547995832032
+                      - automation.xiaomi_staubsauger_filter_kritisch
               - type: custom:fold-entity-row
                 head:
                   type: section

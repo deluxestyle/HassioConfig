@@ -669,3 +669,17 @@
   - data:
       message: Nachttischlampe offline
     service: notify.ios_iphonex
+- id: '1568628137654'
+  alias: 'Xiaomi Staubsauger: Filter kritisch'
+  trigger:
+  - below: '2'
+    entity_id: sensor.xiaomi_vacuum_filter_left
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      message: 'Filter wechseln: {{ states.sensor.xiaomi_vacuum_filter_left.state
+        }} h übrig'
+      notification_id: xiaomi_sensor
+      title: Xiaomi StaubRobo
+    service: persistent_notification.create
