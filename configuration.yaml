@@ -1,0 +1,177 @@
+homeassistant:
+  customize: !include customize.yaml
+  packages: !include_dir_named packages
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+http:
+  base_url: !secret hass_url
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+frontend:
+  javascript_version: latest
+  themes: !include_dir_merge_named themes
+
+lovelace:
+  mode: yaml
+  
+api:
+
+alexa: !include alexa.yaml
+
+updater:
+  include_used_components: true
+
+recorder:
+  purge_interval: 1
+  purge_keep_days: 1
+  exclude:
+    domains:
+      - group
+      - device_tracker
+      - sensor
+      - light
+      - media_player
+      - scene
+      - switch
+      - camera
+      - switch
+      - binary_sensor
+      - climate
+      - calendar
+      - camera
+    entities:
+      - sun.sun
+      - automation.battery_persistent_notification
+      - weather.dark_sky
+      
+history:
+  exclude:
+    domains:
+      - group
+      - calendar
+
+logbook:
+  exclude:
+    domains:
+      - group
+      - calendar
+
+# Discover some devices automatically
+# discovery:
+  # ignore:
+  #   - homekit
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+switch: !include switch.yaml  
+light: !include light.yaml
+input_select: !include input_selects.yaml
+input_boolean: !include input_boolean.yaml
+input_datetime: !include input_datetime.yaml
+#input_number: !include input_number.yaml
+sensor: !include senors.yaml
+counter: !include counter.yaml
+media_player: !include media_player.yaml
+
+influxdb: !include influxdb.yaml
+
+ios: !include push.yaml
+
+homekit: !include homekit.yaml
+
+hue:
+  bridges:
+    - host: 192.168.200.52
+      allow_unreachable: true
+      allow_hue_groups: false
+
+homematic:
+  interfaces:
+    rf:
+      host: 192.168.200.21
+    groups:
+      host: 192.168.200.21
+      port: 9292
+      path: /groups
+  hosts:
+    ccu2:
+      host: 192.168.200.21
+      username: !secret homematic_user
+      password: !secret ccu_password
+
+vacuum:
+  - platform: xiaomi_miio
+    host: 192.168.200.28
+    token: !secret xiaomi_vacuum
+
+device_tracker:
+  - platform: fritz
+    host: 192.168.200.1
+    consider_home: 600
+
+xiaomi_aqara:
+  discovery_retry: 5
+  gateways:
+    - key: !secret xiaomi_gateway
+
+remote:
+  - platform: harmony
+    name: harmony_hub
+    host: 192.168.200.55
+
+weather:
+  - platform: darksky
+    api_key: !secret dark_syk
+
+calendar:
+  - platform: caldav
+    username: !secret next_user
+    password: !secret next_password
+    url: !secret next_url
+    custom_calendars:
+      - name: 'Putzfrau'
+        calendar: 'Privat'
+        search: 'Putzfrau'
+      - name: 'Urlaub'
+        calendar: 'Privat'
+        search: 'Urlaub'
+      - name: 'BusinessTrip'
+        calendar: 'Arbeit'
+        search: 'Business Trip'
+
+yeelight:
+  devices:
+    192.168.200.59:
+      name: Nachttischlampe Wolfgang
+    192.168.200.42:
+      name: Nachttischlampe Anita
+
+bmw_connected_drive:
+ x1:
+   username: !secret bmw_user
+   password: !secret bmw_password
+   region: "rest_of_world"
+
+panel_iframe:
+  grafana:
+    title: Statistik
+    url: !secret grafana_url
+    icon: mdi:elevation-rise
+
+ffmpeg:
+
+stream:
+
+camera:
+  - platform: ffmpeg
+    input: -rtsp_transport tcp -i rtsp://192.168.200.40:554/onvif1
+
+clean_up_snapshots_service:
+  host: !secret hass_url
+  token: !secret snapshot_token
+  number_of_snapshots_to_keep: 6
