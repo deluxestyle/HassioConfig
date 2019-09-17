@@ -683,3 +683,22 @@
       notification_id: xiaomi_sensor
       title: Xiaomi StaubRobo
     service: persistent_notification.create
+- id: dsfasdfasdfsafsadfsdfdee
+  alias: 'Sonos Wecker'
+  trigger:
+  - platform: template
+    value_template: '{{ states(''sensor.time'') == (states.input_datetime.sonos_alarm.attributes.timestamp
+      | int | timestamp_custom(''%H:%M'', False)) }}'
+  condition:
+  - condition: state
+    entity_id: sensor.presence
+    state: home
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - service: script.1532173931599

@@ -447,3 +447,18 @@
       is_volume_muted: '{{ not state_attr(''media_player.harman_kardon_avr'', ''is_volume_muted'')
         }}'
     service: media_player.volume_mute
+'1532173931599':
+  alias: Sonos Wecker
+  sequence:
+  - data:
+      entity_id: media_player.bad, media_player.schlafzimmer, media_player.kuche
+      master: media_player.schlafzimmer
+    service: sonos.join
+  - data:
+      entity_id: media_player.bad, media_player.schlafzimmer, media_player.kuche
+      volume_level: '0.02'
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.schlafzimmer
+      source: Superfly FM
+    service: media_player.select_source

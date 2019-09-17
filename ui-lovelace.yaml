@@ -444,8 +444,8 @@ views:
               label: Wecker
             padding: 5
             entities:
-              - script.1534621188695
-              - script.1534621226775
+              - input_datetime.sonos_alarm
+              - automation.sonos_wecker
 
 ##### Entertainment #####
   - title: Entertainment
