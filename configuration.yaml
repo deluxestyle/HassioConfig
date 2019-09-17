@@ -6,7 +6,7 @@ homeassistant:
 default_config:
 
 http:
-  base_url: https://tanzerhome.duckdns.org:9123
+  base_url: !secret hass_url
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
@@ -172,6 +172,6 @@ camera:
     input: -rtsp_transport tcp -i rtsp://192.168.200.40:554/onvif1
 
 clean_up_snapshots_service:
-  host: https://tanzerhome.duckdns.org:9123
+  host: !secret hass_url
   token: !secret snapshot_token
   number_of_snapshots_to_keep: 6
