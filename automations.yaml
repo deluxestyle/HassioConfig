@@ -680,11 +680,11 @@
   - data:
       message: 'Filter wechseln: {{ states.sensor.xiaomi_vacuum_filter_left.state
         }} h übrig'
-      notification_id: xiaomi_sensor
+      notification_id: xiaomi_filter
       title: Xiaomi StaubRobo
     service: persistent_notification.create
 - id: dsfasdfasdfsafsadfsdfdee
-  alias: 'Sonos Wecker'
+  alias: Sonos Wecker
   trigger:
   - platform: template
     value_template: '{{ states(''sensor.time'') == (states.input_datetime.sonos_alarm.attributes.timestamp
