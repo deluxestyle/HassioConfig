@@ -700,5 +700,8 @@
     - wed
     - thu
     - fri
+  - condition: state
+    entity_id: calendar.privat_urlaub
+    state: 'off'
   action:
   - service: script.1532173931599
