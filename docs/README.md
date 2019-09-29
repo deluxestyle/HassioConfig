@@ -27,3 +27,6 @@ Using a lot of custom elements for lovelace:
 * https://github.com/thomasloven/lovelace-fold-entity-row
 * https://github.com/custom-cards/vertical-stack-in-card
 and much more
+
+Alexa connection via Home Assistant Alexa Skill Adapter
+* https://github.com/mike-grant/haaska
