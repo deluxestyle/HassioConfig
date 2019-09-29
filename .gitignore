@@ -16,3 +16,4 @@ custom_components/__pycache__
 .cloud/*
 airsonos.xml
 .storage/*
+hassio.code-workspace
