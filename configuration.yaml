@@ -175,3 +175,9 @@ clean_up_snapshots_service:
   host: !secret hass_url
   token: !secret snapshot_token
   number_of_snapshots_to_keep: 6
+
+fritzbox_tools:
+  host: "192.168.200.1"
+  username: !secret fritz_user
+  password: !secret fritz_password
+  homeassistant_ip: "192.168.200.33"
