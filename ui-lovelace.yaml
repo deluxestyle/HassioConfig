@@ -651,7 +651,9 @@ views:
         show_header_toggle: false
         entities:
           - automation.tagliches_backup
-          - type: section
+      - type: entities
+        show_header_toggle: false
+        entities:
           - automation.battery_persistent_notification
           - script.battery_persistent_notification_clear
           - type: custom:fold-entity-row
