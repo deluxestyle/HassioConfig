@@ -23,6 +23,8 @@ resources:
     type: js
   - url: /local/tiles-card.js?track=true
     type: js
+  - url: /community_plugin/lovelace-card-mod/card-mod.js
+    type: module
 # -----------------------------
 cch:
   main_config: true
