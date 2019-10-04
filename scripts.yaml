@@ -109,7 +109,7 @@
     service: light.turn_on
   - delay: 00:00:02
   - data:
-      activity: Fernsehen Telekom
+      activity: Magenta TV
       entity_id: remote.harmony_hub
     service: remote.turn_on
 '1538072504227':
@@ -120,7 +120,7 @@
     service: light.turn_on
   - delay: 00:00:02
   - data:
-      activity: Musik hören
+      activity: Musik
       entity_id: remote.harmony_hub
     service: remote.turn_on
 '1538128738934':
