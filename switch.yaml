@@ -108,7 +108,7 @@
             entity_id: script.1538143115062
         icon_template: mdi:youtube-tv
     tv_switch:
-        friendly_name: "Fernsehen"
+        friendly_name: "Magenta TV"
         value_template: "{{ is_state('sensor.remote_state', 'Magenta TV') and is_state('light.steckdose', 'on')}}"
         turn_on:
           - service: script.turn_on
