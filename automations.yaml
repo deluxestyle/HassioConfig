@@ -705,3 +705,30 @@
     state: 'off'
   action:
   - service: script.1532173931599
+- id: switch_double_wall_left
+  alias: Lichtschalter - Schlafzimmer links
+  trigger:
+  - event_data:
+      click_type: single
+      entity_id: binary_sensor.wall_switch_left_158d000254275c
+    event_type: xiaomi_aqara.click
+    platform: event
+  action:
+  - data:
+      entity_id: light.schlafzimmer
+    service: light.toggle
+- id: switch_double_wall_right
+  alias: Lichtschalter - Schlafzimmer rechts
+  trigger:
+  - event_data:
+      click_type: single
+      entity_id: binary_sensor.wall_switch_right_158d000254275c
+    event_type: xiaomi_aqara.click
+    platform: event
+  action:
+  - data:
+      entity_id: light.nachttischlampe_wolfgang
+    service: light.toggle
+  - data:
+      entity_id: light.nachttischlampe_anita
+    service: light.toggle
