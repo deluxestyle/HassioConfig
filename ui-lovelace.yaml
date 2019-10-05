@@ -54,7 +54,6 @@ x-music-player: &music-player
   artwork: none
   source: full
   more_info: false
-  replace_mute: stop
   sonos:
     show_group_count: true
     sync_volume: true
