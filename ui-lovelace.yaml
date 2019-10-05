@@ -632,22 +632,6 @@ views:
   - title: System
     id: other
     icon: mdi:settings-outline
-    popup_cards:
-      automation.battery_persistent_notification:
-        title: Status
-        card:
-          type: entities
-          entities:
-            - type: custom:group-card
-              card:
-                type: entities
-                show_header_toggle: false
-              group: group.battery_status_homeatic
-            - type: custom:group-card
-              card:
-                type: entities
-                show_header_toggle: false
-              group: group.battery_status_xiaomi
     cards:
       - type: entities
         show_header_toggle: false
@@ -664,8 +648,18 @@ views:
               label: Batteriewerte
             padding: 5
             entities:
-              - input_number.battery_alert_homatic
+              - input_number.battery_alert_homeatic
               - input_number.battery_alert_xiaomi
+              - input_number.battery_alert_hue
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Batteriestatus
+            padding: 5
+            entities:
+              - group.battery_status_homeatic
+              - group.battery_status_xiaomi
+              - group.battery_status_hue
       - type: entities
         show_header_toggle: false
         entities:

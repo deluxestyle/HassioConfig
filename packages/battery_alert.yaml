@@ -8,10 +8,6 @@ homeassistant:
       icon: mdi:battery-alert
     script.battery_persistent_notification_clear:
       icon: mdi:bell-off-outline
-    input_number.battery_alert_homatic:
-      friendly_name: 'Homematic'
-    input_number.battery_alert_xiaomi:
-      friendly_name: 'Xiaomi'
 
 ################################################
 ## Group
@@ -41,6 +37,13 @@ group:
       - sensor.battery_radiator_livingroom
       - sensor.battery_radiator_office_1
       - sensor.battery_radiator_office_2
+  
+  battery_status_hue:
+    name: Hue Batterie Status
+    view: false
+    entities:
+      - sensor.hue_dimmer_battery_bedroom
+      - sensor.hue_dimmer_battery_livingroom
 
 ################################################
 ## Input Boolean
@@ -54,16 +57,25 @@ input_boolean:
 ## Input Number
 ################################################
 input_number:
-  battery_alert_homatic:
+  battery_alert_homeatic:
+    name: 'Homematic'
     mode: slider
     min: 2.0
     max: 4.0
     step: 0.1
 
   battery_alert_xiaomi:
+    name: 'Xiaomi'
     mode: slider
     min: -1
     max: 60
+    step: 1
+  
+  battery_alert_hue:
+    name: 'Hue'
+    mode: slider
+    min: -1
+    max: 100
     step: 1
 
 ################################################
@@ -88,8 +100,9 @@ automation:
       seconds: 00
     - platform: state
       entity_id:
-        - input_number.battery_alert_homatic
+        - input_number.battery_alert_homeatic
         - input_number.battery_alert_xiaomi
+        - input_number.battery_alert_hue
   action:
     - condition: state
       entity_id: input_boolean.low_batteries
@@ -106,7 +119,26 @@ automation:
                 or states(entity_id) | length == states(entity_id)| int | string | length
                 or states(entity_id) | length == states(entity_id)| float | string | length
               )
-              and states(entity_id)| float < states.input_number.battery_alert_homatic.state | float
+              and states(entity_id)| float < states.input_number.battery_alert_homeatic.state | float
+            )
+            or states(entity_id) | lower == 'low'
+            or states(entity_id) | lower == 'unknown'
+            or states(entity_id) | lower == 'unavailable'
+          )
+        ) -%}
+          {{ state_attr(entity_id, "friendly_name") }} ({{ states(entity_id) }})
+        {% endfor -%}
+
+        {% for entity_id in states.group.battery_status_hue.attributes.entity_id if (
+          states(entity_id) is not none
+          and (
+            (
+              (
+                states(entity_id) is number
+                or states(entity_id) | length == states(entity_id)| int | string | length
+                or states(entity_id) | length == states(entity_id)| float | string | length
+              )
+              and states(entity_id)| float < states.input_number.battery_alert_hue.state | float
             )
             or states(entity_id) | lower == 'low'
             or states(entity_id) | lower == 'unknown'
@@ -155,7 +187,26 @@ automation:
                   or states(entity_id) | length == states(entity_id)| int | string | length
                   or states(entity_id) | length == states(entity_id)| float | string | length
                 )
-                and states(entity_id)| float < states.input_number.battery_alert_homatic.state | float
+                and states(entity_id)| float < states.input_number.battery_alert_homeatic.state | float
+              )
+              or states(entity_id) | lower == 'low'
+              or states(entity_id) | lower == 'unknown'
+              or states(entity_id) | lower == 'unavailable'
+            )
+          ) -%}
+            {{ state_attr(entity_id, "friendly_name") }} ({{ states(entity_id) }})
+          {% endfor -%}
+
+          {% for entity_id in states.group.battery_status_hue.attributes.entity_id if (
+            states(entity_id) is not none
+            and (
+              (
+                (
+                  states(entity_id) is number
+                  or states(entity_id) | length == states(entity_id)| int | string | length
+                  or states(entity_id) | length == states(entity_id)| float | string | length
+                )
+                and states(entity_id)| float < states.input_number.battery_alert_hue.state | float
               )
               or states(entity_id) | lower == 'low'
               or states(entity_id) | lower == 'unknown'

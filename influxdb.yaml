@@ -71,4 +71,5 @@ include:
     - sensor.cpu_temperature
     - device_tracker.x1_sdrive18i
     - sensor.online_time
-
+    - sensor.hue_dimmer_battery_bedroom
+    - sensor.hue_dimmer_battery_livingroom

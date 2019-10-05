@@ -1,6 +1,8 @@
 - platform: fritzbox_netmonitor
   host: 192.168.200.1
 
+- platform: huesensor
+
 - platform: systemmonitor
   resources:
       - type: memory_free
@@ -130,6 +132,16 @@
       dark_sky_temperature:
         friendly_name: Temperatur
         value_template: '{{ states.weather.dark_sky.attributes.temperature }}'
+      hue_dimmer_battery_livingroom:
+        entity_id: sensor.hue_dimmer_wohnzimmer
+        friendly_name: Hue dimmer Wohnzimmer
+        value_template: '{{ states.sensor.hue_dimmer_wohnzimmer.attributes.battery }}'
+        device_class: battery
+      hue_dimmer_battery_bedroom:
+        entity_id: sensor.hue_dimmer_schlafzimmer
+        friendly_name: Hue dimmer Schlafzimmer
+        value_template: '{{ states.sensor.hue_dimmer_schlafzimmer.attributes.battery }}'
+        device_class: battery
 
 - platform: uptime
   name: online_time
