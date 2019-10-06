@@ -45,7 +45,7 @@ group:
     view: false
     control: hidden
     entities:
-      - sensor.hue_dimmer_battery_bedroom
+      # - sensor.hue_dimmer_battery_bedroom
       - sensor.hue_dimmer_battery_livingroom
 
 ################################################

@@ -137,11 +137,11 @@
         friendly_name: Hue dimmer Wohnzimmer
         value_template: '{{ states.sensor.hue_dimmer_wohnzimmer.attributes.battery }}'
         device_class: battery
-      hue_dimmer_battery_bedroom:
-        entity_id: sensor.hue_dimmer_schlafzimmer
-        friendly_name: Hue dimmer Schlafzimmer
-        value_template: '{{ states.sensor.hue_dimmer_schlafzimmer.attributes.battery }}'
-        device_class: battery
+      # hue_dimmer_battery_bedroom:
+      #   entity_id: sensor.hue_dimmer_schlafzimmer
+      #   friendly_name: Hue dimmer Schlafzimmer
+      #   value_template: '{{ states.sensor.hue_dimmer_schlafzimmer.attributes.battery }}'
+      #   device_class: battery
 
 - platform: uptime
   name: online_time
