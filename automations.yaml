@@ -344,7 +344,7 @@
     platform: numeric_state
   condition:
   - condition: state
-    entity_id: device_tracker.iphonex
+    entity_id: person.wolfgang
     state: home
   action:
   - data:
