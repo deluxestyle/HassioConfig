@@ -286,10 +286,7 @@ binary_sensor.door_window_sensor_158d00022f13a0:
 sensor.illumination_158d00023e77cb:
   friendly_name: Lichtsensor
 binary_sensor.motion_sensor_158d00023e77cb:
-  friendly_name: Bewegungsmelder
-device_tracker.anni:
-  friendly_name: iPhone Anita
-  icon: mdi:cellphone
+  friendly_name: Bewegungsmelderd
 sensor.dark_sky_temperature:
   friendly_name: aktuelle Temperatur
 weather.dark_sky:

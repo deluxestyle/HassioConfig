@@ -189,7 +189,7 @@
     platform: time
   condition:
   - condition: state
-    entity_id: device_tracker.anni
+    entity_id: person.anita
     state: not_home
   - condition: time
     weekday:
@@ -229,7 +229,7 @@
 - id: '1532176861984'
   alias: Sonos starten
   trigger:
-  - entity_id: device_tracker.iphonex
+  - entity_id: person.wolfgang
     platform: state
     to: home
   condition:
@@ -237,10 +237,10 @@
     before: '20:00:00'
     condition: time
   - condition: state
-    entity_id: device_tracker.anni
+    entity_id: person.anita
     state: not_home
   action:
-    data: {}
+  - data: {}
     service: script.1532173931522
 - id: '1532273712071'
   alias: Harman Kardon AVR - Quelle auswählen
@@ -566,7 +566,7 @@
 - id: '1554536389566'
   alias: Sonos stoppen
   trigger:
-  - entity_id: device_tracker.iphonex
+  - entity_id: person.wolfgang
     platform: state
     to: not_home
   condition: []

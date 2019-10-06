@@ -542,9 +542,7 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          # - device_tracker.iphonex
           - person.wolfgang
-          # - device_tracker.anni
           - person.anita
           - type: custom:fold-entity-row
             head:
