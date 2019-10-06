@@ -16,6 +16,7 @@ group:
   battery_status_xiaomi:
     name: Xiaomi Batterie Status
     view: false
+    control: hidden
     entities:
       - sensor.battery_sensor_bedroom
       - sensor.battery_sensor_button_1
@@ -31,6 +32,7 @@ group:
   battery_status_homeatic:
     name: Homeatic Batterie Status
     view: false
+    control: hidden
     entities:
       - sensor.battery_radiator_bath
       - sensor.battery_radiator_bedroom
@@ -41,6 +43,7 @@ group:
   battery_status_hue:
     name: Hue Batterie Status
     view: false
+    control: hidden
     entities:
       - sensor.hue_dimmer_battery_bedroom
       - sensor.hue_dimmer_battery_livingroom

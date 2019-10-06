@@ -25,6 +25,8 @@ resources:
     type: js
   - url: /community_plugin/lovelace-card-mod/card-mod.js
     type: module
+  - url: /community_plugin/lovelace-auto-entities/auto-entities.js
+    type: js
 # -----------------------------
 cch:
   main_config: true
@@ -656,9 +658,12 @@ views:
               label: Batteriestatus
             padding: 5
             entities:
-              - group.battery_status_homeatic
-              - group.battery_status_xiaomi
-              - group.battery_status_hue
+              - type: custom:fold-entity-row
+                head: group.battery_status_homeatic
+              - type: custom:fold-entity-row
+                head: group.battery_status_xiaomi
+              - type: custom:fold-entity-row
+                head: group.battery_status_hue
       - type: entities
         show_header_toggle: false
         entities:
