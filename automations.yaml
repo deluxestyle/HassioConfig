@@ -145,6 +145,8 @@
           category: vacuum_stop
       message: Staubsauger gestartet
     service: notify.ios_iphonex
+  - data: {}
+    service: script.1570388076993
 - id: xiaomi_vacuum_notification_blocked
   alias: 'Xiaomi Staubsauger: Fehler'
   trigger:
@@ -517,6 +519,8 @@
       data:
         push:
           category: vacuum_trigger
+          thread-id: vacuum_start
+          badge: 1
       message: Staubsauger starten?
     service: notify.ios_iphonex
 - id: '1550439982602'

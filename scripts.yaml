@@ -462,3 +462,9 @@
       entity_id: media_player.schlafzimmer
       source: Superfly FM
     service: media_player.select_source
+'1570388076993':
+  alias: Badge löschen
+  sequence:
+  - data:
+      message: clear_badge
+    service: notify.ios_iphonex
