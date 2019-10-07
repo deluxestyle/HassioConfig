@@ -35,8 +35,6 @@ sensor.valve_bed_room:
   icon: mdi:fan
 sensor.valve_living_room:
   icon: mdi:fan
-device_tracker.anitasiphone:
-  friendly_name: iPhone Anita (alt)
 sensor.temperature_158d0001b8c96c:
   friendly_name: Sensor Schlafzimmer
 sensor.temperature_158d0001b8c998:
@@ -55,8 +53,6 @@ sensor.illumination_7811dcb258d1:
 switch.lights_living_room:
   friendly_name: Wohnzimmer Licht
   icon: mdi:lightbulb-on
-light.hue_white_lamp_1:
-  friendly_name: Büro Licht
 switch.lights_all:
   friendly_name: alle Lichter
   icon: mdi:lightbulb-on
@@ -71,9 +67,6 @@ sensor.pressure_158d0002239fb5:
   icon: mdi:gauge
 sensor.temperature_158d0002239fb5:
   friendly_name: Sensor Küche
-group.battery_stats:
-  control: hidden
-  icon: mdi:battery-50´
 light.sonoff_office:
   friendly_name: Bürolicht
   icon: mdi:ceiling-light
@@ -102,16 +95,6 @@ sensor.battery_sensor_button_1:
   icon: mdi:battery-50
 sensor.battery_sensor_button_2:
   icon: mdi:battery-50
-sensor.pws_temp_c:
-  friendly_name: Temperatur
-sensor.pws_feelslike_string:
-  friendly_name: gefühlte Temperatur
-sensor.pws_feelslike_c:
-  friendly_name: gefühlte Temperatur
-sensor.pws_weather:
-  friendly_name: Zusammenfassung
-counter.xiaomo_runs:
-  friendly_name: 'Gesaugt heute:'
 sensor.xiaomi_vacuum_main_brush_left:
   friendly_name: Hauptbürste
   icon: mdi:blur-linear
@@ -140,14 +123,6 @@ script.1534621226775:
   icon: mdi:alarm-off
 input_boolean.camera_cctv:
   friendly_name: Kamera
-script.1536178184062:
-  icon: mdi:bullhorn
-script.1536178219164:
-  icon: mdi:air-conditioner
-script.1536178244890:
-  icon: mdi:flashlight
-script.1536178274313:
-  icon: mdi:update
 lock.x1_sdrive18i_lock:
   friendly_name: X1 Ent-/Verriegeln
 group.all_automations:
@@ -169,9 +144,6 @@ sensor.temperature_158d00023258bd:
 sensor.pressure_158d00023258bd:
   friendly_name: Luftdruck Bad
   icon: mdi:gauge
-counter.counter_mailbox:
-  friendly_name: Post
-  icon: mdi:mailbox
 sensor.remote_state:
   friendly_name: Aktuell
   icon: mdi:remote-tv
@@ -192,8 +164,6 @@ script.1538646823835:
   icon: mdi:radiator
 script.1538068809592:
   icon: mdi:television
-script.1538058955033:
-  icon: mdi:television-guide
 script.1538072504227:
   icon: mdi:music
 script.1538057479069:
@@ -217,12 +187,6 @@ automation.xiaomi_staubsauger_automatisch_starten:
   friendly_name: Automatisch starten
 automation.xiaomi_staubsauger_taglich_saugen:
   friendly_name: Täglich saugen
-script.1543166767000:
-  icon: mdi:air-conditioner
-script.1543167202912:
-  icon: mdi:bullhorn
-script.1543167430941:
-  icon: mdi:flashlight
 zone.home:
   track_ios: 'false'
 script.1543666985219:
@@ -274,19 +238,13 @@ light.deckenlicht:
 light.lights_kitchen:
   friendly_name: Küchenlicht
   icon: mdi:ceiling-light
-automation.xiaomi_staubsauger_benachrichtigung_error:
-  friendly_name: Benachrichtigung - Error
-automation.xiaomi_staubsauger_benachrichtigung_fertig:
-  friendly_name: Benachrichtigung - fertig
-automation.xiaomi_staubsauger_benachrichtigung_gestartet:
-  friendly_name: Benachrichtigung - gestartet
 binary_sensor.door_window_sensor_158d00022f13a0:
   friendly_name: Badfenster
   icon: mdi:window-closed
 sensor.illumination_158d00023e77cb:
   friendly_name: Lichtsensor
 binary_sensor.motion_sensor_158d00023e77cb:
-  friendly_name: Bewegungsmelderd
+  friendly_name: Bewegungsmelder
 sensor.dark_sky_temperature:
   friendly_name: aktuelle Temperatur
 weather.dark_sky:
