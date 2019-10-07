@@ -12,3 +12,7 @@ automation_radiator:
 
 radiator_on_off:
     name: heizungsstatus
+
+persistent_notification:
+    name: Benarichtigungen
+    initial: off

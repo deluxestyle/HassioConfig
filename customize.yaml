@@ -371,3 +371,5 @@ group.battery_status_homeatic:
   icon: mdi:battery-charging-wireless
 script.1570439203461:
   icon: mdi:message-bulleted-off
+script.1570443737111:
+  icon: mdi:message-bulleted-off

@@ -6,8 +6,13 @@
     to: 'on'
   action:
   - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
       message: There is a new Home Assistant release available
-    service: notify.mobile_app_iphonex
+      notification_id: hass_io
+      title: Hass.io
+    service: script.1570439573834
 - id: family_not_home
   alias: Abwesenheitsschaltung
   trigger:
@@ -123,10 +128,15 @@
     to: Returning home
   action:
   - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
       message: 'Staubsauger fertig - Dauer: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaning_time
         }} min - gesaugte Fläche: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaned_area
         }} qm | Fehler {{ states.counter.xiaomo_errors.state }}'
-    service: notify.mobile_app_iphonex
+      notification_id: xiaomi_vacuum_status
+      title: StaubRobo
+    service: script.1570439573834
   - data:
       entity_id: input_select.vacuum_rooms
       option: --
@@ -157,12 +167,14 @@
       main brush'' }}'
   action:
   - data:
-      data:
-        push:
-          category: vacuum_stop
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
       message: 'Staubsauger blockiert - Error: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.error
         }} '
-    service: notify.mobile_app_iphonex
+      notification_id: xiaomi_vacuum_error
+      title: StaubRobo
+    service: script.1570439573834
 - id: '1521743370575'
   alias: 'Heizung: Abwesenheitsschaltung'
   trigger:
@@ -348,11 +360,16 @@
     state: home
   action:
   - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
       message: 'Luftfeuchtigkeit zu hoch - Schlafzimmer: {{ states.sensor.humidity_158d0001b8c96c.state
         }} % - Wohnzimmer {{ states.sensor.humidity_158d0001b8c998.state }} % - Küche:
         {{ states.sensor.humidity_158d0002239fb5.state }} % - Büro: {{ states.sensor.oeq1667238_humidity.state
         }} % '
-    service: notify.mobile_app_iphonex
+      notification_id: Luftfeuchtigkeit
+      title: Luftfeuchtigkeit
+    service: script.1570439573834
 - id: '1541096569503'
   alias: Bewegungsmelder - Alarm
   initial_state: false
@@ -622,11 +639,15 @@
   condition: []
   action:
   - data:
-      message: 'RAM Auslastung zu hoch: {{ states.sensor.memory_use_percent.state
-        }} % '
-    service: notify.mobile_app_iphonex
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
+      message: 'RAM Auslastung zu hoch: {{ states.sensor.memory_use_percent.state }} % '
+      notification_id: heizung
+      title: Heizung
+    service: script.1570439573834
 - id: '1564988736274'
-  alias: 'Notification: Heizung Bad'
+  alias: Benachrichtigung - Heizung Bad
   trigger:
   - above: '0'
     entity_id: sensor.valve_bath
@@ -634,8 +655,13 @@
   condition: []
   action:
   - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
       message: Bad Ventil offen
-    service: notify.mobile_app_iphonex
+      notification_id: heizung
+      title: Heizung
+    service: script.1570439573834
 - id: '1565633489639'
   alias: Sonos Wecker an
   trigger:
@@ -669,8 +695,13 @@
   condition: []
   action:
   - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
       message: Nachttischlampe offline
-    service: notify.mobile_app_iphonex
+      notification_id: light
+      title: Nachttischlampe
+    service: script.1570439573834
 - id: '1568628137654'
   alias: 'Xiaomi Staubsauger: Filter kritisch'
   trigger:

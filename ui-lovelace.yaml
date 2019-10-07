@@ -635,6 +635,7 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
+          - script.1570443737111
           - script.1570439203461
       - type: entities
         show_header_toggle: false

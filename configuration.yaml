@@ -175,3 +175,5 @@ clean_up_snapshots_service:
   host: !secret hass_url
   token: !secret snapshot_token
   number_of_snapshots_to_keep: 6
+
+python_script:

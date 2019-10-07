@@ -468,16 +468,35 @@
   - data:
       message: clear_badge
     service: notify.mobile_app_iphonex
-# '1570439573834':
-#   alias: Push Nachrichten
-#   fields:
-#       title:
-#         description: 'The title of the notification'
-#         example: 'State change'
-#       message:
-#         description: 'The message content'
-#         example: 'The light is on!'
-#   sequence:
-#   - data:
-#       message: "{{ message }}"
-#     service: notify.mobile_app_iphonex
+'1570439573834':
+  alias: Benachrichtigungen (nicht actionable)
+  fields:
+    notification_id:
+      description: ID für die Gruppierung
+      example: ids
+    message:
+      description: Die Nachricht
+      example: text
+    title:
+      description: Title der Nachricht
+      example: blabal
+  sequence:
+  - data_template:
+      message: '{{ message }}'
+    service: notify.mobile_app_iphonex
+  - condition: state
+    entity_id: input_boolean.persistent_notification
+    state: 'on'
+  - data_template:
+      message: '{{ message }}'
+      notification_id: '{{ notification_id }}'
+      title: '{{ title }}'
+    service: persistent_notification.create
+  - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_off
+'1570443737111':
+  alias: Benachrichtigungen löschen
+  sequence:
+  - data: {}
+    service: python_script.dismiss_notifications
