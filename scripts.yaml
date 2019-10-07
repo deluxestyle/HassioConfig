@@ -156,7 +156,7 @@
     service: climate.set_temperature
   - data:
       entity_id: climate.int0000002
-      hvac_mode: false
+      hvac_mode: 'off'
     service: climate.set_hvac_mode
 '1538143929416':
   alias: Heizung Wohnzimmer ausschalten
@@ -167,7 +167,7 @@
     service: climate.set_temperature
   - data:
       entity_id: climate.oeq1696358
-      hvac_mode: false
+      hvac_mode: 'off'
     service: climate.set_hvac_mode
 '1538143964007':
   alias: Heizung Schlafzimmer ausschalten
@@ -178,7 +178,7 @@
     service: climate.set_temperature
   - data:
       entity_id: climate.oeq1696369
-      hvac_mode: false
+      hvac_mode: 'off'
     service: climate.set_hvac_mode
 '1538167052403':
   alias: Telekom MR 401 on
@@ -229,7 +229,7 @@
     service: climate.set_temperature
   - data:
       entity_id: climate.oeq1701003
-      hvac_mode: false
+      hvac_mode: 'off'
     service: climate.set_hvac_mode
 '1538646823835':
   alias: Heizung Bad einschalten
