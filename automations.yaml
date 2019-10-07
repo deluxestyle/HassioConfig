@@ -1,5 +1,5 @@
 - id: update_notification
-  alias: Benachrichtigung - Update HASS
+  alias: 'Benachrichtigung:  Update HASS'
   trigger:
   - entity_id: binary_sensor.updater
     platform: state
@@ -96,7 +96,7 @@
       entity_id: input_select.scenes_bed_room
       option: --
 - id: switch_leselampe
-  alias: Lichtschalter - Leselampe
+  alias: 'Lichtschalter: Leselampe'
   trigger:
   - event_data:
       click_type: single
@@ -109,7 +109,7 @@
     entity_id: light.leselampe
     service: light.toggle
 - id: switch2
-  alias: Lichtschalter - Küchenlampe
+  alias: 'Lichtschalter: Küchenlampe'
   trigger:
   - event_data:
       click_type: single
@@ -255,7 +255,7 @@
   - data: {}
     service: script.1532173931522
 - id: '1532273712071'
-  alias: Harman Kardon AVR - Quelle auswählen
+  alias: 'Harman Kardon AVR: Quelle auswählen'
   trigger:
   - entity_id: input_select.avr_source
     platform: state
@@ -277,7 +277,7 @@
       option: --
     service: input_select.select_option
 - id: '1533660030341'
-  alias: Harman Kardon AVR - verbinden
+  alias: 'Harman Kardon AVR: verbinden'
   trigger:
   - entity_id: device_tracker.avr151
     platform: state
@@ -328,8 +328,7 @@
   action:
   - service: script.1538646823835
 - id: '1540494970737'
-  alias: Benachrichtigung - Bewegung erkannt
-  initial_state: false
+  alias: 'Benachrichtigung: Bewegung erkannt'
   trigger:
   - entity_id: binary_sensor.motion_sensor_158d00023e77cb
     platform: state
@@ -339,8 +338,9 @@
   - data:
       message: Bewegung erkannt
     service: notify.mobile_app_iphonex
+  initial_state: false
 - id: '1540974552306'
-  alias: Benachrichtigung - Luftfeuchtigkeit
+  alias: 'Benachrichtigung: Luftfeuchtigkeit'
   trigger:
   - above: '62'
     entity_id: sensor.humidity_158d0001b8c96c
@@ -419,7 +419,7 @@
       entity_id: automation.benachrichtigung_bewegung_erkannt
     service: automation.turn_off
 - id: '1543074323979'
-  alias: Benachrichtigung - Abwesend
+  alias: 'Benachrichtigung: Abwesend'
   trigger:
   - entity_id: sensor.presence
     platform: state
@@ -477,17 +477,6 @@
       notification_id: xiaomi_sensor
       title: Xiaomi StaubRobo
     service: persistent_notification.create
-- id: '1544899204871'
-  alias: Harmony - Steckdosenleiste
-  trigger:
-  - entity_id: remote.harmony_hub
-    platform: state
-    to: Steckdosenleiste
-  condition: []
-  action:
-  - data:
-      entity_id: light.steckdose
-    service: light.turn_on
 - id: '1547393321318'
   alias: Heizungsschaltung
   trigger:
@@ -555,7 +544,7 @@
       fan_speed: Max
     service: vacuum.set_fan_speed
 - id: '1553418352092'
-  alias: Heizung aus - Temperatur
+  alias: 'Heizung aus: Temperatur abhängig'
   trigger:
   - above: '10'
     entity_id: sensor.dark_sky_temperature
@@ -569,7 +558,7 @@
       entity_id: switch.radiator_on_off
     service: switch.turn_off
 - id: '1553418411637'
-  alias: Heizung an - Temperatur
+  alias: 'Heizung an: Temperatur abhängig'
   trigger:
   - below: '10'
     entity_id: sensor.dark_sky_temperature
@@ -642,12 +631,13 @@
       entity_id: input_boolean.persistent_notification
     service: input_boolean.turn_on
   - data:
-      message: 'RAM Auslastung zu hoch: {{ states.sensor.memory_use_percent.state }} % '
+      message: 'RAM Auslastung zu hoch: {{ states.sensor.memory_use_percent.state
+        }} % '
       notification_id: heizung
       title: Heizung
     service: script.1570439573834
 - id: '1564988736274'
-  alias: Benachrichtigung - Heizung Bad
+  alias: 'Benachrichtigung: Heizung Bad'
   trigger:
   - above: '0'
     entity_id: sensor.valve_bath
@@ -739,7 +729,7 @@
   action:
   - service: script.1532173931599
 - id: switch_double_wall_left
-  alias: Lichtschalter - Schlafzimmer links
+  alias: 'Lichtschalter: Schlafzimmer links'
   trigger:
   - event_data:
       click_type: single
@@ -751,7 +741,7 @@
       entity_id: light.schlafzimmer
     service: light.toggle
 - id: switch_double_wall_right
-  alias: Lichtschalter - Schlafzimmer rechts
+  alias: 'Lichtschalter: Schlafzimmer rechts'
   trigger:
   - event_data:
       click_type: single
