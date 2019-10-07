@@ -7,7 +7,7 @@
   action:
   - data:
       message: There is a new Home Assistant release available
-    service: notify.ios_iphonex
+    service: notify.mobile_app_iphonex
 - id: family_not_home
   alias: Abwesenheitsschaltung
   trigger:
@@ -126,7 +126,7 @@
       message: 'Staubsauger fertig - Dauer: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaning_time
         }} min - gesaugte Fläche: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaned_area
         }} qm | Fehler {{ states.counter.xiaomo_errors.state }}'
-    service: notify.ios_iphonex
+    service: notify.mobile_app_iphonex
   - data:
       entity_id: input_select.vacuum_rooms
       option: --
@@ -144,9 +144,7 @@
         push:
           category: vacuum_stop
       message: Staubsauger gestartet
-    service: notify.ios_iphonex
-  - data: {}
-    service: script.1570388076993
+    service: notify.mobile_app_iphonex
 - id: xiaomi_vacuum_notification_blocked
   alias: 'Xiaomi Staubsauger: Fehler'
   trigger:
@@ -164,7 +162,7 @@
           category: vacuum_stop
       message: 'Staubsauger blockiert - Error: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.error
         }} '
-    service: notify.ios_iphonex
+    service: notify.mobile_app_iphonex
 - id: '1521743370575'
   alias: 'Heizung: Abwesenheitsschaltung'
   trigger:
@@ -183,7 +181,7 @@
     service: script.1540232132608
   - data:
       message: 'Heizung: Abwesenheitsschaltung'
-    service: notify.ios_iphonex
+    service: notify.mobile_app_iphonex
 - id: '1521894687949'
   alias: 'Xiaomi Staubsauger: Täglich saugen'
   trigger:
@@ -328,7 +326,7 @@
   action:
   - data:
       message: Bewegung erkannt
-    service: notify.ios_iphonex
+    service: notify.mobile_app_iphonex
 - id: '1540974552306'
   alias: Benachrichtigung - Luftfeuchtigkeit
   trigger:
@@ -354,7 +352,7 @@
         }} % - Wohnzimmer {{ states.sensor.humidity_158d0001b8c998.state }} % - Küche:
         {{ states.sensor.humidity_158d0002239fb5.state }} % - Büro: {{ states.sensor.oeq1667238_humidity.state
         }} % '
-    service: notify.ios_iphonex
+    service: notify.mobile_app_iphonex
 - id: '1541096569503'
   alias: Bewegungsmelder - Alarm
   initial_state: false
@@ -413,7 +411,7 @@
   action:
   - data:
       message: Niemand zu Hause
-    service: notify.ios_iphonex
+    service: notify.mobile_app_iphonex
 - id: '1543619209115'
   alias: Starte HomeKit
   trigger:
@@ -522,7 +520,7 @@
           thread-id: vacuum_start
           badge: 1
       message: Staubsauger starten?
-    service: notify.ios_iphonex
+    service: notify.mobile_app_iphonex
 - id: '1550439982602'
   alias: 'Xiaomi Staubsauger: Starten nach Push'
   trigger:
@@ -626,7 +624,7 @@
   - data:
       message: 'RAM Auslastung zu hoch: {{ states.sensor.memory_use_percent.state
         }} % '
-    service: notify.ios_iphonex
+    service: notify.mobile_app_iphonex
 - id: '1564988736274'
   alias: 'Notification: Heizung Bad'
   trigger:
@@ -637,7 +635,7 @@
   action:
   - data:
       message: Bad Ventil offen
-    service: notify.ios_iphonex
+    service: notify.mobile_app_iphonex
 - id: '1565633489639'
   alias: Sonos Wecker an
   trigger:
@@ -672,7 +670,7 @@
   action:
   - data:
       message: Nachttischlampe offline
-    service: notify.ios_iphonex
+    service: notify.mobile_app_iphonex
 - id: '1568628137654'
   alias: 'Xiaomi Staubsauger: Filter kritisch'
   trigger:
@@ -736,3 +734,11 @@
   - data:
       entity_id: light.nachttischlampe_anita
     service: light.toggle
+- id: '1570440017469'
+  alias: Badge zurücksetzen
+  trigger:
+  - entity_id: sensor.last_update_trigger
+    platform: state
+  condition: []
+  action:
+  - service: script.1570439203461
