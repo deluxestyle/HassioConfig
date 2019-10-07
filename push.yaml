@@ -5,7 +5,7 @@ push:
         actions:
           - identifier: 'TRIGGER_VACUUM'
             title: 'Staubsauger einschalten'
-            activationMode: 'background'
+            activationMode: 'foreground'
             authenticationRequired: yes
             destructive: no
             behavior: 'default'
