@@ -758,8 +758,9 @@
 - id: '1570440017469'
   alias: Badge zurücksetzen
   trigger:
-  - entity_id: sensor.last_update_trigger
-    platform: state
+  - event_data: {}
+    event_type: ios.became_active
+    platform: event
   condition: []
   action:
   - service: script.1570439203461
