@@ -22,34 +22,43 @@
 - platform: template
   sensors:
       valve_bed_room:
+        entity_id: climate.oeq1696369
         friendly_name: "Schlafzimmer Ventil"
         unit_of_measurement: "%"
         value_template: '{{ states.climate.oeq1696369.attributes.valve }}'
       valve_office:
+        entity_id: climate.oeq1714751
         friendly_name: "Büro Ventil"
         unit_of_measurement: "%"
         value_template: '{{ states.climate.oeq1714751.attributes.valve }}'
       valve_living_room:
+        entity_id: climate.oeq1696358
         friendly_name: "Wohnzimmer Ventil"
         unit_of_measurement: "%"
         value_template: '{{ states.climate.oeq1696358.attributes.valve }}'
       valve_bath:
+        entity_id: climate.oeq1701003
         friendly_name: "Bad Ventil"
         unit_of_measurement: "%"
         value_template: '{{ states.climate.oeq1701003.attributes.valve }}'
       battery_radiator_office_1:
+        entity_id: climate.oeq1667238
         friendly_name: "Batterie Thermostat Büro"
         value_template: '{{ states.climate.oeq1667238.attributes.battery }}'
       battery_radiator_office_2:
+        entity_id: climate.oeq1714751
         friendly_name: "Batterie Heizung Büro"
         value_template: '{{ states.climate.oeq1714751.attributes.battery }}'
       battery_radiator_bedroom:
+        entity_id: climate.oeq1696369
         friendly_name: "Batterie Heizung Schlafzimmer"
         value_template: '{{ states.climate.oeq1696369.attributes.battery }}'
       battery_radiator_livingroom:
+        entity_id: climate.oeq1696358
         friendly_name: "Batterie Heizung Wohnzimmer"
         value_template: '{{ states.climate.oeq1696358.attributes.battery }}'
       battery_radiator_bath:
+        entity_id: climate.oeq1701003
         friendly_name: "Batterie Heizung Bad"
         value_template: '{{ states.climate.oeq1701003.attributes.battery }}'
       battery_sensor_bedroom:
@@ -103,45 +112,58 @@
         friendly_name: "Batterie Sensor Wall Switch Double"
         value_template: '{{ states.binary_sensor.wall_switch_both_158d000254275c.attributes.battery_level }}'
       xiaomi_vacuum_status:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
         friendly_name: "Staubsauger Status"
         value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.status }}'
       xiaomi_vacuum_main_brush_left:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
         friendly_name: "Staubsauger Main Brush"
         unit_of_measurement: 'h'
         value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.main_brush_left }}'
       xiaomi_vacuum_side_brush_left:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
         friendly_name: "Staubsauger Side Brush"
         unit_of_measurement: 'h'
         value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.side_brush_left }}'
       xiaomi_vacuum_filter_left:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
         friendly_name: "Staubsauger Filter"
         unit_of_measurement: 'h'
         value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.filter_left }}'
       xiaomi_vacuum_sensor_dirty_left:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
         friendly_name: "Staubsauger Sensor"
         unit_of_measurement: 'h'
         value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.sensor_dirty_left }}'
       xiaomi_vacuum_sensor_battery:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
         friendly_name: "Staubsauger Batterie"
         unit_of_measurement: '%'
+        device_class: battery
         value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}'
         icon_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_icon }}'
       radiator_bed_room_keylock:
+        entity_id: homematic.ccu2
         friendly_name: "Tastensperre Schlafzimmer"
         value_template: '{{ states.homematic.ccu2.attributes.block_bed_room }}'
       radiator_living_room_keylock:
+        entity_id: homematic.ccu2
         friendly_name: "Tastensperre Wohnzimmer"
         value_template: '{{ states.homematic.ccu2.attributes.block_living_room	 }}'
       radiator_office_keylock:
+        entity_id: homematic.ccu2
         friendly_name: "Tastensperre Büro"
         value_template: '{{ states.homematic.ccu2.attributes.block_office }}'
       radiator_bath_keylock:
+        entity_id: homematic.ccu2
         friendly_name: "Tastensperre Bad"
         value_template: '{{ states.homematic.ccu2.attributes.block_bath }}'
       remote_state:
+        entity_id: remote.harmony_hub
         friendly_name: "Multimedia"
         value_template: '{{ states.remote.harmony_hub.attributes.current_activity }}'
       presence:
+        entity_id: person.anita, person.wolfgang
         friendly_name: Anwesenheit
         value_template: >
             {% if is_state('person.anita', 'home') or is_state('person.wolfgang', 'home')  %}
@@ -150,6 +172,7 @@
               not_home
             {% endif %}
       dark_sky_temperature:
+        entity_id: weather.dark_sky
         friendly_name: Temperatur
         value_template: '{{ states.weather.dark_sky.attributes.temperature }}'
       hue_dimmer_battery_livingroom:
