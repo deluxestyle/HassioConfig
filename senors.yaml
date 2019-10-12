@@ -53,33 +53,53 @@
         friendly_name: "Batterie Heizung Bad"
         value_template: '{{ states.climate.oeq1701003.attributes.battery }}'
       battery_sensor_bedroom:
+        entity_id: sensor.humidity_158d0001b8c96c
+        device_class: battery
         friendly_name: "Batterie Sensor Schlafzimmer"
         value_template: '{{ states.sensor.humidity_158d0001b8c96c.attributes.battery_level }}'
       battery_sensor_livingroom:
+        entity_id: sensor.humidity_158d0001b8c998
+        device_class: battery
         friendly_name: "Batterie Sensor Wohnzimmer"
         value_template: '{{ states.sensor.humidity_158d0001b8c998.attributes.battery_level }}'
       battery_sensor_kitchen:
+        entity_id: sensor.humidity_158d0001b8c998
+        device_class: battery
         friendly_name: "Batterie Sensor Küche"
         value_template: '{{ states.sensor.humidity_158d0001b8c998.attributes.battery_level }}'
       battery_sensor_outdoor:
+        entity_id: sensor.humidity_158d00023258bd
+        device_class: battery
         friendly_name: "Batterie Sensor Outdoor"
         value_template: '{{ states.sensor.humidity_158d00023258bd.attributes.battery_level }}'
       battery_sensor_motion:
+        entity_id: binary_sensor.motion_sensor_158d00023e77cb
+        device_class: battery
         friendly_name: "Batterie Sensor Motion"
         value_template: '{{ states.binary_sensor.motion_sensor_158d00023e77cb.attributes.battery_level }}'
       battery_sensor_door:
+        entity_id: binary_sensor.door_window_sensor_158d00022f13a0
+        device_class: battery
         friendly_name: "Batterie Sensor Motion Door/Window"
         value_template: '{{ states.binary_sensor.door_window_sensor_158d00022f13a0.attributes.battery_level }}'
       battery_sensor_button_1:
+        entity_id: binary_sensor.switch_158d0002131462
+        device_class: battery
         friendly_name: "Batterie Sensor Button 1"
         value_template: '{{ states.binary_sensor.switch_158d0002131462.attributes.battery_level }}'
       battery_sensor_button_2:
+        entity_id: binary_sensor.switch_158d000213621b
+        device_class: battery
         friendly_name: "Batterie Sensor Button 2"
         value_template: '{{ states.binary_sensor.switch_158d000213621b.attributes.battery_level }}'
       battery_sensor_wall_switch:
+        entity_id: binary_sensor.wall_switch_158d00025303aa
+        device_class: battery
         friendly_name: "Batterie Sensor Wall Switch"
         value_template: '{{ states.binary_sensor.wall_switch_158d00025303aa.attributes.battery_level }}'      
       battery_sensor_wall_switch_double:
+        entity_id: binary_sensor.wall_switch_both_158d000254275c
+        device_class: battery
         friendly_name: "Batterie Sensor Wall Switch Double"
         value_template: '{{ states.binary_sensor.wall_switch_both_158d000254275c.attributes.battery_level }}'
       xiaomi_vacuum_status:
