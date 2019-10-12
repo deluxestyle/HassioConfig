@@ -30,11 +30,12 @@
   - data:
       entity_id: light.steckdose
     service: light.turn_off
-  - data: {}
-    service: script.1532175994947
   - data:
       entity_id: light.steckdose_3
     service: light.turn_off
+  - data:
+      entity_id: automation.benachrichtigung_bewegung_erkannt
+    service: automation.turn_on
 - id: scenes_living_room
   alias: 'Lichtszenen: Wohnzimmer auswählen'
   trigger:
@@ -152,7 +153,7 @@
   - data:
       entity_id: counter.badge_counter
     service: counter.increment
-  - data:
+  - data_template:
       data:
         push:
           badge: '{{ states.counter.badge_counter.state }}'
@@ -195,9 +196,6 @@
   action:
   - data: {}
     service: script.1540232132608
-  - data:
-      message: 'Heizung: Abwesenheitsschaltung'
-    service: notify.mobile_app_iphonex
 - id: '1521894687949'
   alias: 'Xiaomi Staubsauger: Täglich saugen'
   trigger:
@@ -340,8 +338,13 @@
   condition: []
   action:
   - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
       message: Bewegung erkannt
-    service: notify.mobile_app_iphonex
+      notification_id: alert
+      title: Bewegungsmelder
+    service: script.1570439573834
   initial_state: false
 - id: '1540974552306'
   alias: 'Benachrichtigung: Luftfeuchtigkeit'
@@ -422,17 +425,6 @@
   - data:
       entity_id: automation.benachrichtigung_bewegung_erkannt
     service: automation.turn_off
-- id: '1543074323979'
-  alias: 'Benachrichtigung: Abwesend'
-  trigger:
-  - entity_id: sensor.presence
-    platform: state
-    to: not_home
-  condition: []
-  action:
-  - data:
-      message: Niemand zu Hause
-    service: notify.mobile_app_iphonex
 - id: '1543619209115'
   alias: Starte HomeKit
   trigger:
@@ -526,7 +518,7 @@
   - data:
       entity_id: counter.badge_counter
     service: counter.increment
-  - data:
+  - data_template:
       data:
         push:
           badge: '{{ states.counter.badge_counter.state }}'
