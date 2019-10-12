@@ -27,6 +27,8 @@ resources:
     type: module
   - url: /community_plugin/lovelace-auto-entities/auto-entities.js
     type: js
+  - url: /community_plugin/simple-thermostat/simple-thermostat.js
+    type: module
 # -----------------------------
 cch:
   main_config: true
