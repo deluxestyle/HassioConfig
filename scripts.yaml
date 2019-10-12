@@ -468,6 +468,9 @@
   - data:
       message: clear_badge
     service: notify.mobile_app_iphonex
+  - data:
+      entity_id: counter.badge_counter
+    service: counter.reset
 '1570439573834':
   alias: Benachrichtigungen (nicht actionable)
   fields:
@@ -500,3 +503,4 @@
   sequence:
   - data: {}
     service: python_script.dismiss_notifications
+  - service: script.battery_persistent_notification_clear

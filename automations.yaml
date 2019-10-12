@@ -520,11 +520,14 @@
     condition: time
   action:
   - data:
+      entity_id: counter.badge_counter
+    service: counter.increment
+  - data:
       data:
         push:
+          badge: 1
           category: vacuum_trigger
           thread-id: vacuum_start
-          badge: 1
       message: Staubsauger starten?
     service: notify.mobile_app_iphonex
 - id: '1550439982602'
