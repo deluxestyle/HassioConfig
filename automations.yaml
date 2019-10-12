@@ -525,7 +525,7 @@
   - data:
       data:
         push:
-          badge: 1
+          badge: '{{ states.counter.badge_counter.state }}'
           category: vacuum_trigger
           thread-id: vacuum_start
       message: Staubsauger starten?
