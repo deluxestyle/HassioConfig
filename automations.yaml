@@ -763,3 +763,17 @@
   condition: []
   action:
   - service: script.1570439203461
+- id: '1571050762220'
+  alias: Xiaomi Fehler Hinweis
+  trigger:
+  - entity_id: sensor.presence
+    platform: state
+    to: home
+  condition:
+  - condition: state
+    entity_id: vacuum.xiaomi_vacuum_cleaner
+    state: error
+  action:
+  - data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+    service: vacuum.locate
