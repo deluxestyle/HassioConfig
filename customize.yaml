@@ -312,3 +312,5 @@ script.1570439203461:
   icon: mdi:message-bulleted-off
 script.1570443737111:
   icon: mdi:message-bulleted-off
+automation.km_stand_kritisch:
+  icon: mdi:message-alert
