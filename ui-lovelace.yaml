@@ -586,8 +586,11 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
+          - device_tracker.x1_sdrive18i
           - type: custom:fold-entity-row
-            head: device_tracker.x1_sdrive18i
+            head:
+              type: section
+              label: Übersicht
             padding: 5
             entities:
               - binary_sensor.x1_sdrive18i_door_lock_state
@@ -599,6 +602,15 @@ views:
               - binary_sensor.x1_sdrive18i_lights_parking
               - binary_sensor.x1_sdrive18i_condition_based_services
               - binary_sensor.x1_sdrive18i_check_control_messages
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Mietdetails
+            padding: 5
+            entities:
+              - sensor.car_days_in_use
+              - sensor.car_km_usage
+              - sensor.car_km_threshold
           # - type: custom:fold-entity-row
           #   head:
           #     type: section
