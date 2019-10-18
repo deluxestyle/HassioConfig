@@ -467,6 +467,7 @@
   sequence:
   - data:
       message: clear_badge
+    #service: notify.ios_iphonex 
     service: notify.mobile_app_iphonex
   - data:
       entity_id: counter.badge_counter
@@ -493,6 +494,7 @@
         push:
           badge: '{{ states.counter.badge_counter.state }}'
     service: notify.mobile_app_iphonex
+    #service: notify.ios_iphonex
   - condition: state
     entity_id: input_boolean.persistent_notification
     state: 'on'
