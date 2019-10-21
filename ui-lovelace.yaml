@@ -613,6 +613,25 @@ views:
           #     - script.1543167202912
           #     - script.1543167430941
           #     - script.1543218125342
+      - type: map
+        default_zoom: 15
+        aspect_ratio: 4:3
+        entities:
+          - entity: device_tracker.x1_sdrive18i
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.car_km_usage
+            style: |
+              :host {
+                color: 
+                {% if states("sensor.car_km_usage")|int < 98 %}
+                  black
+                {% else %}
+                  red
+                {% endif %}
+                ;
+              }
           - type: custom:fold-entity-row
             head:
               type: section
@@ -620,13 +639,8 @@ views:
             padding: 5
             entities:
               - sensor.car_days_in_use
-              - sensor.car_km_usage
               - sensor.car_km_threshold
               - automation.km_stand_kritisch
-      - type: map
-        default_zoom: 14
-        entities:
-          - entity: device_tracker.x1_sdrive18i
 
 ##### Weather #####
   - title: Wetter
