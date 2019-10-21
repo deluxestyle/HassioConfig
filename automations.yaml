@@ -783,10 +783,12 @@
 - id: '1568628137987'
   alias: KM Stand kritisch
   trigger:
+  - entity_id: sensor.car_km_usage
+    platform: state
+  condition:
   - above: '95'
+    condition: numeric_state
     entity_id: sensor.car_km_usage
-    platform: numeric_state
-  condition: []
   action:
   - data:
       entity_id: input_boolean.persistent_notification
