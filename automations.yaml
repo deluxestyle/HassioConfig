@@ -786,7 +786,7 @@
   - entity_id: sensor.car_km_usage
     platform: state
   condition:
-  - above: '95'
+  - above: '99'
     condition: numeric_state
     entity_id: sensor.car_km_usage
   action:
@@ -799,6 +799,9 @@
       notification_id: car
       title: BMW KM Stand
     service: script.1570439573834
+  - data:
+      entity_id: automation.km_stand_kritisch
+    service: automation.turn_off
 - id: '1571298248677'
   alias: Auto Sensoren aktualisieren
   trigger:
@@ -815,3 +818,15 @@
   - data:
       entity_id: sensor.car_km_usage
     service: homeassistant.update_entity
+- id: '1571760345441'
+  alias: KM Kritisch - Benachrichtigung einschalten
+  description: ''
+  trigger:
+  - below: '99'
+    entity_id: sensor.car_km_usage
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      entity_id: automation.km_stand_kritisch
+    service: automation.turn_on
