@@ -177,3 +177,10 @@ clean_up_snapshots_service:
   number_of_snapshots_to_keep: 6
 
 python_script:
+
+zone:
+  - name: Arbeit
+    latitude: 48.104569
+    longitude: 11.645074
+    radius: 100
+    icon: mdi:office-building
