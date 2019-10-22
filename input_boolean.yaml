@@ -16,3 +16,7 @@ radiator_on_off:
 persistent_notification:
     name: Benarichtigungen
     initial: off
+
+car_map:
+    name: Karte
+    icon: mdi:map-legend

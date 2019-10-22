@@ -587,6 +587,7 @@ views:
         show_header_toggle: false
         entities:
           - device_tracker.x1_sdrive18i
+          - input_boolean.car_map
           - type: custom:fold-entity-row
             head:
               type: section
@@ -613,11 +614,16 @@ views:
           #     - script.1543167202912
           #     - script.1543167430941
           #     - script.1543218125342
-      - type: map
-        default_zoom: 15
-        aspect_ratio: 4:3
-        entities:
-          - entity: device_tracker.x1_sdrive18i
+      - type: conditional
+        conditions:
+          - entity: input_boolean.car_map
+            state: "on"
+        card:
+          type: map
+          default_zoom: 15
+          aspect_ratio: 4:3
+          entities:
+            - entity: device_tracker.x1_sdrive18i
       - type: entities
         show_header_toggle: false
         entities:
