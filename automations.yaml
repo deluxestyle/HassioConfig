@@ -632,8 +632,8 @@
   - data:
       message: 'RAM Auslastung zu hoch: {{ states.sensor.memory_use_percent.state
         }} % '
-      notification_id: heizung
-      title: Heizung
+      notification_id: pi
+      title: Raspi
     service: script.1570439573834
 - id: '1564988736274'
   alias: 'Benachrichtigung: Heizung Bad'
