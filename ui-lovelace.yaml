@@ -55,7 +55,7 @@ x-music-player: &music-player
     source: false
     progress: true
   group: true
-  artwork: none
+  #artwork: none
   source: full
   more_info: false
   sonos:
