@@ -237,8 +237,11 @@
 - platform: systemmonitor
   resources:
     - type: disk_use_percent
+      arg: /
     - type: disk_use
+      arg: /
     - type: disk_free
+      arg: /
     - type: memory_use_percent
     - type: memory_use
     - type: memory_free
