@@ -721,7 +721,7 @@ views:
             name: Disk
           - entity: sensor.disk_use
             name: Disk
-          - entity: sensor.processor_use_2
+          - entity: sensor.processor_use
             name: CPU
             icon: mdi:poll-box
           - entity: sensor.cpu_temperature

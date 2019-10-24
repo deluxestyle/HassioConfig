@@ -234,19 +234,6 @@
 #     - cpu_use_percent
 #     - cpu_temp
 
-- platform: systemmonitor
-  resources:
-    - type: disk_use_percent
-      arg: /
-    - type: disk_use
-      arg: /
-    - type: disk_free
-      arg: /
-    - type: memory_use_percent
-    - type: memory_use
-    - type: memory_free
-    - type: processor_use
-
 - platform: command_line
   name: CPU Temperature
   command: "cat /sys/class/thermal/thermal_zone0/temp"
