@@ -51,7 +51,7 @@ cch:
 x-music-player: &music-player
   icon: 'mdi:speaker-wireless'
   hide:
-    power_state: false
+    power: true
     source: false
     progress: true
   group: true
