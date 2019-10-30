@@ -578,12 +578,8 @@
     to: not_home
   condition: []
   action:
-  - data:
-      entity_id: media_player.schlafzimmer
-    service: media_player.turn_off
-  - data:
-      entity_id: media_player.bad
-    service: media_player.turn_off
+  - data: {}
+    service: script.1532175994947
 - id: '1563024961089'
   alias: 'Xiaomi Staubsauger: Hauptbürste wechseln'
   trigger:

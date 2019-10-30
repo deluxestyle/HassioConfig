@@ -198,7 +198,7 @@
         icon_template: mdi:card-bulleted-outline
       car_km_usage:
         entity_id: sensor.x1_sdrive18i_mileage
-        friendly_name: KM Verbraucht (ytd)
+        friendly_name: KM Verbraucht (in %)
         value_template: '{{ ( (states ( "sensor.x1_sdrive18i_mileage" ) | int) / (states ( "sensor.car_km_threshold" ) | int) * 100 ) | round(2) }}'
         unit_of_measurement: '%'
         icon_template: mdi:car-cruise-control
