@@ -115,7 +115,7 @@ device_tracker:
     consider_home: 600
   - platform: composite
     name: iphone_wolfgang
-    time_as: device_or_local
+    time_as: local
     entity_id:
       - device_tracker.iphonex
       - device_tracker.iphonex_2
