@@ -113,12 +113,6 @@ device_tracker:
   - platform: fritz
     host: 192.168.200.1
     consider_home: 600
-  - platform: composite
-    name: iphone_wolfgang
-    time_as: local
-    entity_id:
-      - device_tracker.iphonex
-      - device_tracker.iphonex_2
 
 xiaomi_aqara:
   discovery_retry: 5
