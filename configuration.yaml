@@ -157,12 +157,6 @@ bmw_connected_drive:
    password: !secret bmw_password
    region: "rest_of_world"
 
-panel_iframe:
-  grafana:
-    title: Statistik
-    url: !secret grafana_url
-    icon: mdi:elevation-rise
-
 ffmpeg:
 
 stream:
