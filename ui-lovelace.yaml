@@ -166,7 +166,7 @@ views:
                 row: 1
                 column: 1
                 background:
-                  value_on: '#4372a8'
+                  value_on: '#03A9F4'
                   value_off: '#999999'
 
 ##### Heizung #####
@@ -279,7 +279,7 @@ views:
                 row: 1
                 column: 1
                 background:
-                  value_on: '#4372a8'
+                  value_on: '#03A9F4'
                   value_off: '#999999'
           - type: entities
             show_header_toggle: false
