@@ -103,22 +103,6 @@ views:
     id: light
     icon: mdi:ceiling-light
     cards:
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:tiles-card
-            card_settings:
-              columns: 1
-              row_height: 45px
-              padding: 10px
-            <<: *buttons_general
-            entities:
-              - entity: light.lights_all
-                label: Alle Lichter
-                row: 1
-                column: 1
-                background:
-                  value_on: '#03A9F4'
-                  value_off: '#999999'
       - type: entities
         show_header_toggle: false
         entities:
@@ -168,6 +152,22 @@ views:
         show_header_toggle: false
         entities:
           - light.gateway_light_7811dcb258d1
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: custom:tiles-card
+            card_settings:
+              columns: 1
+              row_height: 45px
+              padding: 10px
+            <<: *buttons_general
+            entities:
+              - entity: light.lights_all
+                label: Licht
+                row: 1
+                column: 1
+                background:
+                  value_on: '#03A9F4'
+                  value_off: '#999999'
 
 ##### Heizung #####
   - title: Heizung
