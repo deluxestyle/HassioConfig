@@ -314,3 +314,5 @@ script.1570443737111:
   icon: mdi:message-bulleted-off
 automation.km_stand_kritisch:
   icon: mdi:message-alert
+automation.benachrichtigung_luftfeuchtigkeit:
+  icon: mdi:message-alert

@@ -174,6 +174,22 @@ views:
     id: radiator
     icon: mdi:radiator
     cards:
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: custom:tiles-card
+            card_settings:
+              columns: 1
+              row_height: 45px
+              padding: 10px
+            <<: *buttons_general
+            entities:
+              - entity: switch.radiator_on_off
+                label: Heizung
+                row: 1
+                column: 1
+                background:
+                  value_on: '#03A9F4'
+                  value_off: '#999999'
       - type: entities
         show_header_toggle: false
         entities:
@@ -265,31 +281,20 @@ views:
             primary:
               entity: sensor.humidity_158d0002239fb5
               name: false
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:tiles-card
-            card_settings:
-              columns: 1
-              row_height: 45px
-              padding: 10px
-            <<: *buttons_general
+      - type: entities
+        show_header_toggle: false
+        entities: 
+          - sensor.dark_sky_temperature
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Automatisierung
+            padding: 5
             entities:
-              - entity: switch.radiator_on_off
-                label: Heizung
-                row: 1
-                column: 1
-                background:
-                  value_on: '#03A9F4'
-                  value_off: '#999999'
-          - type: entities
-            show_header_toggle: false
-            entities: 
-              - type: section
               - input_boolean.automation_radiator
               - automation.heizung_abwesenheitsschaltung
+              - automation.heizung_standby
               - automation.benachrichtigung_luftfeuchtigkeit
-              - type: section
-              - sensor.dark_sky_temperature
 
 #### Staubsauger #####
   - title: Staubsauger
