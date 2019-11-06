@@ -151,35 +151,20 @@
   alias: Heizung Büro ausschalten
   sequence:
   - data:
-      entity_id: climate.int0000002
-      temperature: 4.5
-    service: climate.set_temperature
-  - data:
-      entity_id: climate.int0000002
-      hvac_mode: 'off'
-    service: climate.set_hvac_mode
+      entity_id: scene.thermostat_office_off
+    service: scene.turn_on
 '1538143929416':
   alias: Heizung Wohnzimmer ausschalten
   sequence:
   - data:
-      entity_id: climate.oeq1696358
-      temperature: 4.5
-    service: climate.set_temperature
-  - data:
-      entity_id: climate.oeq1696358
-      hvac_mode: 'off'
-    service: climate.set_hvac_mode
+      entity_id: scene.thermostat_living_room_off
+    service: scene.turn_on
 '1538143964007':
   alias: Heizung Schlafzimmer ausschalten
   sequence:
   - data:
-      entity_id: climate.oeq1696369
-      temperature: 4.5
-    service: climate.set_temperature
-  - data:
-      entity_id: climate.oeq1696369
-      hvac_mode: 'off'
-    service: climate.set_hvac_mode
+      entity_id: scene.thermostat_bed_room_off
+    service: scene.turn_on
 '1538167052403':
   alias: Telekom MR 401 on
   sequence:
@@ -224,13 +209,8 @@
   alias: Heizung Bad ausschalten
   sequence:
   - data:
-      entity_id: climate.oeq1701003
-      temperature: 4.5
-    service: climate.set_temperature
-  - data:
-      entity_id: climate.oeq1701003
-      hvac_mode: 'off'
-    service: climate.set_hvac_mode
+      entity_id: scene.thermostat_bath_room_off
+    service: scene.turn_on
 '1538646823835':
   alias: Heizung Bad einschalten
   sequence:
@@ -242,27 +222,23 @@
   alias: Heizung StandBy
   sequence:
   - data:
-      entity_id: climate.int0000002
-      hvac_mode: auto
-    service: climate.set_hvac_mode
-  - data:
-      entity_id: climate.oeq1696358
-      hvac_mode: auto
-    service: climate.set_hvac_mode
-  - data:
-      entity_id: climate.oeq1696369
-      hvac_mode: auto
-    service: climate.set_hvac_mode
-  - data:
       entity_id: input_boolean.radiator_on_off
     service: input_boolean.turn_on
+  - data:
+      entity_id: scene.thermostat_office_on
+    service: scene.turn_on
+  - data:
+      entity_id: scene.thermostat_bed_room_on
+    service: scene.turn_on
+  - data:
+      entity_id: scene.thermostat_living_room_on
+    service: scene.turn_on
   - condition: state
     entity_id: binary_sensor.door_window_sensor_158d00022f13a0
     state: 'off'
   - data:
-      entity_id: climate.oeq1701003
-      temperature: 10
-    service: climate.set_temperature
+      entity_id: scene.thermostat_bath_room_on
+    service: scene.turn_on
 '1541097052191':
   alias: Xiaomi Gateway - Alarm ausschalten
   sequence:
@@ -467,7 +443,6 @@
   sequence:
   - data:
       message: clear_badge
-    #service: notify.ios_iphonex 
     service: notify.mobile_app_iphonex
   - data:
       entity_id: counter.badge_counter
@@ -494,7 +469,6 @@
         push:
           badge: '{{ states.counter.badge_counter.state }}'
     service: notify.mobile_app_iphonex
-    #service: notify.ios_iphonex
   - condition: state
     entity_id: input_boolean.persistent_notification
     state: 'on'

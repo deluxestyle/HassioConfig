@@ -1,31 +1,49 @@
-# - name: lights_on_living_room
-  # entities:
-    # light.decke: on 
-    # light.tisch: on 
-    # light.leselampe: on  
-    
-# - name: lights_off_living_room
-  # entities:
-    # light.decke: off 
-    # light.tisch: off 
-    # light.leselampe: off      
-    
-# - name: lights_off
-  # entities:
-    # light.decke: off
-    # light.tisch: off  
-    # light.leselampe: off
-    # light.schlafzimmer: off
-    # #light.hue_white_lamp_1: off
-    # light.gateway_light_7811dcb258d1: off
-    # light.sonoff_office: off
-    
-# - name: lights_on
-  # entities:
-    # light.decke: on
-    # light.tisch: on  
-    # light.leselampe: on
-    # light.schlafzimmer: on
-    # #light.hue_white_lamp_1: on
-    # light.gateway_light_7811dcb258d1: on
-    # light.sonoff_office: on
+###############################################
+# Radiator scenes
+- name: thermostat_living_room_on
+  entities:
+    climate.oeq1696358:
+      state: heat
+      temperature: 19
+
+- name: thermostat_living_room_off
+  entities:
+    climate.oeq1696358:
+      state: off
+      temperature: 4.5
+
+- name: thermostat_bed_room_on
+  entities:
+    climate.oeq1696369:
+      state: heat
+      temperature: 19
+
+- name: thermostat_bed_room_off
+  entities:
+    climate.oeq1696369:
+      state: off
+      temperature: 4.5
+
+- name: thermostat_bath_room_on
+  entities:
+    climate.oeq1701003:
+      state: heat
+      temperature: 10
+
+- name: thermostat_bath_room_off
+  entities:
+    climate.oeq1701003:
+      state: off
+      temperature: 4.5
+
+- name: thermostat_office_on
+  entities:
+    climate.int0000002:
+      state: heat
+      temperature: 19
+
+- name: thermostat_office_off
+  entities:
+    climate.int0000002:
+      state: off
+      temperature: 4.5

@@ -187,9 +187,6 @@
     platform: state
     to: not_home
   condition:
-  - below: '10'
-    condition: numeric_state
-    entity_id: sensor.dark_sky_temperature
   - condition: state
     entity_id: switch.radiator_on_off
     state: 'on'
@@ -826,3 +823,65 @@
   - data:
       entity_id: automation.km_stand_kritisch
     service: automation.turn_on
+- id: '1573047657888'
+  alias: 'Heizung Status Wohnzimmer: automatisch_heizen'
+  description: ''
+  trigger:
+  - entity_id: climate.oeq1696358
+    platform: state
+    to: auto
+  condition: []
+  action:
+  - data:
+      entity_id: climate.oeq1696358
+      hvac_mode: heat
+    service: climate.set_hvac_mode
+- id: '1573047925830'
+  alias: 'Heizung Status Bad: automatisch_heizen'
+  description: ''
+  trigger:
+  - entity_id: climate.oeq1701003
+    platform: state
+    to: auto
+  condition: []
+  action:
+  - data:
+      entity_id: climate.oeq1701003
+      hvac_mode: heat
+    service: climate.set_hvac_mode
+- id: '1573047986729'
+  alias: 'Heizung Status Schlafzimmer: automatisch_heizen'
+  description: ''
+  trigger:
+  - entity_id: climate.oeq1696369
+    platform: state
+  condition: []
+  action:
+  - data:
+      entity_id: climate.oeq1696369
+      hvac_mode: heat
+    service: climate.set_hvac_mode
+- id: '1573048039321'
+  alias: 'Heizung Status Büro: automatisch_heizen'
+  description: ''
+  trigger:
+  - entity_id: climate.int0000002
+    platform: state
+    to: auto
+  condition: []
+  action:
+  - data:
+      entity_id: climate.int0000002
+      hvac_mode: heat
+    service: climate.set_hvac_mode
+- id: '1573071504401'
+  alias: Heizung StandBy
+  description: ''
+  trigger:
+  - at: '22:30:00'
+    platform: time
+  - at: 06:00:00
+    platform: time
+  condition: []
+  action:
+  - service: script.1540232132608
