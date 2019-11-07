@@ -634,9 +634,7 @@ views:
             style: |
               :host {
                 color: 
-                {% if states("sensor.car_km_usage")|int < 99 %}
-                  black
-                {% else %}
+                {% if states("sensor.car_km_usage")|int > 99 %}
                   red
                 {% endif %}
                 ;
