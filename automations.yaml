@@ -886,3 +886,25 @@
   condition: []
   action:
   - service: script.1540232132608
+- id: '1573152926903'
+  alias: 'Frontend: dark'
+  description: ''
+  trigger:
+  - at: '22:30'
+    platform: time
+  condition: []
+  action:
+  - data:
+      name: blue_night
+    service: frontend.set_theme
+- id: '1573153029833'
+  alias: 'Frontend: Bright'
+  description: ''
+  trigger:
+  - at: 07:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      name: default
+    service: frontend.set_theme

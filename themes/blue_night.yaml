@@ -72,7 +72,7 @@ blue_night:
   paper-toggle-button-unchecked-bar-color: "hsl(var(--huesat) 5%)"
   paper-toggle-button-unchecked-button-color: "hsl(var(--huesat) 25%)"
   primary-background-color: "hsl(var(--huesat) 16%)"
-  primary-color: "#2581ab"
+  primary-color: "#03A9F4"
   primary-text-color: "hsl(var(--huesat) 90%)"
   secondary-background-color: "hsl(var(--huesat) 16%)"
   secondary-text-color: "hsl(var(--huesat) 80%)"
