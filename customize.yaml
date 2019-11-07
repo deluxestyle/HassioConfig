@@ -26,6 +26,7 @@ sensor.oeq1667238_humidity:
   friendly_name: Luftfeuchtigkeit Büro
 sensor.oeq1667238_temperature:
   friendly_name: Sensor Büro
+  icon: mdi:thermometer-lines
 climate.int0000002:
   friendly_name: Heizung Büro
   icon: mdi:radiator
@@ -37,8 +38,10 @@ sensor.valve_living_room:
   icon: mdi:fan
 sensor.temperature_158d0001b8c96c:
   friendly_name: Sensor Schlafzimmer
+  icon: mdi:thermometer-lines
 sensor.temperature_158d0001b8c998:
   friendly_name: Sensor Wohnzimmer
+  icon: mdi:thermometer-lines
 sensor.humidity_158d0001b8c96c:
   friendly_name: Luftfeuchtigkeit Schlafzimmer
   icon: mdi:water-percent
@@ -67,6 +70,7 @@ sensor.pressure_158d0002239fb5:
   icon: mdi:gauge
 sensor.temperature_158d0002239fb5:
   friendly_name: Sensor Küche
+  icon: mdi:thermometer-lines
 light.sonoff_office:
   friendly_name: Bürolicht
   icon: mdi:ceiling-light
@@ -132,7 +136,7 @@ sensor.humidity_158d00023258bd:
   icon: mdi:water-percent
 sensor.temperature_158d00023258bd:
   friendly_name: Sensor Bad
-  icon: mdi:thermometer
+  icon: mdi:thermometer-lines
 sensor.pressure_158d00023258bd:
   friendly_name: Luftdruck Bad
   icon: mdi:gauge
