@@ -855,6 +855,7 @@
   trigger:
   - entity_id: climate.oeq1696369
     platform: state
+    to: auto
   condition: []
   action:
   - data:

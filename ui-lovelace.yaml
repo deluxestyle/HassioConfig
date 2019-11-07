@@ -11,8 +11,6 @@ resources:
     type: module
   - url: /community_plugin/group-card/group-card.js
     type: js  
-  - url: /community_plugin/lovelace-popup-card/popup-card.js
-    type: js
   - url: /community_plugin/lovelace-card-mod/card-mod.js
     type: module
   - url: /community_plugin/lovelace-multiple-entity-row/multiple-entity-row.js
