@@ -17,7 +17,7 @@ resources:
     type: js
   - url: /community_plugin/lovelace-card-tools/card-tools.js
     type: js
-  - url: /local/github/thomasloven/time-input-row.js?track=true #outdated
+  - url: /local/github/thomasloven/time-input-row.js?track=true 
     type: js
   - url: /local/tiles-card.js?track=true
     type: js
@@ -25,7 +25,7 @@ resources:
     type: module
   - url: /community_plugin/lovelace-auto-entities/auto-entities.js
     type: js
-  - url: /community_plugin/simple-thermostat/simple-thermostat.js
+  - url: /local/simple-thermostat_wt/simple-thermostat.js?v=wt0.03
     type: module
 # -----------------------------
 cch:
@@ -96,7 +96,9 @@ x-popup-climate: &popup-climate
   style: |
     ha-card {
       --ha-card-box-shadow: 'none';
-      }
+      --st-font-size-sensors: 14px;
+      --st-font-size-xl: 35px;
+    }
   step_size: 0.5
   name: false
   control :
