@@ -90,6 +90,17 @@ x-buttons_general: &buttons_general
     icon:
       color:
         value: white
+
+##climate popup
+x-popup-climate: &popup-climate
+  style: |
+    ha-card {
+      --ha-card-box-shadow: 'none';
+      }
+  step_size: 0.5
+  name: false
+  control :
+    _icons: false
 # -----------------------------
 
 # -----------------------------
@@ -118,7 +129,8 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - light.lights_bed_room
+          - entity: light.lights_bed_room
+            tap_action: none
           - input_select.scenes_bed_room
           - type: custom:fold-entity-row
             head:
@@ -132,11 +144,13 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - light.sonoff_office
+          - entity: light.sonoff_office
+            tap_action: none
       - type: entities
         show_header_toggle: false
         entities:
-          - light.lights_kitchen
+          - entity: light.lights_kitchen
+            tap_action: none
           - type: custom:fold-entity-row
             head: 
               type: section
@@ -191,7 +205,19 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - climate.oeq1701003
+          - entity: climate.oeq1701003
+            tap_action:
+              action: call-service
+              service: browser_mod.popup
+              service_data:
+                deviceID: this
+                title: Heizung Bad
+                card:
+                  type: entities
+                  entities: 
+                    - type: 'custom:simple-thermostat'
+                      entity: climate.oeq1701003
+                      <<: *popup-climate
           - entity: sensor.temperature_158d00023258bd
             type: custom:multiple-entity-row
             primary:
@@ -220,7 +246,19 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - climate.oeq1696358
+          - entity: climate.oeq1696358
+            tap_action:
+              action: call-service
+              service: browser_mod.popup
+              service_data:
+                deviceID: this
+                title: Heizung Wohnzimmer
+                card:
+                  type: entities
+                  entities: 
+                    - type: 'custom:simple-thermostat'
+                      entity: climate.oeq1696358
+                      <<: *popup-climate
           - entity: sensor.temperature_158d0001b8c998
             type: custom:multiple-entity-row
             primary:
@@ -238,7 +276,19 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - climate.oeq1696369
+          - entity: climate.oeq1696369
+            tap_action:
+              action: call-service
+              service: browser_mod.popup
+              service_data:
+                deviceID: this
+                title: Heizung Schlafzimmer
+                card:
+                  type: entities
+                  entities: 
+                    - type: 'custom:simple-thermostat'
+                      entity: climate.oeq1696369
+                      <<: *popup-climate
           - entity: sensor.temperature_158d0001b8c96c
             type: custom:multiple-entity-row
             primary:
@@ -256,7 +306,19 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - climate.int0000002
+          - entity: climate.int0000002
+            tap_action:
+              action: call-service
+              service: browser_mod.popup
+              service_data:
+                deviceID: this
+                title: Heizung Büro
+                card:
+                  type: entities
+                  entities: 
+                    - type: 'custom:simple-thermostat'
+                      entity: climate.int0000002
+                      <<: *popup-climate
           - entity: sensor.oeq1667238_temperature
             type: custom:multiple-entity-row
             primary:
