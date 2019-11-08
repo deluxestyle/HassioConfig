@@ -97,7 +97,7 @@ x-popup-climate: &popup-climate
     ha-card {
       --ha-card-box-shadow: 'none';
       --st-font-size-sensors: 14px;
-      --st-font-size-xl: 35px;
+      --st-font-size-xl: 40px;
     }
   step_size: 0.5
   name: false
@@ -242,7 +242,6 @@ views:
               label: Mehr
             padding: 5
             entities:
-              - script.1538502214360
               - switch.radiator_bath_keylock
               - sensor.valve_bath
       - type: entities
@@ -272,7 +271,6 @@ views:
               label: Mehr
             padding: 5
             entities:
-              - script.1538143929416
               - switch.radiator_living_room_keylock
               - sensor.valve_living_room
       - type: entities
@@ -302,7 +300,6 @@ views:
               label: Mehr
             padding: 5
             entities:
-              - script.1538143964007
               - switch.radiator_bed_room_keylock
               - sensor.valve_bed_room
       - type: entities
@@ -332,7 +329,6 @@ views:
               label: Mehr
             padding: 5
             entities:
-              - script.1538143893265
               - switch.radiator_office_keylock
               - sensor.valve_office
       - type: entities
