@@ -595,11 +595,13 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - light.steckdose
+          - switch.wifi_steckdose
           - type: section
           - light.steckdose_3
           - type: section
           - light.steckdose_5
+          - type: section
+          - light.steckdose
 
 ##### Personen #####
   - title: Personen

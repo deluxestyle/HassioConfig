@@ -19,3 +19,4 @@ smart_home:
       - switch.power_plug_printer
       - switch.power_plug_multimedia
       - switch.vacuum
+      - switch.wifi_steckdose

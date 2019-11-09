@@ -202,6 +202,26 @@
         value_template: '{{ ( (states ( "sensor.x1_sdrive18i_mileage" ) | int) / (states ( "sensor.car_km_threshold" ) | int) * 100 ) | round(2) }}'
         unit_of_measurement: '%'
         icon_template: mdi:car-cruise-control
+      hs110_amps:
+        friendly_name_template: "HS110 Aktuelle Leistung"
+        value_template: '{{ states.switch.wifi_steckdose.attributes["current_a"] | float }}'
+        unit_of_measurement: 'A'
+      hs110_watts:
+        friendly_name_template: "HS110 Aktueller Gesamtverbrauch"
+        value_template: '{{ states.switch.wifi_steckdose.attributes["current_power_w"] | float }}'
+        unit_of_measurement: 'W'
+      hs110_total_kwh:
+        friendly_name_template: "HS110 Verbrauch "
+        value_template: '{{ states.switch.wifi_steckdose.attributes["total_energy_kwh"] | float }}'
+        unit_of_measurement: 'kWh'
+      hs110_volts:
+        friendly_name_template: "HS110 Spannung"
+        value_template: '{{ states.switch.wifi_steckdose.attributes["voltage"] | float }}'
+        unit_of_measurement: 'V'
+      hs110_today_kwh:
+        friendly_name_template: "HS110 kwh"
+        value_template: '{{ states.switch.wifi_steckdose.attributes["today_energy_kwh"] | float }}'
+        unit_of_measurement: 'kWh'
 
 - platform: uptime
   name: online_time

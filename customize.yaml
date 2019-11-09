@@ -320,3 +320,5 @@ automation.km_stand_kritisch:
   icon: mdi:message-alert
 automation.benachrichtigung_luftfeuchtigkeit:
   icon: mdi:message-alert
+switch.wifi_steckdose:
+  icon: mdi:power-socket-eu

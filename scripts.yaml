@@ -105,8 +105,8 @@
   alias: Entertainment - Telekom
   sequence:
   - data:
-      entity_id: light.steckdose
-    service: light.turn_on
+      entity_id: switch.wifi_steckdose
+    service: switch.turn_on
   - delay: 00:00:02
   - data:
       activity: Magenta TV
@@ -116,8 +116,8 @@
   alias: Entertainment - Musik
   sequence:
   - data:
-      entity_id: light.steckdose
-    service: light.turn_on
+      entity_id: switch.wifi_steckdose
+    service: switch.turn_on
   - delay: 00:00:02
   - data:
       activity: Musik

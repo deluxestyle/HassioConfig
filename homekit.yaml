@@ -34,6 +34,7 @@ filter:
     - switch.tv_switch
     - switch.music_switch
     - switch.vacuum
+    - switch.wifi_steckdose
 entity_config:
     media_player.schlafzimmer:
       feature_list:
