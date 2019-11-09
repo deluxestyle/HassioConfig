@@ -346,16 +346,16 @@
 - id: '1540974552306'
   alias: 'Benachrichtigung: Luftfeuchtigkeit'
   trigger:
-  - above: '62'
+  - above: '68'
     entity_id: sensor.humidity_158d0001b8c96c
     platform: numeric_state
-  - above: '62'
+  - above: '68'
     entity_id: sensor.humidity_158d0001b8c998
     platform: numeric_state
-  - above: '62'
+  - above: '68'
     entity_id: sensor.humidity_158d0002239fb5
     platform: numeric_state
-  - above: '62'
+  - above: '68'
     entity_id: sensor.oeq1667238_humidity
     platform: numeric_state
   condition:
