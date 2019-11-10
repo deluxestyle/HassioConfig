@@ -27,6 +27,8 @@ resources:
     type: js
   - url: /local/simple-thermostat_wt/simple-thermostat.js?v=wt0.03
     type: module
+  - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
+    type: module
 # -----------------------------
 cch:
   main_config: true
