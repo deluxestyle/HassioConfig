@@ -777,11 +777,44 @@ views:
     id: other
     icon: mdi:settings-outline
     cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - script.1570443737111
-          - script.1570439203461
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: RAM
+            <<: *mini-graph
+            entities:
+              - entity: sensor.memory_use_percent
+                color: blue
+          - type: custom:mini-graph-card
+            name: RAM
+            <<: *mini-graph
+            entities:
+              - entity: sensor.memory_use
+          - type: custom:mini-graph-card
+            name: HDD
+            <<: *mini-graph
+            entities:
+              - entity: sensor.disk_use_percent
+                color: green
+      - type: horizontal-stack
+        cards:  
+          - type: custom:mini-graph-card
+            name: HDD
+            <<: *mini-graph
+            entities:
+              - entity: sensor.disk_use
+          - type: custom:mini-graph-card
+            name: CPU
+            <<: *mini-graph
+            entities:
+              - entity: sensor.processor_use
+                color: green
+          - type: custom:mini-graph-card
+            name: CPU
+            <<: *mini-graph
+            entities:
+              - entity: sensor.cpu_temperature
+                color: red
       - type: entities
         show_header_toggle: false
         entities:
@@ -817,21 +850,26 @@ views:
         entities:
           - sensor.online_time
           - sensor.fritz_netmonitor
-      - type: glance
-        columns: 4
-        show_name: false
+      - type: entities
+        show_header_toggle: false
         entities:
-          - entity: sensor.memory_use_percent
-            name: Memory
-          - entity: sensor.memory_use
-            name: Memory
-          - entity: sensor.disk_use_percent
-            name: Disk
-          - entity: sensor.disk_use
-            name: Disk
-          - entity: sensor.processor_use
-            name: CPU
-            icon: mdi:poll-box
-          - entity: sensor.cpu_temperature
-            name: CPU Temp
-            icon: mdi:thermometer
+          - script.1570443737111
+          - script.1570439203461
+      # - type: glance
+      #   columns: 4
+      #   show_name: false
+      #   entities:
+      #     - entity: sensor.memory_use_percent
+      #       name: Memory
+      #     - entity: sensor.memory_use
+      #       name: Memory
+      #     - entity: sensor.disk_use_percent
+      #       name: Disk
+      #     - entity: sensor.disk_use
+      #       name: Disk
+      #     - entity: sensor.processor_use
+      #       name: CPU
+      #       icon: mdi:poll-box
+      #     - entity: sensor.cpu_temperature
+      #       name: CPU Temp
+      #       icon: mdi:thermometer
