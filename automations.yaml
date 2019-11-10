@@ -908,3 +908,15 @@
   - data:
       name: default
     service: frontend.set_theme
+- id: '1573317974047'
+  alias: Harmony - Wifi Steckdose
+  description: ''
+  trigger:
+  - entity_id: sensor.remote_state
+    platform: state
+    to: WifiPlug
+  condition: []
+  action:
+  - data:
+      entity_id: switch.wifi_steckdose
+    service: switch.turn_on
