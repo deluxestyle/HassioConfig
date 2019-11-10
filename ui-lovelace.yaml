@@ -105,6 +105,14 @@ x-popup-climate: &popup-climate
   name: false
   control :
     _icons: false
+
+## mini-graph
+x-mini-graph: &mini-graph
+  font_size: 75
+  line_width: 2
+  font_size_header: 12
+  hour24: true
+  height: 100
 # -----------------------------
 
 # -----------------------------
@@ -604,7 +612,42 @@ views:
           - light.steckdose_5
           - type: section
           - light.steckdose
-
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Stromverbrauch
+            icon: mdi:flash
+            <<: *mini-graph
+            entities:
+              - entity: sensor.hs110_today_kwh
+                name: Aktuell
+                color: #FF9800	
+              - entity: sensor.hs110_total_kwh
+                name: Gesamt
+          - type: custom:mini-graph-card
+            name: Aktuelle Leistung
+            icon: mdi:flash
+            <<: *mini-graph
+            entities:
+              - entity: sensor.hs110_watts
+                color: #FDD835
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Stromstärke
+            icon: mdi:flash
+            <<: *mini-graph
+            entities:
+              - entity: sensor.hs110_amps
+                color: red
+          - type: custom:mini-graph-card
+            name: Spannung
+            icon: mdi:flash
+            <<: *mini-graph
+            entities:
+              - entity: sensor.hs110_volts
+                color: green
+                
 ##### Personen #####
   - title: Personen
     id: presence
