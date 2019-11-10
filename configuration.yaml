@@ -24,29 +24,8 @@ alexa: !include alexa.yaml
 updater:
   include_used_components: true
 
-recorder:
-  purge_interval: 1
-  purge_keep_days: 1
-  exclude:
-    domains:
-      - group
-      - device_tracker
-      - sensor
-      - light
-      - media_player
-      - scene
-      - switch
-      - camera
-      - switch
-      - binary_sensor
-      - climate
-      - calendar
-      - camera
-    entities:
-      - sun.sun
-      - automation.battery_persistent_notification
-      - weather.dark_sky
-      
+recorder: !include recorder.yaml
+     
 history:
   exclude:
     domains:

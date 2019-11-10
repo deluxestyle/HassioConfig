@@ -78,3 +78,6 @@ include:
     - sensor.hs110_total_kwh
     - sensor.hs110_watts
     - sensor.hs110_amps
+    - sensor.car_days_in_use
+    - sensor.car_km_threshold
+    - sensor.car_km_usage
