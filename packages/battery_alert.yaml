@@ -25,7 +25,7 @@ group:
       - sensor.battery_sensor_kitchen
       - sensor.battery_sensor_livingroom
       - sensor.battery_sensor_motion
-      - sensor.battery_sensor_outdoor
+      - sensor.battery_sensor_bath
       - sensor.battery_sensor_wall_switch
       - sensor.battery_sensor_wall_switch_double
 

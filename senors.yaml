@@ -76,10 +76,10 @@
         device_class: battery
         friendly_name: "Batterie Sensor Küche"
         value_template: '{{ states.sensor.humidity_158d0001b8c998.attributes.battery_level }}'
-      battery_sensor_outdoor:
+      battery_sensor_bath:
         entity_id: sensor.humidity_158d00023258bd
         device_class: battery
-        friendly_name: "Batterie Sensor Outdoor"
+        friendly_name: "Batterie Sensor Bad"
         value_template: '{{ states.sensor.humidity_158d00023258bd.attributes.battery_level }}'
       battery_sensor_motion:
         entity_id: binary_sensor.motion_sensor_158d00023e77cb

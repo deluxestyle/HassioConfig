@@ -322,3 +322,5 @@ automation.benachrichtigung_luftfeuchtigkeit:
   icon: mdi:message-alert
 switch.wifi_steckdose:
   icon: mdi:power-socket-eu
+sensor.battery_sensor_outdoor:
+  friendly_name: Batterie Sensor Bath
