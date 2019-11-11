@@ -606,47 +606,70 @@ views:
         show_header_toggle: false
         entities:
           - switch.wifi_steckdose
-          - type: section
-          - light.steckdose_3
-          - type: section
-          - light.steckdose_5
-          - type: section
-          - light.steckdose
-      - type: horizontal-stack
-        cards:
-          - type: custom:mini-graph-card
-            name: Stromverbrauch
-            icon: mdi:flash
-            <<: *mini-graph
+          - type: custom:fold-entity-row
+            head: 
+              type: section
+              label: Verbrauchsdaten
+            padding: 5
             entities:
               - entity: sensor.hs110_today_kwh
-                name: Aktuell
-                color: #FF9800	
               - entity: sensor.hs110_total_kwh
-                name: Gesamt
-          - type: custom:mini-graph-card
-            name: Aktuelle Leistung
-            icon: mdi:flash
-            <<: *mini-graph
-            entities:
               - entity: sensor.hs110_watts
-                color: #FDD835
-      - type: horizontal-stack
-        cards:
-          - type: custom:mini-graph-card
-            name: Stromstärke
-            icon: mdi:flash
-            <<: *mini-graph
-            entities:
               - entity: sensor.hs110_amps
-                color: red
-          - type: custom:mini-graph-card
-            name: Spannung
-            icon: mdi:flash
-            <<: *mini-graph
-            entities:
               - entity: sensor.hs110_volts
-                color: green
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - light.steckdose_3
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - light.steckdose_5
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - light.steckdose
+      # - type: horizontal-stack
+      #   cards:
+      #     - type: custom:mini-graph-card
+      #       name: Aktuell
+      #       icon: mdi:flash
+      #       <<: *mini-graph
+      #       entities:
+      #         - entity: sensor.hs110_today_kwh
+      #           name: Aktuell
+      #           color: blue
+      #     - type: custom:mini-graph-card
+      #       name: Gesamt
+      #       icon: mdi:flash
+      #       <<: *mini-graph
+      #       entities:
+      #         - entity: sensor.hs110_total_kwh
+      #           name: Gesamt
+      #           color: green
+      #     - type: custom:mini-graph-card
+      #       name: Aktuelle Leistung
+      #       icon: mdi:flash
+      #       <<: *mini-graph
+      #       entities:
+      #         - entity: sensor.hs110_watts
+      #           color: #FDD835
+      # - type: horizontal-stack
+      #   cards:
+      #     - type: custom:mini-graph-card
+      #       name: Stromstärke
+      #       icon: mdi:flash
+      #       <<: *mini-graph
+      #       entities:
+      #         - entity: sensor.hs110_amps
+      #           color: red
+      #     - type: custom:mini-graph-card
+      #       name: Spannung
+      #       icon: mdi:flash
+      #       <<: *mini-graph
+      #       entities:
+      #         - entity: sensor.hs110_volts
+      #           color: purple
                 
 ##### Personen #####
   - title: Personen
