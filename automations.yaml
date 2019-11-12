@@ -36,6 +36,9 @@
   - data:
       entity_id: automation.benachrichtigung_bewegung_erkannt
     service: automation.turn_on
+  - data:
+      entity_id: switch.wifi_steckdose
+    service: switch.turn_off
 - id: scenes_living_room
   alias: 'Lichtszenen: Wohnzimmer auswählen'
   trigger:
