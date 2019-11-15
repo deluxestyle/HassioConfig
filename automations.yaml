@@ -286,6 +286,7 @@
     to: home
   condition: []
   action:
+  - delay: 00:02:00
   - data:
       entity_id: media_player.harman_kardon_avr
     service: media_player.volume_down
