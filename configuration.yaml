@@ -165,5 +165,10 @@ zone:
     icon: mdi:office-building
 
 browser_mod:
+  devices:
+    53aa2c9b_dcb577df:
+      name: iphonex_1.5
+    34fe44de_f120fa2e:
+      name: iphonex_2.0
 
 tplink:
