@@ -207,26 +207,45 @@
         value_template: '{{ states.switch.wifi_steckdose.attributes["current_a"] | float }}'
         unit_of_measurement: 'A'
         icon_template: mdi:clipboard-pulse-outline
+        entity_id: switch.wifi_steckdose
       hs110_watts:
         friendly_name_template: "HS110 Aktuelle Leistung"
         value_template: '{{ states.switch.wifi_steckdose.attributes["current_power_w"] | float }}'
         unit_of_measurement: 'W'
         icon_template: mdi:clipboard-pulse-outline
+        entity_id: switch.wifi_steckdose
       hs110_total_kwh:
         friendly_name_template: "HS110 Gesamtverbrauch"
         value_template: '{{ states.switch.wifi_steckdose.attributes["total_energy_kwh"] | float }}'
         unit_of_measurement: 'kWh'
         icon_template: mdi:clipboard-pulse-outline
+        entity_id: switch.wifi_steckdose
       hs110_volts:
         friendly_name_template: "HS110 Aktuelle Spannung"
         value_template: '{{ states.switch.wifi_steckdose.attributes["voltage"] | float }}'
         unit_of_measurement: 'V'
         icon_template: mdi:clipboard-pulse-outline
+        entity_id: switch.wifi_steckdose
       hs110_today_kwh:
         friendly_name_template: "HS110 Tagesverbrauch"
         value_template: '{{ states.switch.wifi_steckdose.attributes["today_energy_kwh"] | float }}'
         unit_of_measurement: 'kWh'
         icon_template: mdi:clipboard-pulse-outline
+        entity_id: switch.wifi_steckdose
+      offset_bed_room:
+        friendly_name: Offset
+        value_template: '{{ (states.sensor.temperature_158d0001b8c96c.state | float) - (states.climate.oeq1696369.attributes["current_temperature"] | float) - (states.input_number.offset_bed_room.state | float) }}'
+        unit_of_measurement: '°'
+        entity_id: 
+          - sensor.temperature_158d0001b8c96c
+          - climate.oeq1696369
+      offset_living_room:
+        friendly_name: Offset
+        value_template: '{{ (states.sensor.temperature_158d0001b8c998.state | float) - (states.climate.oeq1696358.attributes["current_temperature"] | float) - (states.input_number.offset_living_room.state | float) }}'
+        unit_of_measurement: '°'
+        entity_id: 
+          - sensor.temperature_158d0001b8c998
+          - climate.oeq1696358
 
 - platform: uptime
   name: online_time

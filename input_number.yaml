@@ -1,0 +1,28 @@
+offset_bath:
+  name: Offset Bad
+  initial: 0
+  min: -3.5
+  max: 3.5
+  step: 0.5
+  unit_of_measurement: °
+offset_living_room:
+  name: Offset Wohnzimmer
+  initial: 0
+  min: -3.5
+  max: 3.5
+  step: 0.5
+  unit_of_measurement: °
+offset_bed_room:
+  name: Offset Schlafzimmer
+  initial: 0
+  min: -3.5
+  max: 3.5
+  step: 0.5
+  unit_of_measurement: °
+offset_office:
+  name: Offset Büro
+  initial: 0
+  min: -3.5
+  max: 3.5
+  step: 0.5
+  unit_of_measurement: °

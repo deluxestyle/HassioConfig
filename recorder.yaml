@@ -15,6 +15,7 @@ exclude:
     - binary_sensor
     - climate
     - calendar
+    - input_number
     - camera
   entities:
     - sun.sun
