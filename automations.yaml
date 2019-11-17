@@ -930,10 +930,8 @@
   alias: Heizung Offset Schlafzimmer
   description: ''
   trigger:
-  - hours: '*'
-    minutes: /30
+  - minutes: /30
     platform: time_pattern
-    seconds: '*'
   condition: []
   action:
   - data_template:
@@ -946,10 +944,8 @@
   alias: Heizung Offset Wohnzimmer
   description: ''
   trigger:
-  - hours: '*'
-    minutes: /30
+  - minutes: /30
     platform: time_pattern
-    seconds: '*'
   condition: []
   action:
   - data_template:
@@ -980,10 +976,8 @@
   alias: Dismiss annoying notification
   description: ''
   trigger:
-  - hours: '*'
-    minutes: /5
+  - minutes: /5
     platform: time_pattern
-    seconds: '*'
   condition:
   - condition: state
     entity_id: persistent_notification.config_entry_discovery
