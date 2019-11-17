@@ -938,7 +938,7 @@
   - condition: template
     value_template: >
         {% set last_triggered = states.automation.heizung_offset_schlafzimmer.attributes.last_triggered %}
-        {{ last_triggered is none or (as_timestamp(now()) - as_timestamp(last_triggered )) | int > 600 }}
+        {{ last_triggered is none or (as_timestamp(utcnow()) - as_timestamp(last_triggered )) | int > 600 }}
   action:
   - data_template:
       climate: OEQ1696369
@@ -957,7 +957,7 @@
   - condition: template
     value_template: >
         {% set last_triggered = states.automation.heizung_offset_wohnzimmer.attributes.last_triggered %}
-        {{ last_triggered is none or (as_timestamp(now()) - as_timestamp(last_triggered )) | int > 600 }}
+        {{ last_triggered is none or (as_timestamp(utcnow()) - as_timestamp(last_triggered )) | int > 600 }}
   action:
   - service: python_script.set_thermostate_offset
     data_template:
@@ -976,7 +976,7 @@
   - condition: template
     value_template: >
         {% set last_triggered = states.automation.heizung_offset_bad.attributes.last_triggered %}
-        {{ last_triggered is none or (as_timestamp(now()) - as_timestamp(last_triggered )) | int > 600 }}
+        {{ last_triggered is none or (as_timestamp(utcnow()) - as_timestamp(last_triggered )) | int > 600 }}
   action:
   - service: python_script.set_thermostate_offset
     data_template:
