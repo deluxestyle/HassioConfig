@@ -1,0 +1,71 @@
+- platform: template
+  sensors:
+##############################################################
+# Valve
+##############################################################
+      valve_bed_room:
+        entity_id: climate.oeq1696369
+        friendly_name: "Schlafzimmer Ventil"
+        unit_of_measurement: "%"
+        value_template: '{{ states.climate.oeq1696369.attributes.valve }}'
+      valve_office:
+        entity_id: climate.oeq1714751
+        friendly_name: "Büro Ventil"
+        unit_of_measurement: "%"
+        value_template: '{{ states.climate.oeq1714751.attributes.valve }}'
+      valve_living_room:
+        entity_id: climate.oeq1696358
+        friendly_name: "Wohnzimmer Ventil"
+        unit_of_measurement: "%"
+        value_template: '{{ states.climate.oeq1696358.attributes.valve }}'
+      valve_bath:
+        entity_id: climate.oeq1701003
+        friendly_name: "Bad Ventil"
+        unit_of_measurement: "%"
+        value_template: '{{ states.climate.oeq1701003.attributes.valve }}'
+##############################################################
+# Keylock
+##############################################################
+      radiator_bed_room_keylock:
+        entity_id: homematic.ccu2
+        friendly_name: "Tastensperre Schlafzimmer"
+        value_template: '{{ states.homematic.ccu2.attributes.block_bed_room }}'
+      radiator_living_room_keylock:
+        entity_id: homematic.ccu2
+        friendly_name: "Tastensperre Wohnzimmer"
+        value_template: '{{ states.homematic.ccu2.attributes.block_living_room	 }}'
+      radiator_office_keylock:
+        entity_id: homematic.ccu2
+        friendly_name: "Tastensperre Büro"
+        value_template: '{{ states.homematic.ccu2.attributes.block_office }}'
+      radiator_bath_keylock:
+        entity_id: homematic.ccu2
+        friendly_name: "Tastensperre Bad"
+        value_template: '{{ states.homematic.ccu2.attributes.block_bath }}'
+##############################################################
+# Offset
+##############################################################
+      offset_bed_room:
+        friendly_name: Offset
+        value_template: '{{ (states.sensor.temperature_158d0001b8c96c.state | float) - (states.climate.oeq1696369.attributes["current_temperature"] | float) - (states.input_number.offset_bed_room.state | float) }}'
+        unit_of_measurement: '°'
+        icon_template: mdi:temperature-celsius
+        entity_id: 
+          - sensor.temperature_158d0001b8c96c
+          - climate.oeq1696369
+      offset_living_room:
+        friendly_name: Offset
+        value_template: '{{ (states.sensor.temperature_158d0001b8c998.state | float) - (states.climate.oeq1696358.attributes["current_temperature"] | float) - (states.input_number.offset_living_room.state | float) }}'
+        unit_of_measurement: '°'
+        icon_template: mdi:temperature-celsius
+        entity_id: 
+          - sensor.temperature_158d0001b8c998
+          - climate.oeq1696358
+      offset_bath:
+        friendly_name: Offset
+        value_template: '{{ (states.sensor.temperature_158d00023258bd.state | float) - (states.climate.oeq1701003.attributes["current_temperature"] | float) - (states.input_number.offset_bath.state | float) }}'
+        unit_of_measurement: '°'
+        icon_template: mdi:temperature-celsius
+        entity_id: 
+          - sensor.temperature_158d00023258bd
+          - climate.oeq1701003

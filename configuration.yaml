@@ -57,7 +57,7 @@ input_select: !include input_selects.yaml
 input_boolean: !include input_boolean.yaml
 input_datetime: !include input_datetime.yaml
 input_number: !include input_number.yaml
-sensor: !include senors.yaml
+sensor: !include_dir_merge_list sensors/
 counter: !include counter.yaml
 media_player: !include media_player.yaml
 

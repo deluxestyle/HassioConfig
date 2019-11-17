@@ -1,0 +1,57 @@
+- platform: fritzbox_netmonitor
+  host: 192.168.200.1
+
+- platform: huesensor
+
+- platform: systemmonitor
+  resources:
+      - type: memory_free
+      - type: memory_use
+      - type: memory_use_percent
+      - type: processor_use
+      - type: disk_use_percent
+        arg: /
+      - type: disk_use
+        arg: /
+      - type: disk_free
+        arg: /
+      - type: load_1m 
+      - type: load_5m
+      - type: load_15m
+
+- platform: template
+  sensors:
+      remote_state:
+        entity_id: remote.harmony_hub
+        friendly_name: "Multimedia"
+        value_template: '{{ states.remote.harmony_hub.attributes.current_activity }}'
+      presence:
+        entity_id: person.anita, person.wolfgang
+        friendly_name: Anwesenheit
+        value_template: >
+            {% if is_state('person.anita', 'home') or is_state('person.wolfgang', 'home')  %}
+              home
+            {% else %}
+              not_home
+            {% endif %}
+      dark_sky_temperature:
+        entity_id: weather.dark_sky
+        friendly_name: Temperatur
+        value_template: '{{ states.weather.dark_sky.attributes.temperature }}'
+
+- platform: uptime
+  name: online_time
+  unit_of_measurement: hours 
+
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+    - 'date_time'
+    - 'time_date'
+
+- platform: command_line
+  name: CPU Temperature
+  command: "cat /sys/class/thermal/thermal_zone0/temp"
+  unit_of_measurement: "°C"
+  value_template: '{{ value | multiply(0.001) | round(1) }}'
