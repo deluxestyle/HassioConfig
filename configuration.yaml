@@ -166,3 +166,6 @@ browser_mod:
       name: iphonex_2.0
 
 tplink:
+
+logger:
+  default: info
