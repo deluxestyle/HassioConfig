@@ -16,16 +16,15 @@ frontend:
 
 lovelace:
   mode: yaml
+
+logger:
+  default: info
   
 api:
 
-alexa: !include alexa.yaml
-
 updater:
   include_used_components: true
-
-recorder: !include recorder.yaml
-     
+  
 history:
   exclude:
     domains:
@@ -47,6 +46,8 @@ logbook:
   # ignore:
   #   - homekit
 
+recorder: !include recorder.yaml
+alexa: !include alexa.yaml
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
@@ -57,15 +58,12 @@ input_select: !include input_selects.yaml
 input_boolean: !include input_boolean.yaml
 input_datetime: !include input_datetime.yaml
 input_number: !include input_number.yaml
-sensor: !include_dir_merge_list sensors/
 counter: !include counter.yaml
 media_player: !include media_player.yaml
-
 influxdb: !include influxdb.yaml
-
 ios: !include push.yaml
-
 homekit: !include homekit.yaml
+sensor: !include_dir_merge_list sensors/
 
 hue:
   bridges:
@@ -170,6 +168,3 @@ browser_mod:
       name: iphonex_2.0
 
 tplink:
-
-logger:
-  default: info
