@@ -255,9 +255,15 @@ views:
               - switch.radiator_bath_keylock
               - sensor.valve_bath
               - type: section
-              - automation.heizung_offset_bad
               - input_number.offset_bath
               - sensor.offset_bath
+              - entity: automation.heizung_offset_bad
+                type: custom:multiple-entity-row
+                toggle: true
+                info:
+                  entity: automation.heizung_offset_bad
+                  attribute: last_triggered
+                  name: Ausgeführt
       - type: entities
         show_header_toggle: false
         entities:
@@ -288,9 +294,15 @@ views:
               - switch.radiator_living_room_keylock
               - sensor.valve_living_room
               - type: section
-              - automation.heizung_offset_wohnzimmer
               - input_number.offset_living_room
               - sensor.offset_living_room
+              - entity: automation.heizung_offset_wohnzimmer
+                type: custom:multiple-entity-row
+                toggle: true
+                info:
+                  entity: automation.heizung_offset_wohnzimmer
+                  attribute: last_triggered
+                  name: Ausgeführt
       - type: entities
         show_header_toggle: false
         entities:
@@ -321,9 +333,15 @@ views:
               - switch.radiator_bed_room_keylock
               - sensor.valve_bed_room
               - type: section
-              - automation.heizung_offset_schlafzimmer
               - input_number.offset_bed_room
               - sensor.offset_bed_room
+              - entity: automation.heizung_offset_schlafzimmer
+                type: custom:multiple-entity-row
+                toggle: true
+                info:
+                  entity: automation.heizung_offset_schlafzimmer
+                  attribute: last_triggered
+                  name: Ausgeführt
       - type: entities
         show_header_toggle: false
         entities:

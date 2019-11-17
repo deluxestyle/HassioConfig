@@ -31,12 +31,16 @@ history:
     domains:
       - group
       - calendar
+    entities:
+      - automation.dismiss_annoying_notification
 
 logbook:
   exclude:
     domains:
       - group
       - calendar
+    entities:
+      - automation.dismiss_annoying_notification
 
 # Discover some devices automatically
 # discovery:
