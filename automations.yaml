@@ -930,13 +930,11 @@
   alias: Heizung Offset Schlafzimmer
   description: ''
   trigger:
-  - entity_id: sensor.temperature_158d0001b8c96c
-    platform: state
-  condition:
-  - condition: template
-    value_template: '{% set last_triggered = states.automation.heizung_offset_schlafzimmer.attributes.last_triggered
-      %} {{ last_triggered is none or (as_timestamp(utcnow()) - as_timestamp(last_triggered
-      )) | int > 900 }}'
+  - hours: '*'
+    minutes: /30
+    platform: time_pattern
+    seconds: '*'
+  condition: []
   action:
   - data_template:
       climate: OEQ1696369
@@ -948,25 +946,23 @@
   alias: Heizung Offset Wohnzimmer
   description: ''
   trigger:
-  - entity_id: sensor.temperature_158d0001b8c998
-    platform: state
-  condition:
-  - condition: template
-    value_template: '{% set last_triggered = states.automation.heizung_offset_wohnzimmer.attributes.last_triggered
-      %} {{ last_triggered is none or (as_timestamp(utcnow()) - as_timestamp(last_triggered
-      )) | int > 900 }} '
+  - hours: '*'
+    minutes: /30
+    platform: time_pattern
+    seconds: '*'
+  condition: []
   action:
-  - service: python_script.set_thermostate_offset
-    data_template:
+  - data_template:
       climate: OEQ1696358
-      offset: '{{ states.sensor.offset_living_room.state | float  }}'
       input_offset: input_number.offset_living_room
+      offset: '{{ states.sensor.offset_living_room.state | float  }}'
       target_temp: '{{ states.climate.oeq1696358.attributes.temperature }}'
+    service: python_script.set_thermostate_offset
 - id: '1573989902849'
   alias: Heizung Offset Bad
   description: ''
   trigger:
-  - entity_id: sensor.temperature_158d00023258bd
+  - entity_id: climate.oeq1701003
     platform: state
   condition:
   - condition: template
