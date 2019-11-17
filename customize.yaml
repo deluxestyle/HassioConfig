@@ -324,3 +324,9 @@ switch.wifi_steckdose:
   icon: mdi:power-socket-eu
 sensor.battery_sensor_outdoor:
   friendly_name: Batterie Sensor Bath
+sensor.offset_bed_room:
+  icon: mdi:temperature-celsius
+sensor.offset_living_room:
+  icon: mdi:temperature-celsius
+sensor.offset_bath:
+  icon: mdi:temperature-celsius

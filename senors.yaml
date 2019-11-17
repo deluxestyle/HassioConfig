@@ -236,6 +236,7 @@
         friendly_name: Offset
         value_template: '{{ (states.sensor.temperature_158d0001b8c96c.state | float) - (states.climate.oeq1696369.attributes["current_temperature"] | float) - (states.input_number.offset_bed_room.state | float) }}'
         unit_of_measurement: '°'
+        icon_template: mdi:temperature-celsius
         entity_id: 
           - sensor.temperature_158d0001b8c96c
           - climate.oeq1696369
@@ -243,9 +244,18 @@
         friendly_name: Offset
         value_template: '{{ (states.sensor.temperature_158d0001b8c998.state | float) - (states.climate.oeq1696358.attributes["current_temperature"] | float) - (states.input_number.offset_living_room.state | float) }}'
         unit_of_measurement: '°'
+        icon_template: mdi:temperature-celsius
         entity_id: 
           - sensor.temperature_158d0001b8c998
           - climate.oeq1696358
+      offset_bath:
+        friendly_name: Offset
+        value_template: '{{ (states.sensor.temperature_158d00023258bd.state | float) - (states.climate.oeq1701003.attributes["current_temperature"] | float) - (states.input_number.offset_bath.state | float) }}'
+        unit_of_measurement: '°'
+        icon_template: mdi:temperature-celsius
+        entity_id: 
+          - sensor.temperature_158d00023258bd
+          - climate.oeq1701003
 
 - platform: uptime
   name: online_time

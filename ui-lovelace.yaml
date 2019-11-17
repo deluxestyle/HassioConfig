@@ -254,6 +254,10 @@ views:
             entities:
               - switch.radiator_bath_keylock
               - sensor.valve_bath
+              - type: section
+              - automation.heizung_offset_bad
+              - input_number.offset_bath
+              - sensor.offset_bath
       - type: entities
         show_header_toggle: false
         entities:
@@ -283,6 +287,10 @@ views:
             entities:
               - switch.radiator_living_room_keylock
               - sensor.valve_living_room
+              - type: section
+              - automation.heizung_offset_wohnzimmer
+              - input_number.offset_living_room
+              - sensor.offset_living_room
       - type: entities
         show_header_toggle: false
         entities:
@@ -312,6 +320,10 @@ views:
             entities:
               - switch.radiator_bed_room_keylock
               - sensor.valve_bed_room
+              - type: section
+              - automation.heizung_offset_schlafzimmer
+              - input_number.offset_bed_room
+              - sensor.offset_bed_room
       - type: entities
         show_header_toggle: false
         entities:
