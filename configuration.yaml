@@ -45,25 +45,25 @@ logbook:
 # discovery:
   # ignore:
   #   - homekit
-
-recorder: !include recorder.yaml
-alexa: !include alexa.yaml
 group: !include groups.yaml
-automation: !include automations.yaml
 script: !include scripts.yaml
+automation: !include automations.yaml
 scene: !include scenes.yaml
-switch: !include switch.yaml  
-light: !include light.yaml
-input_select: !include input_selects.yaml
-input_boolean: !include input_boolean.yaml
-input_datetime: !include input_datetime.yaml
-input_number: !include input_number.yaml
-counter: !include counter.yaml
-media_player: !include media_player.yaml
-influxdb: !include influxdb.yaml
-ios: !include push.yaml
-homekit: !include homekit.yaml
-sensor: !include_dir_merge_list sensors/
+
+recorder: !include configs/recorder.yaml
+alexa: !include configs/alexa.yaml
+switch: !include configs/switch.yaml  
+light: !include configs/light.yaml
+input_select: !include configs/input_selects.yaml
+input_boolean: !include configs/input_boolean.yaml
+input_datetime: !include configs/input_datetime.yaml
+input_number: !include configs/input_number.yaml
+counter: !include configs/counter.yaml
+media_player: !include configs/media_player.yaml
+influxdb: !include configs/influxdb.yaml
+ios: !include configs/push.yaml
+homekit: !include configs/homekit.yaml
+sensor: !include_dir_merge_list configs/sensors/
 
 hue:
   bridges:
