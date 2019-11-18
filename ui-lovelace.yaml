@@ -1,5 +1,5 @@
 resources:
-  - url: /community_plugin/mini-media-player/mini-media-player.js
+  - url: /community_plugin/mini-media-player/mini-media-player-bundle.js
     type: module
   - url: /community_plugin/lovelace-fold-entity-row/fold-entity-row.js
     type: js
