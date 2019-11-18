@@ -970,7 +970,7 @@
       climate: OEQ1701003
       input_offset: input_number.offset_bath
       offset: '{{ states.sensor.offset_bath.state | float  }}'
-      target_temp: '{{ states.climate.oeq701003.attributes.temperature }}'
+      target_temp: '{{ states.climate.oeq1701003.attributes.temperature }}'
     service: python_script.set_thermostate_offset
 - id: '1572817165405'
   alias: Dismiss annoying notification
