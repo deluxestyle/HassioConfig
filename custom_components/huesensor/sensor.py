@@ -24,8 +24,10 @@ TYPE_GEOFENCE = "Geofence"
 ICONS = {
     "SML": "mdi:run",
     "RWL": "mdi:remote",
+    "ROM": "mdi:remote",    
     "ZGP": "mdi:remote",
     "FOH": "mdi:light-switch",
+    "Z3-": "mdi:light-switch",
 }
 DEVICE_CLASSES = {"SML": "motion"}
 ATTRS = {
@@ -43,8 +45,17 @@ ATTRS = {
         "threshold",
     ],
     "RWL": ["last_updated", "battery", "on", "reachable"],
+    "ROM": ["last_updated", "battery", "on", "reachable"],
     "ZGP": ["last_updated"],
     "FOH": ["last_updated"],
+    "Z3-": ["last_updated",
+            "battery",
+            "on",
+            "reachable",
+            "dial_state",
+            "dial_position",
+            "software_update",
+    ],
 }
 
 
@@ -55,9 +66,9 @@ def parse_hue_api_response(sensors):
     # Loop over all keys (1,2 etc) to identify sensors and get data.
     for sensor in sensors:
         modelid = sensor["modelid"][0:3]
-        if modelid in ["RWL", "SML", "ZGP"]:
+        if modelid in ["RWL", "ROM", "SML", "ZGP"]:
             _key = modelid + "_" + sensor["uniqueid"][:-5]
-            if modelid == "RWL":
+            if modelid == "RWL" or modelid == "ROM":
                 data_dict[_key] = parse_rwl(sensor)
             elif modelid == "ZGP":
                 data_dict[_key] = parse_zgp(sensor)
@@ -66,6 +77,20 @@ def parse_hue_api_response(sensors):
             _key = modelid + "_" + sensor["uniqueid"][-5:]  ###needed for uniqueness
             data_dict[_key] = parse_foh(sensor)
 
+        elif modelid == "Z3-": #### Newest Model ID / Lutron Aurora / Hue Bridge treats it as two sensors, I wanted them combined
+            if sensor["type"] == "ZLLRelativeRotary":   # Rotary Dial
+                _key = modelid + "_" + sensor["uniqueid"][:-5] # Rotary key is substring of button
+                key_value = parse_z3_rotary(sensor)     
+            else: # sensor["type"] == "ZLLSwitch"
+                _key = modelid + "_" + sensor["uniqueid"]
+                key_value = parse_z3_switch(sensor)
+
+            ##Combine parsed data
+            if _key in data_dict: 
+                data_dict[_key].update(key_value)
+            else:
+                data_dict[_key] = key_value
+             
     return data_dict
 
 
@@ -144,6 +169,55 @@ def parse_foh(response):
     }
     return data
 
+
+def parse_z3_rotary(response):
+    """Parse the json response for a Lutron Aurora Rotary Event."""
+
+    Z3_DIAL = {
+        1: "begin",
+        2: "end"
+    }
+
+    turn = response["state"]["rotaryevent"]
+    dial_position = response["state"]["expectedrotation"]
+    if turn is None or turn not in Z3_DIAL:
+        dial = "No data"
+    else:
+        dial = Z3_DIAL[turn]
+    
+    data = {
+        "model": "Z3-",
+        "name": response["name"],
+        "dial_state": dial,
+        "dial_position": dial_position,
+        "software_update": response["swupdate"]["state"],
+        "battery": response["config"]["battery"],
+        "on": response["config"]["on"],
+        "reachable": response["config"]["reachable"],
+        "last_updated": response["state"]["lastupdated"].split("T"),
+    }
+    return data
+
+def parse_z3_switch(response):
+    """Parse the json response for a Lutron Aurora."""
+
+    Z3_BUTTON = {
+        1000: "initial_press",
+        1001: "repeat",
+        1002: "short_release",
+        1003: "long_release"
+    }
+
+    press = response["state"]["buttonevent"]
+    if press is None or press not in Z3_BUTTON:
+        button = "No data"
+    else:
+        button = Z3_BUTTON[press]
+
+    data = {
+        "state": button
+    }
+    return data
 
 def get_bridges(hass):
     from homeassistant.components import hue
@@ -262,6 +336,11 @@ class HueSensor(Entity):
         data = self._data.get(self._hue_id)
         if data:
             return data["name"]
+
+    @property
+    def unique_id(self):
+        """Return the ID of this Hue sensor."""
+        return self._hue_id[+4:][:-3]
 
     @property
     def state(self):

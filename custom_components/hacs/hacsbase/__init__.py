@@ -41,6 +41,7 @@ class System:
     config_path = None
     ha_version = None
     disabled = False
+    lovelace_mode = "storage"
 
 
 class Developer:
@@ -188,6 +189,7 @@ class Hacs:
             )
         )
 
+        self.hass.bus.async_fire("hacs/reload", {"force": True})
         await self.recuring_tasks_installed()
 
         self.system.status.startup = False
