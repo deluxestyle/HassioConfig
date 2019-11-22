@@ -36,6 +36,7 @@ cch:
   notifications: show
   options: show
   swipe: true
+  default_tab: 0
   exceptions:
     - conditions:
         user_agent: iPhone
