@@ -262,12 +262,12 @@ views:
                   entity: input_number.offset_bath
                   name: false
               - entity: automation.heizung_offset_bad
-                type: custom:multiple-entity-row
-                toggle: true
-                info:
-                  entity: automation.heizung_offset_bad
-                  attribute: last_triggered
-                  name: Ausgeführt
+                # type: custom:multiple-entity-row
+                # toggle: true
+                # info:
+                #   entity: automation.heizung_offset_bad
+                #   attribute: last_triggered
+                #   name: Ausgeführt
       - type: entities
         show_header_toggle: false
         entities:
@@ -304,12 +304,12 @@ views:
                   entity: input_number.offset_living_room
                   name: false
               - entity: automation.heizung_offset_wohnzimmer
-                type: custom:multiple-entity-row
-                toggle: true
-                info:
-                  entity: automation.heizung_offset_wohnzimmer
-                  attribute: last_triggered
-                  name: Ausgeführt
+                # type: custom:multiple-entity-row
+                # toggle: true
+                # info:
+                #   entity: automation.heizung_offset_wohnzimmer
+                #   attribute: last_triggered
+                #   name: Ausgeführt
       - type: entities
         show_header_toggle: false
         entities:
@@ -346,12 +346,12 @@ views:
                   entity: input_number.offset_bed_room
                   name: false
               - entity: automation.heizung_offset_schlafzimmer
-                type: custom:multiple-entity-row
-                toggle: true
-                info:
-                  entity: automation.heizung_offset_schlafzimmer
-                  attribute: last_triggered
-                  name: Ausgeführt
+                # type: custom:multiple-entity-row
+                # toggle: true
+                # info:
+                #   entity: automation.heizung_offset_schlafzimmer
+                #   attribute: last_triggered
+                #   name: Ausgeführt
       - type: entities
         show_header_toggle: false
         entities:
