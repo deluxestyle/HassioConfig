@@ -2,7 +2,7 @@
 #
 # Blue Night Theme
 #
-blue_night:
+blue_night_wt:
   accent-color: "hsl(var(--huesat) 30%)"
   base-hue: "220"
   base-sat: "5%"
