@@ -159,14 +159,12 @@
   - data:
       entity_id: scene.thermostat_living_room_off
     service: scene.turn_on
-  - service: script.1573984294636
 '1538143964007':
   alias: Heizung Schlafzimmer ausschalten
   sequence:
   - data:
       entity_id: scene.thermostat_bed_room_off
     service: scene.turn_on
-  - service: script.1573988653228
 '1538167052403':
   alias: Telekom MR 401 on
   sequence:
@@ -213,7 +211,6 @@
   - data:
       entity_id: scene.thermostat_bath_room_off
     service: scene.turn_on
-  - service: script.1574020711519
 '1538646823835':
   alias: Heizung Bad einschalten
   sequence:
