@@ -907,7 +907,7 @@
   alias: 'Frontend: Bright'
   description: ''
   trigger:
-  - at: 07:00
+  - at: 06:45
     platform: time
   condition: []
   action:
@@ -1000,3 +1000,17 @@
   - data:
       entity_id: switch.wifi_steckdose
     service: switch.turn_off
+- id: '1575448707825'
+  alias: 'Benachrichtigung: CCU Servicemeldung'
+  description: ''
+  trigger:
+  - above: '0'
+    entity_id: homematic.ccu2
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      message: Neue Servicemeldung CCU
+      notification_id: ccu
+      title: Servicemeldung
+    service: script.1570439573834

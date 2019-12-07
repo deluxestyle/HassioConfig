@@ -44,7 +44,7 @@ cch:
         options: show
         notifications: overflow
     - conditions:
-        user: anita
+        user: anita, homeassistant
       config:
         hide_tabs: 7
 # -----------------------------
