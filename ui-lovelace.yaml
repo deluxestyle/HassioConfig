@@ -255,13 +255,13 @@ views:
             entities:
               - switch.radiator_bath_keylock
               - sensor.valve_bath
-              - type: section
-              - entity: sensor.offset_bath
-                type: custom:multiple-entity-row
-                primary:
-                  entity: input_number.offset_bath
-                  name: false
-              - entity: automation.heizung_offset_bad
+              # - type: section
+              # - entity: sensor.offset_bath
+              #   type: custom:multiple-entity-row
+              #   primary:
+              #     entity: input_number.offset_bath
+              #     name: false
+              # - entity: automation.heizung_offset_bad
                 # type: custom:multiple-entity-row
                 # toggle: true
                 # info:
@@ -297,13 +297,13 @@ views:
             entities:
               - switch.radiator_living_room_keylock
               - sensor.valve_living_room
-              - type: section
-              - entity: sensor.offset_living_room
-                type: custom:multiple-entity-row
-                primary:
-                  entity: input_number.offset_living_room
-                  name: false
-              - entity: automation.heizung_offset_wohnzimmer
+              # - type: section
+              # - entity: sensor.offset_living_room
+              #   type: custom:multiple-entity-row
+              #   primary:
+              #     entity: input_number.offset_living_room
+              #     name: false
+              # - entity: automation.heizung_offset_wohnzimmer
                 # type: custom:multiple-entity-row
                 # toggle: true
                 # info:
@@ -339,13 +339,13 @@ views:
             entities:
               - switch.radiator_bed_room_keylock
               - sensor.valve_bed_room
-              - type: section
-              - entity: sensor.offset_bed_room
-                type: custom:multiple-entity-row
-                primary:
-                  entity: input_number.offset_bed_room
-                  name: false
-              - entity: automation.heizung_offset_schlafzimmer
+              # - type: section
+              # - entity: sensor.offset_bed_room
+              #   type: custom:multiple-entity-row
+              #   primary:
+              #     entity: input_number.offset_bed_room
+              #     name: false
+              # - entity: automation.heizung_offset_schlafzimmer
                 # type: custom:multiple-entity-row
                 # toggle: true
                 # info:

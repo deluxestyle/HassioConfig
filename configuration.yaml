@@ -41,10 +41,6 @@ logbook:
     entities:
       - automation.dismiss_annoying_notification
 
-# Discover some devices automatically
-# discovery:
-  # ignore:
-  #   - homekit
 group: !include groups.yaml
 script: !include scripts.yaml
 automation: !include automations.yaml
@@ -63,6 +59,10 @@ media_player: !include configs/media_player.yaml
 influxdb: !include configs/influxdb.yaml
 ios: !include configs/push.yaml
 homekit: !include configs/homekit.yaml
+browser_mod: !include configs/browser_mod.yaml
+calendar: !include configs/calendar.yaml
+homematic: !include configs/homematic.yaml
+
 sensor: !include_dir_merge_list configs/sensors/
 
 hue:
@@ -70,20 +70,6 @@ hue:
     - host: 192.168.200.52
       allow_unreachable: true
       allow_hue_groups: false
-
-homematic:
-  interfaces:
-    rf:
-      host: 192.168.200.21
-    groups:
-      host: 192.168.200.21
-      port: 9292
-      path: /groups
-  hosts:
-    ccu2:
-      host: 192.168.200.21
-      username: !secret homematic_user
-      password: !secret ccu_password
 
 vacuum:
   - platform: xiaomi_miio
@@ -109,22 +95,6 @@ weather:
   - platform: darksky
     api_key: !secret dark_syk
 
-calendar:
-  - platform: caldav
-    username: !secret next_user
-    password: !secret next_password
-    url: !secret next_url
-    custom_calendars:
-      - name: 'Putzfrau'
-        calendar: 'Privat'
-        search: 'Putzfrau'
-      - name: 'Urlaub'
-        calendar: 'Privat'
-        search: 'Urlaub'
-      - name: 'BusinessTrip'
-        calendar: 'Arbeit'
-        search: 'Business Trip'
-
 yeelight:
   devices:
     192.168.200.59:
@@ -138,10 +108,6 @@ bmw_connected_drive:
    password: !secret bmw_password
    region: "rest_of_world"
 
-ffmpeg:
-
-stream:
-
 camera:
   - platform: ffmpeg
     input: -rtsp_transport tcp -i rtsp://192.168.200.40:554/onvif1
@@ -151,8 +117,6 @@ clean_up_snapshots_service:
   token: !secret snapshot_token
   number_of_snapshots_to_keep: 6
 
-python_script:
-
 zone:
   - name: Arbeit
     latitude: 48.104569
@@ -160,11 +124,10 @@ zone:
     radius: 100
     icon: mdi:office-building
 
-browser_mod:
-  devices:
-    53aa2c9b_dcb577df:
-      name: iphonex_1.5
-    34fe44de_f120fa2e:
-      name: iphonex_2.0
+python_script:
 
 tplink:
+
+stream:
+
+ffmpeg:

@@ -1,0 +1,12 @@
+interfaces:
+  rf:
+    host: 192.168.200.21
+  groups:
+    host: 192.168.200.21
+    port: 9292
+    path: /groups
+hosts:
+  ccu2:
+    host: 192.168.200.21
+    username: !secret homematic_user
+    password: !secret ccu_password
