@@ -29,8 +29,8 @@ group:
       - sensor.battery_sensor_wall_switch
       - sensor.battery_sensor_wall_switch_double
 
-  battery_status_homeatic:
-    name: Homeatic Batterie Status
+  battery_status_homematic:
+    name: homematic Batterie Status
     view: false
     control: hidden
     entities:
@@ -60,7 +60,7 @@ input_boolean:
 ## Input Number
 ################################################
 input_number:
-  battery_alert_homeatic:
+  battery_alert_homematic:
     name: 'Homematic'
     mode: slider
     min: 2.0
@@ -103,7 +103,7 @@ automation:
       seconds: 00
     - platform: state
       entity_id:
-        - input_number.battery_alert_homeatic
+        - input_number.battery_alert_homematic
         - input_number.battery_alert_xiaomi
         - input_number.battery_alert_hue
   action:
@@ -113,7 +113,7 @@ automation:
     - condition: template
       value_template: &low_battery_check >
         {% macro battery_level() %}
-        {% for entity_id in states.group.battery_status_homeatic.attributes.entity_id if (
+        {% for entity_id in states.group.battery_status_homematic.attributes.entity_id if (
           states(entity_id) is not none
           and (
             (
@@ -122,7 +122,7 @@ automation:
                 or states(entity_id) | length == states(entity_id)| int | string | length
                 or states(entity_id) | length == states(entity_id)| float | string | length
               )
-              and states(entity_id)| float < states.input_number.battery_alert_homeatic.state | float
+              and states(entity_id)| float < states.input_number.battery_alert_homematic.state | float
             )
             or states(entity_id) | lower == 'low'
             or states(entity_id) | lower == 'unknown'
@@ -181,7 +181,7 @@ automation:
         notification_id: low_battery_alert
         message: &message >
           {% macro battery_level() %}
-          {% for entity_id in states.group.battery_status_homeatic.attributes.entity_id if (
+          {% for entity_id in states.group.battery_status_homematic.attributes.entity_id if (
             states(entity_id) is not none
             and (
               (
@@ -190,7 +190,7 @@ automation:
                   or states(entity_id) | length == states(entity_id)| int | string | length
                   or states(entity_id) | length == states(entity_id)| float | string | length
                 )
-                and states(entity_id)| float < states.input_number.battery_alert_homeatic.state | float
+                and states(entity_id)| float < states.input_number.battery_alert_homematic.state | float
               )
               or states(entity_id) | lower == 'low'
               or states(entity_id) | lower == 'unknown'

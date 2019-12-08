@@ -310,7 +310,7 @@ group.battery_status_hue:
   icon: mdi:battery-charging-wireless
 group.battery_status_xiaomi:
   icon: mdi:battery-charging-wireless
-group.battery_status_homeatic:
+group.battery_status_homematic:
   icon: mdi:battery-charging-wireless
 script.1570439203461:
   icon: mdi:message-bulleted-off

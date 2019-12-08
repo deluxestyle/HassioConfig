@@ -860,7 +860,7 @@ views:
               label: Batteriewerte
             padding: 5
             entities:
-              - input_number.battery_alert_homeatic
+              - input_number.battery_alert_homematic
               - input_number.battery_alert_xiaomi
               - input_number.battery_alert_hue
           - type: custom:fold-entity-row
@@ -870,7 +870,7 @@ views:
             padding: 5
             entities:
               - type: custom:fold-entity-row
-                head: group.battery_status_homeatic
+                head: group.battery_status_homematic
               - type: custom:fold-entity-row
                 head: group.battery_status_xiaomi
               - type: custom:fold-entity-row
