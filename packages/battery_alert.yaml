@@ -30,7 +30,7 @@ group:
       - sensor.battery_sensor_wall_switch_double
 
   battery_status_homematic:
-    name: homematic Batterie Status
+    name: Homematic Batterie Status
     view: false
     control: hidden
     entities:
