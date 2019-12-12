@@ -1014,3 +1014,21 @@
       notification_id: ccu
       title: Servicemeldung
     service: script.1570439573834
+- id: '1575448787825'
+  alias: Tägliches Backup (auto backup)
+  trigger:
+  - platform: time
+    at: "00:00:00"
+  action:
+  - service: auto_backup.snapshot_full
+    data_template:
+      name: 'Backup: {{ now().strftime(''%Y-%m-%d_%H:%M'') }}'
+      keep_days: 7
+      exclude:
+        addons:
+          - a0d7b954_ssh
+          - core_ssh
+          - core_check_config
+          - core_configurator
+          - a0d7b954_glances
+          - a0d7b954_home-panel

@@ -131,3 +131,7 @@ tplink:
 stream:
 
 ffmpeg:
+
+auto_backup:
+  auto_purge: true
+  backup_timeout: 2400
