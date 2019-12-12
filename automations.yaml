@@ -1032,3 +1032,8 @@
           - core_configurator
           - a0d7b954_glances
           - a0d7b954_home-panel
+  - data:
+      message: 'Backup erstellt um: {{ now().strftime(''%Y-%m-%d_%H:%M'') }}'
+      notification_id: backup
+      title: Backup
+    service: persistent_notification.create
