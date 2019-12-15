@@ -820,23 +820,7 @@ views:
   #           entities:
   #             - sensor.car_days_in_use
   #             - sensor.car_km_threshold
-  #             - automation.km_stand_kritisch
-
-##### Weather #####
-  # - title: Wetter
-  #   id: weather
-  #   icon: mdi:weather-partly-snowy-rainy
-  #   cards:
-  #     - type: entities
-  #       show_header_toggle: false
-  #       entities:
-  #         - weather.dark_sky
-  #         - sun.sun
-  #     - type: entities
-  #       show_header_toggle: false
-  #       entities:
-  #         - sensor.pressure_158d0002239fb5
-  #         - sensor.pressure_158d00023258bd    
+  #             - automation.km_stand_kritisch    
 
 ##### System #####
   - title: System

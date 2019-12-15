@@ -879,19 +879,6 @@
       entity_id: climate.int0000002
       hvac_mode: heat
     service: climate.set_hvac_mode
-- id: '1573071504401'
-  alias: Heizung StandBy
-  description: ''
-  trigger:
-  - at: '22:30:00'
-    platform: time
-  - at: 06:00:00
-    platform: time
-  - at: '12:00:00'
-    platform: time
-  condition: []
-  action:
-  - service: script.1540232132608
 - id: '1573152926903'
   alias: 'Frontend: dark'
   description: ''
