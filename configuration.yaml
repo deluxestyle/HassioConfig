@@ -102,11 +102,11 @@ yeelight:
     192.168.200.42:
       name: Nachttischlampe Anita
 
-# bmw_connected_drive:
-#  x1:
-#    username: !secret bmw_user
-#    password: !secret bmw_password
-#    region: "rest_of_world"
+bmw_connected_drive:
+  x1:
+    username: !secret bmw_user
+    password: !secret bmw_password
+    region: "rest_of_world"
 
 camera:
   - platform: ffmpeg

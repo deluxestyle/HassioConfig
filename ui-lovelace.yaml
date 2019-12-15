@@ -778,72 +778,72 @@ views:
           - automation.benachrichtigung_bewegung_erkannt
 
 ##### Auto ##### 
-  # - title: BMW X1
-  #   id: bmw_x1
-  #   icon: mdi:car-hatchback
-  #   cards:
-  #     - type: entities
-  #       show_header_toggle: false
-  #       entities:
-  #         - device_tracker.x1_sdrive18i
-  #         - input_boolean.car_map
-  #         - type: custom:fold-entity-row
-  #           head:
-  #             type: section
-  #             label: Übersicht
-  #           padding: 5
-  #           entities:
-  #             - binary_sensor.x1_sdrive18i_door_lock_state
-  #             - binary_sensor.x1_sdrive18i_lids
-  #             - binary_sensor.x1_sdrive18i_windows
-  #             - sensor.x1_sdrive18i_mileage
-  #             - sensor.x1_sdrive18i_remaining_fuel
-  #             - sensor.x1_sdrive18i_remaining_range_total
-  #             - binary_sensor.x1_sdrive18i_lights_parking
-  #             - binary_sensor.x1_sdrive18i_condition_based_services
-  #             - binary_sensor.x1_sdrive18i_check_control_messages
-  #         # - type: custom:fold-entity-row
-  #         #   head:
-  #         #     type: section
-  #         #     label: Funktionen
-  #         #   padding: 5
-  #         #   entities:
-  #         #     - lock.x1_sdrive18i_lock
-  #         #     - script.1543166767000
-  #         #     - script.1543167202912
-  #         #     - script.1543167430941
-  #         #     - script.1543218125342
-  #     - type: conditional
-  #       conditions:
-  #         - entity: input_boolean.car_map
-  #           state: "on"
-  #       card:
-  #         type: map
-  #         default_zoom: 15
-  #         aspect_ratio: 4:3
-  #         entities:
-  #           - entity: device_tracker.x1_sdrive18i
-  #     - type: entities
-  #       show_header_toggle: false
-  #       entities:
-  #         - entity: sensor.car_km_usage
-  #           style: |
-  #             :host {
-  #               color: 
-  #               {% if states("sensor.car_km_usage")|int > 99 %}
-  #                 red
-  #               {% endif %}
-  #               ;
-  #             }
-  #         - type: custom:fold-entity-row
-  #           head:
-  #             type: section
-  #             label: Mietdetails
-  #           padding: 5
-  #           entities:
-  #             - sensor.car_days_in_use
-  #             - sensor.car_km_threshold
-  #             - automation.km_stand_kritisch    
+  - title: BMW X1
+    id: bmw_x1
+    icon: mdi:car-hatchback
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - device_tracker.x1_sdrive18i
+          - input_boolean.car_map
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Übersicht
+            padding: 5
+            entities:
+              - binary_sensor.x1_sdrive18i_door_lock_state
+              - binary_sensor.x1_sdrive18i_lids
+              - binary_sensor.x1_sdrive18i_windows
+              - sensor.x1_sdrive18i_mileage
+              - sensor.x1_sdrive18i_remaining_fuel
+              - sensor.x1_sdrive18i_remaining_range_total
+              - binary_sensor.x1_sdrive18i_lights_parking
+              - binary_sensor.x1_sdrive18i_condition_based_services
+              - binary_sensor.x1_sdrive18i_check_control_messages
+          # - type: custom:fold-entity-row
+          #   head:
+          #     type: section
+          #     label: Funktionen
+          #   padding: 5
+          #   entities:
+          #     - lock.x1_sdrive18i_lock
+          #     - script.1543166767000
+          #     - script.1543167202912
+          #     - script.1543167430941
+          #     - script.1543218125342
+      - type: conditional
+        conditions:
+          - entity: input_boolean.car_map
+            state: "on"
+        card:
+          type: map
+          default_zoom: 15
+          aspect_ratio: 4:3
+          entities:
+            - entity: device_tracker.x1_sdrive18i
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.car_km_usage
+            style: |
+              :host {
+                color: 
+                {% if states("sensor.car_km_usage")|int > 99 %}
+                  red
+                {% endif %}
+                ;
+              }
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Mietdetails
+            padding: 5
+            entities:
+              - sensor.car_days_in_use
+              - sensor.car_km_threshold
+              - automation.km_stand_kritisch    
 
 ##### System #####
   - title: System
