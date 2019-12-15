@@ -222,6 +222,7 @@ views:
         show_header_toggle: false
         entities:
           - entity: climate.fritz_thermostat
+            name: Bad (fritz)
             tap_action:
               action: call-service
               service: browser_mod.popup
@@ -235,18 +236,21 @@ views:
                       entity: climate.fritz_thermostat
                       <<: *popup-climate
           - entity: sensor.temperature_158d00023258bd
+            name: Thermometer
             type: custom:multiple-entity-row
             primary:
               entity: sensor.humidity_158d00023258bd
               name: false
-          - binary_sensor.door_window_sensor_158d00022f13a0
+          - entity: binary_sensor.door_window_sensor_158d00022f13a0
+            name: Fenster
           - type: custom:fold-entity-row
             head:
               type: section
               label: Timer
             padding: 5
             entities:
-              - automation.heizung_bad_timer
+              - entity: automation.heizung_bad_timer
+                name: Bad Timer
               - entity: input_datetime.radiator_bath_1
                 name: Startzeit
                 type: custom:time-input-row
@@ -275,6 +279,7 @@ views:
         show_header_toggle: false
         entities:
           - entity: climate.oeq1696358
+            name: Wohnzimmer
             tap_action:
               action: call-service
               service: browser_mod.popup
@@ -288,6 +293,7 @@ views:
                       entity: climate.oeq1696358
                       <<: *popup-climate
           - entity: sensor.temperature_158d0001b8c998
+            name: Thermometer
             type: custom:multiple-entity-row
             primary:
               entity: sensor.humidity_158d0001b8c998
@@ -317,6 +323,7 @@ views:
         show_header_toggle: false
         entities:
           - entity: climate.oeq1696369
+            name: Schlafzimmer
             tap_action:
               action: call-service
               service: browser_mod.popup
@@ -330,6 +337,7 @@ views:
                       entity: climate.oeq1696369
                       <<: *popup-climate
           - entity: sensor.temperature_158d0001b8c96c
+            name: Thermometer
             type: custom:multiple-entity-row
             primary:
               entity: sensor.humidity_158d0001b8c96c
@@ -359,6 +367,7 @@ views:
         show_header_toggle: false
         entities:
           - entity: climate.int0000002
+            name: Büro
             tap_action:
               action: call-service
               service: browser_mod.popup
@@ -372,6 +381,7 @@ views:
                       entity: climate.int0000002
                       <<: *popup-climate
           - entity: sensor.oeq1667238_temperature
+            name: Thermometer
             type: custom:multiple-entity-row
             primary:
               entity: sensor.oeq1667238_humidity
@@ -388,6 +398,7 @@ views:
         show_header_toggle: false
         entities:
           - entity: sensor.temperature_158d0002239fb5
+            name: Küche Thermometer
             type: custom:multiple-entity-row
             primary:
               entity: sensor.humidity_158d0002239fb5
@@ -404,7 +415,6 @@ views:
             entities:
               - input_boolean.automation_radiator
               - automation.heizung_abwesenheitsschaltung
-              - automation.heizung_standby
               - automation.benachrichtigung_luftfeuchtigkeit
 
 #### Staubsauger #####
@@ -473,8 +483,10 @@ views:
                   label: Automatisierung
                 padding: 5
                 entities:
-                  - automation.xiaomi_staubsauger_abwesenheit
-                  - automation.xiaomi_staubsauger_taglich_saugen
+                  - entity: automation.xiaomi_staubsauger_abwesenheit
+                    name: Abwesenheit
+                  - entity: automation.xiaomi_staubsauger_taglich_saugen
+                    name: Täglich saugen
               - type: custom:fold-entity-row
                 head:
                   type: section
@@ -488,41 +500,52 @@ views:
                   label: Wartung
                 padding: 5
                 entities:
-                  - automation.xiaomi_staubsauger_neustart
-                  - automation.xiaomi_staubsauger_error_stop
+                  - entity: automation.xiaomi_staubsauger_neustart
+                    name: Neustarten (Bürste blockiert)
+                  - entity: automation.xiaomi_staubsauger_error_stop
+                    name: Deaktivieren (b. Fehler)
                   - counter.xiaomo_errors
                   - type: section
                   - type: custom:fold-entity-row
                     head: sensor.xiaomi_vacuum_side_brush_left
                     padding: 5
                     entities:
-                      - script.1547995869377
+                      - entity: script.1547995869377
+                        name: Bürste gewechselt
                   - type: custom:fold-entity-row
                     head: sensor.xiaomi_vacuum_sensor_dirty_left
                     padding: 5
                     entities:
-                      - script.1547995682348
-                      - automation.xiaomi_staubsauger_sensor_kritisch
+                      - entity: script.1547995682348
+                        name: Sensor gereinigt
+                      - entity: automation.xiaomi_staubsauger_sensor_kritisch
+                        name: Sensor kritisch
                   - type: custom:fold-entity-row
                     head: sensor.xiaomi_vacuum_main_brush_left
                     padding: 5
                     entities: 
-                      - script.1547995909810
+                      - entity: script.1547995909810
+                        name: Bürste gewechselt
                   - type: custom:fold-entity-row
                     head: sensor.xiaomi_vacuum_filter_left
                     padding: 5
                     entities:
-                      - script.1547995832032
-                      - automation.xiaomi_staubsauger_filter_kritisch
+                      - entity: script.1547995832032
+                        name: Filter gereinigt
+                      - entity: automation.xiaomi_staubsauger_filter_kritisch
+                        name: Filter kritisch
               - type: custom:fold-entity-row
                 head:
                   type: section
                   label: Benachrichtigungen
                 padding: 5
                 entities:
-                  - automation.xiaomi_staubsauger_fehler
-                  - automation.xiaomi_staubsauger_fertig
-                  - automation.xiaomi_staubsauger_gestartet
+                  - entity: automation.xiaomi_staubsauger_fehler
+                    name: Fehler
+                  - entity: automation.xiaomi_staubsauger_fertig
+                    name: Reinigung abgeschlossen
+                  - entity: automation.xiaomi_staubsauger_gestartet
+                    name: Staubsauger gestartet
 
 ##### Musik #####
   - title: Musik

@@ -17,7 +17,7 @@ light.steckdose_2:
   friendly_name: Küchenspot - links
   icon: mdi:spotlight-beam
 climate.oeq1696358:
-  friendly_name: 'Heizung Wohnzimmer '
+  friendly_name: Heizung Wohnzimmer
   icon: mdi:radiator
 climate.oeq1696369:
   friendly_name: Heizung Schlafzimmer
@@ -37,10 +37,10 @@ sensor.valve_bed_room:
 sensor.valve_living_room:
   icon: mdi:fan
 sensor.temperature_158d0001b8c96c:
-  friendly_name: Sensor Schlafzimmer
+  friendly_name: Temperatur Schlafzimmer
   icon: mdi:thermometer-lines
 sensor.temperature_158d0001b8c998:
-  friendly_name: Sensor Wohnzimmer
+  friendly_name: Temperatur Wohnzimmer
   icon: mdi:thermometer-lines
 sensor.humidity_158d0001b8c96c:
   friendly_name: Luftfeuchtigkeit Schlafzimmer
@@ -69,7 +69,7 @@ sensor.pressure_158d0002239fb5:
   friendly_name: Luftdruck Küche
   icon: mdi:gauge
 sensor.temperature_158d0002239fb5:
-  friendly_name: Sensor Küche
+  friendly_name: Temperatur Küche
   icon: mdi:thermometer-lines
 light.sonoff_office:
   friendly_name: Bürolicht
@@ -104,18 +104,14 @@ light.steckdose_4:
   friendly_name: Küchenspot - rechts
   icon: mdi:spotlight-beam
 script.1532173931522:
-  friendly_name: 'Sonos: Superfly FM starten'
   icon: mdi:play
 script.1532175994947:
-  friendly_name: Sonos ausschalten
   icon: mdi:stop
 script.1532275617247:
   icon: mdi:power
 script.1534621188695:
-  friendly_name: Wecker einschalten
   icon: mdi:alarm
 script.1534621226775:
-  friendly_name: Wecker ausschalten
   icon: mdi:alarm-off
 input_boolean.camera_cctv:
   friendly_name: Kamera
@@ -135,7 +131,7 @@ sensor.humidity_158d00023258bd:
   friendly_name: Luftfeuchtigkeit Bad
   icon: mdi:water-percent
 sensor.temperature_158d00023258bd:
-  friendly_name: Sensor Bad
+  friendly_name: Temperatur Bad
   icon: mdi:thermometer-lines
 sensor.pressure_158d00023258bd:
   friendly_name: Luftdruck Bad
@@ -179,35 +175,23 @@ sensor.xiaomi_vacuum_sensor_dirty_left:
   icon: mdi:blur-linear
 sensor.fritz_netmonitor:
   friendly_name: Fritz.Box 7590
-automation.xiaomi_staubsauger_automatisch_starten:
-  friendly_name: Automatisch starten
-automation.xiaomi_staubsauger_taglich_saugen:
-  friendly_name: Täglich saugen
 zone.home:
   track_ios: 'false'
 script.1543666985219:
-  friendly_name: Bad
   icon: mdi:broom
 script.1543666580682:
-  friendly_name: Büro
   icon: mdi:broom
 script.1543666867257:
-  friendly_name: Flur
   icon: mdi:broom
 script.1543667402104:
-  friendly_name: Katzenklo
   icon: mdi:broom
 script.1543666831509:
-  friendly_name: Klo
   icon: mdi:broom
 script.1543666771838:
-  friendly_name: Küche
   icon: mdi:broom
 script.1543666909272:
-  friendly_name: Schlafzimmer
   icon: mdi:broom
 script.1543666947492:
-  friendly_name: Wohnzimmer
   icon: mdi:broom
 light.lights_bed_room:
   friendly_name: Schlafzimmerlicht
@@ -262,21 +246,12 @@ counter.xiaomo_errors:
   friendly_name: Anzahl Neustarts
 climate.oeq1714751:
   friendly_name: Heizapparat Büro
-automation.xiaomi_staubsauger_abwesenheit:
-  friendly_name: Abwesenheit
 automation.xiaomi_staubsauger_fertig:
-  friendly_name: Reinigung abgeschlossen
   icon: mdi:message
 automation.xiaomi_staubsauger_fehler:
-  friendly_name: Fehler
   icon: mdi:message-alert
 automation.xiaomi_staubsauger_gestartet:
-  friendly_name: Gestartet
   icon: mdi:message
-automation.xiaomi_staubsauger_neustart:
-  friendly_name: Neustarten (Bürste blockiert)
-automation.xiaomi_staubsauger_error_stop:
-  friendly_name: Deaktivieren (b. Fehler)
 binary_sensor.x1_sdrive18i_door_lock_state:
   friendly_name: Status
 binary_sensor.x1_sdrive18i_windows:

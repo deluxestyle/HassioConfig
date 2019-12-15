@@ -124,14 +124,6 @@ zone:
     radius: 100
     icon: mdi:office-building
 
-python_script:
-
-tplink:
-
-stream:
-
-ffmpeg:
-
 auto_backup:
   auto_purge: true
   backup_timeout: 2400
@@ -141,3 +133,11 @@ fritzbox:
     - host: fritz.box
       username: !secret fritz_user
       password: !secret fritz_password
+
+python_script:
+
+tplink:
+
+stream:
+
+ffmpeg:

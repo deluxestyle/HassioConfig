@@ -46,7 +46,7 @@
 # Offset
 ##############################################################
       offset_bed_room:
-        friendly_name: Offset
+        friendly_name: Offset Schlafzimmer
         value_template: '{{ ( (states.sensor.temperature_158d0001b8c96c.state | float) - (states.climate.oeq1696369.attributes["current_temperature"] | float) - (states.input_number.offset_bed_room.state | float) ) | round (2)}}'
         unit_of_measurement: '°'
         icon_template: mdi:temperature-celsius
@@ -54,7 +54,7 @@
           - sensor.temperature_158d0001b8c96c
           - climate.oeq1696369
       offset_living_room:
-        friendly_name: Offset
+        friendly_name: Offset Wohnzimmer
         value_template: '{{ ( (states.sensor.temperature_158d0001b8c998.state | float) - (states.climate.oeq1696358.attributes["current_temperature"] | float) - (states.input_number.offset_living_room.state | float) ) | round (2) }}'
         unit_of_measurement: '°'
         icon_template: mdi:temperature-celsius
@@ -62,7 +62,7 @@
           - sensor.temperature_158d0001b8c998
           - climate.oeq1696358
       offset_bath:
-        friendly_name: Offset
+        friendly_name: Offset Homematic
         value_template: '{{ ( (states.sensor.temperature_158d00023258bd.state | float) - (states.climate.oeq1701003.attributes["current_temperature"] | float) - (states.input_number.offset_bath.state | float) ) | round (2) }}'
         unit_of_measurement: '°'
         icon_template: mdi:temperature-celsius

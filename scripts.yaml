@@ -1,5 +1,5 @@
 '1532173931522':
-  alias: Sonos_Start
+  alias: 'Sonos: Superfly FM starten'
   sequence:
   - data:
       entity_id: media_player.bad, media_player.schlafzimmer, media_player.kuche
@@ -14,7 +14,7 @@
       source: Superfly FM
     service: media_player.select_source
 '1532175994947':
-  alias: Sonos_Stop
+  alias: 'Sonos: ausschalten'
   sequence:
   - data:
       entity_id: media_player.bad, media_player.schlafzimmer, media_player.kuche
@@ -32,7 +32,7 @@
       entity_id: vacuum.xiaomi_vacuum_cleaner
     service: vacuum.turn_off
 '1534621188695':
-  alias: sonos_bed_room_alarm_enable
+  alias: 'Sonos: Wecker einschalten'
   sequence:
   - data:
       alarm_id: '324'
@@ -40,7 +40,7 @@
       entity_id: media_player.schlafzimmer
     service: sonos.update_alarm
 '1534621226775':
-  alias: sonos_bed_room_alarm_disable
+  alias: 'Sonos: Wecker ausschalten'
   sequence:
   - data:
       alarm_id: '324'
@@ -257,30 +257,30 @@
       entity_id: input_boolean.radiator_on_off
     service: input_boolean.turn_off
 '1543166767000':
-  alias: BMW X1 - Klimanlage
+  alias: 'BMW X1: Klimanlage'
   sequence:
   - data:
       vin: WBAJG110005N71542
     service: bmw_connected_drive.activate_air_conditioning
 '1543167202912':
-  alias: BMW X1 - Hupe
+  alias: 'BMW X1: Hupe'
   sequence:
   - data:
       vin: WBAJG110005N71542
     service: bmw_connected_drive.sound_horn
 '1543167430941':
-  alias: BMW X1 - Lichthupe
+  alias: 'BMW X1: Lichthupe'
   sequence:
   - data:
       vin: WBAJG110005N71542
     service: bmw_connected_drive.light_flash
 '1543218125342':
-  alias: BMW X1 - Update
+  alias: 'BMW X1: Update'
   sequence:
   - data: {}
     service: bmw_connected_drive.update_state
 '1543666580682':
-  alias: Xiaomi SaugRobo - Büro
+  alias: 'SaugRobo: Büro'
   sequence:
   - data:
       command: app_zoned_clean
@@ -293,7 +293,7 @@
         - 1
     service: vacuum.send_command
 '1543666771838':
-  alias: Xiaomi SaugRobo - Küche
+  alias: 'SaugRobo: Küche'
   sequence:
   - data:
       command: app_zoned_clean
@@ -306,7 +306,7 @@
         - 1
     service: vacuum.send_command
 '1543666831509':
-  alias: Xiaomi SaugRobo - Klo
+  alias: 'SaugRobo: Klo'
   sequence:
   - data:
       command: app_zoned_clean
@@ -319,7 +319,7 @@
         - 1
     service: vacuum.send_command
 '1543666867257':
-  alias: Xiaomi SaugRobo - Flur
+  alias: 'SaugRobo: Flur'
   sequence:
   - data:
       command: app_zoned_clean
@@ -332,7 +332,7 @@
         - 1
     service: vacuum.send_command
 '1543666909272':
-  alias: Xiaomi SaugRobo - Schlafzimmer
+  alias: 'SaugRobo: Schlafzimmer'
   sequence:
   - data:
       command: app_zoned_clean
@@ -345,7 +345,7 @@
         - 1
     service: vacuum.send_command
 '1543666947492':
-  alias: Xiaomi SaugRobo - Wohnzimmer
+  alias: 'SaugRobo: Wohnzimmer'
   sequence:
   - data:
       command: app_zoned_clean
@@ -358,7 +358,7 @@
         - 1
     service: vacuum.send_command
 '1543666985219':
-  alias: Xiaomi SaugRobo - Bad
+  alias: 'SaugRobo: Bad'
   sequence:
   - data:
       command: app_zoned_clean
@@ -371,7 +371,7 @@
         - 1
     service: vacuum.send_command
 '1543667402104':
-  alias: Xiaomi SaugRobo - Katzenklo
+  alias: 'SaugRobo: Katzenklo'
   sequence:
   - data:
       command: app_zoned_clean
@@ -384,7 +384,7 @@
         - 1
     service: vacuum.send_command
 '1547995682348':
-  alias: Sensor gereinigt
+  alias: 'SaugRobo: Sensor gereinigt'
   sequence:
   - data:
       command: reset_consumable
@@ -392,7 +392,7 @@
       params: sensor_dirty_time
     service: vacuum.send_command
 '1547995832032':
-  alias: Filter gewechselt
+  alias: 'SaugRobo: Filter gewechselt'
   sequence:
   - data:
       command: reset_consumable
@@ -400,7 +400,7 @@
       params: filter_work_time
     service: vacuum.send_command
 '1547995869377':
-  alias: Seitenbürste gewechselt
+  alias: 'SaugRobo: Seitenbürste gewechselt'
   sequence:
   - data:
       command: reset_consumable
@@ -408,7 +408,7 @@
       params: side_brush_work_time
     service: vacuum.send_command
 '1547995909810':
-  alias: Hauptbürste gewechselt
+  alias: 'SaugRobo: Hauptbürste gewechselt'
   sequence:
   - data:
       command: reset_consumable
