@@ -143,7 +143,8 @@ views:
         show_header_toggle: false
         entities:
           - entity: light.lights_bed_room
-            tap_action: none
+            tap_action: 
+              action: none
           - input_select.scenes_bed_room
           - type: custom:fold-entity-row
             head:
@@ -158,12 +159,14 @@ views:
         show_header_toggle: false
         entities:
           - entity: light.sonoff_office
-            tap_action: none
+            tap_action: 
+              action: none
       - type: entities
         show_header_toggle: false
         entities:
           - entity: light.lights_kitchen
-            tap_action: none
+            tap_action: 
+              action: none
           - type: custom:fold-entity-row
             head: 
               type: section
