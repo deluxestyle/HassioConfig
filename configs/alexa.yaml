@@ -1,7 +1,8 @@
 smart_home:
   filter:
     include_entities:
-      - climate.oeq1701003
+      # - climate.oeq1701003
+      - climate.fritz_thermostat
       - climate.oeq1696358
       - climate.oeq1696369
       - climate.int0000002
