@@ -81,3 +81,4 @@ include:
     - sensor.car_days_in_use
     - sensor.car_km_threshold
     - sensor.car_km_usage
+    - sensor.fritz_thermostat_1_battery

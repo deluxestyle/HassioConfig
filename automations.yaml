@@ -633,7 +633,7 @@
       title: Raspi
     service: script.1570439573834
 - id: '1564988736274'
-  alias: 'Benachrichtigung: Heizung Bad'
+  alias: 'Benachrichtigung: Heizung Homematic'
   trigger:
   - above: '0'
     entity_id: sensor.valve_bath
@@ -841,7 +841,7 @@
       hvac_mode: heat
     service: climate.set_hvac_mode
 - id: '1573047925830'
-  alias: 'Heizung Status Bad: automatisch_heizen'
+  alias: 'Heizung Status Homematic: automatisch_heizen'
   description: ''
   trigger:
   - entity_id: climate.oeq1701003
@@ -955,7 +955,7 @@
       target_temp: '{{ states.climate.oeq1696358.attributes.temperature }}'
     service: python_script.set_thermostate_offset
 - id: '1573989902849'
-  alias: Heizung Offset Bad
+  alias: Heizung Offset Homematic
   description: ''
   trigger:
   - entity_id: climate.oeq1701003
@@ -1018,7 +1018,7 @@
   alias: Tägliches Backup (auto backup)
   trigger:
   - platform: time
-    at: "00:00:00"
+    at: 00:00:00
   action:
   - service: auto_backup.snapshot_full
     data_template:
@@ -1026,12 +1026,12 @@
       keep_days: 7
       exclude:
         addons:
-          - a0d7b954_ssh
-          - core_ssh
-          - core_check_config
-          - core_configurator
-          - a0d7b954_glances
-          - a0d7b954_home-panel
+        - a0d7b954_ssh
+        - core_ssh
+        - core_check_config
+        - core_configurator
+        - a0d7b954_glances
+        - a0d7b954_home-panel
   - data:
       message: 'Backup erstellt um: {{ now().strftime(''%Y-%m-%d_%H:%M'') }}'
       notification_id: backup

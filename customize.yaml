@@ -330,3 +330,6 @@ sensor.offset_living_room:
   icon: mdi:temperature-celsius
 sensor.offset_bath:
   icon: mdi:temperature-celsius
+climate.fritz_thermostat:
+  friendly_name: Heizung Bad (fritz)
+  icon: mdi:radiator

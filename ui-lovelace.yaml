@@ -218,7 +218,7 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - entity: climate.oeq1701003
+          - entity: climate.fritz_thermostat
             tap_action:
               action: call-service
               service: browser_mod.popup
@@ -229,7 +229,7 @@ views:
                   type: entities
                   entities: 
                     - type: 'custom:simple-thermostat'
-                      entity: climate.oeq1701003
+                      entity: climate.fritz_thermostat
                       <<: *popup-climate
           - entity: sensor.temperature_158d00023258bd
             type: custom:multiple-entity-row
@@ -247,14 +247,14 @@ views:
               - entity: input_datetime.radiator_bath_1
                 name: Startzeit
                 type: custom:time-input-row
-          - type: custom:fold-entity-row
-            head:
-              type: section
-              label: Mehr
-            padding: 5
-            entities:
-              - switch.radiator_bath_keylock
-              - sensor.valve_bath
+          # - type: custom:fold-entity-row
+          #   head:
+          #     type: section
+          #     label: Mehr
+          #   padding: 5
+          #   entities:
+          #     - switch.radiator_bath_keylock
+          #     - sensor.valve_bath
               # - type: section
               # - entity: sensor.offset_bath
               #   type: custom:multiple-entity-row

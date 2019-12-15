@@ -135,3 +135,9 @@ ffmpeg:
 auto_backup:
   auto_purge: true
   backup_timeout: 2400
+
+fritzbox:
+  devices:
+    - host: fritz.box
+      username: !secret fritz_user
+      password: !secret fritz_password

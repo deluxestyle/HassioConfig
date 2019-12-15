@@ -7,7 +7,8 @@ filter:
     - light.nachttischlampe_anita
     # - light.lights_kitchen
     - light.lights_living_room
-    - climate.oeq1701003
+    # - climate.oeq1701003
+    - climate.fritz_thermostat
     - climate.oeq1696358
     - climate.oeq1696369
     - climate.int0000002

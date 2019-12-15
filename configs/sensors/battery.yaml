@@ -89,3 +89,11 @@
         friendly_name: Hue dimmer Wohnzimmer
         device_class: battery
         value_template: '{{ states.sensor.hue_dimmer_wohnzimmer.attributes.battery }}'
+##############################################################
+# Fritz Smart Home
+##############################################################
+      fritz_thermostat_1_battery:
+        entity_id: climate.fritz_thermostat
+        friendly_name: Fritz Thermostat 
+        device_class: battery
+        value_template: '{{ states.climate.fritz_thermostat.attributes.battery_level }}'

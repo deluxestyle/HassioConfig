@@ -3,7 +3,7 @@
 - name: thermostat_living_room_on
   entities:
     climate.oeq1696358:
-      state: heat
+      state: auto
       temperature: 19
 
 - name: thermostat_living_room_off
@@ -15,7 +15,7 @@
 - name: thermostat_bed_room_on
   entities:
     climate.oeq1696369:
-      state: heat
+      state: auto
       temperature: 19
 
 - name: thermostat_bed_room_off
@@ -27,7 +27,7 @@
 - name: thermostat_bath_room_on
   entities:
     climate.oeq1701003:
-      state: heat
+      state: auto
       temperature: 10
 
 - name: thermostat_bath_room_off
@@ -39,7 +39,7 @@
 - name: thermostat_office_on
   entities:
     climate.int0000002:
-      state: heat
+      state: auto
       temperature: 19
 
 - name: thermostat_office_off
@@ -47,3 +47,15 @@
     climate.int0000002:
       state: off
       temperature: 4.5
+
+- name: thermostat_fritz_off
+  entities:
+    climate.fritz_thermostat:
+      state: off
+      temperature: 0
+
+- name: thermostat_fritz_on
+  entities:
+    climate.fritz_thermostat:
+      state: heat
+      temperature: 10
