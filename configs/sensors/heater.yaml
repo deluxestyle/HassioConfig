@@ -18,7 +18,7 @@
         friendly_name: "Wohnzimmer Ventil"
         unit_of_measurement: "%"
         value_template: '{{ states.climate.oeq1696358.attributes.valve }}'
-      valve_bath:
+      valve_homematic:
         entity_id: climate.oeq1701003
         friendly_name: "Bad Ventil"
         unit_of_measurement: "%"
@@ -38,7 +38,7 @@
         entity_id: homematic.ccu2
         friendly_name: "Tastensperre Büro"
         value_template: '{{ states.homematic.ccu2.attributes.block_office }}'
-      radiator_bath_keylock:
+      radiator_homematic_keylock:
         entity_id: homematic.ccu2
         friendly_name: "Tastensperre Bad"
         value_template: '{{ states.homematic.ccu2.attributes.block_bath }}'
@@ -61,11 +61,3 @@
         entity_id: 
           - sensor.temperature_158d0001b8c998
           - climate.oeq1696358
-      offset_bath:
-        friendly_name: Offset Homematic
-        value_template: '{{ ( (states.sensor.temperature_158d00023258bd.state | float) - (states.climate.oeq1701003.attributes["current_temperature"] | float) - (states.input_number.offset_bath.state | float) ) | round (2) }}'
-        unit_of_measurement: '°'
-        icon_template: mdi:temperature-celsius
-        entity_id: 
-          - sensor.temperature_158d00023258bd
-          - climate.oeq1701003

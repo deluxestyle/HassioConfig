@@ -34,7 +34,7 @@ group:
     view: false
     control: hidden
     entities:
-      - sensor.battery_radiator_bath
+      - sensor.battery_radiator_homematic
       - sensor.battery_radiator_bedroom
       - sensor.battery_radiator_livingroom
       - sensor.battery_radiator_office_1

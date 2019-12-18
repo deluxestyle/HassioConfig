@@ -1,5 +1,5 @@
-offset_bath:
-  name: Offset Bad
+offset_homematic:
+  name: Offset Homematic
   initial: 0
   min: -3.5
   max: 3.5

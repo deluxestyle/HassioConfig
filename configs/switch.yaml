@@ -46,9 +46,9 @@
           {% else %}
             mdi:lock-open-outline
           {% endif %}
-    radiator_bath_keylock:
+    radiator_homematic_keylock:
         friendly_name: "Tastensperre"
-        value_template: "{{ is_state('sensor.radiator_bath_keylock', 'True') }}"
+        value_template: "{{ is_state('sensor.radiator_homematic_keylock', 'True') }}"
         turn_on:
           - service: script.turn_on
             entity_id: script.1538501968289
@@ -56,7 +56,7 @@
           - service: script.turn_on
             entity_id: script.1538502054685
         icon_template: >-
-          {% if is_state('sensor.radiator_bath_keylock', 'True') %}
+          {% if is_state('sensor.radiator_homematic_keylock', 'True') %}
             mdi:lock-outline
           {% else %}
             mdi:lock-open-outline

@@ -24,13 +24,13 @@
       state: off
       temperature: 4.5
 
-- name: thermostat_bath_room_on
+- name: thermostat_homematic_room_on
   entities:
     climate.oeq1701003:
       state: auto
       temperature: 10
 
-- name: thermostat_bath_room_off
+- name: thermostat_homematic_room_off
   entities:
     climate.oeq1701003:
       state: off

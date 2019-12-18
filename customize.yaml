@@ -89,7 +89,7 @@ sensor.battery_radiator_bedroom:
   icon: mdi:battery-50
 sensor.battery_radiator_livingroom:
   icon: mdi:battery-50
-sensor.battery_radiator_bath:
+sensor.battery_radiator_homematic:
   icon: mdi:battery-50
 sensor.xiaomi_vacuum_main_brush_left:
   friendly_name: Hauptbürste
@@ -145,7 +145,7 @@ script.1538143964007:
   icon: mdi:radiator-off
 script.1538143929416:
   icon: mdi:radiator-off
-sensor.valve_bath:
+sensor.valve_homematic:
   icon: mdi:fan
 climate.oeq1701003:
   friendly_name: Heizung Bad
@@ -298,12 +298,10 @@ automation.benachrichtigung_luftfeuchtigkeit:
 switch.wifi_steckdose:
   icon: mdi:power-socket-eu
 sensor.battery_sensor_outdoor:
-  friendly_name: Batterie Sensor Bath
+  friendly_name: Batterie Sensor homematic
 sensor.offset_bed_room:
   icon: mdi:temperature-celsius
 sensor.offset_living_room:
-  icon: mdi:temperature-celsius
-sensor.offset_bath:
   icon: mdi:temperature-celsius
 climate.fritz_thermostat:
   friendly_name: Heizung Bad (fritz)

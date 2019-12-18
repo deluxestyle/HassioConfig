@@ -5,7 +5,7 @@ password: !secret influxdb_password
 default_measurement: state
 include:
   entities:
-    - sensor.battery_radiator_bath
+    - sensor.battery_radiator_homematic
     - sensor.battery_radiator_bedroom
     - sensor.battery_radiator_livingroom
     - sensor.battery_radiator_office_1
@@ -30,7 +30,7 @@ include:
     - sensor.temperature_158d0001b8c998
     - sensor.temperature_158d0002239fb5
     - sensor.temperature_158d00023258bd
-    - sensor.valve_bath
+    - sensor.valve_homematic
     - sensor.valve_bed_room
     - sensor.valve_living_room
     - sensor.valve_office

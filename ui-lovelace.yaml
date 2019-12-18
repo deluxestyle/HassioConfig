@@ -1,11 +1,8 @@
-
 resources:
   - url: /community_plugin/mini-media-player/mini-media-player-bundle.js
     type: module
   - url: /community_plugin/lovelace-fold-entity-row/fold-entity-row.js
     type: js
-#  - url: /community_plugin/compact-custom-header/compact-custom-header.js
-#    type: module
   - url: /community_plugin/custom-header/custom-header.js
     type: module
   - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
@@ -271,30 +268,9 @@ views:
             entities:
               - entity: automation.heizung_bad_timer
                 name: Bad Timer
-              - entity: input_datetime.radiator_bath_1
+              - entity: input_datetime.radiator_homematic_1
                 name: Startzeit
                 type: custom:time-input-row
-          # - type: custom:fold-entity-row
-          #   head:
-          #     type: section
-          #     label: Mehr
-          #   padding: 5
-          #   entities:
-          #     - switch.radiator_bath_keylock
-          #     - sensor.valve_bath
-              # - type: section
-              # - entity: sensor.offset_bath
-              #   type: custom:multiple-entity-row
-              #   primary:
-              #     entity: input_number.offset_bath
-              #     name: false
-              # - entity: automation.heizung_offset_bad
-                # type: custom:multiple-entity-row
-                # toggle: true
-                # info:
-                #   entity: automation.heizung_offset_bad
-                #   attribute: last_triggered
-                #   name: Ausgeführt
       - type: entities
         show_header_toggle: false
         entities:
@@ -417,12 +393,36 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
+          - entity: climate.oeq1701003
+            name: Küche
+            tap_action:
+              action: call-service
+              service: browser_mod.popup
+              service_data:
+                deviceID: this
+                title: Heizung Küche
+                card:
+                  type: entities
+                  entities: 
+                    - type: 'custom:simple-thermostat'
+                      entity: climate.oeq1701003
+                      <<: *popup-climate
           - entity: sensor.temperature_158d0002239fb5
-            name: Küche Thermometer
+            name: Thermometer
             type: custom:multiple-entity-row
             primary:
               entity: sensor.humidity_158d0002239fb5
               name: false
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Mehr
+            padding: 5
+            entities:
+              - entity: switch.radiator_homematic_keylock
+                name: Tastensperre
+              - entity: sensor.valve_homematic
+                name: Ventil
       - type: entities
         show_header_toggle: false
         entities: 
