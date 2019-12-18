@@ -1,9 +1,12 @@
+
 resources:
   - url: /community_plugin/mini-media-player/mini-media-player-bundle.js
     type: module
   - url: /community_plugin/lovelace-fold-entity-row/fold-entity-row.js
     type: js
-  - url: /community_plugin/compact-custom-header/compact-custom-header.js
+#  - url: /community_plugin/compact-custom-header/compact-custom-header.js
+#    type: module
+  - url: /community_plugin/custom-header/custom-header.js
     type: module
   - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
     type: js
@@ -29,24 +32,41 @@ resources:
     type: module
   - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
     type: module
+  - url: /community_plugin/lovelace-swipe-navigation/swipe-navigation.js
+    type: js
 # -----------------------------
-cch:
-  main_config: true
-  menu: show
-  notifications: show
-  options: show
-  swipe: true
-  default_tab: 0
+custom_header:
+  compact_mode: true
+  hide_config: true
+  chevrons: false
   exceptions:
     - conditions:
         user_agent: iPhone
       config:
-        options: show
-        notifications: overflow
+        menu_hide: true
     - conditions:
         user: anita, homeassistant
       config:
         hide_tabs: 7
+
+swipe_nav:
+#cch:
+#  main_config: true
+#  menu: show
+#  notifications: show
+#  options: show
+#  swipe: true
+#  default_tab: 0
+#  exceptions:
+#    - conditions:
+#        user_agent: iPhone
+#      config:
+#        options: show
+#        notifications: overflow
+#    - conditions:
+#        user: anita, homeassistant
+#      config:
+#        hide_tabs: 7
 # -----------------------------
 ## music player
 x-music-player: &music-player
