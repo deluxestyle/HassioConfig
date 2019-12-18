@@ -19,9 +19,9 @@
         entity_id: climate.oeq1696358
         friendly_name: "Batterie Heizung Wohnzimmer"
         value_template: '{{ states.climate.oeq1696358.attributes.battery }}'
-      battery_radiator_bath:
+      battery_radiator_homematic:
         entity_id: climate.oeq1701003
-        friendly_name: "Batterie Heizung Bad"
+        friendly_name: "Batterie Heizung Homematic"
         value_template: '{{ states.climate.oeq1701003.attributes.battery }}'
 ##############################################################
 # Xiaomi

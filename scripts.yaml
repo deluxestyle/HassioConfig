@@ -233,6 +233,9 @@
   - data:
       entity_id: scene.thermostat_living_room_on
     service: scene.turn_on
+  - data:
+      entity_id: scene.thermostat_homematic_on
+    service: scene.turn_on
   - condition: state
     entity_id: binary_sensor.door_window_sensor_158d00022f13a0
     state: 'off'
@@ -253,6 +256,7 @@
   - service: script.1538143893265
   - service: script.1538143964007
   - service: script.1538143929416
+  - service: script.1576692493037
   - data:
       entity_id: input_boolean.radiator_on_off
     service: input_boolean.turn_off
@@ -513,3 +517,9 @@
       offset: 0
       target_temp: 19
     service: python_script.set_thermostate_offset
+'1576692493037':
+  alias: Heizung Homematic ausschalten
+  sequence:
+  - data: {}
+    entity_id: scene.thermostat_homematic_room_off
+    service: scene.turn_on

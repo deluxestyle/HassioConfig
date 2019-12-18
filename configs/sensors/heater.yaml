@@ -40,7 +40,7 @@
         value_template: '{{ states.homematic.ccu2.attributes.block_office }}'
       radiator_homematic_keylock:
         entity_id: homematic.ccu2
-        friendly_name: "Tastensperre Bad"
+        friendly_name: "Tastensperre Homematic"
         value_template: '{{ states.homematic.ccu2.attributes.block_bath }}'
 ##############################################################
 # Offset
