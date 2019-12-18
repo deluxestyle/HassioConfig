@@ -41,29 +41,13 @@ custom_header:
         user_agent: iPhone
       config:
         menu_hide: true
-    # - conditions:
-    #     user: anita
-    #   config:
-    #     hide_tabs: 7
+    - conditions:
+        user: anita
+      config:
+        hide_tabs: 7
 
 swipe_nav:
-#cch:
-#  main_config: true
-#  menu: show
-#  notifications: show
-#  options: show
-#  swipe: true
-#  default_tab: 0
-#  exceptions:
-#    - conditions:
-#        user_agent: iPhone
-#      config:
-#        options: show
-#        notifications: overflow
-#    - conditions:
-#        user: anita, homeassistant
-#      config:
-#        hide_tabs: 7
+
 # -----------------------------
 ## music player
 x-music-player: &music-player
@@ -302,19 +286,6 @@ views:
             entities:
               - switch.radiator_living_room_keylock
               - sensor.valve_living_room
-              # - type: section
-              # - entity: sensor.offset_living_room
-              #   type: custom:multiple-entity-row
-              #   primary:
-              #     entity: input_number.offset_living_room
-              #     name: false
-              # - entity: automation.heizung_offset_wohnzimmer
-                # type: custom:multiple-entity-row
-                # toggle: true
-                # info:
-                #   entity: automation.heizung_offset_wohnzimmer
-                #   attribute: last_triggered
-                #   name: Ausgeführt
       - type: entities
         show_header_toggle: false
         entities:
@@ -346,19 +317,6 @@ views:
             entities:
               - switch.radiator_bed_room_keylock
               - sensor.valve_bed_room
-              # - type: section
-              # - entity: sensor.offset_bed_room
-              #   type: custom:multiple-entity-row
-              #   primary:
-              #     entity: input_number.offset_bed_room
-              #     name: false
-              # - entity: automation.heizung_offset_schlafzimmer
-                # type: custom:multiple-entity-row
-                # toggle: true
-                # info:
-                #   entity: automation.heizung_offset_schlafzimmer
-                #   attribute: last_triggered
-                #   name: Ausgeführt
       - type: entities
         show_header_toggle: false
         entities:
@@ -572,8 +530,6 @@ views:
     id: music
     icon: mdi:music-box-outline
     cards:
-      # - type: custom:vertical-stack-in-card
-      #   cards:
       - type: entities
         show_header_toggle: false
         entities:
@@ -715,47 +671,6 @@ views:
         show_header_toggle: false
         entities:
           - light.steckdose
-      # - type: horizontal-stack
-      #   cards:
-      #     - type: custom:mini-graph-card
-      #       name: Aktuell
-      #       icon: mdi:flash
-      #       <<: *mini-graph
-      #       entities:
-      #         - entity: sensor.hs110_today_kwh
-      #           name: Aktuell
-      #           color: blue
-      #     - type: custom:mini-graph-card
-      #       name: Gesamt
-      #       icon: mdi:flash
-      #       <<: *mini-graph
-      #       entities:
-      #         - entity: sensor.hs110_total_kwh
-      #           name: Gesamt
-      #           color: green
-      #     - type: custom:mini-graph-card
-      #       name: Aktuelle Leistung
-      #       icon: mdi:flash
-      #       <<: *mini-graph
-      #       entities:
-      #         - entity: sensor.hs110_watts
-      #           color: #FDD835
-      # - type: horizontal-stack
-      #   cards:
-      #     - type: custom:mini-graph-card
-      #       name: Stromstärke
-      #       icon: mdi:flash
-      #       <<: *mini-graph
-      #       entities:
-      #         - entity: sensor.hs110_amps
-      #           color: red
-      #     - type: custom:mini-graph-card
-      #       name: Spannung
-      #       icon: mdi:flash
-      #       <<: *mini-graph
-      #       entities:
-      #         - entity: sensor.hs110_volts
-      #           color: purple
                 
 ##### Personen #####
   - title: Personen
@@ -782,9 +697,6 @@ views:
         card:
           type: picture-entity
           entity: camera.ffmpeg
-          # camera_image: camera.ffmpeg
-          # show_info: true
-          # tap_action: dialog
           title: Kamera
       - type: entities
         show_header_toggle: false
@@ -822,17 +734,6 @@ views:
               - binary_sensor.x1_sdrive18i_lights_parking
               - binary_sensor.x1_sdrive18i_condition_based_services
               - binary_sensor.x1_sdrive18i_check_control_messages
-          # - type: custom:fold-entity-row
-          #   head:
-          #     type: section
-          #     label: Funktionen
-          #   padding: 5
-          #   entities:
-          #     - lock.x1_sdrive18i_lock
-          #     - script.1543166767000
-          #     - script.1543167202912
-          #     - script.1543167430941
-          #     - script.1543218125342
       - type: conditional
         conditions:
           - entity: input_boolean.car_map
