@@ -521,5 +521,5 @@
   alias: Heizung Homematic ausschalten
   sequence:
   - data: {}
-    entity_id: scene.thermostat_homematic_room_off
+    entity_id: scene.thermostat_homematic_off
     service: scene.turn_on
