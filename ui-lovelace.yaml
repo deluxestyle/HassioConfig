@@ -41,10 +41,10 @@ custom_header:
         user_agent: iPhone
       config:
         menu_hide: true
-    - conditions:
-        user: anita, homeassistant
-      config:
-        hide_tabs: 7
+    # - conditions:
+    #     user: anita
+    #   config:
+    #     hide_tabs: 7
 
 swipe_nav:
 #cch:
