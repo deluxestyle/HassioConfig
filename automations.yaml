@@ -632,7 +632,7 @@
 - id: '1564988736274'
   alias: 'Benachrichtigung: Heizung Homematic'
   trigger:
-  - above: '0'
+  - above: '5'
     entity_id: sensor.valve_homematic
     platform: numeric_state
   condition: []
@@ -641,7 +641,7 @@
       entity_id: input_boolean.persistent_notification
     service: input_boolean.turn_on
   - data:
-      message: Bad Ventil offen
+      message: Homematic Ventil offen
       notification_id: heizung
       title: Heizung
     service: script.1570439573834
