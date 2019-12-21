@@ -31,22 +31,17 @@ resources:
     type: module
   - url: /community_plugin/lovelace-swipe-navigation/swipe-navigation.js
     type: js
+
 # -----------------------------
 custom_header:
   compact_mode: true
-  hide_config: true
   chevrons: false
+  hide_config: true
   exceptions:
-    - conditions:
-        user_agent: iPhone
-      config:
-        menu_hide: true
     - conditions:
         user: anita
       config:
         hide_tabs: 7
-
-swipe_nav:
 
 # -----------------------------
 ## music player
@@ -252,7 +247,7 @@ views:
             entities:
               - entity: automation.heizung_bad_timer
                 name: Bad Timer
-              - entity: input_datetime.radiator_homematic_1
+              - entity: input_datetime.radiator_bath_1
                 name: Startzeit
                 type: custom:time-input-row
       - type: entities
