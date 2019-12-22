@@ -663,7 +663,8 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - light.steckdose
+          - entity: switch.steckdose_1
+            name: Steckdose
                 
 ##### Personen #####
   - title: Personen

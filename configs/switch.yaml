@@ -126,15 +126,6 @@
           - service: script.turn_on
             entity_id: script.1538057479069
     ###### Switches (nur für HomeKit/Alexa) ######
-    power_plug_multimedia:
-        friendly_name: Steckdosenleiste
-        value_template: "{{ is_state('light.steckdose', 'on') }}"
-        turn_on:
-          - service: light.turn_on
-            entity_id: light.steckdose
-        turn_off:
-          - service: light.turn_off
-            entity_id: light.steckdose
     power_plug_printer:
         friendly_name: Drucker
         value_template: "{{ is_state('light.steckdose_3', 'on') }}"

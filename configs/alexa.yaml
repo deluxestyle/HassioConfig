@@ -18,6 +18,6 @@ smart_home:
       - light.leselampe
       - switch.tv_switch
       - switch.power_plug_printer
-      - switch.power_plug_multimedia
       - switch.vacuum
       - switch.wifi_steckdose
+      - switch.steckdose_1

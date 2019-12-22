@@ -9,10 +9,6 @@ light.schlafzimmer_1:
   hidden: true
 light.schlafzimmer_2:
   hidden: true
-light.steckdose:
-  effect_list:
-  - ''
-  icon: mdi:power-socket-eu
 light.steckdose_2:
   friendly_name: Küchenspot - links
   icon: mdi:spotlight-beam
@@ -306,3 +302,5 @@ sensor.offset_living_room:
 climate.fritz_thermostat:
   friendly_name: Heizung Bad (fritz)
   icon: mdi:radiator
+switch.steckdose_1:
+  icon: mdi:power-socket-eu

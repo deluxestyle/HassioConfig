@@ -20,7 +20,6 @@ filter:
     - media_player.schlafzimmer
     - media_player.kuche
     - switch.radiator_on_off
-    - switch.power_plug_multimedia
     - switch.power_plug_printer
     - switch.power_plug_plug_3
     - sensor.temperature_158d0001b8c96c
@@ -36,6 +35,7 @@ filter:
     - switch.music_switch
     - switch.vacuum
     - switch.wifi_steckdose
+    - switch.steckdose_1
 entity_config:
     media_player.schlafzimmer:
       feature_list:
