@@ -21,16 +21,16 @@ filter:
     - media_player.kuche
     - switch.radiator_on_off
     - switch.power_plug_printer
-    - switch.power_plug_plug_3
-    - sensor.temperature_158d0001b8c96c
-    - sensor.temperature_158d0001b8c998
-    - sensor.temperature_158d0002239fb5
-    - sensor.temperature_158d00023258bd
-    - sensor.humidity_158d0001b8c998
-    - sensor.humidity_158d0002239fb5
-    - sensor.humidity_158d00023258bd
-    - sensor.humidity_158d0001b8c96c
-    - sensor.oeq1667238_humidity
+    - switch.power_plug_5
+    # - sensor.temperature_158d0001b8c96c
+    # - sensor.temperature_158d0001b8c998
+    # - sensor.temperature_158d0002239fb5
+    # - sensor.temperature_158d00023258bd
+    # - sensor.humidity_158d0001b8c998
+    # - sensor.humidity_158d0002239fb5
+    # - sensor.humidity_158d00023258bd
+    # - sensor.humidity_158d0001b8c96c
+    # - sensor.oeq1667238_humidity
     - switch.tv_switch
     - switch.music_switch
     - switch.vacuum

@@ -27,25 +27,25 @@
 # Xiaomi
 ##############################################################
       battery_sensor_bedroom:
-        entity_id: sensor.humidity_158d0001b8c96c
+        entity_id: sensor.xiaomi_bed_room_battery_level
         device_class: battery
         friendly_name: "Batterie Sensor Schlafzimmer"
-        value_template: '{{ states.sensor.humidity_158d0001b8c96c.attributes.battery_level }}'
+        value_template: '{{ states.sensor.xiaomi_bed_room_battery_level.state }}'
       battery_sensor_livingroom:
-        entity_id: sensor.humidity_158d0001b8c998
+        entity_id: sensor.xiaomi_living_room_battery_level
         device_class: battery
         friendly_name: "Batterie Sensor Wohnzimmer"
-        value_template: '{{ states.sensor.humidity_158d0001b8c998.attributes.battery_level }}'
+        value_template: '{{ states.sensor.xiaomi_living_room_battery_level.state }}'
       battery_sensor_kitchen:
-        entity_id: sensor.humidity_158d0001b8c998
+        entity_id: sensor.xiaomi_kitchen_battery_level
         device_class: battery
         friendly_name: "Batterie Sensor Küche"
-        value_template: '{{ states.sensor.humidity_158d0001b8c998.attributes.battery_level }}'
+        value_template: '{{ states.sensor.xiaomi_kitchen_battery_level.state }}'
       battery_sensor_bath:
-        entity_id: sensor.humidity_158d00023258bd
+        entity_id: sensor.xiaomi_bath_battery_level
         device_class: battery
         friendly_name: "Batterie Sensor Bad"
-        value_template: '{{ states.sensor.humidity_158d00023258bd.attributes.battery_level }}'
+        value_template: '{{ states.sensor.xiaomi_bath_battery_level.state }}'
       battery_sensor_motion:
         entity_id: binary_sensor.motion_sensor_158d00023e77cb
         device_class: battery
@@ -62,20 +62,20 @@
         friendly_name: "Batterie Sensor Button 1"
         value_template: '{{ states.binary_sensor.switch_158d0002131462.attributes.battery_level }}'
       battery_sensor_button_2:
-        entity_id: binary_sensor.switch_158d000213621b
+        entity_id: sensor.switch_1_battery_level
         device_class: battery
         friendly_name: "Batterie Sensor Button 2"
-        value_template: '{{ states.binary_sensor.switch_158d000213621b.attributes.battery_level }}'
+        value_template: '{{ states.sensor.switch_1_battery_level.state }}'
       battery_sensor_wall_switch:
         entity_id: binary_sensor.wall_switch_158d00025303aa
         device_class: battery
         friendly_name: "Batterie Sensor Wall Switch"
         value_template: '{{ states.binary_sensor.wall_switch_158d00025303aa.attributes.battery_level }}'      
       battery_sensor_wall_switch_double:
-        entity_id: binary_sensor.wall_switch_both_158d000254275c
+        entity_id: sensor.wall_switch_double_battery_level
         device_class: battery
         friendly_name: "Batterie Sensor Wall Switch Double"
-        value_template: '{{ states.binary_sensor.wall_switch_both_158d000254275c.attributes.battery_level }}'
+        value_template: '{{ states.sensor.wall_switch_double_battery_level.state }}'
 ##############################################################
 # Hue
 ##############################################################

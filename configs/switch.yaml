@@ -135,8 +135,8 @@
         turn_off:
           - service: light.turn_off
             entity_id: light.steckdose_3
-    power_plug_plug_3:
-        friendly_name: Steckdose 3
+    power_plug_5:
+        friendly_name: Steckdose 5
         value_template: "{{ is_state('light.steckdose_5', 'on') }}"
         turn_on:
           - service: light.turn_on

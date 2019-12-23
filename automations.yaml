@@ -471,19 +471,6 @@
       notification_id: xiaomi_sensor
       title: Xiaomi StaubRobo
     service: persistent_notification.create
-- id: '1547393321318'
-  alias: Heizungsschaltung
-  trigger:
-  - event_data:
-      click_type: single
-      entity_id: binary_sensor.switch_158d000213621b
-    event_type: xiaomi_aqara.click
-    platform: event
-  condition: []
-  action:
-  - data:
-      entity_id: switch.radiator_on_off
-    service: switch.toggle
 - id: '1548418632803'
   alias: 'Xiaomi Staubsauger: Zähler zurücksetzen'
   trigger:
@@ -724,33 +711,6 @@
     state: 'off'
   action:
   - service: script.1532173931599
-- id: switch_double_wall_left
-  alias: 'Lichtschalter: Schlafzimmer links'
-  trigger:
-  - event_data:
-      click_type: single
-      entity_id: binary_sensor.wall_switch_left_158d000254275c
-    event_type: xiaomi_aqara.click
-    platform: event
-  action:
-  - data:
-      entity_id: light.schlafzimmer
-    service: light.toggle
-- id: switch_double_wall_right
-  alias: 'Lichtschalter: Schlafzimmer rechts'
-  trigger:
-  - event_data:
-      click_type: single
-      entity_id: binary_sensor.wall_switch_right_158d000254275c
-    event_type: xiaomi_aqara.click
-    platform: event
-  action:
-  - data:
-      entity_id: light.nachttischlampe_wolfgang
-    service: light.toggle
-  - data:
-      entity_id: light.nachttischlampe_anita
-    service: light.toggle
 - id: '1570440017469'
   alias: Badge zurücksetzen
   trigger:
@@ -1003,3 +963,29 @@
       notification_id: backup
       title: Backup
     service: persistent_notification.create
+- id: '1577035817393'
+  alias: 'Hue Dimmer Wohnzimmer: Aus'
+  description: ''
+  trigger:
+  - entity_id: sensor.hue_dimmer_wohnzimmer
+    platform: state
+    to: 4_click_up
+  condition: []
+  action:
+  - entity_id: light.leselampe
+    service: light.turn_off
+  - entity_id: switch.wifi_steckdose
+    service: switch.turn_off
+- id: '1577107079102'
+  alias: Heizungsschaltung
+  description: ''
+  trigger:
+  - event_data:
+      event: 1002
+      id: switch_13
+    event_type: deconz_event
+    platform: event
+  condition: []
+  action:
+  - entity_id: switch.radiator_on_off
+    service: switch.toggle
