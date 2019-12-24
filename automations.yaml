@@ -695,6 +695,11 @@
   - platform: template
     value_template: '{{ states(''sensor.time'') == (states.input_datetime.sonos_alarm.attributes.timestamp
       | int | timestamp_custom(''%H:%M'', False)) }}'
+  - event_data:
+      event: 1002
+      id: switch_14
+    event_type: deconz_event
+    platform: event
   condition:
   - condition: state
     entity_id: sensor.presence
@@ -982,10 +987,22 @@
   trigger:
   - event_data:
       event: 1002
-      id: switch_13
+      id: smart_switch_1
     event_type: deconz_event
     platform: event
   condition: []
   action:
   - entity_id: switch.radiator_on_off
     service: switch.toggle
+- id: '1577140062809'
+  alias: Sonos Wecker (manuell)
+  description: ''
+  trigger:
+  - event_data:
+      event: 1002
+      id: wandsender_2_fach
+    event_type: deconz_event
+    platform: event
+  condition: []
+  action:
+  - service: script.1532173931599
