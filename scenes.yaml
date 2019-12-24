@@ -1,61 +1,512 @@
-###############################################
-# Radiator scenes
 - name: thermostat_living_room_on
   entities:
     climate.oeq1696358:
       state: auto
       temperature: 19
-
+  id: 75875398613247e7bcc01e0d91d3e5ce
 - name: thermostat_living_room_off
   entities:
     climate.oeq1696358:
-      state: off
+      state: false
       temperature: 4.5
-
+  id: 08e7c2b2829b4bf08a9d154b6bc65b9f
 - name: thermostat_bed_room_on
   entities:
     climate.oeq1696369:
       state: auto
       temperature: 19
-
+  id: 35f41daeb56a455aac898628d8c5e616
 - name: thermostat_bed_room_off
   entities:
     climate.oeq1696369:
-      state: off
+      state: false
       temperature: 4.5
-
+  id: 06d16c4fb32542c7ab1dce121e215014
 - name: thermostat_homematic_on
   entities:
     climate.oeq1701003:
       state: auto
       temperature: 19
-
+  id: 44fb15f3a486435d8c68e7da2aa38fec
 - name: thermostat_homematic_off
   entities:
     climate.oeq1701003:
-      state: off
+      state: false
       temperature: 4.5
-
+  id: e8f310d1c4f547a8a9a199bccf14d705
 - name: thermostat_office_on
   entities:
     climate.int0000002:
       state: auto
       temperature: 19
-
+  id: e64c2cd64dd542a0bbe352eeeffa73c9
 - name: thermostat_office_off
   entities:
     climate.int0000002:
-      state: off
+      state: false
       temperature: 4.5
-
+  id: abac6d7f393b4fa79260cef5aab6f874
 - name: thermostat_fritz_off
   entities:
     climate.fritz_thermostat:
-      state: off
+      state: false
       temperature: 0
-
+  id: 4b9a2e6493534a718540723e1deb5f02
 - name: thermostat_fritz_on
   entities:
     climate.fritz_thermostat:
       state: heat
       temperature: 10
+  id: 8f3a22df00f44e74a773b4e4190b95ac
+- id: '1577188128038'
+  name: Wohnzimmer - Lesen
+  entities:
+    light.decke:
+      brightness: 254
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Decke
+      hs_color:
+      - 38.88
+      - 49.02
+      icon: mdi:ceiling-light
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 210
+      - 129
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.447
+      - 0.406
+    light.leselampe:
+      effect_list:
+      - colorloop
+      friendly_name: Leselampe
+      hs_color:
+      - 38.88
+      - 49.02
+      icon: mdi:desk-lamp
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 210
+      - 129
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.447
+      - 0.406
+    light.tisch:
+      brightness: 254
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Tisch
+      hs_color:
+      - 38.88
+      - 49.02
+      icon: mdi:floor-lamp
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 210
+      - 129
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.447
+      - 0.406
+- id: '1577188710047'
+  name: Wohnzimmer - Sehr hell
+  entities:
+    light.decke:
+      brightness: 254
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Decke
+      hs_color:
+      - 45
+      - 21.961
+      icon: mdi:ceiling-light
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 240
+      - 198
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.37
+      - 0.372
+    light.leselampe:
+      brightness: 254
+      effect_list:
+      - colorloop
+      friendly_name: Leselampe
+      hs_color:
+      - 45
+      - 21.961
+      icon: mdi:desk-lamp
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 240
+      - 198
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.37
+      - 0.372
+    light.tisch:
+      brightness: 254
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Tisch
+      hs_color:
+      - 45
+      - 21.961
+      icon: mdi:floor-lamp
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 240
+      - 198
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.37
+      - 0.372
+- id: '1577188758241'
+  name: Wohnzimmer - Gedimmt
+  entities:
+    light.decke:
+      brightness: 77
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Decke
+      hs_color:
+      - 38.667
+      - 52.941
+      icon: mdi:ceiling-light
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 207
+      - 120
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.457
+      - 0.41
+    light.leselampe:
+      brightness: 254
+      effect_list:
+      - colorloop
+      friendly_name: Leselampe
+      hs_color:
+      - 38.667
+      - 52.941
+      icon: mdi:desk-lamp
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 207
+      - 120
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.457
+      - 0.41
+    light.tisch:
+      brightness: 77
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Tisch
+      hs_color:
+      - 38.667
+      - 52.941
+      icon: mdi:floor-lamp
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 207
+      - 120
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.457
+      - 0.41
+- id: '1577188801060'
+  name: Wohnzimmer - Konzentriert
+  entities:
+    light.decke:
+      brightness: 254
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Decke
+      hs_color:
+      - 45
+      - 21.961
+      icon: mdi:ceiling-light
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 240
+      - 198
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.37
+      - 0.372
+    light.leselampe:
+      brightness: 254
+      effect_list:
+      - colorloop
+      friendly_name: Leselampe
+      hs_color:
+      - 45
+      - 21.961
+      icon: mdi:desk-lamp
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 240
+      - 198
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.37
+      - 0.372
+    light.tisch:
+      brightness: 254
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Tisch
+      hs_color:
+      - 45
+      - 21.961
+      icon: mdi:floor-lamp
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 240
+      - 198
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.37
+      - 0.372
+- id: '1577188961039'
+  name: Wohnzimmer - Energie tanken
+  entities:
+    light.decke:
+      brightness: 254
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Decke
+      hs_color:
+      - 173.333
+      - 3.529
+      icon: mdi:ceiling-light
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 246
+      - 255
+      - 254
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.314
+      - 0.331
+    light.leselampe:
+      brightness: 254
+      effect_list:
+      - colorloop
+      friendly_name: Leselampe
+      hs_color:
+      - 173.333
+      - 3.529
+      icon: mdi:desk-lamp
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 246
+      - 255
+      - 254
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.314
+      - 0.331
+    light.tisch:
+      brightness: 254
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Tisch
+      hs_color:
+      - 173.333
+      - 3.529
+      icon: mdi:floor-lamp
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 246
+      - 255
+      - 254
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.314
+      - 0.331
+- id: '1577189006399'
+  name: Wohnzimmer - Entspannt
+  entities:
+    light.decke:
+      brightness: 144
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Decke
+      hs_color:
+      - 36.568
+      - 66.275
+      icon: mdi:ceiling-light
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 188
+      - 85
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.502
+      - 0.414
+    light.leselampe:
+      brightness: 254
+      effect_list:
+      - colorloop
+      friendly_name: Leselampe
+      hs_color:
+      - 36.568
+      - 66.275
+      icon: mdi:desk-lamp
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 188
+      - 85
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.502
+      - 0.414
+    light.tisch:
+      brightness: 144
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Tisch
+      hs_color:
+      - 36.568
+      - 66.275
+      icon: mdi:floor-lamp
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 188
+      - 85
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.502
+      - 0.414
+- id: '1577189478330'
+  name: Schlafzimmer - Hell
+  entities:
+    light.schlafzimmer_1:
+      brightness: 254
+      friendly_name: Schlafzimmer 1
+      hidden: true
+      state: 'on'
+      supported_features: 41
+    light.schlafzimmer_2:
+      brightness: 254
+      friendly_name: Schlafzimmer 2
+      hidden: true
+      state: 'on'
+      supported_features: 41
+- id: '1577189510461'
+  name: Schlafzimmer - Nachtlicht
+  entities:
+    light.schlafzimmer_1:
+      brightness: 1
+      friendly_name: Schlafzimmer 1
+      hidden: true
+      state: 'on'
+      supported_features: 41
+    light.schlafzimmer_2:
+      brightness: 1
+      friendly_name: Schlafzimmer 2
+      hidden: true
+      state: 'on'
+      supported_features: 41
+- id: '1577189542067'
+  name: Schlafzimmer - Gedimmt
+  entities:
+    light.schlafzimmer_1:
+      brightness: 80
+      friendly_name: Schlafzimmer 1
+      hidden: true
+      state: 'on'
+      supported_features: 41
+    light.schlafzimmer_2:
+      brightness: 80
+      friendly_name: Schlafzimmer 2
+      hidden: true
+      state: 'on'
+      supported_features: 41
