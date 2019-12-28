@@ -8,7 +8,6 @@ scenes_living_room:
       - Konzentrieren
       - Energie tanken
       - Entspannen
-      - Nachtlicht
     initial: '--'
 
 scenes_bed_room:

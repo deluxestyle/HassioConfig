@@ -5,7 +5,6 @@ filter:
     - light.sonoff_office
     - light.nachttischlampe_wolfgang
     - light.nachttischlampe_anita
-    # - light.lights_kitchen
     - light.lights_living_room
     - climate.oeq1701003
     - climate.fritz_thermostat
@@ -22,15 +21,7 @@ filter:
     - switch.radiator_on_off
     - switch.power_plug_printer
     - switch.power_plug_5
-    # - sensor.temperature_158d0001b8c96c
-    # - sensor.temperature_158d0001b8c998
-    # - sensor.temperature_158d0002239fb5
-    # - sensor.temperature_158d00023258bd
-    # - sensor.humidity_158d0001b8c998
-    # - sensor.humidity_158d0002239fb5
-    # - sensor.humidity_158d00023258bd
-    # - sensor.humidity_158d0001b8c96c
-    # - sensor.oeq1667238_humidity
+    - light.leselampe
     - switch.tv_switch
     - switch.music_switch
     - switch.vacuum

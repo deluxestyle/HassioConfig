@@ -262,7 +262,7 @@
       - 0.457
       - 0.41
 - id: '1577188801060'
-  name: Wohnzimmer - Konzentriert
+  name: Wohnzimmer - Konzentrieren
   entities:
     light.decke:
       brightness: 254
@@ -272,28 +272,28 @@
       - random
       friendly_name: Decke
       hs_color:
-      - 45
-      - 21.961
+      - 44.211
+      - 22.353
       icon: mdi:ceiling-light
       max_mireds: 500
       min_mireds: 153
       rgb_color:
       - 255
       - 240
-      - 198
+      - 197
       state: 'on'
       supported_features: 63
       xy_color:
-      - 0.37
-      - 0.372
+      - 0.371
+      - 0.373
     light.leselampe:
       brightness: 254
       effect_list:
       - colorloop
       friendly_name: Leselampe
       hs_color:
-      - 45
-      - 21.961
+      - 44.211
+      - 22.353
       icon: mdi:desk-lamp
       is_deconz_group: false
       max_mireds: 500
@@ -301,12 +301,12 @@
       rgb_color:
       - 255
       - 240
-      - 198
+      - 197
       state: 'on'
       supported_features: 63
       xy_color:
-      - 0.37
-      - 0.372
+      - 0.371
+      - 0.373
     light.tisch:
       brightness: 254
       effect: none
@@ -315,20 +315,20 @@
       - random
       friendly_name: Tisch
       hs_color:
-      - 45
-      - 21.961
+      - 44.211
+      - 22.353
       icon: mdi:floor-lamp
       max_mireds: 500
       min_mireds: 153
       rgb_color:
       - 255
       - 240
-      - 198
+      - 197
       state: 'on'
       supported_features: 63
       xy_color:
-      - 0.37
-      - 0.372
+      - 0.371
+      - 0.373
 - id: '1577188961039'
   name: Wohnzimmer - Energie tanken
   entities:

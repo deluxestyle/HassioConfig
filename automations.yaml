@@ -48,11 +48,9 @@
   - condition: template
     value_template: '{{ states.input_select.scenes_living_room.state != "--" }}'
   action:
-  - data:
-      group_name: Wohnzimmer
-    data_template:
-      scene_name: '{{ states.input_select.scenes_living_room.state }}'
-    service: hue.hue_activate_scene
+  - data_template:
+      entity_id: scene.wohnzimmer_{{ states.input_select.scenes_living_room.state | replace(' ', '_') | lower | string }}
+    service: scene.turn_on
   - data:
       entity_id: input_select.scenes_living_room
       option: --
@@ -66,11 +64,9 @@
   - condition: template
     value_template: '{{ states.input_select.scenes_bed_room.state != "--" }}'
   action:
-  - data:
-      group_name: Schlafzimmer
-    data_template:
-      scene_name: '{{ states.input_select.scenes_bed_room.state }}'
-    service: hue.hue_activate_scene
+  - data_template:
+      entity_id: scene.schlafzimmer_{{ states.input_select.scenes_bed_room.state | replace(' ', '_') | lower | string }}
+    service: scene.turn_on
   - data:
       entity_id: input_select.scenes_bed_room
       option: --
