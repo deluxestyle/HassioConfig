@@ -17,6 +17,8 @@ Following components are used:
 * Harmony Hub
 * BMW connected drive
 * Fritz.Box (as presence tracker)
+* Frizt.Box Thermostate
+* deconz (zigbee integration)
 * and a lot more
 
 Using a lot of custom elements for lovelace:
@@ -30,3 +32,7 @@ and much more
 
 Alexa connection via Home Assistant Alexa Skill Adapter
 * https://github.com/mike-grant/haaska
+
+Home Assistant Community Store
+* https://github.com/hacs
+
