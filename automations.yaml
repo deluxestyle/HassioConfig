@@ -979,8 +979,6 @@
   action:
   - entity_id: light.leselampe
     service: light.turn_off
-  - entity_id: switch.wifi_steckdose
-    service: switch.turn_off
 - id: '1577107079102'
   alias: Heizungsschaltung
   description: ''
