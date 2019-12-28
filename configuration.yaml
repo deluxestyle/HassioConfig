@@ -126,7 +126,7 @@ zone:
 
 auto_backup:
   auto_purge: true
-  backup_timeout: 2400
+  backup_timeout: 4800
 
 fritzbox:
   devices:

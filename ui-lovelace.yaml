@@ -659,7 +659,9 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - light.steckdose_5
+          - entity: switch.steckdose_5
+            name: Alexa
+            icon: mdi:amazon-alexa
       - type: entities
         show_header_toggle: false
         entities:
