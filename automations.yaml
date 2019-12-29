@@ -49,7 +49,8 @@
     value_template: '{{ states.input_select.scenes_living_room.state != "--" }}'
   action:
   - data_template:
-      entity_id: scene.wohnzimmer_{{ states.input_select.scenes_living_room.state | replace(' ', '_') | lower | string }}
+      entity_id: scene.wohnzimmer_{{ states.input_select.scenes_living_room.state
+        | replace(' ', '_') | lower | string }}
     service: scene.turn_on
   - data:
       entity_id: input_select.scenes_living_room
@@ -65,7 +66,8 @@
     value_template: '{{ states.input_select.scenes_bed_room.state != "--" }}'
   action:
   - data_template:
-      entity_id: scene.schlafzimmer_{{ states.input_select.scenes_bed_room.state | replace(' ', '_') | lower | string }}
+      entity_id: scene.schlafzimmer_{{ states.input_select.scenes_bed_room.state |
+        replace(' ', '_') | lower | string }}
     service: scene.turn_on
   - data:
       entity_id: input_select.scenes_bed_room
@@ -423,7 +425,7 @@
       entity_id: automation.benachrichtigung_bewegung_erkannt
     service: automation.turn_off
 - id: '1543619209115'
-  alias: Starte HomeKit
+  alias: Starte Services nach Neustart
   trigger:
   - event: start
     platform: homeassistant
@@ -431,6 +433,9 @@
   action:
   - delay: 00:01:30
   - service: homekit.start
+  - data:
+      entity_id: sensor.car_km_usage
+    service: homeassistant.update_entity
 - id: '1543669218842'
   alias: 'Xiaomi Staubsauger: Zonenreinigung'
   trigger:
@@ -949,7 +954,7 @@
   action:
   - service: auto_backup.snapshot_full
     data_template:
-      name: 'Backup_{{ now().strftime(''%Y-%m-%d_%H:%M'') }}'
+      name: Backup_{{ now().strftime('%Y-%m-%d_%H:%M') }}
       keep_days: 7
   - data:
       message: 'Backup erstellt um: {{ now().strftime(''%Y-%m-%d_%H:%M'') }}'
