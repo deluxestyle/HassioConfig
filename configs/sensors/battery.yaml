@@ -65,7 +65,7 @@
         entity_id: sensor.switch_1_battery_level
         device_class: battery
         friendly_name: "Batterie Sensor Button 2"
-        value_template: '{{ states.sensor.switch_1_battery_level.state }}'
+        value_template: '{{ states.sensor.smart_switch_1_battery_level.state }}'
       battery_sensor_wall_switch:
         entity_id: binary_sensor.wall_switch_158d00025303aa
         device_class: battery
@@ -75,7 +75,7 @@
         entity_id: sensor.wall_switch_double_battery_level
         device_class: battery
         friendly_name: "Batterie Sensor Wall Switch Double"
-        value_template: '{{ states.sensor.wall_switch_double_battery_level.state }}'
+        value_template: '{{ states.sensor.wandsender_2_fach_battery_level.state }}'
 ##############################################################
 # Hue
 ##############################################################
