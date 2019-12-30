@@ -219,7 +219,7 @@
       - 0.457
       - 0.41
     light.leselampe:
-      brightness: 254
+      brightness: 77
       effect_list:
       - colorloop
       friendly_name: Leselampe
@@ -398,7 +398,7 @@
       - 0.314
       - 0.331
 - id: '1577189006399'
-  name: Wohnzimmer - Entspannt
+  name: Wohnzimmer - Entspannen
   entities:
     light.decke:
       brightness: 144
@@ -408,27 +408,27 @@
       - random
       friendly_name: Decke
       hs_color:
-      - 36.568
+      - 36.213
       - 66.275
       icon: mdi:ceiling-light
       max_mireds: 500
       min_mireds: 153
       rgb_color:
       - 255
-      - 188
+      - 187
       - 85
       state: 'on'
       supported_features: 63
       xy_color:
-      - 0.502
-      - 0.414
+      - 0.503
+      - 0.413
     light.leselampe:
-      brightness: 254
+      brightness: 144
       effect_list:
       - colorloop
       friendly_name: Leselampe
       hs_color:
-      - 36.568
+      - 36.213
       - 66.275
       icon: mdi:desk-lamp
       is_deconz_group: false
@@ -436,13 +436,13 @@
       min_mireds: 153
       rgb_color:
       - 255
-      - 188
+      - 187
       - 85
       state: 'on'
       supported_features: 63
       xy_color:
-      - 0.502
-      - 0.414
+      - 0.503
+      - 0.413
     light.tisch:
       brightness: 144
       effect: none
@@ -451,20 +451,20 @@
       - random
       friendly_name: Tisch
       hs_color:
-      - 36.568
+      - 36.213
       - 66.275
       icon: mdi:floor-lamp
       max_mireds: 500
       min_mireds: 153
       rgb_color:
       - 255
-      - 188
+      - 187
       - 85
       state: 'on'
       supported_features: 63
       xy_color:
-      - 0.502
-      - 0.414
+      - 0.503
+      - 0.413
 - id: '1577189478330'
   name: Schlafzimmer - Hell
   entities:
