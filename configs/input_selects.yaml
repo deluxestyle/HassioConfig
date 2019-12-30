@@ -8,6 +8,9 @@ scenes_living_room:
       - Konzentrieren
       - Energie tanken
       - Entspannen
+      - Sonnenuntergang
+      - Nordlicht
+      - Frühling
     initial: '--'
 
 scenes_bed_room:

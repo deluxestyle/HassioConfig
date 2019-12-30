@@ -510,3 +510,208 @@
       hidden: true
       state: 'on'
       supported_features: 41
+- id: '1577725898840'
+  name: Wohnzimmer - Frühling
+  entities:
+    light.decke:
+      brightness: 214
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Decke
+      hs_color:
+      - 338.333
+      - 28.235
+      icon: mdi:ceiling-light
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 183
+      - 209
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.394
+      - 0.295
+    light.leselampe:
+      brightness: 214
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Leselampe
+      hs_color:
+      - 338.333
+      - 28.235
+      icon: mdi:desk-lamp
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 183
+      - 209
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.394
+      - 0.295
+    light.tisch:
+      brightness: 214
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Tisch
+      hs_color:
+      - 338.333
+      - 28.235
+      icon: mdi:floor-lamp
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 183
+      - 209
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.394
+      - 0.295
+- id: '1577726000275'
+  name: Wohnzimmer - Nordlicht
+  entities:
+    light.decke:
+      brightness: 137
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Decke
+      hs_color:
+      - 168
+      - 50.98
+      icon: mdi:ceiling-light
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 125
+      - 255
+      - 229
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.206
+      - 0.377
+    light.leselampe:
+      brightness: 137
+      effect_list:
+      - colorloop
+      friendly_name: Leselampe
+      hs_color:
+      - 177.257
+      - 68.627
+      icon: mdi:desk-lamp
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 80
+      - 255
+      - 246
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.172
+      - 0.355
+    light.tisch:
+      brightness: 137
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Tisch
+      hs_color:
+      - 177.257
+      - 68.627
+      icon: mdi:floor-lamp
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 80
+      - 255
+      - 246
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.172
+      - 0.355
+- id: '1577726138918'
+  name: Wohnzimmer - Sonnenuntergang
+  entities:
+    light.decke:
+      brightness: 199
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Decke
+      hs_color:
+      - 14.648
+      - 83.529
+      icon: mdi:ceiling-light
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 94
+      - 42
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.637
+      - 0.334
+    light.leselampe:
+      brightness: 214
+      effect_list:
+      - colorloop
+      friendly_name: Leselampe
+      hs_color:
+      - 44.058
+      - 81.176
+      icon: mdi:desk-lamp
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 200
+      - 48
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.505
+      - 0.447
+    light.tisch:
+      brightness: 199
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Tisch
+      hs_color:
+      - 47.5
+      - 65.882
+      icon: mdi:floor-lamp
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 220
+      - 87
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.464
+      - 0.45
