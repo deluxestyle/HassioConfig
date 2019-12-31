@@ -128,13 +128,13 @@
     ###### Switches (nur für HomeKit/Alexa) ######
     power_plug_printer:
         friendly_name: Drucker
-        value_template: "{{ is_state('light.steckdose_3', 'on') }}"
+        value_template: "{{ is_state('switch.steckdose_3', 'on') }}"
         turn_on:
           - service: light.turn_on
-            entity_id: light.steckdose_3
+            entity_id: switch.steckdose_3
         turn_off:
           - service: light.turn_off
-            entity_id: light.steckdose_3
+            entity_id: switch.steckdose_3
     power_plug_5:
         friendly_name: Steckdose 5
         value_template: "{{ is_state('switch.steckdose_5', 'on') }}"

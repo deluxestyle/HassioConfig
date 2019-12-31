@@ -655,7 +655,7 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - light.steckdose_3
+          - switch.steckdose_3
       - type: entities
         show_header_toggle: false
         entities:

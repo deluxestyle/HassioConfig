@@ -53,3 +53,11 @@
       - light.deckenlicht
       - light.steckdose_2
       - light.steckdose_4
+
+- platform: switch
+  name: steckdose_2
+  entity_id: switch.steckdose_2
+
+- platform: switch
+  name: steckdose_4
+  entity_id: switch.steckdose_4

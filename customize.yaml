@@ -93,7 +93,7 @@ sensor.xiaomi_vacuum_main_brush_left:
 sensor.xiaomi_vacuum_side_brush_left:
   friendly_name: Seitenbürste
   icon: mdi:blur-linear
-light.steckdose_3:
+switch.steckdose_3:
   friendly_name: Drucker
   icon: mdi:printer
 light.steckdose_4:

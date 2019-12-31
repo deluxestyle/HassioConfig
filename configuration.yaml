@@ -65,11 +65,11 @@ homematic: !include configs/homematic.yaml
 
 sensor: !include_dir_merge_list configs/sensors/
 
-hue:
-  bridges:
-    - host: 192.168.200.52
-      allow_unreachable: true
-      allow_hue_groups: false
+# hue:
+#   bridges:
+#     - host: 192.168.200.52
+#       allow_unreachable: true
+#       allow_hue_groups: false
 
 vacuum:
   - platform: xiaomi_miio

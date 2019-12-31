@@ -31,7 +31,7 @@
       entity_id: switch.steckdose_1
     service: switch.turn_off
   - data:
-      entity_id: light.steckdose_3
+      entity_id: switch.steckdose_3
     service: light.turn_off
   - data:
       entity_id: automation.benachrichtigung_bewegung_erkannt
@@ -109,18 +109,6 @@
   - data:
       entity_id: light.leselampe
     entity_id: light.leselampe
-    service: light.toggle
-- id: switch2
-  alias: 'Lichtschalter: Küchenlampe'
-  trigger:
-  - event_data:
-      click_type: single
-      entity_id: binary_sensor.wall_switch_158d00025303aa
-    event_type: xiaomi_aqara.click
-    platform: event
-  action:
-  - data:
-      entity_id: light.lights_kitchen
     service: light.toggle
 - id: xiaomi_vacuum_notification_off
   alias: 'Xiaomi Staubsauger: fertig'
@@ -961,17 +949,6 @@
       notification_id: backup
       title: Backup
     service: persistent_notification.create
-- id: '1577035817393'
-  alias: 'Hue Dimmer Wohnzimmer: Aus'
-  description: ''
-  trigger:
-  - entity_id: sensor.hue_dimmer_wohnzimmer
-    platform: state
-    to: 4_click_up
-  condition: []
-  action:
-  - entity_id: light.leselampe
-    service: light.turn_off
 - id: '1577107079102'
   alias: Heizungsschaltung
   description: ''

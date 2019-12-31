@@ -79,16 +79,16 @@
 ##############################################################
 # Hue
 ##############################################################
-      hue_dimmer_battery_bedroom:
-        entity_id: sensor.hue_dimmer_schlafzimmer
-        friendly_name: Hue dimmer Schlafzimmer
-        device_class: battery
-        value_template: '{{ states.sensor.hue_dimmer_schlafzimmer.attributes.battery }}'
+      # hue_dimmer_battery_bedroom:
+      #   entity_id: sensor.hue_dimmer_schlafzimmer
+      #   friendly_name: Hue dimmer Schlafzimmer
+      #   device_class: battery
+      #   value_template: '{{ states.sensor.hue_dimmer_schlafzimmer.attributes.battery }}'
       hue_dimmer_battery_livingroom:
         entity_id: sensor.hue_dimmer_wohnzimmer
         friendly_name: Hue dimmer Wohnzimmer
         device_class: battery
-        value_template: '{{ states.sensor.hue_dimmer_wohnzimmer.attributes.battery }}'
+        value_template: '{{ states.sensor.dimmschalter_battery_level.state }}'
 ##############################################################
 # Fritz Smart Home
 ##############################################################

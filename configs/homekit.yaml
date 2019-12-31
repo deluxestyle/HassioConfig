@@ -6,6 +6,11 @@ filter:
     - light.nachttischlampe_wolfgang
     - light.nachttischlampe_anita
     - light.lights_living_room
+    - light.lights_kitchen
+    - light.schlafzimmer
+    - light.tisch
+    - light.decke
+    - light.leselampe
     - climate.oeq1701003
     - climate.fritz_thermostat
     - climate.oeq1696358
@@ -13,15 +18,12 @@ filter:
     - climate.int0000002
     - script.1532173931522
     - script.1532175994947
-    - light.steckdose_2
-    - light.steckdose_4
     - media_player.bad
     - media_player.schlafzimmer
     - media_player.kuche
     - switch.radiator_on_off
     - switch.power_plug_printer
     - switch.power_plug_5
-    - light.leselampe
     - switch.tv_switch
     - switch.music_switch
     - switch.vacuum
