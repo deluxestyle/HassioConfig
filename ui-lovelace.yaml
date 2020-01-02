@@ -39,7 +39,8 @@ custom_header:
     - conditions:
         user: anita
       config:
-        hide_tabs: 7
+        hide_tabs: 
+        - 7
 
 # -----------------------------
 ## music player
@@ -776,6 +777,7 @@ views:
         show_header_toggle: false
         entities:
           - automation.tagliches_backup_auto_backup
+          - automation.tagliches_backup
       - type: entities
         show_header_toggle: false
         entities:
