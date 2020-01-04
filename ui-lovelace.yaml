@@ -35,12 +35,6 @@ custom_header:
   compact_mode: true
   chevrons: false
   hide_config: true
-  exceptions:
-    - conditions:
-        user: anita
-      config:
-        hide_tabs: 
-        - 7
 
 # -----------------------------
 ## music player
@@ -155,13 +149,13 @@ views:
         entities:
           - entity: light.sonoff_office
             tap_action: 
-              action: none
+              action: toggle
       - type: entities
         show_header_toggle: false
         entities:
           - entity: light.lights_kitchen
             tap_action: 
-              action: none
+              action: toggle
           - type: custom:fold-entity-row
             head: 
               type: section
@@ -175,44 +169,25 @@ views:
         show_header_toggle: false
         entities:
           - light.gateway_light_7811dcb258d1
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:tiles-card
-            card_settings:
-              columns: 1
-              row_height: 45px
-              padding: 10px
-            <<: *buttons_general
-            entities:
-              - entity: light.lights_all
-                label: Licht
-                row: 1
-                column: 1
-                background:
-                  value_on: '#03A9F4'
-                  value_off: '#999999'
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: light.lights_all
+            name: Licht
+            tap_action: 
+              action: toggle
 
 ##### Heizung #####
   - title: Heizung
     id: radiator
     icon: mdi:radiator
     cards:
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:tiles-card
-            card_settings:
-              columns: 1
-              row_height: 45px
-              padding: 10px
-            <<: *buttons_general
-            entities:
-              - entity: switch.radiator_on_off
-                label: Heizung
-                row: 1
-                column: 1
-                background:
-                  value_on: '#03A9F4'
-                  value_off: '#999999'
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: switch.radiator_on_off
+            tap_action: 
+              action: toggle
       - type: entities
         show_header_toggle: false
         entities:
@@ -246,6 +221,8 @@ views:
             entities:
               - entity: automation.heizung_bad_timer
                 name: Bad Timer
+                tap_action: 
+                  action: toggle
               - entity: input_datetime.radiator_bath_1
                 name: Startzeit
                 type: custom:time-input-row
@@ -278,8 +255,12 @@ views:
               label: Mehr
             padding: 5
             entities:
-              - switch.radiator_living_room_keylock
-              - sensor.valve_living_room
+              - entity: switch.radiator_living_room_keylock
+                tap_action: 
+                  action: toggle
+              - entity: sensor.valve_living_room
+                tap_action: 
+                  action: none
       - type: entities
         show_header_toggle: false
         entities:
@@ -309,8 +290,12 @@ views:
               label: Mehr
             padding: 5
             entities:
-              - switch.radiator_bed_room_keylock
-              - sensor.valve_bed_room
+              - entity: switch.radiator_bed_room_keylock
+                tap_action: 
+                  action: toggle
+              - entity: sensor.valve_bed_room
+                tap_action: 
+                  action: none
       - type: entities
         show_header_toggle: false
         entities:
@@ -340,8 +325,12 @@ views:
               label: Mehr
             padding: 5
             entities:
-              - switch.radiator_office_keylock
-              - sensor.valve_office
+              - entity: switch.radiator_office_keylock
+                tap_action: 
+                  action: toggle
+              - entity: sensor.valve_office
+                tap_action: 
+                  action: none
       - type: entities
         show_header_toggle: false
         entities:
@@ -373,21 +362,35 @@ views:
             entities:
               - entity: switch.radiator_homematic_keylock
                 name: Tastensperre
+                tap_action: 
+                  action: toggle
               - entity: sensor.valve_homematic
                 name: Ventil
+                tap_action: 
+                  action: none
       - type: entities
         show_header_toggle: false
         entities: 
-          - sensor.dark_sky_temperature
+          - entity: sensor.dark_sky_temperature
+            tap_action: 
+              action: none
           - type: custom:fold-entity-row
             head:
               type: section
               label: Automatisierung
             padding: 5
             entities:
-              - input_boolean.automation_radiator
-              - automation.heizung_abwesenheitsschaltung
-              - automation.benachrichtigung_luftfeuchtigkeit
+              - entity: input_boolean.automation_radiator
+                tap_action: 
+                  action: toggle
+              - entity: automation.heizung_abwesenheitsschaltung
+                name: Abwesenheitsschaltung
+                tap_action: 
+                  action: toggle
+              - entity: automation.benachrichtigung_luftfeuchtigkeit
+                name: Luftfeuchtigkeit
+                tap_action: 
+                  action: toggle
 
 #### Staubsauger #####
   - title: Staubsauger
@@ -400,7 +403,9 @@ views:
             show_header_toggle: false
             entities:
               - vacuum.xiaomi_vacuum_cleaner
-              - sensor.xiaomi_vacuum_sensor_battery
+              - entity: sensor.xiaomi_vacuum_sensor_battery
+                tap_action: 
+                  action: none
               - type: section
           - type: horizontal-stack
             cards:
@@ -457,8 +462,12 @@ views:
                 entities:
                   - entity: automation.xiaomi_staubsauger_abwesenheit
                     name: Abwesenheit
+                    tap_action: 
+                      action: toggle
                   - entity: automation.xiaomi_staubsauger_taglich_saugen
                     name: Täglich saugen
+                    tap_action: 
+                      action: toggle
               - type: custom:fold-entity-row
                 head:
                   type: section
@@ -474,8 +483,12 @@ views:
                 entities:
                   - entity: automation.xiaomi_staubsauger_neustart
                     name: Neustarten (Bürste blockiert)
+                    tap_action: 
+                      action: toggle
                   - entity: automation.xiaomi_staubsauger_error_stop
                     name: Deaktivieren (b. Fehler)
+                    tap_action: 
+                      action: toggle
                   - counter.xiaomo_errors
                   - type: section
                   - type: custom:fold-entity-row
@@ -484,28 +497,40 @@ views:
                     entities:
                       - entity: script.1547995869377
                         name: Bürste gewechselt
+                        tap_action: 
+                          action: toggle
                   - type: custom:fold-entity-row
                     head: sensor.xiaomi_vacuum_sensor_dirty_left
                     padding: 5
                     entities:
                       - entity: script.1547995682348
                         name: Sensor gereinigt
+                        tap_action: 
+                          action: toggle
                       - entity: automation.xiaomi_staubsauger_sensor_kritisch
                         name: Sensor kritisch
+                        tap_action: 
+                          action: toggle
                   - type: custom:fold-entity-row
                     head: sensor.xiaomi_vacuum_main_brush_left
                     padding: 5
                     entities: 
                       - entity: script.1547995909810
                         name: Bürste gewechselt
+                        tap_action: 
+                          action: toggle
                   - type: custom:fold-entity-row
                     head: sensor.xiaomi_vacuum_filter_left
                     padding: 5
                     entities:
                       - entity: script.1547995832032
                         name: Filter gereinigt
+                        tap_action: 
+                          action: toggle
                       - entity: automation.xiaomi_staubsauger_filter_kritisch
                         name: Filter kritisch
+                        tap_action: 
+                          action: toggle
               - type: custom:fold-entity-row
                 head:
                   type: section
@@ -514,10 +539,16 @@ views:
                 entities:
                   - entity: automation.xiaomi_staubsauger_fehler
                     name: Fehler
+                    tap_action: 
+                      action: toggle
                   - entity: automation.xiaomi_staubsauger_fertig
                     name: Reinigung abgeschlossen
+                    tap_action: 
+                      action: toggle
                   - entity: automation.xiaomi_staubsauger_gestartet
                     name: Staubsauger gestartet
+                    tap_action: 
+                      action: toggle
 
 ##### Musik #####
   - title: Musik
@@ -545,15 +576,21 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - script.1532173931522
+          - entity: script.1532173931522
+            tap_action: 
+              action: toggle
           - type: custom:fold-entity-row
             head:
               type: section
               label: Automatisierung
             padding: 5
             entities:
-              - automation.sonos_starten
-              - automation.sonos_stoppen
+              - entity: automation.sonos_starten
+                tap_action: 
+                  action: toggle
+              - entity: automation.sonos_stoppen
+                tap_action: 
+                  action: toggle
           - type: custom:fold-entity-row
             head:
               type: section
@@ -561,7 +598,9 @@ views:
             padding: 5
             entities:
               - input_datetime.sonos_alarm
-              - automation.sonos_wecker
+              - entity: automation.sonos_wecker
+                tap_action: 
+                  action: toggle
 
 ##### Entertainment #####
   - title: Entertainment
@@ -573,7 +612,9 @@ views:
           - type: entities
             show_header_toggle: false
             entities:
-              - sensor.remote_state
+              - entity: sensor.remote_state
+                tap_action: 
+                  action: none
               - type: section
           - type: horizontal-stack
             cards:
@@ -641,7 +682,9 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - switch.wifi_steckdose
+          - entity: switch.wifi_steckdose
+            tap_action: 
+              action: toggle
           - type: custom:fold-entity-row
             head: 
               type: section
@@ -656,21 +699,29 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - switch.steckdose_3
+          - entity: switch.steckdose_3
+            tap_action: 
+              action: toggle
       - type: entities
         show_header_toggle: false
         entities:
           - entity: switch.steckdose_5
             name: Alexa
             icon: mdi:amazon-alexa
+            tap_action: 
+              action: toggle
       - type: entities
         show_header_toggle: false
         entities:
           - entity: switch.steckdose_1
             name: Steckdose
+            tap_action: 
+              action: toggle
                 
 ##### Personen #####
   - title: Personen
+    visible:
+      - user: b6464705fc4e405abce8058610b4bcc7
     id: presence
     icon: mdi:account-multiple
     cards:
@@ -685,8 +736,12 @@ views:
               label: Automatisierung
             padding: 5
             entities:
-              - automation.abwesenheitsschaltung
-              - automation.anwesenheitsschaltung
+              - entity: automation.abwesenheitsschaltung
+                tap_action: 
+                  action: toggle
+              - entity: automation.anwesenheitsschaltung
+                tap_action: 
+                  action: toggle
       - type: conditional
         conditions:
           - entity: device_tracker.hikam_4452
@@ -698,16 +753,26 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - binary_sensor.motion_sensor_158d00023e77cb
+          - entity: binary_sensor.motion_sensor_158d00023e77cb
+            tap_action: 
+              action: none
           - sensor.illumination_158d00023e77cb
           - type: section
-          - automation.bewegungsmelder_alarm
-          - script.1541097052191
+          - entity: automation.bewegungsmelder_alarm
+            tap_action: 
+              action: toggle
+          - entity: script.1541097052191
+            tap_action: 
+              action: toggle
           - type: section
-          - automation.benachrichtigung_bewegung_erkannt
+          - entity: automation.benachrichtigung_bewegung_erkannt
+            tap_action: 
+              action: toggle
 
 ##### Auto ##### 
   - title: BMW X1
+    visible:
+      - user: b6464705fc4e405abce8058610b4bcc7
     id: bmw_x1
     icon: mdi:car-hatchback
     cards:
@@ -715,7 +780,9 @@ views:
         show_header_toggle: false
         entities:
           - device_tracker.x1_sdrive18i
-          - input_boolean.car_map
+          - entity: input_boolean.car_map
+            tap_action: 
+              action: toggle
           - type: custom:fold-entity-row
             head:
               type: section
@@ -759,31 +826,49 @@ views:
               label: Mietdetails
             padding: 5
             entities:
-              - sensor.car_days_in_use
-              - sensor.car_km_threshold
-              - automation.km_stand_kritisch    
+              - entity: sensor.car_days_in_use
+                tap_action: 
+                  action: none
+              - entity: sensor.car_km_threshold
+                tap_action: 
+                  action: none
+              - entity: automation.km_stand_kritisch    
+                tap_action: 
+                  action: toggle
 
 ##### System #####
   - title: System
+    visible:
+      - user: b6464705fc4e405abce8058610b4bcc7
     id: other
     icon: mdi:settings-outline
     cards:
       - type: entities
         show_header_toggle: false
         entities:
-          - script.1570443737111
-          - script.1570439203461
+          - entity: script.1570443737111
+            tap_action: 
+              action: toggle
+          - entity: script.1570439203461
+            tap_action: 
+              action: toggle
       - type: entities
         show_header_toggle: false
         entities:
-          - automation.tagliches_backup_auto_backup
+          - entity: automation.tagliches_backup_auto_backup
+            tap_action: 
+              action: toggle
           - sensor.auto_backup
           # - automation.tagliches_backup
       - type: entities
         show_header_toggle: false
         entities:
-          - automation.battery_persistent_notification
-          - script.battery_persistent_notification_clear
+          - entity: automation.battery_persistent_notification
+            tap_action: 
+              action: toggle
+          - entity: script.battery_persistent_notification_clear
+            tap_action: 
+              action: toggle
           - type: custom:fold-entity-row
             head:
               type: section
@@ -808,7 +893,9 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - sensor.online_time
+          - entity: sensor.online_time
+            tap_action: 
+              action: none
           - sensor.fritz_netmonitor
       - type: glance
         columns: 4

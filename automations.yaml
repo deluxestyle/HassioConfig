@@ -635,7 +635,7 @@
 - id: '1567492774371'
   alias: Yeelight Error
   trigger:
-  - entity_id: device_tracker.yeelink_light_bslamp2_miio164
+  - entity_id: device_tracker.yeelink_light_bslamp2_mibtbb37
     platform: state
     to: not_home
   condition: []
@@ -967,15 +967,19 @@
   action:
   - service: persistent_notification.create
     data_template:
-      title: "Snapshot Erfolg"
-      message: "Name: {{ trigger.event.data.name }}\nSlug: {{ trigger.event.data.slug }}"
+      title: Snapshot Erfolg
+      message: 'Name: {{ trigger.event.data.name }}
+
+        Slug: {{ trigger.event.data.slug }}'
 - id: '1578168461545'
-  alias: "Benachrichtigung: Snapshot Fehler"
+  alias: 'Benachrichtigung: Snapshot Fehler'
   trigger:
     platform: event
     event_type: auto_backup.snapshot_failed
   action:
     service: persistent_notification.create
     data_template:
-      title: "Snapshot Fehler"
-      message: "Name: {{ trigger.event.data.name }}\nError: {{ trigger.event.data.error }}"
+      title: Snapshot Fehler
+      message: 'Name: {{ trigger.event.data.name }}
+
+        Error: {{ trigger.event.data.error }}'
