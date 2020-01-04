@@ -74,6 +74,7 @@ sensor.online_time:
   friendly_name: HA Time Online
 light.lights_all:
   friendly_name: Alle Lampen
+  icon: mdi:lightbulb-group
 light.lights_living_room:
   friendly_name: Wohnzimmerlicht
   icon: mdi:ceiling-light

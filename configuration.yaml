@@ -5,6 +5,10 @@ homeassistant:
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
+discovery:
+  ignore:
+    - yeelight
+
 http:
   base_url: !secret hass_url
   ssl_certificate: /ssl/fullchain.pem
