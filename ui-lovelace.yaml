@@ -117,7 +117,9 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - light.lights_living_room
+          - entity: light.lights_living_room
+            tap_action: 
+              action: toggle
           - input_select.scenes_living_room
           - type: custom:fold-entity-row
             head: 
@@ -125,9 +127,15 @@ views:
               label: Lampen
             padding: 5
             entities:
-              - light.decke
-              - light.tisch
-              - light.leselampe
+              - entity: light.decke
+                tap_action: 
+                  action: toggle
+              - entity: light.tisch
+                tap_action: 
+                  action: toggle
+              - entity: light.leselampe
+                tap_action: 
+                  action: toggle
       - type: entities
         show_header_toggle: false
         entities:
@@ -141,9 +149,15 @@ views:
               label: Lampen
             padding: 5
             entities:
-              - light.nachttischlampe_wolfgang
-              - light.nachttischlampe_anita
-              - light.schlafzimmer
+              - entity: light.nachttischlampe_wolfgang
+                tap_action: 
+                  action: toggle
+              - entity: light.nachttischlampe_anita
+                tap_action: 
+                  action: toggle
+              - entity: light.schlafzimmer
+                tap_action: 
+                  action: toggle
       - type: entities
         show_header_toggle: false
         entities:
@@ -162,13 +176,21 @@ views:
               label: Lampen
             padding: 5
             entities:
-              - light.deckenlicht
-              - light.steckdose_2
-              - light.steckdose_4
+              - entity: light.deckenlicht
+                tap_action: 
+                  action: toggle
+              - entity: light.steckdose_2
+                tap_action: 
+                  action: toggle
+              - entity: light.steckdose_4
+                tap_action: 
+                  action: toggle
       - type: entities
         show_header_toggle: false
         entities:
-          - light.gateway_light_7811dcb258d1
+          - entity: light.gateway_light_7811dcb258d1
+            tap_action: 
+              action: toggle
       - type: entities
         show_header_toggle: false
         entities:
