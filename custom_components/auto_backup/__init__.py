@@ -103,16 +103,21 @@ async def async_setup(hass: HomeAssistantType, config: ConfigType):
         return False
 
     # initialise AutoBackup class.
-    auto_backup = AutoBackup(
+    auto_backup = hass.data[DOMAIN] = AutoBackup(
         hass, hassio, config[CONF_AUTO_PURGE], config[CONF_BACKUP_TIMEOUT]
     )
     await auto_backup.load_snapshots_expiry()
 
+    # load the auto backup sensor.
+    hass.helpers.discovery.load_platform("sensor", DOMAIN, {}, config)
+
     # register services.
     async def snapshot_service_handler(call: ServiceCallType):
         """Handle Snapshot Creation Service Calls."""
-        await auto_backup.new_snapshot(
-            call.data.copy(), call.service == SERVICE_SNAPSHOT_FULL
+        hass.async_create_task(
+            auto_backup.new_snapshot(
+                call.data.copy(), call.service == SERVICE_SNAPSHOT_FULL
+            )
         )
 
     async def purge_service_handler(call: ServiceCallType):
@@ -154,6 +159,9 @@ class AutoBackup:
         self._snapshots_expiry = {}
         self._auto_purge = auto_purge
         self._backup_timeout = backup_timeout
+        self._pending_snapshots = 0
+        self.last_failure = None
+        self.update_sensor_callback = None
 
     async def load_snapshots_expiry(self):
         """Load snapshots expiry dates from home assistants storage."""
@@ -177,9 +185,17 @@ class AutoBackup:
             return addons
 
         except HassioAPIError as err:
-            _LOGGER.error("Error on Hass.io API: %s", err)
+            _LOGGER.error("Failed to retrieve addons: %s", err)
 
         return None
+
+    @property
+    def snapshots_expiry(self):
+        return self._snapshots_expiry
+
+    @property
+    def pending_snapshots(self):
+        return self._pending_snapshots
 
     async def _replace_addon_names(self, snapshot_addons, addons=None):
         """Replace addon names with their appropriate slugs."""
@@ -256,11 +272,17 @@ class AutoBackup:
                 data[ATTR_FOLDERS] = self._replace_folder_names(data[ATTR_FOLDERS])
 
         _LOGGER.debug(
-            "New snapshot; command: %s, keep_days: %s, data: %s",
+            "New snapshot; command: %s, keep_days: %s, data: %s, timeout: %s",
             command,
             keep_days,
             data,
+            self._backup_timeout,
         )
+
+        # add to pending snapshots and update sensor.
+        self._pending_snapshots += 1
+        if self.update_sensor_callback:
+            self.update_sensor_callback()
 
         # make request to create new snapshot.
         try:
@@ -272,13 +294,17 @@ class AutoBackup:
 
             slug = result.get("data", {}).get("slug")
             if slug is None:
-                raise HassioAPIError(
-                    "Backup failed. There may be a backup already in progress."
-                )
+                error = "There may be a backup already in progress."
+                if data.get("message"):
+                    error = f"{error} {data.get('message')}"
+                raise HassioAPIError(error)
 
             # snapshot creation was successful
             _LOGGER.info(
                 "Snapshot created successfully; '%s' (%s)", data[ATTR_NAME], slug
+            )
+            self._hass.bus.async_fire(
+                f"{DOMAIN}.snapshot_successful", {"name": data[ATTR_NAME], "slug": slug}
             )
 
             if keep_days is not None:
@@ -310,12 +336,22 @@ class AutoBackup:
 
                 await self.download_snapshot(slug, destination)
 
-            # purging old snapshots
-            if self._auto_purge:
-                await self.purge_snapshots()
-
         except HassioAPIError as err:
-            _LOGGER.error("Error on Hass.io API: %s", err)
+            _LOGGER.error("Error during backup. %s", err)
+            self._hass.bus.async_fire(
+                f"{DOMAIN}.snapshot_failed",
+                {"name": data[ATTR_NAME], "error": str(err)},
+            )
+            self.last_failure = data[ATTR_NAME]
+
+        # remove from pending snapshots and update sensor.
+        self._pending_snapshots -= 1
+        if self.update_sensor_callback:
+            self.update_sensor_callback()
+
+        # purging old snapshots
+        if self._auto_purge:
+            await self.purge_snapshots()
 
     async def purge_snapshots(self):
         """Purge expired snapshots from Hass.io."""
@@ -336,6 +372,17 @@ class AutoBackup:
                 tuple(snapshots_purged),
             )
 
+        if len(snapshots_purged) > 0:
+            self._hass.bus.async_fire(
+                f"{DOMAIN}.purged_snapshots", {"snapshots": snapshots_purged}
+            )
+
+            # update sensor after purge.
+            if self.update_sensor_callback:
+                self.update_sensor_callback()
+        else:
+            _LOGGER.debug("No snapshots required purging.")
+
     async def _purge_snapshot(self, slug):
         """Purge an individual snapshot from Hass.io."""
         _LOGGER.debug("Attempting to remove snapshot: %s", slug)
@@ -344,7 +391,12 @@ class AutoBackup:
         try:
             result = await self._hassio.send_command(command, timeout=300)
 
-            _LOGGER.debug("Snapshot remove result: %s", result)
+            if result["result"] == "error":
+                _LOGGER.debug("Purge result: %s", result)
+                _LOGGER.warning(
+                    "Issue purging snapshot (%s), assuming it was already deleted.",
+                    slug,
+                )
 
             # remove snapshot expiry.
             del self._snapshots_expiry[slug]
@@ -352,7 +404,7 @@ class AutoBackup:
             await self._snapshots_store.async_save(self._snapshots_expiry)
 
         except HassioAPIError as err:
-            _LOGGER.error("Error on Hass.io API: %s", err)
+            _LOGGER.error("Failed to purge snapshot: %s", err)
             return False
         return True
 
@@ -387,4 +439,4 @@ class AutoBackup:
         except IOError:
             _LOGGER.error("Failed to download snapshot '%s' to '%s'", slug, output_path)
 
-        raise HassioAPIError()
+        raise HassioAPIError("Snapshot download failed.")

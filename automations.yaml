@@ -924,18 +924,13 @@
 - id: '1575448787825'
   alias: Tägliches Backup (auto backup)
   trigger:
-  - platform: time
-    at: 00:00:00
+  - at: 00:00:00
+    platform: time
   action:
-  - service: auto_backup.snapshot_full
-    data_template:
-      name: Backup_{{ now().strftime('%Y-%m-%d_%H:%M') }}
+  - data_template:
       keep_days: 7
-  - data:
-      message: 'Backup erstellt um: {{ now().strftime(''%Y-%m-%d_%H:%M'') }}'
-      notification_id: backup
-      title: Backup
-    service: persistent_notification.create
+      name: Backup_{{ now().strftime('%Y-%m-%d_%H:%M') }}
+    service: auto_backup.snapshot_full
 - id: '1577107079102'
   alias: Heizungsschaltung
   description: ''
@@ -961,3 +956,26 @@
   condition: []
   action:
   - service: script.1532173931599
+- id: '1578168461515'
+  alias: 'Benachrichtigung: Snapshot Erfolg'
+  description: ''
+  trigger:
+  - event_data: {}
+    event_type: auto_backup.snapshot_successful
+    platform: event
+  condition: []
+  action:
+  - service: persistent_notification.create
+    data_template:
+      title: "Snapshot Erfolg"
+      message: "Name: {{ trigger.event.data.name }}\nSlug: {{ trigger.event.data.slug }}"
+- id: '1578168461545'
+  alias: "Benachrichtigung: Snapshot Fehler"
+  trigger:
+    platform: event
+    event_type: auto_backup.snapshot_failed
+  action:
+    service: persistent_notification.create
+    data_template:
+      title: "Snapshot Fehler"
+      message: "Name: {{ trigger.event.data.name }}\nError: {{ trigger.event.data.error }}"

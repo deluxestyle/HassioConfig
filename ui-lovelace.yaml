@@ -777,7 +777,8 @@ views:
         show_header_toggle: false
         entities:
           - automation.tagliches_backup_auto_backup
-          - automation.tagliches_backup
+          - sensor.auto_backup
+          # - automation.tagliches_backup
       - type: entities
         show_header_toggle: false
         entities:
