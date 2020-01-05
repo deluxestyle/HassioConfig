@@ -25,7 +25,9 @@ resources:
     type: module
   - url: /community_plugin/lovelace-auto-entities/auto-entities.js
     type: js
-  - url: /local/simple-thermostat_wt/simple-thermostat.js?v=wt0.03
+  # - url: /local/simple-thermostat_wt/simple-thermostat.js?v=wt0.03
+  #   type: module
+  - url: /community_plugin/simple-thermostat/simple-thermostat.js
     type: module
   - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
     type: module
@@ -94,13 +96,16 @@ x-popup-climate: &popup-climate
   style: |
     ha-card {
       --ha-card-box-shadow: 'none';
-      --st-font-size-sensors: 14px;
+      --st-font-size-sensors: 16px;
       --st-font-size-xl: 40px;
     }
   step_size: 0.5
   name: false
+  label:
+    temperature: Temperatur
   control :
-    _icons: false
+    _icons: true
+    _names: true
 
 ## mini-graph
 x-mini-graph: &mini-graph
@@ -124,6 +129,7 @@ views:
         show_header_toggle: false
         entities:
           - entity: light.lights_living_room
+            name: Wohnzimmer
             tap_action: 
               action: toggle
           - input_select.scenes_living_room
@@ -145,7 +151,8 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - entity: light.lights_bed_room
+          - entity: light.schlafzimmer
+            name: Schlafzimmer
             tap_action: 
               action: toggle
           - input_select.scenes_bed_room
@@ -161,19 +168,21 @@ views:
               - entity: light.nachttischlampe_anita
                 tap_action: 
                   action: toggle
-              - entity: light.schlafzimmer
+              - entity: light.lights_bed_room
                 tap_action: 
                   action: toggle
       - type: entities
         show_header_toggle: false
         entities:
           - entity: light.sonoff_office
+            name: Büro
             tap_action: 
               action: toggle
       - type: entities
         show_header_toggle: false
         entities:
           - entity: light.lights_kitchen
+            name: Küche
             tap_action: 
               action: toggle
           - type: custom:fold-entity-row
