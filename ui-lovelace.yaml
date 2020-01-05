@@ -235,6 +235,8 @@ views:
               name: false
           - entity: binary_sensor.door_window_sensor_158d00022f13a0
             name: Fenster
+            tap_action: 
+              action: none
           - type: custom:fold-entity-row
             head:
               type: section
