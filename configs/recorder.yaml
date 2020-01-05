@@ -21,6 +21,9 @@ exclude:
     - sun.sun
     - automation.battery_persistent_notification
     - weather.dark_sky
+    - automation.badge_zurucksetzen
+    - counter.badge_counter
+    - script.1570439203461
 include:
   entities:
     - sensor.disk_free
