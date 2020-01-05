@@ -752,8 +752,12 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - person.wolfgang
-          - person.anita
+          - entity: person.wolfgang
+            tap_action: 
+              action: none
+          - entity: person.anita
+            tap_action: 
+              action: none
           - type: custom:fold-entity-row
             head:
               type: section
@@ -780,7 +784,9 @@ views:
           - entity: binary_sensor.motion_sensor_158d00023e77cb
             tap_action: 
               action: none
-          - sensor.illumination_158d00023e77cb
+          - entity: sensor.illumination_158d00023e77cb
+            tap_action: 
+              action: none
           - type: section
           - entity: automation.bewegungsmelder_alarm
             tap_action: 
