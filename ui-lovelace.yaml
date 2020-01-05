@@ -141,7 +141,7 @@ views:
         entities:
           - entity: light.lights_bed_room
             tap_action: 
-              action: none
+              action: toggle
           - input_select.scenes_bed_room
           - type: custom:fold-entity-row
             head:
