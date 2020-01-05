@@ -1,0 +1,236 @@
+##climate popup
+x-popup-climate: &popup-climate
+  style: |
+    ha-card {
+      --ha-card-box-shadow: 'none';
+      --st-font-size-sensors: 16px;
+      --st-font-size-xl: 40px;
+    }
+  step_size: 0.5
+  name: false
+  label:
+    temperature: Temperatur
+  control :
+    _icons: true
+    _names: true
+
+# -----------------------------
+title: Heizung
+id: radiator
+icon: mdi:radiator
+panel: true
+cards:
+  - type: custom:layout-card
+    max_columns: 2
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: switch.radiator_on_off
+            tap_action: 
+              action: toggle
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: climate.fritz_thermostat
+            name: Bad (fritz)
+            tap_action:
+              action: call-service
+              service: browser_mod.popup
+              service_data:
+                deviceID: this
+                title: Heizung Bad
+                card:
+                  type: entities
+                  entities: 
+                    - type: 'custom:simple-thermostat'
+                      entity: climate.fritz_thermostat
+                      <<: *popup-climate
+          - entity: sensor.temperature_158d00023258bd
+            name: Thermometer
+            type: custom:multiple-entity-row
+            primary:
+              entity: sensor.humidity_158d00023258bd
+              name: false
+          - entity: binary_sensor.door_window_sensor_158d00022f13a0
+            name: Fenster
+            tap_action: 
+              action: none
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Timer
+            padding: 5
+            entities:
+              - entity: automation.heizung_bad_timer
+                name: Bad Timer
+                tap_action: 
+                  action: toggle
+              - entity: input_datetime.radiator_bath_1
+                name: Startzeit
+                type: custom:time-input-row
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: climate.oeq1696358
+            name: Wohnzimmer
+            tap_action:
+              action: call-service
+              service: browser_mod.popup
+              service_data:
+                deviceID: this
+                title: Heizung Wohnzimmer
+                card:
+                  type: entities
+                  entities: 
+                    - type: 'custom:simple-thermostat'
+                      entity: climate.oeq1696358
+                      <<: *popup-climate
+          - entity: sensor.temperature_158d0001b8c998
+            name: Thermometer
+            type: custom:multiple-entity-row
+            primary:
+              entity: sensor.humidity_158d0001b8c998
+              name: false
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Mehr
+            padding: 5
+            entities:
+              - entity: switch.radiator_living_room_keylock
+                tap_action: 
+                  action: toggle
+              - entity: sensor.valve_living_room
+                tap_action: 
+                  action: none
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: climate.oeq1696369
+            name: Schlafzimmer
+            tap_action:
+              action: call-service
+              service: browser_mod.popup
+              service_data:
+                deviceID: this
+                title: Heizung Schlafzimmer
+                card:
+                  type: entities
+                  entities: 
+                    - type: 'custom:simple-thermostat'
+                      entity: climate.oeq1696369
+                      <<: *popup-climate
+          - entity: sensor.temperature_158d0001b8c96c
+            name: Thermometer
+            type: custom:multiple-entity-row
+            primary:
+              entity: sensor.humidity_158d0001b8c96c
+              name: false
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Mehr
+            padding: 5
+            entities:
+              - entity: switch.radiator_bed_room_keylock
+                tap_action: 
+                  action: toggle
+              - entity: sensor.valve_bed_room
+                tap_action: 
+                  action: none
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: climate.int0000002
+            name: Büro
+            tap_action:
+              action: call-service
+              service: browser_mod.popup
+              service_data:
+                deviceID: this
+                title: Heizung Büro
+                card:
+                  type: entities
+                  entities: 
+                    - type: 'custom:simple-thermostat'
+                      entity: climate.int0000002
+                      <<: *popup-climate
+          - entity: sensor.oeq1667238_temperature
+            name: Thermometer
+            type: custom:multiple-entity-row
+            primary:
+              entity: sensor.oeq1667238_humidity
+              name: false
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Mehr
+            padding: 5
+            entities:
+              - entity: switch.radiator_office_keylock
+                tap_action: 
+                  action: toggle
+              - entity: sensor.valve_office
+                tap_action: 
+                  action: none
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: climate.oeq1701003
+            name: Küche
+            tap_action:
+              action: call-service
+              service: browser_mod.popup
+              service_data:
+                deviceID: this
+                title: Heizung Küche
+                card:
+                  type: entities
+                  entities: 
+                    - type: 'custom:simple-thermostat'
+                      entity: climate.oeq1701003
+                      <<: *popup-climate
+          - entity: sensor.temperature_158d0002239fb5
+            name: Thermometer
+            type: custom:multiple-entity-row
+            primary:
+              entity: sensor.humidity_158d0002239fb5
+              name: false
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Mehr
+            padding: 5
+            entities:
+              - entity: switch.radiator_homematic_keylock
+                name: Tastensperre
+                tap_action: 
+                  action: toggle
+              - entity: sensor.valve_homematic
+                name: Ventil
+                tap_action: 
+                  action: none
+      - type: entities
+        show_header_toggle: false
+        entities: 
+          - entity: sensor.dark_sky_temperature
+            tap_action: 
+              action: none
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Automatisierung
+            padding: 5
+            entities:
+              - entity: input_boolean.automation_radiator
+                tap_action: 
+                  action: toggle
+              - entity: automation.heizung_abwesenheitsschaltung
+                name: Abwesenheitsschaltung
+                tap_action: 
+                  action: toggle
+              - entity: automation.benachrichtigung_luftfeuchtigkeit
+                name: Luftfeuchtigkeit
+                tap_action: 
+                  action: toggle

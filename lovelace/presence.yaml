@@ -1,0 +1,55 @@
+title: Personen
+visible:
+  - user: b6464705fc4e405abce8058610b4bcc7
+id: presence
+icon: mdi:account-multiple
+cards:
+  - type: entities
+    show_header_toggle: false
+    entities:
+      - entity: person.wolfgang
+        tap_action: 
+          action: none
+      - entity: person.anita
+        tap_action: 
+          action: none
+      - type: custom:fold-entity-row
+        head:
+          type: section
+          label: Automatisierung
+        padding: 5
+        entities:
+          - entity: automation.abwesenheitsschaltung
+            tap_action: 
+              action: toggle
+          - entity: automation.anwesenheitsschaltung
+            tap_action: 
+              action: toggle
+  - type: conditional
+    conditions:
+      - entity: device_tracker.hikam_4452
+        state: "home"
+    card:
+      type: picture-entity
+      entity: camera.ffmpeg
+      title: Kamera
+  - type: entities
+    show_header_toggle: false
+    entities:
+      - entity: binary_sensor.motion_sensor_158d00023e77cb
+        tap_action: 
+          action: none
+      - entity: sensor.illumination_158d00023e77cb
+        tap_action: 
+          action: none
+      - type: section
+      - entity: automation.bewegungsmelder_alarm
+        tap_action: 
+          action: toggle
+      - entity: script.1541097052191
+        tap_action: 
+          action: toggle
+      - type: section
+      - entity: automation.benachrichtigung_bewegung_erkannt
+        tap_action: 
+          action: toggle

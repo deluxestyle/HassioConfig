@@ -1,0 +1,73 @@
+## music player
+x-music-player: &music-player
+  icon: 'mdi:speaker-wireless'
+  hide:
+    power: true
+    source: false
+    progress: true
+  group: true
+  #artwork: none
+  source: full
+  more_info: false
+  sonos:
+    show_group_count: true
+    sync_volume: true
+    entities:
+      - entity_id: media_player.schlafzimmer
+        name: Sonos Schlafzimmer
+      - entity_id: media_player.bad
+        name: Sonos Bad
+      - entity_id: media_player.kuche
+        name: Sonos Küche
+
+# -----------------------------
+title: Musik
+id: music
+icon: mdi:music-box-outline
+cards:
+  - type: entities
+    show_header_toggle: false
+    entities:
+      - type: custom:mini-media-player
+        entity: media_player.schlafzimmer
+        <<: *music-player
+  - type: entities
+    show_header_toggle: false
+    entities:
+      - type: custom:mini-media-player
+        entity: media_player.bad
+        <<: *music-player
+  - type: entities
+    show_header_toggle: false
+    entities:
+      - type: custom:mini-media-player
+        entity: media_player.kuche
+        <<: *music-player
+  - type: entities
+    show_header_toggle: false
+    entities:
+      - entity: script.1532173931522
+        tap_action: 
+          action: toggle
+      - type: custom:fold-entity-row
+        head:
+          type: section
+          label: Automatisierung
+        padding: 5
+        entities:
+          - entity: automation.sonos_starten
+            tap_action: 
+              action: toggle
+          - entity: automation.sonos_stoppen
+            tap_action: 
+              action: toggle
+      - type: custom:fold-entity-row
+        head:
+          type: section
+          label: Wecker
+        padding: 5
+        entities:
+          - input_datetime.sonos_alarm
+          - entity: automation.sonos_wecker
+            tap_action: 
+              action: toggle
