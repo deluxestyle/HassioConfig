@@ -153,6 +153,7 @@ class AutoBackup:
     ):
         self._hass = hass
         self._hassio = hassio
+        self._ip = os.environ.get("HASSIO", "")
         self._snapshots_store = Store(
             hass, STORAGE_VERSION, f"{DOMAIN}.{STORAGE_KEY}", encoder=JSONEncoder
         )
@@ -174,7 +175,7 @@ class AutoBackup:
     async def get_addons(self, only_installed=True):
         """Retrieve a list of addons from Hass.io."""
         try:
-            result = await self._hassio.send_command(COMMAND_GET_ADDONS, method="get")
+            result = await self.send_command(COMMAND_GET_ADDONS, method="get")
 
             addons = result.get("data", {}).get("addons")
             if addons is None:
@@ -286,7 +287,7 @@ class AutoBackup:
 
         # make request to create new snapshot.
         try:
-            result = await self._hassio.send_command(
+            result = await self.send_command(
                 command, payload=data, timeout=self._backup_timeout
             )
 
@@ -315,26 +316,9 @@ class AutoBackup:
                 # write snapshot expiry to storage
                 await self._snapshots_store.async_save(self._snapshots_expiry)
 
-            # copy backup to location if specified
+            # copy snapshot to location if specified
             if backup_path:
-                # ensure the name is a valid filename.
-                name = data[ATTR_NAME]
-                if name:
-                    filename = slugify(name, lowercase=False, separator="_")
-                else:
-                    filename = slug
-
-                # ensure the filename is a tar file.
-                if not filename.endswith(".tar"):
-                    filename += ".tar"
-
-                destination = join(backup_path, filename)
-
-                # check if file already exists
-                if isfile(destination):
-                    destination = join(backup_path, f"{slug}.tar")
-
-                await self.download_snapshot(slug, destination)
+                await self.copy_snapshot(data[ATTR_NAME], slug, backup_path)
 
         except HassioAPIError as err:
             _LOGGER.error("Error during backup. %s", err)
@@ -389,7 +373,7 @@ class AutoBackup:
         command = COMMAND_SNAPSHOT_REMOVE.format(slug=slug)
 
         try:
-            result = await self._hassio.send_command(command, timeout=300)
+            result = await self.send_command(command, timeout=300)
 
             if result["result"] == "error":
                 _LOGGER.debug("Purge result: %s", result)
@@ -408,6 +392,27 @@ class AutoBackup:
             return False
         return True
 
+    async def copy_snapshot(self, name, slug, backup_path):
+        """Download snapshot to the specified location."""
+
+        # ensure the name is a valid filename.
+        if name:
+            filename = slugify(name, lowercase=False, separator="_")
+        else:
+            filename = slug
+
+        # ensure the filename is a tar file.
+        if not filename.endswith(".tar"):
+            filename += ".tar"
+
+        destination = join(backup_path, filename)
+
+        # check if file already exists
+        if isfile(destination):
+            destination = join(backup_path, f"{slug}.tar")
+
+        await self.download_snapshot(slug, destination)
+
     async def download_snapshot(self, slug, output_path):
         """Download and save a snapshot from Hass.io."""
         command = COMMAND_SNAPSHOT_DOWNLOAD.format(slug=slug)
@@ -416,8 +421,9 @@ class AutoBackup:
             with async_timeout.timeout(self._backup_timeout):
                 request = await self._hassio.websession.request(
                     "get",
-                    f"http://{self._hassio._ip}{command}",
+                    f"http://{self._ip}{command}",
                     headers={X_HASSIO: os.environ.get("HASSIO_TOKEN", "")},
+                    timeout=None,
                 )
 
                 if request.status not in (200, 400):
@@ -440,3 +446,33 @@ class AutoBackup:
             _LOGGER.error("Failed to download snapshot '%s' to '%s'", slug, output_path)
 
         raise HassioAPIError("Snapshot download failed.")
+
+    async def send_command(self, command, method="post", payload=None, timeout=10):
+        """Send API command to Hass.io.
+
+        This method is a coroutine.
+        """
+        try:
+            with async_timeout.timeout(timeout):
+                request = await self._hassio.websession.request(
+                    method,
+                    f"http://{self._ip}{command}",
+                    json=payload,
+                    headers={X_HASSIO: os.environ.get("HASSIO_TOKEN", "")},
+                    timeout=None,
+                )
+
+                if request.status not in (200, 400):
+                    _LOGGER.error("%s return code %d.", command, request.status)
+                    raise HassioAPIError()
+
+                answer = await request.json()
+                return answer
+
+        except asyncio.TimeoutError:
+            _LOGGER.error("Timeout on %s request", command)
+
+        except aiohttp.ClientError as err:
+            _LOGGER.error("Client error on %s request %s", command, err)
+
+        raise HassioAPIError()
