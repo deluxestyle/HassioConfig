@@ -1,92 +1,95 @@
 title: Licht
 id: light
 icon: mdi:ceiling-light
+panel: true
 cards:
-  - type: entities
-    show_header_toggle: false
-    entities:
-      - entity: light.lights_living_room
-        name: Wohnzimmer
-        tap_action: 
-          action: toggle
-      - input_select.scenes_living_room
-      - type: custom:fold-entity-row
-        head: 
-          type: section
-          label: Lampen
-        padding: 5
+  - type: custom:layout-card
+    cards:
+      - type: entities
+        show_header_toggle: false
         entities:
-          - entity: light.decke
+          - entity: light.lights_living_room
+            name: Wohnzimmer
             tap_action: 
               action: toggle
-          - entity: light.tisch
-            tap_action: 
-              action: toggle
-          - entity: light.leselampe
-            tap_action: 
-              action: toggle
-  - type: entities
-    show_header_toggle: false
-    entities:
-      - entity: light.schlafzimmer
-        name: Schlafzimmer
-        tap_action: 
-          action: toggle
-      - input_select.scenes_bed_room
-      - type: custom:fold-entity-row
-        head:
-          type: section
-          label: Lampen
-        padding: 5
+          - input_select.scenes_living_room
+          - type: custom:fold-entity-row
+            head: 
+              type: section
+              label: Lampen
+            padding: 5
+            entities:
+              - entity: light.decke
+                tap_action: 
+                  action: toggle
+              - entity: light.tisch
+                tap_action: 
+                  action: toggle
+              - entity: light.leselampe
+                tap_action: 
+                  action: toggle
+      - type: entities
+        show_header_toggle: false
         entities:
-          - entity: light.nachttischlampe_wolfgang
+          - entity: light.schlafzimmer
+            name: Schlafzimmer
             tap_action: 
               action: toggle
-          - entity: light.nachttischlampe_anita
-            tap_action: 
-              action: toggle
-          - entity: light.lights_bed_room
-            tap_action: 
-              action: toggle
-  - type: entities
-    show_header_toggle: false
-    entities:
-      - entity: light.sonoff_office
-        name: Büro
-        tap_action: 
-          action: toggle
-  - type: entities
-    show_header_toggle: false
-    entities:
-      - entity: light.lights_kitchen
-        name: Küche
-        tap_action: 
-          action: toggle
-      - type: custom:fold-entity-row
-        head: 
-          type: section
-          label: Lampen
-        padding: 5
+          - input_select.scenes_bed_room
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Lampen
+            padding: 5
+            entities:
+              - entity: light.nachttischlampe_wolfgang
+                tap_action: 
+                  action: toggle
+              - entity: light.nachttischlampe_anita
+                tap_action: 
+                  action: toggle
+              - entity: light.lights_bed_room
+                tap_action: 
+                  action: toggle
+      - type: entities
+        show_header_toggle: false
         entities:
-          - entity: light.deckenlicht
+          - entity: light.sonoff_office
+            name: Büro
             tap_action: 
               action: toggle
-          - entity: light.steckdose_2
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: light.lights_kitchen
+            name: Küche
             tap_action: 
               action: toggle
-          - entity: light.steckdose_4
+          - type: custom:fold-entity-row
+            head: 
+              type: section
+              label: Lampen
+            padding: 5
+            entities:
+              - entity: light.deckenlicht
+                tap_action: 
+                  action: toggle
+              - entity: light.steckdose_2
+                tap_action: 
+                  action: toggle
+              - entity: light.steckdose_4
+                tap_action: 
+                  action: toggle
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: light.gateway_light_7811dcb258d1
             tap_action: 
               action: toggle
-  - type: entities
-    show_header_toggle: false
-    entities:
-      - entity: light.gateway_light_7811dcb258d1
-        tap_action: 
-          action: toggle
-  - type: entities
-    show_header_toggle: false
-    entities:
-      - entity: light.lights_all
-        name: Licht
-        tap_action: 
-          action: toggle
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: light.lights_all
+            name: Licht
+            tap_action: 
+              action: toggle

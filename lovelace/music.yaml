@@ -24,50 +24,53 @@ x-music-player: &music-player
 title: Musik
 id: music
 icon: mdi:music-box-outline
+panel: true
 cards:
-  - type: entities
-    show_header_toggle: false
-    entities:
-      - type: custom:mini-media-player
-        entity: media_player.schlafzimmer
-        <<: *music-player
-  - type: entities
-    show_header_toggle: false
-    entities:
-      - type: custom:mini-media-player
-        entity: media_player.bad
-        <<: *music-player
-  - type: entities
-    show_header_toggle: false
-    entities:
-      - type: custom:mini-media-player
-        entity: media_player.kuche
-        <<: *music-player
-  - type: entities
-    show_header_toggle: false
-    entities:
-      - entity: script.1532173931522
-        tap_action: 
-          action: toggle
-      - type: custom:fold-entity-row
-        head:
-          type: section
-          label: Automatisierung
-        padding: 5
+  - type: custom:layout-card
+    cards:
+      - type: entities
+        show_header_toggle: false
         entities:
-          - entity: automation.sonos_starten
-            tap_action: 
-              action: toggle
-          - entity: automation.sonos_stoppen
-            tap_action: 
-              action: toggle
-      - type: custom:fold-entity-row
-        head:
-          type: section
-          label: Wecker
-        padding: 5
+          - type: custom:mini-media-player
+            entity: media_player.schlafzimmer
+            <<: *music-player
+      - type: entities
+        show_header_toggle: false
         entities:
-          - input_datetime.sonos_alarm
-          - entity: automation.sonos_wecker
+          - type: custom:mini-media-player
+            entity: media_player.bad
+            <<: *music-player
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - type: custom:mini-media-player
+            entity: media_player.kuche
+            <<: *music-player
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: script.1532173931522
             tap_action: 
               action: toggle
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Automatisierung
+            padding: 5
+            entities:
+              - entity: automation.sonos_starten
+                tap_action: 
+                  action: toggle
+              - entity: automation.sonos_stoppen
+                tap_action: 
+                  action: toggle
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Wecker
+            padding: 5
+            entities:
+              - input_datetime.sonos_alarm
+              - entity: automation.sonos_wecker
+                tap_action: 
+                  action: toggle

@@ -3,76 +3,79 @@ visible:
   - user: b6464705fc4e405abce8058610b4bcc7
 id: system
 icon: mdi:settings-outline
+panel: true
 cards:
-  - type: entities
-    show_header_toggle: false
-    entities:
-      - entity: script.1570443737111
-        tap_action: 
-          action: toggle
-      - entity: script.1570439203461
-        tap_action: 
-          action: toggle
-  - type: entities
-    show_header_toggle: false
-    entities:
-      - entity: automation.tagliches_backup_auto_backup
-        tap_action: 
-          action: toggle
-      - sensor.auto_backup
-      # - automation.tagliches_backup
-  - type: entities
-    show_header_toggle: false
-    entities:
-      - entity: automation.battery_persistent_notification
-        tap_action: 
-          action: toggle
-      - entity: script.battery_persistent_notification_clear
-        tap_action: 
-          action: toggle
-      - type: custom:fold-entity-row
-        head:
-          type: section
-          label: Batteriewerte
-        padding: 5
+  - type: custom:layout-card
+    cards:
+      - type: entities
+        show_header_toggle: false
         entities:
-          - input_number.battery_alert_homematic
-          - input_number.battery_alert_xiaomi
-          - input_number.battery_alert_hue
-      - type: custom:fold-entity-row
-        head:
-          type: section
-          label: Batteriestatus
-        padding: 5
+          - entity: script.1570443737111
+            tap_action: 
+              action: toggle
+          - entity: script.1570439203461
+            tap_action: 
+              action: toggle
+      - type: entities
+        show_header_toggle: false
         entities:
+          - entity: automation.tagliches_backup_auto_backup
+            tap_action: 
+              action: toggle
+          - sensor.auto_backup
+          # - automation.tagliches_backup
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: automation.battery_persistent_notification
+            tap_action: 
+              action: toggle
+          - entity: script.battery_persistent_notification_clear
+            tap_action: 
+              action: toggle
           - type: custom:fold-entity-row
-            head: group.battery_status_homematic
+            head:
+              type: section
+              label: Batteriewerte
+            padding: 5
+            entities:
+              - input_number.battery_alert_homematic
+              - input_number.battery_alert_xiaomi
+              - input_number.battery_alert_hue
           - type: custom:fold-entity-row
-            head: group.battery_status_xiaomi
-          - type: custom:fold-entity-row
-            head: group.battery_status_hue
-  - type: entities
-    show_header_toggle: false
-    entities:
-      - entity: sensor.online_time
-        tap_action: 
-          action: none
-      - sensor.fritz_netmonitor
-  - type: glance
-    columns: 4
-    show_name: false
-    entities:
-      - entity: sensor.memory_use_percent
-        name: Memory
-      - entity: sensor.memory_use
-        name: Memory
-      - entity: sensor.disk_use_percent
-        name: Disk
-      - entity: sensor.disk_use
-        name: Disk
-      - entity: sensor.processor_use
-        name: CPU
-        icon: mdi:poll-box
-      - entity: sensor.cpu_temperature
-        name: CPU Temp
-        icon: mdi:thermometer
+            head:
+              type: section
+              label: Batteriestatus
+            padding: 5
+            entities:
+              - type: custom:fold-entity-row
+                head: group.battery_status_homematic
+              - type: custom:fold-entity-row
+                head: group.battery_status_xiaomi
+              - type: custom:fold-entity-row
+                head: group.battery_status_hue
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.online_time
+            tap_action: 
+              action: none
+          - sensor.fritz_netmonitor
+      - type: glance
+        columns: 4
+        show_name: false
+        entities:
+          - entity: sensor.memory_use_percent
+            name: Memory
+          - entity: sensor.memory_use
+            name: Memory
+          - entity: sensor.disk_use_percent
+            name: Disk
+          - entity: sensor.disk_use
+            name: Disk
+          - entity: sensor.processor_use
+            name: CPU
+            icon: mdi:poll-box
+          - entity: sensor.cpu_temperature
+            name: CPU Temp
+            icon: mdi:thermometer
