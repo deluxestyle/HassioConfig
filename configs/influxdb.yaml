@@ -82,3 +82,10 @@ include:
     - sensor.car_km_threshold
     - sensor.car_km_usage
     - sensor.fritz_thermostat_1_battery
+    - sensor.net_download_cur
+    - sensor.net_download_max
+    - sensor.net_received
+    - sensor.net_sent
+    - sensor.net_upload_cur
+    - sensor.net_upload_max
+    - sensor.net_uptime

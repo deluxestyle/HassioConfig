@@ -29,6 +29,11 @@ filter:
     - switch.vacuum
     - switch.wifi_steckdose
     - switch.steckdose_1
+    - sensor.humidity_158d0001b8c96c
+    - sensor.humidity_158d0001b8c998
+    - sensor.humidity_158d0002239fb5
+    - sensor.humidity_158d00023258bd
+    - sensor.oeq1667238_humidity
 entity_config:
     media_player.schlafzimmer:
       feature_list:
@@ -39,14 +44,6 @@ entity_config:
     media_player.kuche:
       feature_list:
         - feature: play_pause
-    sensor.temperature_158d0001b8c96c:
-      low_battery_threshold: 0
-    sensor.temperature_158d0001b8c998:
-      low_battery_threshold: 0
-    sensor.temperature_158d0002239fb5:
-      low_battery_threshold: 0
-    sensor.temperature_158d00023258bd:
-      low_battery_threshold: 0
     sensor.humidity_158d0001b8c998:
       low_battery_threshold: 0
     sensor.humidity_158d0002239fb5:
