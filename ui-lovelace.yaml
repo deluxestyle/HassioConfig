@@ -19,14 +19,10 @@ resources:
     type: js
   - url: /local/github/thomasloven/time-input-row.js?track=true 
     type: js
-  - url: /local/tiles-card.js?track=true
-    type: js
   - url: /community_plugin/lovelace-card-mod/card-mod.js
     type: module
   - url: /community_plugin/lovelace-auto-entities/auto-entities.js
     type: js
-  # - url: /local/simple-thermostat_wt/simple-thermostat.js?v=wt0.03
-  #   type: module
   - url: /community_plugin/simple-thermostat/simple-thermostat.js
     type: module
   - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
