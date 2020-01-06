@@ -261,74 +261,6 @@
       xy_color:
       - 0.457
       - 0.41
-- id: '1577188801060'
-  name: Wohnzimmer - Konzentrieren
-  entities:
-    light.decke:
-      brightness: 254
-      effect: none
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Decke
-      hs_color:
-      - 44.211
-      - 22.353
-      icon: mdi:ceiling-light
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 240
-      - 197
-      state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.371
-      - 0.373
-    light.leselampe:
-      brightness: 254
-      effect_list:
-      - colorloop
-      friendly_name: Leselampe
-      hs_color:
-      - 44.211
-      - 22.353
-      icon: mdi:desk-lamp
-      is_deconz_group: false
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 240
-      - 197
-      state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.371
-      - 0.373
-    light.tisch:
-      brightness: 254
-      effect: none
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Tisch
-      hs_color:
-      - 44.211
-      - 22.353
-      icon: mdi:floor-lamp
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 240
-      - 197
-      state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.371
-      - 0.373
 - id: '1577188961039'
   name: Wohnzimmer - Energie tanken
   entities:
@@ -715,3 +647,81 @@
       xy_color:
       - 0.464
       - 0.45
+- id: '1578345528592'
+  name: Wohnzimmer - Konzentrieren
+  entities:
+    light.decke:
+      brightness: 254
+      color_temp: 230
+      effect_list:
+      - colorloop
+      friendly_name: Decke
+      icon: mdi:ceiling-light
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      state: 'on'
+      supported_features: 63
+    light.leselampe:
+      brightness: 254
+      color_temp: 230
+      effect_list:
+      - colorloop
+      friendly_name: Leselampe
+      icon: mdi:desk-lamp
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      state: 'on'
+      supported_features: 63
+    light.tisch:
+      brightness: 254
+      color_temp: 230
+      effect_list:
+      - colorloop
+      friendly_name: Tisch
+      icon: mdi:floor-lamp
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      state: 'on'
+      supported_features: 63
+- id: '1578345812688'
+  name: Wohnzimmer - Hell
+  entities:
+    light.decke:
+      brightness: 254
+      color_temp: 366
+      effect_list:
+      - colorloop
+      friendly_name: Decke
+      icon: mdi:ceiling-light
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      state: 'on'
+      supported_features: 63
+    light.leselampe:
+      brightness: 254
+      color_temp: 366
+      effect_list:
+      - colorloop
+      friendly_name: Leselampe
+      icon: mdi:desk-lamp
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      state: 'on'
+      supported_features: 63
+    light.tisch:
+      brightness: 254
+      color_temp: 366
+      effect_list:
+      - colorloop
+      friendly_name: Tisch
+      icon: mdi:floor-lamp
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      state: 'on'
+      supported_features: 63
