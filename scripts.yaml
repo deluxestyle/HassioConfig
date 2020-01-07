@@ -251,15 +251,15 @@
 '1541264856783':
   alias: Heizung ausschalten
   sequence:
+  - data:
+      entity_id: input_boolean.radiator_on_off
+    service: input_boolean.turn_off
   - data: {}
     service: script.1538502214360
   - service: script.1538143893265
   - service: script.1538143964007
   - service: script.1538143929416
   - service: script.1576692493037
-  - data:
-      entity_id: input_boolean.radiator_on_off
-    service: input_boolean.turn_off
 '1543166767000':
   alias: 'BMW X1: Klimanlage'
   sequence:
