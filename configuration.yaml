@@ -3,11 +3,17 @@ homeassistant:
   packages: !include_dir_named packages
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
-default_config:
-
-discovery:
-  ignore:
-    - yeelight
+#default_config:
+config:
+map:
+map:
+mobile_app:
+person:
+ssdp:
+sun:
+system_health:
+api:
+zeroconf:
 
 http:
   base_url: !secret hass_url
@@ -24,18 +30,16 @@ lovelace:
 logger:
   default: info
   
-api:
-
 updater:
   include_used_components: true
   
-history:
-  exclude:
-    domains:
-      - group
-      - calendar
-    entities:
-      - automation.dismiss_annoying_notification
+# history:
+#   exclude:
+#     domains:
+#       - group
+#       - calendar
+#     entities:
+#       - automation.dismiss_annoying_notification
 
 logbook:
   exclude:
