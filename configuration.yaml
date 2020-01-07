@@ -6,7 +6,6 @@ homeassistant:
 #default_config:
 config:
 map:
-map:
 mobile_app:
 person:
 ssdp:
