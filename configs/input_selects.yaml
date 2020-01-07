@@ -2,16 +2,6 @@ scenes_living_room:
     name: "Szenen"
     options:
       - --
-      - Lesen
-      - Sehr hell
-      - Hell
-      - Gedimmt
-      - Konzentrieren
-      - Energie tanken
-      - Entspannen
-      - Sonnenuntergang
-      - Nordlicht
-      - Frühling
     initial: '--'
 
 scenes_bed_room:
