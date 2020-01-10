@@ -1,0 +1,22 @@
+- platform: template
+  sensors:
+    wolfgang_latitude:
+      entity_id: device_tracker.iphonex_2
+      friendly_name: "iphonex_latitude"
+      value_template: '{{ states.device_tracker.iphonex_2.attributes.latitude }}'
+      unit_of_measurement: latitude
+    wolfgang_longitude:
+      entity_id: device_tracker.iphonex_2
+      friendly_name: "iphonex_longitude"
+      value_template: '{{ states.device_tracker.iphonex_2.attributes.longitude }}'
+      unit_of_measurement: longitude
+    car_latitude:
+      entity_id:  device_tracker.x1_sdrive18i
+      friendly_name: "iphonex_latitude"
+      value_template: '{{ states.device_tracker.x1_sdrive18i.attributes.latitude }}'
+      unit_of_measurement: latitude
+    car_longitude:
+      entity_id:  device_tracker.x1_sdrive18i
+      friendly_name: "iphonex_longitude"
+      value_template: '{{ states.device_tracker.x1_sdrive18i.attributes.longitude }}'
+      unit_of_measurement: longitude
