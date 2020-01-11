@@ -1,3 +1,5 @@
+# lovelace_gen
+
 ## music player
 x-music-player: &music-player
   icon: 'mdi:speaker-wireless'

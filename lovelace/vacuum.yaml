@@ -1,3 +1,5 @@
+# lovelace_gen
+
 ## vacuum_buttons
 x-vacuum-buttons: &vacuum-buttons
   #color: auto
