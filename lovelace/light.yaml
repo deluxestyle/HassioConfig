@@ -1,7 +1,7 @@
 # lovelace_gen
 
 title: Licht
-id: light
+path: light
 icon: mdi:ceiling-light
 panel: true
 cards:

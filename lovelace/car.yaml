@@ -2,7 +2,7 @@
 title: BMW X1
 visible:
   - user: b6464705fc4e405abce8058610b4bcc7
-id: car
+path: car
 icon: mdi:car-hatchback
 panel: true
 cards:

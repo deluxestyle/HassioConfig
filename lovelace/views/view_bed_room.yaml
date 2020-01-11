@@ -1,0 +1,50 @@
+# lovelace_gen
+
+title: Schlafzimmer
+path: bed_room
+icon: mdi:hotel
+panel: true
+cards:
+  - type: custom:layout-card
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: light.schlafzimmer
+            name: Schlafzimmer
+            tap_action: 
+              action: toggle
+          - input_select.scenes_bed_room
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Lampen
+            padding: 5
+            entities:
+              - entity: light.nachttischlampe_wolfgang
+                tap_action: 
+                  action: toggle
+              - entity: light.nachttischlampe_anita
+                tap_action: 
+                  action: toggle
+              - entity: light.lights_bed_room
+                tap_action: 
+                  action: toggle
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - !include
+              - ../includes/climate.yaml
+              - entity: climate.oeq1696369
+                name: Schlafzimmer
+          - !include
+              - ../includes/thermostat.yaml
+              - entity: climate.oeq1696369
+                name: 158d0001b8c96c
+          - !include
+              - ../includes/climate_more.yaml
+              - entity: climate.oeq1696369
+                name: bed_room
+      - !include
+          - ../includes/mini_media_player.yaml
+          - entity: media_player.schlafzimmer

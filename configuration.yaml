@@ -139,7 +139,7 @@ auto_backup:
 
 fritzbox:
   devices:
-    - host: fritz.box
+    - host: 192.168.200.1
       username: !secret fritz_user
       password: !secret fritz_password
 

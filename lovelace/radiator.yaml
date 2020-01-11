@@ -2,7 +2,7 @@
 
 # -----------------------------
 title: Heizung
-id: radiator
+path: radiator
 icon: mdi:radiator
 panel: true
 cards:

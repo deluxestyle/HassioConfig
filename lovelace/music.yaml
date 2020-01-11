@@ -2,7 +2,7 @@
 
 # -----------------------------
 title: Musik
-id: music
+path: music
 icon: mdi:music-box-outline
 panel: true
 cards:

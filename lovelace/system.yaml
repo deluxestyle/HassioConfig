@@ -3,7 +3,7 @@
 title: System
 visible:
   - user: b6464705fc4e405abce8058610b4bcc7
-id: system
+path: system
 icon: mdi:settings-outline
 panel: true
 cards:
@@ -63,6 +63,12 @@ cards:
             tap_action: 
               action: none
           - sensor.fritz_netmonitor
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: input_boolean.room_view
+            tap_action: 
+              action: toggle
       - type: glance
         columns: 4
         show_name: false

@@ -1,0 +1,40 @@
+# lovelace_gen
+
+title: Bad
+path: bath
+icon: mdi:shower
+panel: true
+cards:
+  - type: custom:layout-card
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - !include
+              - ../includes/climate.yaml
+              - entity: climate.fritz_thermostat
+                name: Bad
+          - !include
+              - ../includes/thermostat.yaml
+              - entity: climate.fritz_thermostat
+                name: 158d00023258bd                  
+          - entity: binary_sensor.door_window_sensor_158d00022f13a0
+            name: Fenster
+            tap_action: 
+              action: none
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Timer
+            padding: 5
+            entities:
+              - entity: automation.heizung_bad_timer
+                name: Bad Timer
+                tap_action: 
+                  action: toggle
+              - entity: input_datetime.radiator_bath_1
+                name: Startzeit
+                type: custom:time-input-row
+      - !include
+          - ../includes/mini_media_player.yaml
+          - entity: media_player.bad

@@ -1,0 +1,49 @@
+# lovelace_gen
+
+title: Küche
+path: kitchen
+icon: mdi:fridge-outline
+panel: true
+cards:
+  - type: custom:layout-card
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: light.lights_kitchen
+            name: Küche
+            tap_action: 
+              action: toggle
+          - type: custom:fold-entity-row
+            head: 
+              type: section
+              label: Lampen
+            padding: 5
+            entities:
+              - entity: light.deckenlicht
+                tap_action: 
+                  action: toggle
+              - entity: light.steckdose_2
+                tap_action: 
+                  action: toggle
+              - entity: light.steckdose_4
+                tap_action: 
+                  action: toggle
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - !include
+              - ../includes/climate.yaml
+              - entity: climate.oeq1701003
+                name: Küche
+          - !include
+              - ../includes/thermostat.yaml
+              - entity: climate.oeq1701003
+                name: 158d0002239fb5
+          - !include
+              - ../includes/climate_more.yaml
+              - entity: climate.oeq1701003
+                name: homematic
+      - !include
+          - ../includes/mini_media_player.yaml
+          - entity: media_player.kuche

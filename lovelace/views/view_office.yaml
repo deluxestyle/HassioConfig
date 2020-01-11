@@ -1,0 +1,43 @@
+# lovelace_gen
+
+title: Büro
+path: office
+icon: mdi:desk
+cards:
+  - type: custom:layout-card
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: light.sonoff_office
+            name: Büro
+            tap_action: 
+              action: toggle
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - !include
+              - ../includes/climate.yaml
+              - entity: climate.int0000002
+                name: Büro
+          - !include
+              - ../includes/thermostat.yaml
+              - entity: climate.int0000002
+                name: oeq1667238
+          - !include
+              - ../includes/climate_more.yaml
+              - entity: climate.int0000002
+                name: office
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: switch.steckdose_3
+            tap_action: 
+              action: toggle
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: switch.steckdose_1
+            name: Steckdose
+            tap_action: 
+              action: toggle

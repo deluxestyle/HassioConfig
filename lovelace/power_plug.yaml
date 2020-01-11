@@ -1,7 +1,7 @@
 # lovelace_gen
 
 title: Steckdosen
-id: power_plug
+path: power_plug
 icon: mdi:power-socket-eu
 panel: true
 cards:
@@ -11,6 +11,7 @@ cards:
         show_header_toggle: false
         entities:
           - entity: switch.wifi_steckdose
+            name: Steckdosenleiste
             tap_action: 
               action: toggle
           - type: custom:fold-entity-row

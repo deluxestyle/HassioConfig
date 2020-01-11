@@ -11,7 +11,7 @@ x-vacuum-buttons: &vacuum-buttons
 
 # -----------------------------
 title: Staubsauger
-id: vacuum
+path: vacuum
 icon: mdi:robot-vacuum
 panel: true
 cards:

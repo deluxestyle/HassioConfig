@@ -1,0 +1,56 @@
+# lovelace_gen
+
+title: Home Assistant
+path: hass
+icon: mdi:home-assistant
+cards:
+  - type: custom:layout-card
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: light.lights_all
+            name: Licht
+            tap_action: 
+              action: toggle
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: switch.radiator_on_off
+            tap_action: 
+              action: toggle
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Automatisierung
+            padding: 5
+            entities:
+              - entity: input_boolean.automation_radiator
+                tap_action: 
+                  action: toggle
+              - entity: automation.heizung_abwesenheitsschaltung
+                name: Abwesenheitsschaltung
+                tap_action: 
+                  action: toggle
+              - entity: automation.benachrichtigung_luftfeuchtigkeit
+                name: Luftfeuchtigkeit
+                tap_action: 
+                  action: toggle
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: script.1532173931522
+            tap_action: 
+              action: toggle
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Automatisierung
+            padding: 5
+            entities:
+              - entity: automation.sonos_starten
+                tap_action: 
+                  action: toggle
+              - entity: automation.sonos_stoppen
+                tap_action: 
+                  action: toggle
