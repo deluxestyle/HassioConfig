@@ -1,27 +1,5 @@
 # lovelace_gen
 
-## music player
-x-music-player: &music-player
-  icon: 'mdi:speaker-wireless'
-  hide:
-    power: true
-    source: false
-    progress: true
-  group: true
-  #artwork: none
-  source: full
-  more_info: false
-  sonos:
-    show_group_count: true
-    sync_volume: true
-    entities:
-      - entity_id: media_player.schlafzimmer
-        name: Sonos Schlafzimmer
-      - entity_id: media_player.bad
-        name: Sonos Bad
-      - entity_id: media_player.kuche
-        name: Sonos Küche
-
 # -----------------------------
 title: Musik
 id: music
@@ -30,24 +8,15 @@ panel: true
 cards:
   - type: custom:layout-card
     cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - type: custom:mini-media-player
-            entity: media_player.schlafzimmer
-            <<: *music-player
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - type: custom:mini-media-player
-            entity: media_player.bad
-            <<: *music-player
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - type: custom:mini-media-player
-            entity: media_player.kuche
-            <<: *music-player
+      - !include
+          - includes/mini_media_player.yaml
+          - entity: media_player.schlafzimmer
+      - !include
+          - includes/mini_media_player.yaml
+          - entity: media_player.bad
+      - !include
+          - includes/mini_media_player.yaml
+          - entity: media_player.kuche
       - type: entities
         show_header_toggle: false
         entities:

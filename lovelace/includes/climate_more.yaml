@@ -1,0 +1,13 @@
+# lovelace_gen
+type: custom:fold-entity-row
+head:
+  type: section
+  label: Mehr
+padding: 5
+entities:
+  - entity: switch.radiator_{{ name }}_keylock
+    tap_action: 
+      action: toggle
+  - entity: sensor.valve_{{ name }}
+    tap_action: 
+      action: none

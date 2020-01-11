@@ -1,0 +1,15 @@
+# lovelace_gen
+{% if name.startswith("oeq") %}
+entity: sensor.{{ name }}_temperature
+{% else %}
+entity: sensor.temperature_{{ name }}
+{% endif %}
+name: Thermometer
+type: custom:multiple-entity-row
+primary:
+  {% if name.startswith("oeq") %}
+  entity: sensor.{{ name }}_humidity
+  {% else %}
+  entity: sensor.humidity_{{ name }}
+  {% endif %}
+  name: false

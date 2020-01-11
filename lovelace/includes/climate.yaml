@@ -1,0 +1,27 @@
+# lovelace_gen
+entity: {{ entity }}
+name: {{ name }}
+tap_action:
+  action: call-service
+  service: browser_mod.popup
+  service_data:
+    deviceID: this
+    title: Heizung {{ name }}
+    card:
+      type: entities
+      entities: 
+        - type: 'custom:simple-thermostat'
+          entity: {{ entity }}
+          style: |
+            ha-card {
+              --ha-card-box-shadow: 'none';
+              --st-font-size-sensors: 16px;
+              --st-font-size-xl: 40px;
+            }
+          step_size: 0.5
+          name: false
+          label:
+            temperature: Temperatur
+          control :
+            _icons: true
+            _names: true
