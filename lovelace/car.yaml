@@ -48,7 +48,7 @@ cards:
             style: |
               :host {
                 color: 
-                {% if states("sensor.car_km_usage")|int > 99 %}
+                {% if (states.sensor.car_km_usage.state | int) > 99 %}
                   red
                 {% endif %}
                 ;
