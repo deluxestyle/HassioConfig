@@ -57,12 +57,12 @@
         friendly_name: "Batterie Sensor Motion Door/Window"
         value_template: '{{ states.sensor.openclose_19_battery_level.state }}'
       battery_sensor_button_1:
-        entity_id: sensor.switch_1_battery_level
+        entity_id: sensor.smart_switch_1_battery_level
         device_class: battery
         friendly_name: "Batterie Sensor Button 1"
         value_template: '{{ states.sensor.smart_switch_1_battery_level.state }}'
       battery_sensor_button_2:
-        entity_id: sensor.switch_2_battery_level
+        entity_id: sensor.smart_switch_2_battery_level
         device_class: battery
         friendly_name: "Batterie Sensor Button 2"
         value_template: '{{ states.sensor.smart_switch_2_battery_level.state }}'
@@ -72,7 +72,7 @@
         friendly_name: "Batterie Sensor Wall Switch"
         value_template: '{{ states.sensor.wandsender_1_fach_battery_level.state }}'      
       battery_sensor_wall_switch_double:
-        entity_id: sensor.wall_switch_double_battery_level
+        entity_id: sensor.wandsender_2_fach_battery_level
         device_class: battery
         friendly_name: "Batterie Sensor Wall Switch Double"
         value_template: '{{ states.sensor.wandsender_2_fach_battery_level.state }}'

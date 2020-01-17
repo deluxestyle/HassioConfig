@@ -48,3 +48,11 @@ cards:
       - !include
           - ../includes/mini_media_player.yaml
           - entity: media_player.schlafzimmer
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: automation.sonos_wecker
+            tap_action: 
+              action: toggle
+          - entity: input_datetime.sonos_alarm
+            name: Zeit

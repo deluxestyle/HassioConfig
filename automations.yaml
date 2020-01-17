@@ -945,3 +945,14 @@
   condition: []
   action:
   - service: browser_mod.lovelace_reload
+- id: '1578785190961'
+  alias: 'Heizung Schlafzimmer: Fenster offen'
+  description: ''
+  trigger:
+  - below: '50'
+    entity_id: sensor.humidity_158d0001b8c96c
+    platform: numeric_state
+  condition: []
+  action:
+  - entity_id: scene.thermostat_bed_room_off
+    service: scene.turn_on

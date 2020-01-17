@@ -35,6 +35,10 @@ resources:
 # -----------------------------
 custom_header:
   compact_mode: true
+  #background: var(--app-header-background-color)
+  #elements_color: var(--app-header-text-color)
+  #active_tab_color: var(--state-icon-active-color)
+  #tab_indicator_color: var(--state-icon-active-color)
   chevrons: false
   hide_config: true
   default_tab: >-
@@ -46,7 +50,6 @@ custom_header:
     {% else %}light, radiator, music, entertainment, power_plug
     {% endif %}
   
-
 swipe_nav:
 # -----------------------------
 
