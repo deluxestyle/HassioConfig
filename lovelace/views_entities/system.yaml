@@ -10,7 +10,6 @@ cards:
   - type: custom:layout-card
     cards:
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: script.1570443737111
             tap_action: 
@@ -19,7 +18,6 @@ cards:
             tap_action: 
               action: toggle
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: automation.tagliches_backup_auto_backup
             tap_action: 
@@ -27,7 +25,6 @@ cards:
           - sensor.auto_backup
           # - automation.tagliches_backup
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: automation.battery_persistent_notification
             tap_action: 
@@ -57,14 +54,12 @@ cards:
               - type: custom:fold-entity-row
                 head: group.battery_status_hue
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: sensor.online_time
             tap_action: 
               action: none
           - sensor.fritz_netmonitor
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: input_boolean.room_view
             tap_action: 

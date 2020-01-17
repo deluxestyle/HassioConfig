@@ -8,17 +8,22 @@ panel: true
 cards:
   - type: custom:layout-card
     cards:
-      - !include
-          - includes/mini_media_player.yaml
-          - entity: media_player.schlafzimmer
-      - !include
-          - includes/mini_media_player.yaml
-          - entity: media_player.bad
-      - !include
-          - includes/mini_media_player.yaml
-          - entity: media_player.kuche
       - type: entities
-        show_header_toggle: false
+        entities:
+          - !include
+              - ../includes/mini_media_player.yaml
+              - entity: media_player.schlafzimmer
+      - type: entities
+        entities:
+          - !include
+              - ../includes/mini_media_player.yaml
+              - entity: media_player.bad
+      - type: entities
+        entities:
+          - !include
+              - ../includes/mini_media_player.yaml
+              - entity: media_player.kuche
+      - type: entities
         entities:
           - entity: script.1532173931522
             tap_action: 

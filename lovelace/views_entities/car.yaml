@@ -9,7 +9,6 @@ cards:
   - type: custom:layout-card
     cards:
       - type: entities
-        show_header_toggle: false
         entities:
           - device_tracker.x1_sdrive18i
           - entity: input_boolean.car_map
@@ -41,7 +40,6 @@ cards:
           entities:
             - entity: device_tracker.x1_sdrive18i
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: sensor.car_km_usage
             style: |

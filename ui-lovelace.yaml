@@ -54,53 +54,52 @@ swipe_nav:
 # -----------------------------
 
 # -----------------------------
-## Views
 title: Home
 views:
 ##### Licht #####
-  - !include lovelace/light.yaml
+  - !include lovelace/views_entities/light.yaml
 
 ##### Heizung #####
-  - !include lovelace/radiator.yaml
+  - !include lovelace/views_entities/radiator.yaml
 
 ##### Musik #####
-  - !include lovelace/music.yaml
+  - !include lovelace/views_entities/music.yaml
 
 ##### Entertainment #####
-  - !include lovelace/entertainment.yaml
+  - !include lovelace/views_entities/entertainment.yaml
 
 ##### Wohnzimmer #####
-  - !include lovelace/views/view_living_room.yaml
+  - !include lovelace/views_rooms/view_living_room.yaml
 
 ##### Schlafzimmer #####
-  - !include lovelace/views/view_bed_room.yaml
+  - !include lovelace/views_rooms/view_bed_room.yaml
 
 ##### Küche #####
-  - !include lovelace/views/view_kitchen.yaml
+  - !include lovelace/views_rooms/view_kitchen.yaml
 
 ##### Büro #####
-  - !include lovelace/views/view_office.yaml
+  - !include lovelace/views_rooms/view_office.yaml
 
 ##### Bad #####
-  - !include lovelace/views/view_bath.yaml
+  - !include lovelace/views_rooms/view_bath.yaml
 
 ##### Flur #####
-  - !include lovelace/views/view_floor.yaml
+  - !include lovelace/views_rooms/view_floor.yaml
 
 ##### Hass #####
-  - !include lovelace/views/view_hass.yaml
+  - !include lovelace/views_rooms/view_hass.yaml
 
 ##### Steckdosen #####
-  - !include lovelace/power_plug.yaml
+  - !include lovelace/views_entities/power_plug.yaml
 
 #### Staubsauger #####
-  - !include lovelace/vacuum.yaml
+  - !include lovelace/views_entities/vacuum.yaml
               
 ##### Personen #####
-  - !include lovelace/presence.yaml
+  - !include lovelace/views_entities/presence.yaml
 
 ##### Auto ##### 
-  - !include lovelace/car.yaml
+  - !include lovelace/views_entities/car.yaml
 
 ##### System #####
-  - !include lovelace/system.yaml
+  - !include lovelace/views_entities/system.yaml

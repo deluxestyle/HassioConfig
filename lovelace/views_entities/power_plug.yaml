@@ -8,7 +8,6 @@ cards:
   - type: custom:layout-card
     cards:
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: switch.wifi_steckdose
             name: Steckdosenleiste
@@ -26,13 +25,11 @@ cards:
               - entity: sensor.hs110_amps
               - entity: sensor.hs110_volts
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: switch.steckdose_3
             tap_action: 
               action: toggle
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: switch.steckdose_5
             name: Alexa
@@ -40,7 +37,6 @@ cards:
             tap_action: 
               action: toggle
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: switch.steckdose_1
             name: Steckdose

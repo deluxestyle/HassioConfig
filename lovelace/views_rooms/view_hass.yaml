@@ -7,14 +7,12 @@ cards:
   - type: custom:layout-card
     cards:
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: light.lights_all
             name: Licht
             tap_action: 
               action: toggle
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: switch.radiator_on_off
             tap_action: 
@@ -37,7 +35,6 @@ cards:
                 tap_action: 
                   action: toggle
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: script.1532173931522
             tap_action: 

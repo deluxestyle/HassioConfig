@@ -10,20 +10,18 @@ cards:
     max_columns: 2
     cards:
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: switch.radiator_on_off
             tap_action: 
               action: toggle
       - type: entities
-        show_header_toggle: false
         entities:
           - !include
-              - includes/climate.yaml
+              - ../includes/climate.yaml
               - entity: climate.fritz_thermostat
                 name: Bad
           - !include
-              - includes/thermostat.yaml
+              - ../includes/thermostat.yaml
               - entity: climate.fritz_thermostat
                 name: 158d00023258bd                  
           - entity: binary_sensor.door_window_sensor_158d00022f13a0
@@ -44,67 +42,62 @@ cards:
                 name: Startzeit
                 type: custom:time-input-row
       - type: entities
-        show_header_toggle: false
         entities:
           - !include
-              - includes/climate.yaml
+              - ../includes/climate.yaml
               - entity: climate.oeq1696358
                 name: Wohnzimmer
           - !include
-              - includes/thermostat.yaml
+              - ../includes/thermostat.yaml
               - entity: climate.oeq1696358
                 name: 158d0001b8c998          
           - !include
-              - includes/climate_more.yaml
+              - ../includes/climate_more.yaml
               - entity: climate.oeq1696358
                 name: living_room
       - type: entities
-        show_header_toggle: false
         entities:
           - !include
-              - includes/climate.yaml
+              - ../includes/climate.yaml
               - entity: climate.oeq1696369
                 name: Schlafzimmer
           - !include
-              - includes/thermostat.yaml
+              - ../includes/thermostat.yaml
               - entity: climate.oeq1696369
                 name: 158d0001b8c96c
           - !include
-              - includes/climate_more.yaml
+              - ../includes/climate_more.yaml
               - entity: climate.oeq1696369
                 name: bed_room
       - type: entities
-        show_header_toggle: false
         entities:
           - !include
-              - includes/climate.yaml
+              - ../includes/climate.yaml
               - entity: climate.int0000002
                 name: Büro
           - !include
-              - includes/thermostat.yaml
+              - ../includes/thermostat.yaml
               - entity: climate.int0000002
                 name: oeq1667238
           - !include
-              - includes/climate_more.yaml
+              - ../includes/climate_more.yaml
               - entity: climate.int0000002
                 name: office
       - type: entities
-        show_header_toggle: false
         entities:
           - !include
-              - includes/climate.yaml
+              - ../includes/climate.yaml
               - entity: climate.oeq1701003
                 name: Küche
           - !include
-              - includes/thermostat.yaml
+              - ../includes/thermostat.yaml
               - entity: climate.oeq1701003
                 name: 158d0002239fb5
           - !include
-              - includes/climate_more.yaml
+              - ../includes/climate_more.yaml
               - entity: climate.oeq1701003
                 name: homematic
       - type: entities
-        show_header_toggle: false
         entities: 
           - entity: sensor.dark_sky_temperature
             tap_action: 

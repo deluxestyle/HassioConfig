@@ -8,7 +8,6 @@ cards:
   - type: custom:layout-card
     cards:
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: light.schlafzimmer
             name: Schlafzimmer
@@ -31,7 +30,6 @@ cards:
                 tap_action: 
                   action: toggle
       - type: entities
-        show_header_toggle: false
         entities:
           - !include
               - ../includes/climate.yaml
@@ -45,14 +43,18 @@ cards:
               - ../includes/climate_more.yaml
               - entity: climate.oeq1696369
                 name: bed_room
-      - !include
-          - ../includes/mini_media_player.yaml
-          - entity: media_player.schlafzimmer
       - type: entities
-        show_header_toggle: false
         entities:
-          - entity: automation.sonos_wecker
-            tap_action: 
-              action: toggle
-          - entity: input_datetime.sonos_alarm
-            name: Zeit
+          - !include
+              - ../includes/mini_media_player.yaml
+              - entity: media_player.schlafzimmer
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Wecker
+            padding: 5
+            entities:
+              - input_datetime.sonos_alarm
+              - entity: automation.sonos_wecker
+                tap_action: 
+                  action: toggle

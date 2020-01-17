@@ -20,7 +20,6 @@ cards:
       - type: custom:vertical-stack-in-card
         cards:
           - type: entities
-            show_header_toggle: false
             entities:
               - vacuum.xiaomi_vacuum_cleaner
               - entity: sensor.xiaomi_vacuum_sensor_battery
@@ -72,7 +71,6 @@ cards:
               - type: "custom:button-card"
                 color_type: blank-card
           - type: entities
-            show_header_toggle: false
             entities:
               - type: custom:fold-entity-row
                 head:

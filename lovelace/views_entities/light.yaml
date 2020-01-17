@@ -8,7 +8,6 @@ cards:
   - type: custom:layout-card
     cards:
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: light.lights_living_room
             name: Wohnzimmer
@@ -31,7 +30,6 @@ cards:
                 tap_action: 
                   action: toggle
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: light.schlafzimmer
             name: Schlafzimmer
@@ -54,14 +52,12 @@ cards:
                 tap_action: 
                   action: toggle
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: light.sonoff_office
             name: Büro
             tap_action: 
               action: toggle
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: light.lights_kitchen
             name: Küche
@@ -83,13 +79,11 @@ cards:
                 tap_action: 
                   action: toggle
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: light.gateway_light_7811dcb258d1
             tap_action: 
               action: toggle
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: light.lights_all
             name: Licht

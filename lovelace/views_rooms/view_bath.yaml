@@ -8,7 +8,6 @@ cards:
   - type: custom:layout-card
     cards:
       - type: entities
-        show_header_toggle: false
         entities:
           - !include
               - ../includes/climate.yaml
@@ -35,6 +34,8 @@ cards:
               - entity: input_datetime.radiator_bath_1
                 name: Startzeit
                 type: custom:time-input-row
-      - !include
-          - ../includes/mini_media_player.yaml
-          - entity: media_player.bad
+      - type: entities
+        entities:
+          - !include
+              - ../includes/mini_media_player.yaml
+              - entity: media_player.bad

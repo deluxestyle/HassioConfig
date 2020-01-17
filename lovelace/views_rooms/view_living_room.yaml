@@ -1,16 +1,69 @@
 # lovelace_gen
 
-title: Entertainment
-path: entertainment
-icon: mdi:theater
+title: Wohnzimmer
+path: living_room
+icon: mdi:sofa
 panel: true
 cards:
   - type: custom:layout-card
+    max_columns: 2
     cards:
+      - type: entities
+        entities:
+          - entity: light.lights_living_room
+            name: Wohnzimmer
+            tap_action: 
+              action: toggle
+          - input_select.scenes_living_room
+          - type: custom:fold-entity-row
+            head: 
+              type: section
+              label: Lampen
+            padding: 5
+            entities:
+              - entity: light.decke
+                tap_action: 
+                  action: toggle
+              - entity: light.tisch
+                tap_action: 
+                  action: toggle
+              - entity: light.leselampe
+                tap_action: 
+                  action: toggle
+      - type: entities
+        entities:
+          - !include
+              - ../includes/climate.yaml
+              - entity: climate.oeq1696358
+                name: Wohnzimmer
+          - !include
+              - ../includes/thermostat.yaml
+              - entity: climate.oeq1696358
+                name: 158d0001b8c998          
+          - !include
+              - ../includes/climate_more.yaml
+              - entity: climate.oeq1696358
+                name: living_room
+      - type: entities
+        entities:
+          - entity: switch.wifi_steckdose
+            name: Steckdosenleiste
+            tap_action: 
+              action: toggle
+          - type: custom:fold-entity-row
+            head: 
+              type: section
+              label: Verbrauchsdaten
+            padding: 5
+            entities:
+              - entity: sensor.hs110_today_kwh
+              - entity: sensor.hs110_total_kwh
+              - entity: sensor.hs110_watts
+              - entity: sensor.hs110_amps
+              - entity: sensor.hs110_volts
       - type: custom:vertical-stack-in-card
         cards:
           - type: entities
-            show_header_toggle: false
             entities:
               - entity: sensor.remote_state
                 tap_action: 
@@ -64,7 +117,6 @@ cards:
               - type: "custom:button-card"
                 color_type: blank-card
           - type: entities
-            show_header_toggle: false
             entities:
               - type: custom:fold-entity-row
                 head:
@@ -73,3 +125,10 @@ cards:
                 padding: 5
                 entities:
                   - input_select.avr_source
+      - type: entities
+        entities:
+          - entity: switch.steckdose_5
+            name: Alexa
+            icon: mdi:amazon-alexa
+            tap_action: 
+              action: toggle

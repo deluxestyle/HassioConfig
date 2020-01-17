@@ -7,7 +7,6 @@ cards:
   - type: custom:layout-card
     cards:
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: light.gateway_light_7811dcb258d1
             tap_action: 

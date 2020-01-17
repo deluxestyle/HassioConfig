@@ -9,8 +9,7 @@ panel: true
 cards:
   - type: custom:layout-card
     cards:
-      - type: entities
-        show_header_toggle: false
+      - type: entities  
         entities:
           - entity: person.wolfgang
             tap_action: 
@@ -39,7 +38,6 @@ cards:
           entity: camera.ffmpeg
           title: Kamera
       - type: entities
-        show_header_toggle: false
         entities:
           - entity: binary_sensor.motion_sensor_158d00023e77cb
             tap_action: 
