@@ -1,14 +1,5 @@
-light.bad:
-  hidden: true
 light.buro:
-  hidden: true
   icon: mdi:ceiling-light
-light.all_hue_lights:
-  hidden: true
-light.schlafzimmer_1:
-  hidden: true
-light.schlafzimmer_2:
-  hidden: true
 light.steckdose_2:
   friendly_name: Küchenspot - links
   icon: mdi:spotlight-beam
@@ -114,14 +105,6 @@ input_boolean.camera_cctv:
   friendly_name: Kamera
 lock.x1_sdrive18i_lock:
   friendly_name: X1 Ent-/Verriegeln
-group.all_automations:
-  control: hidden
-  friendly_name: Automatisierungen
-  hidden: false
-group.all_scripts:
-  control: hidden
-  friendly_name: Skripte
-  hidden: false
 input_select.avr_source:
   icon: mdi:playlist-play
 sensor.humidity_158d00023258bd:
