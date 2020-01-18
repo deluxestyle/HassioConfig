@@ -18,3 +18,4 @@ airsonos.xml
 .storage/*
 hassio.code-workspace
 .storage
+.ip_authenticated.yaml
