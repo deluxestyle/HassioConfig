@@ -55,16 +55,17 @@ cards:
                 head: group.battery_status_hue
       - type: entities
         entities:
-          - entity: sensor.online_time
-            tap_action: 
-              action: none
           - type: custom:fold-entity-row
             head: sensor.fritz_netmonitor
             padding: 10
             entities:
               - entity: switch.fritzbox_profile_telekom_mr401
                 name: MR401 Zugang
-              - switch.fritzbox_guestwifi
+                tap_action: 
+                  action: toggle
+              - entity: switch.fritzbox_guestwifi
+                tap_action: 
+                  action: toggle
       - type: entities
         entities:
           - entity: input_boolean.room_view
@@ -88,3 +89,5 @@ cards:
           - entity: sensor.cpu_temperature
             name: CPU Temp
             icon: mdi:thermometer
+          - entity: sensor.online_time
+            name: Zeit
