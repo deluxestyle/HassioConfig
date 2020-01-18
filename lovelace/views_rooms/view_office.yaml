@@ -6,7 +6,6 @@ icon: mdi:desk
 panel: true
 cards:
   - type: custom:layout-card
-    min_columns: 2
     cards:
       - type: entities
         entities:
