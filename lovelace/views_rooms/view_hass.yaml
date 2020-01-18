@@ -17,6 +17,9 @@ cards:
           - entity: switch.radiator_on_off
             tap_action: 
               action: toggle
+          - entity: sensor.dark_sky_temperature
+            tap_action: 
+              action: none
           - type: custom:fold-entity-row
             head:
               type: section
