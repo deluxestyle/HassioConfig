@@ -55,3 +55,4 @@
   value_template: '{{ value | multiply(0.001) | round(1) }}'
 
 - platform: authenticated
+  enable_notification: true
