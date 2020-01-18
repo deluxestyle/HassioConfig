@@ -3,7 +3,7 @@
 title: Personen
 visible:
   - user: b6464705fc4e405abce8058610b4bcc7
-id: presence
+path: presence
 icon: mdi:account-multiple
 panel: true
 cards:
