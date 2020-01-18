@@ -58,7 +58,13 @@ cards:
           - entity: sensor.online_time
             tap_action: 
               action: none
-          - sensor.fritz_netmonitor
+          - type: custom:fold-entity-row
+            head: sensor.fritz_netmonitor
+            padding: 10
+            entities:
+              - entity: switch.fritzbox_profile_telekom_mr401
+                name: MR401 Zugang
+              - switch.fritzbox_guestwifi
       - type: entities
         entities:
           - entity: input_boolean.room_view
