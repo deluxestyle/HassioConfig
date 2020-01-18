@@ -600,9 +600,11 @@
 - id: '1564988736274'
   alias: 'Benachrichtigung: Heizung Homematic'
   trigger:
-  - above: '5'
+  - above: '50'
     entity_id: sensor.valve_homematic
     platform: numeric_state
+  - platform: template
+    value_template: '{{ states.climate.oeq1701003.attributes.temperature > 22 }}'
   condition: []
   action:
   - data:
