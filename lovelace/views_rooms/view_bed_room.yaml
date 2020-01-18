@@ -9,26 +9,18 @@ cards:
     cards:
       - type: entities
         entities:
-          - entity: light.schlafzimmer
-            name: Schlafzimmer
+          - type: custom:slider-entity-row
+            entity: light.schlafzimmer
+            name: Decke
+            toggle: true
             tap_action: 
               action: toggle
-          - input_select.scenes_bed_room
-          - type: custom:fold-entity-row
-            head:
-              type: section
-              label: Lampen
-            padding: 5
-            entities:
-              - entity: light.nachttischlampe_wolfgang
-                tap_action: 
-                  action: toggle
-              - entity: light.nachttischlampe_anita
-                tap_action: 
-                  action: toggle
-              - entity: light.lights_bed_room
-                tap_action: 
-                  action: toggle
+          - entity: light.nachttischlampe_wolfgang
+            tap_action: 
+              action: toggle
+          - entity: light.nachttischlampe_anita
+            tap_action: 
+              action: toggle
       - type: entities
         entities:
           - !include
