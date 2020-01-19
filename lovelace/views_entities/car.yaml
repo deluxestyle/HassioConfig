@@ -26,23 +26,23 @@ cards:
               - binary_sensor.x1_sdrive18i_lights_parking
               - binary_sensor.x1_sdrive18i_condition_based_services
               - binary_sensor.x1_sdrive18i_check_control_messages
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: entities  
-            entities:
-              - entity: input_boolean.car_map
-                tap_action: 
-                  action: toggle
-          - type: conditional
-            conditions:
-              - entity: input_boolean.car_map
-                state: "on"
-            card:
-              type: map
-              default_zoom: 15
-              aspect_ratio: 4:3
-              entities:
-                - entity: device_tracker.x1_sdrive18i
+      # - type: custom:vertical-stack-in-card
+      #   cards:
+      #     - type: entities  
+      #       entities:
+      #         - entity: input_boolean.car_map
+      #           tap_action: 
+      #             action: toggle
+      #     - type: conditional
+      #       conditions:
+      #         - entity: input_boolean.car_map
+      #           state: "on"
+      #       card:
+      #         type: map
+      #         default_zoom: 15
+      #         aspect_ratio: 4:3
+      #         entities:
+      #           - entity: device_tracker.x1_sdrive18i
       - type: entities
         entities:
           - entity: sensor.car_km_usage

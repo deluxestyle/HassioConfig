@@ -50,8 +50,8 @@ custom_header:
     {% else %}light
     {% endif %}
   hide_tabs: >-
-    {% if not is_state('input_boolean.room_view','on') %}living_room, bed_room, office, bath, hass, kitchen, floor
-    {% else %}light, radiator, music, entertainment, power_plug
+    {% if not is_state('input_boolean.room_view','on') %}living_room, bed_room, office, bath, hass, kitchen, floor, map
+    {% else %}light, radiator, music, entertainment, power_plug, map
     {% endif %}
   
 swipe_nav:
@@ -107,3 +107,6 @@ views:
 
 ##### System #####
   - !include lovelace/views_entities/system.yaml
+
+##### Karte #####
+  - !include lovelace/views_entities/map.yaml

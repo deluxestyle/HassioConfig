@@ -31,22 +31,6 @@
   - data:
       entity_id: vacuum.xiaomi_vacuum_cleaner
     service: vacuum.turn_off
-'1534621188695':
-  alias: 'Sonos: Wecker einschalten'
-  sequence:
-  - data:
-      alarm_id: '324'
-      enabled: 'true'
-      entity_id: media_player.schlafzimmer
-    service: sonos.update_alarm
-'1534621226775':
-  alias: 'Sonos: Wecker ausschalten'
-  sequence:
-  - data:
-      alarm_id: '324'
-      enabled: 'false'
-      entity_id: media_player.schlafzimmer
-    service: sonos.update_alarm
 '1535747172583':
   alias: Heizung Schlafzimmer sperren
   sequence:
