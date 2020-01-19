@@ -17,6 +17,7 @@ exclude:
     - calendar
     - input_number
     - camera
+    - input_boolean
   entities:
     - sun.sun
     - automation.battery_persistent_notification

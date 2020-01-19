@@ -14,7 +14,13 @@ cards:
             name: Wohnzimmer
             tap_action: 
               action: toggle
-          - input_select.scenes_living_room
+          - type: custom:fold-entity-row
+            head: 
+              type: section
+              label: Szenen
+            padding: 5
+            entities:
+              - entity: input_select.scenes_living_room
           - type: custom:fold-entity-row
             head: 
               type: section
@@ -44,6 +50,73 @@ cards:
               - ../includes/climate_more.yaml
               - entity: climate.oeq1696358
                 name: living_room
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: entities
+            entities:
+              - entity: sensor.remote_state
+                tap_action: 
+                  action: call-service
+                  service: browser_mod.popup
+                  service_data:
+                    deviceID: this
+                    title: Fernbedienung
+                    card:
+                      type: custom:vertical-stack-in-card
+                      cards:
+                        - type: entities
+                          entities:
+                            - entity: sensor.remote_state
+                        - type: horizontal-stack
+                          cards:
+                            - type: "custom:button-card"
+                              color_type: blank-card
+                            - type: "custom:button-card"
+                              entity: switch.tv_switch
+                              size: 70%
+                              show_name: false
+                            - type: "custom:button-card"
+                              color_type: blank-card
+                            - type: "custom:button-card"
+                              entity: switch.music_switch
+                              size: 70%
+                              show_name: false
+                            - type: "custom:button-card"
+                              color_type: blank-card
+                            - type: "custom:button-card"
+                              color_type: blank-card
+                            - type: "custom:button-card"
+                              icon: mdi:volume-minus
+                              color: rgb(68, 115, 158)
+                              size: 75%
+                              tap_action:
+                                action: call-service
+                                service: media_player.volume_down
+                                service_data:
+                                  entity_id: media_player.harman_kardon_avr
+                            - type: "custom:button-card"
+                              icon: mdi:volume-plus
+                              color: rgb(68, 115, 158)
+                              size: 75%
+                              tap_action:
+                                action: call-service
+                                service: media_player.volume_up
+                                service_data:
+                                  entity_id: media_player.harman_kardon_avr
+                            - type: custom:button-card
+                              color: rgb(68, 115, 158)
+                              size: 75%
+                              icon: mdi:volume-off
+                              tap_action:
+                                action: call-service
+                                service: script.toggle
+                                service_data:
+                                  entity_id: script.1565444624817
+                            - type: "custom:button-card"
+                              color_type: blank-card
+                        - type: entities
+                          entities:
+                            - input_select.avr_source
       - type: entities
         entities:
           - entity: switch.wifi_steckdose
@@ -61,70 +134,6 @@ cards:
               - entity: sensor.hs110_watts
               - entity: sensor.hs110_amps
               - entity: sensor.hs110_volts
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: entities
-            entities:
-              - entity: sensor.remote_state
-                tap_action: 
-                  action: none
-              - type: section
-          - type: horizontal-stack
-            cards:
-              - type: "custom:button-card"
-                color_type: blank-card
-              - type: "custom:button-card"
-                entity: switch.tv_switch
-                size: 70%
-                show_name: false
-              - type: "custom:button-card"
-                color_type: blank-card
-              - type: "custom:button-card"
-                entity: switch.music_switch
-                size: 70%
-                show_name: false
-              - type: "custom:button-card"
-                color_type: blank-card
-              - type: "custom:button-card"
-                color_type: blank-card
-              - type: "custom:button-card"
-                icon: mdi:volume-minus
-                color: rgb(68, 115, 158)
-                size: 75%
-                tap_action:
-                  action: call-service
-                  service: media_player.volume_down
-                  service_data:
-                    entity_id: media_player.harman_kardon_avr
-              - type: "custom:button-card"
-                icon: mdi:volume-plus
-                color: rgb(68, 115, 158)
-                size: 75%
-                tap_action:
-                  action: call-service
-                  service: media_player.volume_up
-                  service_data:
-                    entity_id: media_player.harman_kardon_avr
-              - type: custom:button-card
-                color: rgb(68, 115, 158)
-                size: 75%
-                icon: mdi:volume-off
-                tap_action:
-                  action: call-service
-                  service: script.toggle
-                  service_data:
-                    entity_id: script.1565444624817
-              - type: "custom:button-card"
-                color_type: blank-card
-          - type: entities
-            entities:
-              - type: custom:fold-entity-row
-                head:
-                  type: section
-                  label: AVR 151
-                padding: 5
-                entities:
-                  - input_select.avr_source
       - type: entities
         entities:
           - entity: switch.steckdose_5
