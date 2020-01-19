@@ -9,8 +9,10 @@ entities:
     tap_action: 
       action: toggle
   - entity: light.nachttischlampe_wolfgang
+    name: Bettlampe Wolfgang
     tap_action: 
       action: toggle
   - entity: light.nachttischlampe_anita
+    name: Bettlampe Anita
     tap_action: 
       action: toggle
