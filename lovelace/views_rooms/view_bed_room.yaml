@@ -7,20 +7,7 @@ panel: true
 cards:
   - type: custom:layout-card
     cards:
-      - type: entities
-        entities:
-          - type: custom:slider-entity-row
-            entity: light.schlafzimmer
-            name: Decke
-            toggle: true
-            tap_action: 
-              action: toggle
-          - entity: light.nachttischlampe_wolfgang
-            tap_action: 
-              action: toggle
-          - entity: light.nachttischlampe_anita
-            tap_action: 
-              action: toggle
+      - !include ../includes/light_bed_room.yaml
       - type: entities
         entities:
           - !include

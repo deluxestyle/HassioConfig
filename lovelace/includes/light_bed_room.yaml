@@ -1,0 +1,16 @@
+# lovelace_gen
+
+type: entities
+entities:
+  - type: custom:slider-entity-row
+    entity: light.schlafzimmer
+    name: Decke
+    toggle: true
+    tap_action: 
+      action: toggle
+  - entity: light.nachttischlampe_wolfgang
+    tap_action: 
+      action: toggle
+  - entity: light.nachttischlampe_anita
+    tap_action: 
+      action: toggle
