@@ -789,6 +789,8 @@
   trigger:
   - at: 06:45
     platform: time
+  - event: start
+    platform: homeassistant
   condition: []
   action:
   - data:

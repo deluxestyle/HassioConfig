@@ -3,3 +3,4 @@ standard:
   ha-card-box-shadow: 1px 1px 5px 0px rgb(230, 230, 230)
   paper-card-background-color: "#FFFFFF"
   paper-listbox-background-color: "#FFFFFF"
+  primary-color: "#03A9F4"
