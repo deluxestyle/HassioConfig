@@ -29,6 +29,24 @@ cards:
               - entity: automation.anwesenheitsschaltung
                 tap_action: 
                   action: toggle
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: entities  
+            entities:
+              - entity: input_boolean.presence_map
+                tap_action: 
+                  action: toggle
+          - type: conditional
+            conditions:
+              - entity: input_boolean.presence_map
+                state: "on"
+            card:
+              type: map
+              default_zoom: 15
+              entities:
+                - entity: device_tracker.iphonex_2
+                - entity: device_tracker.x1_sdrive18i
+                - zone.home
       - type: conditional
         conditions:
           - entity: device_tracker.hikam_4452

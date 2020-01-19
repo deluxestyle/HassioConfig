@@ -21,6 +21,10 @@ car_map:
     name: Karte
     icon: mdi:map-legend
 
+presence_map:
+    name: Karte
+    icon: mdi:map-legend
+
 room_view:
     name: Raumansicht
     icon: mdi:home-circle-outline
