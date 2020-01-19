@@ -560,23 +560,6 @@
       notification_id: xiaomi_brush
       title: Xiaomi StaubRobo Hauptbürste
     service: persistent_notification.create
-- id: '1564124783591'
-  alias: Tägliches Backup
-  trigger:
-  - at: 01:00
-    platform: time
-  condition: []
-  action:
-  - data_template:
-      name: 'Backup: {{ now().strftime(''%Y-%m-%d_%H:%M'') }}'
-    service: hassio.snapshot_full
-  - data:
-      message: 'Backup erstellt um: {{ now().strftime(''%Y-%m-%d_%H:%M'') }}'
-      notification_id: backup
-      title: Backup
-    service: persistent_notification.create
-  - delay: 00:15:00
-  - service: clean_up_snapshots_service.clean_up
 - id: '1564908105933'
   alias: 'RPI: RAM'
   trigger:
