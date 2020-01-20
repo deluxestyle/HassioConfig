@@ -50,9 +50,14 @@ custom_header:
     {% else %}light
     {% endif %}
   hide_tabs: >-
-    {% if not is_state('input_boolean.room_view','on') %}living_room, bed_room, office, bath, hass, kitchen, floor, map
-    {% else %}light, radiator, music, entertainment, power_plug, map
+    {% if not is_state('input_boolean.room_view','on') %}living_room, bed_room, office, bath, hass, kitchen, floor{% if not is_state('input_boolean.presence_map','on') %}, map{% endif %}
+    {% else %}light, radiator, music, entertainment, power_plug{% if not is_state('input_boolean.presence_map','on') %}, map{% endif %}
     {% endif %}
+  exceptions:
+    - conditions:
+        user: anita
+      config:
+        hide_unused: true
   
 swipe_nav:
 # -----------------------------
