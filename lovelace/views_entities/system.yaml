@@ -59,10 +59,6 @@ cards:
             head: sensor.fritz_netmonitor
             padding: 10
             entities:
-              - entity: switch.fritzbox_profile_telekom_mr401
-                name: MR401 Zugang
-                tap_action: 
-                  action: toggle
               - entity: switch.fritzbox_guestwifi
                 tap_action: 
                   action: toggle

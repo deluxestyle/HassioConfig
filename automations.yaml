@@ -15,6 +15,7 @@
     service: script.1570439573834
 - id: family_not_home
   alias: Abwesenheitsschaltung
+  description: Schaltet alle Lichter und Steckdosen aus und aktiviert den Bewegungssensor
   trigger:
   - entity_id: sensor.presence
     platform: state
@@ -390,6 +391,7 @@
     service: persistent_notification.create
 - id: '1542974689604'
   alias: Anwesenheitsschaltung
+  description: Deaktiviert den Bewegungssensor
   trigger:
   - entity_id: sensor.presence
     platform: state
