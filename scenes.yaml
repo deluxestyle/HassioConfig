@@ -1,7 +1,7 @@
 - name: thermostat_living_room_on
   entities:
     climate.oeq1696358:
-      state: auto
+      state: heat
       temperature: 19
   id: 75875398613247e7bcc01e0d91d3e5ce
 - name: thermostat_living_room_off
@@ -13,7 +13,7 @@
 - name: thermostat_bed_room_on
   entities:
     climate.oeq1696369:
-      state: auto
+      state: heat
       temperature: 19
   id: 35f41daeb56a455aac898628d8c5e616
 - name: thermostat_bed_room_off
@@ -25,7 +25,7 @@
 - name: thermostat_homematic_on
   entities:
     climate.oeq1701003:
-      state: auto
+      state: heat
       temperature: 19
   id: 44fb15f3a486435d8c68e7da2aa38fec
 - name: thermostat_homematic_off
@@ -37,7 +37,7 @@
 - name: thermostat_office_on
   entities:
     climate.int0000002:
-      state: auto
+      state: heat
       temperature: 19
   id: e64c2cd64dd542a0bbe352eeeffa73c9
 - name: thermostat_office_off
