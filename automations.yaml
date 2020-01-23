@@ -907,3 +907,14 @@
   action:
   - entity_id: scene.thermostat_bed_room_off
     service: scene.turn_on
+- id: '1579810384191'
+  alias: 'Heizung: Standby'
+  description: setzt die Heizung alle 12 Stunden in den Standardmodus
+  trigger:
+  - at: 06:00
+    platform: time
+  - at: '18:00'
+    platform: time
+  condition: []
+  action:
+  - service: script.1540232132608
