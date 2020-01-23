@@ -78,21 +78,22 @@ cards:
             icon: mdi:thermometer
           - entity: sensor.online_time
             name: Zeit
-      - type: entities
-        entities:
-          - type: custom:fold-entity-row
-            head: sensor.fritz_netmonitor
-            padding: 10
-            entities:
-              - entity: switch.fritzbox_guestwifi
-                tap_action: 
-                  action: toggle
+      # - type: entities
+      #   entities:
+      #     - type: custom:fold-entity-row
+      #       head: sensor.fritz_netmonitor
+      #       padding: 10
+      #       entities:
+      #         - entity: switch.fritzbox_guestwifi
+      #           tap_action: 
+      #             action: toggle
       - type: glance
         columns: 3
         show_name: false
         entities:
-          - sensor.net_download_cur
+          - sensor.fritz_netmonitor
           - sensor.net_download_max
+          - sensor.net_download_cur
           - sensor.net_uptime
-          - sensor.net_upload_cur
           - sensor.net_upload_max
+          - sensor.net_upload_cur
