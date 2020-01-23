@@ -600,30 +600,6 @@
       notification_id: heizung
       title: Heizung
     service: script.1570439573834
-- id: '1565633489639'
-  alias: Sonos Wecker an
-  trigger:
-  - entity_id: calendar.privat_urlaub
-    platform: state
-    to: 'off'
-  - entity_id: calendar.arbeit_businesstrip
-    platform: state
-    to: 'off'
-  condition: []
-  action:
-  - service: script.1534621188695
-- id: '1565633579364'
-  alias: Sonos Wecker aus
-  trigger:
-  - entity_id: calendar.privat_urlaub
-    platform: state
-    to: 'on'
-  - entity_id: calendar.arbeit_businesstrip
-    platform: state
-    to: 'on'
-  condition: []
-  action:
-  - service: script.1534621226775
 - id: '1567492774371'
   alias: Yeelight Error
   trigger:
@@ -821,20 +797,6 @@
       offset: '{{ states.sensor.offset_living_room.state | float  }}'
       target_temp: '{{ states.climate.oeq1696358.attributes.temperature }}'
     service: python_script.set_thermostate_offset
-- id: '1572817165405'
-  alias: Dismiss annoying notification
-  description: ''
-  trigger:
-  - minutes: /5
-    platform: time_pattern
-  condition:
-  - condition: state
-    entity_id: persistent_notification.config_entry_discovery
-    state: notifying
-  action:
-  - data:
-      notification_id: config_entry_discovery
-    service: persistent_notification.dismiss
 - id: '1574071080398'
   alias: Steckdose ausschalten (um Mitternacht)
   description: ''
@@ -888,7 +850,7 @@
     service: switch.toggle
 - id: '1577140062809'
   alias: Sonos Wecker (manuell)
-  description: ''
+  description: Starte Sonos manuell über Xiaomi Schalter
   trigger:
   - event_data:
       event: 1002
