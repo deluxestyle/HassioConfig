@@ -1,0 +1,32 @@
+# lovelace_gen
+
+type: entities
+entities:
+  - entity: switch.radiator_on_off
+    tap_action: 
+      action: toggle
+  # - entity: sensor.dark_sky_temperature
+  #   tap_action: 
+  #     action: none
+  - type: custom:fold-entity-row
+    head:
+      type: section
+      label: Automatisierung
+    padding: 5
+    entities:
+      - entity: input_boolean.automation_radiator
+        tap_action: 
+          action: toggle
+      - entity: automation.heizung_abwesenheitsschaltung
+        name: Abwesenheitsschaltung
+        tap_action: 
+          action: toggle
+      - entity: automation.heizung_standby
+        icon: mdi:radiator-disabled
+        name: Standby Schaltung
+        tap_action: 
+          action: toggle
+      - entity: automation.benachrichtigung_luftfeuchtigkeit
+        name: Luftfeuchtigkeit
+        tap_action: 
+          action: toggle

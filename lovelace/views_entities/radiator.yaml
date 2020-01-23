@@ -11,11 +11,6 @@ cards:
     cards:
       - type: entities
         entities:
-          - entity: switch.radiator_on_off
-            tap_action: 
-              action: toggle
-      - type: entities
-        entities:
           - !include
               - ../includes/climate.yaml
               - entity: climate.fritz_thermostat
@@ -97,30 +92,4 @@ cards:
               - ../includes/climate_more.yaml
               - entity: climate.oeq1701003
                 name: homematic
-      - type: entities
-        entities: 
-          - entity: sensor.dark_sky_temperature
-            tap_action: 
-              action: none
-          - type: custom:fold-entity-row
-            head:
-              type: section
-              label: Automatisierung
-            padding: 5
-            entities:
-              - entity: input_boolean.automation_radiator
-                tap_action: 
-                  action: toggle
-              - entity: automation.heizung_abwesenheitsschaltung
-                name: Abwesenheitsschaltung
-                tap_action: 
-                  action: toggle
-              - entity: automation.heizung_standby
-                icon: mdi:radiator-disabled
-                name: Standby Schaltung
-                tap_action: 
-                  action: toggle
-              - entity: automation.benachrichtigung_luftfeuchtigkeit
-                name: Luftfeuchtigkeit
-                tap_action: 
-                  action: toggle
+      - !include ../includes/radiator_automations.yaml

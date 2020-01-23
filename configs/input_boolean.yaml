@@ -7,8 +7,8 @@ automation_xiaomi_vacuum:
     icon: mdi:home-assistant
     
 automation_radiator:
-    name: Heizungsautomatisierung (Temp)
-    icon: mdi:home-assistant
+    name: Temperatursteuerung
+    icon: mdi:home-thermometer-outline
 
 radiator_on_off:
     name: heizungsstatus
