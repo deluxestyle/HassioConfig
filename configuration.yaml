@@ -122,7 +122,7 @@ camera:
     input: -rtsp_transport tcp -i rtsp://192.168.200.40:554/onvif1
 
 zone:
-  - name: Arbeit
+  - name: AGCS
     latitude: 48.104569
     longitude: 11.645074
     radius: 100
@@ -145,8 +145,3 @@ tplink:
 stream:
 
 ffmpeg:
-
-fritzbox_tools:
-  host: 192.168.200.1
-  username: !secret fritz_user
-  password: !secret fritz_password
