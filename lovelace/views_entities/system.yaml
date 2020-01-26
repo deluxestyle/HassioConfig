@@ -101,13 +101,17 @@ cards:
           - sensor.net_uptime
           - sensor.net_upload_max
           - sensor.net_upload_cur
-      - type: entities
-        entities:
-          - type: weblink
-            url: /config/automation
-            name: Automatisierung
-            icon: mdi:home-assistant
-          - type: weblink
-            url: /config/script
-            name: Skript
-            icon: mdi:home-assistant 
+      - type: horizontal-stack
+        cards:
+          - type: entities
+            entities:
+              - type: weblink
+                url: /config/automation
+                name: Automatisierung
+                icon: mdi:home-assistant
+          - type: entities
+            entities:
+              - type: weblink
+                url: /config/script
+                name: Skript
+                icon: mdi:home-assistant 
