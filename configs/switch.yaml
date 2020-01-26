@@ -153,3 +153,20 @@
         turn_off:
           - service: vacuum.return_to_base
             entity_id: vacuum.xiaomi_vacuum_cleaner
+    ###############################################
+    ###### Sonstiges ######
+    frontend:
+        friendly_name: "Erscheinungsbild"
+        value_template: "{{ is_state('input_boolean.frontend', 'on') }}"
+        turn_on:
+          - service: automation.trigger
+            entity_id: automation.frontend_nacht
+        turn_off:
+          - service: automation.trigger
+            entity_id: automation.frontend_tag
+        icon_template: >-
+          {% if is_state('input_boolean.frontend', 'on')  %}
+            mdi:brightness-2
+          {% else %}
+            mdi:brightness-5
+          {% endif %}

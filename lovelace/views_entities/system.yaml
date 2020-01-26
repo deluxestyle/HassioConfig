@@ -8,6 +8,7 @@ icon: mdi:settings-outline
 panel: true
 cards:
   - type: custom:layout-card
+    max_columns: 2
     cards:
       - type: entities
         entities:
@@ -58,6 +59,9 @@ cards:
           - entity: input_boolean.room_view
             tap_action: 
               action: toggle
+          - entity: switch.frontend
+            tap_action: 
+              action: toggle
       - type: glance
         columns: 4
         show_name: false
@@ -97,3 +101,13 @@ cards:
           - sensor.net_uptime
           - sensor.net_upload_max
           - sensor.net_upload_cur
+      - type: entities
+        entities:
+          - type: weblink
+            url: /config/automation
+            name: Automatisierung
+            icon: mdi:home-assistant
+          - type: weblink
+            url: /config/script
+            name: Skript
+            icon: mdi:home-assistant 

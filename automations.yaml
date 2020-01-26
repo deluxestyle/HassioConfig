@@ -744,6 +744,8 @@
   - data:
       name: night
     service: frontend.set_theme
+  - entity_id: input_boolean.frontend
+    service: input_boolean.turn_on
 - id: '1573153029833'
   alias: 'Frontend: Tag'
   description: ''
@@ -757,6 +759,8 @@
   - data:
       name: standard
     service: frontend.set_theme
+  - entity_id: input_boolean.frontend
+    service: input_boolean.turn_off
 - id: '1573317974047'
   alias: Harmony - Wifi Steckdose
   description: ''

@@ -507,3 +507,19 @@
   - data: {}
     entity_id: scene.thermostat_homematic_off
     service: scene.turn_on
+'1579815606545':
+  alias: 'Frontend: Standard'
+  sequence:
+  - data:
+      name: standard
+    service: frontend.set_theme
+  - entity_id: input_boolean.frontend
+    service: input_boolean.turn_off
+'1579815723738':
+  alias: 'Frontend: Nacht'
+  sequence:
+  - data:
+      name: night
+    service: frontend.set_theme
+  - entity_id: input_boolean.frontend
+    service: input_boolean.turn_on

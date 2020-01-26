@@ -28,3 +28,6 @@ presence_map:
 room_view:
     name: Raumansicht
     icon: mdi:home-circle-outline
+
+frontend:
+    name: Erscheinungsbild
