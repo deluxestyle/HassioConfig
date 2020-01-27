@@ -29,7 +29,7 @@ cards:
               - entity: light.leselampe
                 tap_action: 
                   action: toggle
-      - !include ../includes/light_bed_room.yaml
+      - !include ../includes/light/light_bed_room.yaml
       - type: entities
         entities:
           - entity: light.sonoff_office

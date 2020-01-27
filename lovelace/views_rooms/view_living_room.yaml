@@ -36,20 +36,7 @@ cards:
               - entity: light.leselampe
                 tap_action: 
                   action: toggle
-      - type: entities
-        entities:
-          - !include
-              - ../includes/climate.yaml
-              - entity: climate.oeq1696358
-                name: Wohnzimmer
-          - !include
-              - ../includes/thermostat.yaml
-              - entity: climate.oeq1696358
-                name: 158d0001b8c998          
-          - !include
-              - ../includes/climate_more.yaml
-              - entity: climate.oeq1696358
-                name: living_room
+      - !include ../includes/climate/climate_living_room.yaml
       - type: custom:vertical-stack-in-card
         cards:
           - type: entities

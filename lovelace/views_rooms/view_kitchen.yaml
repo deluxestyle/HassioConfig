@@ -28,20 +28,7 @@ cards:
               - entity: light.steckdose_4
                 tap_action: 
                   action: toggle
-      - type: entities
-        entities:
-          - !include
-              - ../includes/climate.yaml
-              - entity: climate.oeq1701003
-                name: Küche
-          - !include
-              - ../includes/thermostat.yaml
-              - entity: climate.oeq1701003
-                name: 158d0002239fb5
-          - !include
-              - ../includes/climate_more.yaml
-              - entity: climate.oeq1701003
-                name: homematic
+      - !include ../includes/climate/climate_kitchen.yaml
       - type: entities
         entities:
           - !include

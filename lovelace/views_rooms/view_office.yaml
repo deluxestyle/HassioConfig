@@ -13,20 +13,7 @@ cards:
             name: Büro
             tap_action: 
               action: toggle
-      - type: entities
-        entities:
-          - !include
-              - ../includes/climate.yaml
-              - entity: climate.int0000002
-                name: Büro
-          - !include
-              - ../includes/thermostat.yaml
-              - entity: climate.int0000002
-                name: oeq1667238
-          - !include
-              - ../includes/climate_more.yaml
-              - entity: climate.int0000002
-                name: office
+      - !include ../includes/climate/climate_office.yaml
       - type: entities
         entities:
           - entity: switch.steckdose_3

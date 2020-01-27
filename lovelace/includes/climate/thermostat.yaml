@@ -1,0 +1,8 @@
+# lovelace_gen
+
+entity: {{ sensor_temprature }} 
+name: Thermometer
+type: custom:multiple-entity-row
+primary:
+  entity: {{ sensor_humidity }}
+  name: false

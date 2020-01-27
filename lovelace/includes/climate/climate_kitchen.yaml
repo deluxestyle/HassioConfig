@@ -1,0 +1,13 @@
+# lovelace_gen
+
+type: entities
+entities:
+  - !include
+      - climate.yaml
+      - entity: climate.oeq1701003
+        name: Küche
+        sensor: homematic
+  - !include
+      - thermostat.yaml
+      - sensor_temprature: sensor.temperature_158d0002239fb5
+        sensor_humidity: sensor.humidity_158d0002239fb5 

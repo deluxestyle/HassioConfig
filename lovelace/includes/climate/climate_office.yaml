@@ -1,0 +1,13 @@
+# lovelace_gen
+
+type: entities
+entities:
+  - !include
+      - climate.yaml
+      - entity: climate.int0000002
+        name: Büro
+        sensor: office
+  - !include
+      - thermostat.yaml
+      - sensor_temprature: sensor.oeq1667238_temperature
+        sensor_humidity:  sensor.oeq1667238_humidity

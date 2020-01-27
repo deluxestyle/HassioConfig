@@ -13,7 +13,7 @@ cards:
             name: Licht
             tap_action: 
               action: toggle
-      - !include ../includes/radiator_automations.yaml
+      - !include ../includes/climate/climate_automations.yaml
       - type: entities
         entities:
           - entity: script.1532173931522

@@ -1,0 +1,13 @@
+# lovelace_gen
+
+type: entities
+entities:
+  - !include
+      - climate.yaml
+      - entity: climate.oeq1696369
+        name: Schlafzimmer
+        sensor: bed_room
+  - !include
+      - thermostat.yaml
+      - sensor_temprature: sensor.temperature_158d0001b8c96c
+        sensor_humidity: sensor.humidity_158d0001b8c96c 
