@@ -21,6 +21,9 @@ tap_action:
             }
           step_size: 0.5
           name: false
+          sensors:
+            - entity: sensor.valve_{{ sensor }}
+              name: Ventil
           label:
             temperature: Temperatur
           control :
@@ -38,8 +41,8 @@ tap_action:
         - entity: switch.radiator_{{ sensor }}_keylock
           tap_action: 
             action: toggle
-        - entity: sensor.valve_{{ sensor }}
-          name: Ventil
-          tap_action: 
-            action: none
+        # - entity: sensor.valve_{{ sensor }}
+        #   name: Ventil
+        #   tap_action: 
+        #     action: none
         {% endif %}

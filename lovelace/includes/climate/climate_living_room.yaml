@@ -5,7 +5,7 @@ entities:
   - !include
       - climate.yaml
       - entity: climate.oeq1696358
-        name: Wohmzimmer
+        name: Wohnzimmer
         sensor: living_room
   - !include
       - thermostat.yaml
