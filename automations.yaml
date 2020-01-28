@@ -542,8 +542,8 @@
   alias: Sonos stoppen
   trigger:
   - entity_id: person.wolfgang
+    from: home
     platform: state
-    to: not_home
   condition: []
   action:
   - data: {}

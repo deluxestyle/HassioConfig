@@ -420,7 +420,7 @@
     service: sonos.join
   - data:
       entity_id: media_player.bad, media_player.schlafzimmer, media_player.kuche
-      volume_level: '0.02'
+      volume_level: '0.03'
     service: media_player.volume_set
   - data:
       entity_id: media_player.schlafzimmer
