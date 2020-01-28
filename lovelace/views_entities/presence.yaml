@@ -68,9 +68,13 @@ cards:
             tap_action: 
               action: toggle
           - entity: script.1541097052191
+            name: Alarm ausschalten
+            icon: mdi:volume-off
             tap_action: 
               action: toggle
           - type: section
           - entity: automation.benachrichtigung_bewegung_erkannt
+            name: Bewegung erkannt
+            icon: mdi:cellphone-message
             tap_action: 
               action: toggle
