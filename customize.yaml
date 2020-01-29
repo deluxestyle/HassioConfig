@@ -146,7 +146,6 @@ automation.bewegungsmelder_alarm:
   icon: mdi:alarm-light
 light.schlafzimmer:
   friendly_name: Deckenlicht
-  icon: mdi:ceiling-light
 sensor.xiaomi_vacuum_filter_left:
   friendly_name: Filter
   icon: mdi:blur-linear

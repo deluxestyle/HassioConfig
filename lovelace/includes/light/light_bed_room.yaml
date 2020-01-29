@@ -5,7 +5,7 @@ entities:
   - type: custom:slider-entity-row
     entity: light.schlafzimmer
     name: Decke
-    toggle: true
+    # toggle: true
     tap_action: 
       action: toggle
   - entity: light.nachttischlampe_wolfgang
