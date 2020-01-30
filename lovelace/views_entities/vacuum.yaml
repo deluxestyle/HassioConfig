@@ -1,14 +1,5 @@
 # lovelace_gen
 
-## vacuum_buttons
-x-vacuum-buttons: &vacuum-buttons
-  #color: auto
-  show_name: false
-  color_type: icon
-  color: rgb(68, 115, 158)
-  entity: vacuum.xiaomi_vacuum_cleaner
-  size: 60%
-
 # -----------------------------
 title: Staubsauger
 path: vacuum
@@ -26,50 +17,24 @@ cards:
                 tap_action: 
                   action: none
               - type: section
-          - type: horizontal-stack
-            cards:
-              - type: "custom:button-card"
-                color_type: blank-card
-              - type: "custom:button-card"
-                icon: mdi:play
-                <<: *vacuum-buttons
-                tap_action:
-                  action: call-service
-                  service: vacuum.start
-                  service_data:
-                    entity_id: vacuum.xiaomi_vacuum_cleaner
-              - type: "custom:button-card"
-                color_type: blank-card
-              - type: "custom:button-card"
-                icon: mdi:pause
-                <<: *vacuum-buttons
-                tap_action:
-                  action: call-service
-                  service: vacuum.pause
-                  service_data:
-                    entity_id: vacuum.xiaomi_vacuum_cleaner
-              - type: "custom:button-card"
-                color_type: blank-card
-              - type: "custom:button-card"
-                icon: mdi:home
-                <<: *vacuum-buttons
-                tap_action:
-                  action: call-service
-                  service: vacuum.return_to_base
-                  service_data:
-                    entity_id: vacuum.xiaomi_vacuum_cleaner
-              - type: "custom:button-card"
-                color_type: blank-card
-              - type: "custom:button-card"
-                icon: mdi:map-marker
-                <<: *vacuum-buttons
-                tap_action:
-                  action: call-service
-                  service: vacuum.locate
-                  service_data:
-                    entity_id: vacuum.xiaomi_vacuum_cleaner
-              - type: "custom:button-card"
-                color_type: blank-card
+          - type: "custom:button-entity-row"
+            buttons:
+              - icon: mdi:play
+                service: vacuum.start
+                service_data:
+                  entity_id: vacuum.xiaomi_vacuum_cleaner
+              - icon: mdi:pause
+                service: vacuum.pause
+                service_data:
+                  entity_id: vacuum.xiaomi_vacuum_cleaner
+              - icon: mdi:home
+                service: vacuum.return_to_base
+                service_data:
+                  entity_id: vacuum.xiaomi_vacuum_cleaner
+              - icon: mdi:map-marker
+                service: vacuum.locate
+                service_data:
+                  entity_id: vacuum.xiaomi_vacuum_cleaner
           - type: entities
             entities:
               - type: custom:fold-entity-row

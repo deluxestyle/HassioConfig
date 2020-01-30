@@ -8,6 +8,7 @@ entities:
     # toggle: true
     tap_action: 
       action: toggle
+  - type: section
   - entity: light.nachttischlampe_wolfgang
     name: Bettlampe Wolfgang
     tap_action: 

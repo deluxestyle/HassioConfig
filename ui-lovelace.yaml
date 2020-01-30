@@ -33,6 +33,8 @@ resources:
     type: module
   - url: /community_plugin/lovelace-slider-entity-row/slider-entity-row.js
     type: module
+  - url: /community_plugin/button-entity-row/button-entity-row.js
+    type: module
 
 # -----------------------------
 custom_header:
