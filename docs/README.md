@@ -32,21 +32,21 @@ Alexa connection via Home Assistant Alexa Skill Adapter
 Home Assistant Community Store
 * https://github.com/hacs
 
-![Screenshots](/docs/mobile/IMG_2403.PNG)
-![Screenshots](/docs/mobile/IMG_2404.PNG)
-![Screenshots](/docs/mobile/IMG_2405.PNG)
-![Screenshots](/docs/mobile/IMG_2406.PNG)
-![Screenshots](/docs/mobile/IMG_2407.PNG)
-![Screenshots](/docs/mobile/IMG_2408.PNG)
-![Screenshots](/docs/mobile/IMG_2409.PNG)
-![Screenshots](/docs/mobile/IMG_2410.PNG)
-![Screenshots](/docs/mobile/IMG_2411.PNG)
-![Screenshots](/docs/mobile/IMG_2412.PNG)
-![Screenshots](/docs/mobile/IMG_2413.PNG)
-![Screenshots](/docs/mobile/IMG_2414.PNG)
-![Screenshots](/docs/mobile/IMG_2415.PNG)
-![Screenshots](/docs/mobile/IMG_2416.PNG)
-![Screenshots](/docs/mobile/IMG_2417.PNG)
-![Screenshots](/docs/mobile/IMG_2418.PNG)
-![Screenshots](/docs/mobile/IMG_2419.PNG)
-![Screenshots](/docs/mobile/IMG_2420.PNG)
+![Screenshots](/docs/mobile/IMG_2403.PNG) { width=50% height=50% }
+![Screenshots](/docs/mobile/IMG_2404.PNG) { width=50% height=50% }
+![Screenshots](/docs/mobile/IMG_2405.PNG) { width=50% height=50% }
+![Screenshots](/docs/mobile/IMG_2406.PNG) { width=50% height=50% }
+![Screenshots](/docs/mobile/IMG_2407.PNG) { width=50% height=50% }
+![Screenshots](/docs/mobile/IMG_2408.PNG) { width=50% height=50% }
+![Screenshots](/docs/mobile/IMG_2409.PNG) { width=50% height=50% }
+![Screenshots](/docs/mobile/IMG_2410.PNG) { width=50% height=50% }
+![Screenshots](/docs/mobile/IMG_2411.PNG) { width=50% height=50% }
+![Screenshots](/docs/mobile/IMG_2412.PNG) { width=50% height=50% }
+![Screenshots](/docs/mobile/IMG_2413.PNG) { width=50% height=50% }
+![Screenshots](/docs/mobile/IMG_2414.PNG) { width=50% height=50% }
+![Screenshots](/docs/mobile/IMG_2415.PNG) { width=50% height=50% }
+![Screenshots](/docs/mobile/IMG_2416.PNG) { width=50% height=50% }
+![Screenshots](/docs/mobile/IMG_2417.PNG) { width=50% height=50% }
+![Screenshots](/docs/mobile/IMG_2418.PNG) { width=50% height=50% }
+![Screenshots](/docs/mobile/IMG_2419.PNG) { width=50% height=50% }
+![Screenshots](/docs/mobile/IMG_2420.PNG) { width=50% height=50% }
