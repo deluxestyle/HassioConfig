@@ -3,16 +3,11 @@
 type: entities
 entities:
   - entity: switch.radiator_on_off
-    type: custom:multiple-entity-row
-    toggle: true
-    primary:
-      entity: sensor.dark_sky_temperature
-      name: Außentemperatur
     tap_action: 
       action: toggle
-  # - entity: sensor.dark_sky_temperature
-  #   tap_action: 
-  #     action: none
+  - entity: sensor.dark_sky_temperature
+    tap_action: 
+      action: none
   - type: custom:fold-entity-row
     head:
       type: section
