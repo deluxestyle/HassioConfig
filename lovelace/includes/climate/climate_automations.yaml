@@ -7,7 +7,7 @@ entities:
     toggle: true
     primary:
       entity: sensor.dark_sky_temperature
-      name: außen Temperatur
+      name: Außentemperatur
     tap_action: 
       action: toggle
   # - entity: sensor.dark_sky_temperature
