@@ -2,10 +2,6 @@
 
 My HomeAssistant Config:
 
-Lights | Radiator | Vacuum | TV | PowerPlug | Presence | Car | Others
----------- | ----------- | ------------ | ----------- | ----------- | ----------- | ----------- | -----------
-<img src="https://github.com/deluxestyle/HassioConfig/blob/master/docs/screenshots/light.png" alt="Lichter" > | <img src="https://github.com/deluxestyle/HassioConfig/blob/master/docs/screenshots/radiator.png" alt="Heizung"> | <img src="https://github.com/deluxestyle/HassioConfig/blob/master/docs/screenshots/vacuum.png" alt="Staubsauger"> | <img src="https://github.com/deluxestyle/HassioConfig/blob/master/docs/screenshots/entertainment.png" alt="Multimedia"> | <img src="https://github.com/deluxestyle/HassioConfig/blob/master/docs/screenshots/power_plugs.png" alt="Steckdosen"> | <img src="https://github.com/deluxestyle/HassioConfig/blob/master/docs/screenshots/presence.png" alt="Anwesenheit"> | <img src="https://github.com/deluxestyle/HassioConfig/blob/master/docs/screenshots/car.png" alt="Auto"> | <img src="https://github.com/deluxestyle/HassioConfig/blob/master/docs/screenshots/other.png" alt="Sonstiges"> |
-
 Following components are used:
 * Xiaomi Gateway
 * Xiaomi Vacuum Roborock
@@ -36,3 +32,4 @@ Alexa connection via Home Assistant Alexa Skill Adapter
 Home Assistant Community Store
 * https://github.com/hacs
 
+:::image type="content" source="mobile/IMG_2403.PNG" alt-text="living room":::
