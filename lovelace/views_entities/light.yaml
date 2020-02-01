@@ -7,28 +7,7 @@ panel: true
 cards:
   - type: custom:layout-card
     cards:
-      - type: entities
-        entities:
-          - entity: light.lights_living_room
-            name: Wohnzimmer
-            tap_action: 
-              action: toggle
-          - input_select.scenes_living_room
-          - type: custom:fold-entity-row
-            head: 
-              type: section
-              label: Lampen
-            padding: 5
-            entities:
-              - entity: light.decke
-                tap_action: 
-                  action: toggle
-              - entity: light.tisch
-                tap_action: 
-                  action: toggle
-              - entity: light.leselampe
-                tap_action: 
-                  action: toggle
+      - !include ../includes/light/light_living_room.yaml
       - !include ../includes/light/light_bed_room.yaml
       - type: entities
         entities:
@@ -36,27 +15,7 @@ cards:
             name: Büro
             tap_action: 
               action: toggle
-      - type: entities
-        entities:
-          - entity: light.lights_kitchen
-            name: Küche
-            tap_action: 
-              action: toggle
-          - type: custom:fold-entity-row
-            head: 
-              type: section
-              label: Lampen
-            padding: 5
-            entities:
-              - entity: light.deckenlicht
-                tap_action: 
-                  action: toggle
-              - entity: light.steckdose_2
-                tap_action: 
-                  action: toggle
-              - entity: light.steckdose_4
-                tap_action: 
-                  action: toggle
+      - !include ../includes/light/light_kitchen.yaml
       - type: entities
         entities:
           - entity: light.gateway_light_7811dcb258d1

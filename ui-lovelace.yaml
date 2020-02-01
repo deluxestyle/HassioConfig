@@ -95,9 +95,6 @@ views:
 ##### Flur #####
   - !include lovelace/views_rooms/view_floor.yaml
 
-##### Hass #####
-  - !include lovelace/views_rooms/view_hass.yaml
-
 ##### Steckdosen #####
   - !include lovelace/views_entities/power_plug.yaml
 
@@ -112,6 +109,9 @@ views:
 
 ##### System #####
   - !include lovelace/views_entities/system.yaml
+
+##### Hass #####
+  - !include lovelace/views_rooms/view_hass.yaml
 
 ##### Karte #####
   - !include lovelace/views_entities/map.yaml

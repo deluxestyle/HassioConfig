@@ -7,27 +7,7 @@ panel: true
 cards:
   - type: custom:layout-card
     cards:
-      - type: entities
-        entities:
-          - entity: light.lights_kitchen
-            name: Küche
-            tap_action: 
-              action: toggle
-          - type: custom:fold-entity-row
-            head: 
-              type: section
-              label: Lampen
-            padding: 5
-            entities:
-              - entity: light.deckenlicht
-                tap_action: 
-                  action: toggle
-              - entity: light.steckdose_2
-                tap_action: 
-                  action: toggle
-              - entity: light.steckdose_4
-                tap_action: 
-                  action: toggle
+      - !include ../includes/light/light_kitchen.yaml
       - !include ../includes/climate/climate_kitchen.yaml
       - type: entities
         entities:

@@ -4,11 +4,12 @@ type: entities
 entities:
   - type: custom:slider-entity-row
     entity: light.schlafzimmer
+    icon: mdi:ceiling-light
     name: Decke
     # toggle: true
     tap_action: 
       action: toggle
-  - type: section
+  # - type: section
   - entity: light.nachttischlampe_wolfgang
     name: Bettlampe Wolfgang
     tap_action: 

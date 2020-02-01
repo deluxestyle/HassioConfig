@@ -1,0 +1,14 @@
+# lovelace_gen
+
+type: entities
+entities:
+  - entity: light.lights_living_room
+    name: Wohnzimmer
+    tap_action: 
+      action: toggle
+  - type: "custom:button-entity-row"
+    buttons:
+      - entity: light.decke
+      - entity: light.tisch
+      - entity: light.leselampe
+      - entity: input_select.scenes_living_room
