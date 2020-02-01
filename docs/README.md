@@ -1,8 +1,8 @@
 # HomeAssistant Config
 
-My HomeAssistant Config:
+### My HomeAssistant Config:
 
-Following components are used:
+#### Following components are used:
 * Xiaomi Gateway
 * Xiaomi Vacuum Roborock
 * Xiaomi Aqara Sensors (temperature, humidity, motion)
@@ -21,7 +21,7 @@ Following components are used:
 * Harman Kardon AVR Receiver
 * Sonoff Touch (integrated with Tasmota)
 
-Custom card/entities for lovelace:
+#### Custom card/entities for lovelace:
 * button-card
 * button-entity-row
 * compact-custom-header
@@ -41,21 +41,18 @@ Custom card/entities for lovelace:
 * swipe-card
 * vertical-stack-in-card
 
-Custom Components
+#### Custom Components
 * authenticated
 * auto_backup
-* browser_mod
+* browser_mod (used as popups for simple-thermostat and for a remote card => see screenshot 2 and 3)
 * fritzbox_tools
 * hacs
-* lovelace_gen
+* lovelace_gen (very helpful to split the lovelace set up and reduce redudant code)
 
-Alexa connection via Home Assistant Alexa Skill Adapter
+#### Alexa connection via Home Assistant Alexa Skill Adapter
 * https://github.com/mike-grant/haaska
 
-Home Assistant Community Store
-* https://github.com/hacs
-
-
+#### Screenshots of the mobile set up (day/night themes and switch between a room or a entity/domain view)
 <img src="/docs/mobile/IMG_2403.PNG" alt="Screenshots" width="225" height="487">|<img src="/docs/mobile/IMG_2404.PNG" alt="Screenshots" width="225" height="487">
 <img src="/docs/mobile/IMG_2405.PNG" alt="Screenshots" width="225" height="487">|<img src="/docs/mobile/IMG_2406.PNG" alt="Screenshots" width="225" height="487">
 <img src="/docs/mobile/IMG_2407.PNG" alt="Screenshots" width="225" height="487">|<img src="/docs/mobile/IMG_2408.PNG" alt="Screenshots" width="225" height="487">
