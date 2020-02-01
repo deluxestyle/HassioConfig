@@ -4,10 +4,12 @@ My HomeAssistant Config:
 
 Following components are used:
 * Xiaomi Gateway
-* Xiaomi Vacuum Roborock![
-* Xiaomi Aqua Sensors
+* Xiaomi Vacuum Roborock
+* Xiaomi Aqara Sensors (temperature, humidity, motion)
+* Xiaomi Aqara Switch
 * Xiaomi Yeelight
-* Philips Hue
+* Philips Hue Lights
+* Osram PowerPlug
 * Homematic
 * Sonos
 * Harmony Hub
@@ -15,16 +17,37 @@ Following components are used:
 * Fritz.Box (as presence tracker)
 * Frizt.Box Thermostate
 * deconz (zigbee integration)
-* and a lot more
+* Logitech Harmony Hub
+* Harman Kardon AVR Receiver
+* Sonoff Touch (integrated with Tasmota)
 
-Using a lot of custom elements for lovelace:
-* https://github.com/maykar/custom-header
-* https://github.com/kalkih/mini-media-player
-* https://github.com/thomasloven/lovelace-card-tools
-* https://github.com/thomasloven/lovelace-time-input-row
-* https://github.com/thomasloven/lovelace-fold-entity-row
-* https://github.com/custom-cards/vertical-stack-in-card
-and much more
+Custom card/entities for lovelace:
+* button-card
+* button-entity-row
+* compact-custom-header
+* custom-header
+* group-card
+* lovelace-auto-entities
+* lovelace-card-mod
+* lovelace-card-tools
+* lovelace-fold-entity-row
+* lovelace-layout-card
+* lovelace-multiple-entity-row
+* lovelace-slider-entity-row
+* lovelace-swipe-navigation
+* mini-graph-card
+* mini-media-player
+* simple-thermostat
+* swipe-card
+* vertical-stack-in-card
+
+Custom Components
+* authenticated
+* auto_backup
+* browser_mod
+* fritzbox_tools
+* hacs
+* lovelace_gen
 
 Alexa connection via Home Assistant Alexa Skill Adapter
 * https://github.com/mike-grant/haaska
