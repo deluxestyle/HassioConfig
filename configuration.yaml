@@ -55,24 +55,24 @@ script: !include scripts.yaml
 automation: !include automations.yaml
 scene: !include scenes.yaml
 
-recorder: !include configs/recorder.yaml
-alexa: !include configs/alexa.yaml
-switch: !include configs/switch.yaml  
-light: !include configs/light.yaml
-input_select: !include configs/input_selects.yaml
-input_boolean: !include configs/input_boolean.yaml
-input_datetime: !include configs/input_datetime.yaml
-input_number: !include configs/input_number.yaml
-counter: !include configs/counter.yaml
-media_player: !include configs/media_player.yaml
-influxdb: !include configs/influxdb.yaml
-ios: !include configs/push.yaml
-homekit: !include configs/homekit.yaml
-browser_mod: !include configs/browser_mod.yaml
-calendar: !include configs/calendar.yaml
-homematic: !include configs/homematic.yaml
+recorder: !include config_files/recorder.yaml
+alexa: !include config_files/alexa.yaml
+switch: !include config_files/switch.yaml  
+light: !include config_files/light.yaml
+input_select: !include config_files/input_selects.yaml
+input_boolean: !include config_files/input_boolean.yaml
+input_datetime: !include config_files/input_datetime.yaml
+input_number: !include config_files/input_number.yaml
+counter: !include config_files/counter.yaml
+media_player: !include config_files/media_player.yaml
+influxdb: !include config_files/influxdb.yaml
+ios: !include config_files/push.yaml
+homekit: !include config_files/homekit.yaml
+browser_mod: !include config_files/browser_mod.yaml
+calendar: !include config_files/calendar.yaml
+homematic: !include config_files/homematic.yaml
 
-sensor: !include_dir_merge_list configs/sensors/
+sensor: !include_dir_merge_list config_files/sensors/
 
 # hue:
 #   bridges:
