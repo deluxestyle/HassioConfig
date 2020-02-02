@@ -9,6 +9,11 @@ tap_action:
     deviceID: this
     title: Heizung {{ name }}
     card:
+      style: |
+        ha-card {
+          --ha-card-box-shadow: 'none';
+          --ha-card-border-radius: "0px";
+        }
       type: entities
       entities: 
         - type: 'custom:simple-thermostat'

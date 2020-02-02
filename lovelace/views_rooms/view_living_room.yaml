@@ -25,6 +25,10 @@ cards:
                       type: custom:vertical-stack-in-card
                       cards:
                         - type: entities
+                          style: |
+                            :host {
+                              --ha-card-border-radius: "0px";
+                            }
                           entities:
                             - entity: sensor.remote_state
                         - type: horizontal-stack
@@ -75,6 +79,10 @@ cards:
                             - type: "custom:button-card"
                               color_type: blank-card
                         - type: entities
+                          style: |
+                            :host {
+                              --ha-card-border-radius: "0px";
+                            }
                           entities:
                             - input_select.avr_source
       - type: entities
