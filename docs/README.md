@@ -10,12 +10,12 @@
 * Xiaomi Yeelight
 * Philips Hue Lights
 * Osram PowerPlug
-* Homematic
+* Homematic Thermostat 
 * Sonos
 * Harmony Hub
 * BMW connected drive
 * Fritz.Box (as presence tracker)
-* Frizt.Box Thermostate
+* Frizt.Box Thermostat 
 * deconz (zigbee integration)
 * Logitech Harmony Hub
 * Harman Kardon AVR Receiver
