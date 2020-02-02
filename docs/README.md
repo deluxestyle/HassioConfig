@@ -53,6 +53,8 @@
 * https://github.com/mike-grant/haaska
 
 #### Screenshots of the mobile set up (day/night themes and switch between a room or a entity/domain view)
+<img src="https://tanzer-online.com/others/Home-Assistant-2020-02-02-16-48-18.gif" > 
+
 <img src="/docs/mobile/IMG_2403.PNG" alt="Screenshots" width="225" height="487">|<img src="/docs/mobile/IMG_2404.PNG" alt="Screenshots" width="225" height="487">
 <img src="/docs/mobile/IMG_2405.PNG" alt="Screenshots" width="225" height="487">|<img src="/docs/mobile/IMG_2406.PNG" alt="Screenshots" width="225" height="487">
 <img src="/docs/mobile/IMG_2407.PNG" alt="Screenshots" width="225" height="487">|<img src="/docs/mobile/IMG_2408.PNG" alt="Screenshots" width="225" height="487">
