@@ -107,7 +107,7 @@ cards:
             entities:
               - type: weblink
                 url: /config/automation
-                name: Automatisierung
+                name: Automation
                 icon: mdi:home-assistant
           - type: entities
             entities:

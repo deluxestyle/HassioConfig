@@ -469,7 +469,7 @@
       entity_id: input_boolean.persistent_notification
     service: input_boolean.turn_off
 '1570443737111':
-  alias: Benachrichtigungen löschen
+  alias: Mitteilungen löschen
   sequence:
   - data: {}
     service: python_script.dismiss_notifications

@@ -3,7 +3,7 @@ camera_cctv:
     icon: mdi:cctv
     
 automation_xiaomi_vacuum:
-    name: Staubsaugerautomatisierung
+    name: Staubsaugerautomation
     icon: mdi:home-assistant
     
 automation_radiator:

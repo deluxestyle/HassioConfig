@@ -40,7 +40,7 @@ cards:
               - type: custom:fold-entity-row
                 head:
                   type: section
-                  label: Automatisierung
+                  label: Automation
                 padding: 5
                 entities:
                   - entity: automation.xiaomi_staubsauger_abwesenheit
@@ -117,7 +117,7 @@ cards:
               - type: custom:fold-entity-row
                 head:
                   type: section
-                  label: Benachrichtigungen
+                  label: Mitteilungen
                 padding: 5
                 entities:
                   - entity: automation.xiaomi_staubsauger_fehler
