@@ -2,7 +2,7 @@
 
 title: Küche
 path: kitchen
-icon: mdi:fridge-outline
+icon: mdi:fridge
 panel: true
 cards:
   - type: custom:layout-card
