@@ -21,8 +21,8 @@ tap_action:
           style: |
             ha-card {
               --ha-card-box-shadow: 'none';
-              --st-font-size-sensors: 16px;
-              --st-font-size-xl: 40px;
+              --st-font-size-sensors: 14px;
+              --st-font-size-xl: 35px;
             }
           step_size: 0.5
           name: false
