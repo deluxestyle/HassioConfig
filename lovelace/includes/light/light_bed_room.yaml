@@ -2,14 +2,31 @@
 
 type: entities
 entities:
-  - type: custom:slider-entity-row
-    entity: light.schlafzimmer
+  - entity: light.schlafzimmer
     icon: mdi:ceiling-light
     name: Decke
-    # toggle: true
     tap_action: 
       action: toggle
-  # - type: section
+    hold_action:
+      action: call-service
+      service: browser_mod.popup
+      service_data:
+        deviceID: this
+        title: Szenen
+        card:
+          style: |
+            ha-card {
+              --ha-card-box-shadow: 'none';
+              --ha-card-border-radius: "0px";
+            }
+          type: "custom:button-entity-row"
+          buttons:
+            - entity: scene.schlafzimmer_nachtlicht
+              icon: mdi:brightness-3
+            - entity: scene.schlafzimmer_gedimmt
+              icon: mdi:brightness-4
+            - entity: scene.schlafzimmer_hell
+              icon: mdi:brightness-5
   - entity: light.nachttischlampe_wolfgang
     name: Bettlampe Wolfgang
     tap_action: 
