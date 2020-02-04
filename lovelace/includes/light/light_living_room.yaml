@@ -11,4 +11,70 @@ entities:
       - entity: light.decke
       - entity: light.tisch
       - entity: light.leselampe
-      - entity: input_select.scenes_living_room
+      - name: Szenen
+        service: browser_mod.popup
+        service_data:
+          deviceID: this
+          title: Szenen
+          card:
+            style: |
+              ha-card {
+                --ha-card-box-shadow: 'none';
+                --ha-card-border-radius: "0px";
+              }
+            type: entities
+            entities: 
+                - entity: scene.wohnzimmer_sehr_hell
+                  name: Sehr hell
+                - entity: scene.wohnzimmer_hell
+                  name: Hell
+                - entity: scene.wohnzimmer_lesen
+                  name: Lesen
+                - entity: scene.wohnzimmer_entspannen
+                  name: Entspannen
+                - entity: scene.wohnzimmer_energie_tanken
+                  name: Energie tanken
+                - entity: scene.wohnzimmer_konzentrieren
+                  name: Konzentrieren
+                - entity: scene.wohnzimmer_gedimmt
+                  name: Gedimmt
+                - entity: scene.wohnzimmer_nachtlicht
+                  name: Nachtlicht
+                - entity: scene.wohnzimmer_nordlicht
+                  name: Nordlicht
+                - entity: scene.wohnzimmer_sommer
+                  name: Sommer
+                - entity: scene.wohnzimmer_sonnenuntergang
+                  name: Sonnenuntergang
+      - icon: mdi:settings-outline
+        service: browser_mod.popup
+        service_data:
+          deviceID: this
+          title: Lampen
+          card:
+            type: custom:swipe-card
+            parameters:
+              grabCursor: true
+            cards:
+              - type: custom:more-info-card
+                style: |
+                  ha-card {
+                    --ha-card-box-shadow: 'none';
+                    --ha-card-border-radius: "0px";
+                  }
+                entity: light.decke
+              - type: custom:more-info-card
+                style: |
+                  ha-card {
+                    --ha-card-box-shadow: 'none';
+                    --ha-card-border-radius: "0px";
+                  }
+                entity: light.tisch
+              - type: custom:more-info-card
+                style: |
+                  ha-card {
+                    --ha-card-box-shadow: 'none';
+                    --ha-card-border-radius: "0px";
+                  }
+                entity: light.leselampe
+

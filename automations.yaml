@@ -417,7 +417,6 @@
       keep_days: 0
       repack: true
     service: recorder.purge
-  - service: python_script.set_living_room_scenes
 - id: '1543669218842'
   alias: 'Xiaomi Staubsauger: Zonenreinigung'
   trigger:

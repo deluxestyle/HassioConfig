@@ -6,8 +6,6 @@ entities:
     icon: mdi:ceiling-light
     name: Decke
     tap_action: 
-      action: toggle
-    hold_action:
       action: call-service
       service: browser_mod.popup
       service_data:
@@ -19,14 +17,17 @@ entities:
               --ha-card-box-shadow: 'none';
               --ha-card-border-radius: "0px";
             }
-          type: "custom:button-entity-row"
-          buttons:
+          type: entities
+          entities:
             - entity: scene.schlafzimmer_nachtlicht
               icon: mdi:brightness-3
+              name: Nachtlicht
             - entity: scene.schlafzimmer_gedimmt
               icon: mdi:brightness-4
+              name: Gedimmt
             - entity: scene.schlafzimmer_hell
               icon: mdi:brightness-5
+              name: Hell
   - entity: light.nachttischlampe_wolfgang
     name: Bettlampe Wolfgang
     tap_action: 

@@ -35,6 +35,10 @@ resources:
     type: module
   - url: /community_plugin/button-entity-row/button-entity-row.js
     type: module
+  - url: /community_plugin/lovelace-more-info-card/more-info-card.js
+    type: module
+  - url: /community_plugin/swipe-card/swipe-card.js
+    type: module
 
 # -----------------------------
 custom_header:
