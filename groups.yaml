@@ -1,8 +1,6 @@
 ## Scenes for the input select
 scenes_living_room:
     name: Wohnzimmer Szenen
-    view: false
-    control: hidden
     entities:
       - scene.wohnzimmer_energie_tanken
       - scene.wohnzimmer_entspannen
