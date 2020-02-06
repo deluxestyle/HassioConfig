@@ -10,7 +10,7 @@ cards:
       - type: entities
         entities:
           - entity: light.lights_all
-            name: Licht
+            name: Licht (alle Lampen)
             tap_action: 
               action: toggle
       - !include ../includes/climate/climate_automations.yaml

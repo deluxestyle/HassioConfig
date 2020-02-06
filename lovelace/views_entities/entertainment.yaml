@@ -35,7 +35,7 @@ cards:
                 color_type: blank-card
               - type: "custom:button-card"
                 icon: mdi:volume-minus
-                color: rgb(68, 115, 158)
+                color: var(--paper-item-icon-color)
                 size: 75%
                 tap_action:
                   action: call-service
@@ -44,7 +44,7 @@ cards:
                     entity_id: media_player.harman_kardon_avr
               - type: "custom:button-card"
                 icon: mdi:volume-plus
-                color: rgb(68, 115, 158)
+                color: var(--paper-item-icon-color)
                 size: 75%
                 tap_action:
                   action: call-service
@@ -52,7 +52,7 @@ cards:
                   service_data:
                     entity_id: media_player.harman_kardon_avr
               - type: custom:button-card
-                color: rgb(68, 115, 158)
+                color: var(--paper-item-icon-color)
                 size: 75%
                 icon: mdi:volume-off
                 tap_action:
