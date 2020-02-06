@@ -12,12 +12,12 @@ cards:
     cards:
       - type: entities
         entities:
-          - entity: script.1570443737111
-            tap_action: 
-              action: toggle
-          - entity: script.1570439203461
-            tap_action: 
-              action: toggle
+          - type: "custom:button-entity-row"
+            buttons:
+              - entity: script.1570443737111
+                name: Mitteilung löschen
+              - entity: script.1570439203461
+                name: Badge löschen
       - type: entities
         entities:
           - entity: automation.tagliches_backup_auto_backup
@@ -54,14 +54,6 @@ cards:
                 head: group.battery_status_xiaomi
               - type: custom:fold-entity-row
                 head: group.battery_status_hue
-      - type: entities
-        entities:
-          - entity: input_boolean.room_view
-            tap_action: 
-              action: toggle
-          - entity: switch.frontend
-            tap_action: 
-              action: toggle
       - type: glance
         columns: 4
         show_name: false
@@ -103,27 +95,22 @@ cards:
           - sensor.net_upload_cur
       - type: entities
         entities:
-          - entity: switch.hass_io_addon_glances
-            icon: mdi:speedometer
-            name: Glances
-            tap_action: 
-              action: toggle
-          - entity: switch.hass_io_addon_grafana
-            icon: mdi:chart-timeline
-            name: Grafana
-            tap_action: 
-              action: toggle
-      - type: horizontal-stack
-        cards:
-          - type: entities
-            entities:
-              - type: weblink
-                url: /config/automation
-                name: Automation
-                icon: mdi:home-assistant
-          - type: entities
-            entities:
-              - type: weblink
-                url: /config/script
-                name: Skript
-                icon: mdi:home-assistant 
+          - type: "custom:button-entity-row"
+            buttons:
+              - entity: input_boolean.room_view
+              - entity: switch.frontend
+              - entity: switch.hass_io_addon_glances
+                icon: mdi:speedometer
+              - entity: switch.hass_io_addon_grafana
+                icon: mdi:chart-timeline
+              - icon: mdi:script-text
+                service: browser_mod.navigate
+                service_data: 
+                  navigation_path: /config/script
+                  deviceID: this
+              - icon: mdi:robot
+                service: browser_mod.navigate
+                service_data: 
+                  navigation_path: /config/automation
+                  deviceID: this
+        
