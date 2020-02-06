@@ -105,12 +105,22 @@ cards:
         cards:
           - type: entities
             entities:
+              - entity: switch.hass_io_addon_glances
+                icon: mdi:speedometer
+                name: Glances
+                tap_action: 
+                  action: toggle
+              - entity: switch.hass_io_addon_grafana
+                icon: mdi:chart-timeline
+                name: Grafana
+                tap_action: 
+                  action: toggle
+          - type: entities
+            entities:
               - type: weblink
                 url: /config/automation
                 name: Automation
                 icon: mdi:home-assistant
-          - type: entities
-            entities:
               - type: weblink
                 url: /config/script
                 name: Skript

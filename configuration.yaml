@@ -145,3 +145,5 @@ tplink:
 stream:
 
 ffmpeg:
+
+hassio_info:
