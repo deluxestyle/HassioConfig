@@ -36,6 +36,7 @@ tap_action:
             _names: true
         {% if name.startswith("Bad") %}
         - entity: automation.heizung_bad_timer
+          icon: mdi:av-timer
           name: Bad Timer
           tap_action: 
             action: toggle

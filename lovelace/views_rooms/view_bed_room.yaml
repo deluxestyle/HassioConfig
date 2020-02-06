@@ -22,5 +22,6 @@ cards:
             entities:
               - input_datetime.sonos_alarm
               - entity: automation.sonos_wecker
+                icon: mdi:av-timer
                 tap_action: 
                   action: toggle
