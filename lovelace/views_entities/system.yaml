@@ -48,12 +48,9 @@ cards:
               label: Batteriestatus
             padding: 5
             entities:
-              - type: custom:fold-entity-row
-                head: group.battery_status_homematic
-              - type: custom:fold-entity-row
-                head: group.battery_status_xiaomi
-              - type: custom:fold-entity-row
-                head: group.battery_status_hue
+              - group.battery_status_hue
+              - group.battery_status_homematic
+              - group.battery_status_xiaomi
       - type: glance
         columns: 4
         show_name: false
