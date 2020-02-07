@@ -7,27 +7,11 @@ panel: true
 cards:
   - type: custom:layout-card
     cards:
-      - type: entities
-        entities:
-          - entity: light.lights_all
-            name: Licht (alle Lampen)
-            tap_action: 
-              action: toggle
+      # - type: entities
+      #   entities:
+      #     - entity: light.lights_all
+      #       name: Licht (alle Lampen)
+      #       tap_action: 
+      #         action: toggle
       - !include ../includes/climate/climate_automations.yaml
-      - type: entities
-        entities:
-          - entity: script.1532173931522
-            tap_action: 
-              action: toggle
-          - type: custom:fold-entity-row
-            head:
-              type: section
-              label: Automation
-            padding: 5
-            entities:
-              - entity: automation.sonos_starten
-                tap_action: 
-                  action: toggle
-              - entity: automation.sonos_stoppen
-                tap_action: 
-                  action: toggle
+      - !include ../includes/multimedia/sonos_automation.yaml

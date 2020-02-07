@@ -17,7 +17,7 @@ popup_cards:
             }
           entities:
             - entity: sensor.remote_state
-        - !include ../includes/remote_buttons.yaml
+        - !include ../includes/multimedia/remote_buttons.yaml
         - type: entities
           style: |
             :host {

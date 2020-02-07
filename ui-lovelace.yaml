@@ -112,11 +112,11 @@ views:
 ##### Auto ##### 
   - !include lovelace/views_entities/car.yaml
 
-##### System #####
-  - !include lovelace/views_entities/system.yaml
-
 ##### Hass #####
   - !include lovelace/views_rooms/view_hass.yaml
+
+##### System #####
+  - !include lovelace/views_entities/system.yaml
 
 ##### Karte #####
   - !include lovelace/views_entities/map.yaml

@@ -12,7 +12,7 @@ cards:
       - type: entities
         entities:
           - !include
-              - ../includes/mini_media_player.yaml
+              - ../includes/multimedia/mini_media_player.yaml
               - entity: media_player.schlafzimmer
           - type: custom:fold-entity-row
             head:

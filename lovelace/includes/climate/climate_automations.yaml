@@ -19,6 +19,7 @@ entities:
           action: toggle
       - entity: automation.heizung_abwesenheitsschaltung
         name: Abwesenheitsschaltung
+        icon: mdi:account-arrow-right
         tap_action: 
           action: toggle
       - entity: automation.heizung_standby

@@ -11,35 +11,8 @@ cards:
       - type: entities
         entities:
           - !include
-              - ../includes/mini_media_player.yaml
+              - ../includes/multimedia/mini_media_player.yaml
               - entity: media_player.schlafzimmer
-      - type: entities
-        entities:
-          - !include
-              - ../includes/mini_media_player.yaml
-              - entity: media_player.bad
-      - type: entities
-        entities:
-          - !include
-              - ../includes/mini_media_player.yaml
-              - entity: media_player.kuche
-      - type: entities
-        entities:
-          - entity: script.1532173931522
-            tap_action: 
-              action: toggle
-          - type: custom:fold-entity-row
-            head:
-              type: section
-              label: Automation
-            padding: 5
-            entities:
-              - entity: automation.sonos_starten
-                tap_action: 
-                  action: toggle
-              - entity: automation.sonos_stoppen
-                tap_action: 
-                  action: toggle
           - type: custom:fold-entity-row
             head:
               type: section
@@ -51,3 +24,14 @@ cards:
                 icon: mdi:av-timer
                 tap_action: 
                   action: toggle
+      - type: entities
+        entities:
+          - !include
+              - ../includes/multimedia/mini_media_player.yaml
+              - entity: media_player.bad
+      - type: entities
+        entities:
+          - !include
+              - ../includes/multimedia/mini_media_player.yaml
+              - entity: media_player.kuche
+      - !include ../includes/multimedia/sonos_automation.yaml

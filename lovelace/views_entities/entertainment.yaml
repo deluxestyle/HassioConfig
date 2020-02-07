@@ -15,7 +15,7 @@ cards:
                 tap_action: 
                   action: none
               - type: section
-          - !include ../includes/remote_buttons.yaml
+          - !include ../includes/multimedia/remote_buttons.yaml
           - type: entities
             entities:
               - type: custom:fold-entity-row

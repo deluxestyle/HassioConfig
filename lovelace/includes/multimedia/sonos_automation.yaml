@@ -1,0 +1,21 @@
+# lovelace_gen
+
+type: entities
+entities:
+  - entity: script.1532173931522
+    tap_action: 
+      action: toggle
+  - type: custom:fold-entity-row
+    head:
+      type: section
+      label: Automation
+    padding: 5
+    entities:
+      - entity: automation.sonos_starten
+        icon: mdi:music
+        tap_action: 
+          action: toggle
+      - entity: automation.sonos_stoppen
+        icon: mdi:music-off
+        tap_action: 
+          action: toggle
