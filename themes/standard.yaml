@@ -4,3 +4,4 @@ standard:
   paper-listbox-background-color: "#FFFFFF"
   primary-color: "#03A9F4"
   primary-background-color: "#F8F8F8"
+  divider-color: "hsla(0, 0%, 0%, 0)"

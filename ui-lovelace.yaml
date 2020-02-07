@@ -48,11 +48,11 @@ custom_header:
   chevrons: false
   hide_config: true
   default_tab: >-
-    {% if not is_state('input_boolean.room_view','on') %}living_room
+    {% if not is_state('input_boolean.room_view','on') %}home
     {% else %}light
     {% endif %}
   hide_tabs: >-
-    {% if not is_state('input_boolean.room_view','on') %}living_room, bed_room, office, bath, hass, kitchen, floor{% if not is_state('input_boolean.presence_map','on') %}, map{% endif %}
+    {% if not is_state('input_boolean.room_view','on') %}home, living_room, bed_room, office, bath, hass, kitchen, floor{% if not is_state('input_boolean.presence_map','on') %}, map{% endif %}
     {% else %}light, radiator, music, entertainment, power_plug{% if not is_state('input_boolean.presence_map','on') %}, map{% endif %}
     {% endif %}
   exceptions:
@@ -67,6 +67,9 @@ swipe_nav:
 # -----------------------------
 title: Home
 views:
+##### Home #####
+  - !include lovelace/views_rooms/view_home.yaml
+
 ##### Licht #####
   - !include lovelace/views_entities/light.yaml
 

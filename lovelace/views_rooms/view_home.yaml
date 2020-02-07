@@ -1,0 +1,90 @@
+# lovelace_gen
+
+title: Home
+path: home
+icon: mdi:home
+cards:
+  - type: glance
+    columns: 3
+    show_state: false
+    entities:
+      - entity: light.lights_living_room
+        name: Wohnzimmer
+        tap_action:
+          action: call-service
+          service: light.toggle
+          service_data:
+            entity_id: light.lights_living_room
+      - entity: light.lights_bed_room
+        name: Schlafzimmer
+        tap_action:
+          action: toggle
+      - entity: light.lights_kitchen
+        name: Küche
+        tap_action:
+          action: toggle
+      - entity: light.sonoff_office
+        name: Büro
+        tap_action:
+          action: toggle
+      - entity: light.gateway_light_7811dcb258d1
+        name: Nachtlicht
+        tap_action:
+          action: call-service
+          service: light.toggle
+          service_data:
+            entity_id: light.gateway_light_7811dcb258d1
+      - entity: light.lights_all
+        name: alle Lampen
+        tap_action:
+          action: toggle
+  - type: glance
+    columns: 3
+    entities:
+      - entity: sensor.temperature_158d0001b8c998
+        name: Wohnzimmer
+        tap_action:
+          action: none
+      - entity: sensor.temperature_158d0001b8c96c
+        name: Schlafzimmer
+        tap_action:
+          action: none
+      - entity: sensor.temperature_158d0002239fb5
+        name: Küche
+        tap_action:
+          action: none
+      - entity: sensor.oeq1667238_temperature
+        name: Büro
+        tap_action:
+          action: none
+      - entity: sensor.temperature_158d00023258bd
+        name: Bad
+        tap_action:
+          action: none
+      - entity: switch.radiator_on_off
+        name: Heizung
+        tap_action: 
+          action: toggle
+  - type: glance
+    columns: 3
+    entities:
+      - entity: sensor.humidity_158d0001b8c998
+        name: Wohnzimmer
+        tap_action:
+          action: none
+      - entity: sensor.humidity_158d0001b8c96c
+        name: Schlafzimmer
+        tap_action:
+          action: none
+      - entity: sensor.humidity_158d0002239fb5
+        name: Küche
+        tap_action:
+          action: none
+      - entity: sensor.oeq1667238_humidity
+        name: Büro
+        tap_action:
+          action: none
+      - entity: sensor.humidity_158d00023258bd
+        name: Bad
+        tap_action:
+          action: none
