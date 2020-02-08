@@ -5,6 +5,7 @@ path: home
 icon: mdi:home
 cards:
   - type: custom:layout-card
+    max_columns: 2
     cards:
       - type: glance
         columns: 3
