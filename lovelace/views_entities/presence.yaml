@@ -24,9 +24,11 @@ cards:
             padding: 5
             entities:
               - entity: automation.abwesenheitsschaltung
+                icon: mdi:account-off
                 tap_action: 
                   action: toggle
               - entity: automation.anwesenheitsschaltung
+                icon: mdi:account-outline
                 tap_action: 
                   action: toggle
       - type: custom:vertical-stack-in-card

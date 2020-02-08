@@ -45,10 +45,12 @@ cards:
                 entities:
                   - entity: automation.xiaomi_staubsauger_abwesenheit
                     name: Abwesenheit
+                    icon: mdi:account-off
                     tap_action: 
                       action: toggle
                   - entity: automation.xiaomi_staubsauger_taglich_saugen
                     name: Täglich saugen
+                    icon: mdi:calendar-clock
                     tap_action: 
                       action: toggle
               # - type: custom:fold-entity-row
@@ -66,10 +68,12 @@ cards:
                 entities:
                   - entity: automation.xiaomi_staubsauger_neustart
                     name: Neustarten (Bürste blockiert)
+                    icon: mdi:restart
                     tap_action: 
                       action: toggle
                   - entity: automation.xiaomi_staubsauger_error_stop
                     name: Deaktivieren (b. Fehler)
+                    icon: mdi:restart-off
                     tap_action: 
                       action: toggle
                   - counter.xiaomo_errors

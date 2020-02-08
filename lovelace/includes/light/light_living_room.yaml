@@ -46,7 +46,7 @@ entities:
                   name: Sommer
                 - entity: scene.wohnzimmer_sonnenuntergang
                   name: Sonnenuntergang
-      - icon: mdi:settings-outline
+      - icon: mdi:cogs
         service: browser_mod.popup
         service_data:
           deviceID: this
@@ -54,7 +54,12 @@ entities:
           card:
             type: custom:swipe-card
             parameters:
+              nested: true
+              # allowTouchMove: false
               grabCursor: true
+              preventClicks: true
+              preventClicksPropagation: true
+              touchStartForcePreventDefault: true
             cards:
               - type: custom:more-info-card
                 style: |

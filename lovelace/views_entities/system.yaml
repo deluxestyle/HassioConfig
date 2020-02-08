@@ -21,6 +21,7 @@ cards:
       - type: entities
         entities:
           - entity: automation.tagliches_backup_auto_backup
+            icon: mdi:content-save-all
             tap_action: 
               action: toggle
           - sensor.auto_backup
