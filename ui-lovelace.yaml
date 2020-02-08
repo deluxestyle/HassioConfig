@@ -39,11 +39,16 @@ resources:
     type: module
   - url: /community_plugin/swipe-card/swipe-card.js
     type: module
+  - url: /community_plugin/swipe-card/swipe-card.js
+    type: module
 
 # -----------------------------
 custom_header:
   compact_mode: true
-  # background: 'rgba(155, 155, 155, 0.25)'
+  background: var(--app-header-background-color)
+  elements_color: var(--app-header-text-color)
+  active_tab_color: var(--primary-color)
+  tab_indicator_color: var(--primary-color)
   swipe_animate: fade
   chevrons: false
   hide_config: true

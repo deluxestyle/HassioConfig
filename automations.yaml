@@ -683,7 +683,7 @@
   condition: []
   action:
   - data:
-      name: night
+      name: dark
     service: frontend.set_theme
   - entity_id: input_boolean.frontend
     service: input_boolean.turn_on
@@ -698,7 +698,7 @@
   condition: []
   action:
   - data:
-      name: standard
+      name: clean
     service: frontend.set_theme
   - entity_id: input_boolean.frontend
     service: input_boolean.turn_off
