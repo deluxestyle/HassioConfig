@@ -80,7 +80,7 @@
       value: 'false'
     service: homematic.set_variable_value
 '1538057479069':
-  alias: Fernseher ausschalten
+  alias: 'Harmony Hub: Ausschaltbefehl'
   sequence:
   - data:
       entity_id: remote.harmony_hub
@@ -474,33 +474,6 @@
   - data: {}
     service: python_script.dismiss_notifications
   - service: script.battery_persistent_notification_clear
-'1573984294636':
-  alias: Heizung Offset Wohnzimmer Reset
-  sequence:
-  - data_template:
-      climate: OEQ1696358
-      offset: 0
-      input_offset: input_number.offset_living_room
-      target_temp: 19
-    service: python_script.set_thermostate_offset
-'1573988653228':
-  alias: Heizung Offset Schlafzimmer Reset
-  sequence:
-  - data_template:
-      climate: OEQ1696369
-      offset: 0
-      input_offset: input_number.offset_bed_room
-      target_temp: 19
-    service: python_script.set_thermostate_offset
-'1574020711519':
-  alias: Heizung Offset Homematic Reset
-  sequence:
-  - data_template:
-      climate: OEQ1701003
-      input_offset: input_number.offset_bath
-      offset: 0
-      target_temp: 19
-    service: python_script.set_thermostate_offset
 '1576692493037':
   alias: Heizung Homematic ausschalten
   sequence:

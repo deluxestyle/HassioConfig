@@ -42,22 +42,3 @@
         entity_id: homematic.ccu2
         friendly_name: "Tastensperre Homematic"
         value_template: '{{ states.homematic.ccu2.attributes.block_bath }}'
-##############################################################
-# Offset
-##############################################################
-      offset_bed_room:
-        friendly_name: Offset Schlafzimmer
-        value_template: '{{ ( (states.sensor.temperature_158d0001b8c96c.state | float) - (states.climate.oeq1696369.attributes["current_temperature"] | float) - (states.input_number.offset_bed_room.state | float) ) | round (2)}}'
-        unit_of_measurement: '°'
-        icon_template: mdi:temperature-celsius
-        entity_id: 
-          - sensor.temperature_158d0001b8c96c
-          - climate.oeq1696369
-      offset_living_room:
-        friendly_name: Offset Wohnzimmer
-        value_template: '{{ ( (states.sensor.temperature_158d0001b8c998.state | float) - (states.climate.oeq1696358.attributes["current_temperature"] | float) - (states.input_number.offset_living_room.state | float) ) | round (2) }}'
-        unit_of_measurement: '°'
-        icon_template: mdi:temperature-celsius
-        entity_id: 
-          - sensor.temperature_158d0001b8c998
-          - climate.oeq1696358

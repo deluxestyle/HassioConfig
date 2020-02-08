@@ -1,18 +1,3 @@
-scenes_living_room:
-    name: "Szenen"
-    options:
-      - --
-    initial: '--'
-
-scenes_bed_room:
-    name: "Szenen"
-    options:
-      - --
-      - Hell
-      - Nachtlicht
-      - Gedimmt
-    initial: '--'
-
 avr_source:
     name: AVR Quelle
     icon: mdi:playlist-play
