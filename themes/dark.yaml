@@ -7,7 +7,7 @@ dark:
   light-primary-color: var(--primary-color)
   primary-background-color: "#171717"
   secondary-background-color: var(--primary-background-color)
-  divider-color: var(--primary-background-color)
+  divider-color: "hsla(0, 0%, 0%, 0)"
   # Text
   primary-text-color: "#BDC1C6"
   secondary-text-color: "#BDC1C6"
