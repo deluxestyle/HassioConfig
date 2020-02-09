@@ -11,7 +11,7 @@ tap_action:
     card:
       type: custom:vertical-stack-in-card
       cards:
-        - type: thermostat
+        - type: custom:thermostat-card
           entity: {{ entity }}
         - type: entities
           entities:
