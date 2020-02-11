@@ -39,8 +39,6 @@ resources:
     type: module
   - url: /community_plugin/swipe-card/swipe-card.js
     type: module
-  - url: /community_plugin/swipe-card/swipe-card.js
-    type: module
 
 # -----------------------------
 custom_header:

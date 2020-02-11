@@ -16,7 +16,7 @@ tap_action:
         }
       type: entities
       entities: 
-        - type: 'custom:simple-thermostat'
+        - type: custom:simple-thermostat
           entity: {{ entity }}
           style: |
             ha-card {
@@ -25,6 +25,7 @@ tap_action:
               --st-font-size-xl: 35px;
             }
           step_size: 0.5
+          step_layout: row
           name: false
           sensors:
             - entity: sensor.valve_{{ sensor }}
