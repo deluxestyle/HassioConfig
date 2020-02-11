@@ -45,6 +45,6 @@ clean:
   paper-listbox-background-color: "#FFFFFF"
 
   # Table
-  table-row-background-color: var(--primary-background-color)
-  table-row-alternative-background-color: var(--secondary-background-color)
-  data-table-background-color: var(--primary-background-color)
+  # table-row-background-color: var(--primary-background-color)
+  # table-row-alternative-background-color: var(--secondary-background-color)
+  # data-table-background-color: var(--primary-background-color)
