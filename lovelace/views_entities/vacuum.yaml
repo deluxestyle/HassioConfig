@@ -12,8 +12,10 @@ cards:
         cards:
           - type: entities
             entities:
-              - vacuum.xiaomi_vacuum_cleaner
+              - entity: vacuum.xiaomi_vacuum_cleaner
+                name: StaubRobo
               - entity: sensor.xiaomi_vacuum_sensor_battery
+                name: Batterie
                 tap_action: 
                   action: none
               - type: section
