@@ -582,7 +582,7 @@
       | int | timestamp_custom(''%H:%M'', False)) }}'
   - event_data:
       event: 1002
-      id: switch_14
+      id: wandsender_2_fach
     event_type: deconz_event
     platform: event
   condition:
@@ -765,18 +765,6 @@
   action:
   - entity_id: switch.radiator_on_off
     service: switch.toggle
-- id: '1577140062809'
-  alias: Sonos Wecker (manuell)
-  description: Starte Sonos manuell über Xiaomi Schalter
-  trigger:
-  - event_data:
-      event: 1002
-      id: wandsender_2_fach
-    event_type: deconz_event
-    platform: event
-  condition: []
-  action:
-  - service: script.1532173931599
 - id: '1578168461515'
   alias: 'Benachrichtigung: Snapshot Erfolg'
   description: ''
