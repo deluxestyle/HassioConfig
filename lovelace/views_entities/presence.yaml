@@ -60,6 +60,7 @@ cards:
       - type: entities
         entities:
           - entity: binary_sensor.motion_sensor_158d00023e77cb
+            secondary_info: last-changed
             tap_action: 
               action: none
           - entity: sensor.illumination_158d00023e77cb

@@ -11,7 +11,7 @@
     service: media_player.volume_set
   - data:
       entity_id: media_player.bad
-      source: Superfly FM
+      source: Superfly.fm
     service: media_player.select_source
 '1532175994947':
   alias: 'Sonos: ausschalten'
@@ -424,7 +424,7 @@
     service: media_player.volume_set
   - data:
       entity_id: media_player.bad
-      source: Superfly FM
+      source: Superfly.fm
     service: media_player.select_source
 '1570439203461':
   alias: Badge löschen
