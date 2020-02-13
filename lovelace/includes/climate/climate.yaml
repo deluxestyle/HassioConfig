@@ -22,10 +22,9 @@ tap_action:
             ha-card {
               --ha-card-box-shadow: 'none';
               --st-font-size-sensors: 14px;
-              --st-font-size-xl: 35px;
+              --st-font-size-xl: 30px;
             }
           step_size: 0.5
-          step_layout: row
           name: false
           sensors:
             - entity: sensor.valve_{{ sensor }}
@@ -33,7 +32,7 @@ tap_action:
           label:
             temperature: Temperatur
           control :
-            _icons: true
+            _icons: false
             _names: true
         {% if name.startswith("Bad") %}
         - entity: automation.heizung_bad_timer
