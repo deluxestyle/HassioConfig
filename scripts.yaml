@@ -2,11 +2,11 @@
   alias: 'Sonos: Superfly FM starten'
   sequence:
   - data:
-      entity_id: media_player.bad, media_player.kuche
+      entity_id: media_player.bad, media_player.kuche, media_player.schlafzimmer
       master: media_player.bad
     service: sonos.join
   - data:
-      entity_id: media_player.bad, media_player.kuche
+      entity_id: media_player.bad, media_player.kuche, media_player.schlafzimmer
       volume_level: '0.12'
     service: media_player.volume_set
   - data:
@@ -415,11 +415,11 @@
   alias: Sonos Wecker
   sequence:
   - data:
-      entity_id: media_player.bad, media_player.kuche
+      entity_id: media_player.bad, media_player.kuche, media_player.schlafzimmer
       master: media_player.bad
     service: sonos.join
   - data:
-      entity_id: media_player.bad, media_player.kuche
+      entity_id: media_player.bad, media_player.kuche, media_player.schlafzimmer
       volume_level: '0.03'
     service: media_player.volume_set
   - data:
