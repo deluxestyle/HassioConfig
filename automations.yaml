@@ -137,7 +137,7 @@
     service: vacuum.start
   - data:
       entity_id: vacuum.xiaomi_vacuum_cleaner
-      fan_speed: Max
+      fan_speed: Turbo
     service: vacuum.set_fan_speed
 - id: '1523001167559'
   alias: 'Xiaomi Staubsauger: Neustart'
@@ -449,7 +449,7 @@
     service: vacuum.start
   - data:
       entity_id: vacuum.xiaomi_vacuum_cleaner
-      fan_speed: Max
+      fan_speed: Turbo
     service: vacuum.set_fan_speed
 - id: '1553418352092'
   alias: 'Heizung aus: Temperatur abhängig'

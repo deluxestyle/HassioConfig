@@ -1,5 +1,5 @@
 devices:
-  db72c46e_65347fdb:
+  a4fdcf56_02d4df18:
     name: iphonex_wolfgang
   9f73134d_730b488d:
     name: hp_spectre_chrome
@@ -11,3 +11,5 @@ devices:
     name: iphone_anita
   e5f7195e_1e5a637d:
     name: Arbeit Wolfgang
+  9c17ba74_8fdcd59b:
+    name: Chrome App
