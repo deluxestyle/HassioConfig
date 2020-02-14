@@ -2,6 +2,33 @@
 
 type: entities
 entities:
+  # - entity: light.schlafzimmer
+  #   type: custom:multiple-entity-row
+  #   icon: mdi:ceiling-light
+  #   toggle: true
+  #   name: Decke
+  #   entities:
+  #     - icon: mdi:brightness-3
+  #       name: Nachtlicht
+  #       tap_action:
+  #         action: call-service
+  #         service: scene.turn_on
+  #         service_data:
+  #           entity_id: scene.schlafzimmer_nachtlicht
+  #     - icon: mdi:brightness-4
+  #       name: Gedimmt
+  #       tap_action:
+  #         action: call-service
+  #         service: scene.turn_on
+  #         service_data:
+  #           entity_id: scene.schlafzimmer_gedimmt
+  #     - icon: mdi:brightness-5
+  #       name: Hell
+  #       tap_action:
+  #         action: call-service
+  #         service: scene.turn_on
+  #         service_data:
+  #           entity_id: scene.schlafzimmer_hell
   - entity: light.schlafzimmer
     icon: mdi:ceiling-light
     name: Decke

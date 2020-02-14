@@ -13,8 +13,6 @@ resources:
     type: js  
   - url: /community_plugin/lovelace-card-mod/card-mod.js
     type: module
-  - url: /community_plugin/lovelace-multiple-entity-row/multiple-entity-row.js
-    type: js
   - url: /community_plugin/lovelace-card-tools/card-tools.js
     type: js
   - url: /local/github/thomasloven/time-input-row.js?track=true 
@@ -38,6 +36,8 @@ resources:
   - url: /community_plugin/lovelace-more-info-card/more-info-card.js
     type: module
   - url: /community_plugin/swipe-card/swipe-card.js
+    type: module
+  - url: /community_plugin/lovelace-multiple-entity-row/multiple-entity-row.js
     type: module
 
 # -----------------------------

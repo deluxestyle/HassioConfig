@@ -144,8 +144,6 @@ input_datetime.radiator_bath_1:
   friendly_name: Startzeit
 automation.bewegungsmelder_alarm:
   icon: mdi:alarm-light
-light.schlafzimmer:
-  friendly_name: Deckenlicht
 sensor.xiaomi_vacuum_filter_left:
   friendly_name: Filter
   icon: mdi:blur-linear
@@ -287,3 +285,6 @@ climate.fritz_thermostat:
   icon: mdi:radiator
 switch.steckdose_1:
   icon: mdi:power-socket-eu
+light.schlafzimmer:
+  icon: mdi:ceiling-light
+  friendly_name: Decke
