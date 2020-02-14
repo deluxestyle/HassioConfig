@@ -47,7 +47,6 @@ custom_header:
   elements_color: var(--app-header-text-color)
   active_tab_color: var(--primary-color)
   tab_indicator_color: var(--primary-color)
-  swipe_animate: fade
   chevrons: false
   hide_config: true
   default_tab: >-
