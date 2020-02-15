@@ -21,7 +21,7 @@ filter:
     - media_player.bad
     - media_player.schlafzimmer
     - media_player.kuche
-    - media_player.wohnzimmmer
+    - media_player.wohnzimmer
     - switch.radiator_on_off
     - switch.power_plug_printer
     - switch.power_plug_5
