@@ -34,4 +34,9 @@ cards:
           - !include
               - ../includes/multimedia/mini_media_player.yaml
               - entity: media_player.kuche
+      - type: entities
+        entities:
+          - !include
+              - ../includes/multimedia/mini_media_player.yaml
+              - entity: media_player.wohnzimmer
       - !include ../includes/multimedia/sonos_automation.yaml

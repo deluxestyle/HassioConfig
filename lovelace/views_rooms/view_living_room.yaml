@@ -55,6 +55,11 @@ cards:
               - entity: sensor.hs110_volts
       - type: entities
         entities:
+          - !include
+              - ../includes/multimedia/mini_media_player.yaml
+              - entity: media_player.wohnzimmer
+      - type: entities
+        entities:
           - entity: switch.steckdose_5
             name: Alexa
             icon: mdi:amazon-alexa
