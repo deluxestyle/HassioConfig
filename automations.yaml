@@ -530,7 +530,8 @@
     entity_id: sensor.valve_homematic
     platform: numeric_state
   - platform: template
-    value_template: '{{ states.climate.oeq1701003.attributes.temperature > 22 }}'
+    value_template: '{% if (states.climate.oeq1701003.attributes.temperature > 22)
+      %}true{% endif %}'
   condition: []
   action:
   - data:
