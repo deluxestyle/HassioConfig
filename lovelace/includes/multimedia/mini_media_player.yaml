@@ -8,10 +8,11 @@ hide:
   source: false
   progress: true
 group: true
-#artwork: none
 source: full
-more_info: false
-sonos:
+tap_action:
+  action: none
+speaker_group:
+  platform: sonos
   show_group_count: true
   sync_volume: true
   entities:

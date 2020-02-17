@@ -1,6 +1,4 @@
 resources:
-  - url: /community_plugin/mini-media-player/mini-media-player-bundle.js
-    type: module
   - url: /community_plugin/lovelace-fold-entity-row/fold-entity-row.js
     type: js
   - url: /community_plugin/custom-header/custom-header.js
@@ -38,6 +36,8 @@ resources:
   - url: /community_plugin/swipe-card/swipe-card.js
     type: module
   - url: /community_plugin/lovelace-multiple-entity-row/multiple-entity-row.js
+    type: module
+  - url: /community_plugin/mini-media-player/mini-media-player-bundle.js
     type: module
 
 # -----------------------------
