@@ -159,7 +159,7 @@
 - id: '1532176861984'
   alias: Sonos starten
   trigger:
-  - entity_id: person.wolfgang
+  - entity_id: device_tracker.iphonex
     platform: state
     to: home
   condition:
