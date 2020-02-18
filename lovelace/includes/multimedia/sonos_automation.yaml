@@ -2,9 +2,12 @@
 
 type: entities
 entities:
-  - entity: script.1532173931522
-    tap_action: 
-      action: toggle
+  - type: "custom:button-entity-row"
+    buttons:
+      - entity: script.1532173931522
+        name: Sonos einschalten
+      - entity: script.1532175994947
+        name: Sonos ausschalten
   - type: custom:fold-entity-row
     head:
       type: section

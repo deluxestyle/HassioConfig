@@ -12,7 +12,7 @@ cards:
     cards:
       - type: entities
         entities:
-          - type: "custom:button-entity-row"
+          - type: 'custom:button-entity-row'
             buttons:
               - entity: script.1570443737111
                 name: Mitteilung löschen
@@ -25,7 +25,6 @@ cards:
             tap_action: 
               action: toggle
           - sensor.auto_backup
-          # - automation.tagliches_backup
       - type: entities
         entities:
           - entity: automation.battery_persistent_notification

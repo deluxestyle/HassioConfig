@@ -7,19 +7,18 @@ cards:
   - type: custom:layout-card
     max_columns: 2
     cards:
-      - type: glance
-        columns: 3
+      - type: 'custom:swipe-glance-card'
         show_state: false
         entities:
           - entity: light.lights_living_room
-            name: Wohnzimmer
+            name: Wohnz.
             tap_action:
               action: call-service
               service: light.toggle
               service_data:
                 entity_id: light.lights_living_room
           - entity: light.lights_bed_room
-            name: Schlafzimmer
+            name: Schlafz.
             tap_action:
               action: toggle
           - entity: light.lights_kitchen
@@ -38,56 +37,80 @@ cards:
               service_data:
                 entity_id: light.gateway_light_7811dcb258d1
           - entity: light.lights_all
-            name: alle Lampen
+            name: Licht
             tap_action:
               action: toggle
-      - type: glance
-        columns: 3
+      - type: 'custom:swipe-glance-card'
         entities:
+          - entity: switch.radiator_on_off
+            name: Heizung
+            tap_action: 
+              action: toggle
           - entity: sensor.temperature_158d0001b8c998
-            name: Wohnzimmer
+            name: Wohnz.
             tap_action:
               action: none
+            hold_action:
+              action: none
           - entity: sensor.temperature_158d0001b8c96c
-            name: Schlafzimmer
+            name: Schlafz.
             tap_action:
+              action: none
+            hold_action:
               action: none
           - entity: sensor.temperature_158d0002239fb5
             name: Küche
             tap_action:
               action: none
+            hold_action:
+              action: none
           - entity: sensor.oeq1667238_temperature
             name: Büro
             tap_action:
+              action: none
+            hold_action:
               action: none
           - entity: sensor.temperature_158d00023258bd
             name: Bad
             tap_action:
               action: none
-          - entity: switch.radiator_on_off
-            name: Heizung
-            tap_action: 
-              action: toggle
-      - type: glance
-        columns: 3
-        entities:
+            hold_action:
+              action: none
           - entity: sensor.humidity_158d0001b8c998
-            name: Wohnzimmer
+            name: Wohnz.
             tap_action:
               action: none
+            hold_action:
+              action: none
           - entity: sensor.humidity_158d0001b8c96c
-            name: Schlafzimmer
+            name: Schlafz.
             tap_action:
+              action: none
+            hold_action:
               action: none
           - entity: sensor.humidity_158d0002239fb5
             name: Küche
             tap_action:
               action: none
+            hold_action:
+              action: none
           - entity: sensor.oeq1667238_humidity
             name: Büro
             tap_action:
+              action: none
+            hold_action:
               action: none
           - entity: sensor.humidity_158d00023258bd
             name: Bad
             tap_action:
               action: none
+            hold_action:
+              action: none
+      - type: entities
+        entities:
+          - type: "custom:button-entity-row"
+            buttons:
+              - entity: script.1532173931522
+                name: Sonos einschalten
+              - entity: script.1532175994947
+                name: Sonos ausschalten
