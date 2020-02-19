@@ -42,6 +42,30 @@ cards:
               - type: custom:fold-entity-row
                 head:
                   type: section
+                  label: Räume
+                padding: 5
+                entities:
+                  - type: "custom:button-entity-row"
+                    buttons:
+                      - entity: script.1543667402104
+                        icon: mdi:cat
+                      - entity: script.1543666947492
+                        icon: mdi:sofa
+                      - entity: script.1543666909272
+                        icon: mdi:hotel
+                      - entity: script.1543666771838
+                        icon: mdi:fridge
+                      - entity: script.1543666580682
+                        icon: mdi:desk
+                      - entity: script.1543666985219
+                        icon: mdi:shower
+                      - entity: script.1543666831509
+                        icon: mdi:toilet
+                      - entity: script.1543666867257
+                        icon: mdi:floor-plan
+              - type: custom:fold-entity-row
+                head:
+                  type: section
                   label: Automation
                 padding: 5
                 entities:

@@ -270,7 +270,7 @@
   - data: {}
     service: bmw_connected_drive.update_state
 '1543666580682':
-  alias: 'SaugRobo: Büro'
+  alias: 'SaugRobo Raum:  Büro'
   sequence:
   - data:
       command: app_zoned_clean
@@ -283,7 +283,7 @@
         - 1
     service: vacuum.send_command
 '1543666771838':
-  alias: 'SaugRobo: Küche'
+  alias: 'SaugRobo Raum:  Küche'
   sequence:
   - data:
       command: app_zoned_clean
@@ -296,7 +296,7 @@
         - 1
     service: vacuum.send_command
 '1543666831509':
-  alias: 'SaugRobo: Klo'
+  alias: 'SaugRobo Raum:  Klo'
   sequence:
   - data:
       command: app_zoned_clean
@@ -309,7 +309,7 @@
         - 1
     service: vacuum.send_command
 '1543666867257':
-  alias: 'SaugRobo: Flur'
+  alias: 'SaugRobo Raum:  Flur'
   sequence:
   - data:
       command: app_zoned_clean
@@ -322,7 +322,7 @@
         - 1
     service: vacuum.send_command
 '1543666909272':
-  alias: 'SaugRobo: Schlafzimmer'
+  alias: 'SaugRobo Raum:  Schlafzimmer'
   sequence:
   - data:
       command: app_zoned_clean
@@ -335,7 +335,7 @@
         - 1
     service: vacuum.send_command
 '1543666947492':
-  alias: 'SaugRobo: Wohnzimmer'
+  alias: 'SaugRobo Raum:  Wohnzimmer'
   sequence:
   - data:
       command: app_zoned_clean
@@ -348,7 +348,7 @@
         - 1
     service: vacuum.send_command
 '1543666985219':
-  alias: 'SaugRobo: Bad'
+  alias: 'SaugRobo Raum:  Bad'
   sequence:
   - data:
       command: app_zoned_clean
@@ -361,7 +361,7 @@
         - 1
     service: vacuum.send_command
 '1543667402104':
-  alias: 'SaugRobo: Katzenklo'
+  alias: 'SaugRobo Raum:  Katzenklo'
   sequence:
   - data:
       command: app_zoned_clean
