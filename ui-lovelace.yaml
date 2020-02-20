@@ -49,6 +49,7 @@ custom_header:
   tab_indicator_color: var(--primary-color)
   chevrons: false
   hide_config: true
+  shadow: true 
   default_tab: >-
     {% if not is_state('input_boolean.room_view','on') %}home
     {% else %}light
