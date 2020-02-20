@@ -39,7 +39,6 @@ cards:
               label: Batteriewerte
             padding: 5
             entities:
-              - input_number.battery_alert_homematic
               - input_number.battery_alert_xiaomi
               - input_number.battery_alert_hue
           - type: custom:fold-entity-row
@@ -49,8 +48,8 @@ cards:
             padding: 5
             entities:
               - group.battery_status_hue
-              - group.battery_status_homematic
               - group.battery_status_xiaomi
+              - group.battery_status_homematic_binary
       - type: glance
         columns: 4
         show_name: false
