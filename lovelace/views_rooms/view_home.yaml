@@ -7,7 +7,8 @@ cards:
   - type: custom:layout-card
     max_columns: 2
     cards:
-      - type: 'custom:swipe-glance-card'
+      - type: glance
+        columns: 5
         show_state: false
         entities:
           - entity: light.lights_living_room
@@ -30,22 +31,15 @@ cards:
             tap_action:
               action: toggle
           - entity: light.gateway_light_7811dcb258d1
-            name: Nachtlicht
+            name: Nachtl.
             tap_action:
               action: call-service
               service: light.toggle
               service_data:
                 entity_id: light.gateway_light_7811dcb258d1
-          - entity: light.lights_all
-            name: Licht
-            tap_action:
-              action: toggle
-      - type: 'custom:swipe-glance-card'
+      - type: glance
+        columns: 5
         entities:
-          - entity: switch.radiator_on_off
-            name: Heizung
-            tap_action: 
-              action: toggle
           - entity: sensor.temperature_158d0001b8c998
             name: Wohnz.
             tap_action:
@@ -76,6 +70,9 @@ cards:
               action: none
             hold_action:
               action: none
+      - type: glance
+        columns: 5
+        entities:
           - entity: sensor.humidity_158d0001b8c998
             name: Wohnz.
             tap_action:
@@ -106,6 +103,14 @@ cards:
               action: none
             hold_action:
               action: none
+      - type: entities
+        entities:
+          - type: "custom:button-entity-row"
+            buttons:
+              - entity: switch.radiator_on_off
+                name: Heizung
+              - entity: light.lights_all
+                name: Licht
       - type: entities
         entities:
           - type: "custom:button-entity-row"

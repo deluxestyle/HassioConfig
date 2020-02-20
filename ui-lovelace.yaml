@@ -39,8 +39,6 @@ resources:
     type: module
   - url: /community_plugin/mini-media-player/mini-media-player-bundle.js
     type: module
-  - url: /community_plugin/swipe-glance-card/swipe-glance-card.js
-    type: module
 
 # -----------------------------
 custom_header:
