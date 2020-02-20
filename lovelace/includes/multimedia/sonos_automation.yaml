@@ -6,8 +6,12 @@ entities:
     buttons:
       - entity: script.1532173931522
         name: Sonos einschalten
+        style:
+          - color: var(--primary-text-color)
       - entity: script.1532175994947
         name: Sonos ausschalten
+        style:
+          - color: var(--primary-text-color)
   - type: custom:fold-entity-row
     head:
       type: section

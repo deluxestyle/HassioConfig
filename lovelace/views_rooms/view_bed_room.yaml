@@ -20,8 +20,12 @@ cards:
               label: Wecker
             padding: 5
             entities:
-              - input_datetime.sonos_alarm
-              - entity: automation.sonos_wecker
-                icon: mdi:av-timer
+              - type: custom:multiple-entity-row
+                entity: automation.sonos_wecker
+                icon: mdi:alarm-note
                 tap_action: 
                   action: toggle
+                entities:
+                  - entity: input_datetime.sonos_alarm
+                    name: Zeit
+               

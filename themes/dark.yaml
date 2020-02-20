@@ -1,7 +1,7 @@
 dark:
   # Header:
-  # app-header-background-color: "#171717"
-  # app-header-text-color: "#BDC1C6"
+  app-header-background-color: "#171717"
+  app-header-text-color: "#BDC1C6"
   # Main Interface Colors
   primary-color: "#03A9F4"
   light-primary-color: var(--primary-color)
