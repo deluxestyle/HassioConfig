@@ -57,6 +57,7 @@ input_boolean:
 ################################################
 ## Input Number
 ################################################
+input_number:
   battery_alert_xiaomi:
     name: 'Xiaomi'
     mode: slider
