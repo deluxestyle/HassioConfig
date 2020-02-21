@@ -432,7 +432,8 @@
       fan_speed: Turbo
     service: vacuum.set_fan_speed
 - id: '1553418352092'
-  alias: 'Heizung aus: Temperatur abhängig'
+  alias: 'Heizung: Temperatur abhängig - aus'
+  description: Falls Temperatur über 10° --> Heizung ausschalten
   trigger:
   - above: '10'
     entity_id: sensor.dark_sky_temperature
@@ -446,7 +447,8 @@
       entity_id: switch.radiator_on_off
     service: switch.turn_off
 - id: '1553418411637'
-  alias: 'Heizung an: Temperatur abhängig'
+  alias: 'Heizung: Temperatur abhängig - an'
+  description: Falls Temperatur unter 10° --> Heizung einschalten
   trigger:
   - below: '10'
     entity_id: sensor.dark_sky_temperature
@@ -672,7 +674,7 @@
   alias: 'Frontend: Tag'
   description: ''
   trigger:
-  - at: 06:45
+  - at: 06:15
     platform: time
   - event: start
     platform: homeassistant
@@ -733,8 +735,8 @@
       keep_days: 7
       name: Backup_{{ now().strftime('%Y-%m-%d_%H:%M') }}
     service: auto_backup.snapshot_full
-- id: '1577107079102'
-  alias: Heizungsschaltung
+- id: '1577107079103'
+  alias: 'Xiaomi Switch: Heizungsschaltung'
   description: ''
   trigger:
   - event_data:
@@ -783,8 +785,9 @@
   action:
   - service: browser_mod.lovelace_reload
 - id: '1578785190961'
-  alias: 'Heizung Schlafzimmer: Fenster offen'
-  description: ''
+  alias: 'Heizung: Schlafzimmer - Fenster offen'
+  description: Falls Luftfeuchtigkeit unter 50% -  Wahrscheinlichkeit hoch, dass Fenster
+    offen ist
   trigger:
   - below: '50'
     entity_id: sensor.humidity_158d0001b8c96c
@@ -804,3 +807,13 @@
   condition: []
   action:
   - service: script.1540232132608
+- id: '1582319045043'
+  alias: 'Sonos: Wohnzimmer Mute'
+  description: Wohnzimmer mute in der Nacht
+  trigger:
+  - at: 03:00
+    platform: time
+  condition: []
+  action:
+  - entity_id: media_player.wohnzimmer
+    service: media_player.volume_mute

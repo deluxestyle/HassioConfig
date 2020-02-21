@@ -270,10 +270,6 @@ switch.wifi_steckdose:
   icon: mdi:power-socket-eu
 sensor.battery_sensor_outdoor:
   friendly_name: Batterie Sensor homematic
-sensor.offset_bed_room:
-  icon: mdi:temperature-celsius
-sensor.offset_living_room:
-  icon: mdi:temperature-celsius
 climate.fritz_thermostat:
   friendly_name: Heizung Bad (fritz)
   icon: mdi:radiator
