@@ -359,26 +359,6 @@
       keep_days: 0
       repack: true
     service: recorder.purge
-- id: '1543669218842'
-  alias: 'Xiaomi Staubsauger: Zonenreinigung'
-  trigger:
-  - entity_id: input_select.vacuum_rooms
-    platform: state
-  condition:
-  - condition: template
-    value_template: '{{ states.input_select.vacuum_rooms.state != "--" }}'
-  action:
-  - data_template:
-      entity_id: "{% if is_state(\"input_select.vacuum_rooms\", \"Wohnzimmer\") %}\n\
-        \  script.1543666947492\n{% elif is_state(\"input_select.vacuum_rooms\", \"\
-        Schlafzimmer\") %}\n  script.1543666909272\n{% elif is_state(\"input_select.vacuum_rooms\"\
-        , \"Bad\") %}\n  script.1543666985219\n{% elif is_state(\"input_select.vacuum_rooms\"\
-        , \"Küche\") %}\n  script.1543666771838\n{% elif is_state(\"input_select.vacuum_rooms\"\
-        , \"Flur\") %}\n  script.1543666867257\n{% elif is_state(\"input_select.vacuum_rooms\"\
-        , \"Klo\") %}\n  script.1543666831509\n{% elif is_state(\"input_select.vacuum_rooms\"\
-        , \"Katzenklo\") %}\n  script.1543667402104\n{% elif is_state(\"input_select.vacuum_rooms\"\
-        , \"Büro\") %}\n  script.1543666580682\n{% endif %}\n"
-    service: script.turn_on
 - id: '1544816542688'
   alias: 'Xiaomi Staubsauger: Error stop'
   trigger:
