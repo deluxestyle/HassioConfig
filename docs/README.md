@@ -20,6 +20,7 @@
 * Logitech Harmony Hub
 * Harman Kardon AVR Receiver
 * Sonoff Touch (integrated with Tasmota)
+* InfluxDB + Grafana for Statistics
 
 #### Custom card/entities for lovelace:
 * button-card
