@@ -5,6 +5,36 @@ title: Heizung
 path: radiator
 icon: mdi:radiator
 panel: true
+popup_cards:
+  climate.oeq1701003:
+    !include 
+      - ../includes/climate/popup_climate.yaml
+      - entity: climate.oeq1701003
+        name: Küche
+        sensor: homematic
+  climate.oeq1696369:
+    !include 
+      - ../includes/climate/popup_climate.yaml
+      - entity: climate.oeq1696369
+        name: Schlafzimmer
+        sensor: bed_room
+  climate.int0000002:
+    !include 
+      - ../includes/climate/popup_climate.yaml
+      - entity: climate.int0000002
+        name: Büro
+        sensor: office
+  climate.oeq1696358:
+    !include 
+      - ../includes/climate/popup_climate.yaml
+      - entity: climate.oeq1696358
+        name: Wohnzimmer
+        sensor: living_room
+  climate.fritz_thermostat:
+    !include 
+      - ../includes/climate/popup_climate.yaml
+      - entity: climate.fritz_thermostat
+        name: Bad
 cards:
   - type: custom:layout-card
     max_columns: 2

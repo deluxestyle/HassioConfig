@@ -4,6 +4,13 @@ title: Küche
 path: kitchen
 icon: mdi:fridge
 panel: true
+popup_cards:
+  climate.oeq1701003:
+    !include 
+      - ../includes/climate/popup_climate.yaml
+      - entity: climate.oeq1701003
+        name: Küche
+        sensor: homematic
 cards:
   - type: custom:layout-card
     cards:

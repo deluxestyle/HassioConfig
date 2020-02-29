@@ -2,53 +2,53 @@
 
 entity: {{ entity }}
 name: {{ name }}
-tap_action:
-  action: call-service
-  service: browser_mod.popup
-  service_data:
-    deviceID: this
-    title: Heizung {{ name }}
-    card:
-      style: |
-        ha-card {
-          --ha-card-box-shadow: 'none';
-          --ha-card-border-radius: "0px";
-        }
-      type: entities
-      entities: 
-        - type: custom:simple-thermostat
-          entity: {{ entity }}
-          style: |
-            ha-card {
-              --ha-card-box-shadow: 'none';
-              --st-font-size-sensors: 14px;
-              --st-font-size-xl: 30px;
-            }
-          step_size: 0.5
-          name: false
-          sensors:
-            - entity: sensor.valve_{{ sensor }}
-              name: Ventil
-          label:
-            temperature: Temperatur
-          control :
-            _icons: false
-            _names: true
-        {% if name.startswith("Bad") %}
-        - entity: automation.heizung_bad_timer
-          icon: mdi:av-timer
-          name: Bad Timer
-          tap_action: 
-            action: toggle
-        - entity: input_datetime.radiator_bath_1
-          name: Startzeit
-          type: custom:time-input-row
-        {% else %}
-        - entity: switch.radiator_{{ sensor }}_keylock
-          tap_action: 
-            action: toggle
-        # - entity: sensor.valve_{{ sensor }}
-        #   name: Ventil
-        #   tap_action: 
-        #     action: none
-        {% endif %}
+# tap_action:
+#   action: call-service
+#   service: browser_mod.popup
+#   service_data:
+#     deviceID: this
+#     title: Heizung {{ name }}
+#     card:
+#       style: |
+#         ha-card {
+#           --ha-card-box-shadow: 'none';
+#           --ha-card-border-radius: "0px";
+#         }
+#       type: entities
+#       entities: 
+#         - type: custom:simple-thermostat
+#           entity: {{ entity }}
+#           style: |
+#             ha-card {
+#               --ha-card-box-shadow: 'none';
+#               --st-font-size-sensors: 14px;
+#               --st-font-size-xl: 30px;
+#             }
+#           step_size: 0.5
+#           name: false
+#           sensors:
+#             - entity: sensor.valve_{{ sensor }}
+#               name: Ventil
+#           label:
+#             temperature: Temperatur
+#           control :
+#             _icons: false
+#             _names: true
+#         {% if name.startswith("Bad") %}
+#         - entity: automation.heizung_bad_timer
+#           icon: mdi:av-timer
+#           name: Bad Timer
+#           tap_action: 
+#             action: toggle
+#         - entity: input_datetime.radiator_bath_1
+#           name: Startzeit
+#           type: custom:time-input-row
+#         {% else %}
+#         - entity: switch.radiator_{{ sensor }}_keylock
+#           tap_action: 
+#             action: toggle
+#         # - entity: sensor.valve_{{ sensor }}
+#         #   name: Ventil
+#         #   tap_action: 
+#         #     action: none
+#         {% endif %}
