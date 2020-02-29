@@ -815,5 +815,7 @@
     platform: time
   condition: []
   action:
-  - entity_id: media_player.wohnzimmer
+  - data:
+      is_volume_muted: true
+    entity_id: media_player.wohnzimmer
     service: media_player.volume_mute
