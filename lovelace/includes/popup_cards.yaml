@@ -1,0 +1,69 @@
+# lovelace_gen
+
+climate.oeq1701003:
+  !include 
+    - ../includes/climate/popup_climate.yaml
+    - entity: climate.oeq1701003
+      name: Küche
+      sensor: homematic
+climate.oeq1696369:
+  !include 
+    - ../includes/climate/popup_climate.yaml
+    - entity: climate.oeq1696369
+      name: Schlafzimmer
+      sensor: bed_room
+climate.int0000002:
+  !include 
+    - ../includes/climate/popup_climate.yaml
+    - entity: climate.int0000002
+      name: Büro
+      sensor: office
+climate.oeq1696358:
+  !include 
+    - ../includes/climate/popup_climate.yaml
+    - entity: climate.oeq1696358
+      name: Wohnzimmer
+      sensor: living_room
+climate.fritz_thermostat:
+  !include 
+    - ../includes/climate/popup_climate.yaml
+    - entity: climate.fritz_thermostat
+      name: Bad
+light.schlafzimmer:
+  title: Szenen
+  card:
+    style: |
+      ha-card {
+        --ha-card-box-shadow: 'none';
+        --ha-card-border-radius: "0px";
+      }
+    type: entities
+    entities:
+      - entity: scene.schlafzimmer_nachtlicht
+        icon: mdi:brightness-3
+        name: Nachtlicht
+      - entity: scene.schlafzimmer_gedimmt
+        icon: mdi:brightness-4
+        name: Gedimmt
+      - entity: scene.schlafzimmer_hell
+        icon: mdi:brightness-5
+        name: Hell
+light.lights_kitchen:
+  title: Lampen
+  card:
+    type: entities
+    style: |
+      ha-card {
+        --ha-card-box-shadow: 'none';
+        --ha-card-border-radius: "0px";
+      }
+    entities:
+      - entity: light.deckenlicht
+        tap_action: 
+          action: toggle
+      - entity: light.steckdose_2
+        tap_action: 
+          action: toggle
+      - entity: light.steckdose_4
+        tap_action: 
+          action: toggle

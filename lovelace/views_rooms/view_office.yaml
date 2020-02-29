@@ -4,13 +4,6 @@ title: Büro
 path: office
 icon: mdi:desk
 panel: true
-popup_cards:
-  climate.int0000002:
-    !include 
-      - ../includes/climate/popup_climate.yaml
-      - entity: climate.int0000002
-        name: Büro
-        sensor: office
 cards:
   - type: custom:layout-card
     cards:

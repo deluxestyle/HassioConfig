@@ -2,11 +2,8 @@
 
 type: entities
 entities:
-  - !include
-      - climate.yaml
-      - entity: climate.int0000002
-        name: Büro
-        sensor: office
+  - entity: climate.int0000002
+    name: Büro
   - !include
       - thermostat.yaml
       - sensor_temprature: sensor.oeq1667238_temperature

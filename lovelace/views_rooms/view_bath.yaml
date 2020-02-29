@@ -4,12 +4,6 @@ title: Bad
 path: bath
 icon: mdi:shower
 panel: true
-popup_cards:
-  climate.fritz_thermostat:
-    !include 
-      - ../includes/climate/popup_climate.yaml
-      - entity: climate.fritz_thermostat
-        name: Bad
 cards:
   - type: custom:layout-card
     cards:

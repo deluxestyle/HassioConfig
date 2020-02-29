@@ -66,7 +66,8 @@ custom_header:
   
 swipe_nav:
 # -----------------------------
-
+popup_cards:
+  !include lovelace/includes/popup_cards.yaml
 # -----------------------------
 title: Home
 views:

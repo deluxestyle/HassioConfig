@@ -2,10 +2,8 @@
 
 type: entities
 entities:
-  - !include
-      - climate.yaml
-      - entity: climate.fritz_thermostat
-        name: Bad
+  - entity: climate.fritz_thermostat
+    name: Bad
   - !include
       - thermostat.yaml
       - sensor_temprature: sensor.temperature_158d00023258bd

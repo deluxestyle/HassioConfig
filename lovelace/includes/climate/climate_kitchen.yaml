@@ -2,11 +2,8 @@
 
 type: entities
 entities:
-  - !include
-      - climate.yaml
-      - entity: climate.oeq1701003
-        name: Küche
-        sensor: homematic
+  - entity: climate.oeq1701003
+    name: Küche
   - !include
       - thermostat.yaml
       - sensor_temprature: sensor.temperature_158d0002239fb5

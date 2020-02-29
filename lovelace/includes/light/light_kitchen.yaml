@@ -7,25 +7,5 @@ entities:
     tap_action: 
       action: toggle
     hold_action:
-      action: call-service
-      service: browser_mod.popup
-      service_data:
-        deviceID: this
-        title: Lampen
-        card:
-          type: entities
-          style: |
-            ha-card {
-              --ha-card-box-shadow: 'none';
-              --ha-card-border-radius: "0px";
-            }
-          entities:
-            - entity: light.deckenlicht
-              tap_action: 
-                action: toggle
-            - entity: light.steckdose_2
-              tap_action: 
-                action: toggle
-            - entity: light.steckdose_4
-              tap_action: 
-                action: toggle
+      action: more-info
+        

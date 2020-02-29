@@ -5,12 +5,6 @@ path: living_room
 icon: mdi:sofa
 panel: true
 popup_cards:
-  climate.oeq1696358:
-    !include 
-      - ../includes/climate/popup_climate.yaml
-      - entity: climate.oeq1696358
-        name: Wohnzimmer
-        sensor: living_room
   sensor.remote_state:
     title: Fernbedienung
     card:
