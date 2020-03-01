@@ -30,8 +30,8 @@ lovelace:
 
 logger:
   default: info
-  logs:
-    hacs: debug
+  # logs:
+  #   hacs: debug
   
 updater:
   include_used_components: true
@@ -148,4 +148,5 @@ stream:
 
 ffmpeg:
 
+#switches for addons
 hassio_info:
