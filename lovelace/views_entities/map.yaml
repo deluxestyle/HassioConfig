@@ -10,7 +10,7 @@ cards:
   - type: map
     default_zoom: 15
     entities:
-      - entity: device_tracker.iphonex_2
+      - entity: device_tracker.iphone11pro_2
       - entity: device_tracker.x1_sdrive18i
       - zone.home
       - zone.arbeit

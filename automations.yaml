@@ -78,7 +78,7 @@
           badge: '{{ states.counter.badge_counter.state }}'
           category: vacuum_stop
       message: Staubsauger gestartet
-    service: notify.mobile_app_iphonex
+    service: notify.mobile_app_iphone11pro
 - id: xiaomi_vacuum_notification_blocked
   alias: 'Xiaomi Staubsauger: Fehler'
   trigger:
@@ -159,7 +159,7 @@
 - id: '1532176861984'
   alias: Sonos starten
   trigger:
-  - entity_id: device_tracker.iphonex
+  - entity_id: device_tracker.iphone11pro
     platform: state
     to: home
   condition:
@@ -414,7 +414,7 @@
           category: vacuum_trigger
           thread-id: vacuum_start
       message: Staubsauger starten?
-    service: notify.mobile_app_iphonex
+    service: notify.mobile_app_iphone11pro
 - id: '1550439982602'
   alias: 'Xiaomi Staubsauger: Starten nach Push'
   trigger:
@@ -504,25 +504,6 @@
         }} % '
       notification_id: pi
       title: Raspi
-    service: script.1570439573834
-- id: '1564988736274'
-  alias: 'Benachrichtigung: Heizung Homematic'
-  trigger:
-  - above: '50'
-    entity_id: sensor.valve_homematic
-    platform: numeric_state
-  - platform: template
-    value_template: '{% if (states.climate.oeq1701003.attributes.temperature > 22)
-      %}true{% endif %}'
-  condition: []
-  action:
-  - data:
-      entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
-  - data:
-      message: Homematic Ventil offen
-      notification_id: heizung
-      title: Heizung
     service: script.1570439573834
 - id: '1567492774371'
   alias: Yeelight Error
