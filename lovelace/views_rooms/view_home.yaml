@@ -39,7 +39,7 @@ cards:
                 entity_id: light.gateway_light_7811dcb258d1
       - type: entities
         entities:
-          - type: "custom:button-entity-row"
+          - type: "custom:paper-buttons-row"
             buttons:
               - entity: switch.radiator_on_off
                 name: Heizung
@@ -118,7 +118,7 @@ cards:
               action: none
       - type: entities
         entities:
-          - type: "custom:button-entity-row"
+          - type: "custom:paper-buttons-row"
             buttons:
               - entity: script.1532173931522
                 name: Sonos einschalten

@@ -12,7 +12,7 @@ cards:
     cards:
       - type: entities
         entities:
-          - type: 'custom:button-entity-row'
+          - type: 'custom:paper-buttons-row'
             buttons:
               - entity: script.1570443737111
                 name: Mitteilung löschen
@@ -95,7 +95,7 @@ cards:
           - sensor.net_upload_cur
       - type: entities
         entities:
-          - type: "custom:button-entity-row"
+          - type: "custom:paper-buttons-row"
             buttons:
               - entity: input_boolean.room_view
               - entity: switch.frontend

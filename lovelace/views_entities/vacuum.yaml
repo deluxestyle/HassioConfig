@@ -19,7 +19,7 @@ cards:
                 tap_action: 
                   action: none
               - type: section
-          - type: "custom:button-entity-row"
+          - type: "custom:paper-buttons-row"
             buttons:
               - icon: mdi:play
                 service: vacuum.start
@@ -45,7 +45,7 @@ cards:
                   label: Räume
                 padding: 5
                 entities:
-                  - type: "custom:button-entity-row"
+                  - type: "custom:paper-buttons-row"
                     buttons:
                       - entity: script.1543667402104
                         icon: mdi:cat

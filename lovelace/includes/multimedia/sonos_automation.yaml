@@ -2,7 +2,7 @@
 
 type: entities
 entities:
-  - type: "custom:button-entity-row"
+  - type: "custom:paper-buttons-row"
     buttons:
       - entity: script.1532173931522
         name: Sonos einschalten
