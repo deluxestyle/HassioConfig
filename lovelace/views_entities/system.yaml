@@ -98,17 +98,23 @@ cards:
           - type: "custom:paper-buttons-row"
             buttons:
               - entity: input_boolean.room_view
+                name: false
               - entity: switch.frontend
+                name: false
               - entity: switch.hass_io_addon_glances
+                name: false
                 icon: mdi:speedometer
               - entity: switch.hass_io_addon_grafana
+                name: false
                 icon: mdi:chart-timeline
               - icon: mdi:script-text
+                name: false
                 service: browser_mod.navigate
                 service_data: 
                   navigation_path: /config/script
                   deviceID: this
               - icon: mdi:robot
+                name: false
                 service: browser_mod.navigate
                 service_data: 
                   navigation_path: /config/automation
