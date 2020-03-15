@@ -14,18 +14,5 @@ cards:
           - !include
               - ../includes/multimedia/mini_media_player.yaml
               - entity: media_player.schlafzimmer
-          - type: custom:fold-entity-row
-            head:
-              type: section
-              label: Wecker
-            padding: 5
-            entities:
-              - type: custom:multiple-entity-row
-                entity: automation.sonos_wecker
-                icon: mdi:alarm-note
-                tap_action: 
-                  action: toggle
-                entities:
-                  - entity: input_datetime.sonos_alarm
-                    name: Zeit
+          - !include ../includes/multimedia/sonos_alarm.yaml
                
