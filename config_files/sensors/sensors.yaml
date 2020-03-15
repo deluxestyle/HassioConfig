@@ -16,6 +16,9 @@
       - type: load_1m 
       - type: load_5m
       - type: load_15m
+      - type: swap_use
+      - type: swap_free
+      - type: swap_use_percent
 
 - platform: template
   sensors:

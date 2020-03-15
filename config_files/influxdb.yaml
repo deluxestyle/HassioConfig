@@ -69,6 +69,9 @@ include:
     - sensor.processor_use
     - sensor.processor_use_2
     - sensor.cpu_temperature
+    - sensor.swap_use
+    - sensor.swap_free
+    - sensor.swap_use_percent
     - device_tracker.x1_sdrive18i
     - sensor.online_time
     - sensor.hue_dimmer_battery_bedroom
