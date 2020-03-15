@@ -800,3 +800,21 @@
       is_volume_muted: true
     entity_id: media_player.wohnzimmer
     service: media_player.volume_mute
+- id: '1584265149079'
+  alias: 'Benachrichtigung: CPU Temp zu hoch'
+  description: ''
+  trigger:
+  - above: '70'
+    entity_id: sensor.cpu_temperature
+    for: 00:10:00
+    platform: numeric_state
+  condition: []
+  action:
+  - data: {}
+    entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
+      message: 'CPU Temp zu hoch: {{ states ( "sensor.cpu_temperature" ) }}°'
+      notification_id: cpu_temp
+      title: CPU Temp
+    service: script.1570439573834
