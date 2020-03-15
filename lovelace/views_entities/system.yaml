@@ -66,9 +66,12 @@ cards:
             name: Disk
           - entity: sensor.disk_use
             name: Disk
+          - entity: sensor.swap_use_percent
+            name: Swap
+            icon: mdi:harddisk-plus
           - entity: sensor.processor_use
             name: CPU
-            icon: mdi:poll-box
+            icon: mdi:chip
           - entity: sensor.cpu_temperature
             name: CPU Temp
             icon: mdi:thermometer
