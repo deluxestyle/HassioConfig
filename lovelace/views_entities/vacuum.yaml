@@ -22,21 +22,29 @@ cards:
           - type: "custom:paper-buttons-row"
             buttons:
               - icon: mdi:play
-                service: vacuum.start
-                service_data:
-                  entity_id: vacuum.xiaomi_vacuum_cleaner
+                tap_action: 
+                  action: call-service
+                  service: vacuum.start
+                  service_data:
+                    entity_id: vacuum.xiaomi_vacuum_cleaner
               - icon: mdi:pause
-                service: vacuum.pause
-                service_data:
-                  entity_id: vacuum.xiaomi_vacuum_cleaner
+                tap_action: 
+                  action: call-service
+                  service: vacuum.pause
+                  service_data:
+                    entity_id: vacuum.xiaomi_vacuum_cleaner
               - icon: mdi:home
-                service: vacuum.return_to_base
-                service_data:
-                  entity_id: vacuum.xiaomi_vacuum_cleaner
+                tap_action: 
+                  action: call-service
+                  service: vacuum.return_to_base
+                  service_data:
+                    entity_id: vacuum.xiaomi_vacuum_cleaner
               - icon: mdi:map-marker
-                service: vacuum.locate
-                service_data:
-                  entity_id: vacuum.xiaomi_vacuum_cleaner
+                tap_action: 
+                  action: call-service
+                  service: vacuum.locate
+                  service_data:
+                    entity_id: vacuum.xiaomi_vacuum_cleaner
           - type: entities
             entities:
               - type: custom:fold-entity-row
