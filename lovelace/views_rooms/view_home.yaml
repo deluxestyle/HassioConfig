@@ -50,6 +50,18 @@ cards:
                 state_styles:
                   "off":
                     - color: var(--primary-text-color)
+      - type: entities
+        entities:
+          - type: "custom:paper-buttons-row"
+            buttons:
+              - entity: script.1532173931522
+                name: Sonos einschalten
+                style:
+                  - color: var(--primary-text-color)
+              - entity: script.1532175994947
+                name: Sonos ausschalten
+                style:
+                  - color: var(--primary-text-color)
       - type: glance
         columns: 5
         entities:
@@ -116,15 +128,3 @@ cards:
               action: none
             hold_action:
               action: none
-      - type: entities
-        entities:
-          - type: "custom:paper-buttons-row"
-            buttons:
-              - entity: script.1532173931522
-                name: Sonos einschalten
-                style:
-                  - color: var(--primary-text-color)
-              - entity: script.1532175994947
-                name: Sonos ausschalten
-                style:
-                  - color: var(--primary-text-color)
