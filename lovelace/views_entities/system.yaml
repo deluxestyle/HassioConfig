@@ -112,14 +112,18 @@ cards:
                 icon: mdi:chart-timeline
               - icon: mdi:script-text
                 name: false
-                service: browser_mod.navigate
-                service_data: 
-                  navigation_path: /config/script
-                  deviceID: this
+                tap_action: 
+                  action: call-service
+                  service: browser_mod.navigate
+                  service_data: 
+                    navigation_path: /config/script
+                    deviceID: this
               - icon: mdi:robot
                 name: false
-                service: browser_mod.navigate
-                service_data: 
-                  navigation_path: /config/automation
-                  deviceID: this
+                tap_action: 
+                  action: call-service
+                  service: browser_mod.navigate
+                  service_data: 
+                    navigation_path: /config/automation
+                    deviceID: this
         
