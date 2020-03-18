@@ -175,22 +175,6 @@
       device: '57574103'
       entity_id: remote.harmony_hub
     service: remote.send_command
-'1538501968289':
-  alias: Heizung Homematic sperren
-  sequence:
-  - data:
-      entity_id: homematic.ccu2
-      name: block_bath
-      value: 'true'
-    service: homematic.set_variable_value
-'1538502054685':
-  alias: Heizung Homematic entsperren
-  sequence:
-  - data:
-      entity_id: homematic.ccu2
-      name: block_bath
-      value: 'false'
-    service: homematic.set_variable_value
 '1538502214360':
   alias: Heizung Bad ausschalten
   sequence:
@@ -219,9 +203,6 @@
   - data:
       entity_id: scene.thermostat_living_room_on
     service: scene.turn_on
-  - data:
-      entity_id: scene.thermostat_homematic_on
-    service: scene.turn_on
   - condition: state
     entity_id: binary_sensor.door_window_sensor_158d00022f13a0
     state: 'off'
@@ -245,7 +226,6 @@
   - service: script.1538143893265
   - service: script.1538143964007
   - service: script.1538143929416
-  - service: script.1576692493037
 '1543166767000':
   alias: 'BMW X1: Klimanlage'
   sequence:
@@ -476,12 +456,6 @@
   - data: {}
     service: python_script.dismiss_notifications
   - service: script.battery_persistent_notification_clear
-'1576692493037':
-  alias: Heizung Homematic ausschalten
-  sequence:
-  - data: {}
-    entity_id: scene.thermostat_homematic_off
-    service: scene.turn_on
 '1579815606545':
   alias: 'Frontend: Standard'
   sequence:
