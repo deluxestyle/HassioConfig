@@ -124,9 +124,6 @@ script.1538143929416:
   icon: mdi:radiator-off
 sensor.valve_homematic:
   icon: mdi:fan
-climate.oeq1701003:
-  friendly_name: Heizung Bad
-  icon: mdi:radiator
 script.1538502214360:
   icon: mdi:radiator-off
 script.1538646823835:

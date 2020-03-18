@@ -22,18 +22,6 @@
       state: false
       temperature: 4.5
   id: 06d16c4fb32542c7ab1dce121e215014
-- name: thermostat_homematic_on
-  entities:
-    climate.oeq1701003:
-      state: heat
-      temperature: 19
-  id: 44fb15f3a486435d8c68e7da2aa38fec
-- name: thermostat_homematic_off
-  entities:
-    climate.oeq1701003:
-      state: false
-      temperature: 4.5
-  id: e8f310d1c4f547a8a9a199bccf14d705
 - name: thermostat_office_on
   entities:
     climate.int0000002:

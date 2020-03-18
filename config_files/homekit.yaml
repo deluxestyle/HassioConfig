@@ -11,7 +11,6 @@ filter:
     - light.tisch
     - light.decke
     - light.leselampe
-    - climate.oeq1701003
     - climate.fritz_thermostat
     - climate.oeq1696358
     - climate.oeq1696369

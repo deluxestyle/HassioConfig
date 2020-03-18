@@ -1,11 +1,5 @@
 # lovelace_gen
 
-climate.oeq1701003:
-  !include 
-    - ../includes/climate/popup_climate.yaml
-    - entity: climate.oeq1701003
-      name: Küche
-      sensor: homematic
 climate.oeq1696369:
   !include 
     - ../includes/climate/popup_climate.yaml

@@ -35,7 +35,6 @@ group:
       - binary_sensor.oeq1667238_lowbat
       - binary_sensor.oeq1696358_lowbat
       - binary_sensor.oeq1696369_lowbat
-      - binary_sensor.oeq1701003_lowbat
       - binary_sensor.oeq1714751_lowbat
   
   battery_status_hue:
