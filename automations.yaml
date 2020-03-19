@@ -57,10 +57,6 @@
       notification_id: xiaomi_vacuum_status
       title: StaubRobo
     service: script.1570439573834
-  - data:
-      entity_id: input_select.vacuum_rooms
-      option: --
-    service: input_select.select_option
 - id: xiaomi_vacuum_notification_on
   alias: 'Xiaomi Staubsauger: gestartet'
   trigger:

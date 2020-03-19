@@ -87,13 +87,6 @@ cards:
                     icon: mdi:calendar-clock
                     tap_action: 
                       action: toggle
-              # - type: custom:fold-entity-row
-              #   head:
-              #     type: section
-              #     label: Zonen (Räume)
-              #   padding: 5
-              #   entities:
-              #     - input_select.vacuum_rooms
               - type: custom:fold-entity-row
                 head:
                   type: section
