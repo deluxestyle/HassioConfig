@@ -1,6 +1,10 @@
 - platform: fritzbox_netmonitor
   host: 192.168.200.1
 
+- platform: fritzbox_callmonitor
+  host: 192.168.200.1
+  name: fritzbox
+
 - platform: systemmonitor
   resources:
       - type: memory_free
