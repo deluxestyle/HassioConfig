@@ -272,3 +272,5 @@ switch.steckdose_1:
 light.schlafzimmer:
   icon: mdi:ceiling-light
   friendly_name: Decke
+sensor.fritzbox:
+  icon: mdi:phone-voip
