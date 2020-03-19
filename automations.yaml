@@ -825,7 +825,7 @@
   action:
   - data: {}
     entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_off
+    service: input_boolean.turn_on
   - data:
       message: 'Anruf von: {{ state_attr("sensor.fritzbox", "from") }}'
       notification_id: Anruf
