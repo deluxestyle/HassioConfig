@@ -29,8 +29,8 @@ entities:
                 }
               type: entities
               entities: 
-                  - entity: scene.wohnzimmer_sehr_hell
-                    name: Sehr hell
+                  # - entity: scene.wohnzimmer_sehr_hell
+                  #   name: Sehr hell
                   - entity: scene.wohnzimmer_hell
                     name: Hell
                   - entity: scene.wohnzimmer_lesen
@@ -45,12 +45,12 @@ entities:
                     name: Gedimmt
                   - entity: scene.wohnzimmer_nachtlicht
                     name: Nachtlicht
-                  - entity: scene.wohnzimmer_nordlicht
-                    name: Nordlicht
-                  - entity: scene.wohnzimmer_sommer
-                    name: Sommer
-                  - entity: scene.wohnzimmer_sonnenuntergang
-                    name: Sonnenuntergang
+                  # - entity: scene.wohnzimmer_nordlicht
+                  #   name: Nordlicht
+                  # - entity: scene.wohnzimmer_sommer
+                  #   name: Sommer
+                  # - entity: scene.wohnzimmer_sonnenuntergang
+                  #   name: Sonnenuntergang
       - icon: mdi:cogs
         tap_action: 
           action: call-service

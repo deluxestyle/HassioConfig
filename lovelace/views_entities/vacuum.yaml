@@ -57,20 +57,28 @@ cards:
                     buttons:
                       - entity: script.1543667402104
                         icon: mdi:cat
+                        name: false
                       - entity: script.1543666947492
                         icon: mdi:sofa
+                        name: false
                       - entity: script.1543666909272
                         icon: mdi:hotel
+                        name: false
                       - entity: script.1543666771838
                         icon: mdi:fridge
+                        name: false
                       - entity: script.1543666580682
                         icon: mdi:desk
+                        name: false
                       - entity: script.1543666985219
                         icon: mdi:shower
+                        name: false
                       - entity: script.1543666831509
                         icon: mdi:toilet
+                        name: false
                       - entity: script.1543666867257
                         icon: mdi:floor-plan
+                        name: false
               - type: custom:fold-entity-row
                 head:
                   type: section
