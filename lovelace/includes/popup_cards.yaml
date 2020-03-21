@@ -46,6 +46,7 @@ light.lights_kitchen:
   title: Lampen
   card:
     type: entities
+    show_header_toggle: false
     style: |
       ha-card {
         --ha-card-box-shadow: 'none';

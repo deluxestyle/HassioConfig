@@ -1,0 +1,18 @@
+# lovelace_gen
+
+title: Karte
+views:
+  - title: Karte
+    visible:
+      - user: b6464705fc4e405abce8058610b4bcc7
+    path: map
+    icon: mdi:map
+    panel: true
+    cards:
+      - type: map
+        default_zoom: 15
+        entities:
+          - entity: device_tracker.iphone11pro_2
+          - entity: device_tracker.x1_sdrive18i
+          - zone.home
+          - zone.arbeit

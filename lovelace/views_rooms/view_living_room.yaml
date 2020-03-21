@@ -36,6 +36,7 @@ cards:
           - type: entities
             entities:
               - entity: sensor.remote_state
+                name: Entertainment
       - type: entities
         entities:
           - entity: switch.wifi_steckdose

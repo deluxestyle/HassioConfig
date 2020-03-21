@@ -10,10 +10,22 @@ entities:
     buttons:
       - entity: light.decke
         name: false
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
       - entity: light.tisch
         name: false
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
       - entity: light.leselampe
         name: false
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
       - name: Szenen
         tap_action: 
           action: call-service
@@ -51,42 +63,4 @@ entities:
                   #   name: Sommer
                   # - entity: scene.wohnzimmer_sonnenuntergang
                   #   name: Sonnenuntergang
-      - icon: mdi:cogs
-        tap_action: 
-          action: call-service
-          service: browser_mod.popup
-          service_data:
-            #deviceID: this
-            title: Lampen
-            card:
-              type: custom:swipe-card
-              parameters:
-                nested: true
-                # allowTouchMove: false
-                grabCursor: true
-                preventClicks: true
-                preventClicksPropagation: true
-                touchStartForcePreventDefault: true
-              cards:
-                - type: custom:more-info-card
-                  style: |
-                    ha-card {
-                      --ha-card-box-shadow: 'none';
-                      --ha-card-border-radius: "0px";
-                    }
-                  entity: light.decke
-                - type: custom:more-info-card
-                  style: |
-                    ha-card {
-                      --ha-card-box-shadow: 'none';
-                      --ha-card-border-radius: "0px";
-                    }
-                  entity: light.tisch
-                - type: custom:more-info-card
-                  style: |
-                    ha-card {
-                      --ha-card-box-shadow: 'none';
-                      --ha-card-border-radius: "0px";
-                    }
-                  entity: light.leselampe
 

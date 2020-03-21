@@ -27,6 +27,29 @@ lovelace_gen:
 
 lovelace:
   mode: yaml
+  resources: !include lovelace/resources.yaml
+  dashboards:
+    lovelace-system:
+      mode: yaml
+      title: System
+      icon: mdi:settings-outline
+      show_in_sidebar: true
+      filename: ui-system.yaml
+      require_admin: true
+    lovelace-map:
+      mode: yaml
+      title: Map
+      icon: mdi:map
+      show_in_sidebar: true
+      filename: ui-map.yaml
+      require_admin: true
+    lovelace-presence:
+      mode: yaml
+      title: Presence
+      icon: mdi:account-multiple
+      show_in_sidebar: true
+      filename: ui-presence.yaml
+      require_admin: true
 
 logger:
   default: info
