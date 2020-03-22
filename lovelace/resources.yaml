@@ -1,29 +1,29 @@
 - url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
-  type: js
+  type: module
 - url: /hacsfiles/custom-header/custom-header.js
   type: module
 - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
-  type: js
+  type: module
 - url: /hacsfiles/button-card/button-card.js
   type: module
 - url: /hacsfiles/group-card/group-card.js
-  type: js  
+  type: module  
 - url: /hacsfiles/lovelace-card-mod/card-mod.js
   type: module
 - url: /hacsfiles/lovelace-card-tools/card-tools.js
-  type: js
+  type: module
 - url: /local/github/thomasloven/time-input-row.js?track=true 
   type: js
 - url: /hacsfiles/lovelace-card-mod/card-mod.js
   type: module
 - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
-  type: js
+  type: module
 - url: /hacsfiles/simple-thermostat/simple-thermostat.js
   type: module
 - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
   type: module
 - url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js
-  type: js
+  type: module
 - url: /hacsfiles/lovelace-layout-card/layout-card.js
   type: module
 - url: /hacsfiles/lovelace-slider-entity-row/slider-entity-row.js

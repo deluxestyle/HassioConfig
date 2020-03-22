@@ -120,4 +120,12 @@ views:
                       service_data: 
                         navigation_path: /config/automation
                         deviceID: this
+                  - icon: mdi:map-outline
+                    name: false
+                    tap_action: 
+                      action: call-service
+                      service: browser_mod.navigate
+                      service_data: 
+                        navigation_path: /lovelace-map/map
+                        deviceID: this
         

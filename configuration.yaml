@@ -32,15 +32,15 @@ lovelace:
     lovelace-system:
       mode: yaml
       title: System
-      icon: mdi:settings-outline
+      icon: mdi:tune
       show_in_sidebar: true
       filename: ui-system.yaml
       require_admin: true
     lovelace-map:
       mode: yaml
       title: Map
-      icon: mdi:map
-      show_in_sidebar: true
+      icon: mdi:map-outline
+      show_in_sidebar: false
       filename: ui-map.yaml
       require_admin: true
     lovelace-presence:
