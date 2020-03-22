@@ -31,7 +31,7 @@ entities:
           action: call-service
           service: browser_mod.popup
           service_data:
-            #deviceID: this
+            deviceID: this
             title: Szenen
             card:
               style: |
