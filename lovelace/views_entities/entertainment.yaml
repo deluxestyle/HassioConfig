@@ -18,10 +18,5 @@ cards:
           - !include ../includes/multimedia/remote_buttons.yaml
           - type: entities
             entities:
-              - type: custom:fold-entity-row
-                head:
-                  type: section
-                  label: AVR 151
-                padding: 5
-                entities:
-                  - input_select.avr_source
+              - type: section
+              - input_select.avr_source

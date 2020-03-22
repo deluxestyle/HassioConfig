@@ -8,21 +8,18 @@ popup_cards:
   sensor.remote_state:
     title: Fernbedienung
     card:
+      style: |
+        ha-card {
+          --ha-card-box-shadow: 'none';
+          --ha-card-border-radius: "0px";
+        }
       type: custom:vertical-stack-in-card
       cards:
         - type: entities
-          style: |
-            :host {
-              --ha-card-border-radius: "0px";
-            }
           entities:
             - entity: sensor.remote_state
         - !include ../includes/multimedia/remote_buttons.yaml
         - type: entities
-          style: |
-            :host {
-              --ha-card-border-radius: "0px";
-            }
           entities:
             - input_select.avr_source
 cards:
