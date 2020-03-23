@@ -153,7 +153,7 @@
       entity_id: counter.xiaomo_errors
     service: counter.increment
 - id: '1532176861984'
-  alias: Sonos starten
+  alias: Sonos automatisch starten
   trigger:
   - entity_id: device_tracker.iphone11pro
     platform: state
@@ -540,11 +540,6 @@
   - platform: template
     value_template: '{{ states(''sensor.time'') == (states.input_datetime.sonos_alarm.attributes.timestamp
       | int | timestamp_custom(''%H:%M'', False)) }}'
-  - event_data:
-      event: 1002
-      id: wandsender_2_fach
-    event_type: deconz_event
-    platform: event
   condition:
   - condition: state
     entity_id: sensor.presence
@@ -831,3 +826,17 @@
       notification_id: Anruf
       title: Anruf
     service: script.1570439573834
+- id: '1584907426525'
+  alias: Sonos manuell
+  description: ''
+  trigger:
+  - event_data:
+      event: 1002
+      id: wandsender_2_fach
+    event_type: deconz_event
+    platform: event
+  condition: []
+  action:
+  - data: {}
+    entity_id: script.1532173931599
+    service: script.turn_off
