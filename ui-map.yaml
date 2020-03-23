@@ -15,4 +15,4 @@ views:
           - entity: device_tracker.iphone11pro_2
           - entity: device_tracker.x1_sdrive18i
           - zone.home
-          - zone.arbeit
+          - zone.agcs
