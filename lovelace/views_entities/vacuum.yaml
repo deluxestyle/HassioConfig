@@ -12,12 +12,8 @@ cards:
         cards:
           - type: entities
             entities:
-              - type: custom:multiple-entity-row
-                entity: vacuum.xiaomi_vacuum_cleaner
+              - entity: vacuum.xiaomi_vacuum_cleaner
                 name: StaubRobo
-                entities:
-                  - entity: sensor.xiaomi_vacuum_sensor_battery
-                    name: Batterie
               - type: section
           - type: "custom:paper-buttons-row"
             buttons:
@@ -101,6 +97,8 @@ cards:
                   label: Wartung
                 padding: 5
                 entities:
+                  - entity: sensor.xiaomi_vacuum_sensor_battery
+                    name: Batterie
                   - entity: automation.xiaomi_staubsauger_neustart
                     name: Neustarten (Bürste blockiert)
                     icon: mdi:restart
