@@ -15,7 +15,7 @@ custom_header:
     {% else %}light
     {% endif %}
   hide_tabs: >-
-    {% if not is_state('input_boolean.room_view','on') %}home, living_room, bed_room, office, bath, hass, kitchen, floor
+    {% if not is_state('input_boolean.room_view','on') %}home, living_room, bed_room, office, bath, kitchen, floor
     {% else %}light, radiator, music, entertainment, power_plug
     {% endif %}
   exceptions:
@@ -72,6 +72,3 @@ views:
 
 ##### Auto ##### 
   - !include lovelace/views_entities/car.yaml
-
-##### Hass #####
-  - !include lovelace/views_rooms/view_hass.yaml

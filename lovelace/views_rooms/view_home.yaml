@@ -44,24 +44,15 @@ cards:
               - entity: switch.radiator_on_off
                 name: Heizung
                 style:
-                  - color: var(--primary-text-color)
+                  text:  
+                    color: var(--primary-text-color)
               - entity: light.lights_all
                 name: Licht
                 state_styles:
                   "off":
-                    - color: var(--primary-text-color)
-      - type: entities
-        entities:
-          - type: "custom:paper-buttons-row"
-            buttons:
-              - entity: script.1532173931522
-                name: Sonos einschalten
-                style:
-                  - color: var(--primary-text-color)
-              - entity: script.1532175994947
-                name: Sonos ausschalten
-                style:
-                  - color: var(--primary-text-color)
+                    text:  
+                      color: var(--primary-text-color)
+      - !include ../includes/multimedia/sonos_automation.yaml
       - type: glance
         columns: 5
         entities:

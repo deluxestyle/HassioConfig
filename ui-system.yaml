@@ -19,11 +19,13 @@ views:
                   - entity: script.1570443737111
                     name: Mitteilung löschen
                     style:
-                      - color: var(--primary-text-color)
+                      text:  
+                        color: var(--primary-text-color)
                   - entity: script.1570439203461
                     name: Badge löschen
                     style:
-                      - color: var(--primary-text-color)
+                      text:  
+                        color: var(--primary-text-color)
           - type: entities
             entities:
               - entity: automation.tagliches_backup_auto_backup

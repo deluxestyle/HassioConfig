@@ -33,6 +33,43 @@ views:
                     icon: mdi:account-outline
                     tap_action: 
                       action: toggle
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: Heizung
+                padding: 5
+                entities:
+                  - entity: input_boolean.automation_radiator
+                    tap_action: 
+                      action: toggle
+                  - entity: automation.heizung_abwesenheitsschaltung
+                    name: Abwesenheitsschaltung
+                    icon: mdi:account-off
+                    tap_action: 
+                      action: toggle
+                  - entity: automation.heizung_standby
+                    icon: mdi:radiator-disabled
+                    name: Standby Schaltung
+                    tap_action: 
+                      action: toggle
+                  - entity: automation.benachrichtigung_luftfeuchtigkeit
+                    name: Luftfeuchtigkeit
+                    tap_action: 
+                      action: toggle
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: Sonos Automation
+                padding: 5
+                entities:
+                  - entity: automation.sonos_starten
+                    icon: mdi:music
+                    tap_action: 
+                      action: toggle
+                  - entity: automation.sonos_stoppen
+                    icon: mdi:music-off
+                    tap_action: 
+                      action: toggle
           - type: conditional
             conditions:
               - entity: device_tracker.hikam_4452

@@ -7,22 +7,10 @@ entities:
       - entity: script.1532173931522
         name: Sonos einschalten
         style:
-          - color: var(--primary-text-color)
+          text:  
+            color: var(--primary-text-color)
       - entity: script.1532175994947
         name: Sonos ausschalten
         style:
-          - color: var(--primary-text-color)
-  - type: custom:fold-entity-row
-    head:
-      type: section
-      label: Automation
-    padding: 5
-    entities:
-      - entity: automation.sonos_starten
-        icon: mdi:music
-        tap_action: 
-          action: toggle
-      - entity: automation.sonos_stoppen
-        icon: mdi:music-off
-        tap_action: 
-          action: toggle
+          text:  
+            color: var(--primary-text-color)
