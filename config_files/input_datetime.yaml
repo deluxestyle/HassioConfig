@@ -7,4 +7,3 @@
     name: Wecker
     has_date: false
     has_time: true
-    initial: 06:45:00
