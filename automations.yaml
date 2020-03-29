@@ -839,4 +839,4 @@
   action:
   - data: {}
     entity_id: script.1532173931599
-    service: script.turn_off
+    service: script.turn_on

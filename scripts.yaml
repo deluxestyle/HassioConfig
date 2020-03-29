@@ -397,6 +397,9 @@
   alias: Sonos Wecker
   sequence:
   - data:
+      entity_id: media_player.kuche, media_player.bad, media_player.wohnzimmer
+    service: sonos.unjoin
+  - data:
       entity_id: media_player.schlafzimmer
       volume_level: '0.04'
     service: media_player.volume_set
