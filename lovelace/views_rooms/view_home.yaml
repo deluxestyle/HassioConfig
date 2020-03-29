@@ -37,22 +37,27 @@ cards:
               service: light.toggle
               service_data:
                 entity_id: light.gateway_light_7811dcb258d1
-      - type: entities
-        entities:
-          - type: "custom:paper-buttons-row"
-            buttons:
-              - entity: switch.radiator_on_off
-                name: Heizung
-                style:
-                  text:  
-                    color: var(--primary-text-color)
-              - entity: light.lights_all
-                name: Licht
-                state_styles:
-                  "off":
-                    text:  
-                      color: var(--primary-text-color)
-      - !include ../includes/multimedia/sonos_automation.yaml
+      - type: glance
+        columns: 4
+        show_state: false
+        entities:   
+          - entity: switch.radiator_on_off
+            name: Heizung  
+            tap_action:
+              action: toggle
+          - entity: light.lights_all
+            name: Licht 
+            tap_action:
+              action: toggle
+          - entity: script.1532173931522
+            name: Sonos ein
+            tap_action:
+              action: toggle
+          - entity: script.1532175994947
+            name: Sonos aus
+            tap_action:
+              action: toggle
+      # - !include ../includes/multimedia/sonos_automation.yaml
       - type: glance
         columns: 5
         entities:
