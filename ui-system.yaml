@@ -96,8 +96,8 @@ views:
             entities:
               - type: "custom:paper-buttons-row"
                 buttons:
-                  - entity: input_boolean.room_view
-                    name: false
+                  # - entity: input_boolean.room_view
+                  #   name: false
                   - entity: switch.frontend
                     name: false
                   - entity: switch.hass_io_addon_glances

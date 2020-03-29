@@ -10,19 +10,15 @@ custom_header:
   chevrons: false
   hide_config: true
   shadow: true 
-  default_tab: >-
-    {% if not is_state('input_boolean.room_view','on') %}home
-    {% else %}light
-    {% endif %}
-  hide_tabs: >-
-    {% if not is_state('input_boolean.room_view','on') %}home, living_room, bed_room, office, bath, kitchen, floor
-    {% else %}light, radiator, music, entertainment, power_plug
-    {% endif %}
-  exceptions:
-    - conditions:
-        user: anita
-      config:
-        hide_unused: true
+  default_tab: home
+  # default_tab: light
+  # hide_tabs: light, radiator, music, entertainment, power_plug
+  # hide_tabs: home, living_room, bed_room, office, bath, kitchen, floor
+  # exceptions:
+  #   - conditions:
+  #       user: anita
+  #     config:
+  #       hide_unused: true
   
 swipe_nav:
 # -----------------------------
@@ -31,20 +27,23 @@ popup_cards:
 # -----------------------------
 title: Home
 views:
-##### Home #####
-  - !include lovelace/views_rooms/view_home.yaml
-
 ##### Licht #####
-  - !include lovelace/views_entities/light.yaml
+  # - !include lovelace/views_entities/light.yaml
 
 ##### Heizung #####
-  - !include lovelace/views_entities/radiator.yaml
+  # - !include lovelace/views_entities/radiator.yaml
 
 ##### Musik #####
-  - !include lovelace/views_entities/music.yaml
+  # - !include lovelace/views_entities/music.yaml
 
 ##### Entertainment #####
-  - !include lovelace/views_entities/entertainment.yaml
+  # - !include lovelace/views_entities/entertainment.yaml
+
+##### Steckdosen #####
+  # - !include lovelace/views_entities/power_plug.yaml
+
+##### Home #####
+  - !include lovelace/views_rooms/view_home.yaml
 
 ##### Wohnzimmer #####
   - !include lovelace/views_rooms/view_living_room.yaml
@@ -63,9 +62,6 @@ views:
 
 ##### Flur #####
   - !include lovelace/views_rooms/view_floor.yaml
-
-##### Steckdosen #####
-  - !include lovelace/views_entities/power_plug.yaml
 
 #### Staubsauger #####
   - !include lovelace/views_entities/vacuum.yaml
