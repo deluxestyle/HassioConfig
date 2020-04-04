@@ -471,3 +471,14 @@
     service: frontend.set_theme
   - entity_id: input_boolean.frontend
     service: input_boolean.turn_on
+'1586021623720':
+  alias: Entertainment - Fire TV
+  sequence:
+  - data:
+      entity_id: switch.wifi_steckdose
+    service: switch.turn_on
+  - delay: 00:00:02
+  - data:
+      activity: Fire TV
+      entity_id: remote.harmony_hub
+    service: remote.turn_on

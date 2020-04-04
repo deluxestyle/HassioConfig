@@ -116,6 +116,15 @@
         turn_off:
           - service: script.turn_on
             entity_id: script.1538057479069
+    fire_tv_switch:
+        friendly_name: "Fire TV"
+        value_template: "{{ is_state('sensor.remote_state', 'Fire TV') and is_state('switch.wifi_steckdose', 'on')}}"
+        turn_on:
+          - service: script.turn_on
+            entity_id: script.1586021623720
+        turn_off:
+          - service: script.turn_on
+            entity_id: script.1538057479069
     music_switch:
         friendly_name: "Musik"
         value_template: "{{ is_state('sensor.remote_state', 'Musik') and is_state('switch.wifi_steckdose', 'on')}}"

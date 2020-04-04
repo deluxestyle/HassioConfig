@@ -15,6 +15,7 @@ smart_home:
       - light.decke
       - light.leselampe
       - switch.tv_switch
+      - switch.fire_tv_switch
       - switch.power_plug_printer
       - switch.vacuum
       - switch.wifi_steckdose
