@@ -53,7 +53,7 @@
 #### Alexa connection via Home Assistant Alexa Skill Adapter
 * https://github.com/mike-grant/haaska
 
-#### Screenshots of the mobile set up (day/night themes and switch between a room or a entity/domain view)
+#### Screenshots of the mobile set up (day/night themes and switch between a room or a entity/domain view) - not up to date - using now multiple dashboards
 ![demo](https://github.com/deluxestyle/documentation/blob/master/Home-Assistant-2020-02-02-16-48-18.gif?raw=true)
 
 <img src="/docs/mobile/IMG_2403.PNG" alt="Screenshots" width="225" height="487">|<img src="/docs/mobile/IMG_2404.PNG" alt="Screenshots" width="225" height="487">
