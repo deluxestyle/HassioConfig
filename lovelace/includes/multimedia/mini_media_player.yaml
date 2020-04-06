@@ -23,4 +23,4 @@ speaker_group:
     - entity_id: media_player.kuche
       name: Sonos Küche
     - entity_id: media_player.wohnzimmer
-      name: Sonos Wohnzimmer
+      name: Sonos Büro
