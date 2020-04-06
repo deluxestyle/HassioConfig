@@ -39,6 +39,8 @@ views:
                   label: Heizung
                 padding: 5
                 entities:
+                  - entity: sensor.dark_sky_temperature
+                    name: Außentemperatur
                   - entity: input_boolean.automation_radiator
                     tap_action: 
                       action: toggle
