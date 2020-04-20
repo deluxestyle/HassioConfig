@@ -19,7 +19,8 @@
   alias: 'Sonos: ausschalten'
   sequence:
   - data:
-      entity_id: media_player.bad, media_player.schlafzimmer, media_player.kuche
+      entity_id: media_player.bad, media_player.schlafzimmer, media_player.kuche,
+        media_player.wohnzimmer
     service: media_player.media_stop
 '1534539954375':
   alias: Xiaomi Staubsauger einschalten

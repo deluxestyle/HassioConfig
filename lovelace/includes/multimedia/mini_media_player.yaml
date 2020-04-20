@@ -6,8 +6,8 @@ icon: 'mdi:speaker-wireless'
 hide:
   power: true
   source: false
-  progress: true
-group: true
+  progress: false
+#group: true
 source: full
 tap_action:
   action: none

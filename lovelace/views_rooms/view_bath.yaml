@@ -8,8 +8,6 @@ cards:
   - type: custom:layout-card
     cards:
       - !include ../includes/climate/climate_bath.yaml
-      - type: entities
-        entities:
-          - !include
-              - ../includes/multimedia/mini_media_player.yaml
-              - entity: media_player.bad
+      - !include
+          - ../includes/multimedia/mini_media_player.yaml
+          - entity: media_player.bad

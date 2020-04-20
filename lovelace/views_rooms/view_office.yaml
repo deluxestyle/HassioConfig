@@ -25,9 +25,7 @@ cards:
             name: Steckdose
             tap_action: 
               action: toggle
-      - type: entities
-        entities:
-          - !include
-              - ../includes/multimedia/mini_media_player.yaml
-              - entity: media_player.wohnzimmer
-                name: Büro
+      - !include
+          - ../includes/multimedia/mini_media_player.yaml
+          - entity: media_player.wohnzimmer
+            name: Büro

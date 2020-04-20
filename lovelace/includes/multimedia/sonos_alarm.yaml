@@ -1,16 +1,16 @@
 # lovelace_gen
 
-type: custom:fold-entity-row
-head:
-  type: section
-  label: Wecker
-padding: 5
+# type: custom:fold-entity-row
+# head:
+#   type: section
+#   label: Wecker
+# padding: 5
+# entities:
+type: custom:multiple-entity-row
+entity: automation.sonos_wecker
+icon: mdi:alarm-note
+tap_action: 
+  action: toggle
 entities:
-  - type: custom:multiple-entity-row
-    entity: automation.sonos_wecker
-    icon: mdi:alarm-note
-    tap_action: 
-      action: toggle
-    entities:
-      - entity: input_datetime.sonos_alarm
-        name: Zeit
+  - entity: input_datetime.sonos_alarm
+    name: Zeit
