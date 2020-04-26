@@ -58,11 +58,16 @@ views:
                     name: Luftfeuchtigkeit
                     tap_action: 
                       action: toggle
-              - type: custom:fold-entity-row
-                head:
-                  type: section
-                  label: Sonos Automation
-                padding: 5
+              - type: custom:auto-entities
+                card:
+                  type: custom:fold-entity-row
+                  head:
+                    type: section
+                    label: Sonos Automation
+                  padding: 5
+                filter:
+                    include:
+                      - entity_id: "switch.sonos_alarm_*"
                 entities:
                   - entity: automation.sonos_starten
                     icon: mdi:music
