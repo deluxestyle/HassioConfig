@@ -99,12 +99,6 @@ homematic: !include config_files/homematic.yaml
 
 sensor: !include_dir_merge_list config_files/sensors/
 
-# hue:
-#   bridges:
-#     - host: 192.168.200.52
-#       allow_unreachable: true
-#       allow_hue_groups: false
-
 vacuum:
   - platform: xiaomi_miio
     host: 192.168.200.28
@@ -146,22 +140,9 @@ camera:
   - platform: ffmpeg
     input: -rtsp_transport tcp -i rtsp://192.168.200.40:554/onvif1
 
-zone:
-  - name: AGCS
-    latitude: 48.104569
-    longitude: 11.645074
-    radius: 100
-    icon: mdi:office-building
-
 auto_backup:
   auto_purge: true
   backup_timeout: 4800
-
-fritzbox:
-  devices:
-    - host: 192.168.200.1
-      username: !secret fritz_user
-      password: !secret fritz_password
 
 python_script:
 

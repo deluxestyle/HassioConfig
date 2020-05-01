@@ -1,4 +1,3 @@
-purge_interval: 1
 purge_keep_days: 1
 # db_url: mysql://hass:securepw@core-mariadb/homeassistant?charset=utf8
 exclude:
