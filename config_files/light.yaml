@@ -29,8 +29,13 @@
   name: lights_bed_room
   entities:
       - light.schlafzimmer
-      - light.nachttischlampe_wolfgang
       - light.nachttischlampe_anita
+
+- platform: group
+  name: lights_office
+  entities:
+      - light.nachttischlampe_wolfgang
+      - light.sonoff_office     
 
 - platform: group
   name: lights_kitchen

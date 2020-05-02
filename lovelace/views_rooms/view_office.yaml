@@ -8,9 +8,14 @@ cards:
   - type: custom:layout-card
     cards:
       - type: entities
+        show_header_toggle: false
         entities:
           - entity: light.sonoff_office
             name: Büro
+            tap_action: 
+              action: toggle
+          - entity: light.nachttischlampe_wolfgang
+            name: Yeelight Wolfgang
             tap_action: 
               action: toggle
       - !include ../includes/climate/climate_office.yaml
