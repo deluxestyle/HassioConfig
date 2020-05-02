@@ -34,6 +34,7 @@ filter:
     - sensor.humidity_158d0001b8c998
     - sensor.humidity_158d0002239fb5
     - sensor.humidity_158d00023258bd
+    - sensor.temperature_158d0002239fb5
     - sensor.oeq1667238_humidity
 entity_config:
     media_player.schlafzimmer:

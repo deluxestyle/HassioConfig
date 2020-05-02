@@ -401,7 +401,7 @@
       entity_id: media_player.kuche, media_player.bad, media_player.wohnzimmer
     service: sonos.unjoin
   - data:
-      entity_id: media_player.schlafzimmer
+      entity_id: media_player.wohnzimmer
       volume_level: '0.04'
     service: media_player.volume_set
   - data:

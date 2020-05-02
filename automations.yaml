@@ -747,15 +747,6 @@
       message: 'Name: {{ trigger.event.data.name }}
 
         Error: {{ trigger.event.data.error }}'
-# - id: '1578780055284'
-#   alias: Reload Lovelace
-#   description: ''
-#   trigger:
-#   - entity_id: input_boolean.room_view
-#     platform: state
-#   condition: []
-#   action:
-#   - service: browser_mod.lovelace_reload
 - id: '1578785190961'
   alias: 'Heizung: Schlafzimmer - Fenster offen'
   description: Falls Luftfeuchtigkeit unter 50% -  Wahrscheinlichkeit hoch, dass Fenster
