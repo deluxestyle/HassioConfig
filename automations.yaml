@@ -817,15 +817,29 @@
       notification_id: Anruf
       title: Anruf
     service: script.1570439573834
-- id: '1584907426525'
-  alias: Sonos manuell
+- id: '1588521070416'
+  alias: 'Wandsender 2-fach: Licht Büro'
   description: ''
   trigger:
-  - event_data:
-      event: 1002
-      id: wandsender_2_fach
-    event_type: deconz_event
-    platform: event
+  - device_id: 4f8d84a2d79f4648bc31a4197be89a9b
+    domain: deconz
+    platform: device
+    subtype: left
+    type: remote_button_short_press
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.sonoff_office
+    service: light.toggle
+- id: '1588521196141'
+  alias: 'Wandsender 2-fach: Sonos Büro'
+  description: ''
+  trigger:
+  - device_id: 4f8d84a2d79f4648bc31a4197be89a9b
+    domain: deconz
+    platform: device
+    subtype: right
+    type: remote_button_short_press
   condition: []
   action:
   - data: {}
