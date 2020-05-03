@@ -5,10 +5,10 @@ name: {{ name }}
 icon: 'mdi:speaker-wireless'
 hide:
   power: true
-  source: false
+  source: true
   progress: false
 #group: true
-source: full
+#source: icon
 tap_action:
   action: none
 speaker_group:
@@ -24,3 +24,21 @@ speaker_group:
       name: Sonos Küche
     - entity_id: media_player.wohnzimmer
       name: Sonos Büro
+shortcuts:
+  list:
+    - id: Superfly.fm
+      name: Superfly.fm
+      type: source
+    - id: egoFM
+      name: egoFM
+      type: source
+    - id: B 5 Aktuell
+      name: B 5 Aktuell
+      type: source
+    - id: Current
+      name: Current
+      type: playlist
+    - id: IrieSoul Vibrations
+      name: IrieSoul Vibrations
+      type: playlist
+  label: Auswahl
