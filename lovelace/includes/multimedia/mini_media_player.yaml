@@ -9,6 +9,7 @@ hide:
   progress: false
 #group: true
 #source: icon
+info: scroll
 tap_action:
   action: none
 speaker_group:
@@ -27,18 +28,22 @@ speaker_group:
 shortcuts:
   list:
     - id: Superfly.fm
-      name: Superfly.fm
+      name: 'Radio: Superfly.fm'
       type: source
     - id: egoFM
-      name: egoFM
+      name: 'Radio: egoFM'
       type: source
     - id: B 5 Aktuell
-      name: B 5 Aktuell
+      name: 'Radio: B 5 Aktuell'
       type: source
-    - id: Current
-      name: Current
-      type: playlist
+    - id: Current 
+      name: 'Playlist: Current'
+      type: playlist 
     - id: IrieSoul Vibrations
-      name: IrieSoul Vibrations
+      name: 'Playlist: IrieSoul Vibrations'
       type: playlist
   label: Auswahl
+idle_view:
+  when_idle: true
+  when_paused: true
+  when_standby: true
