@@ -780,7 +780,7 @@
   action:
   - data:
       is_volume_muted: true
-    entity_id: media_player.wohnzimmer
+    entity_id: media_player.buro
     service: media_player.volume_mute
 - id: '1584265149079'
   alias: 'Benachrichtigung: CPU Temp zu hoch'

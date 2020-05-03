@@ -3,12 +3,12 @@
   sequence:
   - data:
       entity_id: media_player.bad, media_player.kuche, media_player.schlafzimmer,
-        media_player.wohnzimmer
+        media_player.buro
       master: media_player.bad
     service: sonos.join
   - data:
       entity_id: media_player.bad, media_player.kuche, media_player.schlafzimmer,
-        media_player.wohnzimmer
+        media_player.buro
       volume_level: '0.12'
     service: media_player.volume_set
   - data:
@@ -20,7 +20,7 @@
   sequence:
   - data:
       entity_id: media_player.bad, media_player.schlafzimmer, media_player.kuche,
-        media_player.wohnzimmer
+        media_player.buro
     service: media_player.media_stop
 '1534539954375':
   alias: Xiaomi Staubsauger einschalten
@@ -398,10 +398,10 @@
   alias: Sonos Wecker
   sequence:
   - data:
-      entity_id: media_player.kuche, media_player.bad, media_player.wohnzimmer
+      entity_id: media_player.kuche, media_player.bad, media_player.buro
     service: sonos.unjoin
   - data:
-      entity_id: media_player.wohnzimmer
+      entity_id: media_player.buro
       volume_level: '0.04'
     service: media_player.volume_set
   - data:

@@ -32,5 +32,5 @@ cards:
               action: toggle
       - !include
           - ../includes/multimedia/mini_media_player.yaml
-          - entity: media_player.wohnzimmer
+          - entity: media_player.buro
             name: Büro

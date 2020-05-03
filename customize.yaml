@@ -276,5 +276,5 @@ sensor.fritzbox:
   icon: mdi:phone-voip
 switch.fire_tv_switch:
   icon: mdi:television-play
-media_player.wohnzimmer:
+media_player.buro:
   friendly_name: Büro

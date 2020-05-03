@@ -23,7 +23,7 @@ speaker_group:
       name: Sonos Bad
     - entity_id: media_player.kuche
       name: Sonos Küche
-    - entity_id: media_player.wohnzimmer
+    - entity_id: media_player.buro
       name: Sonos Büro
 shortcuts:
   list:

@@ -20,7 +20,7 @@ filter:
     - media_player.bad
     - media_player.schlafzimmer
     - media_player.kuche
-    - media_player.wohnzimmer
+    - media_player.buro
     - switch.radiator_on_off
     - switch.power_plug_printer
     - switch.power_plug_5
@@ -46,7 +46,7 @@ entity_config:
     media_player.kuche:
       feature_list:
         - feature: play_pause
-    media_player.wohnzimmer:
+    media_player.buro:
       feature_list:
         - feature: play_pause
     sensor.humidity_158d0001b8c998:
