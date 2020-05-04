@@ -4,6 +4,8 @@
 - platform: fritzbox_callmonitor
   host: 192.168.200.1
   name: fritzbox
+  username: !secret fritz_user
+  password: !secret fritz_password
 
 - platform: systemmonitor
   resources:
