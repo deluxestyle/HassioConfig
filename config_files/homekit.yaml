@@ -22,8 +22,8 @@ filter:
     - media_player.kuche
     - media_player.buro
     - switch.radiator_on_off
-    - switch.power_plug_printer
-    - switch.power_plug_5
+    - switch.steckdose_3
+    - switch.steckdose_5
     - switch.tv_switch
     - switch.fire_tv_switch
     - switch.music_switch

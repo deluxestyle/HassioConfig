@@ -135,24 +135,24 @@
           - service: script.turn_on
             entity_id: script.1538057479069
     ###### Switches (nur für HomeKit/Alexa) ######
-    power_plug_printer:
-        friendly_name: Drucker
-        value_template: "{{ is_state('switch.steckdose_3', 'on') }}"
-        turn_on:
-          - service: light.turn_on
-            entity_id: switch.steckdose_3
-        turn_off:
-          - service: light.turn_off
-            entity_id: switch.steckdose_3
-    power_plug_5:
-        friendly_name: Steckdose 5
-        value_template: "{{ is_state('switch.steckdose_5', 'on') }}"
-        turn_on:
-          - service: switch.turn_on
-            entity_id: switch.steckdose_5
-        turn_off:
-          - service: switch.turn_off
-            entity_id: switch.steckdose_5
+    # power_plug_printer:
+    #     friendly_name: Drucker
+    #     value_template: "{{ is_state('switch.steckdose_3', 'on') }}"
+    #     turn_on:
+    #       - service: light.turn_on
+    #         entity_id: switch.steckdose_3
+    #     turn_off:
+    #       - service: light.turn_off
+    #         entity_id: switch.steckdose_3
+    # power_plug_5:
+    #     friendly_name: Steckdose 5
+    #     value_template: "{{ is_state('switch.steckdose_5', 'on') }}"
+    #     turn_on:
+    #       - service: switch.turn_on
+    #         entity_id: switch.steckdose_5
+    #     turn_off:
+    #       - service: switch.turn_off
+    #         entity_id: switch.steckdose_5
     vacuum:
         friendly_name: Staubsauger
         value_template: "{{ is_state('vacuum.xiaomi_vacuum_cleaner', 'cleaning')}}"
