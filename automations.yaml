@@ -845,3 +845,16 @@
   - data: {}
     entity_id: script.1532173931599
     service: script.turn_on
+- id: '1588931224792'
+  alias: Steckdose Laptop
+  description: ''
+  trigger:
+  - entity_id: device_tracker.hp_spectre
+    platform: state
+    to: not_home
+  condition: []
+  action:
+  - device_id: 7081c5666c1d45bf94bb197452b52f69
+    domain: switch
+    entity_id: switch.steckdose_1
+    type: turn_off
