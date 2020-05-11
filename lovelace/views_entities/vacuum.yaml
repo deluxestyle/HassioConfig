@@ -10,6 +10,8 @@ cards:
     cards:
       - type: custom:vertical-stack-in-card
         cards:
+          # - type: custom:vacuum-card
+          #   entity: vacuum.xiaomi_vacuum_cleaner
           - type: entities
             entities:
               - entity: vacuum.xiaomi_vacuum_cleaner
