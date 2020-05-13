@@ -6,6 +6,8 @@
   name: fritzbox
   username: !secret fritz_user
   password: !secret fritz_password
+  prefixes:
+    - '+49'
 
 - platform: systemmonitor
   resources:
