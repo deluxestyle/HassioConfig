@@ -351,10 +351,10 @@
   - data:
       entity_id: sensor.car_km_usage
     service: homeassistant.update_entity
-  - data:
-      keep_days: 0
-      repack: true
-    service: recorder.purge
+  # - data:
+  #     keep_days: 0
+  #     repack: true
+  #   service: recorder.purge
 - id: '1544816542688'
   alias: 'Xiaomi Staubsauger: Error stop'
   trigger:
