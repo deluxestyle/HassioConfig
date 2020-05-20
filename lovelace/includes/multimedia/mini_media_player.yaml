@@ -38,10 +38,13 @@ shortcuts:
       type: source
     - id: Current 
       name: 'Playlist: Current'
-      type: playlist 
-    - id: IrieSoul Vibrations
-      name: 'Playlist: IrieSoul Vibrations'
-      type: playlist
+      type: source 
+    - id: Irie Soul Vibration on Radio Superfly brought to you by Koolbreak and Rizzla
+      name: 'Playlist: Irie Soul Vibrations'
+      type: source
+    - id: Reggae
+      name: 'Playlist: Reggae'
+      type: source
   label: Auswahl
 idle_view:
   when_idle: true
