@@ -1,6 +1,8 @@
 homeassistant:
   customize: !include customize.yaml
   packages: !include_dir_named packages
+  # internal_url: !secret internal_url
+  # external_url: !secret hass_url
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 #default_config:
@@ -15,7 +17,7 @@ api:
 zeroconf:
 
 http:
-  base_url: !secret hass_url
+  # base_url: !secret hass_url
   use_x_forwarded_for: true
   trusted_proxies:
     - 172.30.33.4
