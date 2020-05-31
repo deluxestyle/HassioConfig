@@ -351,10 +351,6 @@
   - data:
       entity_id: sensor.car_km_usage
     service: homeassistant.update_entity
-  # - data:
-  #     keep_days: 0
-  #     repack: true
-  #   service: recorder.purge
 - id: '1544816542688'
   alias: 'Xiaomi Staubsauger: Error stop'
   trigger:
@@ -846,7 +842,7 @@
     entity_id: script.1532173931599
     service: script.turn_on
 - id: '1588931224792'
-  alias: Steckdose Laptop
+  alias: Steckdose Laptop - Aus
   description: ''
   trigger:
   - entity_id: device_tracker.hp_spectre
@@ -858,3 +854,16 @@
     domain: switch
     entity_id: switch.steckdose_1
     type: turn_off
+- id: '1590916062896'
+  alias: Steckdose Laptop - An
+  description: ''
+  trigger:
+  - entity_id: device_tracker.hp_spectre
+    platform: state
+    to: home
+  condition: []
+  action:
+  - device_id: 7081c5666c1d45bf94bb197452b52f69
+    domain: switch
+    entity_id: switch.steckdose_1
+    type: turn_on
