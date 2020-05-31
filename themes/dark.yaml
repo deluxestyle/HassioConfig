@@ -39,6 +39,7 @@ dark:
   ha-card-box-shadow: 1px 1px 5px 0px rgb(12, 12, 14)
   paper-card-background-color: "#202124"
   paper-listbox-background-color: "#202124"
+  paper-dialog-background-color: "#202124"
 
   # Table
   table-row-background-color: var(--primary-background-color)
