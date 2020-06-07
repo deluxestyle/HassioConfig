@@ -185,3 +185,5 @@
   mac: 00:11:32:98:83:61
   name: DS118
   host: 192.168.200.41
+  turn_off:
+    service: shell_command.restart_ds118

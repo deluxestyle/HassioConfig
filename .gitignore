@@ -19,3 +19,4 @@ airsonos.xml
 hassio.code-workspace
 .storage
 .ip_authenticated.yaml
+scripts/shutdown_ds118.sh

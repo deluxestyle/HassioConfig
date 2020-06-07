@@ -28,6 +28,12 @@ views:
                         color: var(--primary-text-color)
           - type: entities
             entities:
+              - entity: switch.ds118
+                icon: mdi:nas
+                tap_action: 
+                  action: toggle
+          - type: entities
+            entities:
               - entity: automation.tagliches_backup_auto_backup
                 icon: mdi:content-save-all
                 tap_action: 
