@@ -5,6 +5,7 @@ path: floor
 icon: mdi:floor-plan
 cards:
   - type: custom:layout-card
+    max_columns: 2
     cards:
       - type: entities
         entities:

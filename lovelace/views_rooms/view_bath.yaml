@@ -6,6 +6,7 @@ icon: mdi:shower
 panel: true
 cards:
   - type: custom:layout-card
+    max_columns: 2
     cards:
       - !include ../includes/climate/climate_bath.yaml
       - !include
