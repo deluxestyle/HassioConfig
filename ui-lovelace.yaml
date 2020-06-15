@@ -3,8 +3,8 @@
 # -----------------------------
 custom_header:
   compact_mode: true
-  background: var(--app-header-background-color)
-  elements_color: var(--app-header-text-color)
+  background: var(--primary-background-color)
+  elements_color: var(--primary-text-color)
   active_tab_color: var(--primary-color)
   tab_indicator_color: var(--primary-color)
   chevrons: false
