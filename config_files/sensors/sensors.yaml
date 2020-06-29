@@ -35,10 +35,10 @@
         friendly_name: "Multimedia"
         value_template: '{{ states.remote.harmony_hub.attributes.current_activity }}'
       presence:
-        entity_id: person.anita, person.wolfgang
+        entity_id: person.wolfgang
         friendly_name: Anwesenheit
         value_template: >
-            {% if is_state('person.anita', 'home') or is_state('person.wolfgang', 'home')  %}
+            {% if is_state('person.wolfgang', 'home')  %}
               home
             {% else %}
               not_home

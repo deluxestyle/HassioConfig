@@ -29,7 +29,6 @@
   name: lights_bed_room
   entities:
       - light.schlafzimmer
-      - light.nachttischlampe_anita
 
 - platform: group
   name: lights_office
@@ -54,7 +53,6 @@
       - light.gateway_light_7811dcb258d1
       - light.sonoff_office
       - light.nachttischlampe_wolfgang
-      - light.nachttischlampe_anita
       - light.deckenlicht
       - light.steckdose_2
       - light.steckdose_4

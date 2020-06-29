@@ -14,11 +14,6 @@ custom_header:
   # default_tab: light
   # hide_tabs: light, radiator, music, entertainment, power_plug
   # hide_tabs: home, living_room, bed_room, office, bath, kitchen, floor
-  # exceptions:
-  #   - conditions:
-  #       user: anita
-  #     config:
-  #       hide_unused: true
   
 swipe_nav:
 # -----------------------------

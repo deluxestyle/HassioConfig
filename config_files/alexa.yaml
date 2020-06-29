@@ -7,7 +7,6 @@ smart_home:
       - climate.int0000002
       - switch.radiator_on_off
       - light.lights_kitchen
-      - light.nachttischlampe_anita
       - light.nachttischlampe_wolfgang
       - light.schlafzimmer
       - light.sonoff_office

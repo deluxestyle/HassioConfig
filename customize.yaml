@@ -169,8 +169,6 @@ light.lights_bed_room:
   icon: mdi:ceiling-light
 light.nachttischlampe_wolfgang:
   icon: mdi:lamp
-light.nachttischlampe_anita:
-  icon: mdi:lamp
 light.leselampe:
   icon: mdi:desk-lamp
 light.decke:
