@@ -2,25 +2,22 @@
   alias: 'Sonos: Superfly FM starten'
   sequence:
   - data:
-      entity_id: media_player.bad, media_player.kuche, media_player.schlafzimmer,
-        media_player.buro
-      master: media_player.bad
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer
+      master: media_player.wohnzimmer
     service: sonos.join
   - data:
-      entity_id: media_player.bad, media_player.kuche, media_player.schlafzimmer,
-        media_player.buro
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer
       volume_level: '0.12'
     service: media_player.volume_set
   - data:
-      entity_id: media_player.bad
+      entity_id: media_player.wohnzimmer
       source: Superfly.fm
     service: media_player.select_source
 '1532175994947':
   alias: 'Sonos: ausschalten'
   sequence:
   - data:
-      entity_id: media_player.bad, media_player.schlafzimmer, media_player.kuche,
-        media_player.buro
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer
     service: media_player.media_stop
 '1534539954375':
   alias: Xiaomi Staubsauger einschalten
@@ -398,14 +395,14 @@
   alias: Sonos Wecker
   sequence:
   - data:
-      entity_id: media_player.kuche, media_player.bad, media_player.buro
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer
     service: sonos.unjoin
   - data:
-      entity_id: media_player.buro
+      entity_id: media_player.schlafzimmer
       volume_level: '0.04'
     service: media_player.volume_set
   - data:
-      entity_id: media_player.buro
+      entity_id: media_player.schlafzimmer
       source: Superfly.fm
     service: media_player.select_source
 '1570439203461':

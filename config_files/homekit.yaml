@@ -18,8 +18,7 @@ filter:
     - script.1532175994947
     - media_player.bad
     - media_player.schlafzimmer
-    - media_player.kuche
-    - media_player.buro
+    - media_player.wohnzimmer
     - switch.radiator_on_off
     - switch.steckdose_3
     - switch.steckdose_5
@@ -39,13 +38,7 @@ entity_config:
     media_player.schlafzimmer:
       feature_list:
         - feature: play_pause
-    media_player.bad:
-      feature_list:
-        - feature: play_pause
-    media_player.kuche:
-      feature_list:
-        - feature: play_pause
-    media_player.buro:
+    media_player.wohnzimmer:
       feature_list:
         - feature: play_pause
     sensor.humidity_158d0001b8c998:

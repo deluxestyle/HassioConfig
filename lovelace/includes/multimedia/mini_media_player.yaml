@@ -20,12 +20,8 @@ speaker_group:
   entities:
     - entity_id: media_player.schlafzimmer
       name: Sonos Schlafzimmer
-    - entity_id: media_player.bad
+    - entity_id: media_player.wohnzimmer
       name: Sonos Bad
-    - entity_id: media_player.kuche
-      name: Sonos Küche
-    - entity_id: media_player.buro
-      name: Sonos Büro
 # shortcuts:
 #   list:
 #     - id: Superfly.fm

@@ -757,18 +757,6 @@
   condition: []
   action:
   - service: script.1540232132608
-- id: '1582319045043'
-  alias: 'Sonos: Wohnzimmer Mute'
-  description: Wohnzimmer mute in der Nacht
-  trigger:
-  - at: 03:00
-    platform: time
-  condition: []
-  action:
-  - data:
-      is_volume_muted: true
-    entity_id: media_player.buro
-    service: media_player.volume_mute
 - id: '1584265149079'
   alias: 'Benachrichtigung: CPU Temp zu hoch'
   description: ''
