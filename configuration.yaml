@@ -100,7 +100,7 @@ ios: !include config_files/push.yaml
 homekit: !include config_files/homekit.yaml
 browser_mod: !include config_files/browser_mod.yaml
 calendar: !include config_files/calendar.yaml
-homematic: !include config_files/homematic.yaml
+#homematic: !include config_files/homematic.yaml
 
 sensor: !include_dir_merge_list config_files/sensors/
 
@@ -114,10 +114,10 @@ device_tracker:
     host: 192.168.200.1
     consider_home: 600
 
-xiaomi_aqara:
-  discovery_retry: 5
-  gateways:
-    - key: !secret xiaomi_gateway
+# xiaomi_aqara:
+#   discovery_retry: 5
+#   gateways:
+#     - key: !secret xiaomi_gateway
 
 # remote:
 #   - platform: harmony
