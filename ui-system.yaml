@@ -63,7 +63,6 @@ views:
                 entities:
                   - group.battery_status_hue
                   - group.battery_status_xiaomi
-                  - group.battery_status_homematic_binary
           - type: glance
             columns: 4
             show_name: false

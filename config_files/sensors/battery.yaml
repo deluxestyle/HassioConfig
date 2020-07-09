@@ -47,11 +47,11 @@
         device_class: battery
         friendly_name: "Batterie Sensor Motion"
         value_template: '{{ states.sensor.lightlevel_20_battery_level.state }}'
-      battery_sensor_door:
-        entity_id: sensor.openclose_19_battery_level
-        device_class: battery
-        friendly_name: "Batterie Sensor Motion Door/Window"
-        value_template: '{{ states.sensor.openclose_19_battery_level.state }}'
+      # battery_sensor_door:
+      #   entity_id: sensor.openclose_19_battery_level
+      #   device_class: battery
+      #   friendly_name: "Batterie Sensor Motion Door/Window"
+      #   value_template: '{{ states.sensor.openclose_19_battery_level.state }}'
       battery_sensor_button_1:
         entity_id: sensor.smart_switch_1_battery_level
         device_class: battery
