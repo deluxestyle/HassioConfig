@@ -5,11 +5,11 @@ password: !secret influxdb_password
 default_measurement: state
 include:
   entities:
-    - sensor.battery_radiator_homematic
-    - sensor.battery_radiator_bedroom
-    - sensor.battery_radiator_livingroom
-    - sensor.battery_radiator_office_1
-    - sensor.battery_radiator_office_2
+    # - sensor.battery_radiator_homematic
+    # - sensor.battery_radiator_bedroom
+    # - sensor.battery_radiator_livingroom
+    # - sensor.battery_radiator_office_1
+    # - sensor.battery_radiator_office_2
     - sensor.battery_sensor_bedroom
     - sensor.battery_sensor_button_1
     - sensor.battery_sensor_button_2
@@ -24,8 +24,8 @@ include:
     - sensor.humidity_158d0001b8c998
     - sensor.humidity_158d0002239fb5
     - sensor.humidity_158d00023258bd
-    - sensor.oeq1667238_humidity
-    - sensor.oeq1667238_temperature
+    # - sensor.oeq1667238_humidity
+    # - sensor.oeq1667238_temperature
     - sensor.temperature_158d0001b8c96c
     - sensor.temperature_158d0001b8c998
     - sensor.temperature_158d0002239fb5
@@ -39,9 +39,9 @@ include:
     - sensor.xiaomi_vacuum_sensor_battery
     - sensor.xiaomi_vacuum_sensor_dirty_left
     - sensor.xiaomi_vacuum_side_brush_left
-    - sensor.x1_sdrive18i_mileage
-    - sensor.x1_sdrive18i_remaining_fuel
-    - sensor.x1_sdrive18i_remaining_range_total
+    # - sensor.x1_sdrive18i_mileage
+    # - sensor.x1_sdrive18i_remaining_fuel
+    # - sensor.x1_sdrive18i_remaining_range_total
     - sensor.memory_use
     - sensor.memory_use_2
     - sensor.memory_use_percent
@@ -57,7 +57,7 @@ include:
     - sensor.swap_use
     - sensor.swap_free
     - sensor.swap_use_percent
-    - device_tracker.x1_sdrive18i
+    # - device_tracker.x1_sdrive18i
     - sensor.online_time
     - sensor.hue_dimmer_battery_bedroom
     - sensor.hue_dimmer_battery_livingroom
@@ -66,9 +66,9 @@ include:
     - sensor.hs110_total_kwh
     - sensor.hs110_watts
     - sensor.hs110_amps
-    - sensor.car_days_in_use
-    - sensor.car_km_threshold
-    - sensor.car_km_usage
+    # - sensor.car_days_in_use
+    # - sensor.car_km_threshold
+    # - sensor.car_km_usage
     - sensor.fritz_thermostat_1_battery
     - sensor.net_download_cur
     - sensor.net_download_max
@@ -77,7 +77,7 @@ include:
     - sensor.net_upload_cur
     - sensor.net_upload_max
     - sensor.net_uptime
-    - sensor.wolfgang_latitude
-    - sensor.wolfgang_longitude
-    - sensor.car_latitude
-    - sensor.car_longitude
+    # - sensor.wolfgang_latitude
+    # - sensor.wolfgang_longitude
+    # - sensor.car_latitude
+    # - sensor.car_longitude

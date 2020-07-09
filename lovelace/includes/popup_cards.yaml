@@ -1,23 +1,5 @@
 # lovelace_gen
 
-climate.oeq1696369:
-  !include 
-    - ../includes/climate/popup_climate.yaml
-    - entity: climate.oeq1696369
-      name: Schlafzimmer
-      sensor: bed_room
-climate.int0000002:
-  !include 
-    - ../includes/climate/popup_climate.yaml
-    - entity: climate.int0000002
-      name: Büro
-      sensor: office
-climate.oeq1696358:
-  !include 
-    - ../includes/climate/popup_climate.yaml
-    - entity: climate.oeq1696358
-      name: Wohnzimmer
-      sensor: living_room
 climate.fritz_thermostat:
   !include 
     - ../includes/climate/popup_climate.yaml
@@ -42,23 +24,23 @@ light.schlafzimmer:
       - entity: scene.schlafzimmer_hell
         icon: mdi:brightness-5
         name: Hell
-light.lights_kitchen:
-  title: Lampen
-  card:
-    type: entities
-    show_header_toggle: false
-    style: |
-      ha-card {
-        --ha-card-box-shadow: 'none';
-        --ha-card-border-radius: "0px";
-      }
-    entities:
-      - entity: light.deckenlicht
-        tap_action: 
-          action: toggle
-      - entity: light.steckdose_2
-        tap_action: 
-          action: toggle
-      - entity: light.steckdose_4
-        tap_action: 
-          action: toggle
+# light.lights_kitchen:
+#   title: Lampen
+#   card:
+#     type: entities
+#     show_header_toggle: false
+#     style: |
+#       ha-card {
+#         --ha-card-box-shadow: 'none';
+#         --ha-card-border-radius: "0px";
+#       }
+#     entities:
+#       - entity: light.deckenlicht
+#         tap_action: 
+#           action: toggle
+#       - entity: light.steckdose_2
+#         tap_action: 
+#           action: toggle
+#       - entity: light.steckdose_4
+#         tap_action: 
+#           action: toggle

@@ -1,15 +1,14 @@
 smart_home:
   filter:
     include_entities:
-      - climate.fritz_thermostat
-      - climate.oeq1696358
-      - climate.oeq1696369
-      - climate.int0000002
-      - switch.radiator_on_off
+      # - climate.fritz_thermostat
+      # - climate.oeq1696358
+      # - climate.oeq1696369
+      # - climate.int0000002
       - light.lights_kitchen
       - light.nachttischlampe_wolfgang
       - light.schlafzimmer
-      - light.sonoff_office
+      # - light.sonoff_office
       - light.tisch
       - light.decke
       - light.leselampe

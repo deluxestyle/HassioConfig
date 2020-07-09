@@ -28,14 +28,14 @@ group:
       - sensor.battery_sensor_wall_switch
       - sensor.battery_sensor_wall_switch_double
   
-  battery_status_homematic_binary:
-    name: Homematic Batterie Status
-    icon: mdi:battery-charging-wireless
-    entities:
-      - binary_sensor.oeq1667238_lowbat
-      - binary_sensor.oeq1696358_lowbat
-      - binary_sensor.oeq1696369_lowbat
-      - binary_sensor.oeq1714751_lowbat
+  # battery_status_homematic_binary:
+  #   name: Homematic Batterie Status
+  #   icon: mdi:battery-charging-wireless
+  #   entities:
+  #     - binary_sensor.oeq1667238_lowbat
+  #     - binary_sensor.oeq1696358_lowbat
+  #     - binary_sensor.oeq1696369_lowbat
+  #     - binary_sensor.oeq1714751_lowbat
   
   battery_status_hue:
     name: Hue/Fritz Batterie Status
@@ -93,7 +93,7 @@ automation:
       seconds: 00
     - platform: state
       entity_id:
-        - input_number.battery_alert_homematic
+        # - input_number.battery_alert_homematic
         - input_number.battery_alert_xiaomi
         - input_number.battery_alert_hue
   action:
@@ -137,13 +137,6 @@ automation:
             or states(entity_id) | lower == 'unknown'
             or states(entity_id) | lower == 'unavailable'
           )
-        ) -%}
-          {{ state_attr(entity_id, "friendly_name") }} ({{ states(entity_id) }})
-        {% endfor -%}
-
-        {% for entity_id in states.group.battery_status_homematic_binary.attributes.entity_id if (
-          states(entity_id) is not none
-          and (states(entity_id) | lower == 'on')
         ) -%}
           {{ state_attr(entity_id, "friendly_name") }} ({{ states(entity_id) }})
         {% endfor -%}
@@ -193,13 +186,6 @@ automation:
               or states(entity_id) | lower == 'unknown'
               or states(entity_id) | lower == 'unavailable'
             )
-          ) -%}
-            {{ state_attr(entity_id, "friendly_name") }} ({{ states(entity_id) }})
-          {% endfor -%}
-
-          {% for entity_id in states.group.battery_status_homematic_binary.attributes.entity_id if (
-          states(entity_id) is not none
-          and (states(entity_id) | lower == 'on')
           ) -%}
             {{ state_attr(entity_id, "friendly_name") }} ({{ states(entity_id) }})
           {% endfor -%}

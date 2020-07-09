@@ -1,15 +1,15 @@
 #### Sonoff ####
-- platform: mqtt
-  name: "sonoff_office"
-  state_topic: "stat/sonoff/POWER"
-  command_topic: "cmnd/sonoff/POWER"
-  availability_topic: "tele/sonoff/LWT"
-  qos: 1
-  payload_on: "ON"
-  payload_off: "OFF"
-  payload_available: "Online"
-  payload_not_available: "Offline"
-  retain: true
+# - platform: mqtt
+#   name: "sonoff_office"
+#   state_topic: "stat/sonoff/POWER"
+#   command_topic: "cmnd/sonoff/POWER"
+#   availability_topic: "tele/sonoff/LWT"
+#   qos: 1
+#   payload_on: "ON"
+#   payload_off: "OFF"
+#   payload_available: "Online"
+#   payload_not_available: "Offline"
+#   retain: true
   
 #### groups ####
 - platform: group
@@ -17,7 +17,7 @@
   entities:
       - light.decke
       - light.tisch
-      - light.leselampe
+      # - light.leselampe
 
 - platform: group
   name: schlafzimmer
@@ -29,11 +29,11 @@
   name: lights_bed_room
   entities:
       - light.schlafzimmer
+      - light.nachttischlampe_wolfgang
 
 - platform: group
   name: lights_office
   entities:
-      - light.nachttischlampe_wolfgang
       - light.sonoff_office     
 
 - platform: group
@@ -50,8 +50,8 @@
       - light.tisch
       - light.leselampe
       - light.schlafzimmer
-      - light.gateway_light_7811dcb258d1
-      - light.sonoff_office
+      # - light.gateway_light_7811dcb258d1
+      # - light.sonoff_office
       - light.nachttischlampe_wolfgang
       - light.deckenlicht
       - light.steckdose_2

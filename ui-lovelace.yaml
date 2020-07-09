@@ -38,7 +38,7 @@ views:
   # - !include lovelace/views_entities/power_plug.yaml
 
 ##### Home #####
-  - !include lovelace/views_rooms/view_home.yaml
+  # - !include lovelace/views_rooms/view_home.yaml
 
 ##### Wohnzimmer #####
   - !include lovelace/views_rooms/view_living_room.yaml
@@ -55,11 +55,11 @@ views:
 ##### Bad #####
   - !include lovelace/views_rooms/view_bath.yaml
 
-##### Flur #####
-  - !include lovelace/views_rooms/view_floor.yaml
+# ##### Flur #####
+#   - !include lovelace/views_rooms/view_floor.yaml
 
 #### Staubsauger #####
   - !include lovelace/views_entities/vacuum.yaml
 
 ##### Auto ##### 
-  - !include lovelace/views_entities/car.yaml
+  # - !include lovelace/views_entities/car.yaml

@@ -2,8 +2,6 @@
 
 type: entities
 entities:
-  - entity: climate.oeq1696358
-    name: Wohnzimmer
   - !include
       - thermostat.yaml
       - sensor_temprature: sensor.temperature_158d0001b8c998

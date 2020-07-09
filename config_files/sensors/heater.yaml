@@ -1,35 +1,35 @@
-- platform: template
-  sensors:
+# - platform: template
+#   sensors:
 ##############################################################
 # Valve
 ##############################################################
-      valve_bed_room:
-        entity_id: climate.oeq1696369
-        friendly_name: "Schlafzimmer Ventil"
-        unit_of_measurement: "%"
-        value_template: '{{ states.climate.oeq1696369.attributes.valve }}'
-      valve_office:
-        entity_id: climate.oeq1714751
-        friendly_name: "Büro Ventil"
-        unit_of_measurement: "%"
-        value_template: '{{ states.climate.oeq1714751.attributes.valve }}'
-      valve_living_room:
-        entity_id: climate.oeq1696358
-        friendly_name: "Wohnzimmer Ventil"
-        unit_of_measurement: "%"
-        value_template: '{{ states.climate.oeq1696358.attributes.valve }}'
-##############################################################
-# Keylock
-##############################################################
-      radiator_bed_room_keylock:
-        entity_id: homematic.ccu2
-        friendly_name: "Tastensperre Schlafzimmer"
-        value_template: '{{ states.homematic.ccu2.attributes.block_bed_room }}'
-      radiator_living_room_keylock:
-        entity_id: homematic.ccu2
-        friendly_name: "Tastensperre Wohnzimmer"
-        value_template: '{{ states.homematic.ccu2.attributes.block_living_room	 }}'
-      radiator_office_keylock:
-        entity_id: homematic.ccu2
-        friendly_name: "Tastensperre Büro"
-        value_template: '{{ states.homematic.ccu2.attributes.block_office }}'
+#       valve_bed_room:
+#         entity_id: climate.oeq1696369
+#         friendly_name: "Schlafzimmer Ventil"
+#         unit_of_measurement: "%"
+#         value_template: '{{ states.climate.oeq1696369.attributes.valve }}'
+#       valve_office:
+#         entity_id: climate.oeq1714751
+#         friendly_name: "Büro Ventil"
+#         unit_of_measurement: "%"
+#         value_template: '{{ states.climate.oeq1714751.attributes.valve }}'
+#       valve_living_room:
+#         entity_id: climate.oeq1696358
+#         friendly_name: "Wohnzimmer Ventil"
+#         unit_of_measurement: "%"
+#         value_template: '{{ states.climate.oeq1696358.attributes.valve }}'
+# ##############################################################
+# # Keylock
+# ##############################################################
+#       radiator_bed_room_keylock:
+#         entity_id: homematic.ccu2
+#         friendly_name: "Tastensperre Schlafzimmer"
+#         value_template: '{{ states.homematic.ccu2.attributes.block_bed_room }}'
+#       radiator_living_room_keylock:
+#         entity_id: homematic.ccu2
+#         friendly_name: "Tastensperre Wohnzimmer"
+#         value_template: '{{ states.homematic.ccu2.attributes.block_living_room	 }}'
+#       radiator_office_keylock:
+#         entity_id: homematic.ccu2
+#         friendly_name: "Tastensperre Büro"
+#         value_template: '{{ states.homematic.ccu2.attributes.block_office }}'

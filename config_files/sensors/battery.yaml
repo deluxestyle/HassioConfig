@@ -3,22 +3,22 @@
 ##############################################################
 # Homematic 
 ##############################################################
-      battery_radiator_office_1:
-        entity_id: climate.oeq1667238
-        friendly_name: "Batterie Thermostat Büro"
-        value_template: '{{ states.climate.oeq1667238.attributes.battery }}'
-      battery_radiator_office_2:
-        entity_id: climate.oeq1714751
-        friendly_name: "Batterie Heizung Büro"
-        value_template: '{{ states.climate.oeq1714751.attributes.battery }}'
-      battery_radiator_bedroom:
-        entity_id: climate.oeq1696369
-        friendly_name: "Batterie Heizung Schlafzimmer"
-        value_template: '{{ states.climate.oeq1696369.attributes.battery }}'
-      battery_radiator_livingroom:
-        entity_id: climate.oeq1696358
-        friendly_name: "Batterie Heizung Wohnzimmer"
-        value_template: '{{ states.climate.oeq1696358.attributes.battery }}'
+      # battery_radiator_office_1:
+      #   entity_id: climate.oeq1667238
+      #   friendly_name: "Batterie Thermostat Büro"
+      #   value_template: '{{ states.climate.oeq1667238.attributes.battery }}'
+      # battery_radiator_office_2:
+      #   entity_id: climate.oeq1714751
+      #   friendly_name: "Batterie Heizung Büro"
+      #   value_template: '{{ states.climate.oeq1714751.attributes.battery }}'
+      # battery_radiator_bedroom:
+      #   entity_id: climate.oeq1696369
+      #   friendly_name: "Batterie Heizung Schlafzimmer"
+      #   value_template: '{{ states.climate.oeq1696369.attributes.battery }}'
+      # battery_radiator_livingroom:
+      #   entity_id: climate.oeq1696358
+      #   friendly_name: "Batterie Heizung Wohnzimmer"
+      #   value_template: '{{ states.climate.oeq1696358.attributes.battery }}'
 ##############################################################
 # Xiaomi
 ##############################################################

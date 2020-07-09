@@ -20,10 +20,7 @@
   - entity_id: sensor.presence
     platform: state
     to: not_home
-  condition:
-  - condition: state
-    entity_id: calendar.privat_putzfrau
-    state: 'off'
+  condition: []
   action:
   - data:
       entity_id: light.lights_all
@@ -205,15 +202,6 @@
   - data:
       entity_id: vacuum.xiaomi_vacuum_cleaner
     service: vacuum.return_to_base
-- id: '1538505553055'
-  alias: 'Heizung: Badfenster offen'
-  trigger:
-  - entity_id: binary_sensor.door_window_sensor_158d00022f13a0
-    platform: state
-    to: 'on'
-  condition: []
-  action:
-  - service: script.1538502214360
 - id: dsfasdfasdfsafsadfsdfdsf
   alias: 'Heizung: Bad Timer'
   trigger:
@@ -262,9 +250,6 @@
   - above: '68'
     entity_id: sensor.humidity_158d0002239fb5
     platform: numeric_state
-  - above: '68'
-    entity_id: sensor.oeq1667238_humidity
-    platform: numeric_state
   condition:
   - condition: state
     entity_id: person.wolfgang
@@ -276,8 +261,7 @@
   - data:
       message: 'Luftfeuchtigkeit zu hoch - Schlafzimmer: {{ states.sensor.humidity_158d0001b8c96c.state
         }} % - Wohnzimmer {{ states.sensor.humidity_158d0001b8c998.state }} % - Küche:
-        {{ states.sensor.humidity_158d0002239fb5.state }} % - Büro: {{ states.sensor.oeq1667238_humidity.state
-        }} % '
+        {{ states.sensor.humidity_158d0002239fb5.state }} % '
       notification_id: Luftfeuchtigkeit
       title: Luftfeuchtigkeit
     service: script.1570439573834
@@ -378,9 +362,6 @@
     to: not_home
   condition:
   - condition: state
-    entity_id: calendar.privat_putzfrau
-    state: 'off'
-  - condition: state
     entity_id: vacuum.xiaomi_vacuum_cleaner
     state: docked
   - after: 07:00
@@ -414,36 +395,6 @@
       entity_id: vacuum.xiaomi_vacuum_cleaner
       fan_speed: Turbo
     service: vacuum.set_fan_speed
-- id: '1553418352092'
-  alias: 'Heizung: Temperatur abhängig - aus'
-  description: Falls Temperatur über 10° --> Heizung ausschalten
-  trigger:
-  - above: '10'
-    entity_id: sensor.dark_sky_temperature
-    platform: numeric_state
-  condition:
-  - condition: state
-    entity_id: input_boolean.automation_radiator
-    state: 'on'
-  action:
-  - data:
-      entity_id: switch.radiator_on_off
-    service: switch.turn_off
-- id: '1553418411637'
-  alias: 'Heizung: Temperatur abhängig - an'
-  description: Falls Temperatur unter 10° --> Heizung einschalten
-  trigger:
-  - below: '10'
-    entity_id: sensor.dark_sky_temperature
-    platform: numeric_state
-  condition:
-  - condition: state
-    entity_id: input_boolean.automation_radiator
-    state: 'on'
-  action:
-  - data:
-      entity_id: switch.radiator_on_off
-    service: switch.turn_on
 - id: '1554536389566'
   alias: Sonos stoppen
   trigger:
@@ -487,22 +438,6 @@
         }} % '
       notification_id: pi
       title: Raspi
-    service: script.1570439573834
-- id: '1567492774371'
-  alias: Yeelight Error
-  trigger:
-  - entity_id: device_tracker.yeelink_light_bslamp2_mibtbb37
-    platform: state
-    to: not_home
-  condition: []
-  action:
-  - data:
-      entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
-  - data:
-      message: Nachttischlampe offline
-      notification_id: light
-      title: Nachttischlampe
     service: script.1570439573834
 - id: '1568628137654'
   alias: 'Xiaomi Staubsauger: Filter kritisch'
@@ -566,56 +501,6 @@
   - data:
       entity_id: vacuum.xiaomi_vacuum_cleaner
     service: vacuum.locate
-- id: '1568628137987'
-  alias: KM Stand kritisch
-  trigger:
-  - entity_id: sensor.car_km_usage
-    platform: state
-  condition:
-  - above: '99'
-    condition: numeric_state
-    entity_id: sensor.car_km_usage
-  action:
-  - data:
-      entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
-  - data:
-      message: 'KM Stand kritisch: {{ states ( "sensor.x1_sdrive18i_mileage" ) }}
-        von {{ states ( "sensor.car_km_threshold" )}}'
-      notification_id: car
-      title: BMW KM Stand
-    service: script.1570439573834
-  - data:
-      entity_id: automation.km_stand_kritisch
-    service: automation.turn_off
-- id: '1571298248677'
-  alias: Auto Sensoren aktualisieren
-  trigger:
-  - at: 01:00:00
-    platform: time
-  condition: []
-  action:
-  - data:
-      entity_id: sensor.car_days_in_use
-    service: homeassistant.update_entity
-  - data:
-      entity_id: sensor.car_km_threshold
-    service: homeassistant.update_entity
-  - data:
-      entity_id: sensor.car_km_usage
-    service: homeassistant.update_entity
-- id: '1571760345441'
-  alias: KM Kritisch - Benachrichtigung einschalten
-  description: ''
-  trigger:
-  - below: '99'
-    entity_id: sensor.car_km_usage
-    platform: numeric_state
-  condition: []
-  action:
-  - data:
-      entity_id: automation.km_stand_kritisch
-    service: automation.turn_on
 - id: '1573152926903'
   alias: 'Frontend: Nacht'
   description: ''
@@ -670,20 +555,6 @@
   - data:
       entity_id: switch.wifi_steckdose
     service: switch.turn_off
-- id: '1575448707825'
-  alias: 'Benachrichtigung: CCU Servicemeldung'
-  description: ''
-  trigger:
-  - above: '0'
-    entity_id: homematic.ccu2
-    platform: numeric_state
-  condition: []
-  action:
-  - data:
-      message: Neue Servicemeldung CCU
-      notification_id: ccu
-      title: Servicemeldung
-    service: script.1570439573834
 - id: '1575448787825'
   alias: Tägliches Backup (auto backup)
   trigger:
@@ -694,19 +565,6 @@
       keep_days: 7
       name: Backup_{{ now().strftime('%Y-%m-%d_%H:%M') }}
     service: auto_backup.snapshot_full
-- id: '1577107079103'
-  alias: 'Xiaomi Switch: Heizungsschaltung'
-  description: ''
-  trigger:
-  - event_data:
-      event: 1002
-      id: smart_switch_1
-    event_type: deconz_event
-    platform: event
-  condition: []
-  action:
-  - entity_id: switch.radiator_on_off
-    service: switch.toggle
 - id: '1578168461515'
   alias: 'Benachrichtigung: Snapshot Erfolg'
   description: ''
@@ -734,29 +592,6 @@
       message: 'Name: {{ trigger.event.data.name }}
 
         Error: {{ trigger.event.data.error }}'
-- id: '1578785190961'
-  alias: 'Heizung: Schlafzimmer - Fenster offen'
-  description: Falls Luftfeuchtigkeit unter 50% -  Wahrscheinlichkeit hoch, dass Fenster
-    offen ist
-  trigger:
-  - below: '50'
-    entity_id: sensor.humidity_158d0001b8c96c
-    platform: numeric_state
-  condition: []
-  action:
-  - entity_id: scene.thermostat_bed_room_off
-    service: scene.turn_on
-- id: '1579810384191'
-  alias: 'Heizung: Standby'
-  description: setzt die Heizung alle 12 Stunden in den Standardmodus
-  trigger:
-  - at: 06:00
-    platform: time
-  - at: '18:00'
-    platform: time
-  condition: []
-  action:
-  - service: script.1540232132608
 - id: '1584265149079'
   alias: 'Benachrichtigung: CPU Temp zu hoch'
   description: ''
@@ -792,57 +627,3 @@
       notification_id: Anruf
       title: Anruf
     service: script.1570439573834
-- id: '1588521070416'
-  alias: 'Wandsender 2-fach: Licht Büro'
-  description: ''
-  trigger:
-  - device_id: 4f8d84a2d79f4648bc31a4197be89a9b
-    domain: deconz
-    platform: device
-    subtype: left
-    type: remote_button_short_press
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.sonoff_office
-    service: light.toggle
-- id: '1588521196141'
-  alias: 'Wandsender 2-fach: Sonos Büro'
-  description: ''
-  trigger:
-  - device_id: 4f8d84a2d79f4648bc31a4197be89a9b
-    domain: deconz
-    platform: device
-    subtype: right
-    type: remote_button_short_press
-  condition: []
-  action:
-  - data: {}
-    entity_id: script.1532173931599
-    service: script.turn_on
-- id: '1588931224792'
-  alias: Steckdose Laptop - Aus
-  description: ''
-  trigger:
-  - entity_id: device_tracker.hp_spectre
-    platform: state
-    to: not_home
-  condition: []
-  action:
-  - device_id: 7081c5666c1d45bf94bb197452b52f69
-    domain: switch
-    entity_id: switch.steckdose_1
-    type: turn_off
-- id: '1590916062896'
-  alias: Steckdose Laptop - An
-  description: ''
-  trigger:
-  - entity_id: device_tracker.hp_spectre
-    platform: state
-    to: home
-  condition: []
-  action:
-  - device_id: 7081c5666c1d45bf94bb197452b52f69
-    domain: switch
-    entity_id: switch.steckdose_1
-    type: turn_on
