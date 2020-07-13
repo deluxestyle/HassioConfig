@@ -11,9 +11,6 @@ filter:
     - light.decke
     - light.leselampe
     - climate.fritz_thermostat
-    # - climate.oeq1696358
-    # - climate.oeq1696369
-    # - climate.int0000002
     - script.1532173931522
     - script.1532175994947
     - media_player.schlafzimmer
@@ -31,7 +28,9 @@ filter:
     - sensor.humidity_158d0002239fb5
     - sensor.humidity_158d00023258bd
     - sensor.temperature_158d0002239fb5
-    # - sensor.oeq1667238_humidity
+    - sensor.temperature_158d0001b8c96c
+    - sensor.temperature_158d00023258bd
+    - sensor.temperature_158d0001b8c998
 entity_config:
     media_player.schlafzimmer:
       feature_list:
@@ -45,7 +44,13 @@ entity_config:
       low_battery_threshold: 0
     sensor.humidity_158d00023258bd:
       low_battery_threshold: 0
-    sensor.oeq1667238_humidity:
-      low_battery_threshold: 0
     sensor.humidity_158d0001b8c96c:
+      low_battery_threshold: 0
+    sensor.temperature_158d0001b8c998:
+      low_battery_threshold: 0
+    sensor.temperature_158d0002239fb5:
+      low_battery_threshold: 0
+    sensor.temperature_158d00023258bd:
+      low_battery_threshold: 0
+    sensor.temperature_158d0001b8c96c:
       low_battery_threshold: 0
