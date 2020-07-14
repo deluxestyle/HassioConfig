@@ -58,6 +58,12 @@ cards:
       #       icon: mdi:amazon-alexa
       #       tap_action: 
       #         action: toggle
+      - type: entities
+        entities:
+          - entity: switch.steckdose_3
+            name: Drucker
+            tap_action: 
+              action: toggle
       - !include
           - ../includes/multimedia/mini_media_player.yaml
           - entity: media_player.wohnzimmer
