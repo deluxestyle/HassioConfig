@@ -27,15 +27,10 @@ cards:
     max_columns: 2
     cards:
       - !include ../includes/light/light_living_room.yaml
-      - !include ../includes/climate/climate_living_room.yaml
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: entities
-            entities:
-              - entity: sensor.remote_state
-                name: Entertainment
       - type: entities
         entities:
+          - entity: sensor.remote_state
+            name: Entertainment
           - entity: switch.wifi_steckdose
             name: Steckdosenleiste
             tap_action: 
@@ -58,12 +53,13 @@ cards:
       #       icon: mdi:amazon-alexa
       #       tap_action: 
       #         action: toggle
+      - !include
+          - ../includes/multimedia/mini_media_player.yaml
+          - entity: media_player.wohnzimmer
       - type: entities
         entities:
           - entity: switch.steckdose_3
             name: Drucker
             tap_action: 
               action: toggle
-      - !include
-          - ../includes/multimedia/mini_media_player.yaml
-          - entity: media_player.wohnzimmer
+      - !include ../includes/climate/climate_living_room.yaml
