@@ -9,20 +9,20 @@ filter:
     - light.schlafzimmer
     - light.tisch
     - light.decke
-    - light.leselampe
-    - climate.fritz_thermostat
+    # - light.leselampe
+    # - climate.fritz_thermostat
     - script.1532173931522
     - script.1532175994947
     - media_player.schlafzimmer
     - media_player.wohnzimmer
     - switch.steckdose_3
-    - switch.steckdose_5
+    # - switch.steckdose_5
     - switch.tv_switch
     - switch.fire_tv_switch
     - switch.music_switch
     - switch.vacuum
     - switch.wifi_steckdose
-    - switch.steckdose_1
+    # - switch.steckdose_1
     - sensor.humidity_158d0001b8c96c
     - sensor.humidity_158d0001b8c998
     - sensor.humidity_158d0002239fb5

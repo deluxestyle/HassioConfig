@@ -9,13 +9,14 @@ entities:
   - type: "custom:paper-buttons-row"
     buttons:
       - entity: light.decke
-        name: false
+        name: Decke
         tap_action:
           action: toggle
         hold_action:
           action: more-info
       - entity: light.tisch
-        name: false
+        icon: mdi:ceiling-light
+        name: Tisch
         tap_action:
           action: toggle
         hold_action:
