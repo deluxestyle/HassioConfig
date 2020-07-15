@@ -171,7 +171,7 @@ light.leselampe:
 light.decke:
   icon: mdi:ceiling-light
 light.tisch:
-  icon: mdi:floor-lamp
+  icon: mdi:ceiling-light
 media_player.harman_kardon_avr:
   icon: mdi:speaker-wireless
 script.1541264856783:
