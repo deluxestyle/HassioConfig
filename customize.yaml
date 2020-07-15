@@ -1,8 +1,5 @@
 light.buro:
   icon: mdi:ceiling-light
-light.steckdose_2:
-  friendly_name: Küchenspot - links
-  icon: mdi:spotlight-beam
 climate.oeq1696358:
   friendly_name: Heizung Wohnzimmer
   icon: mdi:radiator
