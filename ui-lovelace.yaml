@@ -10,10 +10,7 @@ custom_header:
   chevrons: false
   hide_config: true
   shadow: true 
-  default_tab: home
-  # default_tab: light
-  # hide_tabs: light, radiator, music, entertainment, power_plug
-  # hide_tabs: home, living_room, bed_room, office, bath, kitchen, floor
+  default_tab: living_room
   
 swipe_nav:
 # -----------------------------
