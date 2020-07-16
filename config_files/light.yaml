@@ -32,11 +32,6 @@
       - light.nachttischlampe_wolfgang
 
 - platform: group
-  name: lights_office
-  entities:
-      - light.sonoff_office     
-
-- platform: group
   name: lights_kitchen
   entities:
       - light.deckenlicht

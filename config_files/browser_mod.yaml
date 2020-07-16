@@ -1,13 +1,2 @@
-devices:
-  9f73134d_730b488d:
-    name: hp_spectre_chrome
-  6457deb5_9352ef50:
-    name: ipad
-  370dee15_311dc6aa:
-    name: ipad_mini
-  e5f7195e_1e5a637d:
-    name: Arbeit Wolfgang
-  9c17ba74_8fdcd59b:
-    name: Chrome App
-  ab2e018e-e637935a:
-    name: iphone11Pro
+disable:
+  - all
