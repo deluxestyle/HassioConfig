@@ -16,7 +16,7 @@ filter:
     - media_player.schlafzimmer
     - media_player.wohnzimmer
     - switch.steckdose_3
-    # - switch.steckdose_5
+    - switch.steckdose_5
     - switch.tv_switch
     - switch.fire_tv_switch
     - switch.music_switch

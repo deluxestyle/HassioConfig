@@ -237,8 +237,8 @@ binary_sensor.x1_sdrive18i_condition_based_services:
 binary_sensor.x1_sdrive18i_check_control_messages:
   friendly_name: Check Control Meldungen
 switch.steckdose_5:
-  icon: mdi:amazon-alexa
-  friendly_name: Alexa
+  icon: mdi:desk
+  friendly_name: Schreibtisch
 switch.tv_switch:
   icon: mdi:television
 switch.music_switch:
