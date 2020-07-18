@@ -57,16 +57,15 @@ cards:
           - ../includes/multimedia/mini_media_player.yaml
           - entity: media_player.wohnzimmer
       - type: entities
-        entities:
-          - entity: switch.steckdose_3
-            name: Drucker
-            tap_action: 
-              action: toggle
-      - type: entities
+        show_header_toggle: false
         entities:
           - entity: switch.steckdose_5
             name: Schreibtisch
             icon: mdi:desk
+            tap_action: 
+              action: toggle
+          - entity: switch.steckdose_3
+            name: Drucker
             tap_action: 
               action: toggle
       - !include ../includes/climate/climate_living_room.yaml
