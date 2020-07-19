@@ -9,7 +9,7 @@ filter:
     - light.schlafzimmer
     - light.tisch
     - light.decke
-    # - light.leselampe
+    - light.wandlampe
     # - climate.fritz_thermostat
     - script.1532173931522
     - script.1532175994947

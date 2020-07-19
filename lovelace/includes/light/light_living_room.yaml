@@ -20,12 +20,13 @@ entities:
           action: toggle
         hold_action:
           action: more-info
-      # - entity: light.leselampe
-      #   name: false
-      #   tap_action:
-      #     action: toggle
-      #   hold_action:
-      #     action: more-info
+      - entity: light.wandlampe
+        name: Wand
+        icon: mdi:wall-sconce
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
       - name: Szenen
         tap_action: 
           action: call-service

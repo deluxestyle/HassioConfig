@@ -17,7 +17,7 @@
   entities:
       - light.decke
       - light.tisch
-      # - light.leselampe
+      - light.wandlampe
 
 - platform: group
   name: schlafzimmer
@@ -40,15 +40,9 @@
 - platform: group
   name: lights_all
   entities:
-      - light.decke
-      - light.tisch
-      - light.leselampe
-      - light.schlafzimmer
-      # - light.gateway_light_7811dcb258d1
-      # - light.sonoff_office
-      - light.nachttischlampe_wolfgang
-      - light.deckenlicht
-      - light.steckdose_4
+      - light.lights_living_room
+      - light.lights_kitchen
+      - light.lights_bed_room
 
 # Küchenlichtschalter
 - platform: switch
