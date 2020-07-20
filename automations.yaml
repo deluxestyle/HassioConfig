@@ -627,3 +627,25 @@
       notification_id: Anruf
       title: Anruf
     service: script.1570439573834
+- id: '1568628137987'
+  alias: KM Stand kritisch
+  trigger:
+  - entity_id: sensor.car_km_usage
+    platform: state
+  condition:
+  - above: '99'
+    condition: numeric_state
+    entity_id: sensor.car_km_usage
+  action:
+  - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
+      message: 'KM Stand kritisch: {{ states ( "sensor.x1_sdrive18i_mileage" ) }}
+        von {{ states ( "sensor.car_km_threshold" )}}'
+      notification_id: car
+      title: BMW KM Stand
+    service: script.1570439573834
+  - data:
+      entity_id: automation.km_stand_kritisch
+    service: automation.turn_off
