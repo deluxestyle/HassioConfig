@@ -649,3 +649,19 @@
   - data:
       entity_id: automation.km_stand_kritisch
     service: automation.turn_off
+- id: '1571298248677'
+  alias: Auto Sensoren aktualisieren
+  trigger:
+  - at: 01:00:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: sensor.car_days_in_use
+    service: homeassistant.update_entity
+  - data:
+      entity_id: sensor.car_km_threshold
+    service: homeassistant.update_entity
+  - data:
+      entity_id: sensor.car_km_usage
+    service: homeassistant.update_entity
