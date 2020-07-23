@@ -2,7 +2,7 @@
 
 title: Schlafzimmer
 path: bed_room
-icon: mdi:hotel
+icon: mdi:bed
 panel: true
 cards:
   - type: custom:layout-card

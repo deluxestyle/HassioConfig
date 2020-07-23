@@ -665,3 +665,17 @@
   - data:
       entity_id: sensor.car_km_usage
     service: homeassistant.update_entity
+- id: '1595491117761'
+  alias: Raspberry Full Backup
+  description: ''
+  trigger:
+  - at: 03:00
+    platform: time
+  condition:
+  - condition: time
+    weekday:
+    - sun
+  action:
+  - data: {}
+    service: shell_command.backup_raspi
+  mode: single

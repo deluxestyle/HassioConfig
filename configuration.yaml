@@ -160,3 +160,4 @@ hassio_info:
 
 shell_command:
   restart_ds118: /config/scripts/shutdown_ds118.sh
+  backup_raspi: /config/scripts/backup.sh
