@@ -21,9 +21,9 @@ dark:
   sidebar-selected-icon-color: "#03A9F4"
   sidebar-selected-text-color: var(--sidebar-selected-icon-color))
   # States and Badges
-  # state-icon-color: "#5F6267"
+  state-icon-color: "#5F6267"
   # state-icon-active-color: "#03A9F4"
-  # state-icon-unavailable-color: var(--disabled-text-color)
+  state-icon-unavailable-color: var(--disabled-text-color)
   # Sliders
   paper-slider-knob-color: "#03A9F4"
   paper-slider-knob-start-color: var(--paper-slider-knob-color)
@@ -61,9 +61,9 @@ dark:
   table-row-alternative-background-color: var(--secondary-background-color)
   data-table-background-color: var(--primary-background-color)
   # Dropdowns
-  material-background-color: var(--secondary-background-color)
-  material-secondary-background-color: var(--primary-background-color)
-  mdc-theme-surface: var(--secondary-background-color)
+  # material-background-color: var(--secondary-background-color)
+  # material-secondary-background-color: var(--primary-background-color)
+  # mdc-theme-surface: var(--secondary-background-color)
   # HACS
   hacs-chip-background-color: var(--primary-color)
   # Pre/Code
