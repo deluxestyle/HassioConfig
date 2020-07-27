@@ -41,6 +41,7 @@ dark:
 
   # Cards
   card-background-color: "#202124"
+  ha-card-background: "#202124"
   ha-card-border-radius: "10px"
   ha-card-box-shadow: 1px 1px 5px 0px rgb(12, 12, 14)
   paper-dialog-background-color: var(--card-background-color)
