@@ -31,6 +31,7 @@ filter:
     - sensor.temperature_158d0001b8c96c
     - sensor.temperature_158d00023258bd
     - sensor.temperature_158d0001b8c998
+    - switch.pi_hole_switch
 entity_config:
     media_player.schlafzimmer:
       feature_list:

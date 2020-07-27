@@ -105,6 +105,22 @@ views:
               - sensor.net_upload_max
               - sensor.net_upload_cur
               - sensor.fritzbox
+          - type: entities  
+            entities:
+              - entity: switch.pi_hole_switch
+                icon: mdi:pi-hole
+                tap_action: 
+                  action: toggle
+              - type: custom:auto-entities
+                card:
+                  type: custom:fold-entity-row
+                  head:
+                    type: section
+                    label: Pi-Hole Statistiken
+                  padding: 5
+                filter:
+                    include:
+                      - entity_id: "sensor.pi_hole_*"
           - type: entities
             entities:
               - type: "custom:paper-buttons-row"
