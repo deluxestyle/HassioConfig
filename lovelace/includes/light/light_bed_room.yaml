@@ -6,3 +6,4 @@ entities:
   - entity: light.schlafzimmer
     icon: mdi:ceiling-light
     name: Decke
+  - entity: light.nachttischlampe_wolfgang
