@@ -674,7 +674,7 @@
   condition:
   - condition: time
     weekday:
-    - mon
+    - thu
   action:
   - data: {}
     service: shell_command.backup_raspi
