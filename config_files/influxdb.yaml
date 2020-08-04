@@ -11,7 +11,7 @@ include:
     - sensor.battery_sensor_door
     - sensor.battery_sensor_kitchen
     - sensor.battery_sensor_livingroom
-    # - sensor.battery_sensor_motion
+    - sensor.battery_sensor_motion
     - sensor.battery_sensor_bath
     - sensor.battery_sensor_wall_switch
     - sensor.battery_sensor_wall_switch_double
@@ -28,9 +28,9 @@ include:
     - sensor.xiaomi_vacuum_sensor_battery
     - sensor.xiaomi_vacuum_sensor_dirty_left
     - sensor.xiaomi_vacuum_side_brush_left
-    # - sensor.x1_sdrive18i_mileage
-    # - sensor.x1_sdrive18i_remaining_fuel
-    # - sensor.x1_sdrive18i_remaining_range_total
+    - sensor.x1_sdrive18i_mileage
+    - sensor.x1_sdrive18i_remaining_fuel
+    - sensor.x1_sdrive18i_remaining_range_total
     - sensor.memory_use
     - sensor.memory_use_2
     - sensor.memory_use_percent
@@ -55,9 +55,9 @@ include:
     - sensor.hs110_total_kwh
     - sensor.hs110_watts
     - sensor.hs110_amps
-    # - sensor.car_days_in_use
-    # - sensor.car_km_threshold
-    # - sensor.car_km_usage
+    - sensor.car_days_in_use
+    - sensor.car_km_threshold
+    - sensor.car_km_usage
     - sensor.fritz_thermostat_1_battery
     - sensor.net_download_cur
     - sensor.net_download_max
