@@ -8,4 +8,9 @@ cards:
   - type: custom:layout-card
     max_columns: 2
     cards:
+      - type: entities
+        entities:
+          - entity: switch.steckdose_2
+            tap_action: 
+              action: toggle
       - !include ../includes/climate/climate_bath.yaml

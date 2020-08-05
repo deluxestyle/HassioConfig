@@ -15,14 +15,14 @@ filter:
     - script.1532175994947
     - media_player.schlafzimmer
     - media_player.wohnzimmer
-    - switch.steckdose_3
-    - switch.steckdose_5
+    - switch.steckdose_3 #Drucker
+    - switch.steckdose_5 #Schreibtisch
     - switch.tv_switch
     - switch.fire_tv_switch
     - switch.music_switch
     - switch.vacuum
     - switch.wifi_steckdose
-    # - switch.steckdose_1
+    - switch.steckdose_2 #Alexa
     - sensor.humidity_158d0001b8c96c
     - sensor.humidity_158d0001b8c998
     - sensor.humidity_158d0002239fb5
