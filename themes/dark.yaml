@@ -46,6 +46,8 @@ dark:
   ha-card-box-shadow: 1px 1px 5px 0px rgb(12, 12, 14)
   paper-dialog-background-color: var(--card-background-color)
   paper-listbox-background-color: var(--card-background-color)
+  mini-media-player-overlay-color: "#C0C0C0"
+  mini-media-player-accent-color: "var(--paper-slider-knob-color)"
   # Switches
   # switch-checked-button-color: "#03A9F4"
   # switch-checked-track-color: "#404D64"
