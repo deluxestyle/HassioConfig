@@ -1,20 +1,18 @@
 smart_home:
   filter:
     include_entities:
-      # - climate.fritz_thermostat
-      # - climate.oeq1696358
-      # - climate.oeq1696369
-      # - climate.int0000002
-      - light.lights_kitchen
+      - light.sonoff_office
       - light.nachttischlampe_wolfgang
+      - light.lights_living_room
+      - light.lights_kitchen
       - light.schlafzimmer
-      # - light.sonoff_office
       - light.tisch
       - light.decke
-      - light.leselampe
+      - light.wandlampe
+      - switch.steckdose_3
+      - switch.steckdose_5
       - switch.tv_switch
       - switch.fire_tv_switch
-      - switch.steckdose_3
+      - switch.music_switch
       - switch.vacuum
       - switch.wifi_steckdose
-      - switch.steckdose_1
