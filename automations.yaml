@@ -25,15 +25,6 @@
   - data:
       entity_id: light.lights_all
     service: light.turn_off
-  - data:
-      entity_id: switch.steckdose_1
-    service: switch.turn_off
-  - data:
-      entity_id: switch.steckdose_3
-    service: light.turn_off
-  - data:
-      entity_id: switch.wifi_steckdose
-    service: switch.turn_off
 - id: xiaomi_vacuum_notification_off
   alias: 'Xiaomi Staubsauger: fertig'
   trigger:
@@ -539,7 +530,7 @@
   condition: []
   action:
   - data:
-      entity_id: switch.wifi_steckdose
+      entity_id: switch.steckdose_1
     service: switch.turn_on
 - id: '1574071080398'
   alias: Steckdose ausschalten (um Mitternacht)
@@ -553,7 +544,7 @@
     state: 'off'
   action:
   - data:
-      entity_id: switch.wifi_steckdose
+      entity_id: switch.steckdose_1
     service: switch.turn_off
 - id: '1575448787825'
   alias: Tägliches Backup (auto backup)

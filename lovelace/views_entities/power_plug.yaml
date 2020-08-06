@@ -10,7 +10,7 @@ cards:
       - type: entities
         entities:
           - entity: switch.wifi_steckdose
-            name: Steckdosenleiste
+            name: Waschmaschine
             tap_action: 
               action: toggle
           - type: custom:fold-entity-row

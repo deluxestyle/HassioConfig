@@ -41,7 +41,7 @@
   alias: Entertainment - Telekom
   sequence:
   - data:
-      entity_id: switch.wifi_steckdose
+      entity_id: switch.steckdose_1
     service: switch.turn_on
   - delay: 00:00:02
   - data:
@@ -52,7 +52,7 @@
   alias: Entertainment - Musik
   sequence:
   - data:
-      entity_id: switch.wifi_steckdose
+      entity_id: switch.steckdose_1
     service: switch.turn_on
   - delay: 00:00:02
   - data:
@@ -235,7 +235,7 @@
   alias: Entertainment - Fire TV
   sequence:
   - data:
-      entity_id: switch.wifi_steckdose
+      entity_id: switch.steckdose_1
     service: switch.turn_on
   - delay: 00:00:02
   - data:

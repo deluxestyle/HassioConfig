@@ -44,3 +44,21 @@ cards:
                 type: script
                 id: script.alexa_echo_b5_aktuell
       - !include ../includes/climate/climate_bath.yaml
+      - type: entities
+        entities:
+          - entity: switch.wifi_steckdose
+            icon: mdi:washing-machine
+            name: Waschmaschine
+            tap_action: 
+              action: toggle
+          - type: custom:fold-entity-row
+            head: 
+              type: section
+              label: Verbrauchsdaten
+            padding: 5
+            entities:
+              - entity: sensor.hs110_today_kwh
+              - entity: sensor.hs110_total_kwh
+              - entity: sensor.hs110_watts
+              - entity: sensor.hs110_amps
+              - entity: sensor.hs110_volts

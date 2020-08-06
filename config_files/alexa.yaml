@@ -16,3 +16,4 @@ smart_home:
       - switch.music_switch
       - switch.vacuum
       - switch.wifi_steckdose
+      - switch.steckdose_1
