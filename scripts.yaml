@@ -242,3 +242,51 @@
       activity: Fire TV
       entity_id: remote.harmony_hub
     service: remote.turn_on
+alexa_echo_superflyfm:
+  alias: 'Alexa Echo: SuperFly.Fm'
+  mode: single
+  sequence:
+  - data:
+      entity_id: media_player.wolfgangs_echo_dot
+      media_content_id: superfly fm
+      media_content_type: TUNEIN
+    service: media_player.play_media
+  - data: {}
+    service: script.alexa_echo_lautstarke
+alexa_echo_radio_arabella:
+  alias: 'Alexa Echo: Radio Arabella'
+  mode: single
+  sequence:
+  - data:
+      entity_id: media_player.wolfgangs_echo_dot
+      media_content_id: Radio Arabella
+      media_content_type: TUNEIN
+    service: media_player.play_media
+  - data: {}
+    service: script.alexa_echo_lautstarke
+alexa_echo_b5_aktuell:
+  alias: 'Alexa Echo: B5 aktuell'
+  mode: single
+  sequence:
+  - data:
+      entity_id: media_player.wolfgangs_echo_dot
+      media_content_id: B5 aktuell
+      media_content_type: TUNEIN
+    service: media_player.play_media
+  - data: {}
+    service: script.alexa_echo_lautstarke
+alexa_echo_lautstarke:
+  alias: 'Alexa Echo: Lautstärke'
+  mode: single
+  sequence:
+  - data:
+      entity_id: media_player.wolfgangs_echo_dot
+      volume_level: 0.17
+    service: media_player.volume_set
+alexa_echo_ausschalten:
+  alias: 'Alexa Echo: Ausschalten'
+  mode: single
+  sequence:
+  - data: {}
+    entity_id: media_player.wolfgangs_echo_dot
+    service: media_player.turn_off
