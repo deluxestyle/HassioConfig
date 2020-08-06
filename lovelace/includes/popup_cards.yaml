@@ -24,30 +24,6 @@ light.schlafzimmer:
       - entity: scene.schlafzimmer_hell
         icon: mdi:brightness-5
         name: Hell
-# light.lights_living_room:
-#   title: Szenen
-#   card:
-#     style: |
-#       ha-card {
-#         --ha-card-box-shadow: 'none';
-#         --ha-card-border-radius: "0px";
-#       }
-#     type: entities
-#     entities:
-#       - entity: scene.wohnzimmer_hell
-#         name: Hell
-#       - entity: scene.wohnzimmer_lesen
-#         name: Lesen
-#       - entity: scene.wohnzimmer_entspannen
-#         name: Entspannen
-#       - entity: scene.wohnzimmer_energie_tanken
-#         name: Energie tanken
-#       - entity: scene.wohnzimmer_konzentrieren
-#         name: Konzentrieren
-#       - entity: scene.wohnzimmer_gedimmt
-#         name: Gedimmt
-#       - entity: scene.wohnzimmer_nachtlicht
-#         name: Nachtlicht
 light.lights_kitchen:
   title: Lampen
   card:
