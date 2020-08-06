@@ -9,12 +9,6 @@ cards:
     cards:
       - !include ../includes/light/light_living_room.yaml
       - !include ../includes/light/light_bed_room.yaml
-      - type: entities
-        entities:
-          - entity: light.sonoff_office
-            name: Büro
-            tap_action: 
-              action: toggle
       - !include ../includes/light/light_kitchen.yaml
       - type: entities
         entities:

@@ -670,3 +670,72 @@
   - data: {}
     service: shell_command.backup_raspi
   mode: single
+- id: '1596713334124'
+  alias: 'Alexa Echo: Starte Superfly.fm'
+  description: ''
+  trigger:
+  - device_id: b4f909a520df43f981094663ed679090
+    domain: deconz
+    platform: device
+    subtype: turn_on
+    type: remote_button_short_press
+  condition:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: media_player.wolfgangs_echo_dot
+      state: playing
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: switch.steckdose_2
+      state: 'off'
+  action:
+  - device_id: 8961a7379c0d42469d6e13d9f8dd96c6
+    domain: switch
+    entity_id: switch.steckdose_2
+    type: turn_on
+  - delay: 00:01:00
+  - data: {}
+    service: script.alexa_echo_superflyfm
+  mode: single
+- id: '1596713625022'
+  alias: 'Alexa Echo: Stop Musik'
+  description: ''
+  trigger:
+  - device_id: b4f909a520df43f981094663ed679090
+    domain: deconz
+    platform: device
+    subtype: turn_on
+    type: remote_button_short_press
+  condition:
+  - condition: state
+    entity_id: media_player.wolfgangs_echo_dot
+    state: playing
+  - condition: state
+    entity_id: switch.steckdose_2
+    state: 'on'
+  action:
+  - data: {}
+    entity_id: media_player.wolfgangs_echo_dot
+    service: media_player.turn_off
+  mode: single
+- id: '1596716137092'
+  alias: 'Alexa Echo: stop after switch off'
+  description: ''
+  trigger:
+  - device_id: 8961a7379c0d42469d6e13d9f8dd96c6
+    domain: switch
+    entity_id: switch.steckdose_2
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+    platform: device
+    type: turned_off
+  condition: []
+  action:
+  - data: {}
+    entity_id: media_player.wolfgangs_echo_dot
+    service: media_player.turn_off
+  mode: single
