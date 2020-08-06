@@ -9,6 +9,7 @@ smart_home:
       - light.tisch
       - light.decke
       - light.wandlampe
+      - light.gateway_light_7811dcb258d1
       - switch.steckdose_3
       - switch.steckdose_5
       - switch.tv_switch
