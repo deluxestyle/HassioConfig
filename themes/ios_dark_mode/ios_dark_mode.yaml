@@ -76,3 +76,6 @@ iOS Dark Mode:
   mdc-theme-surface: var(--secondary-background-color)
   # Pre/Code
   markdown-code-background-color: rgb(58, 58, 60)
+
+  mini-media-player-overlay-color: "#C0C0C0"
+  mini-media-player-accent-color: "var(--paper-slider-knob-color)"

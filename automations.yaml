@@ -501,10 +501,11 @@
   condition: []
   action:
   - data:
-      name: dark
+      name: iOS Dark Mode
     service: frontend.set_theme
   - entity_id: input_boolean.frontend
     service: input_boolean.turn_on
+  mode: single
 - id: '1573153029833'
   alias: 'Frontend: Tag'
   description: ''
@@ -516,10 +517,11 @@
   condition: []
   action:
   - data:
-      name: clean
+      name: iOS Light Mode
     service: frontend.set_theme
   - entity_id: input_boolean.frontend
     service: input_boolean.turn_off
+  mode: single
 - id: '1573317974047'
   alias: Harmony - Wifi Steckdose
   description: ''

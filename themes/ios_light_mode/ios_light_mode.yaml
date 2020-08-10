@@ -76,3 +76,6 @@ iOS Light Mode:
   mdc-theme-surface: var(--primary-background-color)
   # Pre/Code
   markdown-code-background-color: rgb(242, 242, 247)
+
+  mini-media-player-overlay-color: "#C0C0C0"
+  mini-media-player-accent-color: "var(--paper-slider-knob-color)"
