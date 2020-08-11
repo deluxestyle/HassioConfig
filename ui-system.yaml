@@ -111,16 +111,19 @@ views:
                 icon: mdi:pi-hole
                 tap_action: 
                   action: toggle
-              - type: custom:auto-entities
-                card:
-                  type: custom:fold-entity-row
-                  head:
-                    type: section
-                    label: Pi-Hole Statistiken
-                  padding: 5
-                filter:
-                    include:
-                      - entity_id: "sensor.pi_hole_*"
+                hold_action: 
+                    action: call-service
+                    service: browser_mod.popup
+                    service_data:
+                      deviceID: this
+                      title: Szenen
+                      card:
+                        type: custom:auto-entities
+                        card:
+                          type: entities 
+                        filter:
+                            include:
+                              - entity_id: "sensor.pi_hole_*"
           - type: entities
             entities:
               - type: "custom:paper-buttons-row"

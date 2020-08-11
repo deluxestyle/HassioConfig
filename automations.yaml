@@ -25,6 +25,10 @@
   - data:
       entity_id: light.lights_all
     service: light.turn_off
+  - data: {}
+    entity_id: automation.benachrichtigung_bewegung_erkannt
+    service: automation.turn_on
+  mode: single
 - id: xiaomi_vacuum_notification_off
   alias: 'Xiaomi Staubsauger: fertig'
   trigger:

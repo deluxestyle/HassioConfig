@@ -51,15 +51,15 @@ iOS Dark Mode:
   label-badge-gray: rgb(72, 72, 74)
   # Cards
   card-background-color: rgb(28, 28, 30)
-  ha-card-border-radius: "10px"
+  #ha-card-border-radius: "10px"
   ha-card-box-shadow: none
   paper-dialog-background-color: var(--card-background-color)
   paper-listbox-background-color: var(--card-background-color)
   paper-card-background-color: var(--card-background-color)
   # Switches
-  switch-checked-button-color: rgb(242, 242, 247)
+  switch-checked-button-color: rgb(255,255,255)
   switch-checked-track-color:  rgb(48, 209, 88)
-  switch-unchecked-button-color: rgb(242, 242, 247)
+  switch-unchecked-button-color: rgb(255,255,255)
   switch-unchecked-track-color: rgb(99, 99, 102)
   # Toggles
   paper-toggle-button-checked-button-color: var(--switch-checked-button-color)
