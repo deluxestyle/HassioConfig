@@ -21,6 +21,7 @@ http:
   use_x_forwarded_for: true
   trusted_proxies:
     - 172.30.33.4
+    - 172.30.33.3
   # ssl_certificate: /ssl/fullchain.pem
   # ssl_key: /ssl/privkey.pem
 
@@ -54,6 +55,13 @@ lovelace:
       icon: mdi:account-multiple
       show_in_sidebar: true
       filename: ui-presence.yaml
+      require_admin: true
+    lovelace-car:
+      mode: yaml
+      title: Auto
+      icon: mdi:car-hatchback
+      show_in_sidebar: true
+      filename: ui-car.yaml
       require_admin: true
 
 logger:
