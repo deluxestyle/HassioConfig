@@ -224,6 +224,10 @@
     to: 'on'
   condition: []
   action:
+  - delay: 00:00:20
+  - condition: state
+    entity_id: sensor.presence
+    state: not_home
   - data:
       entity_id: input_boolean.persistent_notification
     service: input_boolean.turn_on
@@ -233,6 +237,7 @@
       title: Bewegungsmelder
     service: script.1570439573834
   initial_state: false
+  mode: single
 - id: '1540974552306'
   alias: 'Benachrichtigung: Luftfeuchtigkeit'
   trigger:
