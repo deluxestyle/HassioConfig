@@ -1,0 +1,9 @@
+order:
+  - item: Übersicht
+  - item: Presence
+  - item: System
+  - item: Auto
+  - item: Logbuch
+    bottom: true
+  - item: verlauf
+    hide: true
