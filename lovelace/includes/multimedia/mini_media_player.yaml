@@ -22,27 +22,6 @@ speaker_group:
       name: Sonos Schlafzimmer
     - entity_id: media_player.wohnzimmer
       name: Sonos Wohnzimmer
-# shortcuts:
-#   list:
-#     - id: Superfly.fm
-#       name: 'Radio: Superfly.fm'
-#       type: source
-#     - id: egoFM
-#       name: 'Radio: egoFM'
-#       type: source
-#     - id: B 5 Aktuell
-#       name: 'Radio: B 5 Aktuell'
-#       type: source
-#     - id: Current 
-#       name: 'Playlist: Current'
-#       type: source 
-#     - id: Irie Soul Vibration on Radio Superfly brought to you by Koolbreak and Rizzla
-#       name: 'Playlist: Irie Soul Vibrations'
-#       type: source
-#     - id: Reggae
-#       name: 'Playlist: Reggae'
-#       type: source
-#   label: Auswahl
 idle_view:
   when_idle: true
   when_paused: true

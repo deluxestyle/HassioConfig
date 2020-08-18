@@ -31,6 +31,10 @@ cards:
           info: scroll
           tap_action:
             action: none
+          idle_view:
+            when_idle: true
+            when_paused: true
+            when_standby: true
           shortcuts:
             columns: 4
             buttons:
@@ -49,8 +53,6 @@ cards:
           - entity: switch.wifi_steckdose
             icon: mdi:washing-machine
             name: Waschmaschine
-            tap_action: 
-              action: toggle
           - type: custom:fold-entity-row
             head: 
               type: section
