@@ -696,11 +696,6 @@
     - condition: state
       entity_id: media_player.wolfgangs_echo_dot
       state: playing
-  - condition: or
-    conditions:
-    - condition: state
-      entity_id: switch.steckdose_2
-      state: 'off'
   action:
   - device_id: 8961a7379c0d42469d6e13d9f8dd96c6
     domain: switch
