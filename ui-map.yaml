@@ -1,6 +1,10 @@
 # lovelace_gen
 
 title: Karte
+
+custom_header:
+  compact_mode: false
+
 views:
   - title: Karte
     visible:

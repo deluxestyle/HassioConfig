@@ -1,0 +1,68 @@
+
+title: BMW X1
+visible:
+  - user: b6464705fc4e405abce8058610b4bcc7
+path: car
+icon: mdi:car-hatchback
+cards:
+  - type: entities
+    entities:
+      - device_tracker.x1_sdrive18i
+      - type: custom:fold-entity-row
+        head:
+          type: section
+          label: Übersicht
+        padding: 5
+        entities:
+          - binary_sensor.x1_sdrive18i_door_lock_state
+          - binary_sensor.x1_sdrive18i_lids
+          - binary_sensor.x1_sdrive18i_windows
+          - sensor.x1_sdrive18i_mileage
+          - sensor.x1_sdrive18i_remaining_fuel
+          - sensor.x1_sdrive18i_remaining_range_total
+          - binary_sensor.x1_sdrive18i_lights_parking
+          - binary_sensor.x1_sdrive18i_condition_based_services
+          - binary_sensor.x1_sdrive18i_check_control_messages
+  # - type: custom:vertical-stack-in-card
+  #   cards:
+  #     - type: entities  
+  #       entities:
+  #         - entity: input_boolean.car_map
+  #           tap_action: 
+  #             action: toggle
+  #     - type: conditional
+  #       conditions:
+  #         - entity: input_boolean.car_map
+  #           state: "on"
+  #       card:
+  #         type: map
+  #         default_zoom: 15
+  #         aspect_ratio: 4:3
+  #         entities:
+  #           - entity: device_tracker.x1_sdrive18i
+  - type: entities
+    entities:
+      - entity: sensor.car_km_usage
+        style: |
+          :host {
+            color: 
+            {% if (states.sensor.car_km_usage.state | int) > 99 %}
+              red
+            {% endif %}
+            ;
+          }
+      - type: custom:fold-entity-row
+        head:
+          type: section
+          label: Mietdetails
+        padding: 5
+        entities:
+          - entity: sensor.car_days_in_use
+            tap_action: 
+              action: none
+          - entity: sensor.car_km_threshold
+            tap_action: 
+              action: none
+          - entity: automation.km_stand_kritisch    
+            tap_action: 
+              action: toggle

@@ -3,7 +3,6 @@
 title: Wohnzimmer
 path: living_room
 icon: mdi:sofa
-panel: true
 popup_cards:
   sensor.remote_state:
     title: Fernbedienung
@@ -23,31 +22,28 @@ popup_cards:
           entities:
             - input_select.avr_source
 cards:
-  - type: custom:layout-card
-    max_columns: 2
-    cards:
-      - !include ../includes/light/light_living_room.yaml
-      - type: entities
-        entities:
-          - entity: sensor.remote_state
-            name: Entertainment
-          - entity: switch.steckdose_1
-            name: Steckdosenleiste
-            tap_action: 
-              action: toggle
-      - !include
-          - ../includes/multimedia/mini_media_player.yaml
-          - entity: media_player.wohnzimmer
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: switch.steckdose_5
-            name: Schreibtisch
-            icon: mdi:desk
-            tap_action: 
-              action: toggle
-          - entity: switch.steckdose_3
-            name: Drucker
-            tap_action: 
-              action: toggle
-      - !include ../includes/climate/climate_living_room.yaml
+  - !include ../includes/light/light_living_room.yaml
+  - type: entities
+    entities:
+      - entity: sensor.remote_state
+        name: Entertainment
+      - entity: switch.steckdose_1
+        name: Steckdosenleiste
+        tap_action: 
+          action: toggle
+  - !include
+      - ../includes/multimedia/mini_media_player.yaml
+      - entity: media_player.wohnzimmer
+  - type: entities
+    show_header_toggle: false
+    entities:
+      - entity: switch.steckdose_5
+        name: Schreibtisch
+        icon: mdi:desk
+        tap_action: 
+          action: toggle
+      - entity: switch.steckdose_3
+        name: Drucker
+        tap_action: 
+          action: toggle
+  - !include ../includes/climate/climate_living_room.yaml

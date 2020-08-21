@@ -3,20 +3,17 @@
 title: Entertainment
 path: entertainment
 icon: mdi:theater
-panel: true
 cards:
-  - type: custom:layout-card
+  - type: custom:vertical-stack-in-card
     cards:
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: entities
-            entities:
-              - entity: sensor.remote_state
-                tap_action: 
-                  action: none
-              - type: section
-          - !include ../includes/multimedia/remote_buttons.yaml
-          - type: entities
-            entities:
-              - type: section
-              - input_select.avr_source
+      - type: entities
+        entities:
+          - entity: sensor.remote_state
+            tap_action: 
+              action: none
+          - type: section
+      - !include ../includes/multimedia/remote_buttons.yaml
+      - type: entities
+        entities:
+          - type: section
+          - input_select.avr_source

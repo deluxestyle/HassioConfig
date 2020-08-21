@@ -1,110 +1,114 @@
 # lovelace_gen
 
-title: Presence
+title: Anwesenheit
+
+custom_header:
+  compact_mode: false
+
 views:
   - title: Personen
     visible:
       - user: b6464705fc4e405abce8058610b4bcc7
     path: presence
     icon: mdi:account-multiple
-    panel: true
+    # panel: true
+    # cards:
+    #   - type: custom:layout-card
+    #     max_columns: 2
     cards:
-      - type: custom:layout-card
-        max_columns: 2
-        cards:
-          - type: entities  
+      - type: entities  
+        entities:
+          - entity: person.wolfgang
+            tap_action: 
+              action: none
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Automation
+            padding: 5
             entities:
-              - entity: person.wolfgang
+              - entity: automation.abwesenheitsschaltung
+                icon: mdi:account-off
                 tap_action: 
-                  action: none
-              - type: custom:fold-entity-row
-                head:
-                  type: section
-                  label: Automation
-                padding: 5
-                entities:
-                  - entity: automation.abwesenheitsschaltung
-                    icon: mdi:account-off
-                    tap_action: 
-                      action: toggle
-                  - entity: automation.anwesenheitsschaltung
-                    icon: mdi:account-outline
-                    tap_action: 
-                      action: toggle
-              # - type: custom:fold-entity-row
-              #   head:
-              #     type: section
-              #     label: Heizung
-              #   padding: 5
-              #   entities:
-              #     - entity: sensor.dark_sky_temperature
-              #       name: Außentemperatur
-              #     - entity: input_boolean.automation_radiator
-              #       tap_action: 
-              #         action: toggle
-              #     - entity: automation.heizung_abwesenheitsschaltung
-              #       name: Abwesenheitsschaltung
-              #       icon: mdi:account-off
-              #       tap_action: 
-              #         action: toggle
-              #     - entity: automation.heizung_standby
-              #       icon: mdi:radiator-disabled
-              #       name: Standby Schaltung
-              #       tap_action: 
-              #         action: toggle
-              #     - entity: automation.benachrichtigung_luftfeuchtigkeit
-              #       name: Luftfeuchtigkeit
-              #       tap_action: 
-              #         action: toggle
-              - type: custom:auto-entities
-                card:
-                  type: custom:fold-entity-row
-                  head:
-                    type: section
-                    label: Sonos Automation
-                  padding: 5
-                filter:
-                    include:
-                      - entity_id: "switch.sonos_alarm_*"
-                entities:
-                  - entity: automation.sonos_starten
-                    icon: mdi:music
-                    tap_action: 
-                      action: toggle
-                  - entity: automation.sonos_stoppen
-                    icon: mdi:music-off
-                    tap_action: 
-                      action: toggle
-          - type: conditional
-            conditions:
-              - entity: device_tracker.hikam_4452
-                state: "home"
+                  action: toggle
+              - entity: automation.anwesenheitsschaltung
+                icon: mdi:account-outline
+                tap_action: 
+                  action: toggle
+          # - type: custom:fold-entity-row
+          #   head:
+          #     type: section
+          #     label: Heizung
+          #   padding: 5
+          #   entities:
+          #     - entity: sensor.dark_sky_temperature
+          #       name: Außentemperatur
+          #     - entity: input_boolean.automation_radiator
+          #       tap_action: 
+          #         action: toggle
+          #     - entity: automation.heizung_abwesenheitsschaltung
+          #       name: Abwesenheitsschaltung
+          #       icon: mdi:account-off
+          #       tap_action: 
+          #         action: toggle
+          #     - entity: automation.heizung_standby
+          #       icon: mdi:radiator-disabled
+          #       name: Standby Schaltung
+          #       tap_action: 
+          #         action: toggle
+          #     - entity: automation.benachrichtigung_luftfeuchtigkeit
+          #       name: Luftfeuchtigkeit
+          #       tap_action: 
+          #         action: toggle
+          - type: custom:auto-entities
             card:
-              type: picture-entity
-              entity: camera.ffmpeg
-              title: Kamera
-          - type: entities
-            show_header_toggle: false
+              type: custom:fold-entity-row
+              head:
+                type: section
+                label: Sonos Automation
+              padding: 5
+            filter:
+                include:
+                  - entity_id: "switch.sonos_alarm_*"
             entities:
-              - entity: binary_sensor.motion_sensor_158d00023e77cb
-                secondary_info: last-changed
-                tap_action: 
-                  action: none
-              - entity: sensor.illumination_158d00023e77cb
-                tap_action: 
-                  action: none
-              - type: section
-              - entity: automation.bewegungsmelder_alarm
+              - entity: automation.sonos_starten
+                icon: mdi:music
                 tap_action: 
                   action: toggle
-              - entity: script.1541097052191
-                name: Alarm ausschalten
-                icon: mdi:volume-off
+              - entity: automation.sonos_stoppen
+                icon: mdi:music-off
                 tap_action: 
                   action: toggle
-              - type: section
-              - entity: automation.benachrichtigung_bewegung_erkannt
-                name: Bewegung erkannt
-                icon: mdi:cellphone-message
-                tap_action: 
-                  action: toggle
+      - type: conditional
+        conditions:
+          - entity: device_tracker.hikam_4452
+            state: "home"
+        card:
+          type: picture-entity
+          entity: camera.ffmpeg
+          title: Kamera
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: binary_sensor.motion_sensor_158d00023e77cb
+            secondary_info: last-changed
+            tap_action: 
+              action: none
+          - entity: sensor.illumination_158d00023e77cb
+            tap_action: 
+              action: none
+          - type: section
+          - entity: automation.bewegungsmelder_alarm
+            tap_action: 
+              action: toggle
+          - entity: script.1541097052191
+            name: Alarm ausschalten
+            icon: mdi:volume-off
+            tap_action: 
+              action: toggle
+          - type: section
+          - entity: automation.benachrichtigung_bewegung_erkannt
+            name: Bewegung erkannt
+            icon: mdi:cellphone-message
+            tap_action: 
+              action: toggle

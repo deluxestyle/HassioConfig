@@ -3,64 +3,60 @@
 title: Bad
 path: bath
 icon: mdi:shower
-panel: true
 cards:
-  - type: custom:layout-card
-    max_columns: 2
-    cards:
-      - type: entities
+  - type: entities
+    entities:
+      - entity: switch.steckdose_2
+        tap_action: 
+          action: toggle
+  - type: conditional
+    conditions:
+      - entity: switch.steckdose_2
+        state: "on"
+    card:
+      type: custom:mini-media-player
+      entity: media_player.wolfgangs_echo_dot
+      icon: 'mdi:speaker-wireless'
+      hide:
+        power: false
+        source: true
+        progress: false
+        shuffle: false
+      #group: true
+      #source: icon
+      info: scroll
+      tap_action:
+        action: none
+      idle_view:
+        when_idle: true
+        when_paused: true
+        when_standby: true
+      shortcuts:
+        columns: 4
+        buttons:
+          - name: SuperFly.fm
+            type: script
+            id: script.alexa_echo_superflyfm
+          - name: Radio Arabella
+            type: script
+            id: script.alexa_echo_radio_arabella
+          - name: B5 aktuell
+            type: script
+            id: script.alexa_echo_b5_aktuell
+  - !include ../includes/climate/climate_bath.yaml
+  - type: entities
+    entities:
+      - entity: switch.wifi_steckdose
+        icon: mdi:washing-machine
+        name: Waschmaschine
+      - type: custom:fold-entity-row
+        head: 
+          type: section
+          label: Verbrauchsdaten
+        padding: 5
         entities:
-          - entity: switch.steckdose_2
-            tap_action: 
-              action: toggle
-      - type: conditional
-        conditions:
-          - entity: switch.steckdose_2
-            state: "on"
-        card:
-          type: custom:mini-media-player
-          entity: media_player.wolfgangs_echo_dot
-          icon: 'mdi:speaker-wireless'
-          hide:
-            power: false
-            source: true
-            progress: false
-            shuffle: false
-          #group: true
-          #source: icon
-          info: scroll
-          tap_action:
-            action: none
-          idle_view:
-            when_idle: true
-            when_paused: true
-            when_standby: true
-          shortcuts:
-            columns: 4
-            buttons:
-              - name: SuperFly.fm
-                type: script
-                id: script.alexa_echo_superflyfm
-              - name: Radio Arabella
-                type: script
-                id: script.alexa_echo_radio_arabella
-              - name: B5 aktuell
-                type: script
-                id: script.alexa_echo_b5_aktuell
-      - !include ../includes/climate/climate_bath.yaml
-      - type: entities
-        entities:
-          - entity: switch.wifi_steckdose
-            icon: mdi:washing-machine
-            name: Waschmaschine
-          - type: custom:fold-entity-row
-            head: 
-              type: section
-              label: Verbrauchsdaten
-            padding: 5
-            entities:
-              - entity: sensor.hs110_today_kwh
-              - entity: sensor.hs110_total_kwh
-              - entity: sensor.hs110_watts
-              - entity: sensor.hs110_amps
-              - entity: sensor.hs110_volts
+          - entity: sensor.hs110_today_kwh
+          - entity: sensor.hs110_total_kwh
+          - entity: sensor.hs110_watts
+          - entity: sensor.hs110_amps
+          - entity: sensor.hs110_volts

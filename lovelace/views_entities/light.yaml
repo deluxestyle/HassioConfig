@@ -3,21 +3,18 @@
 title: Licht
 path: light
 icon: mdi:ceiling-light
-panel: true
 cards:
-  - type: custom:layout-card
-    cards:
-      - !include ../includes/light/light_living_room.yaml
-      - !include ../includes/light/light_bed_room.yaml
-      - !include ../includes/light/light_kitchen.yaml
-      - type: entities
-        entities:
-          - entity: light.gateway_light_7811dcb258d1
-            tap_action: 
-              action: toggle
-      - type: entities
-        entities:
-          - entity: light.lights_all
-            name: Licht (alle Lampen)
-            tap_action: 
-              action: toggle
+  - !include ../includes/light/light_living_room.yaml
+  - !include ../includes/light/light_bed_room.yaml
+  - !include ../includes/light/light_kitchen.yaml
+  - type: entities
+    entities:
+      - entity: light.gateway_light_7811dcb258d1
+        tap_action: 
+          action: toggle
+  - type: entities
+    entities:
+      - entity: light.lights_all
+        name: Licht (alle Lampen)
+        tap_action: 
+          action: toggle

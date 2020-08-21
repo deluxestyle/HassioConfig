@@ -4,19 +4,16 @@
 title: Musik
 path: music
 icon: mdi:music-box-outline
-panel: true
 cards:
-  - type: custom:layout-card
-    cards:
-      - type: entities
-        entities:
-          - !include
-              - ../includes/multimedia/mini_media_player.yaml
-              - entity: media_player.schlafzimmer
-          - !include ../includes/multimedia/sonos_alarm.yaml
-      - type: entities
-        entities:
-          - !include
-              - ../includes/multimedia/mini_media_player.yaml
-              - entity: media_player.wohnzimmer
-      - !include ../includes/multimedia/sonos_automation.yaml
+  - type: entities
+    entities:
+      - !include
+          - ../includes/multimedia/mini_media_player.yaml
+          - entity: media_player.schlafzimmer
+      - !include ../includes/multimedia/sonos_alarm.yaml
+  - type: entities
+    entities:
+      - !include
+          - ../includes/multimedia/mini_media_player.yaml
+          - entity: media_player.wohnzimmer
+  - !include ../includes/multimedia/sonos_automation.yaml

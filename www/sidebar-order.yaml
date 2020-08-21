@@ -3,7 +3,11 @@ order:
   - item: Presence
   - item: System
   - item: Auto
+  - item: Grafana
+    bottom: true
   - item: Logbuch
+    bottom: true
+  - item: HACS
     bottom: true
   - item: verlauf
     hide: true

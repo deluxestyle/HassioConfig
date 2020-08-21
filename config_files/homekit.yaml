@@ -30,7 +30,7 @@ filter:
     - sensor.temperature_158d0001b8c96c
     - sensor.temperature_158d00023258bd
     - sensor.temperature_158d0001b8c998
-    - switch.pi_hole_switch
+    - switch.pi_hole
     - script.alexa_echo_superflyfm
     - script.alexa_echo_radio_arabella
     - script.alexa_echo_b5_aktuell
