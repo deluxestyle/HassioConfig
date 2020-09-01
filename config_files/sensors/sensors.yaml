@@ -43,10 +43,6 @@
             {% else %}
               not_home
             {% endif %}
-      dark_sky_temperature:
-        entity_id: weather.dark_sky
-        friendly_name: Temperatur
-        value_template: '{{ states.weather.dark_sky.attributes.temperature }}'
 
 - platform: uptime
   name: online_time

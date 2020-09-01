@@ -191,9 +191,6 @@ sensor.illumination_158d00023e77cb:
   friendly_name: Lichtsensor
 binary_sensor.motion_sensor_158d00023e77cb:
   friendly_name: Bewegungsmelder
-sensor.dark_sky_temperature:
-  friendly_name: aktuelle Temperatur
-  icon: mdi:temperature-celsius
 weather.dark_sky:
   friendly_name: Wetter
 switch.radiator_on_off:
