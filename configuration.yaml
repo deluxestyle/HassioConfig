@@ -157,9 +157,9 @@ device_tracker:
 #     name: harmony_hub
 #     host: 192.168.200.55
 
-weather:
-  - platform: darksky
-    api_key: !secret dark_syk
+# weather:
+#   - platform: darksky
+#     api_key: !secret dark_syk
 
 yeelight:
   devices:
