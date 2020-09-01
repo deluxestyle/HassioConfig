@@ -54,13 +54,13 @@
     platform: state
     to: cleaning
   action:
-  - data:
-      entity_id: counter.badge_counter
-    service: counter.increment
+  # - data:
+  #     entity_id: counter.badge_counter
+  #   service: counter.increment
   - data_template:
       data:
         push:
-          badge: '{{ states.counter.badge_counter.state }}'
+          #badge: '{{ states.counter.badge_counter.state }}'
           category: vacuum_stop
       message: Staubsauger gestartet
     service: notify.mobile_app_iphone11pro
@@ -368,13 +368,13 @@
     before: '18:00'
     condition: time
   action:
-  - data:
-      entity_id: counter.badge_counter
-    service: counter.increment
+  # - data:
+  #     entity_id: counter.badge_counter
+  #   service: counter.increment
   - data_template:
       data:
         push:
-          badge: '{{ states.counter.badge_counter.state }}'
+          #badge: '{{ states.counter.badge_counter.state }}'
           category: vacuum_trigger
           thread-id: vacuum_start
       message: Staubsauger starten?
