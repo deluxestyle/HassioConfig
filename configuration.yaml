@@ -1,8 +1,6 @@
 homeassistant:
   customize: !include customize.yaml
   packages: !include_dir_named packages
-  # internal_url: !secret internal_url
-  # external_url: !secret hass_url
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 #default_config:
@@ -146,20 +144,6 @@ device_tracker:
     username: !secret fritz_user
     password: !secret fritz_password
     # consider_home: 600
-
-# xiaomi_aqara:
-#   discovery_retry: 5
-#   gateways:
-#     - key: !secret xiaomi_gateway
-
-# remote:
-#   - platform: harmony
-#     name: harmony_hub
-#     host: 192.168.200.55
-
-# weather:
-#   - platform: darksky
-#     api_key: !secret dark_syk
 
 yeelight:
   devices:
