@@ -43,7 +43,7 @@ group:
     entities:
       - sensor.hue_dimmer_battery_bedroom
       - sensor.hue_dimmer_battery_livingroom
-      - sensor.fritz_thermostat_1_battery
+      # - sensor.fritz_thermostat_1_battery
 
 ################################################
 ## Input Boolean
