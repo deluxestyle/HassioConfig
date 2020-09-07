@@ -88,8 +88,8 @@
 ##############################################################
 # Fritz Smart Home
 ##############################################################
-      fritz_thermostat_1_battery:
-        entity_id: climate.fritz_thermostat
-        friendly_name: Fritz Thermostat 
-        device_class: battery
-        value_template: '{{ states.climate.fritz_thermostat.attributes.battery_level }}'
+      # fritz_thermostat_1_battery:
+      #   entity_id: climate.fritz_thermostat
+      #   friendly_name: Fritz Thermostat 
+      #   device_class: battery
+      #   value_template: '{{ states.climate.fritz_thermostat.attributes.battery_level }}'
