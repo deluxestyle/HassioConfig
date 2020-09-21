@@ -39,28 +39,28 @@ lovelace:
       icon: mdi:tune
       show_in_sidebar: true
       filename: ui-system.yaml
-      require_admin: true
+      require_admin: false
     lovelace-map:
       mode: yaml
       title: Map
       icon: mdi:map-outline
       show_in_sidebar: false
       filename: ui-map.yaml
-      require_admin: true
+      require_admin: false
     lovelace-presence:
       mode: yaml
       title: Presence
       icon: mdi:account-multiple
       show_in_sidebar: true
       filename: ui-presence.yaml
-      require_admin: true
+      require_admin: false
     lovelace-car:
       mode: yaml
       title: Auto
       icon: mdi:car-hatchback
       show_in_sidebar: true
       filename: ui-car.yaml
-      require_admin: true
+      require_admin: false
 
 logger:
   default: info
@@ -156,9 +156,9 @@ bmw_connected_drive:
     password: !secret bmw_password
     region: "rest_of_world"
 
-camera:
-  - platform: ffmpeg
-    input: -rtsp_transport tcp -i rtsp://192.168.200.40:554/onvif1
+# camera:
+#   - platform: ffmpeg
+#     input: -rtsp_transport tcp -i rtsp://192.168.200.40:554/onvif1
 
 auto_backup:
   auto_purge: true
