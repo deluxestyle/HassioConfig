@@ -31,11 +31,11 @@
 - platform: template
   sensors:
       remote_state:
-        entity_id: remote.harmony_hub
+        # entity_id:  remote.harmony_hub
         friendly_name: "Multimedia"
         value_template: '{{ states.remote.harmony_hub.attributes.current_activity }}'
       presence:
-        entity_id: person.wolfgang
+        # entity_id:  person.wolfgang
         friendly_name: Anwesenheit
         value_template: >
             {% if is_state('person.wolfgang', 'home') or is_state('person.christina', 'home') %}

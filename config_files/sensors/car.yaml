@@ -1,18 +1,18 @@
 - platform: template
   sensors:
       car_days_in_use:
-        entity_id: sensor.x1_sdrive18i_mileage, sensor.date
+        # entity_id: sensor.x1_sdrive18i_mileage, sensor.date
         friendly_name: Autonutzung in Tagen
         value_template: '{{ (as_timestamp(now()) - as_timestamp("2020-07-17 00:00:00") ) | timestamp_custom("%j")  | int }}'
         icon_template: mdi:calendar-month
       car_km_threshold:
-        entity_id: sensor.x1_sdrive18i_mileage, sensor.date
+        # entity_id: sensor.x1_sdrive18i_mileage, sensor.date
         friendly_name: KM Schwelle
         value_template: '{{ ((as_timestamp(now()) - as_timestamp("2020-07-17 00:00:00") ) | timestamp_custom("%j")  | int) * 39 }} '
         unit_of_measurement: 'km'
         icon_template: mdi:card-bulleted-outline
       car_km_usage:
-        entity_id: sensor.x1_sdrive18i_mileage, sensor.date
+        # entity_id: sensor.x1_sdrive18i_mileage, sensor.date
         friendly_name: KM Verbraucht (in %)
         value_template: '{{ ( (states ( "sensor.x1_sdrive18i_mileage" ) | int) / (states ( "sensor.car_km_threshold" ) | int) * 100 ) | round(2) }}'
         unit_of_measurement: '%'
