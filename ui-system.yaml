@@ -2,9 +2,6 @@
 
 title: System
 
-custom_header:
-  compact_mode: false
-
 views:
   - title: System
     visible:

@@ -2,9 +2,6 @@
 
 title: Auto
 
-custom_header:
-  compact_mode: false
-
 views:
   - title: Auto
     visible:

@@ -2,9 +2,6 @@
 
 title: Anwesenheit
 
-custom_header:
-  compact_mode: false
-
 views:
   - title: Personen
     visible:
