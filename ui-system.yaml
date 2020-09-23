@@ -136,6 +136,9 @@ views:
               - entity: switch.hass_io_addon_glances
                 name: false
                 icon: mdi:speedometer
+              - entity: switch.hass_io_addon_samba_share
+                name: false
+                icon: mdi:folder-network
               - entity: switch.hass_io_addon_grafana
                 name: false
                 icon: mdi:chart-timeline
