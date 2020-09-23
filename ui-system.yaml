@@ -41,13 +41,13 @@ views:
             tap_action: 
               action: toggle
           - sensor.auto_backup
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: automation.starte_raspberry_full_backup
-            icon: mdi:server
-            tap_action: 
-              action: toggle
+      # - type: entities
+      #   show_header_toggle: false
+      #   entities:
+      #     - entity: automation.starte_raspberry_full_backup
+      #       icon: mdi:server
+      #       tap_action: 
+      #         action: toggle
       - type: entities
         entities:
           - entity: automation.battery_persistent_notification
