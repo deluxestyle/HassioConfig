@@ -1,10 +1,10 @@
 # lovelace_gen
 
-climate.fritz_thermostat:
-  !include 
-    - ../includes/climate/popup_climate.yaml
-    - entity: climate.fritz_thermostat
-      name: Bad
+# climate.fritz_thermostat:
+#   !include 
+#     - ../includes/climate/popup_climate.yaml
+#     - entity: climate.fritz_thermostat
+#       name: Bad
 light.schlafzimmer:
   title: Szenen
   card:
