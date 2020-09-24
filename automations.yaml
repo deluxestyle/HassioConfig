@@ -750,3 +750,16 @@
     data: {}
     entity_id: switch.sonos_alarm_32
   mode: single
+- id: '1600931459678'
+  alias: 'Abwesenheit: Christina'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: person.christina
+    from: home
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.sonos_alarm_32
+  mode: single
