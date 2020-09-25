@@ -9,8 +9,7 @@ custom_header:
   # tab_indicator_color: var(--primary-color)
   chevrons: false
   hide_config: true
-  shadow: true 
-#   default_tab: living_room
+  shadow: grey
   
 swipe_nav:
 # -----------------------------
