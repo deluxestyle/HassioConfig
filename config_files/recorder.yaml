@@ -28,14 +28,10 @@ include:
   entities:
     - sensor.disk_free
     - sensor.memory_free
-    - sensor.memory_free_2
     - sensor.processor_use
-    - sensor.processor_use_2
     - sensor.cpu_temperature
     - sensor.memory_use
-    - sensor.memory_use_2
     - sensor.memory_use_percent
-    - sensor.memory_use_percent_2
     - sensor.disk_use
     - sensor.disk_use_percent
     - sensor.car_days_in_use
