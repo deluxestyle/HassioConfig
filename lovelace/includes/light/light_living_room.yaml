@@ -6,6 +6,8 @@ entities:
     name: Wohnzimmer
     tap_action: 
       action: toggle
+    hold_action:
+        action: more-info
   - type: "custom:paper-buttons-row"
     buttons:
       - entity: light.decke
