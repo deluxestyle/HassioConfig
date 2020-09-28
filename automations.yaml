@@ -763,3 +763,21 @@
     data: {}
     entity_id: switch.sonos_alarm_32
   mode: single
+- id: '1601278204299'
+  alias: 'Waschmaschine: Fertig'
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.hs110_watts
+    below: '1'
+  condition: []
+  action:
+    - data: {}
+      entity_id: input_boolean.persistent_notification
+      service: input_boolean.turn_off
+    - data:
+        message: 'Waschmaschine fertig'
+        notification_id: Waschmaschine
+        title: Waschmaschine
+      service: script.1570439573834
+  mode: single
