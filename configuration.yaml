@@ -144,6 +144,12 @@ device_tracker:
     username: !secret fritz_user
     password: !secret fritz_password
     # consider_home: 600
+  - platform: composite
+    name: wolfgang
+    time_as: device_or_local
+    entity_id:
+      - device_tracker.iphone11pro
+      - device_tracker.iphone11pro_2
 
 yeelight:
   devices:
