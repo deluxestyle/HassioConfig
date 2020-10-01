@@ -144,9 +144,15 @@
   - after: 08:00:00
     before: '20:00:00'
     condition: time
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: person.christina
+      state: not_home
   action:
   - data: {}
     service: script.1532173931522
+  mode: single
 - id: '1532273712071'
   alias: 'Harman Kardon AVR: Quelle auswählen'
   trigger:
@@ -772,12 +778,12 @@
     below: '1'
   condition: []
   action:
-    - data: {}
-      entity_id: input_boolean.persistent_notification
-      service: input_boolean.turn_off
-    - data:
-        message: 'Waschmaschine fertig'
-        notification_id: Waschmaschine
-        title: Waschmaschine
-      service: script.1570439573834
+  - data: {}
+    entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_off
+  - data:
+      message: Waschmaschine fertig
+      notification_id: Waschmaschine
+      title: Waschmaschine
+    service: script.1570439573834
   mode: single
