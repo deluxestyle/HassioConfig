@@ -80,19 +80,6 @@
       notification_id: xiaomi_vacuum_error
       title: StaubRobo
     service: script.1570439573834
-- id: '1521743370575'
-  alias: 'Heizung: Abwesenheitsschaltung'
-  trigger:
-  - entity_id: sensor.presence
-    platform: state
-    to: not_home
-  condition:
-  - condition: state
-    entity_id: switch.radiator_on_off
-    state: 'on'
-  action:
-  - data: {}
-    service: script.1540232132608
 - id: '1521894687949'
   alias: 'Xiaomi Staubsauger: Täglich saugen'
   trigger:
@@ -199,25 +186,6 @@
   - data:
       entity_id: vacuum.xiaomi_vacuum_cleaner
     service: vacuum.return_to_base
-- id: dsfasdfasdfsafsadfsdfdsf
-  alias: 'Heizung: Bad Timer'
-  trigger:
-  - platform: template
-    value_template: '{{ states(''sensor.time'') == (states.input_datetime.radiator_bath_1.attributes.timestamp
-      | int | timestamp_custom(''%H:%M'', False)) }}'
-  condition:
-  - condition: state
-    entity_id: sensor.presence
-    state: home
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-  action:
-  - service: script.1538646823835
 - id: '1540494970737'
   alias: 'Benachrichtigung: Bewegung erkannt'
   trigger:
@@ -776,7 +744,10 @@
   - platform: numeric_state
     entity_id: sensor.hs110_watts
     below: '1'
-  condition: []
+  condition:
+  - condition: state
+    entity_id: person.wolfgang
+    state: not_home
   action:
   - data: {}
     entity_id: input_boolean.persistent_notification
