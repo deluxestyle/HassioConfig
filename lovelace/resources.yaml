@@ -1,7 +1,7 @@
 - url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
   type: module
-- url: /hacsfiles/custom-header/custom-header.js
-  type: module
+# - url: /hacsfiles/custom-header/custom-header.js
+#   type: module
 - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
   type: module
 # - url: /hacsfiles/button-card/button-card.js
