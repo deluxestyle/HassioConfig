@@ -3,13 +3,7 @@
 # -----------------------------
 custom_header:
   compact_mode: true
-  # background: var(--primary-background-color)
-  # elements_color: var(--primary-text-color)
-  # active_tab_color: var(--primary-color)
-  # tab_indicator_color: var(--primary-color)
   chevrons: false
-  hide_config: true
-  shadow: grey
   
 swipe_nav:
 # -----------------------------
