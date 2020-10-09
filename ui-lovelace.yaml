@@ -50,6 +50,3 @@ views:
 
 #### Staubsauger #####
   - !include lovelace/views_entities/vacuum.yaml
-
-##### Auto ##### 
-#  - !include lovelace/views_entities/car.yaml
