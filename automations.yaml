@@ -83,7 +83,7 @@
 - id: '1521894687949'
   alias: 'Xiaomi Staubsauger: Täglich saugen'
   trigger:
-  - at: '16:00'
+  - at: '16:00:00'
     platform: time
   condition:
   - condition: time
@@ -422,28 +422,6 @@
       notification_id: xiaomi_filter
       title: Xiaomi StaubRobo
     service: script.1570439573834
-- id: dsfasdfasdfsafsadfsdfdee
-  alias: Sonos Wecker
-  trigger:
-  - platform: template
-    value_template: '{{ states(''sensor.time'') == (states.input_datetime.sonos_alarm.attributes.timestamp
-      | int | timestamp_custom(''%H:%M'', False)) }}'
-  condition:
-  - condition: state
-    entity_id: sensor.presence
-    state: home
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-  - condition: state
-    entity_id: calendar.privat_urlaub
-    state: 'off'
-  action:
-  - service: script.1532173931599
 - id: '1570440017469'
   alias: Badge zurücksetzen
   trigger:
@@ -471,7 +449,7 @@
   alias: 'Frontend: Nacht'
   description: ''
   trigger:
-  - at: '22:30'
+  - at: '22:30:00'
     platform: time
   condition: []
   action:
@@ -485,7 +463,7 @@
   alias: 'Frontend: Tag'
   description: ''
   trigger:
-  - at: 06:15
+  - at: 06:15:00
     platform: time
   - event: start
     platform: homeassistant
@@ -637,7 +615,7 @@
   alias: Raspberry Full Backup
   description: ''
   trigger:
-  - at: 03:00
+  - at: 03:00:00
     platform: time
   condition:
   - condition: time
@@ -743,7 +721,7 @@
   trigger:
   - platform: numeric_state
     entity_id: sensor.hs110_watts
-    below: '1'
+    below: 1
   condition:
   - condition: state
     entity_id: person.wolfgang
