@@ -1,0 +1,28 @@
+lovelace-system:
+  mode: yaml
+  title: System
+  icon: mdi:tune
+  show_in_sidebar: true
+  filename: lovelace/ui-system.yaml
+  require_admin: false
+lovelace-map:
+  mode: yaml
+  title: Map
+  icon: mdi:map-outline
+  show_in_sidebar: false
+  filename: lovelace/ui-map.yaml
+  require_admin: false
+lovelace-presence:
+  mode: yaml
+  title: Presence
+  icon: mdi:account-multiple
+  show_in_sidebar: true
+  filename: lovelace/ui-presence.yaml
+  require_admin: false
+lovelace-car:
+  mode: yaml
+  title: Auto
+  icon: mdi:car-hatchback
+  show_in_sidebar: true
+  filename: lovelace/ui-car.yaml
+  require_admin: false
