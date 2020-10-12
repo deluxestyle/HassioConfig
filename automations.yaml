@@ -721,7 +721,7 @@
   trigger:
   - platform: numeric_state
     entity_id: sensor.hs110_watts
-    below: 1
+    below: '5'
   condition:
   - condition: state
     entity_id: person.wolfgang

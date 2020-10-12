@@ -1,1 +1,15 @@
-[]
+- id: '1602502705144'
+  name: Schreibtischlicht
+  entities:
+    light.schreibtisch:
+      min_mireds: 153
+      max_mireds: 370
+      effect_list:
+      - Slow Temp
+      - Stop
+      brightness: 74
+      color_temp: 370
+      flowing: false
+      friendly_name: Schreibtischlampe
+      supported_features: 47
+      state: 'on'

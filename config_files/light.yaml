@@ -44,6 +44,7 @@
       - light.lights_kitchen
       - light.lights_bed_room
       - light.gateway_light_7811dcb258d1
+      - light.schreibtisch
 
 # Küchenlichtschalter
 - platform: switch

@@ -42,6 +42,19 @@ cards:
         icon: mdi:desk
         tap_action: 
           action: toggle
+      - entity: light.schreibtisch
+        type: custom:multiple-entity-row
+        name: Schreibtischlampe
+        icon: mdi:desk-lamp
+        toggle: true
+        state_color: true
+        entities:
+          - icon: mdi:laptop
+            tap_action:
+              action: call-service
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.schreibtischlicht
       - entity: switch.steckdose_3
         name: Drucker
         tap_action: 

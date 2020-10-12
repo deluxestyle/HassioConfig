@@ -123,10 +123,10 @@ device_tracker:
       - device_tracker.iphone11pro
       - device_tracker.iphone11pro_2
 
-yeelight:
-  devices:
-    192.168.200.59:
-      name: Nachttischlampe Wolfgang
+# yeelight:
+#   devices:
+#     192.168.200.59:
+#       name: Nachttischlampe Wolfgang
 
 bmw_connected_drive:
   x1:
