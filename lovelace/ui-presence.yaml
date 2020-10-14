@@ -32,6 +32,10 @@ views:
                 icon: mdi:account-outline
                 tap_action: 
                   action: toggle
+              - entity: automation.abwesenheit_christina
+                icon: mdi:account-multiple-outline
+                tap_action: 
+                  action: toggle
           # - type: custom:fold-entity-row
           #   head:
           #     type: section
