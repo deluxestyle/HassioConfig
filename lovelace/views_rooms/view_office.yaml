@@ -1,0 +1,30 @@
+title: Büro
+path: office
+icon: mdi:desk
+cards:
+  - type: entities
+    show_header_toggle: false
+    entities:
+      - entity: switch.steckdose_5
+        name: Schreibtisch
+        icon: mdi:desk
+        tap_action: 
+          action: toggle
+      - entity: light.schreibtisch
+        type: custom:multiple-entity-row
+        name: Schreibtischlampe
+        icon: mdi:desk-lamp
+        toggle: true
+        state_color: true
+        entities:
+          - icon: mdi:laptop
+            tap_action:
+              action: call-service
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.schreibtischlicht
+      - entity: scene.arbeitslicht
+      - entity: switch.steckdose_3
+        name: Drucker
+        tap_action: 
+          action: toggle

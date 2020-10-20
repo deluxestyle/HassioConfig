@@ -103,4 +103,4 @@
       supported_features: 63
       icon: mdi:ceiling-light
       state: 'off'
-  icon: mdi:desk
+  icon: mdi:television-ambient-light
