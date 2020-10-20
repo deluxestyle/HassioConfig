@@ -736,3 +736,16 @@
       title: Waschmaschine
     service: script.1570439573834
   mode: single
+- id: '1603141534875'
+  alias: Nachtlicht
+  description: ''
+  trigger:
+  - platform: device
+    type: turned_on
+    device_id: 9c9d0c210c7d11eba05f8b9968791799
+    entity_id: light.nachttischlampe_wolfgang
+    domain: light
+  condition: []
+  action:
+  - scene: scene.nachtlicht_hell
+  mode: single

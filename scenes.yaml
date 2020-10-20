@@ -13,3 +13,94 @@
       friendly_name: Schreibtischlampe
       supported_features: 47
       state: 'on'
+- id: '1603139198875'
+  name: Nachtlicht hell
+  entities:
+    light.nachttischlampe_wolfgang:
+      min_mireds: 153
+      max_mireds: 588
+      effect_list:
+      - Strobe color
+      - Police
+      - Christmas
+      - RGB
+      - Random Loop
+      - Fast Random Loop
+      - LSD
+      - Slowdown
+      - Disco
+      - Strobe epilepsy!
+      - Alarm
+      - Police2
+      - WhatsApp
+      - Facebook
+      - Twitter
+      - Slow Temp
+      - Stop
+      brightness: 255
+      color_temp: 588
+      hs_color:
+      - 35.765
+      - 100
+      rgb_color:
+      - 255
+      - 152
+      - 0
+      xy_color:
+      - 0.58
+      - 0.402
+      flowing: false
+      night_light: false
+      friendly_name: Nachttischlampe
+      supported_features: 63
+      icon: mdi:lamp
+      state: 'on'
+- id: '1603175157999'
+  name: Arbeitslicht
+  entities:
+    light.schreibtisch:
+      min_mireds: 153
+      max_mireds: 370
+      effect_list:
+      - Slow Temp
+      - Stop
+      brightness: 74
+      color_temp: 370
+      flowing: false
+      friendly_name: Schreibtischlampe
+      supported_features: 47
+      state: 'on'
+    light.decke:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      brightness: 254
+      color_temp: 230
+      is_deconz_group: false
+      friendly_name: Decke
+      supported_features: 63
+      icon: mdi:ceiling-light
+      state: 'on'
+    light.wandlampe:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      brightness: 254
+      color_temp: 230
+      is_deconz_group: false
+      friendly_name: Wandlampe
+      supported_features: 63
+      state: 'on'
+    light.tisch:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      is_deconz_group: false
+      friendly_name: Tisch
+      supported_features: 63
+      icon: mdi:ceiling-light
+      state: 'off'
+  icon: mdi:desk
