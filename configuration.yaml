@@ -78,8 +78,6 @@ logbook:
     domains:
       - group
       - calendar
-    entities:
-      - automation.dismiss_annoying_notification
 
 group: !include groups.yaml
 script: !include scripts.yaml
