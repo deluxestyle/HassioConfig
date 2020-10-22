@@ -43,6 +43,34 @@
             {% else %}
               not_home
             {% endif %}
+      wireguard_iphonepro:
+        friendly_name: "Wireguard iPhone 11 Pro"
+        value_template: >-
+            {% if state_attr('sensor.wireguard', 'iphonepro').latest_handshake > ( as_timestamp(now()) ) -120 %}
+              Connected
+            {% else %}
+              Disconnected
+            {% endif %}
+        icon_template: >-
+            {% if state_attr('sensor.wireguard', 'iphonepro').latest_handshake > ( as_timestamp(now()) ) -120 %}
+              mdi:network
+            {% else %}
+              mdi:network-off
+            {% endif %}
+      wireguard_ipad:
+        friendly_name: "Wireguard iPad"
+        value_template: >-
+            {% if state_attr('sensor.wireguard', 'ipad').latest_handshake > ( as_timestamp(now()) ) -120 %}
+              Connected
+            {% else %}
+              Disconnected
+            {% endif %}
+        icon_template: >-
+            {% if state_attr('sensor.wireguard', 'ipad').latest_handshake > ( as_timestamp(now()) ) -120 %}
+              mdi:network
+            {% else %}
+              mdi:network-off
+            {% endif %}
 
 - platform: uptime
   name: online_time
@@ -67,3 +95,11 @@
   command: curl -X GET 'http://192.168.200.33:88/admin/api.php?status'
   value_template: >
     {{ value_json.status }}
+
+- platform: rest
+  name: wireguard
+  resource: http://a0d7b954-wireguard
+  json_attributes:
+  - iphonepro
+  - ipad
+  value_template: "OK"

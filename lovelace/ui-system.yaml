@@ -166,4 +166,12 @@ views:
                   service_data: 
                     navigation_path: /lovelace-map/map
                     deviceID: this
+      - type: entities
+        entities:
+          - entity: sensor.wireguard_ipad
+            tap_action: 
+              action: none
+          - entity: sensor.wireguard_iphonepro
+            tap_action: 
+              action: none
         
