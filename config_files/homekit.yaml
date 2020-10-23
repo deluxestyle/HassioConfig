@@ -9,7 +9,6 @@ filter:
     - light.decke
     - light.wandlampe
     - light.gateway_light_7811dcb258d1
-    - light.schreibtisch
     - script.1532173931522
     - script.1532175994947
     - media_player.schlafzimmer
@@ -36,7 +35,6 @@ filter:
     - script.alexa_echo_radio_arabella
     - script.alexa_echo_b5_aktuell
     - script.alexa_echo_ausschalten
-    - scene.arbeitslicht
 entity_config:
     media_player.schlafzimmer:
       feature_list:
