@@ -24,6 +24,8 @@ cards:
               service_data:
                 entity_id: scene.schreibtischlicht
       - entity: scene.arbeitslicht
+        tap_action: 
+          action: toggle
       - entity: switch.steckdose_3
         name: Drucker
         tap_action: 
