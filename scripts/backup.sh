@@ -1,1 +1,0 @@
-sshpass -p "udUD90BB" ssh -t  pi@192.168.200.33 "cd /home/pi/scripts/ && ./backup_shrink.sh" 
