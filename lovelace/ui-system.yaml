@@ -169,9 +169,5 @@ views:
       - type: entities
         entities:
           - entity: sensor.wireguard_ipad
-            tap_action: 
-              action: none
           - entity: sensor.wireguard_iphonepro
-            tap_action: 
-              action: none
         
