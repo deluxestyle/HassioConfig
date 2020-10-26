@@ -28,12 +28,6 @@ views:
                   text:  
                     color: var(--primary-text-color)
       - type: entities
-        entities:
-          - entity: switch.ds118
-            icon: mdi:nas
-            tap_action: 
-              action: toggle
-      - type: entities
         show_header_toggle: false
         entities:
           - entity: automation.tagliches_backup_auto_backup
@@ -105,7 +99,10 @@ views:
           - sensor.net_uptime
           - sensor.net_upload_max
           - sensor.net_upload_cur
-          - sensor.fritzbox
+          - entity: sensor.wireguard_iphonepro
+            icon: mdi:cellphone-iphone
+          - entity: sensor.wireguard_ipad
+            icon: mdi:tablet-ipad
       - type: entities  
         entities:
           - entity: switch.pi_hole
@@ -165,9 +162,4 @@ views:
                   service: browser_mod.navigate
                   service_data: 
                     navigation_path: /lovelace-map/map
-                    deviceID: this
-      - type: entities
-        entities:
-          - entity: sensor.wireguard_ipad
-          - entity: sensor.wireguard_iphonepro
-        
+                    deviceID: this   

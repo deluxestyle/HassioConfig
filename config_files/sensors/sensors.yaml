@@ -47,9 +47,9 @@
         friendly_name: "Wireguard iPhone 11 Pro"
         value_template: >-
             {% if state_attr('sensor.wireguard', 'iphonepro').latest_handshake > ( as_timestamp(now()) ) -300 %}
-              Connected
+              Verbunden
             {% else %}
-              Disconnected
+              kein VPN
             {% endif %}
         icon_template: >-
             {% if state_attr('sensor.wireguard', 'iphonepro').latest_handshake > ( as_timestamp(now()) ) -300 %}
@@ -61,9 +61,9 @@
         friendly_name: "Wireguard iPad"
         value_template: >-
             {% if state_attr('sensor.wireguard', 'ipad').latest_handshake > ( as_timestamp(now()) ) -240 %}
-              Connected
+              Verbunden
             {% else %}
-              Disconnected
+              kein VPN
             {% endif %}
         icon_template: >-
             {% if state_attr('sensor.wireguard', 'ipad').latest_handshake > ( as_timestamp(now()) ) -240 %}

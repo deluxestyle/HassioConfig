@@ -22,3 +22,4 @@ hassio.code-workspace
 scripts/shutdown_ds118.sh
 alexa_mediaorder@tanzer-online.comget.html
 alexa_mediaorder@tanzer-online.compost.html
+scripts/backup.sh
