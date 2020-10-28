@@ -114,8 +114,8 @@ stream:
 
 ffmpeg:
 
-#switches for addons
-hassio_info:
+# #switches for addons
+# hassio_info:
 
 shell_command:
   restart_ds118: /config/scripts/shutdown_ds118.sh
