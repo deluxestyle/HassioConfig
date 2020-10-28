@@ -1,9 +1,4 @@
 # lovelace_gen
-
-# -----------------------------
-custom_header:
-  compact_mode: true
-  chevrons: false
   
 swipe_nav:
 # -----------------------------
