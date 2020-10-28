@@ -1,21 +1,29 @@
 include:
   entities:
-    - sensor.temperature_158d0001b8c96c
-    - sensor.temperature_158d0001b8c998
-    - sensor.temperature_158d0002239fb5
-    - sensor.temperature_158d00023258bd
+    - sensor.disk_free
+    - sensor.memory_free
+    - sensor.processor_use
+    - sensor.cpu_temperature
+    - sensor.memory_use
+    - sensor.memory_use_percent
+    - sensor.disk_use
+    - sensor.disk_use_percent
+    - sensor.car_days_in_use
+    - sensor.car_km_threshold
+    - sensor.car_km_usage
     - sensor.humidity_158d0001b8c96c
     - sensor.humidity_158d0001b8c998
     - sensor.humidity_158d0002239fb5
     - sensor.humidity_158d00023258bd
-    - sensor.cpu_temperature
-    - sensor.car_km_usage
-    - sensor.disk_free
-    - sensor.disk_use
-    - sensor.disk_use_percent
-    - sensor.memory_free
-    - sensor.memory_use
-    - sensor.memory_use_percent
+    - sensor.temperature_158d0001b8c96c
+    - sensor.temperature_158d0001b8c998
+    - sensor.temperature_158d0002239fb5
+    - sensor.temperature_158d00023258bd
+    - sensor.hs110_today_kwh
+    - sensor.hs110_volts
+    - sensor.hs110_total_kwh
+    - sensor.hs110_watts
+    - sensor.hs110_amps
     - sensor.net_download_cur
     - sensor.net_download_max
     - sensor.net_received
