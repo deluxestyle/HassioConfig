@@ -21,16 +21,16 @@ sensor.valve_bed_room:
 sensor.valve_living_room:
   icon: mdi:fan
 sensor.temperature_158d0001b8c96c:
-  friendly_name: Temperatur Schlafzimmer
-  icon: mdi:thermometer-lines
-sensor.temperature_158d0001b8c998:
   friendly_name: Temperatur Wohnzimmer
   icon: mdi:thermometer-lines
+sensor.temperature_158d0001b8c998:
+  friendly_name: Temperatur Schlafzimmer
+  icon: mdi:thermometer-lines
 sensor.humidity_158d0001b8c96c:
-  friendly_name: Luftfeuchtigkeit Schlafzimmer
+  friendly_name: Luftfeuchtigkeit Wohnzimmer
   icon: mdi:water-percent
 sensor.humidity_158d0001b8c998:
-  friendly_name: Luftfeuchtigkeit Wohnzimmer
+  friendly_name: Luftfeuchtigkeit Schlafzimmer
   icon: mdi:water-percent
 light.gateway_light_7811dcb258d1:
   friendly_name: Flur Nachtlicht

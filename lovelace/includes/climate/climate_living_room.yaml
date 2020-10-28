@@ -4,5 +4,5 @@ type: entities
 entities:
   - !include
       - thermostat.yaml
-      - sensor_temprature: sensor.temperature_158d0001b8c998
-        sensor_humidity: sensor.humidity_158d0001b8c998
+      - sensor_temprature: sensor.temperature_158d0001b8c96c
+        sensor_humidity: sensor.humidity_158d0001b8c96c
