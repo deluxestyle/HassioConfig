@@ -35,6 +35,7 @@ filter:
     - script.alexa_echo_radio_arabella
     - script.alexa_echo_b5_aktuell
     - script.alexa_echo_ausschalten
+    - climate.fritz_dect_301
 entity_config:
     media_player.schlafzimmer:
       feature_list:

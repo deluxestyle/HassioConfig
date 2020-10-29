@@ -162,4 +162,4 @@ views:
                   service: browser_mod.navigate
                   service_data: 
                     navigation_path: /lovelace-map/map
-                    deviceID: this   
+                    deviceID: this

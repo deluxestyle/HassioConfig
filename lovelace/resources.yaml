@@ -10,8 +10,8 @@
   type: js
 - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
   type: module
-- url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js
-  type: module
+# - url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js
+#   type: module
 - url: /hacsfiles/lovelace-layout-card/layout-card.js
   type: module
 - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
@@ -21,4 +21,6 @@
 - url: /hacsfiles/lovelace-paper-buttons-row/paper-buttons-row.js
   type: module
 - url: /hacsfiles/vacuum-card/vacuum-card.js
+  type: module
+- url: /hacsfiles/scheduler-card/scheduler-card.js
   type: module
