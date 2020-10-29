@@ -6,9 +6,9 @@ icon: mdi:shower
 cards:
   - type: entities
     entities:
-      - entity: switch.steckdose_2
-        tap_action: 
-          action: toggle
+      - entity: climate.fritz_dect_301
+        icon: mdi:radiator
+  - !include ../includes/climate/climate_bath.yaml
   - type: conditional
     conditions:
       - entity: switch.steckdose_2
@@ -43,7 +43,11 @@ cards:
           - name: B5 aktuell
             type: script
             id: script.alexa_echo_b5_aktuell
-  - !include ../includes/climate/climate_bath.yaml
+  - type: entities
+    entities:
+      - entity: switch.steckdose_2
+        tap_action: 
+          action: toggle
   - type: entities
     entities:
       - entity: switch.wifi_steckdose

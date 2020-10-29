@@ -43,7 +43,7 @@ group:
     entities:
       - sensor.hue_dimmer_battery_bedroom
       - sensor.hue_dimmer_battery_livingroom
-      # - sensor.fritz_thermostat_1_battery
+      - sensor.fritz_thermostat_1_battery
 
 ################################################
 ## Input Boolean
@@ -76,9 +76,9 @@ input_number:
 ################################################
 automation:
 - alias: reset_batterie_message
-  initial_state: 'on'
+  initial_state: on
   trigger:
-  - at: 00:00
+  - at: 00:00:00
     platform: time
   condition: []
   action:
@@ -86,7 +86,7 @@ automation:
       entity_id: input_boolean.low_batteries
     service: input_boolean.turn_off
 - alias: battery_persistent_notification
-  initial_state: 'on'
+  initial_state: on
   trigger:
     - platform: time_pattern
       minutes: '/15'
