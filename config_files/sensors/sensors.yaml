@@ -43,34 +43,34 @@
             {% else %}
               not_home
             {% endif %}
-      wireguard_iphonepro:
-        friendly_name: "Wireguard iPhone 11 Pro"
-        value_template: >-
-            {% if state_attr('sensor.wireguard', 'iphonepro').latest_handshake > ( as_timestamp(now()) ) -300 %}
-              Verbunden
-            {% else %}
-              kein VPN
-            {% endif %}
-        icon_template: >-
-            {% if state_attr('sensor.wireguard', 'iphonepro').latest_handshake > ( as_timestamp(now()) ) -300 %}
-              mdi:network
-            {% else %}
-              mdi:network-off
-            {% endif %}
-      wireguard_ipad:
-        friendly_name: "Wireguard iPad"
-        value_template: >-
-            {% if state_attr('sensor.wireguard', 'ipad').latest_handshake > ( as_timestamp(now()) ) -240 %}
-              Verbunden
-            {% else %}
-              kein VPN
-            {% endif %}
-        icon_template: >-
-            {% if state_attr('sensor.wireguard', 'ipad').latest_handshake > ( as_timestamp(now()) ) -240 %}
-              mdi:network
-            {% else %}
-              mdi:network-off
-            {% endif %}
+      # wireguard_iphonepro:
+      #   friendly_name: "Wireguard iPhone 11 Pro"
+      #   value_template: >-
+      #       {% if state_attr('sensor.wireguard', 'iphonepro').latest_handshake > ( as_timestamp(now()) ) -300 %}
+      #         Verbunden
+      #       {% else %}
+      #         kein VPN
+      #       {% endif %}
+      #   icon_template: >-
+      #       {% if state_attr('sensor.wireguard', 'iphonepro').latest_handshake > ( as_timestamp(now()) ) -300 %}
+      #         mdi:network
+      #       {% else %}
+      #         mdi:network-off
+      #       {% endif %}
+      # wireguard_ipad:
+      #   friendly_name: "Wireguard iPad"
+      #   value_template: >-
+      #       {% if state_attr('sensor.wireguard', 'ipad').latest_handshake > ( as_timestamp(now()) ) -240 %}
+      #         Verbunden
+      #       {% else %}
+      #         kein VPN
+      #       {% endif %}
+      #   icon_template: >-
+      #       {% if state_attr('sensor.wireguard', 'ipad').latest_handshake > ( as_timestamp(now()) ) -240 %}
+      #         mdi:network
+      #       {% else %}
+      #         mdi:network-off
+      #       {% endif %}
 
 - platform: uptime
   name: online_time
@@ -96,10 +96,10 @@
   value_template: >
     {{ value_json.status }}
 
-- platform: rest
-  name: wireguard
-  resource: http://a0d7b954-wireguard
-  json_attributes:
-  - iphonepro
-  - ipad
-  value_template: "OK"
+# - platform: rest
+#   name: wireguard
+#   resource: http://172.30.33.4
+#   json_attributes:
+#   - iphonepro
+#   - ipad
+#   value_template: "OK"
