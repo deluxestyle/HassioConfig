@@ -48,19 +48,3 @@ cards:
       - entity: switch.steckdose_2
         tap_action: 
           action: toggle
-  - type: entities
-    entities:
-      - entity: switch.wifi_steckdose
-        icon: mdi:washing-machine
-        name: Waschmaschine
-      - type: custom:fold-entity-row
-        head: 
-          type: section
-          label: Verbrauchsdaten
-        padding: 5
-        entities:
-          - entity: sensor.hs110_today_kwh
-          - entity: sensor.hs110_total_kwh
-          - entity: sensor.hs110_watts
-          - entity: sensor.hs110_amps
-          - entity: sensor.hs110_volts

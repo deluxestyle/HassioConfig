@@ -14,12 +14,12 @@ filter:
     - media_player.schlafzimmer
     - media_player.wohnzimmer
     - switch.steckdose_3 #Drucker
-    - switch.steckdose_5 #Schreibtisch
+    - switch.steckdose_5 #nicht verwendet
     - switch.tv_switch
     - switch.fire_tv_switch
     - switch.music_switch
     - switch.vacuum
-    - switch.wifi_steckdose #Waschmaschine
+    - switch.wifi_steckdose #Schreibtisch
     - switch.steckdose_1 #Steckdosenleiste
     - switch.steckdose_2 #Alexa
     - sensor.humidity_158d0001b8c96c
