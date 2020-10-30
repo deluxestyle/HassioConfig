@@ -1,9 +1,0 @@
-  radiator_bath_1:
-    name: Heizungs Startzeit
-    has_date: false
-    has_time: true
-  
-  sonos_alarm:
-    name: Wecker
-    has_date: false
-    has_time: true
