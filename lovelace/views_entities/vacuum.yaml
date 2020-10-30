@@ -53,11 +53,6 @@ cards:
                 icon: mdi:account-off
                 tap_action: 
                   action: toggle
-              - entity: automation.xiaomi_staubsauger_taglich_saugen
-                name: Täglich saugen
-                icon: mdi:calendar-clock
-                tap_action: 
-                  action: toggle
           - type: custom:fold-entity-row
             head:
               type: section

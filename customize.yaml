@@ -95,8 +95,6 @@ script.1534621188695:
   icon: mdi:alarm
 script.1534621226775:
   icon: mdi:alarm-off
-input_boolean.camera_cctv:
-  friendly_name: Kamera
 lock.x1_sdrive18i_lock:
   friendly_name: X1 Ent-/Verriegeln
 input_select.avr_source:
@@ -193,8 +191,6 @@ binary_sensor.motion_sensor_158d00023e77cb:
   friendly_name: Bewegungsmelder
 weather.dark_sky:
   friendly_name: Wetter
-switch.radiator_on_off:
-  friendly_name: Heizung
 device_tracker.x1_sdrive18i:
   friendly_name: BMW X1 sDrive18i
 script.1547995909810:

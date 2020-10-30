@@ -4,10 +4,6 @@ title: Bad
 path: bath
 icon: mdi:shower
 cards:
-  - type: entities
-    entities:
-      - entity: climate.fritz_dect_301
-        icon: mdi:radiator
   - !include ../includes/climate/climate_bath.yaml
   - type: conditional
     conditions:

@@ -32,33 +32,6 @@ views:
                 icon: mdi:account-outline
                 tap_action: 
                   action: toggle
-              - entity: automation.abwesenheit_christina
-                icon: mdi:account-multiple-outline
-                tap_action: 
-                  action: toggle
-          # - type: custom:fold-entity-row
-          #   head:
-          #     type: section
-          #     label: Heizung
-          #   padding: 5
-          #   entities:
-          #     - entity: input_boolean.automation_radiator
-          #       tap_action: 
-          #         action: toggle
-          #     - entity: automation.heizung_abwesenheitsschaltung
-          #       name: Abwesenheitsschaltung
-          #       icon: mdi:account-off
-          #       tap_action: 
-          #         action: toggle
-          #     - entity: automation.heizung_standby
-          #       icon: mdi:radiator-disabled
-          #       name: Standby Schaltung
-          #       tap_action: 
-          #         action: toggle
-          #     - entity: automation.benachrichtigung_luftfeuchtigkeit
-          #       name: Luftfeuchtigkeit
-          #       tap_action: 
-          #         action: toggle
           - type: custom:auto-entities
             card:
               type: custom:fold-entity-row

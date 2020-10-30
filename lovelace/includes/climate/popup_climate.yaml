@@ -27,21 +27,3 @@ card:
       control :
         _icons: false
         _names: true
-    {% if name.startswith("Bad") %}
-    - entity: automation.heizung_bad_timer
-      icon: mdi:av-timer
-      name: Bad Timer
-      tap_action: 
-        action: toggle
-    - entity: input_datetime.radiator_bath_1
-      name: Startzeit
-      type: custom:time-input-row
-    {% else %}
-    - entity: switch.radiator_{{ sensor }}_keylock
-      tap_action: 
-        action: toggle
-    # - entity: sensor.valve_{{ sensor }}
-    #   name: Ventil
-    #   tap_action: 
-    #     action: none
-    {% endif %}

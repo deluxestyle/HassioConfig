@@ -2,13 +2,9 @@
 
 type: entities
 entities:
-  # - entity: climate.fritz_thermostat
-  #   name: Bad
+  - entity: climate.fritz_dect_301
+    icon: mdi:radiator
   - !include
       - thermostat.yaml
       - sensor_temprature: sensor.temperature_158d00023258bd
         sensor_humidity: sensor.humidity_158d00023258bd                  
-  # - entity: binary_sensor.door_window_sensor_158d00022f13a0
-  #   name: Fenster
-  #   tap_action: 
-  #     action: none

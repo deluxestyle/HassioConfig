@@ -1,25 +1,3 @@
-camera_cctv:
-    name: Kamera
-    icon: mdi:cctv
-    
-automation_radiator:
-    name: Temperatursteuerung
-    icon: mdi:home-thermometer-outline
-
-radiator_on_off:
-    name: heizungsstatus
-
 persistent_notification:
     name: Benarichtigungen
     initial: off
-
-car_map:
-    name: Karte
-    icon: mdi:map-legend
-
-# room_view:
-#     name: Raumansicht
-#     icon: mdi:home-circle-outline
-
-frontend:
-    name: Erscheinungsbild

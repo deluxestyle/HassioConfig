@@ -58,25 +58,6 @@
       turn_off:
         - service: script.turn_on
           entity_id: script.1538057479069
-    ###### Switches (nur für HomeKit/Alexa) ######
-    # power_plug_printer:
-    #     friendly_name: Drucker
-    #     value_template: "{{ is_state('switch.steckdose_3', 'on') }}"
-    #     turn_on:
-    #       - service: light.turn_on
-    #         entity_id: switch.steckdose_3
-    #     turn_off:
-    #       - service: light.turn_off
-    #         entity_id: switch.steckdose_3
-    # power_plug_5:
-    #     friendly_name: Steckdose 5
-    #     value_template: "{{ is_state('switch.steckdose_5', 'on') }}"
-    #     turn_on:
-    #       - service: switch.turn_on
-    #         entity_id: switch.steckdose_5
-    #     turn_off:
-    #       - service: switch.turn_off
-    #         entity_id: switch.steckdose_5
     vacuum:
       friendly_name: Staubsauger
       value_template: "{{ is_state('vacuum.xiaomi_vacuum_cleaner', 'cleaning')}}"
@@ -88,21 +69,6 @@
           entity_id: vacuum.xiaomi_vacuum_cleaner
     ###############################################
     ###### Sonstiges ######
-    frontend:
-      friendly_name: "Erscheinungsbild"
-      value_template: "{{ is_state('input_boolean.frontend', 'on') }}"
-      turn_on:
-        - service: automation.trigger
-          entity_id: automation.frontend_nacht
-      turn_off:
-        - service: automation.trigger
-          entity_id: automation.frontend_tag
-      icon_template: >-
-        {% if is_state('input_boolean.frontend', 'on')  %}
-          mdi:brightness-2
-        {% else %}
-          mdi:brightness-5
-        {% endif %}
     pi_hole_switch:
       friendly_name: "Pi-hole"
       value_template: "{{ is_state('sensor.pihole', 'enabled') }}"

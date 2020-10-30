@@ -80,30 +80,6 @@
       notification_id: xiaomi_vacuum_error
       title: StaubRobo
     service: script.1570439573834
-- id: '1521894687949'
-  alias: 'Xiaomi Staubsauger: Täglich saugen'
-  trigger:
-  - at: '16:00:00'
-    platform: time
-  condition:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-  - condition: template
-    value_template: '{{ as_timestamp(utcnow()) + 1200 - as_timestamp(states.vacuum.xiaomi_vacuum_cleaner.last_updated)  >
-      10080 }}'
-  action:
-  - data:
-      entity_id: vacuum.xiaomi_vacuum_cleaner
-    service: vacuum.start
-  - data:
-      entity_id: vacuum.xiaomi_vacuum_cleaner
-      fan_speed: Turbo
-    service: vacuum.set_fan_speed
 - id: '1523001167559'
   alias: 'Xiaomi Staubsauger: Neustart'
   trigger:
@@ -445,36 +421,6 @@
   - data:
       entity_id: vacuum.xiaomi_vacuum_cleaner
     service: vacuum.locate
-- id: '1573152926903'
-  alias: 'Frontend: Nacht'
-  description: ''
-  trigger:
-  - at: '22:30:00'
-    platform: time
-  condition: []
-  action:
-  - data:
-      name: iOS Dark Mode
-    service: frontend.set_theme
-  - entity_id: input_boolean.frontend
-    service: input_boolean.turn_on
-  mode: single
-- id: '1573153029833'
-  alias: 'Frontend: Tag'
-  description: ''
-  trigger:
-  - at: 06:15:00
-    platform: time
-  - event: start
-    platform: homeassistant
-  condition: []
-  action:
-  - data:
-      name: iOS Light Mode
-    service: frontend.set_theme
-  - entity_id: input_boolean.frontend
-    service: input_boolean.turn_off
-  mode: single
 - id: '1573317974047'
   alias: Harmony - Wifi Steckdose
   description: ''

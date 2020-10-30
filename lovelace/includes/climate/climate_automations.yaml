@@ -1,7 +1,0 @@
-# lovelace_gen
-
-type: entities
-entities:
-  - entity: switch.radiator_on_off
-    tap_action: 
-      action: toggle
