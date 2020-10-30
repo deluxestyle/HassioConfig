@@ -35,13 +35,6 @@ views:
             tap_action: 
               action: toggle
           - sensor.auto_backup
-      # - type: entities
-      #   show_header_toggle: false
-      #   entities:
-      #     - entity: automation.starte_raspberry_full_backup
-      #       icon: mdi:server
-      #       tap_action: 
-      #         action: toggle
       - type: entities
         entities:
           - entity: automation.battery_persistent_notification
@@ -56,16 +49,14 @@ views:
               label: Batteriewerte
             padding: 5
             entities:
-              - input_number.battery_alert_xiaomi
-              - input_number.battery_alert_hue
+              - input_number.battery_alert
           - type: custom:fold-entity-row
             head:
               type: section
               label: Batteriestatus
             padding: 5
             entities:
-              - group.battery_status_hue
-              - group.battery_status_xiaomi
+              - group.battery_status
       - type: glance
         columns: 4
         show_name: false
@@ -126,19 +117,6 @@ views:
         entities:
           - type: "custom:paper-buttons-row"
             buttons:
-              # - entity: input_boolean.room_view
-              #   name: false
-              # - entity: switch.frontend
-              #   name: false
-              # - entity: switch.hass_io_addon_glances
-              #   name: false
-              #   icon: mdi:speedometer
-              # - entity: switch.hass_io_addon_samba_share
-              #   name: false
-              #   icon: mdi:folder-network
-              # - entity: switch.hass_io_addon_grafana
-                # name: false
-                # icon: mdi:chart-timeline
               - icon: mdi:script-text
                 name: false
                 tap_action: 

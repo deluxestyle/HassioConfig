@@ -5,16 +5,19 @@ password: !secret influxdb_password
 default_measurement: state
 include:
   entities:
-    - sensor.battery_sensor_bedroom
-    - sensor.battery_sensor_button_1
-    - sensor.battery_sensor_button_2
-    - sensor.battery_sensor_door
-    - sensor.battery_sensor_kitchen
-    - sensor.battery_sensor_livingroom
-    - sensor.battery_sensor_motion
-    - sensor.battery_sensor_bath
-    - sensor.battery_sensor_wall_switch
-    - sensor.battery_sensor_wall_switch_double
+    - sensor.xiaomi_bed_room_battery_level        
+    - sensor.xiaomi_living_room_battery_level
+    - sensor.xiaomi_kitchen_battery_level
+    - sensor.xiaomi_bath_battery_level
+    - sensor.lightlevel_20_battery_level
+    - sensor.openclose_29_battery_level
+    - sensor.smart_switch_1_battery_level
+    - sensor.smart_switch_2_battery_level
+    - sensor.wandsender_1_fach_battery_level
+    - sensor.wandsender_2_fach_battery_level
+    - sensor.dimmschalter_schlafzimmer_battery_level
+    - sensor.dimmschalter_battery_level
+    - sensor.fritz_dect_301_battery_level
     - sensor.humidity_158d0001b8c96c
     - sensor.humidity_158d0001b8c998
     - sensor.humidity_158d0002239fb5
@@ -42,7 +45,6 @@ include:
     - sensor.swap_use
     - sensor.swap_free
     - sensor.swap_use_percent
-    # - device_tracker.x1_sdrive18i
     - sensor.online_time
     - sensor.hue_dimmer_battery_bedroom
     - sensor.hue_dimmer_battery_livingroom
@@ -54,7 +56,6 @@ include:
     - sensor.car_days_in_use
     - sensor.car_km_threshold
     - sensor.car_km_usage
-    - sensor.fritz_thermostat_1_battery
     - sensor.net_download_cur
     - sensor.net_download_max
     - sensor.net_received
@@ -62,9 +63,3 @@ include:
     - sensor.net_upload_cur
     - sensor.net_upload_max
     - sensor.net_uptime
-    # - sensor.wireguard_ipad
-    # - sensor.wireguard_iphonepro
-    # - sensor.wolfgang_latitude
-    # - sensor.wolfgang_longitude
-    # - sensor.car_latitude
-    # - sensor.car_longitude
