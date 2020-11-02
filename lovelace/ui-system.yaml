@@ -90,10 +90,10 @@ views:
           - sensor.net_uptime
           - sensor.net_upload_max
           - sensor.net_upload_cur
-          # - entity: sensor.wireguard_iphonepro
-          #   icon: mdi:cellphone-iphone
-          # - entity: sensor.wireguard_ipad
-          #   icon: mdi:tablet-ipad
+          - entity: sensor.wireguard_iphonepro
+            icon: mdi:cellphone-iphone
+          - entity: sensor.wireguard_ipad
+            icon: mdi:tablet-ipad
       - type: entities  
         entities:
           - entity: switch.pi_hole

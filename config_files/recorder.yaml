@@ -61,5 +61,5 @@ include:
     - sensor.swap_free
     - sensor.swap_use
     - sensor.swap_use_percent
-    # - sensor.wireguard_ipad
-    # - sensor.wireguard_iphonepro
+    - sensor.wireguard_ipad
+    - sensor.wireguard_iphonepro

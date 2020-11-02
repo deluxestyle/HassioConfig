@@ -63,3 +63,5 @@ include:
     - sensor.net_upload_cur
     - sensor.net_upload_max
     - sensor.net_uptime
+    - sensor.wireguard_ipad
+    - sensor.wireguard_iphonepro
