@@ -25,8 +25,6 @@
 #### Custom card/entities for lovelace:
 * button-card
 * button-entity-row
-* compact-custom-header
-* custom-header
 * group-card
 * lovelace-auto-entities
 * lovelace-card-mod
