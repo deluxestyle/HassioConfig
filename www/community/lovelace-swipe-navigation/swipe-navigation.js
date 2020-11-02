@@ -50,6 +50,10 @@ function swipeNavigation() {
     appLayout.addEventListener("touchend", handleTouchEnd, { passive: true });
   }
 
+  if (animate == "swipe") {
+    appLayout.style.overflow = "hidden";
+  }
+
   function handleTouchStart(event) {
     let ignored = [
       "APP-HEADER",
@@ -57,10 +61,8 @@ function swipeNavigation() {
       "SWIPE-CARD",
       "HUI-MAP-CARD",
       "ROUND-SLIDER",
-      "HUI-THERMOSTAT-CARD",
-      "CH-HEADER",
-      "CH-HEADER-BOTTOM",
-      "XIAOMI-VACUUM-MAP-CARD"
+      "XIAOMI-VACUUM-MAP-CARD",
+      "HA-SIDEBAR"
     ];
     if (typeof event.path == "object") {
       for (let element of event.path) {
