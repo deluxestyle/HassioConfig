@@ -314,8 +314,8 @@ alexa_echo_dfl_nova:
   sequence:
   - data:
       entity_id: media_player.wolfgangs_echo_dot
-      media_content_id: Deutschlandfunk nova
-      media_content_type: TUNEIN
+      media_content_id: Deutschlandfunk Nova
+      media_content_type: ARD AUDIOTHEK
     service: media_player.play_media
   - data: {}
     service: script.alexa_echo_lautstarke
