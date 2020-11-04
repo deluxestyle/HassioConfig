@@ -38,9 +38,12 @@ cards:
           - name: SuperFly.fm
             type: script
             id: script.alexa_echo_superflyfm
-          - name: Radio Arabella
-            type: script
-            id: script.alexa_echo_radio_arabella
           - name: B5 aktuell
             type: script
             id: script.alexa_echo_b5_aktuell
+          - name: DFL nova
+            type: script
+            id: script.alexa_echo_dfl_nova
+          - name: Arabella
+            type: script
+            id: script.alexa_echo_radio_arabella
