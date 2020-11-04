@@ -1,8 +1,0 @@
-{
-  "domain": "composite",
-  "name": "Composite",
-  "documentation": "https://github.com/pnbruckner/homeassistant-config/blob/master/docs/composite.md",
-  "requirements": [],
-  "dependencies": [],
-  "codeowners": ["@pnbruckner"]
-}
