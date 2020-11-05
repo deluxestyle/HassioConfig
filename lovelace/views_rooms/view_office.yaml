@@ -4,6 +4,9 @@ icon: mdi:desk
 cards:
   - type: entities
     entities:
+      - script.arbeiten
+  - type: entities
+    entities:
       - entity: switch.wifi_steckdose
         icon: mdi:desk
         name: Schreibtisch

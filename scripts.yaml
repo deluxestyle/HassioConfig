@@ -319,3 +319,13 @@ alexa_echo_dfl_nova:
       media_content_id: deutschlandfunk nova
       media_content_type: TUNEIN
     service: media_player.play_media
+arbeiten:
+  alias: Arbeiten
+  sequence:
+  - scene: scene.wohnzimmer_konzentrieren
+  - type: turn_on
+    device_id: 5e5ebc553b224502b92ae3970e64ef32
+    entity_id: switch.wifi_steckdose
+    domain: switch
+  mode: single
+  icon: mdi:laptop
