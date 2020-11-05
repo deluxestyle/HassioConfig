@@ -47,4 +47,4 @@ views:
   - !include lovelace/views_rooms/view_floor.yaml
 
 #### Staubsauger #####
-  - !include lovelace/views_entities/vacuum.yaml
+  - !include lovelace/views_entities/vacuum_2.yaml
