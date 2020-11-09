@@ -16,6 +16,7 @@ views:
       - type: entities  
         entities:
           - entity: person.wolfgang
+            secondary_info: last-changed
             tap_action: 
               action: none
           - type: custom:fold-entity-row
@@ -62,25 +63,45 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
+          - entity: binary_sensor.openclose_29
+            name: Wohnungstür
+            icon: mdi:door
+            secondary_info: last-changed
           - entity: binary_sensor.motion_sensor_158d00023e77cb
             secondary_info: last-changed
             tap_action: 
               action: none
-          - entity: sensor.illumination_158d00023e77cb
-            tap_action: 
-              action: none
-          - type: section
-          - entity: automation.bewegungsmelder_alarm
-            tap_action: 
-              action: toggle
-          - entity: script.1541097052191
-            name: Alarm ausschalten
-            icon: mdi:volume-off
-            tap_action: 
-              action: toggle
-          - type: section
-          - entity: automation.benachrichtigung_bewegung_erkannt
-            name: Bewegung erkannt
-            icon: mdi:cellphone-message
-            tap_action: 
-              action: toggle
+          # - entity: sensor.illumination_158d00023e77cb
+          #   tap_action: 
+          #     action: none
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Alarm
+            padding: 5
+            entities:
+              - entity: automation.bewegungsmelder_alarm
+                tap_action: 
+                  action: toggle
+              - entity: script.1541097052191
+                name: Alarm ausschalten
+                icon: mdi:volume-off
+                tap_action: 
+                  action: toggle
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Benachrichtigungen
+            padding: 5
+            entities:
+              - entity: automation.benachrichtigung_bewegung_erkannt
+                name: Bewegung erkannt
+                icon: mdi:cellphone-message
+                tap_action: 
+                  action: toggle
+              - entity: automation.benachrichtigung_wohnungstur_offen
+                name: Wohnungstür offen
+                icon: mdi:cellphone-message
+                tap_action: 
+                  action: toggle
+              

@@ -648,3 +648,26 @@
     entity_id: switch.wifi_steckdose
     domain: switch
   mode: single
+- id: '1604932069752'
+  alias: 'Benachrichtigung: Wohnungstür offen'
+  description: ''
+  trigger:
+  - platform: state
+    to: 'on'
+    entity_id: binary_sensor.openclose_29
+  condition: []
+  action:
+  - delay: 00:00:30
+  - condition: state
+    state: not_home
+    entity_id: person.wolfgang
+  - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
+      message: Wohnungstür geöffnet
+      notification_id: alert
+      title: Bewegungsmelder
+    service: script.1570439573834
+  initial_state: false
+  mode: single
