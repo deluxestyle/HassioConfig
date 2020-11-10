@@ -84,7 +84,9 @@ device_tracker:
     host: 192.168.200.1
     username: !secret fritz_user
     password: !secret fritz_password
-    # consider_home: 600
+    interval_seconds: 10
+    consider_home: 60
+
 
 bmw_connected_drive:
   x1:
