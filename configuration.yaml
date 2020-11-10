@@ -15,7 +15,6 @@ api:
 zeroconf:
 
 http:
-  # base_url: !secret hass_url
   use_x_forwarded_for: true
   trusted_proxies:
     - 172.30.33.4
@@ -84,9 +83,6 @@ device_tracker:
     host: 192.168.200.1
     username: !secret fritz_user
     password: !secret fritz_password
-    interval_seconds: 10
-    consider_home: 60
-
 
 bmw_connected_drive:
   x1:
@@ -109,9 +105,6 @@ tplink:
 stream:
 
 ffmpeg:
-
-# #switches for addons
-# hassio_info:
 
 shell_command:
   restart_ds118: /config/scripts/shutdown_ds118.sh
