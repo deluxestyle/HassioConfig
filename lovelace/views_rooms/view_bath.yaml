@@ -34,7 +34,7 @@ cards:
               hide:
                 power: false
                 source: true
-                progress: false
+                progress: true
                 shuffle: false
               group: true
               #source: icon

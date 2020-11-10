@@ -4,7 +4,7 @@ icon: mdi:desk
 cards:
   - type: entities
     entities:
-      - script.arbeiten
+      - scene.arbeit
   - type: entities
     entities:
       - entity: switch.wifi_steckdose
