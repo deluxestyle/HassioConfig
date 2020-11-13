@@ -170,7 +170,7 @@
     to: 'on'
   condition: []
   action:
-  - delay: 00:00:20
+  - delay: 00:01:00
   - condition: state
     entity_id: sensor.presence
     state: not_home
