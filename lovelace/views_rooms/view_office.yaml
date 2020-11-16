@@ -21,9 +21,9 @@ cards:
           - entity: sensor.hs110_watts
           - entity: sensor.hs110_amps
           - entity: sensor.hs110_volts
-  - type: entities
-    entities:
-      - entity: switch.steckdose_3
-        name: Drucker
-        tap_action: 
-          action: toggle
+  # - type: entities
+  #   entities:
+  #     - entity: switch.steckdose_3
+  #       name: Drucker
+  #       tap_action: 
+  #         action: toggle

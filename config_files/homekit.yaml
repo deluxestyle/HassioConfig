@@ -13,8 +13,8 @@ filter:
     - script.1532175994947
     - media_player.schlafzimmer
     - media_player.wohnzimmer
-    - switch.steckdose_3 #Drucker
-    - switch.steckdose_5 #nicht verwendet
+    # - switch.steckdose_3 #Drucker
+    # - switch.steckdose_5 #nicht verwendet
     - switch.tv_switch
     - switch.fire_tv_switch
     - switch.music_switch

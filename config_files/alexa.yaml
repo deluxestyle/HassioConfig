@@ -10,8 +10,8 @@ smart_home:
       - light.decke
       - light.wandlampe
       - light.gateway_light_7811dcb258d1
-      - switch.steckdose_3
-      - switch.steckdose_5
+      # - switch.steckdose_3
+      # - switch.steckdose_5
       - switch.tv_switch
       - switch.fire_tv_switch
       - switch.music_switch
