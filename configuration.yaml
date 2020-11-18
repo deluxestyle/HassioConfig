@@ -65,7 +65,7 @@ input_number: !include config_files/input_number.yaml
 counter: !include config_files/counter.yaml
 media_player: !include config_files/media_player.yaml
 influxdb: !include config_files/influxdb.yaml
-ios: !include config_files/push.yaml
+ios: !include config_files/ios.yaml
 homekit: !include config_files/homekit.yaml
 browser_mod: !include config_files/browser_mod.yaml
 # calendar: !include config_files/calendar.yaml

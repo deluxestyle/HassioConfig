@@ -671,3 +671,35 @@
     service: script.1570439573834
   initial_state: false
   mode: single
+- id: '1605645794887'
+  alias: 'ios: Schlafen gehen'
+  description: ''
+  trigger:
+  - platform: event
+    event_type: ios.action_fired
+    event_data:
+      actionName: gotobed
+  condition: []
+  action:
+  - service: script.schlafen
+    data: {}
+  - service: script.1605648603698
+    data: {}
+  mode: single
+- id: '1605647273709'
+  alias: 'ios: Aufstehen'
+  description: ''
+  trigger:
+  - platform: event
+    event_type: ios.action_fired
+    event_data:
+      actionName: wakeup
+  condition: []
+  action:
+  - service: light.turn_on
+    data: {}
+    entity_id: light.nachttischlampe_wolfgang
+  - service: light.turn_on
+    data: {}
+    entity_id: light.schlafzimmer
+  mode: single

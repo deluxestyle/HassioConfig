@@ -320,12 +320,23 @@ alexa_echo_dfl_nova:
       media_content_type: TUNEIN
     service: media_player.play_media
 schlafen:
-  alias: Schlafen
+  alias: Schlafen gehen
   sequence:
   - service: light.turn_on
     data: {}
     entity_id: light.lights_bed_room
   - service: script.1538057479069
     data: {}
-    entity_id: script.1538057479069
+  mode: single
+'1605648603698':
+  alias: 'Sonos: B5 aktuell'
+  sequence:
+  - data:
+      entity_id: media_player.schlafzimmer
+      volume_level: '0.08'
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.schlafzimmer
+      source: 'Radio: B 5 Aktuell'
+    service: media_player.select_source
   mode: single

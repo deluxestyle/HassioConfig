@@ -18,3 +18,29 @@ push:
           authenticationRequired: yes
           destructive: no
           behavior: 'default'
+
+actions:
+  - name: gotobed
+    background_color: "#000000"
+    label:
+      text: "Schalfen gehen"
+    icon:
+      icon: bed
+  - name: sleep
+    background_color: "#000000"
+    label:
+      text: "Schalfen"
+    icon:
+      icon: sleep
+  - name: wakeup
+    background_color: "#000000"
+    label:
+      text: "Aufwachen"
+    icon:
+      icon: weather-sunny
+  - name: leave
+    background_color: "#000000"
+    label:
+      text: "Wohnung verlassen"
+    icon:
+      icon: home-export-outline
