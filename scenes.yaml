@@ -1,7 +1,7 @@
 - id: '1603139198875'
   name: Nachtlicht hell
   entities:
-    light.nachttischlampe_wolfgang:
+    light.yeelight_bslamp1_0x0000000005451cd6:
       min_mireds: 153
       max_mireds: 588
       effect_list:

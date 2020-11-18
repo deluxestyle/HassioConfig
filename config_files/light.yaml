@@ -29,7 +29,7 @@
   name: lights_bed_room
   entities:
       - light.schlafzimmer
-      - light.nachttischlampe_wolfgang
+      - light.yeelight_bslamp1_0x0000000005451cd6
 
 - platform: group
   name: lights_kitchen

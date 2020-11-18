@@ -2,7 +2,7 @@ smart_home:
   filter:
     include_entities:
       - light.sonoff_office
-      - light.nachttischlampe_wolfgang
+      - light.yeelight_bslamp1_0x0000000005451cd6
       - light.lights_living_room
       - light.lights_kitchen
       - light.schlafzimmer

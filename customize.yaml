@@ -162,8 +162,6 @@ script.1543666947492:
 light.lights_bed_room:
   friendly_name: Schlafzimmerlicht
   icon: mdi:ceiling-light
-light.nachttischlampe_wolfgang:
-  icon: mdi:lamp
 light.leselampe:
   icon: mdi:desk-lamp
 light.decke:

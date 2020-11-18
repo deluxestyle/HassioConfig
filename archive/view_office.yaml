@@ -15,10 +15,6 @@ cards:
             name: Büro
             tap_action: 
               action: toggle
-          - entity: light.nachttischlampe_wolfgang
-            name: Yeelight Wolfgang
-            tap_action: 
-              action: toggle
       - !include ../includes/climate/climate_office.yaml
       - type: entities
         entities:

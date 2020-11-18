@@ -6,7 +6,7 @@ entities:
   - entity: light.schlafzimmer
     icon: mdi:ceiling-light
     name: Decke
-  - entity: light.nachttischlampe_wolfgang
+  - entity: light.yeelight_bslamp1_0x0000000005451cd6
     name: Nachtlicht
     tap_action:
       action: toggle

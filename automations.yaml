@@ -628,7 +628,7 @@
   - platform: device
     type: turned_on
     device_id: 9c9d0c210c7d11eba05f8b9968791799
-    entity_id: light.nachttischlampe_wolfgang
+    entity_id: light.yeelight_bslamp1_0x0000000005451cd6
     domain: light
   condition: []
   action:
@@ -698,7 +698,7 @@
   action:
   - service: light.turn_on
     data: {}
-    entity_id: light.nachttischlampe_wolfgang
+    entity_id: light.yeelight_bslamp1_0x0000000005451cd6
   - service: light.turn_on
     data: {}
     entity_id: light.schlafzimmer
