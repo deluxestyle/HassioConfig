@@ -50,13 +50,19 @@ views:
             padding: 5
             entities:
               - input_number.battery_alert
-          - type: custom:fold-entity-row
-            head:
-              type: section
-              label: Batteriestatus
-            padding: 5
-            entities:
-              - group.battery_status
+          - type: custom:auto-entities
+            card:
+              type: custom:fold-entity-row
+              head:
+                type: section
+                label: Batteriestatus
+              padding: 5
+            filter:
+                include:
+                  - entity_id: "sensor.*_battery_level"
+                exclude:
+                  - entity_id: "*iphone*"
+                  - entity_id: "*ipad*"
       - type: glance
         columns: 4
         show_name: false
