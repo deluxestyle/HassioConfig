@@ -5,7 +5,7 @@ homeassistant:
 # Configure a default setup of Home Assistant (frontend, api, etc)
 #default_config:
 config:
-# map:
+map:
 mobile_app:
 person:
 ssdp:
