@@ -39,30 +39,34 @@ views:
         entities:
           - entity: automation.battery_persistent_notification
             tap_action: 
-              action: toggle
-          - entity: script.battery_persistent_notification_clear
-            tap_action: 
-              action: toggle
+              action: call-service
+              service: browser_mod.popup
+              service_data:
+                deviceID: this
+                title: Batteriestatus
+                card:
+                  type: custom:auto-entities
+                  card:
+                    type: entities 
+                  filter:
+                    include:
+                      - entity_id: "sensor.*_battery_level"
+                        options:
+                          type: custom:battery-entity-row
+                    exclude:
+                      - entity_id: "*iphone*"
+                      - entity_id: "*ipad*"
           - type: custom:fold-entity-row
             head:
               type: section
-              label: Batteriewerte
+              label: Einstellungen
             padding: 5
             entities:
-              - input_number.battery_alert
-          - type: custom:auto-entities
-            card:
-              type: custom:fold-entity-row
-              head:
-                type: section
-                label: Batteriestatus
-              padding: 5
-            filter:
-                include:
-                  - entity_id: "sensor.*_battery_level"
-                exclude:
-                  - entity_id: "*iphone*"
-                  - entity_id: "*ipad*"
+              - entity: input_number.battery_alert
+                name: Grenzwert
+              - entity: script.battery_persistent_notification_clear
+                tap_action: 
+                  action: toggle
       - type: glance
         columns: 4
         show_name: false
@@ -105,45 +109,21 @@ views:
           - entity: switch.pi_hole
             icon: mdi:pi-hole
             tap_action: 
-              action: toggle
-            hold_action: 
-                action: call-service
-                service: browser_mod.popup
-                service_data:
-                  deviceID: this
-                  title: PI-Hole Stats
+              action: call-service
+              service: browser_mod.popup
+              service_data:
+                deviceID: this
+                title: PI-Hole Stats
+                card:
+                  type: custom:auto-entities
                   card:
-                    type: custom:auto-entities
-                    card:
-                      type: entities 
-                    filter:
-                        include:
-                          - entity_id: "sensor.pi_hole_*"
+                    type: entities 
+                  filter:
+                      include:
+                        - entity_id: "sensor.pi_hole_*"
       - type: entities
         entities:
-          - type: "custom:paper-buttons-row"
-            buttons:
-              - icon: mdi:script-text
-                name: false
-                tap_action: 
-                  action: call-service
-                  service: browser_mod.navigate
-                  service_data: 
-                    navigation_path: /config/script
-                    deviceID: this
-              - icon: mdi:robot
-                name: false
-                tap_action: 
-                  action: call-service
-                  service: browser_mod.navigate
-                  service_data: 
-                    navigation_path: /config/automation
-                    deviceID: this
-              - icon: mdi:map-outline
-                name: false
-                tap_action: 
-                  action: call-service
-                  service: browser_mod.navigate
-                  service_data: 
-                    navigation_path: /lovelace-map/map
-                    deviceID: this
+          - type: weblink
+            url: /lovelace-map/map  
+            name: Karte 
+            icon: mdi:map-outline          

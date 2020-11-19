@@ -26,3 +26,5 @@
   type: module
 - url: /hacsfiles/simple-thermostat/simple-thermostat.js
   type: module
+- url: /hacsfiles/lovelace-battery-entity-row/battery-entity-row.js
+  type: module
