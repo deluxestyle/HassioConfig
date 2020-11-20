@@ -27,14 +27,23 @@ views:
                 style:
                   text:  
                     color: var(--primary-text-color)
-      - type: entities
-        show_header_toggle: false
+      - type: entities  
         entities:
-          - entity: automation.tagliches_backup_auto_backup
-            icon: mdi:content-save-all
+          - entity: switch.pi_hole
+            icon: mdi:pi-hole
             tap_action: 
-              action: toggle
-          - sensor.auto_backup
+              action: call-service
+              service: browser_mod.popup
+              service_data:
+                deviceID: this
+                title: PI-Hole Stats
+                card:
+                  type: custom:auto-entities
+                  card:
+                    type: entities 
+                  filter:
+                      include:
+                        - entity_id: "sensor.pi_hole_*"      
       - type: entities
         entities:
           - entity: automation.battery_persistent_notification
@@ -106,23 +115,77 @@ views:
             icon: mdi:cellphone-iphone
           - entity: sensor.wireguard_ipad
             icon: mdi:tablet-ipad
-      - type: entities  
+      - type: entities
+        show_header_toggle: false
         entities:
-          - entity: switch.pi_hole
-            icon: mdi:pi-hole
+          - entity: binary_sensor.updater
+            name: HA Updates
+            type: custom:multiple-entity-row
+            secondary_info:
+              attribute: newest_version
+            tap_action: 
+              action: call-service
+              service: browser_mod.navigate
+              service_data: 
+                navigation_path: /hassio
+                deviceID: this
+          - entity: sensor.hacs
+            name: Hacs Updates
+            tap_action: 
+              action: call-service
+              service: browser_mod.navigate
+              service_data: 
+                navigation_path: /hacs
+                deviceID: this
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.samba_backup
+            icon: mdi:content-save-all
+            type: custom:multiple-entity-row
+            secondary_info:
+              attribute: last_backup
             tap_action: 
               action: call-service
               service: browser_mod.popup
               service_data:
                 deviceID: this
-                title: PI-Hole Stats
+                title: Status
                 card:
                   type: custom:auto-entities
                   card:
-                    type: entities 
-                  filter:
-                      include:
-                        - entity_id: "sensor.pi_hole_*"
+                    type: entities
+                    entities:
+                      - attribute: backups_local
+                        entity: sensor.samba_backup
+                        icon: 'mdi:file-outline'
+                        name: Local Backups
+                        type: attribute
+                      - attribute: backups_remote
+                        entity: sensor.samba_backup
+                        icon: 'mdi:file-move-outline'
+                        name: Remote Backups
+                        type: attribute
+                      - attribute: total_backups_succeeded
+                        entity: sensor.samba_backup
+                        icon: 'mdi:file-check-outline'
+                        name: Succeded Backups
+                        type: attribute
+                      - attribute: total_backups_failed
+                        entity: sensor.samba_backup
+                        icon: 'mdi:file-cancel-outline'
+                        name: Failed Backups
+                        type: attribute
+                      - attribute: last_backup
+                        entity: sensor.samba_backup
+                        icon: 'mdi:file-clock-outline'
+                        name: Last Backup
+                        type: attribute
+          # - entity: automation.tagliches_backup_auto_backup
+          #   icon: mdi:content-save-all
+          #   tap_action: 
+          #     action: toggle
+          # - sensor.auto_backup      
       - type: entities
         entities:
           - type: weblink
