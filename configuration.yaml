@@ -102,9 +102,9 @@ bmw_connected_drive:
 #   - platform: ffmpeg
 #     input: -rtsp_transport tcp -i rtsp://192.168.200.40:554/onvif1
 
-auto_backup:
-  auto_purge: true
-  backup_timeout: 4800
+# auto_backup:
+#   auto_purge: true
+#   backup_timeout: 4800
 
 python_script:
 
@@ -114,6 +114,6 @@ stream:
 
 ffmpeg:
 
-shell_command:
-  restart_ds118: /config/scripts/shutdown_ds118.sh
-  backup_raspi: /config/scripts/backup.sh
+# shell_command:
+#   restart_ds118: /config/scripts/shutdown_ds118.sh
+#   backup_raspi: /config/scripts/backup.sh
