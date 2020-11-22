@@ -83,7 +83,7 @@ switch.steckdose_3:
   friendly_name: Drucker
   icon: mdi:printer
 light.steckdose_4:
-  friendly_name: Küchenspot - rechts
+  friendly_name: Dunstabzug
   icon: mdi:spotlight-beam
 script.1532173931522:
   icon: mdi:play

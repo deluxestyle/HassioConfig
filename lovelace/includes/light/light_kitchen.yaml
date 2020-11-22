@@ -2,8 +2,14 @@
 
 type: entities
 entities:
-  - entity: light.lights_kitchen
-    name: Küche
+  - entity: light.deckenlicht
+    name: Decke
+    tap_action: 
+      action: toggle
+    hold_action:
+      action: more-info
+  - entity: light.steckdose_4
+    name: Dunstabzug
     tap_action: 
       action: toggle
     hold_action:
