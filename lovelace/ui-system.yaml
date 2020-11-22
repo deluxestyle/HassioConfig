@@ -152,35 +152,33 @@ views:
                 deviceID: this
                 title: Status
                 card:
-                  type: custom:auto-entities
-                  card:
-                    type: entities
-                    entities:
-                      - attribute: backups_local
-                        entity: sensor.samba_backup
-                        icon: 'mdi:file-outline'
-                        name: Local Backups
-                        type: attribute
-                      - attribute: backups_remote
-                        entity: sensor.samba_backup
-                        icon: 'mdi:file-move-outline'
-                        name: Remote Backups
-                        type: attribute
-                      - attribute: total_backups_succeeded
-                        entity: sensor.samba_backup
-                        icon: 'mdi:file-check-outline'
-                        name: Succeded Backups
-                        type: attribute
-                      - attribute: total_backups_failed
-                        entity: sensor.samba_backup
-                        icon: 'mdi:file-cancel-outline'
-                        name: Failed Backups
-                        type: attribute
-                      - attribute: last_backup
-                        entity: sensor.samba_backup
-                        icon: 'mdi:file-clock-outline'
-                        name: Last Backup
-                        type: attribute
+                  type: entities
+                  entities:
+                    - attribute: backups_local
+                      entity: sensor.samba_backup
+                      icon: 'mdi:file-outline'
+                      name: Local Backups
+                      type: attribute
+                    - attribute: backups_remote
+                      entity: sensor.samba_backup
+                      icon: 'mdi:file-move-outline'
+                      name: Remote Backups
+                      type: attribute
+                    - attribute: total_backups_succeeded
+                      entity: sensor.samba_backup
+                      icon: 'mdi:file-check-outline'
+                      name: Succeded Backups
+                      type: attribute
+                    - attribute: total_backups_failed
+                      entity: sensor.samba_backup
+                      icon: 'mdi:file-cancel-outline'
+                      name: Failed Backups
+                      type: attribute
+                    - attribute: last_backup
+                      entity: sensor.samba_backup
+                      icon: 'mdi:file-clock-outline'
+                      name: Last Backup
+                      type: attribute
           # - entity: automation.tagliches_backup_auto_backup
           #   icon: mdi:content-save-all
           #   tap_action: 

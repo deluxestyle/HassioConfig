@@ -413,6 +413,7 @@
   - entity_id: sensor.presence
     platform: state
     to: home
+    for: 00:02:00
   condition:
   - condition: state
     entity_id: vacuum.xiaomi_vacuum_cleaner
@@ -421,6 +422,7 @@
   - data:
       entity_id: vacuum.xiaomi_vacuum_cleaner
     service: vacuum.locate
+  mode: single
 - id: '1573317974047'
   alias: Harmony - Wifi Steckdose
   description: ''
