@@ -82,20 +82,19 @@ views:
         columns: 4
         show_name: false
         entities:
+          - entity: sensor.processor_use
+            name: CPU        
           - entity: sensor.memory_use_percent
             name: Memory
           - entity: sensor.memory_use
             name: Memory
+          - entity: sensor.swap_use_percent
+            name: Swap
+            icon: mdi:harddisk-plus            
           - entity: sensor.disk_use_percent
             name: Disk
           - entity: sensor.disk_use
             name: Disk
-          - entity: sensor.swap_use_percent
-            name: Swap
-            icon: mdi:harddisk-plus
-          - entity: sensor.processor_use
-            name: CPU
-            icon: mdi:chip
           - entity: sensor.cpu_temperature
             name: CPU Temp
             icon: mdi:thermometer

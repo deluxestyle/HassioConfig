@@ -732,3 +732,35 @@
   action:
   - scene: scene.arbeit
   mode: single
+- id: '1606288585231'
+  alias: Küche - Deckenlicht
+  description: ''
+  trigger:
+  - device_id: 4f8d84a2d79f4648bc31a4197be89a9b
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: right
+  condition: []
+  action:
+  - type: toggle
+    device_id: 5e72352784734d05be27261383318525
+    entity_id: light.deckenlicht
+    domain: light
+  mode: single
+- id: '1606288755508'
+  alias: Küche - Dunstabzug
+  description: ''
+  trigger:
+  - device_id: 4f8d84a2d79f4648bc31a4197be89a9b
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: left
+  condition: []
+  action:
+  - type: toggle
+    device_id: 6d1d698dfc4e4f91b551b2c53acc9b12
+    entity_id: switch.steckdose_4
+    domain: switch
+  mode: single
