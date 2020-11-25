@@ -14,7 +14,7 @@ lovelace-map:
   require_admin: false
 lovelace-presence:
   mode: yaml
-  title: Presence
+  title: Anwesenheit
   icon: mdi:account-multiple
   show_in_sidebar: true
   filename: lovelace/ui-presence.yaml
