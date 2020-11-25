@@ -23,13 +23,13 @@ actions:
   - name: gotobed
     background_color: "#000000"
     label:
-      text: "Schalfen gehen"
+      text: "Schlafen gehen"
     icon:
       icon: bed
   - name: sleep
     background_color: "#000000"
     label:
-      text: "Schalfen"
+      text: "Schlafen"
     icon:
       icon: sleep
   - name: wakeup

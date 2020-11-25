@@ -477,15 +477,18 @@
 - id: '1578168461545'
   alias: 'Benachrichtigung: Snapshot Fehler'
   trigger:
-    platform: event
-    event_type: auto_backup.snapshot_failed
+  - platform: state
+    entity_id: sensor.samba_backup
+    attribute: total_backups_failed
+    from: '0'
   action:
-    service: persistent_notification.create
+  - service: persistent_notification.create
     data_template:
       title: Snapshot Fehler
       message: 'Name: {{ trigger.event.data.name }}
 
         Error: {{ trigger.event.data.error }}'
+  mode: single
 - id: '1584265149079'
   alias: 'Benachrichtigung: CPU Temp zu hoch'
   description: ''
@@ -717,7 +720,7 @@
       input: restore-sensor
   mode: single
 - id: '1606063801423'
-  alias: Neue Automatisierung
+  alias: Switch1 Trigger
   description: ''
   trigger:
   - device_id: f1ff34f83b5a4a01998a93470848c7f5
