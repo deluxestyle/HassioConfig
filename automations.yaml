@@ -28,6 +28,9 @@
   - data: {}
     entity_id: automation.benachrichtigung_bewegung_erkannt
     service: automation.turn_on
+  - service: automation.turn_on
+    data: {}
+    entity_id: automation.benachrichtigung_wohnungstur_offen
   mode: single
 - id: xiaomi_vacuum_notification_off
   alias: 'Xiaomi Staubsauger: fertig'

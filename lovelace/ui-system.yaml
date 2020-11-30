@@ -185,7 +185,21 @@ views:
           # - sensor.auto_backup      
       - type: entities
         entities:
-          - type: weblink
-            url: /map  
-            name: Karte 
-            icon: mdi:map-outline          
+          - type: "custom:paper-buttons-row"
+            buttons:
+              - icon: mdi:map-outline 
+                name: Karte
+                tap_action: 
+                  action: call-service
+                  service: browser_mod.navigate
+                  service_data: 
+                    navigation_path: /map
+                    deviceID: this
+              - icon: mdi:zigbee
+                name: Phoscon
+                tap_action: 
+                  action: call-service
+                  service: browser_mod.navigate
+                  service_data: 
+                    navigation_path: /lovelace-phoscon/phoscon
+                    deviceID: this     
