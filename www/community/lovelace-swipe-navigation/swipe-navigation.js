@@ -13,44 +13,45 @@ a||null==n.return||n.return()}finally{if(i)throw r}}}}function s(t,e){if(t){if("
 ).slice(8,-1);return"Object"===n&&t.constructor&&(n=t.constructor.name),"Map"===n||"Set"===n?Array.from(t
 ):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?c(t,e):void 0}}function c(t,e){(null==e||e>t.length)&&(e=t.length);for(var n=0,
 o=new Array(e);n<e;n++)o[n]=t[n];return o}function g(t){return(g="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){
-return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}var A,x,u,E,M,D,
-y=0;function f(){if(y<10)try{A=document.querySelector("home-assistant"),x=A.shadowRoot.querySelector("home-assistant-main").shadowRoot,
-u=x.querySelector("partial-panel-resolver"),E=x.querySelector("ha-panel-lovelace"),M=E.shadowRoot.querySelector("hui-root"),
-D=M.shadowRoot.querySelector("ha-app-layout")}catch(t){y++,setTimeout(function(){return f()},50)}else E&&!M?console.log("hui-root not found."
-):E&&!D&&console.log("ha-app-layout not found.")}var I=["APP-HEADER","HA-SLIDER","SWIPE-CARD","HUI-MAP-CARD","ROUND-SLIDER","XIAOMI-VACUUM-MAP-CARD",
-"HA-SIDEBAR"];function d(){var o,r,a,t,e,i,l,n,s,c,u,y,f,d,p,h,v,b,m;function w(t){var e,n;0==h&&!l&&m||h==a.length-1&&!l&&!m||("swipe"==i?(e=(
-m?"":"-").concat(screen.width/1.5,"px"),n=(m?"-":"").concat(screen.width/1.5,"px"),o.style.transitionDuration="200ms",o.style.opacity=0,
-o.style.transform="translate(".concat(e,", 0)"),o.style.transition="transform 0.20s, opacity 0.18s",setTimeout(function(){a[t].dispatchEvent(
-new MouseEvent("click",{bubbles:!1,cancelable:!0})),o.style.transitionDuration="0ms",o.style.transform="translate(".concat(n,", 0)"),
-o.style.transition="transform 0s"},210),setTimeout(function(){o.style.transitionDuration="200ms",o.style.opacity=1,
-o.style.transform="translate(0px, 0)",o.style.transition="transform 0.20s, opacity 0.18s"},250)):"fade"==i?(o.style.transitionDuration="200ms",
-o.style.transition="opacity 0.20s",o.style.opacity=0,setTimeout(function(){a[t].dispatchEvent(new MouseEvent("click",{bubbles:!1,cancelable:!0})),
-o.style.transitionDuration="0ms",o.style.opacity=0,o.style.transition="opacity 0s"},210),setTimeout(function(){o.style.transitionDuration="200ms",
-o.style.transition="opacity 0.20s",o.style.opacity=1},250)):"flip"==i?(o.style.transitionDuration="200ms",o.style.transform="rotatey(90deg)",
-o.style.transition="transform 0.20s, opacity 0.20s",o.style.opacity=.25,setTimeout(function(){a[t].dispatchEvent(new MouseEvent("click",{bubbles:!1,
-cancelable:!0}))},210),setTimeout(function(){o.style.transitionDuration="200ms",o.style.transform="rotatey(0deg)",
-o.style.transition="transform 0.20s, opacity 0.20s",o.style.opacity=1},250)):a[t].dispatchEvent(new MouseEvent("click",{bubbles:!1,cancelable:!0})))}(
-E=x.querySelector("ha-panel-lovelace"))&&(M=E.shadowRoot.querySelector("hui-root"))&&(o=(D=M.shadowRoot.querySelector("ha-app-layout")).querySelector(
-'[id="view"]'),r=D.querySelector("paper-tabs")||D.querySelector("ha-tabs"),a=r?Array.from(r.querySelectorAll("paper-tab")):[],
-t="rtl"==A.style.direction,e=E.lovelace.config.swipe_nav||{},i=null!=e.animate?e.animate:"none",l=null==e.wrap||e.wrap,
-n=null!=e.prevent_default&&e.prevent_default,s=null!=e.swipe_amount?e.swipe_amount/Math.pow(10,2):.15,c=null==e.skip_hidden||e.skip_hidden,
-u=null!=e.skip_tabs?String(e.skip_tabs).replace(/\s+/g,"").split(",").map(function(t){return parseInt(t,10)}):[],r&&(D.addEventListener("touchstart",
-function(t){if("object"==g(t.path)){var e=S(t.path);try{for(e.s();!(n=e.n()).done;){var n=n.value;if("HUI-VIEW"==n.nodeName)break;if(-1<I.indexOf(
-n.nodeName))return}}catch(t){e.e(t)}finally{e.f()}}y=t.touches[0].clientX,f=t.touches[0].clientY,b||function(){a=c?a.filter(function(t){
-return!u.includes(a.indexOf(t))&&"none"!=getComputedStyle(t,null).display}):a.filter(function(t){return!u.includes(a.indexOf(t))});v=l?0:null,
-b=l?a.length-1:null}();h=a.indexOf(r.querySelector(".iron-selected"))},{passive:!0}),D.addEventListener("touchmove",function(t){y&&f&&(
-d=y-t.touches[0].clientX,p=f-t.touches[0].clientY,Math.abs(d)>Math.abs(p)&&n&&t.preventDefault())},{passive:!1}),D.addEventListener("touchend",
-function(){if(h<0||Math.abs(d)<Math.abs(p))return void(y=f=d=p=null);t&&(d=-d);d>Math.abs(screen.width*s)?(m=!1,h==a.length-1?w(v):w(h+1)
-):d<-Math.abs(screen.width*s)&&(m=!0,w(0==h?b:h-1));t&&(m=!m);y=f=d=p=null},{passive:!0}),"swipe"==i&&(D.style.overflow="hidden")))}function p(t){
-var e,n=S(t);try{for(n.s();!(e=n.n()).done;){var o=S(e.value.addedNodes);try{for(o.s();!(r=o.n()).done;){var r=r.value;if(
-"ha-panel-lovelace"==r.localName)return void new MutationObserver(h).observe(r.shadowRoot,{childList:!0})}}catch(t){o.e(t)}finally{o.f()}}}catch(t){
-n.e(t)}finally{n.f()}}function h(t){var e,n=S(t);try{for(n.s();!(e=n.n()).done;){var o=S(e.value.addedNodes);try{for(o.s();!(r=o.n()).done;){
-var r=r.value;if("hui-root"==r.localName)return void new MutationObserver(v).observe(r.shadowRoot,{childList:!0})}}catch(t){o.e(t)}finally{o.f()}}
-}catch(t){n.e(t)}finally{n.f()}}function v(t){var e,n=S(t);try{for(n.s();!(e=n.n()).done;){var o,r=S(e.value.addedNodes);try{for(r.s();!(o=r.n()
-).done;)if("ha-app-layout"==o.value.localName)return void d()}catch(t){r.e(t)}finally{r.f()}}}catch(t){n.e(t)}finally{n.f()}}f(),d(),
-new MutationObserver(p).observe(u,{childList:!0});for(var b={header:"%c≡ swipe-navigation".padEnd(27),ver:"%cversion 1.3.2 "},m="%c\n",
-w=Math.max.apply(Math,e(Object.values(b).map(function(t){return t.length}))),R=0,O=Object.entries(b);R<O.length;R++){var q=t(O[R],1),k=q[0]
-;b[k].length<=w&&(b[k]=b[k].padEnd(w)),"header"==k&&(b[k]="".concat(b[k].slice(0,-1),"⋮ "))}
-var j="display:inline-block;border-width:1px 1px 0 1px;border-style:solid;border-color:#424242;color:white;background:#03a9f4;font-size:12px;padding:4px 4.5px 5px 6px;"
-,T="border-width:0px 1px 1px 1px;padding:7px;background:white;color:#424242;line-height:0.7;";console.info(b.header+m+b.ver,j,"","".concat(j," "
-).concat(T));
+return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}var A={},x=0
+;function E(){if(x<10)try{A.ha=document.querySelector("home-assistant"),A.main=A.ha.shadowRoot.querySelector("home-assistant-main").shadowRoot,
+A.panel=A.main.querySelector("partial-panel-resolver"),A.ll=A.main.querySelector("ha-panel-lovelace"),A.root=A.ll.shadowRoot.querySelector("hui-root")
+,A.appLayout=A.root.shadowRoot.querySelector("ha-app-layout")}catch(t){x++,setTimeout(function(){return E()},50)}else A.ll&&!A.root?console.log(
+"hui-root not found."):A.ll&&!A.appLayout&&console.log("ha-app-layout not found.")}var M=["APP-HEADER","HA-SLIDER","SWIPE-CARD","HUI-MAP-CARD",
+"ROUND-SLIDER","XIAOMI-VACUUM-MAP-CARD","HA-SIDEBAR"];function L(){if(document.querySelector("home-assistant").shadowRoot.querySelector(
+"home-assistant-main").shadowRoot.querySelector("ha-panel-lovelace")){if(!A.appLayout||!A.appLayout.isConnected)return 0==x?(E(),void L()):void 0
+;var o,r,e,n,a,i,l,s,c=A.appLayout.querySelector('[id="view"]'),u=A.appLayout.querySelector("paper-tabs")||A.appLayout.querySelector("ha-tabs"),
+y=u?Array.from(u.querySelectorAll("paper-tab")):[],t="rtl"==A.ha.style.direction,f=A.ll.lovelace.config.swipe_nav||{},
+p=null!=f.animate?f.animate:"none",d=null==f.wrap||f.wrap,h=null!=f.prevent_default&&f.prevent_default,v=null!=f.swipe_amount?f.swipe_amount/Math.pow(
+10,2):.15,m=null==f.skip_hidden||f.skip_hidden,b=null!=f.skip_tabs?String(f.skip_tabs).replace(/\s+/g,"").split(",").map(function(t){return parseInt(t
+,10)}):[];u&&(A.appLayout.addEventListener("touchstart",function(t){if("object"==g(t.path)){var e=S(t.path);try{for(e.s();!(n=e.n()).done;){
+var n=n.value;if("HUI-VIEW"==n.nodeName)break;if(-1<M.indexOf(n.nodeName))return}}catch(t){e.e(t)}finally{e.f()}}o=t.touches[0].clientX,
+r=t.touches[0].clientY,l||(y=m?y.filter(function(t){return!b.includes(y.indexOf(t))&&"none"!=getComputedStyle(t,null).display}):y.filter(function(t){
+return!b.includes(y.indexOf(t))}),i=d?0:null,l=d?y.length-1:null);a=y.indexOf(u.querySelector(".iron-selected"))},{passive:!0}),
+A.appLayout.addEventListener("touchmove",function(t){o&&r&&(e=o-t.touches[0].clientX,n=r-t.touches[0].clientY,Math.abs(e)>Math.abs(n
+)&&h&&t.preventDefault())},{passive:!1}),A.appLayout.addEventListener("touchend",function(){if(a<0||Math.abs(e)<Math.abs(n))return void(o=r=e=n=null)
+;t&&(e=-e);e>Math.abs(screen.width*v)?(s=!1,a==y.length-1?w(i):w(a+1)):e<-Math.abs(screen.width*v)&&(s=!0,w(0==a?l:a-1));t&&(s=!s);o=r=e=n=null},{
+passive:!0}),"swipe"==p&&(A.appLayout.style.overflow="hidden"))}function w(t){var e,n;0==a&&!d&&s||a==y.length-1&&!d&&!s||("swipe"==p?(e=(s?"":"-"
+).concat(screen.width/1.5,"px"),n=(s?"-":"").concat(screen.width/1.5,"px"),c.style.transitionDuration="200ms",c.style.opacity=0,
+c.style.transform="translate(".concat(e,", 0)"),c.style.transition="transform 0.20s, opacity 0.18s",setTimeout(function(){y[t].dispatchEvent(
+new MouseEvent("click",{bubbles:!1,cancelable:!0})),c.style.transitionDuration="0ms",c.style.transform="translate(".concat(n,", 0)"),
+c.style.transition="transform 0s"},210),setTimeout(function(){c.style.transitionDuration="200ms",c.style.opacity=1,
+c.style.transform="translate(0px, 0)",c.style.transition="transform 0.20s, opacity 0.18s"},250)):"fade"==p?(c.style.transitionDuration="200ms",
+c.style.transition="opacity 0.20s",c.style.opacity=0,setTimeout(function(){y[t].dispatchEvent(new MouseEvent("click",{bubbles:!1,cancelable:!0})),
+c.style.transitionDuration="0ms",c.style.opacity=0,c.style.transition="opacity 0s"},210),setTimeout(function(){c.style.transitionDuration="200ms",
+c.style.transition="opacity 0.20s",c.style.opacity=1},250)):"flip"==p?(c.style.transitionDuration="200ms",c.style.transform="rotatey(90deg)",
+c.style.transition="transform 0.20s, opacity 0.20s",c.style.opacity=.25,setTimeout(function(){y[t].dispatchEvent(new MouseEvent("click",{bubbles:!1,
+cancelable:!0}))},210),setTimeout(function(){c.style.transitionDuration="200ms",c.style.transform="rotatey(0deg)",
+c.style.transition="transform 0.20s, opacity 0.20s",c.style.opacity=1},250)):y[t].dispatchEvent(new MouseEvent("click",{bubbles:!1,cancelable:!0})))}}
+function u(t){var e,n=S(t);try{for(n.s();!(e=n.n()).done;){var o=S(e.value.addedNodes);try{for(o.s();!(r=o.n()).done;){var r=r.value;if(
+"ha-panel-lovelace"==r.localName)return void new MutationObserver(y).observe(r.shadowRoot,{childList:!0})}}catch(t){o.e(t)}finally{o.f()}}}catch(t){
+n.e(t)}finally{n.f()}}function y(t){var e,n=S(t);try{for(n.s();!(e=n.n()).done;){var o=S(e.value.addedNodes);try{for(o.s();!(r=o.n()).done;){
+var r=r.value;if("hui-root"==r.localName)return void new MutationObserver(f).observe(r.shadowRoot,{childList:!0})}}catch(t){o.e(t)}finally{o.f()}}
+}catch(t){n.e(t)}finally{n.f()}}function f(t){var e,n=S(t);try{for(n.s();!(e=n.n()).done;){var o,r=S(e.value.addedNodes);try{for(r.s();!(o=r.n()
+).done;)if("ha-app-layout"==o.value.localName)return void L()}catch(t){r.e(t)}finally{r.f()}}}catch(t){n.e(t)}finally{n.f()}}E(),x=0,L(),
+new MutationObserver(u).observe(A.panel,{childList:!0});for(var p={header:"%c≡ swipe-navigation".padEnd(27),ver:"%cversion 1.3.3 "},d="%c\n",
+h=Math.max.apply(Math,e(Object.values(p).map(function(t){return t.length}))),v=0,m=Object.entries(p);v<m.length;v++){var b=t(m[v],1),w=b[0]
+;p[w].length<=h&&(p[w]=p[w].padEnd(h)),"header"==w&&(p[w]="".concat(p[w].slice(0,-1),"⋮ "))}
+var D="display:inline-block;border-width:1px 1px 0 1px;border-style:solid;border-color:#424242;color:white;background:#03a9f4;font-size:12px;padding:4px 4.5px 5px 6px;"
+,I="border-width:0px 1px 1px 1px;padding:7px;background:white;color:#424242;line-height:0.7;";console.info(p.header+d+p.ver,D,"","".concat(D," "
+).concat(I));
