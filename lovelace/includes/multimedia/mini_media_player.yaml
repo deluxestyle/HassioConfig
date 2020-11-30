@@ -19,9 +19,11 @@ speaker_group:
   sync_volume: true
   entities:
     - entity_id: media_player.schlafzimmer
-      name: Symfonsik
+      name: Symfonsik Schlafzimmer
     - entity_id: media_player.wohnzimmer
-      name: Sonos One
+      name: Sonos Wohnzimmer 
+    - entity_id: media_player.sonos_bad
+      name: Sonos Bad
 idle_view:
   when_idle: true
   when_paused: true
