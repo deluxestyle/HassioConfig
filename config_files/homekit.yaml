@@ -3,27 +3,25 @@ filter:
   include_entities:
     - light.yeelight_bslamp1_0x0000000005451cd6
     - light.lights_living_room
-    - light.deckenlicht #küche
-    - light.steckdose_4 #dunstabzug
+    - light.kuche_decke
+    - light.dunstabzug 
     - light.schlafzimmer
-    - light.tisch
-    - light.decke
-    - light.wandlampe
+    - light.wohnzimmer_schreibtisch
+    - light.wohnzimmer_decke
+    - light.wohnzimmer_wand
     - light.gateway_light_7811dcb258d1
     - script.1532173931522
     - script.1532175994947
     - media_player.schlafzimmer
     - media_player.wohnzimmer
     - media_player.sonos_bad
-    # - switch.steckdose_3 #Drucker
-    # - switch.steckdose_5 #nicht verwendet
     - switch.tv_switch
     - switch.fire_tv_switch
     - switch.music_switch
     - switch.vacuum
     - switch.wifi_steckdose #Schreibtisch
-    - switch.steckdose_1 #Steckdosenleiste
-    - switch.steckdose_2 #Alexa
+    - switch.steckdosenleiste #Steckdosenleiste
+    - switch.steckdose_bad #Alexa
     - sensor.humidity_158d0001b8c96c
     - sensor.humidity_158d0001b8c998
     - sensor.humidity_158d0002239fb5
@@ -33,11 +31,6 @@ filter:
     - sensor.temperature_158d00023258bd
     - sensor.temperature_158d0001b8c998
     - switch.pi_hole
-    # - script.alexa_echo_superflyfm
-    # - script.alexa_echo_radio_arabella
-    # - script.alexa_echo_b5_aktuell
-    # - script.alexa_echo_ausschalten
-    # - script.alexa_echo_dfl_nova
     - climate.fritz_dect_301
 entity_config:
     media_player.schlafzimmer:

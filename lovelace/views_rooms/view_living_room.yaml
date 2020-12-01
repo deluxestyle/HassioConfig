@@ -27,7 +27,7 @@ cards:
     entities:
       - entity: sensor.remote_state
         name: Entertainment
-      - entity: switch.steckdose_1
+      - entity: switch.steckdosenleiste
         name: Steckdosenleiste
         tap_action: 
           action: toggle

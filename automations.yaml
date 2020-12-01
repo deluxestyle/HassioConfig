@@ -168,7 +168,7 @@
 - id: '1540494970737'
   alias: 'Benachrichtigung: Bewegung erkannt'
   trigger:
-  - entity_id: binary_sensor.motion_sensor_158d00023e77cb
+  - entity_id: binary_sensor.bewegungsmelder
     platform: state
     to: 'on'
   condition: []
@@ -218,7 +218,7 @@
   alias: Bewegungsmelder - Alarm
   initial_state: false
   trigger:
-  - entity_id: binary_sensor.motion_sensor_158d00023e77cb
+  - entity_id: binary_sensor.bewegungsmelder
     platform: state
     to: 'on'
   condition:
@@ -436,7 +436,7 @@
   condition: []
   action:
   - data:
-      entity_id: switch.steckdose_1
+      entity_id: switch.steckdosenleiste
     service: switch.turn_on
 - id: '1574071080398'
   alias: Steckdose ausschalten (um Mitternacht)
@@ -450,7 +450,7 @@
     state: 'off'
   action:
   - data:
-      entity_id: switch.steckdose_1
+      entity_id: switch.steckdosenleiste
     service: switch.turn_off
 - id: '1575448787825'
   alias: Tägliches Backup (auto backup)
@@ -565,70 +565,6 @@
   - data:
       entity_id: sensor.car_km_usage
     service: homeassistant.update_entity
-- id: '1596713334124'
-  alias: 'Alexa Echo: Starte Superfly.fm'
-  description: ''
-  trigger:
-  - device_id: b4f909a520df43f981094663ed679090
-    domain: deconz
-    platform: device
-    subtype: turn_on
-    type: remote_button_short_press
-  condition:
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: media_player.wolfgangs_echo_dot
-      state: playing
-  action:
-  - device_id: 8961a7379c0d42469d6e13d9f8dd96c6
-    domain: switch
-    entity_id: switch.steckdose_2
-    type: turn_on
-  - delay: 00:01:00
-  - data: {}
-    service: script.alexa_echo_superflyfm
-  mode: single
-- id: '1596713625022'
-  alias: 'Alexa Echo: Stop Musik'
-  description: ''
-  trigger:
-  - device_id: b4f909a520df43f981094663ed679090
-    domain: deconz
-    platform: device
-    subtype: turn_on
-    type: remote_button_short_press
-  condition:
-  - condition: state
-    entity_id: media_player.wolfgangs_echo_dot
-    state: playing
-  - condition: state
-    entity_id: switch.steckdose_2
-    state: 'on'
-  action:
-  - data: {}
-    entity_id: media_player.wolfgangs_echo_dot
-    service: media_player.turn_off
-  mode: single
-- id: '1596716137092'
-  alias: 'Alexa Echo: stop after switch off'
-  description: ''
-  trigger:
-  - device_id: 8961a7379c0d42469d6e13d9f8dd96c6
-    domain: switch
-    entity_id: switch.steckdose_2
-    for:
-      hours: 0
-      minutes: 2
-      seconds: 0
-    platform: device
-    type: turned_off
-  condition: []
-  action:
-  - data: {}
-    entity_id: media_player.wolfgangs_echo_dot
-    service: media_player.turn_off
-  mode: single
 - id: '1603141534875'
   alias: Nachtlicht
   description: ''
@@ -662,7 +598,7 @@
   trigger:
   - platform: state
     to: 'on'
-    entity_id: binary_sensor.openclose_29
+    entity_id: binary_sensor.fenster_turkontaktsensor
   condition: []
   action:
   - delay: 00:00:30
@@ -721,49 +657,4 @@
     data:
       addon: 15d21743_samba_backup
       input: restore-sensor
-  mode: single
-- id: '1606063801423'
-  alias: Switch1 Trigger
-  description: ''
-  trigger:
-  - device_id: f1ff34f83b5a4a01998a93470848c7f5
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  condition: []
-  action:
-  - scene: scene.arbeit
-  mode: single
-- id: '1606288585231'
-  alias: Küche - Deckenlicht
-  description: ''
-  trigger:
-  - device_id: 4f8d84a2d79f4648bc31a4197be89a9b
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: right
-  condition: []
-  action:
-  - type: toggle
-    device_id: 5e72352784734d05be27261383318525
-    entity_id: light.deckenlicht
-    domain: light
-  mode: single
-- id: '1606288755508'
-  alias: Küche - Dunstabzug
-  description: ''
-  trigger:
-  - device_id: 4f8d84a2d79f4648bc31a4197be89a9b
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: left
-  condition: []
-  action:
-  - type: toggle
-    device_id: 6d1d698dfc4e4f91b551b2c53acc9b12
-    entity_id: switch.steckdose_4
-    domain: switch
   mode: single

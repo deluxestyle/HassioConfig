@@ -1,5 +1,3 @@
-light.buro:
-  icon: mdi:ceiling-light
 climate.oeq1696358:
   friendly_name: Heizung Wohnzimmer
   icon: mdi:radiator
@@ -52,9 +50,6 @@ sensor.pressure_158d0002239fb5:
 sensor.temperature_158d0002239fb5:
   friendly_name: Temperatur Küche
   icon: mdi:thermometer-lines
-light.sonoff_office:
-  friendly_name: Bürolicht
-  icon: mdi:ceiling-light
 sensor.online_time:
   friendly_name: HA Time Online
 light.lights_all:
@@ -79,10 +74,7 @@ sensor.xiaomi_vacuum_main_brush_left:
 sensor.xiaomi_vacuum_side_brush_left:
   friendly_name: Seitenbürste
   icon: mdi:blur-linear
-switch.steckdose_3:
-  friendly_name: Drucker
-  icon: mdi:printer
-light.steckdose_4:
+light.dunstabzug:
   friendly_name: Dunstabzug
   icon: mdi:spotlight-beam
 script.1532173931522:
@@ -162,11 +154,9 @@ script.1543666947492:
 light.lights_bed_room:
   friendly_name: Schlafzimmerlicht
   icon: mdi:ceiling-light
-light.leselampe:
-  icon: mdi:desk-lamp
-light.decke:
+light.wohnzimmer_decke:
   icon: mdi:ceiling-light
-light.tisch:
+light.wohnzimmer_schreibtisch:
   icon: mdi:ceiling-light
 media_player.harman_kardon_avr:
   icon: mdi:speaker-wireless
@@ -174,7 +164,7 @@ script.1541264856783:
   icon: mdi:radiator-off
 script.1540232132608:
   icon: mdi:radiator-disabled
-light.deckenlicht:
+light.kuche_decke:
   friendly_name: Deckenlampe
   icon: mdi:ceiling-light
 light.lights_kitchen:
@@ -185,7 +175,7 @@ binary_sensor.door_window_sensor_158d00022f13a0:
   icon: mdi:window-closed
 sensor.illumination_158d00023e77cb:
   friendly_name: Lichtsensor
-binary_sensor.motion_sensor_158d00023e77cb:
+binary_sensor.bewegungsmelder:
   friendly_name: Bewegungsmelder
 weather.dark_sky:
   friendly_name: Wetter
@@ -227,9 +217,6 @@ binary_sensor.x1_sdrive18i_condition_based_services:
   friendly_name: Service Status
 binary_sensor.x1_sdrive18i_check_control_messages:
   friendly_name: Check Control Meldungen
-switch.steckdose_5:
-  icon: mdi:desk
-  friendly_name: Schreibtisch
 switch.tv_switch:
   icon: mdi:television
 switch.music_switch:
@@ -250,7 +237,7 @@ switch.wifi_steckdose:
   icon: mdi:power-socket-eu
 sensor.battery_sensor_outdoor:
   friendly_name: Batterie Sensor homematic
-switch.steckdose_1:
+switch.steckdosenleiste:
   icon: mdi:power-socket-eu
 light.schlafzimmer:
   icon: mdi:ceiling-light
@@ -259,5 +246,3 @@ sensor.fritzbox:
   icon: mdi:phone-voip
 switch.fire_tv_switch:
   icon: mdi:television-play
-media_player.buro:
-  friendly_name: Büro

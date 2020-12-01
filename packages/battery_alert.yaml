@@ -21,8 +21,8 @@ group:
       - sensor.xiaomi_living_room_battery_level
       - sensor.xiaomi_kitchen_battery_level
       - sensor.xiaomi_bath_battery_level
-      - sensor.lightlevel_20_battery_level
-      - sensor.openclose_29_battery_level
+      - sensor.bewegungsmelder_battery_level
+      - sensor.fenster_turkontaktsensor_battery_level
       - sensor.smart_switch_1_battery_level
       - sensor.smart_switch_2_battery_level
       - sensor.wandsender_1_fach_battery_level

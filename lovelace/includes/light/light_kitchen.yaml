@@ -2,13 +2,13 @@
 
 type: entities
 entities:
-  - entity: light.deckenlicht
+  - entity: light.kuche_decke
     name: Decke
     tap_action: 
       action: toggle
     hold_action:
       action: more-info
-  - entity: light.steckdose_4
+  - entity: light.dunstabzug
     name: Dunstabzug
     tap_action: 
       action: toggle

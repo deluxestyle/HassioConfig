@@ -15,9 +15,9 @@
 - platform: group
   name: lights_living_room
   entities:
-      - light.decke
-      - light.tisch
-      - light.wandlampe
+      - light.wohnzimmer_schreibtisch
+      - light.wohnzimmer_decke
+      - light.wohnzimmer_wand
 
 - platform: group
   name: schlafzimmer
@@ -34,8 +34,8 @@
 - platform: group
   name: lights_kitchen
   entities:
-      - light.deckenlicht
-      - light.steckdose_4
+      - light.kuche_decke
+      - light.dunstabzug
 
 - platform: group
   name: lights_all
@@ -47,5 +47,5 @@
 
 # Küchenlichtschalter
 - platform: switch
-  name: steckdose_4
-  entity_id: switch.steckdose_4
+  name: dunstabzug
+  entity_id: switch.dunstabzug

@@ -43,7 +43,7 @@
   alias: Entertainment - Telekom
   sequence:
   - data:
-      entity_id: switch.steckdose_1
+      entity_id: switch.steckdosenleiste
     service: switch.turn_on
   - delay: 00:00:02
   - data:
@@ -54,7 +54,7 @@
   alias: Entertainment - Musik
   sequence:
   - data:
-      entity_id: switch.steckdose_1
+      entity_id: switch.steckdosenleiste
     service: switch.turn_on
   - delay: 00:00:02
   - data:
@@ -239,7 +239,7 @@
   alias: Entertainment - Fire TV
   sequence:
   - data:
-      entity_id: switch.steckdose_1
+      entity_id: switch.steckdosenleiste
     service: switch.turn_on
   - delay: 00:00:02
   - data:
@@ -294,22 +294,6 @@ alexa_echo_ausschalten:
   - data: {}
     entity_id: media_player.wolfgangs_echo_dot
     service: media_player.turn_off
-sonos_w:
-  alias: 'Sonos: Wecker - Radio Arabella'
-  sequence:
-  - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer
-    service: sonos.unjoin
-  - data:
-      entity_id: media_player.schlafzimmer
-      volume_level: '0.03'
-    service: media_player.volume_set
-  - data:
-      entity_id: media_player.schlafzimmer
-      source: 'Radio: Arabella München'
-    service: media_player.select_source
-  mode: single
-  icon: mdi:alarm-note
 alexa_echo_dfl_nova:
   alias: 'Alexa Echo: DFL nova'
   mode: single

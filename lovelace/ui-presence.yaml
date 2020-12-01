@@ -63,11 +63,11 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - entity: binary_sensor.openclose_29
+          - entity: binary_sensor.fenster_turkontaktsensor
             name: Wohnungstür
             icon: mdi:door
             secondary_info: last-changed
-          - entity: binary_sensor.motion_sensor_158d00023e77cb
+          - entity: binary_sensor.bewegungsmelder
             secondary_info: last-changed
             tap_action: 
               action: none

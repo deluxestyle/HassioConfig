@@ -38,7 +38,7 @@ cards:
               action: toggle
       - type: entities
         entities:
-          - entity: switch.steckdose_1
+          - entity: switch.steckdosenleiste
             name: Steckdose
             tap_action: 
               action: toggle

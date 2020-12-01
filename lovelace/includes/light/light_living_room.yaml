@@ -10,19 +10,19 @@ entities:
         action: more-info
   - type: "custom:paper-buttons-row"
     buttons:
-      - entity: light.decke
+      - entity: light.wohnzimmer_decke
         name: Decke
         tap_action:
           action: toggle
         hold_action:
           action: more-info
-      - entity: light.tisch
+      - entity: light.wohnzimmer_schreibtisch
         name: Tisch
         tap_action:
           action: toggle
         hold_action:
           action: more-info
-      - entity: light.wandlampe
+      - entity: light.wohnzimmer_wand
         name: Wand
         icon: mdi:wall-sconce
         tap_action:

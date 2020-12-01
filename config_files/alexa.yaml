@@ -1,21 +1,17 @@
 smart_home:
   filter:
     include_entities:
-      - light.sonoff_office
       - light.yeelight_bslamp1_0x0000000005451cd6
       - light.lights_living_room
-      - light.deckenlicht #küche
-      - light.steckdose_4 #dunstabzug
+      - light.kuche_decke
+      - light.dunstabzug 
       - light.schlafzimmer
-      - light.tisch
-      - light.decke
-      - light.wandlampe
-      - light.gateway_light_7811dcb258d1
-      # - switch.steckdose_3
-      # - switch.steckdose_5
+      - light.wohnzimmer_schreibtisch
+      - light.wohnzimmer_decke
+      - light.wohnzimmer_wand
       - switch.tv_switch
       - switch.fire_tv_switch
       - switch.music_switch
       - switch.vacuum
       - switch.wifi_steckdose
-      - switch.steckdose_1
+      - switch.steckdosenleiste

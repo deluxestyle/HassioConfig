@@ -37,4 +37,3 @@ include:
     - sensor.swap_use_percent
     - sensor.wireguard_ipad
     - sensor.wireguard_iphonepro
-    - binary_sensor.openclose_29

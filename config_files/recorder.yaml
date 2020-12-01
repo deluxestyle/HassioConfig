@@ -23,7 +23,6 @@ exclude:
     - weather.dark_sky
     - automation.badge_zurucksetzen
     - counter.badge_counter
-    - script.1570439203461
 include:
   entities:
     - sensor.disk_free
@@ -63,4 +62,3 @@ include:
     - sensor.swap_use_percent
     - sensor.wireguard_ipad
     - sensor.wireguard_iphonepro
-    - binary_sensor.openclose_29
