@@ -1,5 +1,5 @@
-type: horizontal-stack
-cards:
+type: entities
+entities:
   - type: "custom:paper-buttons-row"
     buttons:
       - entity: switch.tv_switch
@@ -13,6 +13,11 @@ cards:
           haptic: light
           action: toggle
       - entity: switch.music_switch
+        name: false
+        tap_action:
+          haptic: light
+          action: toggle
+      - entity: switch.vtuner_switch
         name: false
         tap_action:
           haptic: light

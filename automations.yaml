@@ -133,14 +133,15 @@
       source: '{% if states.input_select.avr_source.state == "Telekom" %}STB {% elif
         states.input_select.avr_source.state ==  "AirPlay" %}Audio {% elif states.input_select.avr_source.state
         ==  "TV" %}TV {% elif states.input_select.avr_source.state ==  "Home Network"
-        %}Home Network {% elif states.input_select.avr_source.state ==  "vTurner"
-        %}vTuner {% elif states.input_select.avr_source.state ==  "Turntable" %}AUX
-        {% endif %}'
+        %}Home Network {% elif states.input_select.avr_source.state ==  "vTuner" %}vTuner
+        {% elif states.input_select.avr_source.state ==  "Turntable" %}AUX {% endif
+        %}'
     service: media_player.select_source
   - data:
       entity_id: input_select.avr_source
       option: --
     service: input_select.select_option
+  mode: single
 - id: '1533660030341'
   alias: 'Harman Kardon AVR: verbinden'
   trigger:

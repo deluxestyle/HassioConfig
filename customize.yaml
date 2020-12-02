@@ -221,6 +221,8 @@ switch.tv_switch:
   icon: mdi:television
 switch.music_switch:
   icon: mdi:music
+switch.vtuner_switch:
+  icon: mdi:radio
 automation.xiaomi_staubsauger_filter_kritisch:
   icon: mdi:bell-alert
 automation.xiaomi_staubsauger_sensor_kritisch:

@@ -14,10 +14,11 @@ filter:
     - script.1532175994947
     - media_player.schlafzimmer
     - media_player.wohnzimmer
-    - media_player.sonos_bad
+    - media_player.bad
     - switch.tv_switch
     - switch.fire_tv_switch
     - switch.music_switch
+    - switch.vtuner_switch
     - switch.vacuum
     - switch.wifi_steckdose #Schreibtisch
     - switch.steckdosenleiste #Steckdosenleiste
@@ -39,7 +40,7 @@ entity_config:
     media_player.wohnzimmer:
       feature_list:
         - feature: play_pause
-    media_player.sonos_bad:
+    media_player.bad:
       feature_list:
         - feature: play_pause
     sensor.humidity_158d0001b8c998:

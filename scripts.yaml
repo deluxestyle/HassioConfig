@@ -2,11 +2,11 @@
   alias: 'Sonos: Superfly FM starten'
   sequence:
   - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.sonos_bad
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
       master: media_player.wohnzimmer
     service: sonos.join
   - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.sonos_bad
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
       volume_level: '0.10'
     service: media_player.volume_set
   - data:
@@ -18,7 +18,7 @@
   alias: 'Sonos: ausschalten'
   sequence:
   - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.sonos_bad
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
     service: media_player.media_stop
   mode: single
 '1534539954375':
@@ -318,7 +318,7 @@ schlafen:
   alias: 'Sonos: B5 aktuell'
   sequence:
   - data:
-      entity_id: media_player.schlafzimmer, media_player.sonos_bad
+      entity_id: media_player.schlafzimmer, media_player.bad
       volume_level: '0.08'
     service: media_player.volume_set
   - data:
@@ -327,6 +327,19 @@ schlafen:
     service: media_player.select_source
   - service: sonos.join
     data:
-      entity_id: media_player.schlafzimmer, media_player.sonos_bad
+      entity_id: media_player.schlafzimmer, media_player.bad
       master: media_player.schlafzimmer
   mode: single
+entertainment_vtuner:
+  alias: Entertainment - vTuner
+  sequence:
+  - data:
+      entity_id: switch.steckdosenleiste
+    service: switch.turn_on
+  - delay: 00:00:02
+  - data:
+      activity: vTuner
+      entity_id: remote.harmony_hub
+    service: remote.turn_on
+  mode: single
+  icon: mdi:radio

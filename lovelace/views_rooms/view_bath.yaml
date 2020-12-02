@@ -7,7 +7,7 @@ cards:
   - !include ../includes/climate/climate_bath.yaml
   - !include
       - ../includes/multimedia/mini_media_player.yaml
-      - entity: media_player.sonos_bad
+      - entity: media_player.bad
   - type: entities
     entities:
       - entity: switch.steckdose_bad

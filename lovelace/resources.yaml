@@ -28,3 +28,5 @@
   type: module
 - url: /hacsfiles/lovelace-battery-entity-row/battery-entity-row.js
   type: module
+- url: /hacsfiles/harmony-card/harmony-card.js
+  type: module
