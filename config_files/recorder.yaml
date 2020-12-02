@@ -1,28 +1,25 @@
 # purge_keep_days: 1
 db_url: mysql://homeassistant:homeassistant@core-mariadb/homeassistant?charset=utf8
-exclude:
-  domains:
-    - group
-    - device_tracker
-    - sensor
-    - light
-    - media_player
-    - scene
-    - switch
-    - camera
-    - switch
-    - binary_sensor
-    - climate
-    - calendar
-    - input_number
-    - camera
-    - input_boolean
-  entities:
-    - sun.sun
-    - automation.battery_persistent_notification
-    - weather.dark_sky
-    - automation.badge_zurucksetzen
-    - counter.badge_counter
+# exclude:
+#   domains:
+#     - group
+#     - device_tracker
+#     - sensor
+#     - light
+#     - media_player
+#     - scene
+#     - switch
+#     - camera
+#     - switch
+#     - binary_sensor
+#     - climate
+#     - calendar
+#     - input_number
+#     - camera
+#     - input_boolean
+#   entities:
+#     - sun.sun
+#     - counter.badge_counter
 include:
   entities:
     - sensor.disk_free
@@ -62,3 +59,4 @@ include:
     - sensor.swap_use_percent
     - sensor.wireguard_ipad
     - sensor.wireguard_iphonepro
+    - binary_sensor.fenster_turkontaktsensor

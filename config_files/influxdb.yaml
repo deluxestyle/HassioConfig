@@ -46,8 +46,6 @@ include:
     - sensor.swap_free
     - sensor.swap_use_percent
     - sensor.online_time
-    - sensor.hue_dimmer_battery_bedroom
-    - sensor.hue_dimmer_battery_livingroom
     - sensor.hs110_today_kwh
     - sensor.hs110_volts
     - sensor.hs110_total_kwh
@@ -63,5 +61,3 @@ include:
     - sensor.net_upload_cur
     - sensor.net_upload_max
     - sensor.net_uptime
-    - sensor.wireguard_ipad
-    - sensor.wireguard_iphonepro
