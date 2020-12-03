@@ -614,7 +614,6 @@
       notification_id: alert
       title: Bewegungsmelder
     service: script.1570439573834
-  initial_state: false
   mode: single
 - id: '1605645794887'
   alias: 'ios: Schlafen gehen'
