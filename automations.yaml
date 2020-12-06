@@ -671,3 +671,15 @@
   action:
   - scene: scene.arbeit
   mode: single
+- id: '1607162397763'
+  alias: NFC Tag FireTV ist gescannt
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: 0826e03f-6aa1-4197-b61d-385f5850f6af
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.fire_tv_switch
+  mode: single
