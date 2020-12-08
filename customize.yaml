@@ -220,9 +220,11 @@ binary_sensor.x1_sdrive18i_check_control_messages:
 switch.tv_switch:
   icon: mdi:television
 switch.music_switch:
-  icon: mdi:music
+  icon: mdi:album
 switch.vtuner_switch:
   icon: mdi:radio
+switch.airplay_switch:
+  icon: mdi:music-box-outline
 automation.xiaomi_staubsauger_filter_kritisch:
   icon: mdi:bell-alert
 automation.xiaomi_staubsauger_sensor_kritisch:

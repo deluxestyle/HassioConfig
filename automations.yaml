@@ -683,3 +683,22 @@
     data: {}
     entity_id: switch.fire_tv_switch
   mode: single
+- id: '1584265149080'
+  alias: 'Benachrichtigung: CPU Auslastung zu hoch'
+  description: ''
+  trigger:
+  - above: '20'
+    for: 00:10:00
+    platform: numeric_state
+    entity_id: sensor.processor_use
+  condition: []
+  action:
+  - data: {}
+    entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
+      message: 'CPU Auslastung zu hoch: {{ states ( "sensor.processor_use" ) }}%'
+      notification_id: cpu
+      title: CPU Auslastung
+    service: script.1570439573834
+  mode: single

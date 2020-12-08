@@ -343,3 +343,16 @@ entertainment_vtuner:
     service: remote.turn_on
   mode: single
   icon: mdi:radio
+entertainment_airplay:
+  alias: Entertainment - AirPlay
+  sequence:
+  - data:
+      entity_id: switch.steckdosenleiste
+    service: switch.turn_on
+  - delay: 00:00:02
+  - data:
+      activity: AirPlay
+      entity_id: remote.harmony_hub
+    service: remote.turn_on
+  mode: single
+  icon: mdi:music-box-outline

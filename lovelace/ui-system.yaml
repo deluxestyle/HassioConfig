@@ -197,4 +197,12 @@ views:
                   service: browser_mod.navigate
                   service_data: 
                     navigation_path: /lovelace-phoscon/phoscon
-                    deviceID: this     
+                    deviceID: this   
+              - icon: mdi:home-circle-outline
+                name: homebridge
+                tap_action: 
+                  action: call-service
+                  service: browser_mod.navigate
+                  service_data: 
+                    navigation_path: /lovelace-homebridge/homebridge
+                    deviceID: this   

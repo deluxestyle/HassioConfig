@@ -22,6 +22,11 @@ entities:
         tap_action:
           haptic: light
           action: toggle
+      - entity: switch.airplay_switch
+        name: false
+        tap_action:
+          haptic: light
+          action: toggle
   - type: "custom:paper-buttons-row"
     buttons:
       - icon: mdi:volume-minus

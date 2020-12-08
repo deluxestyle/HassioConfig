@@ -15,10 +15,10 @@ filter:
     - media_player.schlafzimmer
     - media_player.wohnzimmer
     - media_player.bad
-    - switch.tv_switch
-    - switch.fire_tv_switch
-    - switch.music_switch
-    - switch.vtuner_switch
+    # - switch.tv_switch
+    # - switch.fire_tv_switch
+    # - switch.music_switch
+    # - switch.vtuner_switch
     - switch.vacuum
     - switch.wifi_steckdose #Schreibtisch
     - switch.steckdosenleiste #Steckdosenleiste
