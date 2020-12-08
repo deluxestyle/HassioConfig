@@ -4,8 +4,6 @@ title: Auto
 
 views:
   - title: Auto
-    visible:
-      - user: b6464705fc4e405abce8058610b4bcc7
     path: car
     icon: mdi:car-hatchback
     # panel: true

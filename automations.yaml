@@ -702,3 +702,17 @@
       title: CPU Auslastung
     service: script.1570439573834
   mode: single
+- id: '1607432908571'
+  alias: 'Entertainment: Steckdosenleiste'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: remote.harmony_hub
+    from: PowerOff
+  condition: []
+  action:
+  - type: turn_on
+    device_id: bb881aa6bf2611acde09720184bbf7af
+    entity_id: switch.steckdosenleiste
+    domain: switch
+  mode: single
