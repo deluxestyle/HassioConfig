@@ -708,7 +708,7 @@
   trigger:
   - platform: state
     entity_id: remote.harmony_hub
-    from: PowerOff
+    from: 'off'
   condition: []
   action:
   - type: turn_on

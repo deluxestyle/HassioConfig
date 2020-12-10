@@ -155,22 +155,6 @@
       is_volume_muted: '{{ not state_attr(''media_player.harman_kardon_avr'', ''is_volume_muted'')
         }}'
     service: media_player.volume_mute
-'1532173931599':
-  alias: 'Sonos: Wecker - Superfly.fm'
-  sequence:
-  - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer
-    service: sonos.unjoin
-  - data:
-      entity_id: media_player.schlafzimmer
-      volume_level: '0.03'
-    service: media_player.volume_set
-  - data:
-      entity_id: media_player.schlafzimmer
-      source: 'Radio: Superfly.fm'
-    service: media_player.select_source
-  mode: single
-  icon: mdi:alarm-note
 '1570439203461':
   alias: Badge löschen
   sequence:
