@@ -68,7 +68,6 @@
 
 - platform: uptime
   name: online_time
-  unit_of_measurement: hours 
 
 - platform: time_date
   display_options:
