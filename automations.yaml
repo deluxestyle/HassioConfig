@@ -602,7 +602,7 @@
     entity_id: binary_sensor.fenster_turkontaktsensor
   condition: []
   action:
-  - delay: 00:00:30
+  - delay: 00:01:00
   - condition: state
     state: not_home
     entity_id: person.wolfgang
