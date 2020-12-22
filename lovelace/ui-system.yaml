@@ -76,71 +76,90 @@ views:
               - entity: script.battery_persistent_notification_clear
                 tap_action: 
                   action: toggle
-      - type: custom:vertical-stack-in-card
-        horizontal: true
-        cards:
-          - type: gauge
-            name: CPU
-            unit: '%'
-            entity: sensor.processor_use
-            severity:
-              green: 0
-              yellow: 45
-              red: 85
-          - type: gauge
-            name: Memory
-            unit: '%'
-            entity: sensor.memory_use_percent
-            severity:
-              green: 0
-              yellow: 75
-              red: 90
-          - type: gauge
-            name: Swap
-            unit: '%'
-            entity: sensor.swap_use_percent
-            severity:
-              green: 0
-              yellow: 45
-              red: 85
-          - type: gauge
-            name: Temp
-            unit: '°'
-            entity: sensor.cpu_temperature
-            severity:
-              green: 0
-              yellow: 75
-              red: 85
-          - type: gauge
-            name: Disk
-            unit: '%'
-            entity: sensor.disk_use_percent
-            severity:
-              green: 0
-              yellow: 45
-              red: 85
-      # - type: glance
-      #   columns: 4
-      #   show_name: false
-      #   entities:
-      #     # - entity: sensor.processor_use
-      #     #   name: CPU        
-      #     # - entity: sensor.memory_use_percent
-      #     #   name: Memory
-      #     - entity: sensor.memory_use
+      # - type: custom:vertical-stack-in-card
+      #   horizontal: true
+      #   cards:
+      #     - type: gauge
+      #       name: CPU
+      #       unit: '%'
+      #       entity: sensor.processor_use
+      #       severity:
+      #         green: 0
+      #         yellow: 45
+      #         red: 85
+      #     - type: gauge
       #       name: Memory
-      #     # - entity: sensor.swap_use_percent
-      #     #   name: Swap
-      #       # icon: mdi:harddisk-plus            
-      #     - entity: sensor.disk_use_percent
+      #       unit: '%'
+      #       entity: sensor.memory_use_percent
+      #       severity:
+      #         green: 0
+      #         yellow: 75
+      #         red: 90
+      #     - type: gauge
+      #       name: Swap
+      #       unit: '%'
+      #       entity: sensor.swap_use_percent
+      #       severity:
+      #         green: 0
+      #         yellow: 45
+      #         red: 85
+      #     - type: gauge
+      #       name: Temp
+      #       unit: '°'
+      #       entity: sensor.cpu_temperature
+      #       severity:
+      #         green: 0
+      #         yellow: 75
+      #         red: 85
+      #     - type: gauge
       #       name: Disk
-      #     - entity: sensor.disk_use
-      #       name: Disk
-      #     # - entity: sensor.cpu_temperature
-      #     #   name: CPU Temp
-      #     #   icon: mdi:thermometer
-      #     - entity: sensor.online_time
-      #       name: Zeit
+      #       unit: '%'
+      #       entity: sensor.disk_use_percent
+      #       severity:
+      #         green: 0
+      #         yellow: 45
+      #         red: 85
+      - type: glance
+        columns: 4
+        show_name: false
+        entities:
+          - entity: sensor.processor_use
+            name: CPU   
+            style: |
+                :host {
+                  color: 
+                  {% if (states.sensor.processor_use.state | int) > 30 %}
+                    red
+                  {% endif %}
+                  ;
+                }     
+          - entity: sensor.memory_use_percent
+            name: Memory
+          - entity: sensor.disk_use_percent
+            name: Disk
+          - entity: sensor.swap_use_percent
+            name: Swap
+            icon: mdi:harddisk-plus            
+          - entity: sensor.cpu_temperature
+            name: CPU Temp
+            style: |
+                :host {
+                  color: 
+                  {% if (states.sensor.cpu_temperature.state | int) > 70 %}
+                    red
+                  {% endif %}
+                  ;
+                }
+            icon: mdi:thermometer
+          - entity: sensor.memory_use
+            name: Memory
+          - entity: sensor.disk_use
+            name: Disk
+          - entity: sensor.online_time
+            name: Zeit
+            icon: mdi:home-assistant
+          - entity: sensor.last_boot
+            icon: mdi:raspberry-pi
       - type: glance
         columns: 4
         show_name: false
