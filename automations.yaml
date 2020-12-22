@@ -366,13 +366,10 @@
       title: Xiaomi StaubRobo Hauptbürste
     service: persistent_notification.create
 - id: '1564908105933'
-  alias: 'RPI: RAM'
+  alias: 'Benachrichtigung: RAM zu hoch'
   trigger:
   - above: 80
     entity_id: sensor.memory_use_percent
-    platform: numeric_state
-  - above: 80
-    entity_id: sensor.memory_use_percent_2
     platform: numeric_state
   condition: []
   action:
@@ -385,6 +382,7 @@
       notification_id: pi
       title: Raspi
     service: script.1570439573834
+  mode: single
 - id: '1568628137654'
   alias: 'Xiaomi Staubsauger: Filter kritisch'
   trigger:
@@ -670,18 +668,6 @@
   condition: []
   action:
   - scene: scene.arbeit
-  mode: single
-- id: '1607162397763'
-  alias: NFC Tag FireTV ist gescannt
-  description: ''
-  trigger:
-  - platform: tag
-    tag_id: 0826e03f-6aa1-4197-b61d-385f5850f6af
-  condition: []
-  action:
-  - service: switch.turn_on
-    data: {}
-    entity_id: switch.fire_tv_switch
   mode: single
 - id: '1584265149080'
   alias: 'Benachrichtigung: CPU Auslastung zu hoch'
