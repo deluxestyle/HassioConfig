@@ -27,6 +27,7 @@
       - type: swap_use
       - type: swap_free
       - type: swap_use_percent
+      - type: last_boot
 
 - platform: template
   sensors:
