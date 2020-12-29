@@ -451,31 +451,6 @@
   - data:
       entity_id: switch.steckdosenleiste
     service: switch.turn_off
-- id: '1575448787825'
-  alias: Tägliches Backup (auto backup)
-  trigger:
-  - at: 00:00:00
-    platform: time
-  action:
-  - data_template:
-      keep_days: 7
-      name: Backup_{{ now().strftime('%Y-%m-%d_%H:%M') }}
-    service: auto_backup.snapshot_full
-- id: '1578168461515'
-  alias: 'Benachrichtigung: Snapshot Erfolg'
-  description: ''
-  trigger:
-  - event_data: {}
-    event_type: auto_backup.snapshot_successful
-    platform: event
-  condition: []
-  action:
-  - service: persistent_notification.create
-    data_template:
-      title: Snapshot Erfolg
-      message: 'Name: {{ trigger.event.data.name }}
-
-        Slug: {{ trigger.event.data.slug }}'
 - id: '1578168461545'
   alias: 'Benachrichtigung: Snapshot Fehler'
   trigger:
