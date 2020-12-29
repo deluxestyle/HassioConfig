@@ -24,6 +24,13 @@
 #### Addons
 * InfluxDB
 * Grafana 
+* Wireguard 
+* DuckDns (for remote access)
+* Nginx Proxy Manager (for remote access)
+* MariaDB
+* Glances
+* Samba share
+* Samba Backup (for Backup of Snapshots to a remote storage) - https://github.com/thomasmauerer/hassio-addons/tree/master/samba-backup
 
 #### Custom cards
 * fold-entity-row - https://github.com/thomasloven/lovelace-fold-entity-row
