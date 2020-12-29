@@ -53,6 +53,6 @@
 #### Alexa connection via Home Assistant Alexa Skill Adapter
 * https://github.com/mike-grant/haaska
 
-#### Screenshots (old version)
-![demo](https://github.com/deluxestyle/documentation/blob/master/Home-Assistant-2020-02-02-16-48-18.gif?raw=true)
+#### Lovelace
+![demo](https://github.com/deluxestyle/documentation/blob/master/homeassistant.gif?raw=true)
 
