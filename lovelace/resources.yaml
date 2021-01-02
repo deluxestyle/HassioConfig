@@ -6,8 +6,6 @@
   type: module
 - url: /hacsfiles/lovelace-card-tools/card-tools.js
   type: module
-- url: /local/github/thomasloven/time-input-row.js?track=true 
-  type: js
 - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
   type: module
 - url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js
@@ -27,6 +25,4 @@
 - url: /hacsfiles/simple-thermostat/simple-thermostat.js
   type: module
 - url: /hacsfiles/lovelace-battery-entity-row/battery-entity-row.js
-  type: module
-- url: /hacsfiles/harmony-card/harmony-card.js
   type: module
