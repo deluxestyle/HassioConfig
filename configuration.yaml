@@ -69,7 +69,6 @@ ios: !include config_files/ios.yaml
 homekit: !include config_files/homekit.yaml
 browser_mod: !include config_files/browser_mod.yaml
 # calendar: !include config_files/calendar.yaml
-#homematic: !include config_files/homematic.yaml
 
 sensor: !include_dir_merge_list config_files/sensors/
 
@@ -92,28 +91,8 @@ device_tracker:
       iphone_wolfgang: 192.168.200.45
       iphone_christina: 192.168.200.39
 
-bmw_connected_drive:
-  x1:
-    username: !secret bmw_user
-    password: !secret bmw_password
-    region: "rest_of_world"
-
-# camera:
-#   - platform: ffmpeg
-#     input: -rtsp_transport tcp -i rtsp://192.168.200.40:554/onvif1
-
-# auto_backup:
-#   auto_purge: true
-#   backup_timeout: 4800
-
 python_script:
-
-tplink:
 
 stream:
 
 ffmpeg:
-
-# shell_command:
-#   restart_ds118: /config/scripts/shutdown_ds118.sh
-#   backup_raspi: /config/scripts/backup.sh
