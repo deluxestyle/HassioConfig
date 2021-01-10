@@ -21,3 +21,10 @@ cards:
           - entity: sensor.hs110_watts
           - entity: sensor.hs110_amps
           - entity: sensor.hs110_volts
+  - type: entities
+    entities:
+      - entity: automation.schreibtisch_ausschalten
+        name: Automatisch ausschalten
+        icon: mdi:power-socket-eu
+        tap_action: 
+          action: toggle
