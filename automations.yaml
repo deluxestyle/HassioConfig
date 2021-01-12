@@ -678,3 +678,18 @@
     entity_id: switch.steckdosenleiste
     domain: switch
   mode: single
+- id: '1610456429371'
+  alias: Sonos Wohnzimmer
+  description: ''
+  trigger:
+  - device_id: 9e229dc321ee6394cd9a3555f307d6cb
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  condition: []
+  action:
+  - service: media_player.media_play_pause
+    data: {}
+    entity_id: media_player.wohnzimmer
+  mode: single

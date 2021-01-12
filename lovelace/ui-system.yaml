@@ -6,10 +6,6 @@ views:
   - title: System
     path: system
     icon: mdi:settings-outline
-    # panel: true
-    # cards:
-    #   - type: custom:layout-card
-    #     max_columns: 2
     cards:
       - type: entities
         entities:

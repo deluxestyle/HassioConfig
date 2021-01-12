@@ -6,10 +6,6 @@ views:
   - title: Auto
     path: car
     icon: mdi:car-hatchback
-    # panel: true
-    # cards:
-    #   - type: custom:layout-card
-    #     max_columns: 2
     cards:
         - type: entities
           entities:

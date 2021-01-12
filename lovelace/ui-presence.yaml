@@ -6,10 +6,6 @@ views:
   - title: Personen
     path: presence
     icon: mdi:account-multiple
-    # panel: true
-    # cards:
-    #   - type: custom:layout-card
-    #     max_columns: 2
     cards:
       - type: entities  
         entities:

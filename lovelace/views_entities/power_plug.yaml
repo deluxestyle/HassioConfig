@@ -3,42 +3,39 @@
 title: Steckdosen
 path: power_plug
 icon: mdi:power-socket-eu
-panel: true
 cards:
-  - type: custom:layout-card
-    cards:
-      - type: entities
+  - type: entities
+    entities:
+      - entity: switch.wifi_steckdose
+        name: Schreibtisch
+        tap_action: 
+          action: toggle
+      - type: custom:fold-entity-row
+        head: 
+          type: section
+          label: Verbrauchsdaten
+        padding: 5
         entities:
-          - entity: switch.wifi_steckdose
-            name: Schreibtisch
-            tap_action: 
-              action: toggle
-          - type: custom:fold-entity-row
-            head: 
-              type: section
-              label: Verbrauchsdaten
-            padding: 5
-            entities:
-              - entity: sensor.hs110_today_kwh
-              - entity: sensor.hs110_total_kwh
-              - entity: sensor.hs110_watts
-              - entity: sensor.hs110_amps
-              - entity: sensor.hs110_volts
-      - type: entities
-        entities:
-          - entity: switch.steckdose_3
-            tap_action: 
-              action: toggle
-      - type: entities
-        entities:
-          - entity: switch.steckdose_2
-            name: Alexa
-            icon: mdi:amazon-alexa
-            tap_action: 
-              action: toggle
-      - type: entities
-        entities:
-          - entity: switch.steckdosenleiste
-            name: Steckdose
-            tap_action: 
-              action: toggle
+          - entity: sensor.hs110_today_kwh
+          - entity: sensor.hs110_total_kwh
+          - entity: sensor.hs110_watts
+          - entity: sensor.hs110_amps
+          - entity: sensor.hs110_volts
+  - type: entities
+    entities:
+      - entity: switch.steckdose_3
+        tap_action: 
+          action: toggle
+  - type: entities
+    entities:
+      - entity: switch.steckdose_2
+        name: Alexa
+        icon: mdi:amazon-alexa
+        tap_action: 
+          action: toggle
+  - type: entities
+    entities:
+      - entity: switch.steckdosenleiste
+        name: Steckdose
+        tap_action: 
+          action: toggle
