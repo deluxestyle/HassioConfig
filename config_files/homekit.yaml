@@ -33,6 +33,7 @@ filter:
     - sensor.temperature_158d0001b8c998
     - switch.pi_hole
     - climate.fritz_dect_301
+    - person.wolfgang
     # - switch.steckdose_1
 entity_config:
     media_player.schlafzimmer:
