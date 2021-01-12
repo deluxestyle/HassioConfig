@@ -1,14 +1,7 @@
-'1532173931522':
+sonos_superfly:
   alias: 'Sonos: Superfly FM starten'
   sequence:
-  - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
-      master: media_player.wohnzimmer
-    service: sonos.join
-  - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
-      volume_level: '0.10'
-    service: media_player.volume_set
+  - service: script.sonos_join
   - data:
       entity_id: media_player.wohnzimmer
       source: 'Radio: Superfly.fm'
@@ -36,9 +29,15 @@
 '1538057479069':
   alias: 'Harmony Hub: Ausschaltbefehl'
   sequence:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: remote.harmony_hub
+      state: 'off'
   - data:
       entity_id: remote.harmony_hub
     service: remote.turn_off
+  mode: single
 '1538068809592':
   alias: Entertainment - Telekom
   sequence:
@@ -298,21 +297,15 @@ schlafen:
   - service: script.1538057479069
     data: {}
   mode: single
-'1605648603698':
+sonos_b5_aktuell:
   alias: 'Sonos: B5 aktuell'
   sequence:
-  - data:
-      entity_id: media_player.schlafzimmer, media_player.bad
-      volume_level: '0.08'
-    service: media_player.volume_set
+  - service: script.sonos_join
+    data: {}
   - data:
       entity_id: media_player.schlafzimmer
       source: 'Radio: B 5 Aktuell'
     service: media_player.select_source
-  - service: sonos.join
-    data:
-      entity_id: media_player.schlafzimmer, media_player.bad
-      master: media_player.schlafzimmer
   mode: single
 entertainment_vtuner:
   alias: Entertainment - vTuner
@@ -340,3 +333,41 @@ entertainment_airplay:
     service: remote.turn_on
   mode: single
   icon: mdi:music-box-outline
+sonos_set_volume_10:
+  alias: 'Sonos: Set volume 10'
+  sequence:
+  - data:
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      volume_level: '0.10'
+    service: media_player.volume_set
+  mode: single
+sonos_join:
+  alias: 'Sonos: join'
+  sequence:
+  - service: sonos.join
+    data:
+      entity_id: media_player.schlafzimmer, media_player.bad, media_player.wohnzimmer
+      master: media_player.schlafzimmer
+  mode: single
+sonos_set_volume_8:
+  alias: 'Sonos: Set volume 8'
+  sequence:
+  - data:
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      volume_level: '0.08'
+    service: media_player.volume_set
+  mode: single
+alles_ausschalten:
+  alias: Alles ausschalten
+  sequence:
+  - service: script.1538057479069
+    data: {}
+  - service: light.turn_off
+    data: {}
+    entity_id: light.lights_all
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.steckdosenleiste
+  - service: script.1532175994947
+    data: {}
+  mode: single

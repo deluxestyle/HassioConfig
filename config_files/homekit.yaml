@@ -10,8 +10,8 @@ filter:
     - light.wohnzimmer_decke
     - light.wohnzimmer_wand
     - light.gateway_light_7811dcb258d1
-    - script.1532173931522
-    - script.1532175994947
+    # - script.1532173931522
+    # - script.1532175994947
     - media_player.schlafzimmer
     - media_player.wohnzimmer
     - media_player.bad

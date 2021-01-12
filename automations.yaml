@@ -22,9 +22,8 @@
     to: not_home
   condition: []
   action:
-  - data:
-      entity_id: light.lights_all
-    service: light.turn_off
+  - data: {}
+    service: script.alles_ausschalten
   - data: {}
     entity_id: automation.benachrichtigung_bewegung_erkannt
     service: automation.turn_on
@@ -117,7 +116,7 @@
       state: not_home
   action:
   - data: {}
-    service: script.1532173931522
+    service: script.sonos_superfly
   mode: single
 - id: '1532273712071'
   alias: 'Harman Kardon AVR: Quelle auswählen'
@@ -590,7 +589,7 @@
     service: script.1570439573834
   mode: single
 - id: '1605645794887'
-  alias: 'ios: Schlafen gehen'
+  alias: 'ios: Ins Bett gehen'
   description: ''
   trigger:
   - platform: event
@@ -601,7 +600,9 @@
   action:
   - service: script.schlafen
     data: {}
-  - service: script.1605648603698
+  - service: script.sonos_set_volume_8
+    data: {}
+  - service: script.sonos_b5_aktuell
     data: {}
   mode: single
 - id: '1605647273709'
@@ -617,9 +618,10 @@
   - service: light.turn_on
     data: {}
     entity_id: light.yeelight_bslamp1_0x0000000005451cd6
-  - service: light.turn_on
+  - service: script.sonos_set_volume_8
     data: {}
-    entity_id: light.schlafzimmer
+  - service: script.sonos_superfly
+    data: {}
   mode: single
 - id: '1605647273710'
   alias: Restore Samba Backup sensor on startup
@@ -692,4 +694,17 @@
   - service: media_player.media_play_pause
     data: {}
     entity_id: media_player.wohnzimmer
+  mode: single
+- id: '1610484235278'
+  alias: 'ios: Schlafen'
+  description: ''
+  trigger:
+  - platform: event
+    event_type: ios.action_fired
+    event_data:
+      actionName: sleep
+  condition: []
+  action:
+  - service: script.alles_ausschalten
+    data: {}
   mode: single
