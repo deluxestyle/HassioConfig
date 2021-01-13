@@ -11,13 +11,13 @@ entities:
   - type: "custom:paper-buttons-row"
     buttons:
       - entity: light.wohnzimmer_decke
-        name: Decke
+        name: Couch
         tap_action:
           action: toggle
         hold_action:
           action: more-info
       - entity: light.wohnzimmer_schreibtisch
-        name: Tisch
+        name: Decke
         tap_action:
           action: toggle
         hold_action:

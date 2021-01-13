@@ -1,7 +1,7 @@
 type: entities
 entities:
-  - type: "custom:paper-buttons-row"
-    buttons:
+  - type: buttons
+    entities:
       - entity: switch.tv_switch
         name: false
         tap_action:
