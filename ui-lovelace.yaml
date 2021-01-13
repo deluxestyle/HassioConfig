@@ -7,24 +7,6 @@ popup_cards:
 # -----------------------------
 title: Home
 views:
-##### Licht #####
-  # - !include lovelace/views_entities/light.yaml
-
-##### Heizung #####
-  # - !include lovelace/views_entities/radiator.yaml
-
-##### Musik #####
-  # - !include lovelace/views_entities/music.yaml
-
-##### Entertainment #####
-  # - !include lovelace/views_entities/entertainment.yaml
-
-##### Steckdosen #####
-  # - !include lovelace/views_entities/power_plug.yaml
-
-##### Home #####
-  # - !include lovelace/views_rooms/view_home.yaml
-
 ##### Wohnzimmer #####
   - !include lovelace/views_rooms/view_living_room.yaml
 
