@@ -23,7 +23,7 @@ actions:
   - name: gotobed
     background_color: "#000000"
     label:
-      text: "Schlafen gehen"
+      text: "Schlafenszeit"
     icon:
       icon: bed
   - name: sleep
@@ -38,9 +38,3 @@ actions:
       text: "Aufwachen"
     icon:
       icon: weather-sunny
-  - name: leave
-    background_color: "#000000"
-    label:
-      text: "Wohnung verlassen"
-    icon:
-      icon: home-export-outline

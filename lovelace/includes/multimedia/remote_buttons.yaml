@@ -3,27 +3,27 @@ entities:
   - type: buttons
     entities:
       - entity: switch.tv_switch
-        name: false
+        show_name: false
         tap_action:
           haptic: light
           action: toggle
       - entity: switch.fire_tv_switch
-        name: false
+        show_name: false
         tap_action:
           haptic: light
           action: toggle
       - entity: switch.music_switch
-        name: false
+        show_name: false
         tap_action:
           haptic: light
           action: toggle
       - entity: switch.vtuner_switch
-        name: false
+        show_name: false
         tap_action:
           haptic: light
           action: toggle
       - entity: switch.airplay_switch
-        name: false
+        show_name: false
         tap_action:
           haptic: light
           action: toggle

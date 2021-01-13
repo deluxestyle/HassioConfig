@@ -6,6 +6,25 @@ entities:
   - entity: light.schlafzimmer
     icon: mdi:ceiling-light
     name: Decke
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    extend_paper_buttons_row:
+      # position defaults to center.
+      buttons:
+        - entity: scene.schlafzimmer_nachtlicht
+          icon: mdi:brightness-3
+          name: false
+        - entity: scene.schlafzimmer_gedimmt
+          icon: mdi:brightness-4
+          name: false
+        - entity: scene.schlafzimmer_hell
+          icon: mdi:brightness-5
+          name: false
+          style:
+            button:
+              margin-right: 15px
   - entity: light.yeelight_bslamp1_0x0000000005451cd6
     name: Nachtlicht
     tap_action:

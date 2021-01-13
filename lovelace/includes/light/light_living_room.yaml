@@ -30,6 +30,7 @@ entities:
         hold_action:
           action: more-info
       - name: Szenen
+        icon: mdi:lightbulb-group-outline
         tap_action: 
           action: call-service
           service: browser_mod.popup

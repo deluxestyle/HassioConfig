@@ -202,22 +202,6 @@ sonos_superfly:
   - data: {}
     service: python_script.dismiss_notifications
   - service: script.battery_persistent_notification_clear
-'1579815606545':
-  alias: 'Frontend: Standard'
-  sequence:
-  - data:
-      name: standard
-    service: frontend.set_theme
-  - entity_id: input_boolean.frontend
-    service: input_boolean.turn_off
-'1579815723738':
-  alias: 'Frontend: Nacht'
-  sequence:
-  - data:
-      name: night
-    service: frontend.set_theme
-  - entity_id: input_boolean.frontend
-    service: input_boolean.turn_on
 '1586021623720':
   alias: Entertainment - Fire TV
   sequence:

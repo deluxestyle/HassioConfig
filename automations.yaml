@@ -589,7 +589,7 @@
     service: script.1570439573834
   mode: single
 - id: '1605645794887'
-  alias: 'ios: Ins Bett gehen'
+  alias: 'ios: Schlafenszeit'
   description: ''
   trigger:
   - platform: event
@@ -606,7 +606,7 @@
     data: {}
   mode: single
 - id: '1605647273709'
-  alias: 'ios: Aufstehen'
+  alias: 'ios: Aufwachen'
   description: ''
   trigger:
   - platform: event
