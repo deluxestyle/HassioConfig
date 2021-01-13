@@ -34,9 +34,6 @@ views:
 ##### Schlafzimmer #####
   - !include lovelace/views_rooms/view_bed_room.yaml
 
-# ##### Büro #####
-#   - !include lovelace/views_rooms/view_office.yaml
-
 ##### Küche #####
   - !include lovelace/views_rooms/view_kitchen.yaml
 
