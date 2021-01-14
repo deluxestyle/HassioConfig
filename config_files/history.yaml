@@ -38,3 +38,4 @@ include:
     - sensor.wireguard_ipad
     - sensor.wireguard_iphonepro
     - binary_sensor.fenster_turkontaktsensor
+    - binary_sensor.bewegungsmelder

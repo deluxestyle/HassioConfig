@@ -58,8 +58,6 @@ views:
             secondary_info: last-changed
           - entity: binary_sensor.bewegungsmelder
             secondary_info: last-changed
-            tap_action: 
-              action: none
           # - entity: sensor.illumination_158d00023e77cb
           #   tap_action: 
           #     action: none

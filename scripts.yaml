@@ -355,3 +355,11 @@ alles_ausschalten:
   - service: script.1532175994947
     data: {}
   mode: single
+sonos_set_volume_4:
+  alias: 'Sonos: Set volume 4'
+  sequence:
+  - data:
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      volume_level: '0.04'
+    service: media_player.volume_set
+  mode: single
