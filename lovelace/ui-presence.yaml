@@ -27,16 +27,11 @@ views:
                 icon: mdi:account-outline
                 tap_action: 
                   action: toggle
-          - type: custom:auto-entities
-            card:
-              type: custom:fold-entity-row
-              head:
-                type: section
-                label: Sonos Automation
-              padding: 5
-            filter:
-                include:
-                  - entity_id: "switch.sonos_alarm_*"
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Sonos Automation
+            padding: 5
             entities:
               - entity: automation.sonos_starten
                 icon: mdi:music

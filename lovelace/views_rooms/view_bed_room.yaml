@@ -8,5 +8,13 @@ cards:
   - !include
       - ../includes/multimedia/mini_media_player.yaml
       - entity: media_player.schlafzimmer
+  - type: custom:auto-entities
+    show_empty: false
+    card:
+      type: entities
+      show_header_toggle: false
+    filter:
+        include:
+          - entity_id: "switch.sonos_alarm_*"
   - !include ../includes/climate/climate_bed_room.yaml
                

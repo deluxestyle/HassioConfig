@@ -8,9 +8,7 @@ db_url: mysql://homeassistant:homeassistant@core-mariadb/homeassistant?charset=u
 #     - light
 #     - media_player
 #     - scene
-#     - switch
 #     - camera
-#     - switch
 #     - binary_sensor
 #     - climate
 #     - calendar
@@ -21,6 +19,9 @@ db_url: mysql://homeassistant:homeassistant@core-mariadb/homeassistant?charset=u
 #     - sun.sun
 #     - counter.badge_counter
 include:
+  domains:
+    - automation
+    - switch
   entities:
     - sensor.disk_free
     - sensor.memory_free
@@ -60,3 +61,4 @@ include:
     - sensor.wireguard_ipad
     - sensor.wireguard_iphonepro
     - binary_sensor.fenster_turkontaktsensor
+    - binary_sensor.bewegungsmelder
