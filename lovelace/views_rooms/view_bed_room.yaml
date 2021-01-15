@@ -13,6 +13,14 @@ cards:
     card:
       type: entities
       show_header_toggle: false
+    entities:
+      - entity: switch.schedule_sonos_wecker
+        icon: mdi:alarm
+        name: Wecker
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
     filter:
         include:
           - entity_id: "switch.sonos_alarm_*"
