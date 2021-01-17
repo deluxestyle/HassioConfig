@@ -1,0 +1,25 @@
+- platform: template
+  sensors:
+    updater_supervisor:
+      friendly_name: Updater Supervisor
+      unique_id: updater_supervisor
+      device_class: problem
+      value_template: >
+        {% if states('sensor.updater_supervisor')|lower in ['unknown','unavailable','none'] %} false
+        {% else %}{{ state_attr('sensor.updater_supervisor','current_version') != state_attr('sensor.updater_supervisor','newest_version') }}
+        {% endif %}
+      availability_template: "{{ (states('sensor.updater_supervisor')|int(-1)) > -1 }}"
+
+    updater_hacs:
+      friendly_name: Updater - HACS
+      unique_id: updater_hacs
+      device_class: problem
+      value_template: "{{ states('sensor.hacs')|int > 0 }}"
+      availability_template: "{{ states('sensor.hacs')|lower not in ['unknown','unavailable','none'] }}"
+
+    updater_addons:
+      friendly_name: Updater - Addons
+      unique_id: updater_addons
+      device_class: problem
+      value_template: "{{ states('sensor.updater_supervisor')|int > 0 }}"
+      availability_template: "{{ states('sensor.updater_supervisor')|lower not in ['unknown','unavailable','none'] }}"

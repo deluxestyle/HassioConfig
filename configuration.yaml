@@ -71,6 +71,7 @@ browser_mod: !include config_files/browser_mod.yaml
 # calendar: !include config_files/calendar.yaml
 
 sensor: !include_dir_merge_list config_files/sensors/
+binary_sensor: !include_dir_merge_list config_files/binary_sensors/
 
 vacuum:
   - platform: xiaomi_miio

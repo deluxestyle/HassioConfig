@@ -173,11 +173,34 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - entity: binary_sensor.updater
-            name: HA Updates
+          - entity:  sensor.updater_core
             type: custom:multiple-entity-row
-            secondary_info:
-              attribute: newest_version
+            name: Update Core
+            show_state: false
+            icon: mdi:update
+            entities:
+              - attribute: current_version
+                name: Installiert
+              - attribute: newest_version
+                name: Verfügbar
+            tap_action: 
+              action: call-service
+              service: browser_mod.navigate
+              service_data: 
+                navigation_path: /hassio
+                deviceID: this
+          - entity:  sensor.updater_supervisor
+            type: custom:multiple-entity-row
+            name: Update Supervisor
+            icon: mdi:update
+            show_state: false
+            entities:
+              - attribute: current_version
+                name: Installiert
+              - attribute: newest_version
+                name: Verfügbar
+              - attribute: addons
+                name: Addons
             tap_action: 
               action: call-service
               service: browser_mod.navigate

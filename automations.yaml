@@ -1,18 +1,25 @@
 - id: update_notification
   alias: 'Benachrichtigung:  Update HASS'
   trigger:
-  - entity_id: binary_sensor.updater
-    platform: state
-    to: 'on'
+  - platform: state
+    from: 'off'
+    entity_id: binary_sensor.updater_addons
+  - platform: state
+    from: 'off'
+    entity_id: binary_sensor.updater_hacs
+  - platform: state
+    entity_id: binary_sensor.updater_supervisor
+    from: 'off'
   action:
   - data:
       entity_id: input_boolean.persistent_notification
     service: input_boolean.turn_on
   - data:
-      message: There is a new Home Assistant release available
-      notification_id: hass_io
-      title: Hass.io
+      message: Update für Home Assitant verfügbar
+      notification_id: system_update
+      title: Update
     service: script.1570439573834
+  mode: single
 - id: family_not_home
   alias: Abwesenheitsschaltung
   description: Schaltet alle Lichter und Steckdosen aus und aktiviert den Bewegungssensor
