@@ -156,7 +156,7 @@ light.lights_bed_room:
   icon: mdi:ceiling-light
 light.wohnzimmer_decke:
   icon: mdi:ceiling-light
-light.wohnzimmer_schreibtisch:
+light.wohnzimmer_couch:
   icon: mdi:ceiling-light
 media_player.harman_kardon_avr:
   icon: mdi:speaker-wireless

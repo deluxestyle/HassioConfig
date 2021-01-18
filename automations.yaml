@@ -641,19 +641,6 @@
       addon: 15d21743_samba_backup
       input: restore-sensor
   mode: single
-- id: '1606848445243'
-  alias: Smart Switch
-  description: ''
-  trigger:
-  - device_id: 3f1037cf01e8ef7fb530eabb7c595509
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  condition: []
-  action:
-  - scene: scene.arbeit
-  mode: single
 - id: '1584265149080'
   alias: 'Benachrichtigung: CPU Auslastung zu hoch'
   description: ''
@@ -687,21 +674,6 @@
     entity_id: switch.steckdosenleiste
     domain: switch
   mode: single
-- id: '1610456429371'
-  alias: Sonos Wohnzimmer
-  description: ''
-  trigger:
-  - device_id: 9e229dc321ee6394cd9a3555f307d6cb
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  condition: []
-  action:
-  - service: media_player.media_play_pause
-    data: {}
-    entity_id: media_player.wohnzimmer
-  mode: single
 - id: '1610484235278'
   alias: 'ios: Schlafen'
   description: ''
@@ -714,4 +686,18 @@
   action:
   - service: script.alles_ausschalten
     data: {}
+  mode: single
+- id: '1610907140746'
+  alias: 'Harmony: Airplay - Telekom'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.remote_state
+    to: AirPlay
+    for: 00:10:00
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.telekom_mr_401
   mode: single

@@ -10,6 +10,6 @@ cards:
       - entity: media_player.bad
   - type: entities
     entities:
-      - entity: switch.steckdose_bad
+      - entity: switch.steckdose_1
         name: Alexa
         icon: mdi:amazon-alexa

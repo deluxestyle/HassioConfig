@@ -6,7 +6,7 @@ filter:
     - light.kuche_decke
     - light.dunstabzug 
     - light.schlafzimmer
-    - light.wohnzimmer_schreibtisch
+    - light.wohnzimmer_couch
     - light.wohnzimmer_decke
     - light.wohnzimmer_wand
     - light.gateway_light_7811dcb258d1
@@ -22,7 +22,7 @@ filter:
     - switch.vacuum
     - switch.wifi_steckdose #Schreibtisch
     - switch.steckdosenleiste #Steckdosenleiste
-    - switch.steckdose_bad #Alexa
+    - switch.steckdose_1 #Alexa
     - sensor.humidity_158d0001b8c96c
     - sensor.humidity_158d0001b8c998
     - sensor.humidity_158d0002239fb5

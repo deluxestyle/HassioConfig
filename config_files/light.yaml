@@ -15,7 +15,7 @@
 - platform: group
   name: lights_living_room
   entities:
-      - light.wohnzimmer_schreibtisch
+      - light.wohnzimmer_couch
       - light.wohnzimmer_decke
       - light.wohnzimmer_wand
 
