@@ -701,3 +701,33 @@
     data: {}
     entity_id: switch.telekom_mr_401
   mode: single
+- id: '1610972882769'
+  alias: 'Sonos: Wohnzimmer'
+  description: ''
+  trigger:
+  - device_id: ca5c7f2d9583f824073381bc650902cd
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  condition: []
+  action:
+  - service: media_player.media_play_pause
+    data: {}
+    entity_id: media_player.wohnzimmer
+  mode: single
+- id: '1610972932012'
+  alias: 'Schreibtisch: Arbeiten'
+  description: ''
+  trigger:
+  - device_id: a955261a32066a37020dbc5ffa64788c
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  condition: []
+  action:
+  - service: scene.turn_on
+    data: {}
+    entity_id: scene.arbeit
+  mode: single

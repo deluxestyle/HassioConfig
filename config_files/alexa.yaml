@@ -5,7 +5,7 @@ smart_home:
       - light.kuche_decke
       - light.dunstabzug 
       - light.schlafzimmer
-      - light.wohnzimmer_decke
+      - light.wohnzimmer_couch
       - light.wohnzimmer_decke
       - light.wohnzimmer_wand
       - switch.tv_switch
