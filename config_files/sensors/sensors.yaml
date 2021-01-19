@@ -97,3 +97,5 @@
   - iphonepro
   - ipad
   value_template: "OK"
+
+- platform: authenticated

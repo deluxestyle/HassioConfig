@@ -694,9 +694,12 @@
   - platform: state
     entity_id: sensor.remote_state
     to: AirPlay
-    for: 00:10:00
   condition: []
   action:
+  - delay: 00:10:00
+  - condition: state
+    entity_id: sensor.remote_state
+    state: AirPlay
   - service: switch.turn_off
     data: {}
     entity_id: switch.telekom_mr_401

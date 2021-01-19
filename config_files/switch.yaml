@@ -86,16 +86,6 @@
         - service: vacuum.return_to_base
           entity_id: vacuum.xiaomi_vacuum_cleaner
     ###############################################
-    ###### Sonstiges ######
-    pi_hole_switch:
-      friendly_name: "Pi-hole"
-      value_template: "{{ is_state('sensor.pihole', 'enabled') }}"
-      turn_on:
-        service: pi_hole.enable
-      turn_off:
-        service: pi_hole.disable
-        data:
-          duration: '12:00:00'
 
 ###############################################
 - platform: wake_on_lan
