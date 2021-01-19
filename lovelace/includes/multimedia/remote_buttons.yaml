@@ -1,5 +1,32 @@
 type: entities
 entities:
+  - type: "custom:paper-buttons-row"
+    buttons:
+      - icon: mdi:volume-minus
+        name: false
+        tap_action:
+          haptic: light
+          action: call-service
+          service: media_player.volume_down
+          service_data:
+            entity_id: media_player.harman_kardon_avr
+      - icon: mdi:volume-plus
+        name: false
+        tap_action:
+          haptic: light
+          action: call-service
+          service: media_player.volume_up
+          service_data:
+            entity_id: media_player.harman_kardon_avr
+      - icon: mdi:volume-off
+        name: false
+        tap_action:
+          haptic: light
+          action: call-service
+          service: script.toggle
+          service_data:
+            entity_id: script.1565444624817  
+  - type: section
   - type: buttons
     entities:
       - entity: switch.tv_switch
@@ -27,29 +54,5 @@ entities:
         tap_action:
           haptic: light
           action: toggle
-  - type: "custom:paper-buttons-row"
-    buttons:
-      - icon: mdi:volume-minus
-        name: false
-        tap_action:
-          haptic: light
-          action: call-service
-          service: media_player.volume_down
-          service_data:
-            entity_id: media_player.harman_kardon_avr
-      - icon: mdi:volume-plus
-        name: false
-        tap_action:
-          haptic: light
-          action: call-service
-          service: media_player.volume_up
-          service_data:
-            entity_id: media_player.harman_kardon_avr
-      - icon: mdi:volume-off
-        name: false
-        tap_action:
-          haptic: light
-          action: call-service
-          service: script.toggle
-          service_data:
-            entity_id: script.1565444624817
+  - type: section
+  - input_select.avr_source

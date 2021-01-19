@@ -13,7 +13,3 @@ cards:
               action: none
           - type: section
       - !include ../includes/multimedia/remote_buttons.yaml
-      - type: entities
-        entities:
-          - type: section
-          - input_select.avr_source

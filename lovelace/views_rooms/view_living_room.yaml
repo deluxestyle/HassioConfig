@@ -14,13 +14,10 @@ popup_cards:
         }
       type: custom:vertical-stack-in-card
       cards:
-        - type: entities
-          entities:
-            - entity: sensor.remote_state
+        # - type: entities
+        #   entities:
+        #     - entity: sensor.remote_state
         - !include ../includes/multimedia/remote_buttons.yaml
-        - type: entities
-          entities:
-            - input_select.avr_source
 cards:
   - !include ../includes/light/light_living_room.yaml
   - type: entities

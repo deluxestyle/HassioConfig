@@ -175,7 +175,7 @@ views:
         entities:
           - entity:  sensor.updater_core
             type: custom:multiple-entity-row
-            name: Update Core
+            name: Core
             show_state: false
             icon: mdi:update
             entities:
@@ -191,7 +191,7 @@ views:
                 deviceID: this
           - entity:  sensor.updater_supervisor
             type: custom:multiple-entity-row
-            name: Update Supervisor
+            name: Supervisor
             icon: mdi:update
             show_state: false
             entities:
@@ -208,7 +208,7 @@ views:
                 navigation_path: /hassio
                 deviceID: this
           - entity: sensor.hacs
-            name: Hacs Updates
+            name: Hacs
             tap_action: 
               action: call-service
               service: browser_mod.navigate
