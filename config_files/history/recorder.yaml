@@ -1,0 +1,8 @@
+purge_keep_days: 5
+auto_purge: true
+db_url: mysql://homeassistant:homeassistant@core-mariadb/homeassistant?charset=utf8
+exclude:
+    entities:
+      - automation.battery_persistent_notification
+include:
+  !include entities.yaml

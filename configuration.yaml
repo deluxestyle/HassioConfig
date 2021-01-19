@@ -41,7 +41,8 @@ logger:
 updater:
   include_used_components: true
   
-history: !include config_files/history.yaml
+history: !include config_files/history/history.yaml
+recorder: !include config_files/history/recorder.yaml
 
 logbook:
   exclude:
@@ -54,7 +55,6 @@ script: !include scripts.yaml
 automation: !include automations.yaml
 scene: !include scenes.yaml
 
-recorder: !include config_files/recorder.yaml
 alexa: !include config_files/alexa.yaml
 switch: !include config_files/switch.yaml  
 light: !include config_files/light.yaml
