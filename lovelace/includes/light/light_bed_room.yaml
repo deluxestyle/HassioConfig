@@ -11,7 +11,6 @@ entities:
     hold_action:
       action: more-info
     extend_paper_buttons_row:
-      # position defaults to center.
       buttons:
         - entity: scene.schlafzimmer_nachtlicht
           icon: mdi:brightness-3

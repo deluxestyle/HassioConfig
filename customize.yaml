@@ -119,8 +119,6 @@ script.1538068809592:
   icon: mdi:television
 script.1538072504227:
   icon: mdi:music
-script.1538057479069:
-  icon: mdi:television-off
 input_datetime.radiator_bath_1:
   friendly_name: Startzeit
 automation.bewegungsmelder_alarm:
@@ -250,3 +248,4 @@ sensor.fritzbox:
   icon: mdi:phone-voip
 switch.fire_tv_switch:
   icon: mdi:television-play
+script.1538057479069: {}

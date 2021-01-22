@@ -444,19 +444,24 @@
       entity_id: switch.steckdosenleiste
     service: switch.turn_on
 - id: '1574071080398'
-  alias: Steckdose ausschalten (um Mitternacht)
+  alias: Steckdosenleiste ausschalten
   description: ''
   trigger:
   - at: 00:01:00
     platform: time
+  - platform: state
+    entity_id: remote.harmony_hub
+    to: 'off'
   condition:
   - condition: state
     entity_id: remote.harmony_hub
     state: 'off'
   action:
+  - delay: 00:01:00
   - data:
       entity_id: switch.steckdosenleiste
     service: switch.turn_off
+  mode: single
 - id: '1578168461545'
   alias: 'Benachrichtigung: Snapshot Fehler'
   trigger:

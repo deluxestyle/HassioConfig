@@ -8,6 +8,45 @@ entities:
       action: toggle
     hold_action:
         action: more-info
+    extend_paper_buttons_row:
+      buttons:
+        - name: Szenen
+          icon: mdi:lightbulb-group-outline
+          tap_action: 
+            action: call-service
+            service: browser_mod.popup
+            service_data:
+              deviceID: this
+              title: Szenen
+              card:
+                style: |
+                  ha-card {
+                    --ha-card-box-shadow: 'none';
+                    --ha-card-border-radius: "0px";
+                  }
+                type: entities
+                entities: 
+                    - entity: scene.wohnzimmer_hell
+                      name: Hell
+                      icon: mdi:lightbulb-group-outline
+                    - entity: scene.wohnzimmer_lesen
+                      name: Lesen
+                      icon: mdi:lightbulb-group-outline
+                    - entity: scene.wohnzimmer_entspannen
+                      name: Entspannen
+                      icon: mdi:lightbulb-group-outline
+                    - entity: scene.wohnzimmer_energie_tanken
+                      name: Energie tanken
+                      icon: mdi:lightbulb-group-outline
+                    - entity: scene.wohnzimmer_konzentrieren
+                      name: Konzentrieren
+                      icon: mdi:lightbulb-group-outline
+                    - entity: scene.wohnzimmer_gedimmt
+                      name: Gedimmt
+                      icon: mdi:lightbulb-group-outline
+                    - entity: scene.wohnzimmer_nachtlicht
+                      name: Nachtlicht
+                      icon: mdi:lightbulb-group-outline
   - type: "custom:paper-buttons-row"
     buttons:
       - entity: light.wohnzimmer_decke
@@ -29,40 +68,3 @@ entities:
           action: toggle
         hold_action:
           action: more-info
-      - name: Szenen
-        icon: mdi:lightbulb-group-outline
-        tap_action: 
-          action: call-service
-          service: browser_mod.popup
-          service_data:
-            deviceID: this
-            title: Szenen
-            card:
-              style: |
-                ha-card {
-                  --ha-card-box-shadow: 'none';
-                  --ha-card-border-radius: "0px";
-                }
-              type: entities
-              entities: 
-                  - entity: scene.wohnzimmer_hell
-                    name: Hell
-                    icon: mdi:lightbulb-group-outline
-                  - entity: scene.wohnzimmer_lesen
-                    name: Lesen
-                    icon: mdi:lightbulb-group-outline
-                  - entity: scene.wohnzimmer_entspannen
-                    name: Entspannen
-                    icon: mdi:lightbulb-group-outline
-                  - entity: scene.wohnzimmer_energie_tanken
-                    name: Energie tanken
-                    icon: mdi:lightbulb-group-outline
-                  - entity: scene.wohnzimmer_konzentrieren
-                    name: Konzentrieren
-                    icon: mdi:lightbulb-group-outline
-                  - entity: scene.wohnzimmer_gedimmt
-                    name: Gedimmt
-                    icon: mdi:lightbulb-group-outline
-                  - entity: scene.wohnzimmer_nachtlicht
-                    name: Nachtlicht
-                    icon: mdi:lightbulb-group-outline

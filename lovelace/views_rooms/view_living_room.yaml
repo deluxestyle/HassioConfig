@@ -14,9 +14,6 @@ popup_cards:
         }
       type: custom:vertical-stack-in-card
       cards:
-        # - type: entities
-        #   entities:
-        #     - entity: sensor.remote_state
         - !include ../includes/multimedia/remote_buttons.yaml
 cards:
   - !include ../includes/light/light_living_room.yaml
@@ -24,6 +21,12 @@ cards:
     entities:
       - entity: sensor.remote_state
         name: Entertainment
+        extend_paper_buttons_row:
+          position: right
+          buttons:
+            - entity: script.1538057479069
+              name: false
+              icon: mdi:power
       - entity: switch.steckdosenleiste
         name: Steckdosenleiste
         tap_action: 
