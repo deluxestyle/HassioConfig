@@ -5,10 +5,10 @@
     from: 'off'
     entity_id: binary_sensor.updater_addons
   - platform: state
-    from: 'off'
-    entity_id: binary_sensor.updater_hacs
-  - platform: state
     entity_id: binary_sensor.updater_supervisor
+    from: 'off'
+  - platform: state
+    entity_id: sensor.updater_core
     from: 'off'
   action:
   - data:
@@ -39,7 +39,7 @@
     entity_id: automation.benachrichtigung_wohnungstur_offen
   mode: single
 - id: xiaomi_vacuum_notification_off
-  alias: 'Xiaomi Staubsauger: fertig'
+  alias: 'Xiaomi Staubsauger: Benachrichtigung fertig'
   trigger:
   - entity_id: sensor.xiaomi_vacuum_status
     platform: state
@@ -55,8 +55,9 @@
       notification_id: xiaomi_vacuum_status
       title: StaubRobo
     service: script.1570439573834
+  mode: single
 - id: xiaomi_vacuum_notification_on
-  alias: 'Xiaomi Staubsauger: gestartet'
+  alias: 'Xiaomi Staubsauger: Benachrichtigung gestartet'
   trigger:
   - entity_id: vacuum.xiaomi_vacuum_cleaner
     from: docked
@@ -69,8 +70,9 @@
           category: vacuum_stop
       message: Staubsauger gestartet
     service: notify.mobile_app_iphone11pro
+  mode: single
 - id: xiaomi_vacuum_notification_blocked
-  alias: 'Xiaomi Staubsauger: Fehler'
+  alias: 'Xiaomi Staubsauger: Benachrichtigung Fehler'
   trigger:
   - entity_id: vacuum.xiaomi_vacuum_cleaner
     platform: state
@@ -89,6 +91,7 @@
       notification_id: xiaomi_vacuum_error
       title: StaubRobo
     service: script.1570439573834
+  mode: single
 - id: '1523001167559'
   alias: 'Xiaomi Staubsauger: Neustart'
   trigger:
@@ -107,7 +110,7 @@
       entity_id: counter.xiaomo_errors
     service: counter.increment
 - id: '1532176861984'
-  alias: Sonos automatisch starten
+  alias: 'Sonos: automatisch starten'
   trigger:
   - entity_id: device_tracker.iphone11pro
     platform: state
@@ -245,9 +248,9 @@
   - data: {}
     service: script.1541097052191
 - id: '1542650541048'
-  alias: 'Xiaomi Staubsauger: Sensor kritisch'
+  alias: 'Xiaomi Staubsauger: Benachrichtigung Sensor kritisch'
   trigger:
-  - below: 4
+  - below: '4'
     entity_id: sensor.xiaomi_vacuum_sensor_dirty_left
     platform: numeric_state
   condition: []
@@ -258,6 +261,7 @@
       notification_id: xiaomi_sensor
       title: Xiaomi StaubRobo
     service: persistent_notification.create
+  mode: single
 - id: '1542974689604'
   alias: Anwesenheitsschaltung
   description: Deaktiviert den Bewegungssensor
@@ -271,7 +275,7 @@
       entity_id: automation.benachrichtigung_bewegung_erkannt
     service: automation.turn_off
 - id: '1543619209115'
-  alias: Starte Services nach Neustart
+  alias: 'Startup: Restart Services'
   trigger:
   - event: start
     platform: homeassistant
@@ -282,6 +286,7 @@
   - data:
       entity_id: sensor.car_km_usage
     service: homeassistant.update_entity
+  mode: single
 - id: '1544816542688'
   alias: 'Xiaomi Staubsauger: Error stop'
   trigger:
@@ -348,7 +353,7 @@
       fan_speed: Turbo
     service: vacuum.set_fan_speed
 - id: '1554536389566'
-  alias: Sonos stoppen
+  alias: 'Sonos: stoppen'
   trigger:
   - entity_id: person.wolfgang
     from: home
@@ -390,9 +395,9 @@
     service: script.1570439573834
   mode: single
 - id: '1568628137654'
-  alias: 'Xiaomi Staubsauger: Filter kritisch'
+  alias: 'Xiaomi Staubsauger: Benachrichtigung Filter kritisch'
   trigger:
-  - below: 2
+  - below: '2'
     entity_id: sensor.xiaomi_vacuum_filter_left
     platform: numeric_state
   condition: []
@@ -406,8 +411,9 @@
       notification_id: xiaomi_filter
       title: Xiaomi StaubRobo
     service: script.1570439573834
+  mode: single
 - id: '1570440017469'
-  alias: Badge zurücksetzen
+  alias: 'Benachrichtigung: Badge zurücksetzen'
   trigger:
   - event_data: {}
     event_type: ios.became_active
@@ -415,8 +421,9 @@
   condition: []
   action:
   - service: script.1570439203461
+  mode: single
 - id: '1571050762220'
-  alias: Xiaomi Fehler Hinweis
+  alias: 'Xiaomi Staubsauger: Fehler Hinweis'
   trigger:
   - entity_id: sensor.presence
     platform: state
@@ -431,20 +438,8 @@
       entity_id: vacuum.xiaomi_vacuum_cleaner
     service: vacuum.locate
   mode: single
-- id: '1573317974047'
-  alias: Harmony - Wifi Steckdose
-  description: ''
-  trigger:
-  - entity_id: sensor.remote_state
-    platform: state
-    to: WifiPlug
-  condition: []
-  action:
-  - data:
-      entity_id: switch.steckdosenleiste
-    service: switch.turn_on
 - id: '1574071080398'
-  alias: Steckdosenleiste ausschalten
+  alias: 'Entertainment: Steckdosenleiste ausschalten'
   description: ''
   trigger:
   - at: 00:01:00
@@ -513,12 +508,12 @@
       title: Anruf
     service: script.1570439573834
 - id: '1568628137987'
-  alias: KM Stand kritisch
+  alias: 'Benachrichtigung: KM Stand kritisch'
   trigger:
   - entity_id: sensor.car_km_usage
     platform: state
   condition:
-  - above: 99
+  - above: '99'
     condition: numeric_state
     entity_id: sensor.car_km_usage
   action:
@@ -534,8 +529,9 @@
   - data:
       entity_id: automation.km_stand_kritisch
     service: automation.turn_off
+  mode: single
 - id: '1571298248677'
-  alias: Auto Sensoren aktualisieren
+  alias: 'Auto: Sensoren aktualisieren'
   trigger:
   - at: 01:00:00
     platform: time
@@ -564,7 +560,7 @@
   - scene: scene.nachtlicht_hell
   mode: single
 - id: '1604680008982'
-  alias: Schreibtisch ausschalten
+  alias: 'Schreibtisch: Steckdose ausschalten'
   description: ''
   trigger:
   - platform: state
@@ -601,7 +597,7 @@
     service: script.1570439573834
   mode: single
 - id: '1605645794887'
-  alias: 'ios: Schlafenszeit'
+  alias: 'iOS: Schlafenszeit'
   description: ''
   trigger:
   - platform: event
@@ -618,7 +614,7 @@
     data: {}
   mode: single
 - id: '1605647273709'
-  alias: 'ios: Aufwachen'
+  alias: 'iOS: Aufwachen'
   description: ''
   trigger:
   - platform: event
@@ -636,7 +632,7 @@
     data: {}
   mode: single
 - id: '1605647273710'
-  alias: Restore Samba Backup sensor on startup
+  alias: 'Startup: Restore Samba Backup sensor'
   trigger:
   - event: start
     platform: homeassistant
@@ -650,7 +646,7 @@
   alias: 'Benachrichtigung: CPU Auslastung zu hoch'
   description: ''
   trigger:
-  - above: '50'
+  - above: 50
     for: 00:10:00
     platform: numeric_state
     entity_id: sensor.processor_use
@@ -666,7 +662,7 @@
     service: script.1570439573834
   mode: single
 - id: '1607432908571'
-  alias: 'Entertainment: Steckdosenleiste'
+  alias: 'Entertainment: Steckdosenleiste einschalten'
   description: ''
   trigger:
   - platform: state
@@ -680,7 +676,7 @@
     domain: switch
   mode: single
 - id: '1610484235278'
-  alias: 'ios: Schlafen'
+  alias: 'iOS: Schlafen'
   description: ''
   trigger:
   - platform: event
