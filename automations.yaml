@@ -735,3 +735,17 @@
     data: {}
     entity_id: scene.arbeit
   mode: single
+- id: '1611326546621'
+  alias: 'Schreibtisch: Steckdose einschalten'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: device_tracker.hp_spectre
+    to: home
+  condition: []
+  action:
+  - type: turn_on
+    device_id: 5e5ebc553b224502b92ae3970e64ef32
+    entity_id: switch.wifi_steckdose
+    domain: switch
+  mode: single
