@@ -193,14 +193,12 @@ views:
             type: custom:multiple-entity-row
             name: Supervisor
             icon: mdi:update
-            show_state: false
+            state_header: AddOns
             entities:
               - attribute: current_version
                 name: Installiert
               - attribute: newest_version
                 name: Verfügbar
-              - attribute: addons
-                name: Addons
             tap_action: 
               action: call-service
               service: browser_mod.navigate
