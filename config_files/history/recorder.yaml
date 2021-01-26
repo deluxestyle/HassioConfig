@@ -3,6 +3,7 @@ auto_purge: true
 db_url: mysql://homeassistant:homeassistant@core-mariadb/homeassistant?charset=utf8
 exclude:
     entities:
-      - automation.battery_persistent_notification
+      - automation.batterie_benachrichtigung
+      - binary_sensor.bewegungsmelder
 include:
   !include entities.yaml
