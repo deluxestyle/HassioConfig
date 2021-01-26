@@ -200,13 +200,13 @@
 - id: '1540974552306'
   alias: 'Benachrichtigung: Luftfeuchtigkeit'
   trigger:
-  - above: 68
+  - above: '45'
     entity_id: sensor.humidity_158d0001b8c96c
     platform: numeric_state
-  - above: 68
+  - above: '45'
     entity_id: sensor.humidity_158d0001b8c998
     platform: numeric_state
-  - above: 68
+  - above: '45'
     entity_id: sensor.humidity_158d0002239fb5
     platform: numeric_state
   condition:
@@ -224,6 +224,7 @@
       notification_id: Luftfeuchtigkeit
       title: Luftfeuchtigkeit
     service: script.1570439573834
+  mode: single
 - id: '1541096569503'
   alias: Bewegungsmelder - Alarm
   initial_state: false

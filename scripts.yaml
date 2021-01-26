@@ -15,19 +15,19 @@ sonos_superfly:
     service: media_player.media_stop
   mode: single
 '1534539954375':
-  alias: Xiaomi Staubsauger einschalten
+  alias: 'Xiaomi Staubsauger: einschalten'
   sequence:
   - data:
       entity_id: vacuum.xiaomi_vacuum_cleaner
     service: vacuum.turn_on
 '1534540060262':
-  alias: Xiaomi Staubsauger ausschalten
+  alias: 'Xiaomi Staubsauger: ausschalten'
   sequence:
   - data:
       entity_id: vacuum.xiaomi_vacuum_cleaner
     service: vacuum.turn_off
 '1538057479069':
-  alias: 'Harmony Hub: Ausschaltbefehl'
+  alias: 'Harmony: Ausschaltbefehl'
   sequence:
   - condition: not
     conditions:
@@ -40,7 +40,7 @@ sonos_superfly:
   mode: single
   icon: mdi:power
 '1538068809592':
-  alias: Entertainment - Telekom
+  alias: 'Harmony: Telekom'
   sequence:
   - data:
       entity_id: switch.steckdosenleiste
@@ -50,8 +50,9 @@ sonos_superfly:
       activity: Magenta TV
       entity_id: remote.harmony_hub
     service: remote.turn_on
+  mode: single
 '1538072504227':
-  alias: Entertainment - Musik
+  alias: 'Harmony: Musik'
   sequence:
   - data:
       entity_id: switch.steckdosenleiste
@@ -61,54 +62,61 @@ sonos_superfly:
       activity: Musik
       entity_id: remote.harmony_hub
     service: remote.turn_on
+  mode: single
 '1538128738934':
-  alias: Samsung UE55j6250 ausschalten
+  alias: 'Entertainment: Samsung UE55j6250 ausschalten'
   sequence:
   - data:
       command: PowerOff
       device: '57574101'
       entity_id: remote.harmony_hub
     service: remote.send_command
+  mode: single
 '1538129107690':
-  alias: Harman Kardon AVR off
+  alias: 'Entertainment: Harman Kardon AVR ausschalten'
   sequence:
   - data:
       command: PowerOff
       device: '57574103'
       entity_id: remote.harmony_hub
     service: remote.send_command
+  mode: single
 '1538143115062':
-  alias: Telekom MR 400 off
+  alias: 'Entertainment: Telekom MR 400 ausschalten'
   sequence:
   - data:
       command: PowerToggle
       device: '57574102'
       entity_id: remote.harmony_hub
     service: remote.send_command
+  mode: single
 '1538167052403':
-  alias: Telekom MR 401 on
+  alias: 'Entertainment: Telekom MR 401 einschalten'
   sequence:
   - data:
       command: PowerToggle
       device: '57574102'
       entity_id: remote.harmony_hub
     service: remote.send_command
+  mode: single
 '1538167144011':
-  alias: Samsung UE55j6250 einschalten
+  alias: 'Entertainment: Samsung UE55j6250 einschalten'
   sequence:
   - data:
       command: PowerOn
       device: '57574101'
       entity_id: remote.harmony_hub
     service: remote.send_command
+  mode: single
 '1538167294875':
-  alias: Harman Kardon AVR on
+  alias: 'Entertainment: Harman Kardon AVR einschalten'
   sequence:
   - data:
       command: PowerOn
       device: '57574103'
       entity_id: remote.harmony_hub
     service: remote.send_command
+  mode: single
 '1541097052191':
   alias: Xiaomi Gateway - Alarm ausschalten
   sequence:
@@ -116,7 +124,7 @@ sonos_superfly:
       gw_mac: 7811DCB258D1
     service: xiaomi_aqara.stop_ringtone
 '1547995682348':
-  alias: 'SaugRobo: Sensor gereinigt'
+  alias: 'Xiaomi Staubsauger: Sensor gereinigt'
   sequence:
   - data:
       command: reset_consumable
@@ -124,7 +132,7 @@ sonos_superfly:
       params: sensor_dirty_time
     service: vacuum.send_command
 '1547995832032':
-  alias: 'SaugRobo: Filter gewechselt'
+  alias: 'Xiaomi Staubsauger: Filter gewechselt'
   sequence:
   - data:
       command: reset_consumable
@@ -132,7 +140,7 @@ sonos_superfly:
       params: filter_work_time
     service: vacuum.send_command
 '1547995869377':
-  alias: 'SaugRobo: Seitenbürste gewechselt'
+  alias: 'Xiaomi Staubsauger: Seitenbürste gewechselt'
   sequence:
   - data:
       command: reset_consumable
@@ -148,13 +156,14 @@ sonos_superfly:
       params: main_brush_work_time
     service: vacuum.send_command
 '1565444624817':
-  alias: Harman Kardon Mute
+  alias: 'Entertainment: Harman Kardon Mute'
   sequence:
   - data_template:
       entity_id: media_player.harman_kardon_avr
       is_volume_muted: '{{ not state_attr(''media_player.harman_kardon_avr'', ''is_volume_muted'')
         }}'
     service: media_player.volume_mute
+  mode: single
 '1570439203461':
   alias: Badge löschen
   sequence:
@@ -204,7 +213,7 @@ sonos_superfly:
     service: python_script.dismiss_notifications
   - service: script.battery_persistent_notification_clear
 '1586021623720':
-  alias: Entertainment - Fire TV
+  alias: 'Harmony:  Fire TV'
   sequence:
   - data:
       entity_id: switch.steckdosenleiste
@@ -214,6 +223,7 @@ sonos_superfly:
       activity: Fire TV
       entity_id: remote.harmony_hub
     service: remote.turn_on
+  mode: single
 alexa_echo_superflyfm:
   alias: 'Alexa Echo: SuperFly.Fm'
   mode: single
@@ -293,7 +303,7 @@ sonos_b5_aktuell:
     service: media_player.select_source
   mode: single
 entertainment_vtuner:
-  alias: Entertainment - vTuner
+  alias: 'Harmony:  vTuner'
   sequence:
   - data:
       entity_id: switch.steckdosenleiste
@@ -306,7 +316,7 @@ entertainment_vtuner:
   mode: single
   icon: mdi:radio
 entertainment_airplay:
-  alias: Entertainment - AirPlay
+  alias: 'Harmony: AirPlay'
   sequence:
   - data:
       entity_id: switch.steckdosenleiste

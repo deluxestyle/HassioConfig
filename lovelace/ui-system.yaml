@@ -40,7 +40,7 @@ views:
                         - entity_id: "sensor.pi_hole_*"      
       - type: entities
         entities:
-          - entity: automation.battery_persistent_notification
+          - entity: automation.batterie_benachrichtigung
             tap_action: 
               action: call-service
               service: browser_mod.popup
@@ -72,51 +72,8 @@ views:
               - entity: script.battery_persistent_notification_clear
                 tap_action: 
                   action: toggle
-      # - type: custom:vertical-stack-in-card
-      #   horizontal: true
-      #   cards:
-      #     - type: gauge
-      #       name: CPU
-      #       unit: '%'
-      #       entity: sensor.processor_use
-      #       severity:
-      #         green: 0
-      #         yellow: 45
-      #         red: 85
-      #     - type: gauge
-      #       name: Memory
-      #       unit: '%'
-      #       entity: sensor.memory_use_percent
-      #       severity:
-      #         green: 0
-      #         yellow: 75
-      #         red: 90
-      #     - type: gauge
-      #       name: Swap
-      #       unit: '%'
-      #       entity: sensor.swap_use_percent
-      #       severity:
-      #         green: 0
-      #         yellow: 45
-      #         red: 85
-      #     - type: gauge
-      #       name: Temp
-      #       unit: '°'
-      #       entity: sensor.cpu_temperature
-      #       severity:
-      #         green: 0
-      #         yellow: 75
-      #         red: 85
-      #     - type: gauge
-      #       name: Disk
-      #       unit: '%'
-      #       entity: sensor.disk_use_percent
-      #       severity:
-      #         green: 0
-      #         yellow: 45
-      #         red: 85
       - type: glance
-        columns: 4
+        columns: 5
         show_name: false
         entities:
           - entity: sensor.processor_use
@@ -129,14 +86,8 @@ views:
                   {% endif %}
                   ;
                 }     
-          - entity: sensor.memory_use_percent
-            name: Memory
-          - entity: sensor.disk_use_percent
-            name: Disk
-          - entity: sensor.swap_use_percent
-            name: Swap
-            icon: mdi:harddisk-plus            
           - entity: sensor.cpu_temperature
+            icon: mdi:thermometer
             name: CPU Temp
             style: |
                 :host {
@@ -146,30 +97,13 @@ views:
                   {% endif %}
                   ;
                 }
-            icon: mdi:thermometer
-          - entity: sensor.memory_use
-            name: Memory
-          - entity: sensor.disk_use
-            name: Disk
-          - entity: sensor.online_time
-            name: Zeit
-            icon: mdi:home-assistant
-          - entity: sensor.last_boot
-            icon: mdi:raspberry-pi
-      - type: glance
-        columns: 4
-        show_name: false
-        entities:
-          - sensor.net_download_max
-          - sensor.net_download_cur
-          - sensor.fritz_netmonitor
-          - sensor.net_uptime
-          - sensor.net_upload_max
-          - sensor.net_upload_cur
-          - entity: sensor.wireguard_iphonepro
-            icon: mdi:cellphone-iphone
-          - entity: sensor.wireguard_ipad
-            icon: mdi:tablet-ipad
+          - entity: sensor.memory_use_percent
+            name: Memory 
+          - entity: sensor.swap_use_percent
+            name: Swap
+            icon: mdi:file-swap         
+          - entity: sensor.disk_use_percent
+            name: Disk                
       - type: entities
         show_header_toggle: false
         entities:
@@ -213,6 +147,18 @@ views:
               service_data: 
                 navigation_path: /hacs
                 deviceID: this
+          - type: custom:fold-entity-row
+            padding: 5
+            head:
+              type: section
+              label: Details
+            entities:
+              - entity: sensor.online_time
+                name: Hass online
+                icon: mdi:home-assistant
+              - entity: sensor.last_boot
+                name: Raspi online
+                icon: mdi:raspberry-pi
       - type: entities
         show_header_toggle: false
         entities:
@@ -254,7 +200,21 @@ views:
                       entity: sensor.samba_backup
                       icon: 'mdi:file-clock-outline'
                       name: Last Backup
-                      type: attribute     
+                      type: attribute 
+      - type: glance
+        columns: 5
+        show_name: false
+        entities:
+          - sensor.net_download_max
+          - sensor.net_upload_max
+          - sensor.net_download_cur
+          - sensor.net_upload_cur
+          - sensor.fritz_netmonitor
+          - sensor.net_uptime
+          - entity: sensor.wireguard_iphonepro
+            icon: mdi:cellphone-iphone
+          - entity: sensor.wireguard_ipad
+            icon: mdi:tablet-ipad                    
       - type: entities
         entities:
           - type: "custom:paper-buttons-row"

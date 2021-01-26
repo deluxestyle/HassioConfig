@@ -3,7 +3,7 @@
 ################################################
 homeassistant:
   customize:
-    automation.battery_persistent_notification:
+    automation.batterie_benachrichtigung:
       friendly_name: Batterie Alarm
       icon: mdi:battery-alert
     script.battery_persistent_notification_clear:
@@ -54,7 +54,8 @@ input_number:
 ## Automation
 ################################################
 automation:
-- alias: reset_batterie_message
+- id: '1584265149088'
+  alias: 'Batterie: Benachrichtigung zurücksetzen'
   initial_state: on
   trigger:
   - at: 00:00:00
@@ -64,7 +65,8 @@ automation:
   - data:
       entity_id: input_boolean.low_batteries
     service: input_boolean.turn_off
-- alias: battery_persistent_notification
+- id: '1584265149089'
+  alias: 'Batterie: Benachrichtigung'
   initial_state: on
   trigger:
     - platform: time_pattern
@@ -137,7 +139,7 @@ automation:
 ################################################
 script:
   battery_persistent_notification_clear:
-    alias: Alarm zurücksetzen
+    alias: 'Batterie: Alarm zurücksetzen'
     sequence:
       - data:
           entity_id: input_boolean.low_batteries
