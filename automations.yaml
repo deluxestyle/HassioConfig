@@ -416,7 +416,8 @@
 - id: '1570440017469'
   alias: 'Benachrichtigung: Badge zurücksetzen'
   trigger:
-  - event_data: {}
+  - event_data:
+      sourceDeviceID: iphone11pro
     event_type: ios.became_active
     platform: event
   condition: []
