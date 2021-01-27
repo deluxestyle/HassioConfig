@@ -22,7 +22,7 @@ filter:
     - switch.vacuum
     - switch.wifi_steckdose #Schreibtisch
     - switch.steckdosenleiste #Steckdosenleiste
-    - switch.steckdose_1 #Alexa
+    # - switch.steckdose_1 #Alexa
     - sensor.humidity_158d0001b8c96c
     - sensor.humidity_158d0001b8c998
     - sensor.humidity_158d0002239fb5
