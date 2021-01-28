@@ -374,3 +374,43 @@ sonos_set_volume_4:
       volume_level: '0.04'
     service: media_player.volume_set
   mode: single
+sonos_mute:
+  alias: 'Sonos: Mute'
+  sequence:
+  - data:
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      is_volume_muted: true
+    service: media_player.volume_mute
+  mode: single
+sonos_set_wake_up_volume:
+  alias: 'Sonos: Set wake up volume'
+  sequence:
+  - data:
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      volume_level: '0.00'
+    service: media_player.volume_set
+  - service: media_player.volume_mute
+    data:
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      is_volume_muted: false
+  - delay: 00:00:15
+  - data:
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      volume_level: '0.01'
+    service: media_player.volume_set
+  - delay: 00:00:15
+  - data:
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      volume_level: '0.02'
+    service: media_player.volume_set
+  - delay: 00:00:15
+  - data:
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      volume_level: '0.03'
+    service: media_player.volume_set
+  - delay: 00:00:15
+  - data:
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      volume_level: '0.04'
+    service: media_player.volume_set
+  mode: single
