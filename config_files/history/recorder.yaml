@@ -4,6 +4,5 @@ db_url: mysql://homeassistant:homeassistant@core-mariadb/homeassistant?charset=u
 exclude:
     entities:
       - automation.batterie_benachrichtigung
-      - binary_sensor.bewegungsmelder
 include:
   !include entities.yaml
