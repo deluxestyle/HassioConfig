@@ -9,11 +9,23 @@ hide:
   source: false
   progress: false
   shuffle: false
-#group: true
 #source: icon
 info: scroll
 tap_action:
-  action: none
+  action: call-service
+  service: browser_mod.popup
+  service_data:
+    deviceID: this
+    title: Lautstärke
+    card:
+      style: |
+        ha-card {
+          --ha-card-box-shadow: 'none';
+          --ha-card-border-radius: "0px";
+        }
+      type: entities
+      entities:
+        - input_boolean.sync_volume
 speaker_group:
   platform: sonos
   show_group_count: true

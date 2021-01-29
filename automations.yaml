@@ -751,3 +751,20 @@
     entity_id: switch.wifi_steckdose
     domain: switch
   mode: single
+- id: '1611921643478'
+  alias: 'Sonos: Lautstärke anpassen'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: media_player.wohnzimmer
+    attribute: volume_level
+  condition:
+  - condition: state
+    entity_id: input_boolean.sync_volume
+    state: 'on'
+  action:
+  - service: media_player.volume_set
+    data:
+      entity_id: '{{ trigger.to_state.attributes.sonos_group }}'
+      volume_level: '{{ trigger.to_state.attributes.volume_level }}'
+  mode: single
