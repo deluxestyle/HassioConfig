@@ -597,7 +597,7 @@
       notification_id: alert
       title: Bewegungsmelder
     service: script.1570439573834
-  mode: single
+  mode: restart
 - id: '1605645794887'
   alias: 'iOS: Schlafenszeit'
   description: ''
@@ -758,6 +758,12 @@
   - platform: state
     entity_id: media_player.wohnzimmer
     attribute: volume_level
+  - platform: state
+    entity_id: media_player.schlafzimmer
+    attribute: volume_level
+  - platform: state
+    entity_id: media_player.bad
+    attribute: volume_level
   condition:
   - condition: state
     entity_id: input_boolean.sync_volume
@@ -767,4 +773,5 @@
     data:
       entity_id: '{{ trigger.to_state.attributes.sonos_group }}'
       volume_level: '{{ trigger.to_state.attributes.volume_level }}'
-  mode: single
+  mode: queued
+  max: 10

@@ -414,3 +414,13 @@ sonos_set_wake_up_volume:
       volume_level: '0.04'
     service: media_player.volume_set
   mode: single
+sonos_wecker_superflyfm:
+  alias: 'Sonos: Wecker SuperflyFm'
+  sequence:
+  - service: script.sonos_mute
+    data: {}
+  - service: script.sonos_superfly
+    data: {}
+  - service: script.sonos_set_wake_up_volume
+    data: {}
+  mode: single
