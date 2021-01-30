@@ -1,5 +1,5 @@
-sonos_superfly:
-  alias: 'Sonos: Superfly FM starten'
+sonos_radio_superfly:
+  alias: 'Sonos: Radio SuperflyFM'
   sequence:
   - service: script.sonos_join
   - data:
@@ -148,13 +148,14 @@ sonos_superfly:
       params: side_brush_work_time
     service: vacuum.send_command
 '1547995909810':
-  alias: 'SaugRobo: Hauptbürste gewechselt'
+  alias: 'Xiaomi Staubsauger: Hauptbürste gewechselt'
   sequence:
   - data:
       command: reset_consumable
       entity_id: vacuum.xiaomi_vacuum_cleaner
       params: main_brush_work_time
     service: vacuum.send_command
+  mode: single
 '1565444624817':
   alias: 'Entertainment: Harman Kardon Mute'
   sequence:
@@ -224,65 +225,6 @@ sonos_superfly:
       entity_id: remote.harmony_hub
     service: remote.turn_on
   mode: single
-alexa_echo_superflyfm:
-  alias: 'Alexa Echo: SuperFly.Fm'
-  mode: single
-  sequence:
-  - data:
-      entity_id: media_player.wolfgangs_echo_dot
-      media_content_id: superfly fm
-      media_content_type: TUNEIN
-    service: media_player.play_media
-  - data: {}
-    service: script.alexa_echo_lautstarke
-alexa_echo_radio_arabella:
-  alias: 'Alexa Echo: Radio Arabella'
-  mode: single
-  sequence:
-  - data:
-      entity_id: media_player.wolfgangs_echo_dot
-      media_content_id: Radio Arabella
-      media_content_type: TUNEIN
-    service: media_player.play_media
-  - data: {}
-    service: script.alexa_echo_lautstarke
-alexa_echo_b5_aktuell:
-  alias: 'Alexa Echo: B5 aktuell'
-  mode: single
-  sequence:
-  - data:
-      entity_id: media_player.wolfgangs_echo_dot
-      media_content_id: B5 aktuell
-      media_content_type: TUNEIN
-    service: media_player.play_media
-  - data: {}
-    service: script.alexa_echo_lautstarke
-alexa_echo_lautstarke:
-  alias: 'Alexa Echo: Lautstärke'
-  mode: single
-  sequence:
-  - data:
-      entity_id: media_player.wolfgangs_echo_dot
-      volume_level: 0.17
-    service: media_player.volume_set
-alexa_echo_ausschalten:
-  alias: 'Alexa Echo: Ausschalten'
-  mode: single
-  sequence:
-  - data: {}
-    entity_id: media_player.wolfgangs_echo_dot
-    service: media_player.turn_off
-alexa_echo_dfl_nova:
-  alias: 'Alexa Echo: DFL nova'
-  mode: single
-  sequence:
-  - data: {}
-    service: script.alexa_echo_lautstarke
-  - data:
-      entity_id: media_player.wolfgangs_echo_dot
-      media_content_id: deutschlandfunk nova
-      media_content_type: TUNEIN
-    service: media_player.play_media
 schlafen:
   alias: Schlafen gehen
   sequence:
@@ -292,8 +234,8 @@ schlafen:
   - service: script.1538057479069
     data: {}
   mode: single
-sonos_b5_aktuell:
-  alias: 'Sonos: B5 aktuell'
+sonos_radio_b5_aktuell:
+  alias: 'Sonos: Radio B5 aktuell'
   sequence:
   - service: script.sonos_join
     data: {}
@@ -414,12 +356,12 @@ sonos_set_wake_up_volume:
       volume_level: '0.04'
     service: media_player.volume_set
   mode: single
-sonos_wecker_superflyfm:
-  alias: 'Sonos: Wecker SuperflyFm'
+sonos_wecker:
+  alias: 'Sonos: Wecker'
   sequence:
   - service: script.sonos_mute
     data: {}
-  - service: script.sonos_superfly
+  - service: script.sonos_radio_superfly
     data: {}
   - service: script.sonos_set_wake_up_volume
     data: {}

@@ -126,7 +126,7 @@
       state: not_home
   action:
   - data: {}
-    service: script.sonos_superfly
+    service: script.sonos_radio_superfly
   mode: single
 - id: '1532273712071'
   alias: 'Harman Kardon AVR: Quelle auswählen'
@@ -612,7 +612,7 @@
     data: {}
   - service: script.sonos_set_volume_8
     data: {}
-  - service: script.sonos_b5_aktuell
+  - service: script.sonos_radio_b5_aktuell
     data: {}
   mode: single
 - id: '1605647273709'
@@ -628,9 +628,7 @@
   - service: light.turn_on
     data: {}
     entity_id: light.yeelight_bslamp1_0x0000000005451cd6
-  - service: script.sonos_set_volume_8
-    data: {}
-  - service: script.sonos_superfly
+  - service: script.sonos_wecker
     data: {}
   mode: single
 - id: '1605647273710'

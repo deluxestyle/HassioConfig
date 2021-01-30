@@ -4,7 +4,7 @@ type: entities
 entities:
   - type: "custom:paper-buttons-row"
     buttons:
-      - entity: script.sonos_superfly
+      - entity: script.sonos_radio_superfly
         name: Sonos einschalten
         style:
           text:  
