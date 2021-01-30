@@ -79,7 +79,7 @@ light.dunstabzug:
   icon: mdi:spotlight-beam
 script.1532173931522:
   icon: mdi:play
-script.1532175994947:
+script.sonos_stopp:
   icon: mdi:stop
 script.1532275617247:
   icon: mdi:power
@@ -115,9 +115,9 @@ script.1538502214360:
   icon: mdi:radiator-off
 script.1538646823835:
   icon: mdi:radiator
-script.1538068809592:
+script.harmony_telekom:
   icon: mdi:television
-script.1538072504227:
+script.harmony_music:
   icon: mdi:music
 input_datetime.radiator_bath_1:
   friendly_name: Startzeit
@@ -179,13 +179,13 @@ weather.dark_sky:
   friendly_name: Wetter
 device_tracker.x1_sdrive18i:
   friendly_name: BMW X1 sDrive18i
-script.1547995909810:
+script.xiaomi_vacuum_mainbrush_changed:
   icon: mdi:radiobox-blank
-script.1547995682348:
+script.xiaomi_vacuum_sensor_cleaned:
   icon: mdi:radiobox-blank
-script.1547995832032:
+script.xiaomi_vacuum_filter_changed:
   icon: mdi:radiobox-blank
-script.1547995869377:
+script.xiaomi_vacuum_sidebrush_changed:
   icon: mdi:radiobox-blank
 counter.xiaomo_errors:
   friendly_name: Anzahl Neustarts
@@ -227,9 +227,9 @@ automation.xiaomi_staubsauger_filter_kritisch:
   icon: mdi:bell-alert
 automation.xiaomi_staubsauger_sensor_kritisch:
   icon: mdi:bell-alert
-script.1570439203461:
+script.notify_clean_badge:
   icon: mdi:message-bulleted-off
-script.1570443737111:
+script.notify_clean_messages:
   icon: mdi:message-bulleted-off
 automation.km_stand_kritisch:
   icon: mdi:message-alert
@@ -248,4 +248,4 @@ sensor.fritzbox:
   icon: mdi:phone-voip
 switch.fire_tv_switch:
   icon: mdi:television-play
-script.1538057479069: {}
+script.harmony_power_off: {}

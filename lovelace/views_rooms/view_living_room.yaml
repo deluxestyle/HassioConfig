@@ -24,7 +24,7 @@ cards:
         extend_paper_buttons_row:
           position: right
           buttons:
-            - entity: script.1538057479069
+            - entity: script.harmony_power_off
               name: false
               icon: mdi:power
       - entity: switch.steckdosenleiste

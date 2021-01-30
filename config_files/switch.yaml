@@ -6,58 +6,58 @@
       value_template: "{{ is_state('device_tracker.ue55j6250', 'home') and is_state('switch.steckdosenleiste', 'on') }}"
       turn_on:
         - service: script.turn_on
-          entity_id: script.1538167144011
+          entity_id: script.harmony_tv_power_on
       turn_off:
         - service: script.turn_on
-          entity_id: script.1538128738934
+          entity_id: script.harmony_tv_power_off
       icon_template: mdi:television
     avr_151:
       friendly_name: "AVR 151"
       value_template: "{{ is_state('device_tracker.avr151', 'home') and is_state('switch.steckdosenleiste', 'on') }}"
       turn_on:
         - service: script.turn_on
-          entity_id: script.1538167294875
+          entity_id: script.harmony_avr_power_on
       turn_off:
         - service: script.turn_on
-          entity_id: script.1538129107690
+          entity_id: script.harmony_avr_power_off
       icon_template: mdi:speaker
     telekom_mr_401:
       friendly_name: "Telekom MR 401"
       value_template: "{{ is_state('device_tracker.telekom_mr401', 'home') and is_state('switch.steckdosenleiste', 'on')}}"
       turn_on:
         - service: script.turn_on
-          entity_id: script.1538167052403
+          entity_id: script.harmony_mr400_power_on
       turn_off:
         - service: script.turn_on
-          entity_id: script.1538143115062
+          entity_id: script.harmony_mr400_power_off
       icon_template: mdi:youtube-tv
     tv_switch:
       friendly_name: "Magenta TV"
       value_template: "{{ is_state('sensor.remote_state', 'Magenta TV') and is_state('switch.steckdosenleiste', 'on')}}"
       turn_on:
         - service: script.turn_on
-          entity_id: script.1538068809592
+          entity_id: script.harmony_telekom
       turn_off:
         - service: script.turn_on
-          entity_id: script.1538057479069
+          entity_id: script.harmony_power_off
     fire_tv_switch:
       friendly_name: "Fire TV"
       value_template: "{{ is_state('sensor.remote_state', 'Fire TV') and is_state('switch.steckdosenleiste', 'on')}}"
       turn_on:
         - service: script.turn_on
-          entity_id: script.1586021623720
+          entity_id: script.entertainment_fire_tv
       turn_off:
         - service: script.turn_on
-          entity_id: script.1538057479069
+          entity_id: script.harmony_power_off
     music_switch:
       friendly_name: "Musik"
       value_template: "{{ is_state('sensor.remote_state', 'Musik') and is_state('switch.steckdosenleiste', 'on')}}"
       turn_on:
         - service: script.turn_on
-          entity_id: script.1538072504227
+          entity_id: script.harmony_music
       turn_off:
         - service: script.turn_on
-          entity_id: script.1538057479069
+          entity_id: script.harmony_power_off
     vtuner_switch:
       friendly_name: "vTuner"
       value_template: "{{ is_state('sensor.remote_state', 'vTuner') and is_state('switch.steckdosenleiste', 'on')}}"
@@ -66,7 +66,7 @@
           entity_id: script.entertainment_vtuner
       turn_off:
         - service: script.turn_on
-          entity_id: script.1538057479069
+          entity_id: script.harmony_power_off
     airplay_switch:
       friendly_name: "AirPlay"
       value_template: "{{ is_state('sensor.remote_state', 'AirPlay') and is_state('switch.steckdosenleiste', 'on')}}"
@@ -75,7 +75,7 @@
           entity_id: script.entertainment_airplay
       turn_off:
         - service: script.turn_on
-          entity_id: script.1538057479069
+          entity_id: script.harmony_power_off
     vacuum:
       friendly_name: Staubsauger
       value_template: "{{ is_state('vacuum.xiaomi_vacuum_cleaner', 'cleaning')}}"

@@ -56,6 +56,6 @@ entities:
           action: call-service
           service: script.toggle
           service_data:
-            entity_id: script.1565444624817  
+            entity_id: script.harmony_avr_mute  
   - type: section
   - input_select.avr_source

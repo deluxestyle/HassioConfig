@@ -18,7 +18,7 @@
       message: Update für Home Assitant verfügbar
       notification_id: system_update
       title: Update
-    service: script.1570439573834
+    service: script.notify_script
   mode: single
 - id: family_not_home
   alias: Abwesenheitsschaltung
@@ -54,7 +54,7 @@
         }} qm | Fehler {{ states.counter.xiaomo_errors.state }}'
       notification_id: xiaomi_vacuum_status
       title: StaubRobo
-    service: script.1570439573834
+    service: script.notify_script
   mode: single
 - id: xiaomi_vacuum_notification_on
   alias: 'Xiaomi Staubsauger: Benachrichtigung gestartet'
@@ -90,7 +90,7 @@
         }} '
       notification_id: xiaomi_vacuum_error
       title: StaubRobo
-    service: script.1570439573834
+    service: script.notify_script
   mode: single
 - id: '1523001167559'
   alias: 'Xiaomi Staubsauger: Neustart'
@@ -194,7 +194,7 @@
       message: Bewegung erkannt
       notification_id: alert
       title: Bewegungsmelder
-    service: script.1570439573834
+    service: script.notify_script
   initial_state: false
   mode: single
 - id: '1540974552306'
@@ -223,7 +223,7 @@
         {{ states.sensor.humidity_158d0002239fb5.state }} % '
       notification_id: Luftfeuchtigkeit
       title: Luftfeuchtigkeit
-    service: script.1570439573834
+    service: script.notify_script
   mode: single
 - id: '1541096569503'
   alias: Bewegungsmelder - Alarm
@@ -247,7 +247,7 @@
     service: xiaomi_aqara.play_ringtone
   - delay: 00:02:00
   - data: {}
-    service: script.1541097052191
+    service: script.xiaomi_gateway_alarm_stop
 - id: '1542650541048'
   alias: 'Xiaomi Staubsauger: Benachrichtigung Sensor kritisch'
   trigger:
@@ -362,7 +362,7 @@
   condition: []
   action:
   - data: {}
-    service: script.1532175994947
+    service: script.sonos_stopp
 - id: '1563024961089'
   alias: 'Xiaomi Staubsauger: Hauptbürste wechseln'
   trigger:
@@ -393,7 +393,7 @@
         }} % '
       notification_id: pi
       title: Raspi
-    service: script.1570439573834
+    service: script.notify_script
   mode: single
 - id: '1568628137654'
   alias: 'Xiaomi Staubsauger: Benachrichtigung Filter kritisch'
@@ -411,7 +411,7 @@
         }} h übrig'
       notification_id: xiaomi_filter
       title: Xiaomi StaubRobo
-    service: script.1570439573834
+    service: script.notify_script
   mode: single
 - id: '1570440017469'
   alias: 'Benachrichtigung: Badge zurücksetzen'
@@ -422,7 +422,7 @@
     platform: event
   condition: []
   action:
-  - service: script.1570439203461
+  - service: script.notify_clean_badge
   mode: single
 - id: '1571050762220'
   alias: 'Xiaomi Staubsauger: Fehler Hinweis'
@@ -491,7 +491,7 @@
       message: 'CPU Temp zu hoch: {{ states ( "sensor.cpu_temperature" ) }}°'
       notification_id: cpu_temp
       title: CPU Temp
-    service: script.1570439573834
+    service: script.notify_script
 - id: '1584612970522'
   alias: 'FritzBox: Tefelonanruf'
   description: ''
@@ -508,7 +508,7 @@
       message: 'Anruf von: {{ state_attr("sensor.fritzbox", "from") }}'
       notification_id: Anruf
       title: Anruf
-    service: script.1570439573834
+    service: script.notify_script
 - id: '1568628137987'
   alias: 'Benachrichtigung: KM Stand kritisch'
   trigger:
@@ -527,7 +527,7 @@
         von {{ states ( "sensor.car_km_threshold" )}}'
       notification_id: car
       title: BMW KM Stand
-    service: script.1570439573834
+    service: script.notify_script
   - data:
       entity_id: automation.km_stand_kritisch
     service: automation.turn_off
@@ -596,7 +596,7 @@
       message: Wohnungstür geöffnet
       notification_id: alert
       title: Bewegungsmelder
-    service: script.1570439573834
+    service: script.notify_script
   mode: restart
 - id: '1605645794887'
   alias: 'iOS: Schlafenszeit'
@@ -659,7 +659,7 @@
       message: 'CPU Auslastung zu hoch: {{ states ( "sensor.processor_use" ) }}%'
       notification_id: cpu
       title: CPU Auslastung
-    service: script.1570439573834
+    service: script.notify_script
   mode: single
 - id: '1607432908571'
   alias: 'Entertainment: Steckdosenleiste einschalten'

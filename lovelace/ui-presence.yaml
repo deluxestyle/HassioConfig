@@ -70,7 +70,7 @@ views:
               - entity: automation.bewegungsmelder_alarm
                 tap_action: 
                   action: toggle
-              - entity: script.1541097052191
+              - entity: script.xiaomi_gateway_alarm_stop
                 name: Alarm ausschalten
                 icon: mdi:volume-off
                 tap_action: 

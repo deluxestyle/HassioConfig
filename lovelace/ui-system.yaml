@@ -11,12 +11,12 @@ views:
         entities:
           - type: 'custom:paper-buttons-row'
             buttons:
-              - entity: script.1570443737111
+              - entity: script.notify_clean_messages
                 name: Mitteilung löschen
                 style:
                   text:  
                     color: var(--primary-text-color)
-              - entity: script.1570439203461
+              - entity: script.notify_clean_badge
                 name: Badge löschen
                 style:
                   text:  

@@ -53,19 +53,19 @@
               tap_action: 
                 action: toggle
             - counter.xiaomo_errors
-            - entity: script.1547995682348
+            - entity: script.xiaomi_vacuum_sensor_cleaned
               name: Sensor gereinigt
               tap_action: 
                 action: toggle
-            - entity: script.1547995909810
+            - entity: script.xiaomi_vacuum_mainbrush_changed
               name: Hauptbürste gewechselt
               tap_action: 
                 action: toggle
-            - entity: script.1547995869377
+            - entity: script.xiaomi_vacuum_sidebrush_changed
               name: Seitenbürst gewechselt
               tap_action: 
                 action: toggle
-            - entity: script.1547995832032
+            - entity: script.xiaomi_vacuum_filter_changed
               name: Filter gereinigt
               tap_action: 
                 action: toggle

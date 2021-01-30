@@ -9,7 +9,7 @@ entities:
         style:
           text:  
             color: var(--primary-text-color)
-      - entity: script.1532175994947
+      - entity: script.sonos_stopp
         name: Sonos ausschalten
         style:
           text:  
