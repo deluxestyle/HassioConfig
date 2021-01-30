@@ -39,7 +39,7 @@ harmony_power_off:
     service: remote.turn_off
   mode: single
   icon: mdi:power
-harmony_telekom:
+harmony_action_telekom:
   alias: 'Harmony: Telekom'
   sequence:
   - data:
@@ -51,7 +51,7 @@ harmony_telekom:
       entity_id: remote.harmony_hub
     service: remote.turn_on
   mode: single
-harmony_music:
+harmony_action_music:
   alias: 'Harmony: Musik'
   sequence:
   - data:
@@ -213,7 +213,7 @@ notify_clean_messages:
   - data: {}
     service: python_script.dismiss_notifications
   - service: script.battery_persistent_notification_clear
-entertainment_fire_tv:
+harmony_action_fire_tv:
   alias: 'Harmony: Fire TV'
   sequence:
   - data:
@@ -244,7 +244,7 @@ sonos_radio_b5_aktuell:
       source: 'Radio: B 5 Aktuell'
     service: media_player.select_source
   mode: single
-entertainment_vtuner:
+harmony_action_vtuner:
   alias: 'Harmony:  vTuner'
   sequence:
   - data:
@@ -257,7 +257,7 @@ entertainment_vtuner:
     service: remote.turn_on
   mode: single
   icon: mdi:radio
-entertainment_airplay:
+harmony_action_airplay:
   alias: 'Harmony: AirPlay'
   sequence:
   - data:

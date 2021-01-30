@@ -115,9 +115,9 @@ script.1538502214360:
   icon: mdi:radiator-off
 script.1538646823835:
   icon: mdi:radiator
-script.harmony_telekom:
+script.harmony_action_telekom:
   icon: mdi:television
-script.harmony_music:
+script.harmony_action_music:
   icon: mdi:music
 input_datetime.radiator_bath_1:
   friendly_name: Startzeit
