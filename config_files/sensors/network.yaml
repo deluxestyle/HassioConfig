@@ -5,28 +5,28 @@
       value_template: "{{ (state_attr('sensor.fritz_netmonitor', 'max_byte_rate_down')|float / 125000)|round(1) }}"
       unit_of_measurement: "Mbit/s"
       friendly_name: "Down"
-      icon_template: mdi:download
+      icon_template: mdi:cloud-download
   
     net_upload_max:
       # entity_id:  sensor.fritz_netmonitor
       value_template: "{{ (state_attr('sensor.fritz_netmonitor', 'max_byte_rate_up')|float / 125000)|round(1) }}"
       unit_of_measurement: "Mbit/s"
       friendly_name: "Up"
-      icon_template: mdi:upload
+      icon_template: mdi:cloud-upload
 
     net_download_cur:
       # entity_id:  sensor.fritz_netmonitor
       value_template: "{{ (state_attr('sensor.fritz_netmonitor', 'transmission_rate_down')|float / 125000)|round(1) }}"
       unit_of_measurement: "Mbit/s"
       friendly_name: "Download"
-      icon_template: mdi:download
+      icon_template: mdi:cloud-download-outline
     
     net_upload_cur:
       # entity_id:  sensor.fritz_netmonitor
       value_template: "{{ (state_attr('sensor.fritz_netmonitor', 'transmission_rate_up')|float / 125000)|round(1) }}"
       unit_of_measurement: "Mbit/s"
       friendly_name: "Upload"
-      icon_template: mdi:upload
+      icon_template: mdi:cloud-upload-outline
     
     net_received:
       # entity_id:  sensor.fritz_netmonitor

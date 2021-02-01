@@ -205,10 +205,14 @@ views:
         columns: 5
         show_name: false
         entities:
-          - sensor.net_download_max
-          - sensor.net_upload_max
-          - sensor.net_download_cur
-          - sensor.net_upload_cur
+          - entity: sensor.net_download_max
+            icon: mdi:cloud-download
+          - entity: sensor.net_upload_max
+            icon: mdi:cloud-upload
+          - entity: sensor.net_download_cur
+            icon: mdi:cloud-download-outline
+          - entity: sensor.net_upload_cur
+            icon: mdi:cloud-upload-outline
           - sensor.fritz_netmonitor
           - sensor.net_uptime
           - entity: sensor.wireguard_iphonepro
