@@ -45,7 +45,6 @@
 * card-tools - https://github.com/thomasloven/lovelace-card-tools
 * Paper-buttons-row - https://github.com/jcwillox/lovelace-paper-buttons-row
 * vertical-stack-in-card - https://github.com/ofekashery/vertical-stack-in-card
-* layout-card - https://github.com/thomasloven/lovelace-layout-card
 * card-mod - https://github.com/thomasloven/lovelace-card-mod
 
 #### Custom Components
