@@ -231,19 +231,19 @@ views:
                   service_data: 
                     navigation_path: /map
                     deviceID: this
-              - icon: mdi:zigbee
-                name: Phoscon
+              - icon: mdi:network
+                name: Home Network
                 tap_action: 
                   action: call-service
                   service: browser_mod.navigate
                   service_data: 
-                    navigation_path: /lovelace-phoscon/phoscon
+                    navigation_path: /lovelace-network
                     deviceID: this   
-              - icon: mdi:home-circle-outline
-                name: homebridge
-                tap_action: 
-                  action: call-service
-                  service: browser_mod.navigate
-                  service_data: 
-                    navigation_path: /lovelace-homebridge/homebridge
-                    deviceID: this   
+              # - icon: mdi:home-circle-outline
+              #   name: homebridge
+              #   tap_action: 
+              #     action: call-service
+              #     service: browser_mod.navigate
+              #     service_data: 
+              #       navigation_path: /lovelace-homebridge/homebridge
+              #       deviceID: this   

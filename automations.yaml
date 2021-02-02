@@ -282,11 +282,18 @@
     platform: homeassistant
   condition: []
   action:
-  - delay: 00:01:30
-  - service: homekit.start
   - data:
       entity_id: sensor.car_km_usage
     service: homeassistant.update_entity
+  - service: homeassistant.update_entity
+    data:
+      entity_id: sensor.hacs
+  - service: hassio.addon_stdin
+    data:
+      addon: 15d21743_samba_backup
+      input: restore-sensor
+  - delay: 00:01:30
+  - service: homekit.start
   mode: single
 - id: '1544816542688'
   alias: 'Xiaomi Staubsauger: Error stop'
@@ -630,17 +637,6 @@
     entity_id: light.yeelight_bslamp1_0x0000000005451cd6
   - service: script.sonos_wecker
     data: {}
-  mode: single
-- id: '1605647273710'
-  alias: 'Startup: Restore Samba Backup sensor'
-  trigger:
-  - event: start
-    platform: homeassistant
-  action:
-  - service: hassio.addon_stdin
-    data:
-      addon: 15d21743_samba_backup
-      input: restore-sensor
   mode: single
 - id: '1584265149080'
   alias: 'Benachrichtigung: CPU Auslastung zu hoch'

@@ -7,6 +7,10 @@
   cards:
     - type: custom:vacuum-card
       entity: vacuum.xiaomi_vacuum_cleaner
+      style: |
+        :host .toolbar {
+          background: var( --ha-card-background, var(--card-background-color, white) );
+        }
       compact_view: true
       stats:
         default:
