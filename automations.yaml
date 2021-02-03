@@ -769,3 +769,16 @@
       volume_level: '{{ trigger.to_state.attributes.volume_level }}'
   mode: queued
   max: 10
+- id: '1612343173377'
+  alias: 'iOS: Telefonat'
+  description: ''
+  trigger:
+  - platform: event
+    event_type: ios.action_fired
+    event_data:
+      actionName: phonecall
+  condition: []
+  action:
+  - service: script.sonos_stopp
+    data: {}
+  mode: single

@@ -5,13 +5,6 @@ lovelace-system:
   show_in_sidebar: true
   filename: lovelace/ui-system.yaml
   require_admin: false
-lovelace-map:
-  mode: yaml
-  title: Map
-  icon: mdi:map-outline
-  show_in_sidebar: false
-  filename: lovelace/ui-map.yaml
-  require_admin: false
 lovelace-presence:
   mode: yaml
   title: Anwesenheit

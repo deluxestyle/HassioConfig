@@ -219,31 +219,16 @@ views:
             icon: mdi:cellphone-iphone
           - entity: sensor.wireguard_ipad
             icon: mdi:tablet-ipad                    
-      - type: entities
-        entities:
-          - type: "custom:paper-buttons-row"
-            buttons:
-              - icon: mdi:map-outline 
-                name: Karte
-                tap_action: 
-                  action: call-service
-                  service: browser_mod.navigate
-                  service_data: 
-                    navigation_path: /map
-                    deviceID: this
-              - icon: mdi:network
-                name: Home Network
-                tap_action: 
-                  action: call-service
-                  service: browser_mod.navigate
-                  service_data: 
-                    navigation_path: /lovelace-network
-                    deviceID: this   
-              # - icon: mdi:home-circle-outline
-              #   name: homebridge
-              #   tap_action: 
-              #     action: call-service
-              #     service: browser_mod.navigate
-              #     service_data: 
-              #       navigation_path: /lovelace-homebridge/homebridge
-              #       deviceID: this   
+      # - type: entities
+      #   entities:
+      #     - type: "custom:paper-buttons-row"
+      #       buttons:
+      #         - icon: mdi:map-outline 
+      #           name: Karte
+      #           tap_action: 
+      #             action: call-service
+      #             service: browser_mod.navigate
+      #             service_data: 
+      #               navigation_path: /map
+      #               deviceID: this
+ 

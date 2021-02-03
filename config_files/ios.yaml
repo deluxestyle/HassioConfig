@@ -21,20 +21,32 @@ push:
 
 actions:
   - name: gotobed
-    background_color: "#000000"
+    background_color: "#03a8f4"
     label:
       text: "Schlafenszeit"
+      color:  "#ffffff"
     icon:
       icon: bed
   - name: sleep
-    background_color: "#000000"
+    background_color: "#03a8f4"
     label:
       text: "Schlafen"
+      color:  "#ffffff"
     icon:
       icon: sleep
   - name: wakeup
-    background_color: "#000000"
+    background_color: "#03a8f4"
     label:
       text: "Aufwachen"
+      color:  "#ffffff"
     icon:
       icon: weather-sunny
+      color:  "#ffffff"
+  - name: phonecall
+    background_color: "#03a8f4"
+    label:
+      text: "Telefonat"
+      color:  "#ffffff"
+    icon:
+      icon: phone-ring
+      color:  "#ffffff"
