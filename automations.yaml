@@ -233,9 +233,6 @@
     platform: state
     to: 'on'
   condition:
-  - below: 10
-    condition: numeric_state
-    entity_id: sensor.illumination_158d00023e77cb
   - after: '23:30:00'
     before: 05:00:00
     condition: time

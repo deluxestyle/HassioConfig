@@ -58,9 +58,6 @@ views:
             secondary_info: last-changed
           - entity: binary_sensor.bewegungsmelder
             secondary_info: last-changed
-          # - entity: sensor.illumination_158d00023e77cb
-          #   tap_action: 
-          #     action: none
           - type: custom:fold-entity-row
             head:
               type: section
