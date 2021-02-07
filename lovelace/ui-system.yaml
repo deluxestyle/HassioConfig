@@ -127,12 +127,16 @@ views:
             type: custom:multiple-entity-row
             name: Supervisor
             icon: mdi:update
-            state_header: AddOns
+            show_state: false
             entities:
               - attribute: current_version
                 name: Installiert
               - attribute: newest_version
                 name: Verfügbar
+          - entity:  sensor.updater_supervisor
+            type: custom:multiple-entity-row
+            name: Add-ons
+            icon: mdi:update
             tap_action: 
               action: call-service
               service: browser_mod.navigate
@@ -219,16 +223,4 @@ views:
             icon: mdi:cellphone-iphone
           - entity: sensor.wireguard_ipad
             icon: mdi:tablet-ipad                    
-      # - type: entities
-      #   entities:
-      #     - type: "custom:paper-buttons-row"
-      #       buttons:
-      #         - icon: mdi:map-outline 
-      #           name: Karte
-      #           tap_action: 
-      #             action: call-service
-      #             service: browser_mod.navigate
-      #             service_data: 
-      #               navigation_path: /map
-      #               deviceID: this
  

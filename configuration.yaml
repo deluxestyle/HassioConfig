@@ -20,8 +20,6 @@ http:
     - 172.30.33.4
     - 172.30.33.3
     - 172.30.33.5
-  # ssl_certificate: /ssl/fullchain.pem
-  # ssl_key: /ssl/privkey.pem
 
 frontend:
   themes: !include_dir_merge_named themes
@@ -68,10 +66,11 @@ influxdb: !include config_files/influxdb.yaml
 ios: !include config_files/ios.yaml
 homekit: !include config_files/homekit.yaml
 browser_mod: !include config_files/browser_mod.yaml
-# calendar: !include config_files/calendar.yaml
 
 sensor: !include_dir_merge_list config_files/sensors/
 binary_sensor: !include_dir_merge_list config_files/binary_sensors/
+
+python_script:
 
 vacuum:
   - platform: xiaomi_miio
@@ -91,9 +90,3 @@ device_tracker:
     hosts:
       iphone_wolfgang: 192.168.200.45
       iphone_christina: 192.168.200.39
-
-python_script:
-
-stream:
-
-ffmpeg:

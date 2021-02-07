@@ -1,14 +1,6 @@
 - platform: fritzbox_netmonitor
   host: 192.168.200.1
 
-- platform: fritzbox_callmonitor
-  host: 192.168.200.1
-  name: fritzbox
-  username: !secret fritz_user
-  password: !secret fritz_password
-  prefixes:
-    - '+49'
-
 - platform: systemmonitor
   resources:
       - type: memory_free

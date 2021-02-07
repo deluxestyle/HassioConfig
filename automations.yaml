@@ -694,6 +694,9 @@
   - condition: state
     entity_id: sensor.remote_state
     state: AirPlay
+  - condition: state
+    entity_id: switch.telekom_mr_401
+    state: 'on'
   - service: switch.turn_off
     data: {}
     entity_id: switch.telekom_mr_401
@@ -760,6 +763,9 @@
     entity_id: input_boolean.sync_volume
     state: 'on'
   action:
+  - condition: template
+    value_template: '{{ trigger.to_state.attributes.sonos_group != trigger.entity_id
+      }}'
   - service: media_player.volume_set
     data:
       entity_id: '{{ trigger.to_state.attributes.sonos_group }}'

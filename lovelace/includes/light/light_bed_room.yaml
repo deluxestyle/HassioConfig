@@ -21,9 +21,6 @@ entities:
         - entity: scene.schlafzimmer_hell
           icon: mdi:brightness-5
           name: false
-          style:
-            button:
-              margin-right: 15px
   - entity: light.yeelight_bslamp1_0x0000000005451cd6
     name: Nachtlicht
     tap_action:

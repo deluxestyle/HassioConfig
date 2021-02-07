@@ -1,16 +1,3 @@
-#### Sonoff ####
-# - platform: mqtt
-#   name: "sonoff_office"
-#   state_topic: "stat/sonoff/POWER"
-#   command_topic: "cmnd/sonoff/POWER"
-#   availability_topic: "tele/sonoff/LWT"
-#   qos: 1
-#   payload_on: "ON"
-#   payload_off: "OFF"
-#   payload_available: "Online"
-#   payload_not_available: "Offline"
-#   retain: true
-  
 #### groups ####
 - platform: group
   name: lights_living_room
