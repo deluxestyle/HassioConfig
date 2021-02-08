@@ -622,7 +622,7 @@ const X="adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.pro
             </ha-icon-button>
 
             <ha-icon-button
-              icon="mdi:crosshairs-gps"
+              icon="mdi:map-marker"
               title="${Ya("common.locate")}"
               @click="${()=>this.callService("locate",!1)}"
             >
