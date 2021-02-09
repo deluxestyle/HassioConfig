@@ -329,7 +329,7 @@ sonos_set_wake_up_volume:
   sequence:
   - data:
       entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
-      volume_level: '0.00'
+      volume_level: '0.01'
     service: media_player.volume_set
   - service: media_player.volume_mute
     data:
@@ -338,14 +338,13 @@ sonos_set_wake_up_volume:
   - delay: 00:00:15
   - data:
       entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
-      volume_level: '0.01'
-    service: media_player.volume_set
-  - delay: 00:00:15
-  - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
       volume_level: '0.02'
     service: media_player.volume_set
-  - delay: 00:00:20
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 20
+      milliseconds: 0
   - data:
       entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
       volume_level: '0.03'
@@ -354,6 +353,11 @@ sonos_set_wake_up_volume:
   - data:
       entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
       volume_level: '0.04'
+    service: media_player.volume_set
+  - delay: 00:00:20
+  - data:
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      volume_level: '0.05'
     service: media_player.volume_set
   mode: single
 sonos_wecker:

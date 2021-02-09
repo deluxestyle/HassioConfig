@@ -24,7 +24,7 @@
   alias: Abwesenheitsschaltung
   description: Schaltet alle Lichter und Steckdosen aus und aktiviert den Bewegungssensor
   trigger:
-  - entity_id: sensor.presence
+  - entity_id: group.presence
     platform: state
     to: not_home
   condition: []
@@ -181,11 +181,16 @@
   - entity_id: binary_sensor.bewegungsmelder
     platform: state
     to: 'on'
-  condition: []
+  condition:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      state: cleaning
   action:
   - delay: 00:01:00
   - condition: state
-    entity_id: sensor.presence
+    entity_id: group.presence
     state: not_home
   - data:
       entity_id: input_boolean.persistent_notification
@@ -264,7 +269,7 @@
   alias: Anwesenheitsschaltung
   description: Deaktiviert den Bewegungssensor
   trigger:
-  - entity_id: sensor.presence
+  - entity_id: group.presence
     platform: state
     to: home
   condition: []
@@ -323,7 +328,7 @@
 - id: '1550439793222'
   alias: 'Xiaomi Staubsauger: Abwesenheit'
   trigger:
-  - entity_id: sensor.presence
+  - entity_id: group.presence
     platform: state
     to: not_home
   condition:
@@ -431,7 +436,7 @@
 - id: '1571050762220'
   alias: 'Xiaomi Staubsauger: Fehler Hinweis'
   trigger:
-  - entity_id: sensor.presence
+  - entity_id: group.presence
     platform: state
     to: home
     for: 00:02:00
@@ -639,7 +644,7 @@
   alias: 'Benachrichtigung: CPU Auslastung zu hoch'
   description: ''
   trigger:
-  - above: 50
+  - above: '50'
     for: 00:10:00
     platform: numeric_state
     entity_id: sensor.processor_use
