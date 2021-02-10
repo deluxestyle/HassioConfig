@@ -790,3 +790,87 @@
   - service: script.sonos_stopp
     data: {}
   mode: single
+- id: '1612977331158'
+  alias: 'Sonos: Lautstärke anpassen (Wohnzimmer)'
+  description: ''
+  trigger:
+  - platform: event
+    event_type: call_service
+    event_data:
+      domain: media_player
+      service: volume_up
+      service_data:
+        entity_id: media_player.wohnzimmer
+  - platform: event
+    event_type: call_service
+    event_data:
+      domain: media_player
+      service: volume_down
+      service_data:
+        entity_id: media_player.wohnzimmer
+  condition:
+  - condition: state
+    entity_id: input_boolean.sync_volume
+    state: 'on'
+  action:
+  - service: script.sonos_set_volume
+    data:
+      sonos_id: wohnzimmer
+  mode: queued
+  max: 10
+- id: '1612990938055'
+  alias: 'Sonos: Lautstärke anpassen (Bad)'
+  description: ''
+  trigger:
+  - platform: event
+    event_type: call_service
+    event_data:
+      domain: media_player
+      service: volume_up
+      service_data:
+        entity_id: media_player.bad
+  - platform: event
+    event_type: call_service
+    event_data:
+      domain: media_player
+      service: volume_down
+      service_data:
+        entity_id: media_player.bad
+  condition:
+  - condition: state
+    entity_id: input_boolean.sync_volume
+    state: 'on'
+  action:
+  - service: script.sonos_set_volume
+    data:
+      sonos_id: bad
+  mode: queued
+  max: 10
+- id: '1612990964244'
+  alias: 'Sonos: Lautstärke anpassen (Schlafzimmer)'
+  description: ''
+  trigger:
+  - platform: event
+    event_type: call_service
+    event_data:
+      domain: media_player
+      service: volume_up
+      service_data:
+        entity_id: media_player.schlafzimmer
+  - platform: event
+    event_type: call_service
+    event_data:
+      domain: media_player
+      service: volume_down
+      service_data:
+        entity_id: media_player.schlafzimmer
+  condition:
+  - condition: state
+    entity_id: input_boolean.sync_volume
+    state: 'on'
+  action:
+  - service: script.sonos_set_volume
+    data:
+      sonos_id: schlafzimmer
+  mode: queued
+  max: 10

@@ -146,11 +146,10 @@ views:
               - attribute: newest_version
                 name: Verfügbar
             tap_action: 
-              action: call-service
-              service: browser_mod.navigate
-              service_data: 
+              action: fire-dom-event
+              browser_mod:
+                command: navigate
                 navigation_path: /hassio
-                deviceID: this
           - entity:  sensor.updater_supervisor
             type: custom:multiple-entity-row
             name: Supervisor
@@ -161,24 +160,27 @@ views:
                 name: Installiert
               - attribute: newest_version
                 name: Verfügbar
+            tap_action: 
+              action: fire-dom-event
+              browser_mod:
+                command: navigate
+                navigation_path: /hassio
           - entity:  sensor.updater_supervisor
             type: custom:multiple-entity-row
             name: Add-ons
             icon: mdi:update
             tap_action: 
-              action: call-service
-              service: browser_mod.navigate
-              service_data: 
+              action: fire-dom-event
+              browser_mod:
+                command: navigate
                 navigation_path: /hassio
-                deviceID: this
           - entity: sensor.hacs
             name: Hacs
             tap_action: 
-              action: call-service
-              service: browser_mod.navigate
-              service_data: 
+              action: fire-dom-event
+              browser_mod:
+                command: navigate 
                 navigation_path: /hacs
-                deviceID: this
           - type: custom:fold-entity-row
             padding: 5
             head:

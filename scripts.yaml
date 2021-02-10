@@ -370,3 +370,24 @@ sonos_wecker:
   - service: script.sonos_set_wake_up_volume
     data: {}
   mode: single
+sonos_set_volume:
+  alias: 'Sonos: Set Volume'
+  fields:
+    sonos_id:
+      description: ID von sonos
+      example: ids
+  sequence:
+  - condition: template
+    value_template: '{{ states.media_player[sonos_id].attributes["sonos_group"] |
+      regex_replace(find="''",replace="") | regex_replace(find="[\[]", replace="")|
+      regex_replace(find="[\]]", replace="") !=  states.media_player[sonos_id].entity_id  }}'
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 0
+      milliseconds: 200
+  - service: media_player.volume_set
+    data:
+      entity_id: '{{ states.media_player[sonos_id].attributes["sonos_group"]  }}'
+      volume_level: '{{ states.media_player[sonos_id].attributes["volume_level"]  }}' 
+  mode: single
