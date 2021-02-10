@@ -617,11 +617,11 @@
       actionName: gotobed
   condition: []
   action:
-  - service: script.schlafen
-    data: {}
   - service: script.sonos_set_volume_8
     data: {}
   - service: script.sonos_radio_b5_aktuell
+    data: {}
+  - service: script.schlafen
     data: {}
   mode: single
 - id: '1605647273709'
