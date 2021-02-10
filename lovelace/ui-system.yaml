@@ -1,5 +1,64 @@
 # lovelace_gen
 
+#### popup instead of more-info
+popup_cards:
+  sensor.samba_backup:
+    title: Status
+    card:
+      type: entities
+      entities:
+        - attribute: backups_local
+          entity: sensor.samba_backup
+          icon: 'mdi:file-outline'
+          name: Local Backups
+          type: attribute
+        - attribute: backups_remote
+          entity: sensor.samba_backup
+          icon: 'mdi:file-move-outline'
+          name: Remote Backups
+          type: attribute
+        - attribute: total_backups_succeeded
+          entity: sensor.samba_backup
+          icon: 'mdi:file-check-outline'
+          name: Succeded Backups
+          type: attribute
+        - attribute: total_backups_failed
+          entity: sensor.samba_backup
+          icon: 'mdi:file-cancel-outline'
+          name: Failed Backups
+          type: attribute
+        - attribute: last_backup
+          entity: sensor.samba_backup
+          icon: 'mdi:file-clock-outline'
+          name: Last Backup
+          type: attribute
+
+  automation.batterie_benachrichtigung:
+    title: Batteriestatus
+    card:
+      type: custom:auto-entities
+      card:
+        type: entities 
+      filter:
+        include:
+          - entity_id: "sensor.*_battery_level"
+            options:
+              type: custom:battery-entity-row
+        exclude:
+          - entity_id: "*iphone*"
+          - entity_id: "*ipad*"
+
+  switch.pi_hole:
+    title: PI-Hole Stats
+    card:
+      type: custom:auto-entities
+      card:
+        type: entities 
+      filter:
+          include:
+            - entity_id: "sensor.pi_hole_*"  
+#### #### #### #### #### #### #### #### #### #### 
+
 title: System
 
 views:
@@ -24,41 +83,10 @@ views:
       - type: entities  
         entities:
           - entity: switch.pi_hole
-            icon: mdi:pi-hole
-            tap_action: 
-              action: call-service
-              service: browser_mod.popup
-              service_data:
-                deviceID: this
-                title: PI-Hole Stats
-                card:
-                  type: custom:auto-entities
-                  card:
-                    type: entities 
-                  filter:
-                      include:
-                        - entity_id: "sensor.pi_hole_*"      
+            icon: mdi:pi-hole    
       - type: entities
         entities:
           - entity: automation.batterie_benachrichtigung
-            tap_action: 
-              action: call-service
-              service: browser_mod.popup
-              service_data:
-                deviceID: this
-                title: Batteriestatus
-                card:
-                  type: custom:auto-entities
-                  card:
-                    type: entities 
-                  filter:
-                    include:
-                      - entity_id: "sensor.*_battery_level"
-                        options:
-                          type: custom:battery-entity-row
-                    exclude:
-                      - entity_id: "*iphone*"
-                      - entity_id: "*ipad*"
           - type: custom:fold-entity-row
             head:
               type: section
@@ -171,40 +199,6 @@ views:
             type: custom:multiple-entity-row
             secondary_info:
               attribute: last_backup
-            tap_action: 
-              action: call-service
-              service: browser_mod.popup
-              service_data:
-                deviceID: this
-                title: Status
-                card:
-                  type: entities
-                  entities:
-                    - attribute: backups_local
-                      entity: sensor.samba_backup
-                      icon: 'mdi:file-outline'
-                      name: Local Backups
-                      type: attribute
-                    - attribute: backups_remote
-                      entity: sensor.samba_backup
-                      icon: 'mdi:file-move-outline'
-                      name: Remote Backups
-                      type: attribute
-                    - attribute: total_backups_succeeded
-                      entity: sensor.samba_backup
-                      icon: 'mdi:file-check-outline'
-                      name: Succeded Backups
-                      type: attribute
-                    - attribute: total_backups_failed
-                      entity: sensor.samba_backup
-                      icon: 'mdi:file-cancel-outline'
-                      name: Failed Backups
-                      type: attribute
-                    - attribute: last_backup
-                      entity: sensor.samba_backup
-                      icon: 'mdi:file-clock-outline'
-                      name: Last Backup
-                      type: attribute 
       - type: glance
         columns: 5
         show_name: false

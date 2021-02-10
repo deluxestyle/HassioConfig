@@ -13,10 +13,9 @@ entities:
         - name: Szenen
           icon: mdi:lightbulb-group-outline
           tap_action: 
-            action: call-service
-            service: browser_mod.popup
-            service_data:
-              deviceID: this
+            action: fire-dom-event
+            browser_mod:
+              command: popup
               title: Szenen
               card:
                 style: |
