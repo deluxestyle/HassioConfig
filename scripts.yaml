@@ -391,3 +391,4 @@ sonos_set_volume:
       entity_id: '{{ states.media_player[sonos_id].attributes["sonos_group"]  }}'
       volume_level: '{{ states.media_player[sonos_id].attributes["volume_level"]  }}' 
   mode: single
+
