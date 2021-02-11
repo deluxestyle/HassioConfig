@@ -2,12 +2,6 @@
   alias: 'Benachrichtigung:  Update HASS'
   trigger:
   - platform: state
-    from: 'off'
-    entity_id: binary_sensor.updater_addons
-  - platform: state
-    entity_id: binary_sensor.updater_supervisor
-    from: 'off'
-  - platform: state
     entity_id: sensor.updater_core
     from: 'off'
   action:
