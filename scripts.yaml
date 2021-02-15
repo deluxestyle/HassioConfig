@@ -342,19 +342,27 @@ sonos_set_wake_up_volume:
     service: media_player.volume_set
   - delay:
       hours: 0
-      minutes: 0
-      seconds: 20
+      minutes: 1
+      seconds: 30
       milliseconds: 0
   - data:
       entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
       volume_level: '0.03'
     service: media_player.volume_set
-  - delay: 00:00:20
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 30
+      milliseconds: 0
   - data:
       entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
       volume_level: '0.04'
     service: media_player.volume_set
-  - delay: 00:00:20
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 30
+      milliseconds: 0
   - data:
       entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
       volume_level: '0.05'
@@ -389,6 +397,5 @@ sonos_set_volume:
   - service: media_player.volume_set
     data:
       entity_id: '{{ states.media_player[sonos_id].attributes["sonos_group"]  }}'
-      volume_level: '{{ states.media_player[sonos_id].attributes["volume_level"]  }}' 
+      volume_level: '{{ states.media_player[sonos_id].attributes["volume_level"]  }}'
   mode: single
-
