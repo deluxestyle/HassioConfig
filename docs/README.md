@@ -25,8 +25,8 @@
 * InfluxDB
 * Grafana 
 * Wireguard 
-* DuckDns (for remote access)
-* Nginx Proxy Manager (for remote access)
+* ~~DuckDns (for remote access)~~
+* ~~Nginx Proxy Manager (for remote access)~~
 * MariaDB
 * Glances
 * Samba share
