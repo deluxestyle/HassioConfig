@@ -2,8 +2,6 @@
 
 type: entities
 entities:
-  # - entity: climate.fritz_dect_301
-  #   icon: mdi:radiator
   - !include
       - thermostat.yaml
       - sensor_temprature: sensor.temperature_158d00023258bd

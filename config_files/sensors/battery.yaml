@@ -1,5 +1,0 @@
-- platform: attributes
-  attribute: battery_level
-  unit_of_measurement: "%"
-  entities:
-    - climate.fritz_dect_301

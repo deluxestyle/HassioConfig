@@ -1,11 +1,5 @@
 # lovelace_gen
 
-climate.fritz_dect_301:
-  !include 
-    - ../includes/climate/popup_climate.yaml
-    - entity: climate.fritz_dect_301
-      name: Bad
-
 media_player.wohnzimmer:
   title: Lautstärke
   card:

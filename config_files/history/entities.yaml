@@ -50,7 +50,6 @@ entities:
   - sensor.wandsender_2_fach_battery_level
   - sensor.dimmschalter_schlafzimmer_battery_level
   - sensor.dimmschalter_battery_level
-  - sensor.fritz_dect_301_battery_level
 domains:
   - automation
   - switch

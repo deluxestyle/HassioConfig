@@ -17,7 +17,6 @@ include:
     - sensor.wandsender_2_fach_battery_level
     - sensor.dimmschalter_schlafzimmer_battery_level
     - sensor.dimmschalter_battery_level
-    - sensor.fritz_dect_301_battery_level
     - sensor.humidity_158d0001b8c96c
     - sensor.humidity_158d0001b8c998
     - sensor.humidity_158d0002239fb5
