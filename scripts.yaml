@@ -305,8 +305,6 @@ alles_ausschalten:
   - service: switch.turn_off
     data: {}
     entity_id: switch.steckdosenleiste
-  - service: script.sonos_stopp
-    data: {}
   mode: single
 sonos_set_volume_4:
   alias: 'Sonos: Set volume 4'

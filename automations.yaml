@@ -744,33 +744,6 @@
     entity_id: switch.wifi_steckdose
     domain: switch
   mode: single
-- id: '1611921643478'
-  alias: 'Sonos: Lautstärke anpassen'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: media_player.wohnzimmer
-    attribute: volume_level
-  - platform: state
-    entity_id: media_player.schlafzimmer
-    attribute: volume_level
-  - platform: state
-    entity_id: media_player.bad
-    attribute: volume_level
-  condition:
-  - condition: state
-    entity_id: input_boolean.sync_volume
-    state: 'on'
-  action:
-  - condition: template
-    value_template: '{{ trigger.to_state.attributes.sonos_group != trigger.entity_id
-      }}'
-  - service: media_player.volume_set
-    data:
-      entity_id: '{{ trigger.to_state.attributes.sonos_group }}'
-      volume_level: '{{ trigger.to_state.attributes.volume_level }}'
-  mode: queued
-  max: 10
 - id: '1612343173377'
   alias: 'iOS: Telefonat'
   description: ''
@@ -784,8 +757,8 @@
   - service: script.sonos_stopp
     data: {}
   mode: single
-- id: '1613028719636'
-  alias: 'Sonos: Lautstärke anpassen (general)'
+- id: '1614106691093'
+  alias: 'Sonos: Lautstärke anpassen'
   description: ''
   trigger:
   - platform: event
@@ -802,6 +775,8 @@
   - condition: state
     entity_id: input_boolean.sync_volume
     state: 'on'
+  - condition: template
+    value_template: '{{ trigger.event.data.service_data.entity_id != "media_player.harman_kardon_avr"}}'
   action:
   - service: script.sonos_set_volume
     data:
