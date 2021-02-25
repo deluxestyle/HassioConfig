@@ -50,6 +50,7 @@ entities:
   - sensor.wandsender_2_fach_battery_level
   - sensor.dimmschalter_schlafzimmer_battery_level
   - sensor.dimmschalter_battery_level
+  - light.yeelight_bslamp1_0x0000000005451cd6
 domains:
   - automation
   - switch
