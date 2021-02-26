@@ -495,23 +495,6 @@
       notification_id: cpu_temp
       title: CPU Temp
     service: script.notify_script
-- id: '1584612970522'
-  alias: 'FritzBox: Tefelonanruf'
-  description: ''
-  trigger:
-  - entity_id: sensor.fritzbox
-    platform: state
-    to: ringing
-  condition: []
-  action:
-  - data: {}
-    entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
-  - data:
-      message: 'Anruf von: {{ state_attr("sensor.fritzbox", "from") }}'
-      notification_id: Anruf
-      title: Anruf
-    service: script.notify_script
 - id: '1568628137987'
   alias: 'Benachrichtigung: KM Stand kritisch'
   trigger:
