@@ -74,7 +74,7 @@ python_script:
 
 vacuum:
   - platform: xiaomi_miio
-    host: 192.168.200.28
+    host: 192.168.200.29
     token: !secret xiaomi_vacuum
 
 device_tracker:
