@@ -1,0 +1,54 @@
+# lovelace_gen
+
+#https://community.home-assistant.io/t/xiaomi-vacuum-manual-control-tiles-and-caldav-calendar-scheduling/53626
+
+style: |
+  ha-card {
+    --ha-card-box-shadow: 'none';
+    --ha-card-border-radius: "0px";
+  }
+type: entities
+entities:
+  - type: custom:paper-buttons-row
+    buttons:
+      - icon: mdi:chevron-up
+        tap_action:
+          action: call-service
+          service: xiaomi_miio.vacuum_remote_control_move
+          service_data:
+            entity_id: vacuum.xiaomi_vacuum_cleaner
+            rotation: 0
+            velocity: 0.29
+            duration: 1500
+
+  # for multiple rows define multiple `paper-buttons-row`s.
+  - type: custom:paper-buttons-row
+    buttons:
+      - icon: mdi:rotate-right
+        tap_action:
+          action: call-service
+          service: xiaomi_miio.vacuum_remote_control_move
+          data:
+            entity_id: vacuum.xiaomi_vacuum_cleaner
+            velocity: 0
+            rotation: 15
+            duration: 1500
+      - icon: mdi:checkbox-blank-circle-outline
+      - icon: mdi:rotate-left
+        tap_action:
+          action: call-service
+          service: xiaomi_miio.vacuum_remote_control_move
+          data:
+            entity_id: vacuum.xiaomi_vacuum_cleaner
+            velocity: 0
+            rotation: -15
+            duration: 1500
+
+  - type: custom:paper-buttons-row
+    buttons:
+      - icon: mdi:chevron-down
+        tap_action:
+          action: call-service
+          service: esphome.family_room_node_transmit_panasonic
+          service_data:
+            command: 218128748

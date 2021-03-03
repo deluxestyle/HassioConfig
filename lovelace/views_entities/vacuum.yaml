@@ -12,6 +12,14 @@
           background: var( --ha-card-background, var(--card-background-color, white) );
         }
       compact_view: true
+      # actions:
+      #   - name: Remote
+      #     icon: mdi:robot-vacuum
+      #     service: browser_mod.popup
+      #     service_data:
+      #       title: Remote
+      #       card:
+      #         !include vacuum_remote.yaml
       stats:
         default:
           - attribute: filter_left

@@ -8,11 +8,11 @@ config:
 map:
 mobile_app:
 person:
-ssdp:
+# ssdp:
 sun:
 system_health:
 api:
-zeroconf:
+# zeroconf:
 
 http:
   use_x_forwarded_for: true
