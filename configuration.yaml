@@ -8,11 +8,11 @@ config:
 map:
 mobile_app:
 person:
-# ssdp:
+ssdp:
 sun:
 system_health:
 api:
-# zeroconf:
+zeroconf:
 
 http:
   use_x_forwarded_for: true
@@ -72,10 +72,10 @@ binary_sensor: !include_dir_merge_list config_files/binary_sensors/
 
 python_script:
 
-vacuum:
-  - platform: xiaomi_miio
-    host: 192.168.200.29
-    token: !secret xiaomi_vacuum
+# vacuum:
+#   - platform: xiaomi_miio
+#     host: 192.168.200.29
+#     token: !secret xiaomi_vacuum
 
 device_tracker:
   - platform: fritz
