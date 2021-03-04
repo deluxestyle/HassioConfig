@@ -72,16 +72,11 @@ binary_sensor: !include_dir_merge_list config_files/binary_sensors/
 
 python_script:
 
-# vacuum:
-#   - platform: xiaomi_miio
-#     host: 192.168.200.29
-#     token: !secret xiaomi_vacuum
-
 device_tracker:
   - platform: fritz
     host: 192.168.200.1
-    username: !secret fritz_user
-    password: !secret fritz_password
+    # username: !secret fritz_user
+    # password: !secret fritz_password
   - platform: iphonedetect
     consider_home: 60
     scan_interval: 12

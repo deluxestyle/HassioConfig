@@ -2,26 +2,26 @@
   sensors:
       xiaomi_vacuum_status:
         friendly_name: "Staubsauger Status"
-        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.status }}'
+        value_template: '{{ states.vacuum.roborock_vacuum.attributes.status }}'
       xiaomi_vacuum_main_brush_left:
         friendly_name: "Staubsauger Main Brush"
         unit_of_measurement: 'hours'
-        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.main_brush_left }}'
+        value_template: '{{ states.vacuum.roborock_vacuum.attributes.main_brush_left }}'
       xiaomi_vacuum_side_brush_left:
         friendly_name: "Staubsauger Side Brush"
         unit_of_measurement: 'hours'
-        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.side_brush_left }}'
+        value_template: '{{ states.vacuum.roborock_vacuum.attributes.side_brush_left }}'
       xiaomi_vacuum_filter_left:
         friendly_name: "Staubsauger Filter"
         unit_of_measurement: 'hours'
-        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.filter_left }}'
+        value_template: '{{ states.vacuum.roborock_vacuum.attributes.filter_left }}'
       xiaomi_vacuum_sensor_dirty_left:
         friendly_name: "Staubsauger Sensor"
         unit_of_measurement: 'hours'
-        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.sensor_dirty_left }}'
+        value_template: '{{ states.vacuum.roborock_vacuum.attributes.sensor_dirty_left }}'
       xiaomi_vacuum_sensor_battery:
         friendly_name: "Staubsauger Batterie"
         unit_of_measurement: '%'
         device_class: battery
-        value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}'
-        icon_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_icon }}'
+        value_template: '{{ states.vacuum.roborock_vacuum.attributes.battery_level }}'
+        icon_template: '{{ states.vacuum.roborock_vacuum.attributes.battery_icon }}'

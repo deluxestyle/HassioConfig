@@ -18,13 +18,13 @@ xiaomi_vacuum_start:
   alias: 'Xiaomi Staubsauger: einschalten'
   sequence:
   - data:
-      entity_id: vacuum.xiaomi_vacuum_cleaner
+      entity_id: vacuum.roborock_vacuum
     service: vacuum.turn_on
 xiaomi_vacuum_stop:
   alias: 'Xiaomi Staubsauger: ausschalten'
   sequence:
   - data:
-      entity_id: vacuum.xiaomi_vacuum_cleaner
+      entity_id: vacuum.roborock_vacuum
     service: vacuum.turn_off
 harmony_power_off:
   alias: 'Harmony: Ausschaltbefehl'
@@ -128,7 +128,7 @@ xiaomi_vacuum_sensor_cleaned:
   sequence:
   - data:
       command: reset_consumable
-      entity_id: vacuum.xiaomi_vacuum_cleaner
+      entity_id: vacuum.roborock_vacuum
       params: sensor_dirty_time
     service: vacuum.send_command
 xiaomi_vacuum_filter_changed:
@@ -136,7 +136,7 @@ xiaomi_vacuum_filter_changed:
   sequence:
   - data:
       command: reset_consumable
-      entity_id: vacuum.xiaomi_vacuum_cleaner
+      entity_id: vacuum.roborock_vacuum
       params: filter_work_time
     service: vacuum.send_command
 xiaomi_vacuum_sidebrush_changed:
@@ -144,7 +144,7 @@ xiaomi_vacuum_sidebrush_changed:
   sequence:
   - data:
       command: reset_consumable
-      entity_id: vacuum.xiaomi_vacuum_cleaner
+      entity_id: vacuum.roborock_vacuum
       params: side_brush_work_time
     service: vacuum.send_command
 xiaomi_vacuum_mainbrush_changed:
@@ -152,7 +152,7 @@ xiaomi_vacuum_mainbrush_changed:
   sequence:
   - data:
       command: reset_consumable
-      entity_id: vacuum.xiaomi_vacuum_cleaner
+      entity_id: vacuum.roborock_vacuum
       params: main_brush_work_time
     service: vacuum.send_command
   mode: single

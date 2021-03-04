@@ -43,8 +43,8 @@
       entity_id: input_boolean.persistent_notification
     service: input_boolean.turn_on
   - data:
-      message: 'Staubsauger fertig - Dauer: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaning_time
-        }} min - gesaugte Fläche: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaned_area
+      message: 'Staubsauger fertig - Dauer: {{ states.vacuum.roborock_vacuum.attributes.cleaning_time
+        }} min - gesaugte Fläche: {{ states.vacuum.roborock_vacuum.attributes.cleaned_area
         }} qm | Fehler {{ states.counter.xiaomo_errors.state }}'
       notification_id: xiaomi_vacuum_status
       title: StaubRobo
@@ -53,7 +53,7 @@
 - id: xiaomi_vacuum_notification_on
   alias: 'Xiaomi Staubsauger: Benachrichtigung gestartet'
   trigger:
-  - entity_id: vacuum.xiaomi_vacuum_cleaner
+  - entity_id: vacuum.roborock_vacuum
     from: docked
     platform: state
     to: cleaning
@@ -68,19 +68,19 @@
 - id: xiaomi_vacuum_notification_blocked
   alias: 'Xiaomi Staubsauger: Benachrichtigung Fehler'
   trigger:
-  - entity_id: vacuum.xiaomi_vacuum_cleaner
+  - entity_id: vacuum.roborock_vacuum
     platform: state
     to: error
   condition:
   - condition: template
-    value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.error != ''Clean
+    value_template: '{{ states.vacuum.roborock_vacuum.attributes.error != ''Clean
       main brush'' }}'
   action:
   - data:
       entity_id: input_boolean.persistent_notification
     service: input_boolean.turn_on
   - data:
-      message: 'Staubsauger blockiert - Error: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.error
+      message: 'Staubsauger blockiert - Error: {{ states.vacuum.roborock_vacuum.attributes.error
         }} '
       notification_id: xiaomi_vacuum_error
       title: StaubRobo
@@ -94,11 +94,11 @@
     to: Error
   condition:
   - condition: template
-    value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.error == ''Clean
+    value_template: '{{ states.vacuum.roborock_vacuum.attributes.error == ''Clean
       main brush'' }}'
   action:
   - data:
-      entity_id: vacuum.xiaomi_vacuum_cleaner
+      entity_id: vacuum.roborock_vacuum
     service: vacuum.start
   - data:
       entity_id: counter.xiaomo_errors
@@ -167,7 +167,7 @@
   condition: []
   action:
   - data:
-      entity_id: vacuum.xiaomi_vacuum_cleaner
+      entity_id: vacuum.roborock_vacuum
     service: vacuum.return_to_base
 - id: '1540494970737'
   alias: 'Benachrichtigung: Bewegung erkannt'
@@ -179,7 +179,7 @@
   - condition: not
     conditions:
     - condition: state
-      entity_id: vacuum.xiaomi_vacuum_cleaner
+      entity_id: vacuum.roborock_vacuum
       state: cleaning
   action:
   - delay: 00:01:00
@@ -310,7 +310,7 @@
 - id: '1548418632803'
   alias: 'Xiaomi Staubsauger: Zähler zurücksetzen'
   trigger:
-  - entity_id: vacuum.xiaomi_vacuum_cleaner
+  - entity_id: vacuum.roborock_vacuum
     from: docked
     platform: state
     to: cleaning
@@ -327,7 +327,7 @@
     to: not_home
   condition:
   - condition: state
-    entity_id: vacuum.xiaomi_vacuum_cleaner
+    entity_id: vacuum.roborock_vacuum
     state: docked
   - after: 07:00
     before: '18:00'
@@ -350,10 +350,10 @@
   condition: []
   action:
   - data:
-      entity_id: vacuum.xiaomi_vacuum_cleaner
+      entity_id: vacuum.roborock_vacuum
     service: vacuum.start
   - data:
-      entity_id: vacuum.xiaomi_vacuum_cleaner
+      entity_id: vacuum.roborock_vacuum
       fan_speed: Turbo
     service: vacuum.set_fan_speed
 - id: '1554536389566'
@@ -436,11 +436,11 @@
     for: 00:02:00
   condition:
   - condition: state
-    entity_id: vacuum.xiaomi_vacuum_cleaner
+    entity_id: vacuum.roborock_vacuum
     state: error
   action:
   - data:
-      entity_id: vacuum.xiaomi_vacuum_cleaner
+      entity_id: vacuum.roborock_vacuum
     service: vacuum.locate
   mode: single
 - id: '1574071080398'

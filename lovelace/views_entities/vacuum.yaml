@@ -6,7 +6,7 @@
   icon: mdi:robot-vacuum
   cards:
     - type: custom:vacuum-card
-      entity: vacuum.xiaomi_vacuum_cleaner
+      entity: vacuum.roborock_vacuum
       style: |
         :host .toolbar {
           background: var( --ha-card-background, var(--card-background-color, white) );

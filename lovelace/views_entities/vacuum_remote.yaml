@@ -16,7 +16,7 @@ entities:
           action: call-service
           service: xiaomi_miio.vacuum_remote_control_move
           service_data:
-            entity_id: vacuum.xiaomi_vacuum_cleaner
+            entity_id: vacuum.roborock_vacuum
             rotation: 0
             velocity: 0.29
             duration: 1500
@@ -29,7 +29,7 @@ entities:
           action: call-service
           service: xiaomi_miio.vacuum_remote_control_move
           data:
-            entity_id: vacuum.xiaomi_vacuum_cleaner
+            entity_id: vacuum.roborock_vacuum
             velocity: 0
             rotation: 15
             duration: 1500
@@ -39,7 +39,7 @@ entities:
           action: call-service
           service: xiaomi_miio.vacuum_remote_control_move
           data:
-            entity_id: vacuum.xiaomi_vacuum_cleaner
+            entity_id: vacuum.roborock_vacuum
             velocity: 0
             rotation: -15
             duration: 1500

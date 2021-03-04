@@ -9,7 +9,7 @@ cards:
     cards:
       - type: entities
         entities:
-          - entity: vacuum.xiaomi_vacuum_cleaner
+          - entity: vacuum.roborock_vacuum
             name: StaubRobo
           - type: section
       - type: "custom:paper-buttons-row"
@@ -19,25 +19,25 @@ cards:
               action: call-service
               service: vacuum.start
               service_data:
-                entity_id: vacuum.xiaomi_vacuum_cleaner
+                entity_id: vacuum.roborock_vacuum
           - icon: mdi:pause
             tap_action: 
               action: call-service
               service: vacuum.pause
               service_data:
-                entity_id: vacuum.xiaomi_vacuum_cleaner
+                entity_id: vacuum.roborock_vacuum
           - icon: mdi:home
             tap_action: 
               action: call-service
               service: vacuum.return_to_base
               service_data:
-                entity_id: vacuum.xiaomi_vacuum_cleaner
+                entity_id: vacuum.roborock_vacuum
           - icon: mdi:map-marker
             tap_action: 
               action: call-service
               service: vacuum.locate
               service_data:
-                entity_id: vacuum.xiaomi_vacuum_cleaner
+                entity_id: vacuum.roborock_vacuum
       - type: entities
         entities:
           - type: custom:fold-entity-row
