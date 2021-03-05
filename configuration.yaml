@@ -84,4 +84,4 @@ device_tracker:
       track_new_devices: true
     hosts:
       iphone_wolfgang: 192.168.200.45
-      iphone_christina: 192.168.200.39
+      iphone_christina: 192.168.200.35
