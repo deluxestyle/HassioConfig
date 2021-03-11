@@ -326,45 +326,58 @@ sonos_set_wake_up_volume:
   alias: 'Sonos: Set wake up volume'
   sequence:
   - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
-      volume_level: '0.01'
+      volume_level: 0.01
     service: media_player.volume_set
+    target:
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
   - service: media_player.volume_mute
+    target:
+      device_id:
+      - 6e06a6ef3694161efade1a7369ca21cf
+      - 2094b86c2a0d860eeddf623406678e39
+      - 92073219792f52aad47fe04301cb2789
     data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
       is_volume_muted: false
-  - delay: 00:00:15
-  - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
-      volume_level: '0.02'
-    service: media_player.volume_set
   - delay:
       hours: 0
       minutes: 1
       seconds: 30
       milliseconds: 0
   - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
-      volume_level: '0.03'
+      volume_level: 0.02
     service: media_player.volume_set
+    target:
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
   - delay:
       hours: 0
       minutes: 1
       seconds: 30
       milliseconds: 0
   - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
-      volume_level: '0.04'
+      volume_level: 0.03
     service: media_player.volume_set
+    target:
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
   - delay:
       hours: 0
       minutes: 1
       seconds: 30
       milliseconds: 0
   - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
-      volume_level: '0.05'
+      volume_level: 0.04
     service: media_player.volume_set
+    target:
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 30
+      milliseconds: 0
+  - data:
+      volume_level: 0.05
+    service: media_player.volume_set
+    target:
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
   mode: single
 sonos_wecker:
   alias: 'Sonos: Wecker'
