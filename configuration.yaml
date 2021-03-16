@@ -75,13 +75,11 @@ python_script:
 device_tracker:
   - platform: fritz
     host: 192.168.200.1
-    # username: !secret fritz_user
-    # password: !secret fritz_password
   - platform: iphonedetect
     consider_home: 60
     scan_interval: 12
     new_device_defaults:
       track_new_devices: true
     hosts:
-      iphone_wolfgang: 192.168.200.45
+      iphone_wolfgang: 192.168.200.22
       iphone_christina: 192.168.200.35
