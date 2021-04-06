@@ -12,14 +12,19 @@
           background: var( --ha-card-background, var(--card-background-color, white) );
         }
       compact_view: true
-      # actions:
-      #   - name: Remote
-      #     icon: mdi:robot-vacuum
-      #     service: browser_mod.popup
-      #     service_data:
-      #       title: Remote
-      #       card:
-      #         !include vacuum_remote.yaml
+      # map: camera.xiaomi_cloud_map_extractor
+      actions:
+        - name: Map
+          icon: mdi:map-legend
+          service: browser_mod.popup
+          service_data:
+            title: Map
+            card:
+              type: picture-entity
+              entity: camera.xiaomi_cloud_map_extractor
+              camera_view: live
+              show_state: false
+              show_name: false
       stats:
         default:
           - attribute: filter_left
