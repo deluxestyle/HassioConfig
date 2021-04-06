@@ -131,7 +131,11 @@ views:
             name: Swap
             icon: mdi:file-swap         
           - entity: sensor.disk_use_percent
-            name: Disk                
+            name: Disk 
+          - entity: sensor.influxdb_database_size
+            icon: mdi:database-outline
+          - entity: sensor.mariadb_database_size
+            icon: mdi:database               
       - type: entities
         show_header_toggle: false
         entities:
