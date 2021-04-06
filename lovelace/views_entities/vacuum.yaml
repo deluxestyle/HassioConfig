@@ -5,47 +5,53 @@
   path: vacuum
   icon: mdi:robot-vacuum
   cards:
-    - type: custom:vacuum-card
-      entity: vacuum.roborock_vacuum
-      style: |
-        :host .toolbar {
-          background: var( --ha-card-background, var(--card-background-color, white) );
-        }
-      compact_view: true
-      # map: camera.xiaomi_cloud_map_extractor
-      actions:
-        - name: Map
-          icon: mdi:map-legend
-          service: browser_mod.popup
-          service_data:
-            title: Map
-            card:
-              type: picture-entity
-              entity: camera.xiaomi_cloud_map_extractor
-              camera_view: live
-              show_state: false
-              show_name: false
-      stats:
-        default:
-          - attribute: filter_left
-            unit: Stunden
-            subtitle: Filter
-          - attribute: side_brush_left
-            unit: Stunden
-            subtitle: Seitenbürste
-          - attribute: main_brush_left
-            unit: Stunden
-            subtitle: Hauptbürste
-          - attribute: sensor_dirty_left
-            unit: Stunden
-            subtitle: Sensoren
-        cleaning:
-          - attribute: cleaned_area
-            unit: m2
-            subtitle: Bereich
-          - attribute: cleaning_time
-            unit: minutes
-            subtitle: Dauer
+    - type: 'custom:vertical-stack-in-card'
+      cards:
+        - type: custom:vacuum-card
+          entity: vacuum.roborock_vacuum
+          style: |
+            :host .toolbar {
+              background: var( --ha-card-background, var(--card-background-color, white) );
+            }
+          compact_view: true
+          actions:
+            - name: Map
+              icon: mdi:map-legend
+              service: browser_mod.popup
+              service_data:
+                title: Map
+                card:
+                  type: picture-entity
+                  entity: camera.xiaomi_cloud_map_extractor
+                  camera_view: live
+                  show_state: false
+                  show_name: false
+          stats:
+            default:
+              - attribute: filter_left
+                unit: Stunden
+                subtitle: Filter
+              - attribute: side_brush_left
+                unit: Stunden
+                subtitle: Seitenbürste
+              - attribute: main_brush_left
+                unit: Stunden
+                subtitle: Hauptbürste
+              - attribute: sensor_dirty_left
+                unit: Stunden
+                subtitle: Sensoren
+            cleaning:
+              - attribute: cleaned_area
+                unit: m2
+                subtitle: Bereich
+              - attribute: cleaning_time
+                unit: minutes
+                subtitle: Dauer
+        - type: custom:xiaomi-vacuum-map-card
+          entity: vacuum.roborock_vacuum
+          map_camera: camera.xiaomi_cloud_map_extractor
+          camera_calibration: true 
+          language: de  
     - type: entities
       entities:
         - entity: automation.xiaomi_staubsauger_abwesenheit
@@ -111,5 +117,4 @@
             - entity: automation.xiaomi_staubsauger_sensor_kritisch
               name: Sensor kritisch
               tap_action: 
-                action: toggle
-            
+                action: toggle  

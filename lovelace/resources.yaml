@@ -24,3 +24,5 @@
   type: module
 - url: /hacsfiles/lovelace-battery-entity-row/battery-entity-row.js
   type: module
+- url: /hacsfiles/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js
+  type: module
