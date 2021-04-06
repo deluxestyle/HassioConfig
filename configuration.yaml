@@ -95,9 +95,9 @@ camera:
       - calibration_points
     # colors:
     #   color_map_outside: [3, 169, 244]
-    # map_transformation:
-    #   trim:
-    #     top: 10
-    #     bottom: 10
-    #     left: 10
-    #     right: 10 
+    map_transformation:
+      trim:
+        top: 5
+        bottom: 5
+        left: 5
+        right: 5 
