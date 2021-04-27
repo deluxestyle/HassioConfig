@@ -37,7 +37,6 @@ logger:
   #   hacs: debug
   
 updater:
-  include_used_components: true
   
 history: !include config_files/history/history.yaml
 recorder: !include config_files/history/recorder.yaml
@@ -84,20 +83,20 @@ device_tracker:
       iphone_wolfgang: 192.168.200.22
       iphone_christina: 192.168.200.35
 
-camera:
-  - platform: xiaomi_cloud_map_extractor
-    host: 192.168.200.29
-    token: !secret xiaomi_vacuum
-    username: !secret xiaomi_cloud_username
-    password: !secret xiaomi_cloud_password
-    draw: ['all']
-    attributes:
-      - calibration_points
-    # colors:
-    #   color_map_outside: [3, 169, 244]
-    map_transformation:
-      trim:
-        top: 5
-        bottom: 5
-        left: 5
-        right: 5 
+# camera:
+#   - platform: xiaomi_cloud_map_extractor
+#     host: 192.168.200.29
+#     token: !secret xiaomi_vacuum
+#     username: !secret xiaomi_cloud_username
+#     password: !secret xiaomi_cloud_password
+#     draw: ['all']
+#     attributes:
+#       - calibration_points
+#     # colors:
+#     #   color_map_outside: [3, 169, 244]
+#     # map_transformation:
+#     #   trim:
+#     #     top: 5
+#     #     bottom: 5
+#     #     left: 5
+#     #     right: 5 

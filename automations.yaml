@@ -471,11 +471,10 @@
     from: '0'
   action:
   - service: persistent_notification.create
-    data_template:
+    data:
+      message: Snapshot Fehler
       title: Snapshot Fehler
-      message: 'Name: {{ trigger.event.data.name }}
-
-        Error: {{ trigger.event.data.error }}'
+      notification_id: snapshot_error
   mode: single
 - id: '1584265149079'
   alias: 'Benachrichtigung: CPU Temp zu hoch'
