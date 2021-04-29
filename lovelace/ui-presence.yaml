@@ -97,7 +97,6 @@ views:
         default_zoom: 15
         entities:
           - entity: device_tracker.iphone11pro_2
-          - entity: device_tracker.x1_sdrive18i
           - zone.home
           - zone.agcs
           - zone.christina

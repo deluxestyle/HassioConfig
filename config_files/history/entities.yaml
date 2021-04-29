@@ -7,9 +7,6 @@ entities:
   - sensor.memory_use_percent
   - sensor.disk_use
   - sensor.disk_use_percent
-  - sensor.car_days_in_use
-  - sensor.car_km_threshold
-  - sensor.car_km_usage
   - sensor.humidity_158d0001b8c96c
   - sensor.humidity_158d0001b8c998
   - sensor.humidity_158d0002239fb5

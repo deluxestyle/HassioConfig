@@ -38,8 +38,6 @@ light.dunstabzug:
   icon: mdi:spotlight-beam
 script.sonos_stopp:
   icon: mdi:stop
-lock.x1_sdrive18i_lock:
-  friendly_name: X1 Ent-/Verriegeln
 input_select.avr_source:
   icon: mdi:playlist-play
 sensor.humidity_158d00023258bd:
@@ -87,8 +85,6 @@ binary_sensor.door_window_sensor_158d00022f13a0:
   icon: mdi:window-closed
 binary_sensor.bewegungsmelder:
   friendly_name: Bewegungsmelder
-device_tracker.x1_sdrive18i:
-  friendly_name: BMW X1 sDrive18i
 script.xiaomi_vacuum_mainbrush_changed:
   icon: mdi:radiobox-blank
 script.xiaomi_vacuum_sensor_cleaned:
@@ -105,24 +101,6 @@ automation.xiaomi_staubsauger_fehler:
   icon: mdi:message-alert
 automation.xiaomi_staubsauger_gestartet:
   icon: mdi:message
-binary_sensor.x1_sdrive18i_door_lock_state:
-  friendly_name: Status
-binary_sensor.x1_sdrive18i_windows:
-  friendly_name: Fenster
-binary_sensor.x1_sdrive18i_lids:
-  friendly_name: Alle Türen
-sensor.x1_sdrive18i_mileage:
-  friendly_name: Kilometerstand
-sensor.x1_sdrive18i_remaining_fuel:
-  friendly_name: Tankfüllstand
-sensor.x1_sdrive18i_remaining_range_total:
-  friendly_name: Reichweite
-binary_sensor.x1_sdrive18i_lights_parking:
-  friendly_name: Parklicht
-binary_sensor.x1_sdrive18i_condition_based_services:
-  friendly_name: Service Status
-binary_sensor.x1_sdrive18i_check_control_messages:
-  friendly_name: Check Control Meldungen
 switch.tv_switch:
   icon: mdi:television
 switch.music_switch:
