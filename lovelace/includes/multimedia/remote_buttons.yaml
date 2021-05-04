@@ -34,7 +34,6 @@ entities:
         icon: mdi:volume-minus
         show_name: false
         tap_action:
-          haptic: light
           action: call-service
           service: media_player.volume_down
           service_data:
@@ -43,7 +42,6 @@ entities:
         icon: mdi:volume-plus
         show_name: false
         tap_action:
-          haptic: light
           action: call-service
           service: media_player.volume_up
           service_data:
@@ -52,10 +50,13 @@ entities:
         icon: mdi:volume-off
         show_name: false
         tap_action:
-          haptic: light
           action: call-service
           service: script.toggle
           service_data:
             entity_id: script.harmony_avr_mute  
+      - entity: script.harmony_surround_mode
+        show_name: false
+        tap_action:
+          action: toggle
   - type: section
   - input_select.avr_source
