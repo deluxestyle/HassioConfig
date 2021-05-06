@@ -1,4 +1,3 @@
-auto_start: False
 filter:
   include_entities:
     - light.yeelight_bslamp1_0x0000000005451cd6

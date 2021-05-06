@@ -148,7 +148,7 @@
 - id: '1533660030341'
   alias: 'Harman Kardon AVR: verbinden'
   trigger:
-  - entity_id: device_tracker.avr151
+  - entity_id: device_tracker.avr_151s
     platform: state
     to: home
   condition: []
@@ -157,6 +157,7 @@
   - data:
       entity_id: media_player.harman_kardon_avr
     service: media_player.volume_down
+  mode: single
 - id: '1533984172028'
   alias: 'Xiaomi Staubsauger: Stoppen nach Push'
   trigger:
@@ -414,7 +415,7 @@
     service: script.notify_script
   mode: single
 - id: '1570440017469'
-  alias: 'Benachrichtigung: Badge zurücksetzen'
+  alias: 'iOS: Badge zurücksetzen'
   trigger:
   - event_data:
       sourceDeviceID: iphone11pro

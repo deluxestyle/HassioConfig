@@ -72,8 +72,8 @@ binary_sensor: !include_dir_merge_list config_files/binary_sensors/
 python_script:
 
 device_tracker:
-  - platform: fritz
-    host: 192.168.200.1
+  # - platform: fritz
+  #   host: 192.168.200.1
   - platform: iphonedetect
     consider_home: 60
     scan_interval: 12
