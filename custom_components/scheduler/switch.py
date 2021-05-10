@@ -205,31 +205,34 @@ class ScheduleEntity(ToggleEntity):
     @callback
     async def async_timer_finished(self, id: str):
         """fire actions when timer is finished"""
-        if id != self.schedule_id or self._state == STATE_OFF:
+        if id != self.schedule_id:
             return
 
-        self._current_slot = self._timer_handler.current_slot
-        if self._current_slot is not None:
-            _LOGGER.debug(
-                "Schedule {} is triggered, proceed with actions".format(self.schedule_id)
-            )
-            await self._action_handler.async_queue_actions(
-                self.schedule[const.ATTR_TIMESLOTS][self._current_slot]
-            )
+        if self._state != STATE_OFF:
 
-        if self.schedule[const.ATTR_REPEAT_TYPE] == const.REPEAT_TYPE_PAUSE:
-            await self.async_turn_off()
-            return
+            self._current_slot = self._timer_handler.current_slot
+            if self._current_slot is not None:
+                _LOGGER.debug(
+                    "Schedule {} is triggered, proceed with actions".format(self.schedule_id)
+                )
+                await self._action_handler.async_queue_actions(
+                    self.schedule[const.ATTR_TIMESLOTS][self._current_slot]
+                )
 
-        elif self.schedule[const.ATTR_REPEAT_TYPE] == const.REPEAT_TYPE_SINGLE:
-            await self.coordinator.async_delete_schedule(self.schedule_id)
-            return
+            if self.schedule[const.ATTR_REPEAT_TYPE] == const.REPEAT_TYPE_PAUSE:
+                await self.async_turn_off()
+                return
+
+            elif self.schedule[const.ATTR_REPEAT_TYPE] == const.REPEAT_TYPE_SINGLE:
+                await self.coordinator.async_delete_schedule(self.schedule_id)
+                return
 
         @callback
         async def async_trigger_finished(_now):
             """internal timer is finished, reset the schedule"""
             _LOGGER.debug("Resetting timer for {}".format(id))
-            self._state = STATE_ON
+            if self._state == STATE_TRIGGERED:
+                self._state = STATE_ON
             await self._timer_handler.async_start_timer()
 
         # keep the entity in triggered state for 1 minute, then restart the timer
@@ -238,7 +241,8 @@ class ScheduleEntity(ToggleEntity):
             60,
             async_trigger_finished
         )
-        self._state = STATE_TRIGGERED
+        if self._state == STATE_ON:
+            self._state = STATE_TRIGGERED
 
         await self.async_update_ha_state()
         self.hass.bus.async_fire(const.EVENT)
