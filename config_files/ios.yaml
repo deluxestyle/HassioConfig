@@ -1,23 +1,23 @@
-push:
-  categories:
-    - name: Vacuum
-      identifier: 'vacuum_trigger'
-      actions:
-        - identifier: 'TRIGGER_VACUUM'
-          title: 'Staubsauger einschalten'
-          activationMode: 'foreground'
-          authenticationRequired: yes
-          destructive: no
-          behavior: 'default'
-    - name: Vacuum
-      identifier: 'vacuum_stop'
-      actions:
-        - identifier: 'STOP_VACUUM'
-          title: 'Staubsauger ausschalten'
-          activationMode: 'background'
-          authenticationRequired: yes
-          destructive: no
-          behavior: 'default'
+# push:
+#   categories:
+#     - name: Vacuum
+#       identifier: 'vacuum_trigger'
+#       actions:
+#         - identifier: 'TRIGGER_VACUUM'
+#           title: 'Staubsauger einschalten'
+#           activationMode: 'foreground'
+#           authenticationRequired: yes
+#           destructive: no
+#           behavior: 'default'
+#     - name: Vacuum
+#       identifier: 'vacuum_stop'
+#       actions:
+#         - identifier: 'STOP_VACUUM'
+#           title: 'Staubsauger ausschalten'
+#           activationMode: 'background'
+#           authenticationRequired: yes
+#           destructive: no
+#           behavior: 'default'
 
 actions:
   - name: gotobed

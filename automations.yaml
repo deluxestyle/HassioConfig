@@ -58,12 +58,13 @@
     platform: state
     to: cleaning
   action:
-  - data_template:
-      data:
-        push:
-          category: vacuum_stop
+  - service: notify.mobile_app_iphone11pro
+    data:
       message: Staubsauger gestartet
-    service: notify.mobile_app_iphone11pro
+      data:
+        actions:
+        - action: STOP_VACUUM
+          title: Staubsauger stoppen
   mode: single
 - id: xiaomi_vacuum_notification_blocked
   alias: 'Xiaomi Staubsauger: Benachrichtigung Fehler'
@@ -161,15 +162,16 @@
 - id: '1533984172028'
   alias: 'Xiaomi Staubsauger: Stoppen nach Push'
   trigger:
-  - event_data:
-      actionName: STOP_VACUUM
-    event_type: ios.notification_action_fired
-    platform: event
+  - platform: event
+    event_type: mobile_app_notification_action
+    event_data:
+      action: STOP_VACUUM
   condition: []
   action:
   - data:
       entity_id: vacuum.roborock_vacuum
     service: vacuum.return_to_base
+  mode: single
 - id: '1540494970737'
   alias: 'Benachrichtigung: Bewegung erkannt'
   trigger:
@@ -317,34 +319,13 @@
   - data:
       entity_id: counter.xiaomo_errors
     service: counter.reset
-- id: '1550439793222'
-  alias: 'Xiaomi Staubsauger: Abwesenheit'
-  trigger:
-  - entity_id: group.presence
-    platform: state
-    to: not_home
-  condition:
-  - condition: state
-    entity_id: vacuum.roborock_vacuum
-    state: docked
-  - after: 07:00
-    before: '18:00'
-    condition: time
-  action:
-  - data_template:
-      data:
-        push:
-          category: vacuum_trigger
-          thread-id: vacuum_start
-      message: Staubsauger starten?
-    service: notify.mobile_app_iphone11pro
 - id: '1550439982602'
   alias: 'Xiaomi Staubsauger: Starten nach Push'
   trigger:
-  - event_data:
-      actionName: TRIGGER_VACUUM
-    event_type: ios.notification_action_fired
-    platform: event
+  - platform: event
+    event_type: mobile_app_notification_action
+    event_data:
+      action: START_VACUUM
   condition: []
   action:
   - data:
@@ -354,6 +335,7 @@
       entity_id: vacuum.roborock_vacuum
       fan_speed: Turbo
     service: vacuum.set_fan_speed
+  mode: single
 - id: '1554536389566'
   alias: 'Sonos: stoppen'
   trigger:
@@ -749,4 +731,27 @@
   - service: hassio.addon_restart
     data:
       addon: a0d7b954_wireguard
+  mode: single
+- id: '1620892776475'
+  alias: 'Xiaomi Staubsauger: Abwesenheit'
+  description: ''
+  trigger:
+  - entity_id: group.presence
+    platform: state
+    to: not_home
+  condition:
+  - condition: state
+    entity_id: vacuum.roborock_vacuum
+    state: docked
+  - after: 07:00
+    before: '18:00'
+    condition: time
+  action:
+  - service: notify.mobile_app_iphone11pro
+    data:
+      message: Staubsauger starten?
+      data:
+        actions:
+        - action: START_VACUUM
+          title: Starten
   mode: single
