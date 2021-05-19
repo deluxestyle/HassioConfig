@@ -47,17 +47,17 @@
               - attribute: cleaning_time
                 unit: minutes
                 subtitle: Dauer
-        # - type: custom:xiaomi-vacuum-map-card
-        #   entity: vacuum.roborock_vacuum
-        #   map_camera: camera.xiaomi_cloud_map_extractor
-        #   camera_calibration: true 
-        #   language: de  
-        #   # zones:
-        #   #   - [[26980,20957,29977,22571,1]] # Küche
-        #   #   - [[20461,20529,26882,24415,1]] # Wohnzimmer
-        #   #   - [[26849,22670,30504,26259,1]] # Schlafzimmer
-        #   #   - [[24840,24382,27046,27641,1]] # Flur
-        #   #   - [[26915,26324,29713,27971,1]] # Bad
+        - type: custom:xiaomi-vacuum-map-card
+          entity: vacuum.roborock_vacuum
+          map_camera: camera.xiaomi_cloud_map_extractor
+          camera_calibration: true 
+          language: de  
+          # zones:
+          #   - [[26980,20957,29977,22571,1]] # Küche
+          #   - [[20461,20529,26882,24415,1]] # Wohnzimmer
+          #   - [[26849,22670,30504,26259,1]] # Schlafzimmer
+          #   - [[24840,24382,27046,27641,1]] # Flur
+          #   - [[26915,26324,29713,27971,1]] # Bad
     - type: entities
       entities:
         - entity: automation.xiaomi_staubsauger_abwesenheit

@@ -756,3 +756,28 @@
         - action: START_VACUUM
           title: Starten
   mode: single
+- id: '1621408262107'
+  alias: 'Xiaomi Staubsauger: Update Map'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: vacuum.roborock_vacuum
+    from: docked
+  condition:
+  - condition: template
+    value_template: '{{ trigger.to_state.state != ''unavailable'' and trigger.to_state.state
+      != ''unknown'' }}'
+  action:
+  - alias: Keep updating map until vacuum returns to dock
+    repeat:
+      sequence:
+      - service: homeassistant.update_entity
+        data:
+          entity_id: camera.xiaomi_cloud_map_extractor
+      - delay:
+          seconds: 5
+      until:
+      - condition: state
+        entity_id: vacuum.roborock_vacuum
+        state: docked
+  mode: single
