@@ -1,5 +1,5 @@
 persistent_notification:
-    name: Benarichtigungen
+    name: Mitteilung
     initial: off
 
 sync_volume:
