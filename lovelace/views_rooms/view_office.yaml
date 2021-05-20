@@ -5,26 +5,6 @@ cards:
   - type: entities
     entities:
       - scene.arbeit
-  - type: entities
-    entities:
-      - entity: switch.wifi_steckdose
+      - entity: switch.steckdose_1
         icon: mdi:desk
         name: Schreibtisch
-      - type: custom:fold-entity-row
-        head: 
-          type: section
-          label: Verbrauchsdaten
-        padding: 5
-        entities:
-          - entity: sensor.hs110_today_kwh
-          - entity: sensor.hs110_total_kwh
-          - entity: sensor.hs110_watts
-          - entity: sensor.hs110_amps
-          - entity: sensor.hs110_volts
-  - type: entities
-    entities:
-      - entity: automation.schreibtisch_ausschalten
-        name: Automatisch ausschalten
-        icon: mdi:power-socket-eu
-        tap_action: 
-          action: toggle

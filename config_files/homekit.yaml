@@ -19,7 +19,7 @@ filter:
     # - switch.music_switch
     # - switch.vtuner_switch
     - switch.vacuum
-    - switch.wifi_steckdose #Schreibtisch
+    - switch.steckdose_1 #Schreibtisch
     - switch.steckdosenleiste #Steckdosenleiste
     # - switch.steckdose_1 #Alexa
     - sensor.humidity_158d0001b8c96c

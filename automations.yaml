@@ -499,8 +499,8 @@
   condition: []
   action:
   - type: turn_off
-    device_id: 5e5ebc553b224502b92ae3970e64ef32
-    entity_id: switch.wifi_steckdose
+    device_id: cca9aaba4959ef500db7488b34736ac6
+    entity_id: switch.steckdose_1
     domain: switch
   mode: single
 - id: '1604932069752'
@@ -664,8 +664,8 @@
   condition: []
   action:
   - type: turn_on
-    device_id: 5e5ebc553b224502b92ae3970e64ef32
-    entity_id: switch.wifi_steckdose
+    device_id: cca9aaba4959ef500db7488b34736ac6
+    entity_id: switch.steckdose_1
     domain: switch
   mode: single
 - id: '1612343173377'

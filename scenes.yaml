@@ -43,28 +43,26 @@
 - id: '1604996477257'
   name: Arbeit
   entities:
-    switch.wifi_steckdose:
-      current_power_w: '36.90'
-      total_energy_kwh: '1.067'
-      voltage: '231.2'
-      current_a: '0.27'
-      today_energy_kwh: '0.049'
-      friendly_name: Schreibtisch
-      icon: mdi:power-socket-eu
-      state: 'on'
     light.lights_living_room:
       min_mireds: 153
       max_mireds: 500
       effect_list:
       - colorloop
+      supported_color_modes:
+      - color_temp
+      - hs
+      color_mode: color_temp
       brightness: 254
       color_temp: 230
       entity_id:
-      - light.decke
-      - light.tisch
-      - light.wandlampe
+      - light.wohnzimmer_couch
+      - light.wohnzimmer_decke
+      - light.wohnzimmer_wand
       friendly_name: Wohnzimmerlicht
       icon: mdi:ceiling-light
-      supported_features: 63
+      supported_features: 44
+      state: 'on'
+    switch.steckdose_1:
+      friendly_name: Steckdose 1
       state: 'on'
   icon: mdi:laptop

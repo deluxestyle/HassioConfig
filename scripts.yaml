@@ -425,7 +425,7 @@ xiaomi_staubsauger_update_map:
   alias: 'Xiaomi Staubsauger: Update Map'
   sequence:
   - service: homeassistant.update_entity
-    target:
+    data:
       entity_id: camera.xiaomi_cloud_map_extractor
   mode: single
   icon: mdi:robot-vacuum
