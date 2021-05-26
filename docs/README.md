@@ -12,9 +12,7 @@
 * Osram PowerPlug (via deconz)
 * Sonos
 * Harmony Hub
-* BMW connected drive
 * Fritz.Box (as presence tracker)
-* Frizt.Box Thermostat 
 * deconz (zigbee integration)
 * Logitech Harmony Hub
 * Harman Kardon AVR Receiver
@@ -25,8 +23,7 @@
 * InfluxDB
 * Grafana 
 * Wireguard 
-* ~~DuckDns (for remote access)~~
-* ~~Nginx Proxy Manager (for remote access)~~
+* DuckDns (for remote access)
 * MariaDB
 * Glances
 * Samba share
