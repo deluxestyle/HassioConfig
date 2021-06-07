@@ -14,7 +14,7 @@ info: scroll
 speaker_group:
   platform: sonos
   show_group_count: true
-  sync_volume: true
+  sync_volume: false
   entities:
     - entity_id: media_player.wohnzimmer
       name: Sonos Wohnzimmer 

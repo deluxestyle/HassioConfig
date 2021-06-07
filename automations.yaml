@@ -186,7 +186,11 @@
       entity_id: vacuum.roborock_vacuum
       state: cleaning
   action:
-  - delay: 00:01:00
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 30
+      milliseconds: 0
   - condition: state
     entity_id: group.presence
     state: not_home
@@ -512,7 +516,11 @@
     entity_id: binary_sensor.fenster_turkontaktsensor
   condition: []
   action:
-  - delay: 00:01:00
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 30
+      milliseconds: 0
   - condition: state
     state: not_home
     entity_id: person.wolfgang
