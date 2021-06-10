@@ -11,8 +11,8 @@ views:
         entities:
           - entity: person.wolfgang
             secondary_info: last-changed
-            tap_action: 
-              action: none
+            # tap_action: 
+            #   action: none
           - type: custom:fold-entity-row
             head:
               type: section

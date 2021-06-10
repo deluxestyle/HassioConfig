@@ -49,6 +49,8 @@ entities:
   - sensor.dimmschalter_battery_level
   - sensor.influxdb_database_size
   - sensor.mariadb_database_size
+  - person.wolfgang
+  - device_tracker.iphone_wolfgang
 domains:
   - automation
   - switch
