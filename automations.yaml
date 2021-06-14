@@ -524,6 +524,7 @@
   - condition: state
     state: not_home
     entity_id: person.wolfgang
+    for: 00:03:00
   - data:
       entity_id: input_boolean.persistent_notification
     service: input_boolean.turn_on
