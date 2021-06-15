@@ -84,7 +84,7 @@
 
 - platform: rest
   name: wireguard
-  resource: http://a0d7b954-wireguard
+  resource: http://192.168.200.33:9090/
   json_attributes:
   - iphonepro
   - ipad
