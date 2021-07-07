@@ -235,14 +235,15 @@ schlafen:
     data: {}
   mode: single
 sonos_radio_b5_aktuell:
-  alias: 'Sonos: Radio B5 aktuell'
+  alias: 'Sonos: Radio BR24'
   sequence:
   - service: script.sonos_join
     data: {}
   - data:
-      entity_id: media_player.schlafzimmer
-      source: 'Radio: B 5 Aktuell'
+      source: 'Radio: BR24'
     service: media_player.select_source
+    target:
+      entity_id: media_player.schlafzimmer
   mode: single
 harmony_action_vtuner:
   alias: 'Harmony:  vTuner'
