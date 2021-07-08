@@ -58,6 +58,18 @@
               kein VPN
             {% endif %}
           {% endif %}
+      wireguard_laptoperlau:
+        friendly_name: "Wireguard LaptopErlau"
+        value_template: >-
+          {% if is_state('sensor.wireguard', 'unavailable') %}
+            {{ states('sensor.wireguard_laptoperlau') }}
+          {% else %}
+            {% if state_attr('sensor.wireguard', 'laptoperlau').latest_handshake > ( as_timestamp(now()) ) -300 %}
+              Verbunden
+            {% else %}
+              kein VPN
+            {% endif %}
+          {% endif %}
 
 - platform: uptime
   name: online_time
@@ -75,12 +87,12 @@
   unit_of_measurement: "°C"
   value_template: '{{ value | multiply(0.001) | round(1) }}'
 
-- platform: command_line
-  name: pihole
-  scan_interval: 10
-  command: curl -X GET 'http://192.168.200.33:88/admin/api.php?status'
-  value_template: >
-    {{ value_json.status }}
+# - platform: command_line
+#   name: pihole
+#   scan_interval: 10
+#   command: curl -X GET 'http://192.168.200.33:88/admin/api.php?status'
+#   value_template: >
+#     {{ value_json.status }}
 
 - platform: rest
   name: wireguard
@@ -88,6 +100,8 @@
   json_attributes:
   - iphonepro
   - ipad
+  - laptoperlau
+  - hp-spectre
   value_template: "OK"
 
 - platform: authenticated
