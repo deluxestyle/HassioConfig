@@ -33,6 +33,7 @@ entities:
   - sensor.swap_use_percent
   - sensor.wireguard_ipad
   - sensor.wireguard_iphonepro
+  - sensor.wireguard_laptoperlau
   - binary_sensor.fenster_turkontaktsensor
   - sensor.last_boot
   - sensor.xiaomi_bed_room_battery_level        
