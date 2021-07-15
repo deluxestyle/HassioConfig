@@ -754,7 +754,7 @@
     entity_id: vacuum.roborock_vacuum
     state: docked
   - after: 07:00
-    before: '18:00'
+    before: '19:00'
     condition: time
   action:
   - service: notify.mobile_app_iphone11pro
