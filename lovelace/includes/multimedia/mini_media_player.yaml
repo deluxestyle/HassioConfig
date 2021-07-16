@@ -4,6 +4,7 @@ entity: {{ entity }}
 name: {{ name }}
 icon: 'mdi:speaker-wireless'
 volume_stateless: true
+group: true
 hide:
   power: true
   source: false

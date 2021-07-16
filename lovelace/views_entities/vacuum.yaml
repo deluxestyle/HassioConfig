@@ -5,27 +5,16 @@
   path: vacuum
   icon: mdi:robot-vacuum
   cards:
-    - type: 'custom:vertical-stack-in-card'
+    - type: custom:vertical-stack-in-card
       cards:
         - type: custom:vacuum-card
           entity: vacuum.roborock_vacuum
           style: |
             :host .toolbar {
               background: var( --ha-card-background, var(--card-background-color, white) );
+              box-shadow: var( --ha-card-box-shadow, 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) )
             }
           compact_view: true
-          # actions:
-          #   - name: Map
-          #     icon: mdi:map-legend
-          #     service: browser_mod.popup
-          #     service_data:
-          #       title: Map
-          #       card:
-          #         type: picture-entity
-          #         entity: camera.xiaomi_cloud_map_extractor
-          #         camera_view: live
-          #         show_state: false
-          #         show_name: false
           stats:
             default:
               - attribute: filter_left
@@ -47,17 +36,11 @@
               - attribute: cleaning_time
                 unit: minutes
                 subtitle: Dauer
-        - type: custom:xiaomi-vacuum-map-card
-          entity: vacuum.roborock_vacuum
-          map_camera: camera.xiaomi_cloud_map_extractor
-          camera_calibration: true 
-          language: de  
-          # zones:
-          #   - [[26980,20957,29977,22571,1]] # Küche
-          #   - [[20461,20529,26882,24415,1]] # Wohnzimmer
-          #   - [[26849,22670,30504,26259,1]] # Schlafzimmer
-          #   - [[24840,24382,27046,27641,1]] # Flur
-          #   - [[26915,26324,29713,27971,1]] # Bad
+    - type: custom:xiaomi-vacuum-map-card
+      entity: vacuum.roborock_vacuum
+      map_camera: camera.xiaomi_cloud_map_extractor
+      camera_calibration: true 
+      language: de  
     - type: entities
       entities:
         - entity: automation.xiaomi_staubsauger_abwesenheit

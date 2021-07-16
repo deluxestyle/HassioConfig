@@ -5,6 +5,8 @@ path: bath
 icon: mdi:shower
 cards:
   - !include ../includes/climate/climate_bath.yaml
-  - !include
-      - ../includes/multimedia/mini_media_player.yaml
-      - entity: media_player.bad
+  - type: entities
+    entities:
+      - !include
+          - ../includes/multimedia/mini_media_player.yaml
+          - entity: media_player.bad
