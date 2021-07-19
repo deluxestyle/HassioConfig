@@ -31,8 +31,8 @@ cards:
         name: Steckdosenleiste
         tap_action: 
           action: toggle   
-  - type: entities
-    entities:
+  - type: custom:vertical-stack-in-card
+    cards:
       - !include
           - ../includes/multimedia/mini_media_player.yaml
           - entity: media_player.wohnzimmer
