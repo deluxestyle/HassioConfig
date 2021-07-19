@@ -16,7 +16,7 @@ cards:
       type: entities
       show_header_toggle: false
     entities:
-      - entity: switch.schedule_sonos_wecker
+      - entity: switch.schedule_wecker
         icon: mdi:alarm
         name: Wecker
         tap_action:

@@ -316,7 +316,7 @@ sonos_set_volume_4:
     service: media_player.volume_set
   mode: single
 sonos_mute:
-  alias: 'Sonos: Mute'
+  alias: 'Sonos: Set volume - Mute'
   sequence:
   - data:
       entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
@@ -385,8 +385,12 @@ sonos_wecker:
   sequence:
   - service: script.sonos_mute
     data: {}
-  - service: script.sonos_radio_superfly
-    data: {}
+  - service: script.sonos_join
+  - service: media_player.select_source
+    target:
+      device_id: 2094b86c2a0d860eeddf623406678e39
+    data:
+      source: '{{alarm_source}}'
   - service: script.sonos_set_wake_up_volume
     data: {}
   mode: single
