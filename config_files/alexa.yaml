@@ -2,15 +2,23 @@ smart_home:
   filter:
     include_entities:
       - light.yeelight_bslamp1_0x0000000005451cd6
+      - light.gateway_light_7811dcb258d1
       - light.kuche_decke
       - light.dunstabzug 
       - light.schlafzimmer
       - light.wohnzimmer_couch
       - light.wohnzimmer_decke
       - light.wohnzimmer_wand
-      - switch.tv_switch
-      - switch.fire_tv_switch
-      - switch.music_switch
-      - switch.vacuum
-      - switch.wifi_steckdose
-      - switch.steckdosenleiste
+      - switch.steckdose_1
+#       - switch.tv_switch
+#       - switch.fire_tv_switch
+#       - switch.music_switch
+#       - switch.harmony_hub_airplay'
+      - vacuum.roborock_vacuum
+      - switch.pi_hole
+  entity_config:
+    switch.steckdose_1:
+      name: Schreibtisch
+    switch.pi_hole:
+      name: Werbeblocker
+

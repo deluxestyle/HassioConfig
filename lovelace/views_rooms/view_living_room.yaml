@@ -30,10 +30,17 @@ cards:
       - entity: switch.steckdosenleiste
         name: Steckdosenleiste
         tap_action: 
-          action: toggle   
+          action: toggle    
   - type: custom:vertical-stack-in-card
     cards:
       - !include
           - ../includes/multimedia/mini_media_player.yaml
           - entity: media_player.wohnzimmer
   - !include ../includes/climate/climate_living_room.yaml
+  - type: entities
+    entities:
+      - entity: switch.on_off_plug_in_unit_11
+        name: Alexa
+        icon: mdi:amazon-alexa
+        tap_action: 
+          action: toggle
