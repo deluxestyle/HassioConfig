@@ -80,6 +80,8 @@ device_tracker:
       iphone_christina: 192.168.200.35
 
 camera:
+  # - platform: ffmpeg
+  #   input: -rtsp_transport tcp -i rtsp://192.168.200.40:554/onvif1
   - platform: xiaomi_cloud_map_extractor
     host: 192.168.200.29
     token: !secret xiaomi_vacuum
@@ -97,3 +99,7 @@ camera:
         bottom: 10
         left: 10
         right: 10 
+
+# stream:
+
+# ffmpeg:

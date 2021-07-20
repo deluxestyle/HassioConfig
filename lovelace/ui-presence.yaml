@@ -6,6 +6,9 @@ views:
   - title: Personen
     path: presence
     icon: mdi:account-multiple
+    type: custom:horizontal-layout
+    layout:
+      max_cols: 2
     cards:
       - type: entities  
         entities:
@@ -88,6 +91,35 @@ views:
                 icon: mdi:cellphone-message
                 tap_action: 
                   action: toggle
+      # - type: conditional
+      #   conditions:
+      #     - entity: switch.on_off_plug_in_unit_12
+      #       state: "off"
+      #   card:
+      #     type: entities
+      #     entities:
+      #       - entity: switch.on_off_plug_in_unit_12
+      #         name: Kamera
+      #         tap_action: 
+      #           action: toggle
+      # - type: conditional
+      #   conditions:
+      #     - entity: switch.on_off_plug_in_unit_12
+      #       state: "on"
+      #   card:
+      #     type: 'custom:vertical-stack-in-card'
+      #     cards:
+      #       - type: entities
+      #         entities:
+      #           - entity: switch.on_off_plug_in_unit_12
+      #             name: Kamera
+      #             tap_action: 
+      #               action: toggle
+      #       - type: picture-entity
+      #         entity: camera.ffmpeg
+      #         camera_view: live
+      #         show_state: false
+      #         show_name: false
   - title: Karte
     path: map
     icon: mdi:map
