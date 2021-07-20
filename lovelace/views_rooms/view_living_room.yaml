@@ -7,11 +7,11 @@ popup_cards:
   sensor.remote_state:
     title: Fernbedienung
     card:
-      style: |
-        ha-card {
-          --ha-card-box-shadow: 'none';
-          --ha-card-border-radius: "0px";
-        }
+      # style: |
+      #   ha-card {
+      #     --ha-card-box-shadow: 'none';
+      #     --ha-card-border-radius: "0px";
+      #   }
       type: custom:vertical-stack-in-card
       cards:
         - !include ../includes/multimedia/remote_buttons.yaml
