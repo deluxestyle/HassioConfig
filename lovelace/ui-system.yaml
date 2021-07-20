@@ -65,6 +65,9 @@ views:
   - title: System
     path: system
     icon: mdi:settings-outline
+    type: custom:horizontal-layout
+    layout:
+      max_cols: 2
     cards:
       - type: entities
         entities:
@@ -80,62 +83,10 @@ views:
                 style:
                   text:  
                     color: var(--primary-text-color)
-      - type: entities  
-        entities:
-          - entity: switch.pi_hole
-            icon: mdi:pi-hole    
-      - type: entities
-        entities:
-          - entity: automation.batterie_benachrichtigung
-          - type: custom:fold-entity-row
-            head:
-              type: section
-              label: Einstellungen
-            padding: 5
-            entities:
-              - entity: input_number.battery_alert
-                name: Grenzwert
-                tap_action: 
-                  action: none
-              - entity: script.battery_persistent_notification_clear
-                tap_action: 
-                  action: toggle
-      - type: glance
-        columns: 5
-        show_name: false
-        entities:
-          - entity: sensor.processor_use
-            name: CPU   
-            style: |
-                :host {
-                  color: 
-                  {% if (states.sensor.processor_use.state | int) > 30 %}
-                    red
-                  {% endif %}
-                  ;
-                }     
-          - entity: sensor.cpu_temperature
-            icon: mdi:thermometer
-            name: CPU Temp
-            style: |
-                :host {
-                  color: 
-                  {% if (states.sensor.cpu_temperature.state | int) > 70 %}
-                    red
-                  {% endif %}
-                  ;
-                }
-          - entity: sensor.memory_use_percent
-            name: Memory 
-          - entity: sensor.swap_use_percent
-            name: Swap
-            icon: mdi:file-swap         
-          - entity: sensor.disk_use_percent
-            name: Disk 
-          - entity: sensor.influxdb_database_size
-            icon: mdi:database-outline
-          - entity: sensor.mariadb_database_size
-            icon: mdi:database               
+      # - type: entities  
+      #   entities:
+      #     - entity: switch.pi_hole
+      #       icon: mdi:pi-hole    
       - type: entities
         show_header_toggle: false
         entities:
@@ -197,14 +148,52 @@ views:
               - entity: sensor.last_boot
                 name: Raspi online
                 icon: mdi:raspberry-pi
-      - type: entities
-        show_header_toggle: false
+      - type: glance
+        columns: 5
+        show_name: false
         entities:
+          - entity: sensor.processor_use
+            name: CPU   
+            style: |
+                :host {
+                  color: 
+                  {% if (states.sensor.processor_use.state | int) > 30 %}
+                    red
+                  {% endif %}
+                  ;
+                }     
+          - entity: sensor.cpu_temperature
+            icon: mdi:thermometer
+            name: CPU Temp
+            style: |
+                :host {
+                  color: 
+                  {% if (states.sensor.cpu_temperature.state | int) > 70 %}
+                    red
+                  {% endif %}
+                  ;
+                }
+          - entity: sensor.memory_use_percent
+            name: Memory 
+          - entity: sensor.swap_use_percent
+            name: Swap
+            icon: mdi:file-swap         
+          - entity: sensor.disk_use_percent
+            name: Disk 
+          - entity: sensor.influxdb_database_size
+            icon: mdi:database-outline
+          - entity: sensor.mariadb_database_size
+            icon: mdi:database  
           - entity: sensor.samba_backup
-            icon: mdi:content-save-all
-            type: custom:multiple-entity-row
-            secondary_info:
-              attribute: last_backup
+            icon: mdi:content-save-all 
+      # - type: entities
+      #   show_header_toggle: false
+      #   entities:
+      #     - entity: sensor.samba_backup
+      #       icon: mdi:content-save-all
+      #       type: custom:multiple-entity-row
+      #       secondary_info:
+      #         attribute: last_backup
       - type: glance
         columns: 5
         show_name: false
@@ -222,5 +211,24 @@ views:
           - entity: sensor.wireguard_iphonepro
             icon: mdi:cellphone-iphone
           - entity: sensor.wireguard_ipad
-            icon: mdi:tablet-ipad                    
- 
+            icon: mdi:tablet-ipad   
+          - entity: switch.pi_hole
+            icon: mdi:pi-hole    
+            tap_action: 
+              action: toggle         
+      - type: entities
+        entities:
+          - entity: automation.batterie_benachrichtigung
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Einstellungen
+            padding: 5
+            entities:
+              - entity: input_number.battery_alert
+                name: Grenzwert
+                tap_action: 
+                  action: none
+              - entity: script.battery_persistent_notification_clear
+                tap_action: 
+                  action: toggle
