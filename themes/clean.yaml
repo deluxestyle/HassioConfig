@@ -1,6 +1,7 @@
 clean:
   ha-card-box-shadow: "0px 0px 0px 1px var(--border-color)"
   ha-card-border-radius: "0px"
+
   modes:
     light:
       border-color: "#E8E8E8"

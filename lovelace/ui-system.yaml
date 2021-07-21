@@ -75,18 +75,47 @@ views:
             buttons:
               - entity: script.notify_clean_messages
                 name: Mitteilung löschen
-                style:
-                  text:  
-                    color: var(--primary-text-color)
               - entity: script.notify_clean_badge
                 name: Badge löschen
-                style:
-                  text:  
-                    color: var(--primary-text-color)
-      # - type: entities  
-      #   entities:
-      #     - entity: switch.pi_hole
-      #       icon: mdi:pi-hole    
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: glance
+            columns: 4
+            show_name: false
+            entities:
+              - entity: sensor.net_download_max
+                icon: mdi:cloud-download
+              - entity: sensor.net_upload_max
+                icon: mdi:cloud-upload
+              - entity: sensor.net_download_cur
+                icon: mdi:cloud-download-outline
+              - entity: sensor.net_upload_cur
+                icon: mdi:cloud-upload-outline
+              - sensor.fritz_netmonitor
+              - sensor.net_uptime
+              - entity: sensor.wireguard_iphonepro
+                icon: mdi:cellphone-iphone
+              - entity: sensor.wireguard_ipad
+                icon: mdi:tablet-ipad  
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - type: custom:fold-entity-row
+                padding: 5
+                head:
+                  type: section
+                  label: Einstellungen
+                entities:
+                  - entity: switch.pi_hole
+                    icon: mdi:pi-hole    
+                  - entity: switch.fritz_box_7590_port_forward_http_server
+                    name: 'Fritz!Box Port: 80'
+                    tap_action: 
+                      action: toggle
+                  - entity: switch.fritz_box_7590_port_forward_https_server
+                    name: 'Fritz!Box Port: 443'
+                    tap_action: 
+                      action: toggle         
       - type: entities
         show_header_toggle: false
         entities:
@@ -193,29 +222,7 @@ views:
       #       icon: mdi:content-save-all
       #       type: custom:multiple-entity-row
       #       secondary_info:
-      #         attribute: last_backup
-      - type: glance
-        columns: 5
-        show_name: false
-        entities:
-          - entity: sensor.net_download_max
-            icon: mdi:cloud-download
-          - entity: sensor.net_upload_max
-            icon: mdi:cloud-upload
-          - entity: sensor.net_download_cur
-            icon: mdi:cloud-download-outline
-          - entity: sensor.net_upload_cur
-            icon: mdi:cloud-upload-outline
-          - sensor.fritz_netmonitor
-          - sensor.net_uptime
-          - entity: sensor.wireguard_iphonepro
-            icon: mdi:cellphone-iphone
-          - entity: sensor.wireguard_ipad
-            icon: mdi:tablet-ipad   
-          - entity: switch.pi_hole
-            icon: mdi:pi-hole    
-            tap_action: 
-              action: toggle         
+      #         attribute: last_backup         
       - type: entities
         entities:
           - entity: automation.batterie_benachrichtigung
