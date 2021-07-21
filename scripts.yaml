@@ -305,7 +305,10 @@ alles_ausschalten:
     entity_id: light.lights_all
   - service: switch.turn_off
     data: {}
-    entity_id: switch.steckdosenleiste
+    target:
+      entity_id:
+      - switch.steckdosenleiste
+      - switch.on_off_plug_in_unit_11
   mode: single
 sonos_set_volume_4:
   alias: 'Sonos: Set volume 4'
