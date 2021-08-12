@@ -1,6 +1,3 @@
-- platform: fritzbox_netmonitor
-  host: 192.168.200.1
-
 - platform: systemmonitor
   resources:
       - type: memory_free
@@ -86,13 +83,6 @@
   command: "cat /sys/class/thermal/thermal_zone0/temp"
   unit_of_measurement: "°C"
   value_template: '{{ value | multiply(0.001) | round(1) }}'
-
-# - platform: command_line
-#   name: pihole
-#   scan_interval: 10
-#   command: curl -X GET 'http://192.168.200.33:88/admin/api.php?status'
-#   value_template: >
-#     {{ value_json.status }}
 
 - platform: rest
   name: wireguard

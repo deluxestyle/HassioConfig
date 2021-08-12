@@ -15,19 +15,13 @@ entities:
   - sensor.temperature_158d0001b8c998
   - sensor.temperature_158d0002239fb5
   - sensor.temperature_158d00023258bd
-  # - sensor.hs110_today_kwh
-  # - sensor.hs110_volts
-  # - sensor.hs110_total_kwh
-  # - sensor.hs110_watts
-  # - sensor.hs110_amps
   - sensor.net_download_cur
   - sensor.net_download_max
-  - sensor.net_received
-  - sensor.net_sent
   - sensor.net_upload_cur
   - sensor.net_upload_max
   - sensor.net_uptime
-  - sensor.online_time
+  - sensor.fritz_box_7590_kb_s_received
+  - sensor.fritz_box_7590_kb_s_sent
   - sensor.swap_free
   - sensor.swap_use
   - sensor.swap_use_percent

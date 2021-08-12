@@ -63,42 +63,12 @@ influxdb: !include config_files/influxdb.yaml
 ios: !include config_files/ios.yaml
 homekit: !include config_files/homekit.yaml
 browser_mod: !include config_files/browser_mod.yaml
-
+device_tracker: !include config_files/device_tracker.yaml
+camera: !include config_files/camera.yaml
 sensor: !include_dir_merge_list config_files/sensors/
 binary_sensor: !include_dir_merge_list config_files/binary_sensors/
 
 python_script:
-
-device_tracker:
-  - platform: iphonedetect
-    consider_home: 60
-    scan_interval: 12
-    new_device_defaults:
-      track_new_devices: true
-    hosts:
-      iphone_wolfgang: 192.168.200.22
-      iphone_christina: 192.168.200.35
-
-camera:
-  - platform: ffmpeg
-    input: -rtsp_transport tcp -i rtsp://192.168.200.40:554/onvif1
-  - platform: xiaomi_cloud_map_extractor
-    host: 192.168.200.29
-    token: !secret xiaomi_vacuum
-    username: !secret xiaomi_cloud_username
-    password: !secret xiaomi_cloud_password
-    draw: ['all']
-    auto_update: false
-    attributes:
-      - calibration_points
-    # colors:
-    #   color_map_outside: [3, 169, 244]
-    map_transformation:
-      trim:
-        top: 10
-        bottom: 10
-        left: 10
-        right: 10 
 
 stream:
 

@@ -1,0 +1,8 @@
+- platform: iphonedetect
+  consider_home: 60
+  scan_interval: 12
+  new_device_defaults:
+    track_new_devices: true
+  hosts:
+    iphone_wolfgang: 192.168.200.22
+    iphone_christina: 192.168.200.35

@@ -87,12 +87,11 @@ views:
                 icon: mdi:cloud-download
               - entity: sensor.net_upload_max
                 icon: mdi:cloud-upload
-              - entity: sensor.net_download_cur
+              - entity: sensor.fritz_box_7590_kb_s_received
                 icon: mdi:cloud-download-outline
-              - entity: sensor.net_upload_cur
+              - entity: sensor.fritz_box_7590_kb_s_sent
                 icon: mdi:cloud-upload-outline
-              - sensor.fritz_netmonitor
-              - sensor.net_uptime
+              - sensor.fritz_box_7590_connection_uptime
               - entity: sensor.wireguard_iphonepro
                 icon: mdi:cellphone-iphone
               - entity: sensor.wireguard_ipad
