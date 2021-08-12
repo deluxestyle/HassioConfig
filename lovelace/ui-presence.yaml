@@ -6,13 +6,14 @@ views:
   - title: Personen
     path: presence
     icon: mdi:account-multiple
+    type: custom:horizontal-layout
+    layout:
+      max_cols: 2
     cards:
       - type: entities  
         entities:
           - entity: person.wolfgang
-            secondary_info: last-changed
-            # tap_action: 
-            #   action: none
+          - entity: person.christina
           - type: custom:fold-entity-row
             head:
               type: section
@@ -41,14 +42,6 @@ views:
                 icon: mdi:music-off
                 tap_action: 
                   action: toggle
-      - type: conditional
-        conditions:
-          - entity: device_tracker.hikam_4452
-            state: "home"
-        card:
-          type: picture-entity
-          entity: camera.ffmpeg
-          title: Kamera
       - type: entities
         show_header_toggle: false
         entities:
@@ -88,6 +81,11 @@ views:
                 icon: mdi:cellphone-message
                 tap_action: 
                   action: toggle
+      - type: entities
+        entities:
+          - entity: switch.on_off_plug_in_unit_12
+            name: Kamera
+            icon: mdi:cctv
       - type: conditional
         conditions:
           - entity: switch.on_off_plug_in_unit_12
@@ -98,11 +96,6 @@ views:
           camera_view: live
           show_name: false
           show_state: false
-      - type: entities
-        entities:
-          - entity: switch.on_off_plug_in_unit_12
-            name: Kamera
-            icon: mdi:cctv
   - title: Karte
     path: map
     icon: mdi:map

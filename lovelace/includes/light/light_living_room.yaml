@@ -5,9 +5,41 @@ entities:
   - entity: light.lights_living_room
     name: Wohnzimmer
     tap_action: 
-      action: toggle
+      action: fire-dom-event
+      browser_mod:
+        command: popup
+        title: Lampen
+        card:
+          style: |
+            ha-card {
+              --ha-card-box-shadow: 'none';
+              --ha-card-border-radius: "0px";
+            }
+          type: entities
+          entities:
+            - type: "custom:paper-buttons-row"
+              buttons:
+                - entity: light.wohnzimmer_decke
+                  name: Decke
+                  tap_action:
+                    action: toggle
+                  hold_action:
+                    action: more-info
+                - entity: light.wohnzimmer_couch
+                  name: Couch
+                  tap_action:
+                    action: toggle
+                  hold_action:
+                    action: more-info
+                - entity: light.wohnzimmer_wand
+                  name: Wand
+                  icon: hue:wall-spot
+                  tap_action:
+                    action: toggle
+                  hold_action:
+                    action: more-info
     hold_action:
-        action: more-info
+      action: more-info
     extend_paper_buttons_row:
       buttons:
         - name: Szenen
@@ -49,24 +81,3 @@ entities:
                     - entity: scene.wohnzimmer_fernsehen
                       name: Fernsehen
                       icon: mdi:lightbulb-group-outline
-  - type: "custom:paper-buttons-row"
-    buttons:
-      - entity: light.wohnzimmer_decke
-        name: Decke
-        tap_action:
-          action: toggle
-        hold_action:
-          action: more-info
-      - entity: light.wohnzimmer_couch
-        name: Couch
-        tap_action:
-          action: toggle
-        hold_action:
-          action: more-info
-      - entity: light.wohnzimmer_wand
-        name: Wand
-        icon: mdi:wall-sconce
-        tap_action:
-          action: toggle
-        hold_action:
-          action: more-info

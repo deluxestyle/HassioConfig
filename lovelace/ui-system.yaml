@@ -236,5 +236,6 @@ views:
                 tap_action: 
                   action: none
               - entity: script.battery_persistent_notification_clear
+                name: Alarm zurücksetzen
                 tap_action: 
                   action: toggle

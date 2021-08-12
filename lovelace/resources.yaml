@@ -32,3 +32,5 @@
   type: module
 - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
   type: module
+- url: /hacsfiles/hass-hue-icons/hass-hue-icons.js
+  type: module
