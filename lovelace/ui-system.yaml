@@ -95,7 +95,7 @@ views:
               - entity: sensor.wireguard_iphonepro
                 icon: mdi:cellphone-iphone
               - entity: sensor.wireguard_ipad
-                icon: mdi:tablet-ipad  
+                icon: mdi:tablet-ipad   
           - type: entities
             show_header_toggle: false
             entities:
@@ -213,15 +213,7 @@ views:
           - entity: sensor.mariadb_database_size
             icon: mdi:database  
           - entity: sensor.samba_backup
-            icon: mdi:content-save-all 
-      # - type: entities
-      #   show_header_toggle: false
-      #   entities:
-      #     - entity: sensor.samba_backup
-      #       icon: mdi:content-save-all
-      #       type: custom:multiple-entity-row
-      #       secondary_info:
-      #         attribute: last_backup         
+            icon: mdi:content-save-all      
       - type: entities
         entities:
           - entity: automation.batterie_benachrichtigung

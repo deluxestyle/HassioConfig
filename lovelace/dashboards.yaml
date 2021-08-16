@@ -12,10 +12,10 @@ lovelace-presence:
   show_in_sidebar: true
   filename: lovelace/ui-presence.yaml
   require_admin: false
-# lovelace-car:
-#   mode: yaml
-#   title: Auto
-#   icon: mdi:car-hatchback
-#   show_in_sidebar: true
-#   filename: lovelace/ui-car.yaml
-#   require_admin: false
+lovelace-vacuum:
+  mode: yaml
+  title: Staubsauger
+  icon: mdi:robot-vacuum
+  show_in_sidebar: true
+  filename: lovelace/views_entities/vacuum.yaml
+  require_admin: false

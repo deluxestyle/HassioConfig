@@ -18,68 +18,6 @@
       - type: swap_use_percent
       - type: last_boot
 
-- platform: template
-  sensors:
-      remote_state:
-        friendly_name: "Multimedia"
-        value_template: '{{ states.remote.harmony_hub.attributes.current_activity }}'
-      presence:
-        friendly_name: Anwesenheit
-        value_template: >
-            {% if is_state('person.wolfgang', 'home') or is_state('person.christina', 'home') %}
-              home
-            {% else %}
-              not_home
-            {% endif %}
-      wireguard_iphonepro:
-        friendly_name: "Wireguard iPhone 11 Pro"
-        value_template: >-
-          {% if is_state('sensor.wireguard', 'unavailable') %}
-            {{ states('sensor.wireguard_iphonepro') }}
-          {% else %}
-            {% if state_attr('sensor.wireguard', 'iphonepro').latest_handshake > ( as_timestamp(now()) ) -300 %}
-              Verbunden
-            {% else %}
-              kein VPN
-            {% endif %}
-          {% endif %}
-      wireguard_ipad:
-        friendly_name: "Wireguard iPad"
-        value_template: >-
-          {% if is_state('sensor.wireguard', 'unavailable') %}
-            {{ states('sensor.wireguard_ipad') }}
-          {% else %}
-            {% if state_attr('sensor.wireguard', 'ipad').latest_handshake > ( as_timestamp(now()) ) -300 %}
-              Verbunden
-            {% else %}
-              kein VPN
-            {% endif %}
-          {% endif %}
-      wireguard_laptoperlau:
-        friendly_name: "Wireguard LaptopErlau"
-        value_template: >-
-          {% if is_state('sensor.wireguard', 'unavailable') %}
-            {{ states('sensor.wireguard_laptoperlau') }}
-          {% else %}
-            {% if state_attr('sensor.wireguard', 'laptoperlau').latest_handshake > ( as_timestamp(now()) ) -300 %}
-              Verbunden
-            {% else %}
-              kein VPN
-            {% endif %}
-          {% endif %}
-      wireguard_hpspectre:
-        friendly_name: "Wireguard HP Spectre"
-        value_template: >-
-          {% if is_state('sensor.wireguard', 'unavailable') %}
-            {{ states('sensor.wireguard_hpspectre') }}
-          {% else %}
-            {% if state_attr('sensor.wireguard', 'hp-spectre').latest_handshake > ( as_timestamp(now()) ) -300 %}
-              Verbunden
-            {% else %}
-              kein VPN
-            {% endif %}
-          {% endif %}
-
 - platform: uptime
   name: online_time
 
@@ -95,16 +33,6 @@
   command: "cat /sys/class/thermal/thermal_zone0/temp"
   unit_of_measurement: "°C"
   value_template: '{{ value | multiply(0.001) | round(1) }}'
-
-- platform: rest
-  name: wireguard
-  resource: http://192.168.200.33:9090/
-  json_attributes:
-  - iphonepro
-  - ipad
-  - laptoperlau
-  - hp-spectre
-  value_template: "OK"
 
 - platform: authenticated
 

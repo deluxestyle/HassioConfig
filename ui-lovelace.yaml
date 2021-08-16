@@ -24,6 +24,3 @@ views:
 
 # ##### Flur #####
   - !include lovelace/views_rooms/view_floor.yaml
-
-#### Staubsauger #####
-  - !include lovelace/views_entities/vacuum.yaml
