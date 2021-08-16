@@ -67,6 +67,18 @@
               kein VPN
             {% endif %}
           {% endif %}
+      wireguard_hpspectre:
+        friendly_name: "Wireguard HP Spectre"
+        value_template: >-
+          {% if is_state('sensor.wireguard', 'unavailable') %}
+            {{ states('sensor.wireguard_hpspectre') }}
+          {% else %}
+            {% if state_attr('sensor.wireguard', 'hp-spectre').latest_handshake > ( as_timestamp(now()) ) -300 %}
+              Verbunden
+            {% else %}
+              kein VPN
+            {% endif %}
+          {% endif %}
 
 - platform: uptime
   name: online_time

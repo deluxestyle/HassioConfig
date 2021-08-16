@@ -3,13 +3,13 @@
     net_download_max:
       value_template: "{{ (states.sensor.fritz_box_7590_max_kbit_s_received.state | float / 1000)|round(1) }}"
       unit_of_measurement: "Mbit/s"
-      friendly_name: "Down"
+      friendly_name: "Max Down"
       icon_template: mdi:cloud-download
   
     net_upload_max:
       value_template: "{{ (states.sensor.fritz_box_7590_max_kbit_s_sent.state | float / 1000)|round(1) }}"
       unit_of_measurement: "Mbit/s"
-      friendly_name: "Up"
+      friendly_name: "Max Up"
       icon_template: mdi:cloud-upload
 
     net_download_cur:
