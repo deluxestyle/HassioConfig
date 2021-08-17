@@ -58,3 +58,13 @@
       query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;'
       column: "value"
       unit_of_measurement: MB  
+
+- platform: rest
+  name: wireguard
+  resource: http://192.168.200.33:9090/
+  json_attributes:
+  - iphonepro
+  - ipad
+  - laptoperlau
+  - hp-spectre
+  value_template: "OK"

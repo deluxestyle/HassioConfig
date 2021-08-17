@@ -1,0 +1,43 @@
+# - platform: template
+#   sensors:
+#   #   net_download_max:
+#   #     value_template: "{{ (states.sensor.fritz_box_7590_max_kbit_s_received.state | float / 1000)|round(1) }}"
+#   #     unit_of_measurement: "Mbit/s"
+#   #     friendly_name: "Max Down"
+#   #     icon_template: mdi:cloud-download
+  
+#     # net_upload_max:
+#     #   value_template: "{{ (states.sensor.fritz_box_7590_max_kbit_s_sent.state | float / 1000)|round(1) }}"
+#     #   unit_of_measurement: "Mbit/s"
+#     #   friendly_name: "Max Up"
+#     #   icon_template: mdi:cloud-upload
+
+#     # net_download_cur:
+#     #   value_template: "{{ (states.sensor.fritz_box_7590_kb_s_received.state | float / 1000)|round(1) }}"
+#     #   unit_of_measurement: "Mbit/s"
+#     #   friendly_name: "Download"
+#     #   icon_template: mdi:cloud-download-outline
+    
+#     # net_upload_cur:
+#     #   value_template: "{{ (states.sensor.fritz_box_7590_kb_s_sent.state | float / 1000)|round(1) }}"
+#     #   unit_of_measurement: "Mbit/s"
+#     #   friendly_name: "Upload"
+#     #   icon_template: mdi:cloud-upload-outline
+    
+#     # net_received:
+#     #   value_template: "{{ (state_attr('sensor.fritz_netmonitor', 'bytes_received')|float / 1000000)|round(0) }}"
+#     #   unit_of_measurement: "MB"
+#     #   friendly_name: "Empfangen"
+#     #   icon_template: mdi:file
+    
+#     # net_sent:
+#     #   value_template: "{{ (state_attr('sensor.fritz_netmonitor', 'bytes_sent')|float / 1000000)|round(0) }}"
+#     #   unit_of_measurement: "MB"
+#     #   friendly_name: "Gesendet"
+#     #   icon_template: mdi:file
+
+#     # net_uptime:
+#     #   value_template: "{{ (state_attr('sensor.fritz_netmonitor', 'uptime')|float / 86400)|round(1) }}"
+#     #   unit_of_measurement: "Tage"
+#     #   friendly_name: "Verbunden"
+#     #   icon_template: mdi:calendar
