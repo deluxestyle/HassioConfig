@@ -2,6 +2,7 @@
   switches:
     ###### Fernbedienung ######
     samsung_tv:
+      unique_id: samsung_tv_switch
       friendly_name: "Samsung UE55J6200"
       value_template: "{{ is_state('device_tracker.tv_ue55j6250', 'home') and is_state('switch.steckdosenleiste', 'on') }}"
       turn_on:
@@ -12,6 +13,7 @@
           entity_id: script.harmony_tv_power_off
       icon_template: mdi:television
     avr_151:
+      unique_id: avr_151_switch
       friendly_name: "AVR 151"
       value_template: "{{ is_state('device_tracker.avr_151s', 'home') and is_state('switch.steckdosenleiste', 'on') }}"
       turn_on:
@@ -22,6 +24,7 @@
           entity_id: script.harmony_avr_power_off
       icon_template: mdi:speaker
     telekom_mr_401:
+      unique_id: telekom_mr_401_switch
       friendly_name: "Telekom MR 401"
       value_template: "{{ is_state('device_tracker.telekom_mr401', 'home') and is_state('switch.steckdosenleiste', 'on')}}"
       turn_on:
@@ -32,6 +35,7 @@
           entity_id: script.harmony_mr400_power_off
       icon_template: mdi:youtube-tv
     tv_switch:
+      unique_id: tv_switch
       friendly_name: "Magenta TV"
       value_template: "{{ is_state('sensor.remote_state', 'Magenta TV') and is_state('switch.steckdosenleiste', 'on')}}"
       turn_on:
@@ -41,6 +45,7 @@
         - service: script.turn_on
           entity_id: script.harmony_power_off
     fire_tv_switch:
+      unique_id: fire_tv_switch
       friendly_name: "Fire TV"
       value_template: "{{ is_state('sensor.remote_state', 'Fire TV') and is_state('switch.steckdosenleiste', 'on')}}"
       turn_on:
@@ -50,6 +55,7 @@
         - service: script.turn_on
           entity_id: script.harmony_power_off
     music_switch:
+      unique_id: music_switch
       friendly_name: "Musik"
       value_template: "{{ is_state('sensor.remote_state', 'Musik') and is_state('switch.steckdosenleiste', 'on')}}"
       turn_on:
@@ -59,6 +65,7 @@
         - service: script.turn_on
           entity_id: script.harmony_power_off
     vtuner_switch:
+      unique_id: vtuner_switch
       friendly_name: "vTuner"
       value_template: "{{ is_state('sensor.remote_state', 'vTuner') and is_state('switch.steckdosenleiste', 'on')}}"
       turn_on:
@@ -68,6 +75,7 @@
         - service: script.turn_on
           entity_id: script.harmony_power_off
     airplay_switch:
+      unique_id: airplay_switch
       friendly_name: "AirPlay"
       value_template: "{{ is_state('sensor.remote_state', 'AirPlay') and is_state('switch.steckdosenleiste', 'on')}}"
       turn_on:
@@ -77,6 +85,7 @@
         - service: script.turn_on
           entity_id: script.harmony_power_off
     vacuum:
+      unique_id: vacuum_switch
       friendly_name: Staubsauger
       value_template: "{{ is_state('vacuum.roborock_vacuum', 'cleaning')}}"
       turn_on:

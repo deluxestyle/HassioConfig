@@ -1,6 +1,7 @@
 #### groups ####
 - platform: group
   name: lights_living_room
+  unique_id: lights_living_room
   entities:
       - light.wohnzimmer_couch
       - light.wohnzimmer_decke
@@ -8,24 +9,28 @@
 
 - platform: group
   name: schlafzimmer
+  unique_id: schlafzimmer
   entities:
       - light.schlafzimmer_1
       - light.schlafzimmer_2
 
 - platform: group
   name: lights_bed_room
+  unique_id: lights_bed_room
   entities:
       - light.schlafzimmer
       - light.yeelight_bslamp1_0x0000000005451cd6
 
 - platform: group
   name: lights_kitchen
+  unique_id: lights_kitchen
   entities:
       - light.kuche_decke
       - light.dunstabzug
 
 - platform: group
   name: lights_all
+  unique_id: lights_all
   entities:
       - light.lights_living_room
       - light.lights_kitchen

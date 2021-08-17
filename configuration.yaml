@@ -2,8 +2,6 @@ homeassistant:
   customize: !include customize.yaml
   packages: !include_dir_named packages
 
-# Configure a default setup of Home Assistant (frontend, api, etc)
-#default_config:
 config:
 map:
 mobile_app:
@@ -13,6 +11,7 @@ sun:
 system_health:
 api:
 zeroconf:
+updater:
 
 http:
   use_x_forwarded_for: true
@@ -33,11 +32,10 @@ logger:
   default: info
   # logs:
   #   hacs: debug
-  
-updater:
-  
+   
 history: !include config_files/history/history.yaml
 recorder: !include config_files/history/recorder.yaml
+influxdb: !include config_files/history/influxdb.yaml
 
 logbook:
   exclude:
@@ -59,7 +57,6 @@ input_datetime: !include config_files/input_datetime.yaml
 input_number: !include config_files/input_number.yaml
 counter: !include config_files/counter.yaml
 media_player: !include config_files/media_player.yaml
-influxdb: !include config_files/influxdb.yaml
 ios: !include config_files/ios.yaml
 homekit: !include config_files/homekit.yaml
 browser_mod: !include config_files/browser_mod.yaml
