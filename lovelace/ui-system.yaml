@@ -248,3 +248,4 @@ views:
               head:
                 type: section
                 label: Internet Zugang
+              padding: 5
