@@ -232,11 +232,17 @@ views:
       - type: entities
         entities:
           - entity: switch.fritz_box_7590_wi_fi_google_messwagen_26
-            name: Wi-Fi FRITZ!Box 2.4Ghz
+            name: 'Wi-Fi FRITZ!Box 2.4Ghz'
+            tap_action: 
+              action: toggle 
           - entity: switch.fritz_box_7590_wi_fi_google_messwagen_26_5ghz
-            name: Wi-Fi FRITZ!Box 5Ghz
+            name: 'Wi-Fi FRITZ!Box 5Ghz'
+            tap_action: 
+              action: toggle 
           - entity: switch.fritz_box_7590_wi_fi_fritz_box_gastzugang
-            name: Wi-Fi FRITZ!Box Gastzugang
+            name: 'Wi-Fi FRITZ!Box Gastzugang'
+            tap_action: 
+              action: toggle 
           - type: custom:auto-entities
             filter:
               include:

@@ -5,7 +5,7 @@ name: {{ name }}
 icon: 'mdi:speaker-wireless'
 volume_stateless: true
 group: false
-#artwork: material  
+artwork: material
 sound_mode: full
 hide:
   power: true
