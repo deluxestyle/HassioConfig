@@ -239,7 +239,7 @@ views:
             name: 'Wi-Fi FRITZ!Box 5Ghz'
             tap_action: 
               action: toggle 
-          - entity: switch.fritz_box_7590_wi_fi_fritz_box_gastzugang
+          - entity: switch.fritz_box_7590_wi_fi_tanzergast
             name: 'Wi-Fi FRITZ!Box Gastzugang'
             tap_action: 
               action: toggle 
