@@ -9,6 +9,7 @@ smart_home:
       - light.wohnzimmer_couch
       - light.wohnzimmer_decke
       - light.wohnzimmer_wand
+      - light.flur
       - switch.steckdose_1
 #       - switch.tv_switch
 #       - switch.fire_tv_switch

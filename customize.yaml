@@ -136,3 +136,5 @@ sensor.mariadb_database_size:
   icon: mdi:database
 sensor.influxdb_database_size:
   icon: mdi:database-outline
+light.flur:
+  icon: mdi:lightbulb-group

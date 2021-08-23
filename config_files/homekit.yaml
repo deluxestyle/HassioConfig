@@ -8,6 +8,7 @@ filter:
     - light.wohnzimmer_decke
     - light.wohnzimmer_wand
     - light.gateway_light_7811dcb258d1
+    - light.flur
     - media_player.schlafzimmer
     - media_player.wohnzimmer
     - media_player.bad
