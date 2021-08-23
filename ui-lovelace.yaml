@@ -5,8 +5,17 @@ swipe_nav:
 popup_cards:
   !include lovelace/includes/popup_cards.yaml
 # -----------------------------
+button_card_templates: !include lovelace/includes/button_card_templates.yaml
+
+
 title: Home
 views:
+####################################
+## Work in progress
+####################################
+###### Übersicht #####
+  # - !include lovelace/overview.yaml
+
 ##### Wohnzimmer #####
   - !include lovelace/views_rooms/view_living_room.yaml
 
@@ -22,5 +31,5 @@ views:
 ##### Bad #####
   - !include lovelace/views_rooms/view_bath.yaml
 
-# ##### Flur #####
+###### Flur #####
   - !include lovelace/views_rooms/view_floor.yaml
