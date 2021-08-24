@@ -5,18 +5,16 @@ path: bed_room
 icon: mdi:bed
 type: custom:horizontal-layout
 layout:
-  max_cols: 1
+  max_cols: 2
 cards:
-  - type: grid
-    columns: 2
-    square: false
-    cards:
-      - type: 'custom:button-card'
-        entity: light.schlafzimmer
+  - type: entities
+    entities:
+      - entity: light.schlafzimmer
         name: Decke
-        template: 
-          - icon_info_bg
-          - light
+        tap_action:
+          action: toggle
+        hold_action: 
+          action: more-info
         double_tap_action: 
           action: fire-dom-event
           browser_mod:
@@ -39,12 +37,12 @@ cards:
                 - entity: scene.schlafzimmer_hell
                   icon: mdi:brightness-5
                   name: false
-      - type: 'custom:button-card'
-        entity: light.yeelight_bslamp1_0x0000000005451cd6
+      - entity: light.yeelight_bslamp1_0x0000000005451cd6
         name: Nachtlicht
-        template: 
-          - icon_info_bg
-          - light
+        tap_action:
+          action: toggle
+        hold_action: 
+          action: more-info
   - !include
       - ../includes/multimedia/mini_media_player.yaml
       - entity: media_player.schlafzimmer

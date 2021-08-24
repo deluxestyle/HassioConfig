@@ -5,35 +5,30 @@ path: living_room
 icon: mdi:sofa
 type: custom:horizontal-layout
 layout:
-  max_cols: 1
+  max_cols: 2
 cards:
-  - type: grid
-    columns: 2
-    square: false
-    cards:
-      - !include ../includes/light/light_living_room.yaml
-      - !include ../includes/multimedia/remote.yaml
-  - type: grid
-    columns: 2
-    square: false
-    cards:
-      - type: 'custom:button-card'
-        entity: switch.steckdosenleiste
-        name: Steckdosen
+  - !include ../includes/light/light_living_room.yaml
+  - type: entities
+    entities:
+      - entity: sensor.remote_state
+        name: Entertainment
+        extend_paper_buttons_row:
+          position: right
+          buttons:
+            - entity: script.harmony_power_off
+              name: false
+              icon: mdi:power
+      - entity: switch.steckdosenleiste
+        name: Steckdosenleiste
         tap_action: 
-          action: toggle  
-        template: 
-          - icon_info_bg
-          - outlet  
-      - type: 'custom:button-card'
-        entity: switch.on_off_plug_in_unit_11
+          action: toggle 
+  - type: entities
+    entities:
+      - entity: switch.on_off_plug_in_unit_11
         name: Alexa
         icon: mdi:amazon-alexa
         tap_action: 
-          action: toggle
-        template: 
-          - icon_info_bg
-          - outlet
+          action: toggle   
   - !include
       - ../includes/multimedia/mini_media_player.yaml
       - entity: media_player.wohnzimmer

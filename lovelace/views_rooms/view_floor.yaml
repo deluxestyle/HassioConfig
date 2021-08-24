@@ -7,19 +7,17 @@ type: custom:horizontal-layout
 layout:
   max_cols: 2
 cards:
-  - type: grid
-    columns: 2
-    square: false
-    cards:
-      - type: 'custom:button-card'
-        entity: light.flur
-        name: Flur
-        template: 
-          - icon_info_bg
-          - light
-      - type: 'custom:button-card'
-        entity: light.gateway_light_7811dcb258d1
+  - type: entities
+    entities:
+      - entity: light.flur
+        name: Flur 
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+      - entity: light.gateway_light_7811dcb258d1
         name: Flur Nachtlicht
-        template: 
-          - icon_info_bg
-          - light
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info

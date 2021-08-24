@@ -55,26 +55,14 @@ type: custom:horizontal-layout
 layout:
   max_cols: 2
 cards:
-  - type: grid
-    columns: 2
-    square: false
-    cards:
-      - type: "custom:button-card"
-        name: Mitteilung löschen
-        entity: script.notify_clean_messages
-        tap_action:
-          action: toggle
-        template: 
-          - icon_info_bg
-          - generic_no_label
-      - type: "custom:button-card"
-        name: Badge löschen
-        entity: script.notify_clean_badge
-        tap_action:
-          action: toggle
-        template: 
-          - icon_info_bg
-          - generic_no_label       
+  - type: entities
+    entities:
+      - type: 'custom:paper-buttons-row'
+        buttons:
+          - entity: script.notify_clean_messages
+            name: Mitteilung löschen
+          - entity: script.notify_clean_badge
+            name: Badge löschen      
   - type: entities
     show_header_toggle: false
     entities:

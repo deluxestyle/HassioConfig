@@ -1,26 +1,8 @@
 # lovelace_gen
 
-# type: entities
-# entities:
-!include
-  - thermostat.yaml
-  - sensor_temprature: sensor.temperature_158d00023258bd
-    sensor_humidity: sensor.humidity_158d00023258bd  
-
-                
-# type: grid
-# columns: 2
-# square: false
-# cards:
-#   - type: 'custom:button-card'
-#     template: graph
-#     variables:
-#       entity: "sensor.temperature_158d00023258bd"
-#       color: "var(--google-red)"
-#       name: "Temperatur"
-#   - type: 'custom:button-card'
-#     template: graph
-#     variables:
-#       entity: "sensor.humidity_158d00023258bd"
-#       color: "var(--google-blue)"
-#       name: "Luftfeuchte"
+type: entities
+entities:
+  - !include
+      - thermostat.yaml
+      - sensor_temprature: sensor.temperature_158d00023258bd
+        sensor_humidity: sensor.humidity_158d00023258bd                  

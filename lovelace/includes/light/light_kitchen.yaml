@@ -1,20 +1,14 @@
 # lovelace_gen
 
-type: grid
-columns: 2
-square: false
-cards:
-  - type: 'custom:button-card'
-    entity: light.kuche_decke
+type: entities
+entities:
+  - entity: light.kuche_decke
     name: Decke
-    template: 
-      - icon_info_bg
-      - light_no_state
-  - type: 'custom:button-card'
-    entity: light.dunstabzug
+    tap_action:
+      action: toggle
+  - entity: light.dunstabzug
     name: Dunstabzug
-    template: 
-      - icon_info_bg
-      - light_no_state
+    tap_action:
+          action: toggle
 
         
