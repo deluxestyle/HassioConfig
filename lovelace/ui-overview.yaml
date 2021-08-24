@@ -1,0 +1,77 @@
+####################################
+## Work in progress
+####################################
+
+title: Übersicht
+path: overview
+icon: mdi:home
+type: custom:horizontal-layout
+layout:
+  max_cols: 1
+cards:
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - !include includes/light/light_living_room.yaml
+      - type: 'custom:button-card'
+        entity: light.schlafzimmer
+        name: Schlafzimmer
+        template: 
+          - icon_info_bg
+          - light
+      - type: 'custom:button-card'
+        entity: light.lights_kitchen
+        name: Küche
+        template: 
+          - icon_info_bg
+          - light_no_state
+      - type: 'custom:button-card'
+        entity: light.flur
+        name: Flur
+        template: 
+          - icon_info_bg
+          - light
+  - template: title
+    type: 'custom:button-card'
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - !include includes/multimedia/remote.yaml
+  - template: title
+    type: 'custom:button-card'
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - entity: media_player.wohnzimmer
+        variables:
+          name: Wohnzimmer
+        template: 
+          - icon_info_bg
+          - media
+        type: 'custom:button-card'
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/living_room
+      - entity: media_player.schlafzimmer
+        variables:
+          name: Schlafzimmer
+        template: 
+          - icon_info_bg
+          - media
+        type: 'custom:button-card'
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/bed_room
+      - entity: media_player.bad
+        variables:
+          name: Bad
+        template: 
+          - icon_info_bg
+          - media
+        type: 'custom:button-card'
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/bath

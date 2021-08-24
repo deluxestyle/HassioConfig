@@ -1,0 +1,29 @@
+# lovelace_gen
+
+type: entities
+show_header_toggle: false
+entities:
+  - entity: light.schlafzimmer
+    icon: hue:ceiling-round
+    name: Decke
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    extend_paper_buttons_row:
+      buttons:
+        - entity: scene.schlafzimmer_nachtlicht
+          icon: mdi:brightness-3
+          name: false
+        - entity: scene.schlafzimmer_gedimmt
+          icon: mdi:brightness-4
+          name: false
+        - entity: scene.schlafzimmer_hell
+          icon: mdi:brightness-5
+          name: false
+  - entity: light.yeelight_bslamp1_0x0000000005451cd6
+    name: Nachtlicht
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info

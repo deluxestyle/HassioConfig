@@ -7,9 +7,6 @@ views:
   - title: Staubsauger
     path: vacuum
     icon: mdi:robot-vacuum
-    type: custom:horizontal-layout
-    layout:
-      max_cols: 2
     cards:
       - type: custom:vertical-stack-in-card
         cards:

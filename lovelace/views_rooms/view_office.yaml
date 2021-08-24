@@ -1,10 +1,32 @@
 title: Büro
 path: office
 icon: mdi:desk
+type: custom:horizontal-layout
+layout:
+  max_cols: 2
 cards:
-  - type: entities
-    entities:
-      - scene.arbeit
-      - entity: switch.steckdose_1
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - type: "custom:button-card"
+        icon: mdi:laptop
+        name: Arbeit
+        entity: scene.arbeit
+        tap_action:
+          action: call-service
+          service: scene.turn_on
+          service_data:
+            entity_id: scene.arbeit
+        template: 
+          - icon_info_bg
+          - generic_no_label
+      - type: 'custom:button-card'
+        entity: switch.steckdose_1
         icon: mdi:desk
         name: Schreibtisch
+        tap_action: 
+          action: toggle
+        template: 
+          - icon_info_bg
+          - outlet

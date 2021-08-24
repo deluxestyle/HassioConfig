@@ -1,0 +1,74 @@
+title: FritzBox
+path: fritz
+icon: mdi:router-wireless-settings
+#### popup instead of more-info
+popup_cards:
+  switch.pi_hole:
+    title: PI-Hole Stats
+    card:
+      type: custom:auto-entities
+      card:
+        type: entities 
+      filter:
+          include:
+            - entity_id: "sensor.pi_hole_*"  
+#### #### #### #### #### #### #### #### #### #### 
+type: custom:horizontal-layout
+layout:
+  max_cols: 2
+cards:
+  - type: glance
+    columns: 4
+    show_name: false
+    entities:
+      - entity: sensor.net_download_max
+        icon: mdi:cloud-download
+      - entity: sensor.net_upload_max
+        icon: mdi:cloud-upload
+      - entity: sensor.fritz_box_7590_kb_s_received
+        icon: mdi:cloud-download-outline
+      - entity: sensor.fritz_box_7590_kb_s_sent
+        icon: mdi:cloud-upload-outline
+      - sensor.fritz_box_7590_connection_uptime
+      - entity: sensor.wireguard_iphonepro
+        icon: mdi:cellphone-iphone
+      - entity: sensor.wireguard_ipad
+        icon: mdi:tablet-ipad   
+  - type: entities
+    entities:
+      - entity: switch.pi_hole
+        icon: mdi:pi-hole    
+      - entity: switch.fritz_box_7590_port_forward_http_server
+        name: 'Fritz!Box Port: 80'
+        tap_action: 
+          action: toggle
+      - entity: switch.fritz_box_7590_port_forward_https_server
+        name: 'Fritz!Box Port: 443'
+        tap_action: 
+          action: toggle 
+  - type: entities
+    entities:
+      - entity: switch.fritz_box_7590_wi_fi_google_messwagen_26
+        name: 'Wi-Fi FRITZ!Box 2.4Ghz'
+        tap_action: 
+          action: toggle 
+      - entity: switch.fritz_box_7590_wi_fi_google_messwagen_26_5ghz
+        name: 'Wi-Fi FRITZ!Box 5Ghz'
+        tap_action: 
+          action: toggle 
+      - entity: switch.fritz_box_7590_wi_fi_tanzergast
+        name: 'Wi-Fi FRITZ!Box Gastzugang'
+        tap_action: 
+          action: toggle 
+      - type: custom:auto-entities
+        filter:
+          include:
+            - entity_id: "*internet_access"
+        sort:
+          method: name
+        card:
+          type: custom:fold-entity-row
+          head:
+            type: section
+            label: Internet Zugang
+          padding: 5

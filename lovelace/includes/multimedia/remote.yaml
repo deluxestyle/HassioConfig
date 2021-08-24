@@ -1,0 +1,6 @@
+type: 'custom:button-card'
+entity: sensor.remote_state
+name: Entertainment
+template: 
+  - icon_info_bg
+  - generic_no_unit

@@ -1,0 +1,193 @@
+title: System
+path: system
+icon: mdi:cog-outline
+
+#### popup instead of more-info
+popup_cards:
+  sensor.samba_backup:
+    title: Status
+    card:
+      type: entities
+      entities:
+        - attribute: backups_local
+          entity: sensor.samba_backup
+          icon: 'mdi:file-outline'
+          name: Local Backups
+          type: attribute
+        - attribute: backups_remote
+          entity: sensor.samba_backup
+          icon: 'mdi:file-move-outline'
+          name: Remote Backups
+          type: attribute
+        - attribute: total_backups_succeeded
+          entity: sensor.samba_backup
+          icon: 'mdi:file-check-outline'
+          name: Succeded Backups
+          type: attribute
+        - attribute: total_backups_failed
+          entity: sensor.samba_backup
+          icon: 'mdi:file-cancel-outline'
+          name: Failed Backups
+          type: attribute
+        - attribute: last_backup
+          entity: sensor.samba_backup
+          icon: 'mdi:file-clock-outline'
+          name: Last Backup
+          type: attribute
+
+  automation.batterie_benachrichtigung:
+    title: Batteriestatus
+    card:
+      type: custom:auto-entities
+      card:
+        type: entities 
+      filter:
+        include:
+          - entity_id: "sensor.*_battery_level"
+            options:
+              type: custom:battery-entity-row
+        exclude:
+          - entity_id: "*iphone*"
+          - entity_id: "*ipad*"
+#### #### #### #### #### #### #### #### #### #### 
+
+type: custom:horizontal-layout
+layout:
+  max_cols: 2
+cards:
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - type: "custom:button-card"
+        name: Mitteilung löschen
+        entity: script.notify_clean_messages
+        tap_action:
+          action: toggle
+        template: 
+          - icon_info_bg
+          - generic_no_label
+      - type: "custom:button-card"
+        name: Badge löschen
+        entity: script.notify_clean_badge
+        tap_action:
+          action: toggle
+        template: 
+          - icon_info_bg
+          - generic_no_label       
+  - type: entities
+    show_header_toggle: false
+    entities:
+      - entity:  sensor.updater_core
+        type: custom:multiple-entity-row
+        name: Core
+        show_state: false
+        icon: mdi:update
+        entities:
+          - attribute: current_version
+            name: Installiert
+          - attribute: newest_version
+            name: Verfügbar
+        tap_action: 
+          action: fire-dom-event
+          browser_mod:
+            command: navigate
+            navigation_path: /hassio
+      - entity:  sensor.updater_supervisor
+        type: custom:multiple-entity-row
+        name: Supervisor
+        icon: mdi:update
+        show_state: false
+        entities:
+          - attribute: current_version
+            name: Installiert
+          - attribute: newest_version
+            name: Verfügbar
+        tap_action: 
+          action: fire-dom-event
+          browser_mod:
+            command: navigate
+            navigation_path: /hassio
+      - entity:  sensor.updater_supervisor
+        type: custom:multiple-entity-row
+        name: Add-ons
+        icon: mdi:update
+        tap_action: 
+          action: fire-dom-event
+          browser_mod:
+            command: navigate
+            navigation_path: /hassio
+      - entity: sensor.hacs
+        name: Hacs
+        tap_action: 
+          action: fire-dom-event
+          browser_mod:
+            command: navigate 
+            navigation_path: /hacs
+      - type: custom:fold-entity-row
+        padding: 5
+        head:
+          type: section
+          label: Details
+        entities:
+          - entity: sensor.online_time
+            name: Hass online
+            icon: mdi:home-assistant
+          - entity: sensor.last_boot
+            name: Raspi online
+            icon: mdi:raspberry-pi
+  - type: glance
+    columns: 5
+    show_name: false
+    entities:
+      - entity: sensor.processor_use
+        name: CPU   
+        style: |
+            :host {
+              color: 
+              {% if (states.sensor.processor_use.state | int) > 30 %}
+                red
+              {% endif %}
+              ;
+            }     
+      - entity: sensor.cpu_temperature
+        icon: mdi:thermometer
+        name: CPU Temp
+        style: |
+            :host {
+              color: 
+              {% if (states.sensor.cpu_temperature.state | int) > 70 %}
+                red
+              {% endif %}
+              ;
+            }
+      - entity: sensor.memory_use_percent
+        name: Memory 
+      - entity: sensor.swap_use_percent
+        name: Swap
+        icon: mdi:file-swap         
+      - entity: sensor.disk_use_percent
+        name: Disk 
+      - entity: sensor.influxdb_database_size
+        icon: mdi:database-outline
+      - entity: sensor.mariadb_database_size
+        icon: mdi:database  
+      - entity: sensor.samba_backup
+        icon: mdi:content-save-all      
+  - type: entities
+    entities:
+      - entity: automation.batterie_benachrichtigung
+      - type: custom:fold-entity-row
+        head:
+          type: section
+          label: Einstellungen
+        padding: 5
+        entities:
+          - entity: input_number.battery_alert
+            name: Grenzwert
+            tap_action: 
+              action: none
+          - entity: script.battery_persistent_notification_clear
+            name: Alarm zurücksetzen
+            tap_action: 
+              action: toggle

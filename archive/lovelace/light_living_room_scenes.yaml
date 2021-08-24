@@ -1,0 +1,37 @@
+
+action: fire-dom-event
+browser_mod:
+  command: popup
+  title: Szenen
+  card:
+    style: |
+      ha-card {
+        --ha-card-box-shadow: 'none';
+        --ha-card-border-radius: "0px";
+      }
+    type: entities
+    entities: 
+        - entity: scene.wohnzimmer_hell
+          name: Hell
+          icon: mdi:lightbulb-group-outline
+        - entity: scene.wohnzimmer_lesen
+          name: Lesen
+          icon: mdi:lightbulb-group-outline
+        - entity: scene.wohnzimmer_entspannen
+          name: Entspannen
+          icon: mdi:lightbulb-group-outline
+        - entity: scene.wohnzimmer_energie_tanken
+          name: Energie tanken
+          icon: mdi:lightbulb-group-outline
+        - entity: scene.wohnzimmer_konzentrieren
+          name: Konzentrieren
+          icon: mdi:lightbulb-group-outline
+        - entity: scene.wohnzimmer_gedimmt
+          name: Gedimmt
+          icon: mdi:lightbulb-group-outline
+        - entity: scene.wohnzimmer_nachtlicht
+          name: Nachtlicht
+          icon: mdi:lightbulb-group-outline
+        - entity: scene.wohnzimmer_fernsehen
+          name: Fernsehen
+          icon: mdi:lightbulb-group-outline

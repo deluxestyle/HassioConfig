@@ -1,0 +1,26 @@
+# lovelace_gen
+
+title: Heizung {{ name }}
+card:
+  style: |
+    ha-card {
+      --ha-card-box-shadow: 'none';
+      --ha-card-border-radius: "0px";
+    }
+  type: entities
+  entities: 
+    - type: custom:simple-thermostat
+      entity: {{ entity }}
+      style: |
+        ha-card {
+          --ha-card-box-shadow: 'none';
+          --st-font-size-sensors: 14px;
+          --st-font-size-xl: 30px;
+        }
+      step_size: 0.5
+      name: false
+      label:
+        temperature: Temperatur
+      control :
+        _icons: false
+        _names: true

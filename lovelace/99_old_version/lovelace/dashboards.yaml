@@ -1,0 +1,21 @@
+lovelace-system:
+  mode: yaml
+  title: System
+  icon: mdi:tune
+  show_in_sidebar: true
+  filename: lovelace/ui-system.yaml
+  require_admin: false
+lovelace-presence:
+  mode: yaml
+  title: Anwesenheit
+  icon: mdi:account-multiple
+  show_in_sidebar: true
+  filename: lovelace/ui-presence.yaml
+  require_admin: false
+lovelace-vacuum:
+  mode: yaml
+  title: Staubsauger
+  icon: mdi:robot-vacuum
+  show_in_sidebar: true
+  filename: lovelace/views_entities/vacuum.yaml
+  require_admin: false

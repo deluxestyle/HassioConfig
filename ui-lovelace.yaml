@@ -14,7 +14,7 @@ views:
 ## Work in progress
 ####################################
 ###### Übersicht #####
-  # - !include lovelace/overview.yaml
+  - !include lovelace/ui-overview.yaml
 
 ##### Wohnzimmer #####
   - !include lovelace/views_rooms/view_living_room.yaml

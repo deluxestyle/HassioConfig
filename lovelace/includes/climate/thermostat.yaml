@@ -1,8 +1,25 @@
 # lovelace_gen
 
-entity: {{ sensor_temprature }} 
-name: Thermometer
-type: custom:multiple-entity-row
-entities:
-  - entity: {{ sensor_humidity }}
-    name: false
+# entity: {{ sensor_temprature }} 
+# name: Thermometer
+# type: custom:multiple-entity-row
+# entities:
+#   - entity: {{ sensor_humidity }}
+#     name: false
+
+type: grid
+columns: 2
+square: false
+cards:
+  - type: 'custom:button-card'
+    template: graph
+    variables:
+      entity: {{ sensor_temprature }} 
+      color: "var(--google-blue)"
+      name: "Temperatur"
+  - type: 'custom:button-card'
+    template: graph
+    variables:
+      entity: {{ sensor_humidity }}
+      color: "var(--google-green)"
+      name: "Luftfeuchte"

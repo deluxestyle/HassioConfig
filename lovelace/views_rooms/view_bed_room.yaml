@@ -3,15 +3,50 @@
 title: Schlafzimmer
 path: bed_room
 icon: mdi:bed
+type: custom:horizontal-layout
+layout:
+  max_cols: 1
 cards:
-  - !include ../includes/light/light_bed_room.yaml
-  - type: custom:vertical-stack-in-card
+  - type: grid
+    columns: 2
+    square: false
     cards:
-      - !include
-          - ../includes/multimedia/mini_media_player.yaml
-          - entity: media_player.schlafzimmer
-    filter:
-        include:
-          - entity_id: "switch.sonos_alarm_*"
+      - type: 'custom:button-card'
+        entity: light.schlafzimmer
+        name: Decke
+        template: 
+          - icon_info_bg
+          - light
+        double_tap_action: 
+          action: fire-dom-event
+          browser_mod:
+            command: popup
+            title: Lampen
+            card:
+              style: |
+                ha-card {
+                  --ha-card-box-shadow: 'none';
+                  --ha-card-border-radius: "0px";
+                }
+              type: entities
+              entities:
+                - entity: scene.schlafzimmer_nachtlicht
+                  icon: mdi:brightness-3
+                  name: false
+                - entity: scene.schlafzimmer_gedimmt
+                  icon: mdi:brightness-4
+                  name: false
+                - entity: scene.schlafzimmer_hell
+                  icon: mdi:brightness-5
+                  name: false
+      - type: 'custom:button-card'
+        entity: light.yeelight_bslamp1_0x0000000005451cd6
+        name: Nachtlicht
+        template: 
+          - icon_info_bg
+          - light
+  - !include
+      - ../includes/multimedia/mini_media_player.yaml
+      - entity: media_player.schlafzimmer
   - !include ../includes/climate/climate_bed_room.yaml
                

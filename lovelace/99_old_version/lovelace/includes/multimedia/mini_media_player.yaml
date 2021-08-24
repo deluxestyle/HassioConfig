@@ -5,14 +5,14 @@ name: {{ name }}
 icon: 'mdi:speaker-wireless'
 volume_stateless: true
 group: false
-# artwork: material
-sound_mode: icon
+artwork: material
+sound_mode: full
 hide:
   power: true
   source: false
   progress: false
   shuffle: false
-source: icon
+#source: icon
 info: scroll
 speaker_group:
   platform: sonos

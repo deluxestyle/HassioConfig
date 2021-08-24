@@ -27,11 +27,6 @@ entities:
         tap_action:
           haptic: light
           action: toggle
-      - entity: script.harmony_power_off
-        show_name: false
-        icon: mdi:power
-        tap_action:
-          action: toggle
   - type: section          
   - type: buttons
     entities:

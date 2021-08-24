@@ -1,0 +1,8 @@
+# lovelace_gen
+
+type: entities
+entities:
+  - !include
+      - thermostat.yaml
+      - sensor_temprature: sensor.temperature_158d0002239fb5
+        sensor_humidity: sensor.humidity_158d0002239fb5 
