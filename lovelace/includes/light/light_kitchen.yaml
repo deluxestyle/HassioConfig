@@ -9,6 +9,4 @@ entities:
   - entity: light.dunstabzug
     name: Dunstabzug
     tap_action:
-          action: toggle
-
-        
+          action: toggle   
