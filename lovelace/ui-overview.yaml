@@ -116,6 +116,15 @@ cards:
           - icon_info_bg
           - media
         type: 'custom:button-card'
+        tap_action: 
+          action: fire-dom-event
+          browser_mod:
+            command: popup
+            title: Sonos Wohnzimmer
+            card:
+              !include
+                - includes/multimedia/mini_media_player.yaml
+                - entity: media_player.wohnzimmer
         double_tap_action:
           action: navigate
           navigation_path: /lovelace/living_room
@@ -126,6 +135,15 @@ cards:
           - icon_info_bg
           - media
         type: 'custom:button-card'
+        tap_action: 
+          action: fire-dom-event
+          browser_mod:
+            command: popup
+            title: Sonos Schlafzimmer
+            card:
+              !include
+                - includes/multimedia/mini_media_player.yaml
+                - entity: media_player.schlafzimmer
         double_tap_action:
           action: navigate
           navigation_path: /lovelace/bed_room
@@ -136,6 +154,15 @@ cards:
           - icon_info_bg
           - media
         type: 'custom:button-card'
+        tap_action: 
+          action: fire-dom-event
+          browser_mod:
+            command: popup
+            title: Sonos Bad
+            card:
+              !include
+                - includes/multimedia/mini_media_player.yaml
+                - entity: media_player.bad
         double_tap_action:
           action: navigate
           navigation_path: /lovelace/bath
