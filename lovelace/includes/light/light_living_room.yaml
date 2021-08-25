@@ -17,12 +17,12 @@ entities:
             browser_mod:
               command: popup
               title: Lampen/Szenen
+              style:
+              .: |
+                :host {
+                  --secondary-background-color: rgba(0,0,0,0);
+                }
               card:
-                style: |
-                  ha-card {
-                    --ha-card-box-shadow: 'none';
-                    --ha-card-border-radius: "0px";
-                  }
                 type: entities
                 entities: 
                     - type: "custom:paper-buttons-row"
