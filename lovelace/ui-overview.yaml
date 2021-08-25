@@ -22,68 +22,17 @@ cards:
         double_tap_action: 
           action: fire-dom-event
           browser_mod:
-            command: popup
-            title: Lampen
-            style:
-              .: |
-                :host {
-                  --secondary-background-color: rgba(0,0,0,0);
-                }
-            card:
-              type: entities
-              entities:
-                - type: "custom:paper-buttons-row"
-                  buttons:
-                    - entity: light.wohnzimmer_decke
-                      name: Decke
-                      tap_action:
-                        action: toggle
-                      hold_action:
-                        action: more-info
-                    - entity: light.wohnzimmer_couch
-                      name: Couch
-                      tap_action:
-                        action: toggle
-                      hold_action:
-                        action: more-info
-                    - entity: light.wohnzimmer_wand
-                      name: Wand
-                      icon: hue:wall-spot
-                      tap_action:
-                        action: toggle
-                      hold_action:
-                        action: more-info
-                - type: section
-                - entity: scene.wohnzimmer_hell
-                  name: Hell
-                  icon: mdi:lightbulb-group-outline
-                - entity: scene.wohnzimmer_lesen
-                  name: Lesen
-                  icon: mdi:lightbulb-group-outline
-                - entity: scene.wohnzimmer_entspannen
-                  name: Entspannen
-                  icon: mdi:lightbulb-group-outline
-                - entity: scene.wohnzimmer_energie_tanken
-                  name: Energie tanken
-                  icon: mdi:lightbulb-group-outline
-                - entity: scene.wohnzimmer_konzentrieren
-                  name: Konzentrieren
-                  icon: mdi:lightbulb-group-outline
-                - entity: scene.wohnzimmer_gedimmt
-                  name: Gedimmt
-                  icon: mdi:lightbulb-group-outline
-                - entity: scene.wohnzimmer_nachtlicht
-                  name: Nachtlicht
-                  icon: mdi:lightbulb-group-outline
-                - entity: scene.wohnzimmer_fernsehen
-                  name: Fernsehen
-                  icon: mdi:lightbulb-group-outline
+            !include includes/popups/light_wohnzimmer.yaml
       - type: 'custom:button-card'
         entity: light.schlafzimmer
         name: Schlafzimmer
         template: 
           - icon_info_bg
           - light
+        double_tap_action: 
+          action: fire-dom-event
+          browser_mod:
+            !include includes/popups/light_schlafzimmer.yaml
       - type: 'custom:button-card'
         entity: light.lights_kitchen
         name: Küche

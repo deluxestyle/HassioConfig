@@ -3,7 +3,7 @@
 swipe_nav:
 # -----------------------------
 popup_cards:
-  !include lovelace/includes/popup_cards.yaml
+  !include lovelace/includes/popups/popup_cards.yaml
 # -----------------------------
 button_card_templates: !include lovelace/includes/button_card_templates.yaml
 
