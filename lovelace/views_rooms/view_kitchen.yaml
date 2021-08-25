@@ -5,7 +5,7 @@ path: kitchen
 icon: mdi:stove
 type: custom:horizontal-layout
 layout:
-  max_cols: 1
+  max_cols: 2
 cards:
   - !include ../includes/light/light_kitchen.yaml
   - !include ../includes/climate/climate_kitchen.yaml

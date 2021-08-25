@@ -38,8 +38,8 @@
     styles:
       card:
         - padding: 15px
-        # - border-radius: var(--border-radius)
-        # - box-shadow: var(--box-shadow)
+        - border-radius: var(--border-radius)
+        - box-shadow: var(--box-shadow)
       grid:
         - grid-template-areas: '"i n" "i l"'
         - grid-template-columns: min-content auto
@@ -47,12 +47,11 @@
       icon:
         - color: 'rgba(var(--color-theme),1)'
       img_cell:
-        # - background-color: 'rgba(var(--color-theme),0.2)'
+        - background-color: 'rgba(var(--color-theme),0.2)'
         - border-radius: 50%
         - place-self: center
         - width: 42px
         - height: 42px
-        # - margin-left: 4px
       name:
         - align-self: end
         - justify-self: start
@@ -116,6 +115,15 @@
     template: 
       - blue
 
+  generic_with_state:
+    label: >-
+      [[[ if (entity.state =='on')
+         var state = "An";
+         else
+        var state = "Aus";
+      return entity.state ; ]]]
+    template: 
+      - yellow
 
 ########################################################################################################
 #                                                                                                      #
@@ -192,8 +200,8 @@
       name: "Default name"
     styles:
       card:
-        # - border-radius: var(--border-radius)
-        # - box-shadow: var(--box-shadow)
+        - border-radius: var(--border-radius)
+        - box-shadow: var(--box-shadow)
         - padding: 0px
       grid:
         - grid-template-areas: '"item1" "item2"'
@@ -257,7 +265,7 @@
       icon:
         - color: 'rgba(var(--color-theme),0.5)'
       img_cell:
-        # - background-color: 'rgba(var(--color-theme),0.05)'
+        - background-color: 'rgba(var(--color-theme),0.05)'
         - border-radius: 50%
         - place-self: center
         - width: 42px

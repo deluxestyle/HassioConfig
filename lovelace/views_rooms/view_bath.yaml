@@ -1,5 +1,18 @@
 # lovelace_gen
 
+popup_cards:
+  media_player.bad:
+    title: Lautstärke
+    card:
+      style: |
+        ha-card {
+          --ha-card-box-shadow: 'none';
+          --ha-card-border-radius: "0px";
+        }
+      type: entities
+      entities:
+        - input_boolean.sync_volume
+
 title: Bad
 path: bath
 icon: mdi:shower

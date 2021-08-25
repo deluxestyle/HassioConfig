@@ -1,7 +1,10 @@
 clean:
   ha-card-box-shadow: "0px 0px 0px 1px var(--border-color)"
   ha-card-border-radius: "2px"
-  
+
+  box-shadow: '0px 1px 2px 0px rgba(0,0,0,0.16)'
+  border-radius: '10px'
+
   google-grey: '#BBBBBB'
   color-theme : 68, 115, 158
   color-blue-text: 'var(--primary-text-color)'
