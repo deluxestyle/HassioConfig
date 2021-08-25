@@ -42,11 +42,16 @@ views:
                 - attribute: cleaning_time
                   unit: minutes
                   subtitle: Dauer
-      - type: custom:xiaomi-vacuum-map-card
-        entity: vacuum.roborock_vacuum
-        map_camera: camera.xiaomi_cloud_map_extractor
-        camera_calibration: true 
-        language: de  
+      - type: conditional
+        conditions:
+          - entity: sensor.vacuum_map
+            state: "on"
+        card:
+          type: custom:xiaomi-vacuum-map-card
+          entity: vacuum.roborock_vacuum
+          map_camera: camera.xiaomi_cloud_map_extractor
+          camera_calibration: true 
+          language: de  
       - type: entities
         entities:
           - entity: automation.xiaomi_staubsauger_abwesenheit
