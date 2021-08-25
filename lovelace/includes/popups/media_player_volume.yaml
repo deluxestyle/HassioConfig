@@ -1,0 +1,10 @@
+title: Lautstärke
+style:
+  .: |
+    :host {
+      --secondary-background-color: rgba(0,0,0,0);
+    }
+card:
+  type: entities
+  entities:
+    - input_boolean.sync_volume

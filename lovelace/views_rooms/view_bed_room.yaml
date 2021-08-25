@@ -2,16 +2,7 @@
 
 popup_cards:
   media_player.schlafzimmer:
-    title: Lautstärke
-    card:
-      style: |
-        ha-card {
-          --ha-card-box-shadow: 'none';
-          --ha-card-border-radius: "0px";
-        }
-      type: entities
-      entities:
-        - input_boolean.sync_volume
+    !include ../includes/popups/media_player_volume.yaml
 
 title: Schlafzimmer
 path: bed_room

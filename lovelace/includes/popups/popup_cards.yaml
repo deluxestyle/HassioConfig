@@ -3,11 +3,11 @@
 sensor.remote_state:
   title: Fernbedienung
   style:
-  .: |
-    :host {
-      --secondary-background-color: rgba(0,0,0,0);
-    }
+    .: |
+      :host {
+        --secondary-background-color: rgba(0,0,0,0);
+      }
   card:
     type: custom:vertical-stack-in-card
     cards:
-      - !include multimedia/remote_buttons.yaml
+      - !include ../multimedia/remote_buttons.yaml
