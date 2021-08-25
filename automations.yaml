@@ -15,7 +15,7 @@
     service: script.notify_script
   mode: single
 - id: family_not_home
-  alias: Abwesenheitsschaltung
+  alias: 'Anwesenheit: Abwesenheitsschaltung'
   description: Schaltet alle Lichter und Steckdosen aus und aktiviert den Bewegungssensor
   trigger:
   - entity_id: group.presence
@@ -125,7 +125,7 @@
     service: script.sonos_radio_superfly
   mode: single
 - id: '1532273712071'
-  alias: 'Harman Kardon AVR: Quelle auswählen'
+  alias: 'Entertainment: AVR - Quelle auswählen'
   trigger:
   - entity_id: input_select.avr_source
     platform: state
@@ -148,7 +148,8 @@
     service: input_select.select_option
   mode: single
 - id: '1533660030341'
-  alias: 'Harman Kardon AVR: verbinden'
+  alias: 'Entertainment: AVR - verbinden'
+  description: dummy Bedienung um Verbindung sicherzustellen
   trigger:
   - entity_id: device_tracker.avr_151s
     platform: state
@@ -176,7 +177,7 @@
 - id: '1540494970737'
   alias: 'Benachrichtigung: Bewegung erkannt'
   trigger:
-  - entity_id: binary_sensor.bewegungsmelder
+  - entity_id: binary_sensor.tradfri_bewegungsmelder
     platform: state
     to: 'on'
   condition:
@@ -233,10 +234,9 @@
     service: script.notify_script
   mode: single
 - id: '1541096569503'
-  alias: Bewegungsmelder - Alarm
-  initial_state: false
+  alias: 'Anwesenheit: Bewegungsmelder - Alarm'
   trigger:
-  - entity_id: binary_sensor.bewegungsmelder
+  - entity_id: binary_sensor.tradfri_bewegungsmelder
     platform: state
     to: 'on'
   condition:
@@ -246,12 +246,14 @@
   action:
   - data:
       gw_mac: 7811DCB258D1
-      ringtone_id: 0
+      ringtone_id: '0'
       ringtone_vol: 20
     service: xiaomi_aqara.play_ringtone
   - delay: 00:02:00
   - data: {}
     service: script.xiaomi_gateway_alarm_stop
+  initial_state: false
+  mode: single
 - id: '1542650541048'
   alias: 'Xiaomi Staubsauger: Benachrichtigung Sensor kritisch'
   trigger:
@@ -268,7 +270,7 @@
     service: persistent_notification.create
   mode: single
 - id: '1542974689604'
-  alias: Anwesenheitsschaltung
+  alias: 'Anwesenheit: Anwesenheitsschaltung'
   description: Deaktiviert den Bewegungssensor
   trigger:
   - entity_id: group.presence
@@ -484,7 +486,7 @@
       title: CPU Temp
     service: script.notify_script
 - id: '1603141534875'
-  alias: Nachtlicht
+  alias: 'Licht: Nachtlicht Helligkeit'
   description: ''
   trigger:
   - platform: device
@@ -619,7 +621,7 @@
   mode: single
 - id: '1610907140746'
   alias: 'Harmony: Airplay - Telekom'
-  description: ''
+  description: teilweise schlatet sich der Receiver ein - hiermit wird er wieder ausgeschaltet
   trigger:
   - platform: state
     entity_id: sensor.remote_state
@@ -845,3 +847,14 @@
       title: VPN HP Spectre
     service: script.notify_script
   mode: single
+- id: '1629880241630'
+  alias: 'Licht: Bewegung Küche'
+  description: ''
+  use_blueprint:
+    path: Marcos_Felipe/turn-light-on-and-off-based-on-detected-motion-with-sun-condition.yaml
+    input:
+      motion_entity: binary_sensor.bewegungsmelder
+      light_target:
+        entity_id: light.kuche_decke
+      sunset_offset: 60
+      sunrise_offset: 45

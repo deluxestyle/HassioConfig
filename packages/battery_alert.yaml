@@ -4,7 +4,6 @@
 homeassistant:
   customize:
     automation.batterie_benachrichtigung:
-      friendly_name: Batterie Alarm
       icon: mdi:battery-alert
     script.battery_persistent_notification_clear:
       icon: mdi:bell-off-outline

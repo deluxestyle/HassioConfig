@@ -1,0 +1,64 @@
+# lovelace_gen
+
+title: Automations
+path: automations
+icon: mdi:home-assistant
+type: custom:horizontal-layout
+layout:
+  max_cols: 2
+cards:
+  - type: entities
+    entities:
+      - type: custom:template-entity-row
+        icon: mdi:home-assistant
+        name: Automatisierungen
+        tap_action:
+          action: none
+      - type: custom:auto-entities
+        filter:
+          include:
+            - name: "Benachrichtigung:*"
+        sort:
+          method: name
+        card:
+          type: custom:fold-entity-row
+          head:
+            type: section
+            label: Benachrichtigungen
+          padding: 5
+      - type: custom:auto-entities
+        filter:
+          include:
+            - name: "Anwesenheit:*"
+        sort:
+          method: name
+        card:
+          type: custom:fold-entity-row
+          head:
+            type: section
+            label: Anwesenheit
+          padding: 5
+      - type: custom:auto-entities
+        filter:
+          include:
+            - name: "Licht:*"
+        sort:
+          method: name
+        card:
+          type: custom:fold-entity-row
+          head:
+            type: section
+            label: Licht
+          padding: 5
+      - type: custom:auto-entities
+        filter:
+          include:
+            - entity_id: "automation.batterie*"
+        sort:
+          method: name
+        card:
+          type: custom:fold-entity-row
+          head:
+            type: section
+            label: Batterie
+          padding: 5
