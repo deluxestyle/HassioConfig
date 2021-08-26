@@ -43,6 +43,10 @@ cards:
         template: 
           - icon_info_bg
           - light
+        double_tap_action: 
+          action: fire-dom-event
+          browser_mod:
+            !include includes/popups/light_floor.yaml
   - template: title
     type: 'custom:button-card'
   - type: grid

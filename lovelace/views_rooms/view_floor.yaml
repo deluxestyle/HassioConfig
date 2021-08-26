@@ -15,6 +15,14 @@ cards:
           action: toggle
         hold_action:
           action: more-info
+        extend_paper_buttons_row:
+          buttons:
+            - name: Szenen
+              icon: mdi:lightbulb-group-outline
+              tap_action: 
+                action: fire-dom-event
+                browser_mod:
+                  !include ../includes/popups/light_floor.yaml
       - entity: light.gateway_light_7811dcb258d1
         name: Flur Nachtlicht
         tap_action:

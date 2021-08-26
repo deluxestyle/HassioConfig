@@ -9,12 +9,12 @@ style:
 card:
   type: entities
   entities:
-    - entity: scene.schlafzimmer_nachtlicht
+    - entity: scene.flur_gedimmt
       icon: mdi:brightness-3
       name: false
-    - entity: scene.schlafzimmer_gedimmt
+    - entity: scene.flur_hell_nacht
       icon: mdi:brightness-4
       name: false
-    - entity: scene.schlafzimmer_hell
+    - entity: scene.flur_hell_tag
       icon: mdi:brightness-5
       name: false
