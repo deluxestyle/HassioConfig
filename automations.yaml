@@ -847,14 +847,27 @@
       title: VPN HP Spectre
     service: script.notify_script
   mode: single
-- id: '1629880241630'
+- id: '1629968323395'
+  alias: 'Licht: Bewegung Flur'
+  description: ''
+  use_blueprint:
+    path: tanzerw/motion_light.yaml
+    input:
+      motion_sensor: binary_sensor.tradfri_bewegungsmelder
+      target_entity: light.flur
+      illuminance_cutoff: 0
+      no_motion_wait: 20
+      time_limit_after: 00:00:01
+      time_limit_before: '23:59:59'
+- id: '1629968502070'
   alias: 'Licht: Bewegung Küche'
   description: ''
   use_blueprint:
-    path: Marcos_Felipe/turn-light-on-and-off-based-on-detected-motion-with-sun-condition.yaml
+    path: tanzerw/motion_light.yaml
     input:
-      motion_entity: binary_sensor.bewegungsmelder
-      light_target:
-        entity_id: light.kuche_decke
-      sunset_offset: 60
-      sunrise_offset: 45
+      motion_sensor: binary_sensor.bewegungsmelder
+      target_entity: light.kuche_decke
+      no_motion_wait: 20
+      illuminance_cutoff: 0
+      time_limit_after: '19:00:00'
+      time_limit_before: 08:00:00

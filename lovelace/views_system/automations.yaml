@@ -11,54 +11,23 @@ cards:
     entities:
       - type: custom:template-entity-row
         icon: mdi:home-assistant
-        name: Automatisierungen
+        name: Lichtsteuerung
         tap_action:
           action: none
-      - type: custom:auto-entities
-        filter:
-          include:
-            - name: "Benachrichtigung:*"
-        sort:
-          method: name
-        card:
-          type: custom:fold-entity-row
-          head:
-            type: section
-            label: Benachrichtigungen
-          padding: 5
-      - type: custom:auto-entities
-        filter:
-          include:
-            - name: "Anwesenheit:*"
-        sort:
-          method: name
-        card:
-          type: custom:fold-entity-row
-          head:
-            type: section
-            label: Anwesenheit
-          padding: 5
-      - type: custom:auto-entities
-        filter:
-          include:
-            - name: "Licht:*"
-        sort:
-          method: name
-        card:
-          type: custom:fold-entity-row
-          head:
-            type: section
-            label: Licht
-          padding: 5
-      - type: custom:auto-entities
-        filter:
-          include:
-            - entity_id: "automation.batterie*"
-        sort:
-          method: name
-        card:
-          type: custom:fold-entity-row
-          head:
-            type: section
-            label: Batterie
-          padding: 5
+      - type: section
+      - entity: automation.licht_bewegung_kuche
+        icon: mdi:motion-sensor
+        name: Bewegungssensor Küche
+        tap_action:
+          action: toggle
+        double_tap_action:
+          action: navigate
+          navigation_path: /config/automation/edit/1629968502070
+      - entity: automation.licht_bewegung_flur
+        icon: mdi:motion-sensor
+        name: Bewegungssensor Flur
+        tap_action:
+          action: toggle
+        double_tap_action:
+          action: navigate
+          navigation_path: /config/automation/edit/1629968323395
