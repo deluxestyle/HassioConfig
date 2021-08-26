@@ -4,6 +4,6 @@ button_card_templates: !include includes/button_card_templates.yaml
 title: System
 
 views:
+  - !include views_system/automations.yaml
   - !include views_system/system.yaml
   - !include views_system/fritz.yaml
-  - !include views_system/automations.yaml

@@ -14,7 +14,6 @@ cards:
         name: Lichtsteuerung
         tap_action:
           action: none
-      - type: section
       - entity: automation.licht_bewegung_kuche
         icon: mdi:motion-sensor
         name: Bewegungssensor Küche
@@ -31,3 +30,72 @@ cards:
         double_tap_action:
           action: navigate
           navigation_path: /config/automation/edit/1629983281720
+  - type: custom:scheduler-card
+    primary_info:
+      - name
+    include:
+      - climate.fritz_dect_301
+      - light.gateway_light_7811dcb258d1
+      - light.lights_bed_room
+      - light.lights_kitchen
+      - light.lights_living_room
+      - light.nachttischlampe_wolfgang
+      - light.wohnzimmer_couch
+      - light.wohnzimmer_decke
+      - light.wohnzimmer_wand
+      - light.yeelight_bslamp1_0x0000000005451cd6
+      - media_player.bad
+      - media_player.schlafzimmer
+      - media_player.wohnzimmer
+      - person.christina
+      - person.wolfgang
+      - scene.arbeit
+      - scene.nachtlicht_hell
+      - scene.schlafzimmer_gedimmt
+      - scene.schlafzimmer_hell
+      - scene.schlafzimmer_nachtlicht
+      - scene.wohnzimmer_energie_tanken
+      - scene.wohnzimmer_entspannen
+      - scene.wohnzimmer_gedimmt
+      - scene.wohnzimmer_hell
+      - scene.wohnzimmer_konzentrieren
+      - scene.wohnzimmer_lesen
+      - scene.wohnzimmer_nachtlicht
+      - script.harmony_power_off
+      - script.sonos_b5_aktuell
+      - script.sonos_superfly
+      - script.sonos_wecker
+      - switch.airplay_switch
+      - switch.fire_tv_switch
+      - switch.music_switch
+      - switch.pi_hole
+      - switch.pi_hole_switch
+      - switch.steckdose_2
+      - switch.steckdose_3
+      - switch.tv_switch
+      - switch.vtuner_switch
+      - switch.wifi_steckdose
+      - vacuum
+    time_step: 1
+    customize:
+      script.sonos_wecker:
+        actions:
+          - service: script.sonos_wecker
+            name: Weckton
+            icon: mdi:alarm
+            variables:
+              alarm_source:
+                name: Quelle
+                options:
+                  - value: 'Radio: BR24'
+                  - value: 'Radio: Superfly.fm'
+      person.wolfgang:
+        states:
+          - home
+          - not_home
+      person.christina:
+        states:
+          - home
+          - not_home
+    title: false
+
