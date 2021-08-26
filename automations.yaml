@@ -847,27 +847,27 @@
       title: VPN HP Spectre
     service: script.notify_script
   mode: single
-- id: '1629968323395'
+- id: '1629983281720'
   alias: 'Licht: Bewegung Flur'
   description: ''
   use_blueprint:
     path: tanzerw/motion_light.yaml
     input:
+      illuminance_cutoff: 0
       motion_sensor: binary_sensor.tradfri_bewegungsmelder
       target_entity: light.flur
-      illuminance_cutoff: 0
-      no_motion_wait: 20
+      no_motion_wait: 40
       time_limit_after: 00:00:01
       time_limit_before: '23:59:59'
-- id: '1629968502070'
+- id: '1629983354095'
   alias: 'Licht: Bewegung Küche'
   description: ''
   use_blueprint:
     path: tanzerw/motion_light.yaml
     input:
-      motion_sensor: binary_sensor.bewegungsmelder
-      target_entity: light.kuche_decke
-      no_motion_wait: 20
       illuminance_cutoff: 0
-      time_limit_after: '19:00:00'
+      motion_sensor: binary_sensor.bewegungsmelder
+      target_entity: light.flur
+      no_motion_wait: 40
+      time_limit_after: '18:00:00'
       time_limit_before: 08:00:00

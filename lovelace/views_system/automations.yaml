@@ -22,7 +22,7 @@ cards:
           action: toggle
         double_tap_action:
           action: navigate
-          navigation_path: /config/automation/edit/1629968502070
+          navigation_path: /config/automation/edit/1629983354095
       - entity: automation.licht_bewegung_flur
         icon: mdi:motion-sensor
         name: Bewegungssensor Flur
@@ -30,4 +30,4 @@ cards:
           action: toggle
         double_tap_action:
           action: navigate
-          navigation_path: /config/automation/edit/1629968323395
+          navigation_path: /config/automation/edit/1629983281720
