@@ -14,8 +14,9 @@ blueprint:
       name: Licht
       description: Licht, welches eingeschalten wird.
       selector:
-        entity:
-          domain: light
+        target:
+          entity:
+            domain: light
     no_motion_wait:
       name: Wartezeit (Sekunden)
       description: Wartezeit, nachdem die letzte Bewegung erkannt wurde
@@ -41,25 +42,6 @@ blueprint:
       default: '23:59:59'
       selector:
         time: {}
-    illuminance_sensor:
-      name: (OPTIONAL) Illuminance sensor
-      description: Dieser Sensor wird verwendet, um die Illumination zu bestimmen. 
-      default:
-      selector:
-        entity:
-          domain: sensor
-          device_class: illuminance
-    illuminance_cutoff:
-      name: (OPTIONAL) Illuminance cutoff value
-      description: Dieser Wert wird verwendet um die aktuelle Illumination zu vergleichen
-      default:
-      selector:
-        number:
-          min: 0.0
-          max: 100000.0
-          unit_of_measurement: lx
-          mode: slider
-          step: 1.0
     blocker_entity:
       name: (OPTIONAL) Block Entität
       description: Wenn der Status dieser Entität aktiviert ist, wird verhindert, dass die Automatisierung
@@ -74,8 +56,6 @@ max_exceeded: silent
 
 variables:
   target_entity: !input 'target_entity'
-  illuminance_currently: !input 'illuminance_sensor'
-  illuminance_cutoff: !input 'illuminance_cutoff'
   blocker_entity: !input 'blocker_entity'
   time_limit_before: !input 'time_limit_before'
   time_limit_after: !input 'time_limit_after'
@@ -88,10 +68,6 @@ trigger:
 
 condition:
   - condition: template
-    value_template: '{{ (states(target_entity) == ''on'') or (illuminance_currently
-      == none) or (illuminance_cutoff == none) or (states[illuminance_currently].state
-      | int < illuminance_cutoff | int) }}'
-  - condition: template
     value_template: '{{ (blocker_entity == none) or (states[blocker_entity].state ==
       ''off'') }}'
   - condition: time
@@ -99,8 +75,8 @@ condition:
     before: !input time_limit_before
 
 action:
-  - service: homeassistant.turn_on
-    entity_id: !input 'target_entity'
+  - service: light.turn_on
+    target: !input target_entity
   - condition: template
     value_template: '{{ no_motion_wait != none }}'
   - wait_for_trigger:
@@ -110,5 +86,5 @@ action:
       to: 'off'
   - delay:
       seconds: '{{ no_motion_wait | int }}'
-  - service: homeassistant.turn_off
-    entity_id: !input 'target_entity'
+  - service: light.turn_off
+    target: !input target_entity
