@@ -284,6 +284,7 @@
       entity_id:
       - automation.benachrichtigung_bewegung_erkannt
       - automation.bewegungsmelder_alarm
+      - automation.benachrichtigung_wohnungstur_offen
   mode: single
 - id: '1543619209115'
   alias: 'Startup: Restart Services'
@@ -771,31 +772,6 @@
         - action: START_VACUUM
           title: Starten
   mode: single
-- id: '1621408262107'
-  alias: 'Xiaomi Staubsauger: Update Map'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: vacuum.roborock_vacuum
-    from: docked
-  condition:
-  - condition: template
-    value_template: '{{ trigger.to_state.state != ''unavailable'' and trigger.to_state.state
-      != ''unknown'' }}'
-  action:
-  - alias: Keep updating map until vacuum returns to dock
-    repeat:
-      sequence:
-      - service: homeassistant.update_entity
-        data:
-          entity_id: camera.xiaomi_cloud_map_extractor
-      - delay:
-          seconds: 5
-      until:
-      - condition: state
-        entity_id: vacuum.roborock_vacuum
-        state: docked
-  mode: single
 - id: '1626850123321'
   alias: 'Alexa: Ausschalten'
   description: ''
@@ -874,3 +850,27 @@
       time_limit_before: 08:00:00
       target_entity:
         entity_id: light.kuche_decke
+- id: '1630062290073'
+  alias: 'Licht: Flur Szene'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: light.flur
+    to: 'on'
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: time
+        after: 08:00:00
+        before: '19:00:00'
+      sequence:
+      - scene: scene.flur_hell_tag
+    - conditions:
+      - condition: time
+        after: '19:00:00'
+        before: 08:00:00
+      sequence:
+      - scene: scene.flur_hell_nacht
+    default: []
+  mode: single

@@ -24,11 +24,3 @@
     device_class: battery
     state: '{{ states.vacuum.roborock_vacuum.attributes.battery_level }}'
     icon: '{{ states.vacuum.roborock_vacuum.attributes.battery_icon }}'
-  - name: vacuum_map
-    unique_id: vacuum_map
-    state: >
-        {% if state_attr('camera.xiaomi_cloud_map_extractor','calibration_points') != None %}
-        on
-        {% else %}
-        off
-        {% endif %}
