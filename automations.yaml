@@ -846,7 +846,7 @@
       illuminance_cutoff: 0
       motion_sensor: binary_sensor.bewegungsmelder
       no_motion_wait: 40
-      time_limit_after: '17:00:00'
+      time_limit_after: '18:30:00'
       time_limit_before: 08:00:00
       target_entity:
         entity_id: light.kuche_decke
