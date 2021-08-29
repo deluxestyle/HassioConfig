@@ -505,6 +505,10 @@
   trigger:
   - platform: state
     entity_id: device_tracker.hp_spectre
+    to: home
+  - platform: state
+    entity_id: device_tracker.hp_spectre
+    to: not_home
   condition: []
   action:
   - choose:
@@ -528,7 +532,7 @@
         entity_id: switch.steckdose_1
         domain: switch
     default: []
-  mode: restart
+  mode: single
 - id: '1604932069752'
   alias: 'Benachrichtigung: Wohnungstür offen'
   description: ''

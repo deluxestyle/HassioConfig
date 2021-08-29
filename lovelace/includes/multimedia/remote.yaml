@@ -1,6 +1,8 @@
 type: 'custom:button-card'
-entity: sensor.remote_state
+entity: remote.harmony_hub
 name: Entertainment
+icon: mdi:remote-tv
 template: 
   - icon_info_bg
   - generic_no_unit
+  - remote

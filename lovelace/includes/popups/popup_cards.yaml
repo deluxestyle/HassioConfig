@@ -11,3 +11,15 @@ sensor.remote_state:
     type: custom:vertical-stack-in-card
     cards:
       - !include ../multimedia/remote_buttons.yaml
+
+remote.harmony_hub:
+  title: Fernbedienung
+  style:
+    .: |
+      :host {
+        --secondary-background-color: rgba(0,0,0,0);
+      }
+  card:
+    type: custom:vertical-stack-in-card
+    cards:
+      - !include ../multimedia/remote_buttons.yaml
