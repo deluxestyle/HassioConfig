@@ -8,4 +8,11 @@ layout:
   max_cols: 2
 cards:
   - !include ../includes/light/light_kitchen.yaml
+  - type: entities
+    entities:
+      - entity: switch.on_off_plug_in_unit_12
+        name: Kaffeemaschine
+        icon: mdi:coffee
+        tap_action:
+          action: toggle
   - !include ../includes/climate/climate_kitchen.yaml
