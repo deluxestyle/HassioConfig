@@ -144,3 +144,6 @@ cards:
         template: 
           - icon_info_bg
           - generic_with_state
+        double_tap_action:
+          action: navigate
+          navigation_path: /lovelace-vacuum/vacuum
