@@ -39,15 +39,7 @@ cards:
   - type: entities
     entities:
       - entity: switch.pi_hole
-        icon: mdi:pi-hole    
-      - entity: switch.fritz_box_7590_port_forward_http_server
-        name: 'Fritz!Box Port: 80'
-        tap_action: 
-          action: toggle
-      - entity: switch.fritz_box_7590_port_forward_https_server
-        name: 'Fritz!Box Port: 443'
-        tap_action: 
-          action: toggle 
+        icon: mdi:pi-hole    le 
   - type: entities
     entities:
       - entity: switch.fritz_box_7590_wi_fi_google_messwagen_26
@@ -66,6 +58,9 @@ cards:
         filter:
           include:
             - entity_id: "*internet_access"
+              options:
+                tap_action:
+                  action: toggle
         sort:
           method: name
         card:
@@ -73,4 +68,19 @@ cards:
           head:
             type: section
             label: Internet Zugang
+          padding: 5
+      - type: custom:auto-entities
+        filter:
+          include:
+            - entity_id: "switch.fritz_box_7590_port_forward*"
+              options:
+                tap_action:
+                  action: toggle
+        sort:
+          method: name
+        card:
+          type: custom:fold-entity-row
+          head:
+            type: section
+            label: Ports
           padding: 5
