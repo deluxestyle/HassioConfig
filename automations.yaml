@@ -509,6 +509,7 @@
   - platform: state
     entity_id: device_tracker.hp_spectre
     to: not_home
+    for: 00:05:00
   condition: []
   action:
   - choose:
@@ -525,7 +526,6 @@
       - condition: state
         entity_id: device_tracker.hp_spectre
         state: not_home
-        for: 00:05:00
       sequence:
       - type: turn_off
         device_id: cca9aaba4959ef500db7488b34736ac6

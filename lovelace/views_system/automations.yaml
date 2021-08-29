@@ -2,39 +2,41 @@
 
 title: Automations
 path: automations
-icon: mdi:home-assistant
+icon: mdi:calendar-multiple-check
 type: custom:horizontal-layout
 layout:
   max_cols: 2
 cards:
-  - type: entities
-    entities:
-      - type: custom:template-entity-row
-        icon: mdi:home-assistant
-        name: Lichtsteuerung
-        tap_action:
-          action: none
-      - entity: automation.licht_bewegung_kuche
-        icon: mdi:motion-sensor
-        name: Bewegungssensor Küche
-        tap_action:
-          action: toggle
-        double_tap_action:
-          action: navigate
-          navigation_path: /config/automation/edit/1629983354095
-      - entity: automation.licht_bewegung_flur
-        icon: mdi:motion-sensor
-        name: Bewegungssensor Flur
-        tap_action:
-          action: toggle
-        double_tap_action:
-          action: navigate
-          navigation_path: /config/automation/edit/1629983281720
+  # - type: entities
+  #   entities:
+  #     - type: custom:template-entity-row
+  #       icon: mdi:home-assistant
+  #       name: Lichtsteuerung
+  #       tap_action:
+  #         action: none
+  #     - entity: automation.licht_bewegung_kuche
+  #       icon: mdi:motion-sensor
+  #       name: Bewegungssensor Küche
+  #       tap_action:
+  #         action: toggle
+  #       double_tap_action:
+  #         action: navigate
+  #         navigation_path: /config/automation/edit/1629983354095
+  #     - entity: automation.licht_bewegung_flur
+  #       icon: mdi:motion-sensor
+  #       name: Bewegungssensor Flur
+  #       tap_action:
+  #         action: toggle
+  #       double_tap_action:
+  #         action: navigate
+  #         navigation_path: /config/automation/edit/1629983281720
   - type: custom:scheduler-card
-    primary_info:
-      - name
+    display_options:
+      primary_info:
+        - name
+        - additional-tasks
+      secondary_info: relative-time
     include:
-      - climate.fritz_dect_301
       - light.gateway_light_7811dcb258d1
       - light.lights_bed_room
       - light.lights_kitchen
