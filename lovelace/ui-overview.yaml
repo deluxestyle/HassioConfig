@@ -161,6 +161,7 @@ cards:
         template: 
           - icon_info_bg
           - generic_with_state
+          - vacuum
         double_tap_action:
           action: navigate
           navigation_path: /lovelace-vacuum/vacuum
