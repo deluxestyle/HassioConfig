@@ -500,20 +500,35 @@
   - scene: scene.nachtlicht_hell
   mode: single
 - id: '1604680008982'
-  alias: 'Schreibtisch: Steckdose ausschalten'
+  alias: 'Schreibtisch: Steckdose'
   description: ''
   trigger:
   - platform: state
     entity_id: device_tracker.hp_spectre
-    to: not_home
-    for: 00:05:00
   condition: []
   action:
-  - type: turn_off
-    device_id: cca9aaba4959ef500db7488b34736ac6
-    entity_id: switch.steckdose_1
-    domain: switch
-  mode: single
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: device_tracker.hp_spectre
+        state: home
+      sequence:
+      - type: turn_on
+        device_id: cca9aaba4959ef500db7488b34736ac6
+        entity_id: switch.steckdose_1
+        domain: switch
+    - conditions:
+      - condition: state
+        entity_id: device_tracker.hp_spectre
+        state: not_home
+        for: 00:05:00
+      sequence:
+      - type: turn_off
+        device_id: cca9aaba4959ef500db7488b34736ac6
+        entity_id: switch.steckdose_1
+        domain: switch
+    default: []
+  mode: restart
 - id: '1604932069752'
   alias: 'Benachrichtigung: Wohnungstür offen'
   description: ''
@@ -655,20 +670,6 @@
     data: {}
     entity_id: media_player.wohnzimmer
   mode: single
-- id: '1611326546621'
-  alias: 'Schreibtisch: Steckdose einschalten'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: device_tracker.hp_spectre
-    to: home
-  condition: []
-  action:
-  - type: turn_on
-    device_id: cca9aaba4959ef500db7488b34736ac6
-    entity_id: switch.steckdose_1
-    domain: switch
-  mode: single
 - id: '1612343173377'
   alias: 'iOS: Telefonat'
   description: ''
@@ -758,34 +759,35 @@
           title: Starten
   mode: single
 - id: '1626850123321'
-  alias: 'Alexa: Ausschalten'
+  alias: 'Alexa: Ports'
   description: ''
   trigger:
   - platform: state
     entity_id: switch.on_off_plug_in_unit_11
-    to: 'off'
   condition: []
   action:
-  - service: switch.turn_off
-    target:
-      entity_id:
-      - switch.fritz_box_7590_port_forward_http_server
-      - switch.fritz_box_7590_port_forward_https_server
-  mode: single
-- id: '1626850154478'
-  alias: 'Alexa: Einschalten'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: switch.on_off_plug_in_unit_11
-    to: 'on'
-  condition: []
-  action:
-  - service: switch.turn_on
-    target:
-      entity_id:
-      - switch.fritz_box_7590_port_forward_http_server
-      - switch.fritz_box_7590_port_forward_https_server
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: switch.on_off_plug_in_unit_11
+        state: 'on'
+      sequence:
+      - service: switch.turn_on
+        target:
+          entity_id:
+          - switch.fritz_box_7590_port_forward_http_server
+          - switch.fritz_box_7590_port_forward_https_server
+    - conditions:
+      - condition: state
+        entity_id: switch.on_off_plug_in_unit_11
+        state: 'off'
+      sequence:
+      - service: switch.turn_off
+        target:
+          entity_id:
+          - switch.fritz_box_7590_port_forward_http_server
+          - switch.fritz_box_7590_port_forward_https_server
+    default: []
   mode: single
 - id: '1629099375854'
   alias: 'Benachrichtigung: HP Spectre VPN'
@@ -860,7 +862,7 @@
     default: []
   mode: single
 - id: '1630241435170'
-  alias: 'Kaffeemaschine: Steckdose noch an'
+  alias: 'Kaffeemaschine: Benachrichtigung Steckdose'
   description: ''
   trigger:
   - platform: event
@@ -881,6 +883,9 @@
       duration: 00:10:00
     target:
       entity_id: timer.kaffeemaschine
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.kaffeemaschine_steckdose
   mode: single
 - id: '1630241702798'
   alias: 'Kaffeemaschine: Steckdose aus nach Push'
@@ -941,5 +946,8 @@
       - service: timer.cancel
         target:
           entity_id: timer.kaffeemaschine
+      - service: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.kaffeemaschine_steckdose
     default: []
   mode: single

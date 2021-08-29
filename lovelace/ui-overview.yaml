@@ -65,6 +65,7 @@ cards:
         template: 
           - icon_info_bg
           - outlet
+          - coffee_plug
   - template: title
     type: 'custom:button-card'
   - type: grid
