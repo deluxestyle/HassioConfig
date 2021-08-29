@@ -655,21 +655,6 @@
     data: {}
     entity_id: media_player.wohnzimmer
   mode: single
-- id: '1610972932012'
-  alias: Kaffeemaschine ein/ausschalten
-  description: ''
-  trigger:
-  - device_id: a955261a32066a37020dbc5ffa64788c
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  condition: []
-  action:
-  - service: switch.toggle
-    target:
-      entity_id: switch.on_off_plug_in_unit_12
-  mode: single
 - id: '1611326546621'
   alias: 'Schreibtisch: Steckdose einschalten'
   description: ''
@@ -872,5 +857,89 @@
         before: 08:00:00
       sequence:
       - scene: scene.flur_hell_nacht
+    default: []
+  mode: single
+- id: '1630241435170'
+  alias: 'Kaffeemaschine: Steckdose noch an'
+  description: ''
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.kaffeemaschine
+  condition: []
+  action:
+  - service: notify.mobile_app_iphone11pro
+    data:
+      message: Kaffeemaschine ist noch an
+      data:
+        actions:
+        - action: SWITCH_OFF_COFFEE
+          title: Steckdose ausschalten
+  - service: timer.start
+    data:
+      duration: 00:10:00
+    target:
+      entity_id: timer.kaffeemaschine
+  mode: single
+- id: '1630241702798'
+  alias: 'Kaffeemaschine: Steckdose aus nach Push'
+  description: ''
+  trigger:
+  - platform: event
+    event_type: mobile_app_notification_action
+    event_data:
+      action: SWITCH_OFF_COFFEE
+  condition: []
+  action:
+  - service: switch.turn_off
+    target:
+      entity_id: switch.on_off_plug_in_unit_12
+  - service: timer.cancel
+    target:
+      entity_id: timer.kaffeemaschine
+  mode: single
+- id: '1610972932012'
+  alias: 'Kaffeemaschine: ein/ausschalten'
+  description: ''
+  trigger:
+  - device_id: a955261a32066a37020dbc5ffa64788c
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  condition: []
+  action:
+  - service: switch.toggle
+    target:
+      entity_id: switch.on_off_plug_in_unit_12
+  mode: single
+- id: '1630242296075'
+  alias: 'Kaffeemaschine: Timer'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: switch.on_off_plug_in_unit_12
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: switch.on_off_plug_in_unit_12
+        state: 'on'
+      sequence:
+      - service: timer.start
+        data:
+          duration: 00:20:00
+        target:
+          entity_id: timer.kaffeemaschine
+    - conditions:
+      - condition: state
+        entity_id: switch.on_off_plug_in_unit_12
+        state: 'off'
+      sequence:
+      - service: timer.cancel
+        target:
+          entity_id: timer.kaffeemaschine
     default: []
   mode: single
