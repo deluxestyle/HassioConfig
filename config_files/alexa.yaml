@@ -11,10 +11,7 @@ smart_home:
       - light.wohnzimmer_wand
       - light.flur
       - switch.steckdose_1
-#       - switch.tv_switch
-#       - switch.fire_tv_switch
-#       - switch.music_switch
-#       - switch.harmony_hub_airplay'
+      - switch.on_off_plug_in_unit_12 #Kaffemaschine
       - vacuum.roborock_vacuum
       - switch.pi_hole
   entity_config:

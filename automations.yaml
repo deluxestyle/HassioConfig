@@ -656,7 +656,7 @@
     entity_id: media_player.wohnzimmer
   mode: single
 - id: '1610972932012'
-  alias: 'Schreibtisch: Arbeiten'
+  alias: Kaffeemaschine ein/ausschalten
   description: ''
   trigger:
   - device_id: a955261a32066a37020dbc5ffa64788c
@@ -666,9 +666,9 @@
     subtype: turn_on
   condition: []
   action:
-  - service: scene.turn_on
-    data: {}
-    entity_id: scene.arbeit
+  - service: switch.toggle
+    target:
+      entity_id: switch.on_off_plug_in_unit_12
   mode: single
 - id: '1611326546621'
   alias: 'Schreibtisch: Steckdose einschalten'

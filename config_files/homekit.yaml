@@ -16,6 +16,7 @@ filter:
     - switch.steckdose_1 #Schreibtisch
     - switch.steckdosenleiste #Steckdosenleiste
     - switch.on_off_plug_in_unit_11 #Alexa
+    - switch.on_off_plug_in_unit_12 #Kaffemaschine
     - sensor.humidity_158d0001b8c96c
     - sensor.humidity_158d0001b8c998
     - sensor.humidity_158d0002239fb5
