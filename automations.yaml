@@ -955,3 +955,26 @@
           entity_id: input_boolean.kaffeemaschine_steckdose
     default: []
   mode: single
+- id: '1630350328215'
+  alias: 'Batterie: Niedriger Batteriestand'
+  description: ''
+  use_blueprint:
+    path: sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
+    input:
+      exclude:
+        entity_id:
+        - sensor.iphone11pro_battery_state
+        - sensor.iphone11pro_battery_level
+        - sensor.ipad_battery_level
+        - sensor.xiaomi_vacuum_sensor_battery
+      time: '19:00:00'
+      actions:
+      - service: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.persistent_notification
+      - data:
+          message: 'Batteriewarnung für: {{sensors}}'
+          notification_id: battery
+          title: Batteriewarnung
+        service: script.notify_script
+      threshold: 20

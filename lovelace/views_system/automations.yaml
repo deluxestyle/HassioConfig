@@ -2,7 +2,7 @@
 
 #### popup instead of more-info
 popup_cards:
-  automation.batterie_benachrichtigung:
+  automation.batterie_niedriger_batteriestand:
     title: Batteriestatus
     card:
       type: custom:auto-entities
@@ -24,29 +24,31 @@ type: custom:horizontal-layout
 layout:
   max_cols: 2
 cards:
-  # - type: entities
-  #   entities:
-  #     - type: custom:template-entity-row
-  #       icon: mdi:home-assistant
-  #       name: Lichtsteuerung
-  #       tap_action:
-  #         action: none
-  #     - entity: automation.licht_bewegung_kuche
-  #       icon: mdi:motion-sensor
-  #       name: Bewegungssensor Küche
-  #       tap_action:
-  #         action: toggle
-  #       double_tap_action:
-  #         action: navigate
-  #         navigation_path: /config/automation/edit/1629983354095
-  #     - entity: automation.licht_bewegung_flur
-  #       icon: mdi:motion-sensor
-  #       name: Bewegungssensor Flur
-  #       tap_action:
-  #         action: toggle
-  #       double_tap_action:
-  #         action: navigate
-  #         navigation_path: /config/automation/edit/1629983281720
+  - type: entities
+    entities:
+      - type: custom:template-entity-row
+        icon: mdi:home-assistant
+        name: Lichtsteuerung
+        tap_action:
+          action: none
+      - entity: automation.licht_bewegung_kuche
+        icon: mdi:motion-sensor
+        name: Bewegungssensor Küche
+        tap_action:
+          action: toggle
+        double_tap_action:
+          action: navigate
+          navigation_path: /config/automation/edit/1629983354095
+      - entity: sensor.bewegungsmelder
+        name: Helligkeit
+      - entity: automation.licht_bewegung_flur
+        icon: mdi:motion-sensor
+        name: Bewegungssensor Flur
+        tap_action:
+          action: toggle
+        double_tap_action:
+          action: navigate
+          navigation_path: /config/automation/edit/1629983281720
   - type: custom:scheduler-card
     display_options:
       primary_info:
@@ -119,18 +121,25 @@ cards:
     title: false
   - type: entities
     entities:
-      - entity: automation.batterie_benachrichtigung
-      - type: custom:fold-entity-row
-        head:
-          type: section
-          label: Einstellungen
-        padding: 5
-        entities:
-          - entity: input_number.battery_alert
-            name: Grenzwert
-            tap_action: 
-              action: none
-          - entity: script.battery_persistent_notification_clear
-            name: Alarm zurücksetzen
-            tap_action: 
-              action: toggle
+      - entity: automation.batterie_niedriger_batteriestand
+        icon: mdi:battery-alert
+        name: Benachrichtung Niedriger Batteriestand
+        tap_action:
+          action: toggle
+        double_tap_action:
+          action: navigate
+          navigation_path: /config/automation/edit/1630350328215
+      # - type: custom:fold-entity-row
+      #   head:
+      #     type: section
+      #     label: Einstellungen
+      #   padding: 5
+      #   entities:
+      #     - entity: input_number.battery_alert
+      #       name: Grenzwert
+      #       tap_action: 
+      #         action: none
+      #     - entity: script.battery_persistent_notification_clear
+      #       name: Alarm zurücksetzen
+      #       tap_action: 
+      #         action: toggle
