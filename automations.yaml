@@ -833,12 +833,14 @@
   use_blueprint:
     path: tanzerw/motion_light.yaml
     input:
-      illuminance_cutoff: 0
+      illuminance_cutoff: 90
       motion_sensor: binary_sensor.bewegungsmelder
-      time_limit_after: '18:30:00'
-      time_limit_before: 08:00:00
+      time_limit_after: 00:00:01
+      time_limit_before: '23:59:59'
       target_entity:
         entity_id: light.kuche_decke
+      illuminance_sensor: sensor.bewegungsmelder
+      no_motion_wait: 60
 - id: '1630062290073'
   alias: 'Licht: Flur Szene'
   description: ''

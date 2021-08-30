@@ -25,7 +25,26 @@ blueprint:
         number:
           min: 0.0
           max: 300.0
-          unit_of_measurement: seconds
+          unit_of_measurement: Sekunden
+          mode: slider
+          step: 1.0
+    illuminance_sensor:
+      name: (OPTIONAL) Lichtsensor
+      description: Dieser Lichtsensor wird benutzt um die Helligkeit zu messe
+      default:
+      selector:
+        entity:
+          domain: sensor
+          device_class: illuminance
+    illuminance_cutoff:
+      name: (OPTIONAL) Helligkeit in lux
+      description: Helligkeit in lux, unter der, das Licht aktiviert wird
+      default:
+      selector:
+        number:
+          min: 0.0
+          max: 1000.0
+          unit_of_measurement: lux
           mode: slider
           step: 1.0
     time_limit_after:
@@ -55,11 +74,13 @@ mode: restart
 max_exceeded: silent
 
 variables:
-  target_entity: !input 'target_entity'
-  blocker_entity: !input 'blocker_entity'
-  time_limit_before: !input 'time_limit_before'
-  time_limit_after: !input 'time_limit_after'
-  no_motion_wait: !input 'no_motion_wait'
+  target_entity: !input target_entity
+  blocker_entity: !input blocker_entity
+  time_limit_before: !input time_limit_before
+  time_limit_after: !input time_limit_after
+  no_motion_wait: !input no_motion_wait
+  illuminance_currently: !input illuminance_sensor
+  illuminance_cutoff: !input illuminance_cutoff
 
 trigger:
   platform: state
@@ -68,8 +89,11 @@ trigger:
 
 condition:
   - condition: template
-    value_template: '{{ (blocker_entity == none) or (states[blocker_entity].state ==
-      ''off'') }}'
+    value_template: "{{ (states('target_entity')  == 'on') 
+        or (illuminance_currently == none) or (illuminance_cutoff == none) 
+        or (states('illuminance_currently')| int < illuminance_cutoff | int) }}"
+  - condition: template
+    value_template: "{{ (blocker_entity == none) or (states('blocker_entity') == 'off') }}"
   - condition: time
     after: !input time_limit_after
     before: !input time_limit_before

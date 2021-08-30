@@ -46,6 +46,7 @@ entities:
   - sensor.mariadb_database_size
   - person.wolfgang
   - device_tracker.iphone_wolfgang
+  - sensor.bewegungsmelder
 domains:
   - automation
   - switch
