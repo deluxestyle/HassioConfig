@@ -825,7 +825,6 @@
       target_entity:
         entity_id:
         - light.flur
-      no_motion_wait: 40
       time_limit_after: 00:00:01
       time_limit_before: '23:59:59'
 - id: '1629983354095'
@@ -836,7 +835,6 @@
     input:
       illuminance_cutoff: 0
       motion_sensor: binary_sensor.bewegungsmelder
-      no_motion_wait: 40
       time_limit_after: '18:30:00'
       time_limit_before: 08:00:00
       target_entity:
