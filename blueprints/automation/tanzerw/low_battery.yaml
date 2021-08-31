@@ -1,0 +1,68 @@
+blueprint:
+  name: Niedriger Batteriestatus
+  description: Führt eine Aktion aus (z.B. Benachrichtigung), falls der Batteriestatus unter einem definiertem Grenzwert liegt
+  domain: automation
+  input:
+    threshold:
+      name: Batterie Grenzwert
+      description: ""
+      default: 20
+      selector:
+        number:
+          min: 5.0
+          max: 100.0
+          unit_of_measurement: '%'
+          mode: slider
+          step: 5.0
+    time:
+      name: Wann soll überprüft werden?
+      description: ""
+      default: '10:00:00'
+      selector:
+        time: {}
+    day:
+      name: An welchen Tagen soll überprüft werden?
+      description: 'jeder Tag (0) oder spezielle Wochentage (1: Montag ... 7: Sonntag)'
+      default: 0
+      selector:
+        number:
+          min: 0.0
+          max: 7.0
+          mode: slider
+          step: 1.0
+    exclude:
+      name: Ausgeschlossene Sensoren
+      description: ""
+      default:
+        entity_id: []
+      selector:
+        target:
+          entity:
+            device_class: battery
+    actions:
+      name: Aktionen
+      description: Definiert was passiert, falls die Werte unter dem Grenzwert sind
+      selector:
+        action: {}
+variables:
+  day: !input 'day'
+  threshold: !input 'threshold'
+  exclude: !input 'exclude'
+  sensors: "{% set result = namespace(sensors=[]) %} {% for state in states.sensor\
+    \ | selectattr('attributes.device_class', '==', 'battery') %}\n  {% if 0 <= state.state\
+    \ | int(-1) < threshold | int and not state.entity_id in exclude.entity_id %}\n\
+    \    {% set result.sensors = result.sensors + [state.name ~ ' (' ~ state.state\
+    \ ~ ' %)'] %}\n  {% endif %}\n{% endfor %} {% for state in states.binary_sensor\
+    \ | selectattr('attributes.device_class', '==', 'battery') | selectattr('state',\
+    \ '==', 'on') %}\n  {% if not state.entity_id in exclude.entity_id %}\n    {%\
+    \ set result.sensors = result.sensors + [state.name] %}\n  {% endif %}\n{% endfor\
+    \ %} {{result.sensors|join(', ')}}"
+trigger:
+- platform: time
+  at: !input 'time'
+condition:
+- '{{ sensors != '''' and (day | int == 0 or day | int == now().isoweekday()) }}'
+action:
+- choose: []
+  default: !input 'actions'
+mode: single

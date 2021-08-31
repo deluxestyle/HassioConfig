@@ -959,12 +959,13 @@
   alias: 'Batterie: Niedriger Batteriestand'
   description: ''
   use_blueprint:
-    path: sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
+    path: tanzerw/low_battery.yaml
     input:
       exclude:
-        device_id:
-        - 5768818e9db767d03d5444ad093f7f13
-        - fb0dfe3e9ff5a4cc4e1ad73e042281c6
+        entity_id:
+        - sensor.iphone11pro_battery_level
+        - sensor.iphone11pro_battery_state
+        - sensor.ipad_battery_level
       time: '19:00:00'
       actions:
       - service: input_boolean.turn_on

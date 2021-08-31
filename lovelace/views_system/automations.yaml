@@ -124,22 +124,6 @@ cards:
       - entity: automation.batterie_niedriger_batteriestand
         icon: mdi:battery-alert
         name: Benachrichtung Niedriger Batteriestand
-        tap_action:
-          action: toggle
         double_tap_action:
           action: navigate
           navigation_path: /config/automation/edit/1630350328215
-      # - type: custom:fold-entity-row
-      #   head:
-      #     type: section
-      #     label: Einstellungen
-      #   padding: 5
-      #   entities:
-      #     - entity: input_number.battery_alert
-      #       name: Grenzwert
-      #       tap_action: 
-      #         action: none
-      #     - entity: script.battery_persistent_notification_clear
-      #       name: Alarm zurücksetzen
-      #       tap_action: 
-      #         action: toggle
