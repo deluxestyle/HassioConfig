@@ -14,7 +14,9 @@ cards:
         tap_action:
           action: toggle
         hold_action:
-          action: more-info
+          !include 
+            - ../includes/popups/light.yaml
+            - light_entity: light.flur
         extend_paper_buttons_row:
           buttons:
             - name: Szenen
@@ -28,4 +30,6 @@ cards:
         tap_action:
           action: toggle
         hold_action:
-          action: more-info
+          !include 
+            - ../includes/popups/light.yaml
+            - light_entity: light.gateway_light_7811dcb258d1

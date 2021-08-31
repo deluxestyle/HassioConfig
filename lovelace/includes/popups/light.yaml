@@ -1,0 +1,18 @@
+# lovelace_gen
+
+action: fire-dom-event
+browser_mod:
+  command: popup
+  title: Licht
+  style:
+    .: |
+      :host {
+        --secondary-background-color: rgba(0,0,0,0);
+      }
+  card:
+    type: custom:light-entity-card
+    entity: {{ light_entity }}
+    consolidate_entities: true
+    hide_header: true
+    persist_features: false
+    full_width_sliders: true

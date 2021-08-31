@@ -18,7 +18,9 @@ cards:
         tap_action: 
           action: toggle
         hold_action:
-          action: more-info
+          !include 
+            - ../includes/popups/light.yaml
+            - light_entity: light.schlafzimmer
         extend_paper_buttons_row:
           buttons:
             - name: Szenen
@@ -31,8 +33,10 @@ cards:
         name: Nachtlicht
         tap_action:
           action: toggle
-        hold_action: 
-          action: more-info
+        hold_action:
+          !include 
+            - ../includes/popups/light.yaml
+            - light_entity: light.yeelight_bslamp1_0x0000000005451cd6
   - !include
       - ../includes/multimedia/mini_media_player.yaml
       - entity: media_player.schlafzimmer

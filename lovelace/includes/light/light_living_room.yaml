@@ -7,7 +7,9 @@ entities:
     tap_action: 
       action: toggle
     hold_action:
-      action: more-info
+      !include 
+        - ../popups/light.yaml
+        - light_entity: light.lights_living_room
     extend_paper_buttons_row:
       buttons:
         - name: Szenen

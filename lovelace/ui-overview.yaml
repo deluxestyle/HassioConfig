@@ -21,6 +21,10 @@ cards:
           action: fire-dom-event
           browser_mod:
             !include includes/popups/light_wohnzimmer.yaml
+        hold_action:
+          !include 
+            - includes/popups/light.yaml
+            - light_entity: light.lights_living_room
       - type: 'custom:button-card'
         entity: light.schlafzimmer
         name: Schlafzimmer
@@ -31,6 +35,10 @@ cards:
           action: fire-dom-event
           browser_mod:
             !include includes/popups/light_schlafzimmer.yaml
+        hold_action:
+          !include 
+            - includes/popups/light.yaml
+            - light_entity: light.schlafzimmer
       - type: 'custom:button-card'
         entity: light.lights_kitchen
         name: Küche
@@ -47,6 +55,10 @@ cards:
           action: fire-dom-event
           browser_mod:
             !include includes/popups/light_floor.yaml
+        hold_action:
+          !include 
+            - includes/popups/light.yaml
+            - light_entity: light.flur
   - template: title
     type: 'custom:button-card'
   - type: grid
