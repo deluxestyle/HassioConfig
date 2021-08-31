@@ -4,6 +4,11 @@
 popup_cards:
   automation.batterie_niedriger_batteriestand:
     title: Batteriestatus
+    style:
+      .: |
+        :host {
+          --secondary-background-color: rgba(0,0,0,0);
+        }
     card:
       type: custom:auto-entities
       card:
