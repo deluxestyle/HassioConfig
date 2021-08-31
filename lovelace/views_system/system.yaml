@@ -99,20 +99,20 @@ cards:
           browser_mod:
             command: navigate 
             navigation_path: /hacs
-      - entity: sensor.anzahl_automationen
-        tap_action:
-          action: navigate
-          navigation_path: /config/automation/dashboard
-      - entity: sensor.anzahl_skripte
-        tap_action:
-          action: navigate
-          navigation_path: /config/script/dashboard
       - type: custom:fold-entity-row
         padding: 5
         head:
           type: section
           label: Details
         entities:
+          - entity: sensor.anzahl_automationen
+            tap_action:
+              action: navigate
+              navigation_path: /config/automation/dashboard
+          - entity: sensor.anzahl_skripte
+            tap_action:
+              action: navigate
+              navigation_path: /config/script/dashboard
           - entity: sensor.online_time
             name: Hass online
             icon: mdi:home-assistant

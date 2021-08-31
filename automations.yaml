@@ -962,11 +962,9 @@
     path: sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
     input:
       exclude:
-        entity_id:
-        - sensor.iphone11pro_battery_state
-        - sensor.iphone11pro_battery_level
-        - sensor.ipad_battery_level
-        - sensor.xiaomi_vacuum_sensor_battery
+        device_id:
+        - 5768818e9db767d03d5444ad093f7f13
+        - fb0dfe3e9ff5a4cc4e1ad73e042281c6
       time: '19:00:00'
       actions:
       - service: input_boolean.turn_on
