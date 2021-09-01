@@ -822,23 +822,21 @@
     input:
       illuminance_cutoff: 0
       motion_sensor: binary_sensor.tradfri_bewegungsmelder
-      target_entity:
-        entity_id:
-        - light.flur
+      target_entity: light.flur
       time_limit_after: 00:00:01
       time_limit_before: '23:59:59'
+      no_motion_wait: 59
 - id: '1629983354095'
   alias: 'Licht: Bewegung Küche'
   description: ''
   use_blueprint:
     path: tanzerw/motion_light.yaml
     input:
-      illuminance_cutoff: 90
+      illuminance_cutoff: 91
       motion_sensor: binary_sensor.bewegungsmelder
       time_limit_after: 00:00:01
       time_limit_before: '23:59:59'
-      target_entity:
-        entity_id: light.kuche_decke
+      target_entity: light.kuche_decke
       illuminance_sensor: sensor.bewegungsmelder
       no_motion_wait: 60
 - id: '1630062290073'

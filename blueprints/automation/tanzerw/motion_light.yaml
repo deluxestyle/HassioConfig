@@ -14,9 +14,8 @@ blueprint:
       name: Licht
       description: Licht, welches eingeschalten wird.
       selector:
-        target:
-          entity:
-            domain: light
+        entity:
+          domain: light
     no_motion_wait:
       name: Wartezeit (Sekunden)
       description: Wartezeit, nachdem die letzte Bewegung erkannt wurde
@@ -89,26 +88,24 @@ trigger:
 
 condition:
   - condition: template
-    value_template: "{{ (states('target_entity')  == 'on') 
-        or (illuminance_currently == none) or (illuminance_cutoff == none) 
-        or (states('illuminance_currently')| int < illuminance_cutoff | int) }}"
+    value_template: "{{ (states[target_entity].state == 'on') or (illuminance_currently == none) or (illuminance_cutoff == none) or (states[illuminance_currently].state | int < illuminance_cutoff | int) }}"
   - condition: template
-    value_template: "{{ (blocker_entity == none) or (states('blocker_entity') == 'off') }}"
+    value_template: "{{ (blocker_entity == none) or (states[blocker_entity].state == 'off') }}"
   - condition: time
     after: !input time_limit_after
     before: !input time_limit_before
 
 action:
-  - service: light.turn_on
-    target: !input target_entity
+  - service: homeassistant.turn_on
+    entity_id: !input target_entity
   - condition: template
     value_template: '{{ no_motion_wait != none }}'
   - wait_for_trigger:
       platform: state
-      entity_id: !input 'motion_sensor'
+      entity_id: !input motion_sensor
       from: 'on'
       to: 'off'
   - delay:
       seconds: '{{ no_motion_wait | int }}'
-  - service: light.turn_off
-    target: !input target_entity
+  - service: homeassistant.turn_off
+    entity_id: !input target_entity

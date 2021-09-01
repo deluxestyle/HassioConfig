@@ -14,5 +14,5 @@ browser_mod:
     entity: {{ light_entity }}
     consolidate_entities: true
     hide_header: true
-    persist_features: false
+    persist_features: true
     full_width_sliders: true
