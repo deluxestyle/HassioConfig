@@ -39,7 +39,7 @@
 - platform: influxdb
   host: 192.168.200.33
   port: 8086
-  username: home-assistant
+  username: homeassistant
   password: !secret influxdb_password
   queries:
     - name: InfluxDB Database Size
@@ -48,7 +48,7 @@
       group_function: mean
       measurement: '"monitor"."shard"'
       database: _internal
-      where: 'time > now() - 1m AND "database"=''home_assistant'''
+      where: 'time > now() - 1m AND "database"=''homeassistant'''
       field: diskBytes
 
 - platform: sql
