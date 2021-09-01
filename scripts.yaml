@@ -212,7 +212,7 @@ notify_clean_messages:
   sequence:
   - data: {}
     service: python_script.dismiss_notifications
-  - service: script.battery_persistent_notification_clear
+  mode: single
 harmony_action_fire_tv:
   alias: 'Harmony: Fire TV'
   sequence:

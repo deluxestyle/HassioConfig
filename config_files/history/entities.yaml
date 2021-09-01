@@ -47,6 +47,7 @@ entities:
   - person.wolfgang
   - device_tracker.iphone_wolfgang
   - sensor.bewegungsmelder
+  - sensor.illumination_7811dcb258d1
 domains:
   - automation
   - switch

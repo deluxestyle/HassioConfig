@@ -21,6 +21,9 @@ popup_cards:
         exclude:
           - entity_id: "*iphone*"
           - entity_id: "*ipad*"
+      sort:
+        method: 
+          - name
 
 title: Automations
 path: automations
@@ -31,12 +34,12 @@ layout:
 cards:
   - type: entities
     entities:
-      - type: custom:template-entity-row
-        icon: mdi:home-assistant
-        name: Lichtsteuerung
-        tap_action:
-          action: none
       - entity: automation.licht_bewegung_kuche
+        type: custom:multiple-entity-row
+        entities:
+          - entity: sensor.bewegungsmelder
+            name: Helligkeit
+        toggle: true
         icon: mdi:motion-sensor
         name: Bewegungssensor Küche
         tap_action:
@@ -44,9 +47,12 @@ cards:
         double_tap_action:
           action: navigate
           navigation_path: /config/automation/edit/1629983354095
-      - entity: sensor.bewegungsmelder
-        name: Helligkeit
       - entity: automation.licht_bewegung_flur
+        type: custom:multiple-entity-row
+        entities:
+          - entity: sensor.illumination_7811dcb258d1
+            name: Helligkeit
+        toggle: true
         icon: mdi:motion-sensor
         name: Bewegungssensor Flur
         tap_action:
