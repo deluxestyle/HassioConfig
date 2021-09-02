@@ -32,34 +32,6 @@ type: custom:horizontal-layout
 layout:
   max_cols: 2
 cards:
-  - type: entities
-    entities:
-      - entity: automation.licht_bewegung_kuche
-        type: custom:multiple-entity-row
-        entities:
-          - entity: sensor.bewegungsmelder
-            name: Helligkeit
-        toggle: true
-        icon: mdi:motion-sensor
-        name: Bewegungssensor Küche
-        tap_action:
-          action: toggle
-        double_tap_action:
-          action: navigate
-          navigation_path: /config/automation/edit/1629983354095
-      - entity: automation.licht_bewegung_flur
-        type: custom:multiple-entity-row
-        entities:
-          - entity: sensor.illumination_7811dcb258d1
-            name: Helligkeit
-        toggle: true
-        icon: mdi:motion-sensor
-        name: Bewegungssensor Flur
-        tap_action:
-          action: toggle
-        double_tap_action:
-          action: navigate
-          navigation_path: /config/automation/edit/1629983281720
   - type: custom:scheduler-card
     display_options:
       primary_info:
@@ -130,11 +102,3 @@ cards:
           - home
           - not_home
     title: false
-  - type: entities
-    entities:
-      - entity: automation.batterie_niedriger_batteriestand
-        icon: mdi:battery-alert
-        name: Benachrichtung Niedriger Batteriestand
-        double_tap_action:
-          action: navigate
-          navigation_path: /config/automation/edit/1630350328215

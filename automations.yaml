@@ -825,7 +825,7 @@
       target_entity: light.flur
       time_limit_after: 00:00:01
       time_limit_before: '23:59:59'
-      no_motion_wait: 59
+      no_motion_wait: 70
 - id: '1629983354095'
   alias: 'Licht: Bewegung Küche'
   description: ''
