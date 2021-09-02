@@ -48,6 +48,8 @@ entities:
   - device_tracker.iphone_wolfgang
   - sensor.bewegungsmelder
   - sensor.illumination_7811dcb258d1
+  - binary_sensor.bewegungsmelder
+  - binary_sensor.tradfri_bewegungsmelder
 domains:
   - automation
   - switch
