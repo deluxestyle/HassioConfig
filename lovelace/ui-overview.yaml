@@ -45,6 +45,10 @@ cards:
         template: 
           - icon_info_bg
           - light_no_state
+        hold_action:
+          !include 
+            - includes/popups/light.yaml
+            - light_entity: light.lights_kitchen
       - type: 'custom:button-card'
         entity: light.flur
         name: Flur

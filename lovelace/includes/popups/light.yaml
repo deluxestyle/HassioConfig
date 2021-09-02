@@ -10,9 +10,15 @@ browser_mod:
         --secondary-background-color: rgba(0,0,0,0);
       }
   card:
-    type: custom:light-entity-card
-    entity: {{ light_entity }}
-    consolidate_entities: true
-    hide_header: true
-    persist_features: true
-    full_width_sliders: true
+    type: 'custom:vertical-stack-in-card'
+    cards:
+      - type: entities
+        entities:
+          - entity: {{ light_entity }}
+            secondary_info: last-changed
+      - type: custom:light-entity-card
+        entity: {{ light_entity }}
+        consolidate_entities: true
+        hide_header: true
+        persist_features: false
+        full_width_sliders: true
