@@ -156,4 +156,7 @@ cards:
       - entity: sensor.mariadb_database_size
         icon: mdi:database  
       - entity: sensor.samba_backup
-        icon: mdi:content-save-all      
+        icon: mdi:content-save-all
+        double_tap_action:
+          action: navigate
+          navigation_path: /hassio/backups      
