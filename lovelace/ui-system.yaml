@@ -1,6 +1,31 @@
 # lovelace_gen
 button_card_templates: !include includes/button_card_templates.yaml
 
+#### popup instead of more-info
+popup_cards:
+  automation.batterie_niedriger_batteriestand:
+    title: Batteriestatus
+    style:
+      .: |
+        :host {
+          --secondary-background-color: rgba(0,0,0,0);
+        }
+    card:
+      type: custom:auto-entities
+      card:
+        type: entities 
+      filter:
+        include:
+          - entity_id: "sensor.*_battery_level"
+            options:
+              type: custom:battery-entity-row
+        exclude:
+          - entity_id: "*iphone*"
+          - entity_id: "*ipad*"
+      sort:
+        method: 
+          - name
+
 title: System
 
 views:
