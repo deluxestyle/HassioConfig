@@ -712,7 +712,8 @@
     data:
       sonos_id: '{{ trigger.event.data.service_data.entity_id | regex_replace(find="media_player.",
         replace="") }}'
-  mode: single
+  mode: queued
+  max: 10
 - id: '1615913010852'
   alias: Restart DuckDns + Wireguard
   description: nach IP wechsel DuckDns und Wireguard neustarten
@@ -825,7 +826,7 @@
       target_entity: light.flur
       time_limit_after: 00:00:01
       time_limit_before: '23:59:59'
-      no_motion_wait: 70
+      no_motion_wait: 80
 - id: '1629983354095'
   alias: 'Licht: Bewegung Küche'
   description: ''

@@ -309,6 +309,9 @@
               var title = entity.attributes.media_title;
               if (label == null){
                 var label = entity.attributes.source;
+                if (entity.attributes.source == null) {
+                  var label = title;
+                }
               } else {
                 var label = label + ": " + title;
               }
