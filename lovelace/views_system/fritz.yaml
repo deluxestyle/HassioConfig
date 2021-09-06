@@ -31,7 +31,7 @@ cards:
         tap_action:
           action: toggle
           confirmation:
-            text: PiHole (Adblocker) ausschalten?
+            text: PiHole (Adblocker) ein-/ausschalten?
         double_tap_action:
           action: fire-dom-event
           browser_mod:

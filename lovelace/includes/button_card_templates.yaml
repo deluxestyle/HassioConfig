@@ -184,7 +184,14 @@
 
   outlet:
     tap_action:
-      action: toggle
+      action: toggle 
+      confirmation:
+        text:  |-
+          [[[ if (entity.state =='on')
+            var etat = "Steckdose ausschalten?";
+            else
+            var etat = "Steckdose einschalten?";
+          return etat ; ]]]
     label: |-
       [[[ if (entity.state =='on')
          var etat = "An";

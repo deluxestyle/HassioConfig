@@ -460,7 +460,6 @@
   - platform: state
     entity_id: sensor.samba_backup
     attribute: total_backups_failed
-    from: '0'
   action:
   - service: persistent_notification.create
     data:
@@ -821,12 +820,13 @@
   use_blueprint:
     path: tanzerw/motion_light.yaml
     input:
-      illuminance_cutoff: 0
+      illuminance_cutoff: 900
       motion_sensor: binary_sensor.tradfri_bewegungsmelder
       target_entity: light.flur
       time_limit_after: 00:00:01
       time_limit_before: '23:59:59'
       no_motion_wait: 181
+      illuminance_sensor: sensor.illumination_7811dcb258d1
 - id: '1629983354095'
   alias: 'Licht: Bewegung Küche'
   description: ''
