@@ -182,7 +182,7 @@
 #                                                                                                      #
 ########################################################################################################
 
-  outlet:
+  outlet_with_confirmation:
     tap_action:
       action: toggle 
       confirmation:
@@ -201,6 +201,18 @@
     template: 
       - blue
 
+
+  outlet:
+    tap_action:
+      action: toggle 
+    label: |-
+      [[[ if (entity.state =='on')
+         var etat = "An";
+         else
+        var etat = "Aus";
+      return etat ; ]]]
+    template: 
+      - blue
 
 ####################################################
 #                                                  #

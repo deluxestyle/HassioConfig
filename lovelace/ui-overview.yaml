@@ -86,7 +86,7 @@ cards:
         entity: switch.steckdose_1
         template: 
           - icon_info_bg
-          - outlet
+          - outlet_with_confirmation
   - template: title
     type: 'custom:button-card'
   - type: grid
