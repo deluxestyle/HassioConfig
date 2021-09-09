@@ -3,7 +3,7 @@
 type: entities
 entities:
   - entity: light.kuche_decke
-    name: Decke
+    name: Küchenlicht
     tap_action:
       action: toggle
     hold_action:

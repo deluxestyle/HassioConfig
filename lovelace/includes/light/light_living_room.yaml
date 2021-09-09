@@ -3,7 +3,7 @@
 type: entities
 entities:
   - entity: light.lights_living_room
-    name: Wohnzimmer
+    name: Wohnzimmerlicht
     tap_action: 
       action: toggle
     hold_action:

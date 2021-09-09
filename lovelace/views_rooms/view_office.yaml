@@ -3,7 +3,7 @@ path: office
 icon: mdi:desk
 type: custom:horizontal-layout
 layout:
-  max_cols: 2
+  max_cols: 1
 cards:
   - type: entities
     entities:

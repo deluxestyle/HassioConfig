@@ -10,11 +10,12 @@ icon: mdi:bed
 type: custom:horizontal-layout
 layout:
   max_cols: 2
+  width: 330
 cards:
   - type: entities
     entities:
       - entity: light.schlafzimmer
-        name: Decke
+        name: Schlafzimmerlicht
         tap_action: 
           action: toggle
         hold_action:

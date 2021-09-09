@@ -6,11 +6,12 @@ icon: mdi:floor-plan
 type: custom:horizontal-layout
 layout:
   max_cols: 2
+  width: 330
 cards:
   - type: entities
     entities:
       - entity: light.flur
-        name: Flur 
+        name: Flurlicht
         tap_action:
           action: toggle
         hold_action:

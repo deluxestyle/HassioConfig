@@ -3,32 +3,38 @@ entities:
   - type: buttons
     entities:
       - entity: switch.tv_switch
-        show_name: false
+        show_name: true
         tap_action:
           haptic: light
           action: toggle
       - entity: switch.fire_tv_switch
-        show_name: false
+        show_name: true
         tap_action:
           haptic: light
           action: toggle
+  - type: buttons
+    entities:
       - entity: switch.music_switch
-        show_name: false
+        show_name: true
+        name: Plattenspieler
         tap_action:
           haptic: light
           action: toggle
       - entity: switch.vtuner_switch
-        show_name: false
+        show_name: true
         tap_action:
           haptic: light
           action: toggle
       - entity: switch.airplay_switch
-        show_name: false
+        show_name: true
         tap_action:
           haptic: light
           action: toggle
+  - type: buttons
+    entities:
       - entity: script.harmony_power_off
-        show_name: false
+        show_name: true
+        name: Ausschalten
         icon: mdi:power
         tap_action:
           action: toggle

@@ -3,9 +3,10 @@
 title: FritzBox
 path: fritz
 icon: mdi:router-wireless-settings
-type: custom:horizontal-layout
+type: custom:masonry-layout
 layout:
   max_cols: 2
+  width: 330
 cards:
   - type: glance
     columns: 4
@@ -28,10 +29,11 @@ cards:
     entities:
       - entity: switch.pi_hole
         icon: mdi:pi-hole 
+        name: AdBlocker (Pi-Hole)
         tap_action:
           action: toggle
           confirmation:
-            text: PiHole (Adblocker) ein-/ausschalten?
+            text: AdBlocker (Pi-Hole) ein-/ausschalten?
         double_tap_action:
           action: fire-dom-event
           browser_mod:
@@ -56,13 +58,13 @@ cards:
         tap_action: 
           action: toggle 
           confirmation:
-            text: WiFi ausschalten?
+            text: WiFi ein/ausschalten?
       - entity: switch.fritz_box_7590_wi_fi_google_messwagen_26_5ghz
         name: 'Wi-Fi FRITZ!Box 5Ghz'
         tap_action: 
           action: toggle 
           confirmation:
-            text: WiFi ausschalten?
+            text: WiFi ein/ausschalten?
       - entity: switch.fritz_box_7590_wi_fi_tanzergast
         name: 'Wi-Fi FRITZ!Box Gastzugang'
         tap_action: 

@@ -38,9 +38,10 @@ popup_cards:
 
 #### #### #### #### #### #### #### #### #### #### 
 
-type: custom:horizontal-layout
+type: custom:masonry-layout
 layout:
   max_cols: 2
+  width: 330
 cards:
   - type: entities
     entities:

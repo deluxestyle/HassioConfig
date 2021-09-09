@@ -6,6 +6,7 @@ icon: mdi:stove
 type: custom:horizontal-layout
 layout:
   max_cols: 2
+  width: 330
 cards:
   - !include ../includes/light/light_kitchen.yaml
   - type: entities

@@ -20,7 +20,7 @@ views:
   - !include lovelace/views_rooms/view_living_room.yaml
 
 ##### Büro #####
-  - !include lovelace/views_rooms/view_office.yaml
+  # - !include lovelace/views_rooms/view_office.yaml
 
 ##### Schlafzimmer #####
   - !include lovelace/views_rooms/view_bed_room.yaml

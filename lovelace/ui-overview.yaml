@@ -3,7 +3,7 @@
 title: Übersicht
 path: overview
 icon: mdi:home
-type: custom:horizontal-layout
+type: custom:masonry-layout
 layout:
   max_cols: 1
 cards:
@@ -70,6 +70,7 @@ cards:
     square: false
     cards:
       - !include includes/multimedia/remote.yaml
+#################################################################
   - template: title
     type: 'custom:button-card'
   - type: grid
@@ -87,6 +88,7 @@ cards:
         template: 
           - icon_info_bg
           - outlet_with_confirmation
+#################################################################
   - template: title
     type: 'custom:button-card'
   - type: grid
@@ -165,6 +167,7 @@ cards:
         double_tap_action:
           action: navigate
           navigation_path: /lovelace/bath
+#################################################################
   - template: title
     type: 'custom:button-card'
   - type: grid
