@@ -50,8 +50,8 @@
         # - background-color: 'rgba(var(--color-theme),0.2)'
         - border-radius: 50%
         - place-self: center
-        - width: 42px
-        - height: 42px
+        - width: 40px
+        - height: 40px
       name:
         - align-self: end
         - justify-self: start
@@ -63,12 +63,25 @@
         - font-size: 12px
         - filter: opacity(40%)
         - margin-left: 10px
-      state:
-        - justify-self: start
-        - align-self: start
-        - font-size: 12px
-        - filter: opacity(40%)
-        - margin-left: 10px
+      # state:
+      #   - justify-self: start
+      #   - align-self: start
+      #   - font-size: 12px
+      #   - filter: opacity(40%)
+      #   - margin-left: 10px
+
+  icon_info_no_button:
+    styles:
+      card:
+        - padding: 0px
+        - border-radius: 0
+        - box-shadow: 0
+      name:
+        - margin-left: 16px
+      label:
+        - margin-left: 16px
+    template: 
+      - icon_info_bg
 
 
 ########################################################################################################
@@ -185,13 +198,11 @@
   outlet_with_confirmation:
     tap_action:
       action: toggle 
-      confirmation:
-        text:  |-
-          [[[ if (entity.state =='on')
-            var etat = "Steckdose ausschalten?";
-            else
-            var etat = "Steckdose einschalten?";
-          return etat ; ]]]
+      confirmation: |
+          [[[
+            return entity.state === "on"
+            ? {"text": 'Soll die Steckdose ausgeschaltet werden?' } : null
+          ]]]
     label: |-
       [[[ if (entity.state =='on')
          var etat = "An";
@@ -214,6 +225,8 @@
     template: 
       - blue
 
+
+
 ####################################################
 #                                                  #
 #                     GRAPHE                       #
@@ -227,8 +240,8 @@
       name: "Default name"
     styles:
       card:
-        - border-radius: var(--border-radius)
-        - box-shadow: var(--box-shadow)
+        - border-radius: 0
+        - box-shadow: 0
         - padding: 0px
       grid:
         - grid-template-areas: '"item1" "item2"'
@@ -245,6 +258,8 @@
           styles:
             card:
               - padding: 12px
+              - border-radius: 0
+              - box-shadow: 0
           type: 'custom:button-card'
       item2:
         card:

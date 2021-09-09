@@ -7,7 +7,7 @@ layout:
 cards:
   - type: entities
     entities:
-      - scene.arbeit
+      - entity: scene.arbeit
       - entity: switch.steckdose_1
         icon: mdi:desk
         name: Schreibtisch

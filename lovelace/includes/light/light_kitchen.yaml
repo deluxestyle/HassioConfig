@@ -6,7 +6,11 @@ entities:
     name: Decke
     tap_action:
       action: toggle
+    hold_action:
+      !include 
+        - ../popups/light.yaml
+        - light_entity: light.kuche_decke
   - entity: light.dunstabzug
     name: Dunstabzug
     tap_action:
-          action: toggle   
+      action: toggle   
