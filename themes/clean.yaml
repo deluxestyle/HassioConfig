@@ -1,18 +1,18 @@
 clean:
-  ha-card-box-shadow: "0px 0px 0px 1px var(--border-color)"
-  ha-card-border-radius: "2px"
+  ha-card-box-shadow: 0px 0px 0px 1px var(--border-color)
+  ha-card-border-radius: 2px
 
-  box-shadow: '0px 1px 2px 0px rgba(0,0,0,0.16)'
-  border-radius: '10px'
+  box-shadow: 0px 0px 0px 1px var(--border-color)
+  border-radius: 8px
 
   google-grey: '#BBBBBB'
   color-theme : 68, 115, 158
-  color-blue-text: 'var(--primary-text-color)'
-  color-yellow-text: 'var(--primary-text-color)'
+  color-blue-text: var(--primary-text-color)
+  color-yellow-text: var(--primary-text-color)
 
   modes:
     light:
-      border-color: "#E8E8E8"
+      border-color: '#E8E8E8'
 
       color-yellow : 255, 145, 1
       color-red : 245, 68, 54
@@ -25,7 +25,7 @@ clean:
       google-violet : '#661FFF'
 
     dark:
-      border-color: "#1F1B24"
+      border-color: '#1F1B24'
       primary-text-color: '#DDDDDD'
 
       color-yellow: 252, 214, 99
