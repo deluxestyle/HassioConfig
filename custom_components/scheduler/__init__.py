@@ -136,11 +136,14 @@ async def async_unload_entry(hass, entry):
             *[hass.config_entries.async_forward_entry_unload(entry, PLATFORM)]
         )
     )
-    if unload_ok:
-        coordinator = hass.data[const.DOMAIN]["coordinator"]
-        await coordinator.async_delete()
-        del hass.data[const.DOMAIN]
     return unload_ok
+
+
+async def async_remove_entry(hass, entry):
+    """Remove Scheduler data."""
+    coordinator = hass.data[const.DOMAIN]["coordinator"]
+    await coordinator.async_delete_config()
+    del hass.data[const.DOMAIN]
 
 
 class SchedulerCoordinator(DataUpdateCoordinator):
@@ -181,15 +184,20 @@ class SchedulerCoordinator(DataUpdateCoordinator):
         """fetch a list of schedules (websocket API hook)"""
         schedules = self.hass.data[const.DOMAIN]["schedules"]
         data = []
-        for (schedule_id, item) in schedules.items():
+        for item in schedules.values():
             config = item.async_get_entity_state()
             data.append(config)
         return data
 
     def async_create_schedule(self, data):
         """add a new schedule"""
+        tags = None
+        if const.ATTR_TAGS in data:
+            tags = data[const.ATTR_TAGS]
+            del data[const.ATTR_TAGS]
         res = self.store.async_create_schedule(data)
         if res:
+            self.async_assign_tags_to_schedule(res.schedule_id, tags)
             async_dispatcher_send(self.hass, const.EVENT_ITEM_CREATED, res)
 
     async def async_edit_schedule(self, schedule_id: str, data: dict):
@@ -203,7 +211,16 @@ class SchedulerCoordinator(DataUpdateCoordinator):
         elif ATTR_NAME in data:
             del data[ATTR_NAME]
 
+        tags_updated = False
+        tags = None
+        if const.ATTR_TAGS in data:
+            tags_updated = True
+            tags = data[const.ATTR_TAGS]
+            del data[const.ATTR_TAGS]
+
         entry = self.store.async_update_schedule(schedule_id, data)
+        if tags_updated:
+            self.async_assign_tags_to_schedule(schedule_id, tags)
         entity = self.hass.data[const.DOMAIN]["schedules"][schedule_id]
         if ATTR_NAME in data:
             # if the name has been changed, the entity ID must change hence the entity should be destroyed
@@ -221,12 +238,56 @@ class SchedulerCoordinator(DataUpdateCoordinator):
         entity_registry = await get_entity_registry(self.hass)
         entity_registry.async_remove(entity.entity_id)
         self.store.async_delete_schedule(schedule_id)
+        self.async_assign_tags_to_schedule(schedule_id, None)
         self.hass.data[const.DOMAIN]["schedules"].pop(schedule_id, None)
-        self.hass.bus.async_fire(const.EVENT)
+        async_dispatcher_send(self.hass, const.EVENT_ITEM_REMOVED, schedule_id)
 
     async def _async_update_data(self):
         """Update data via library."""
         return True
 
-    async def async_delete(self):
+    async def async_delete_config(self):
         await self.store.async_delete()
+
+    def async_get_tags(self):
+        """fetch a list of tags (websocket API hook)"""
+        tags = self.store.async_get_tags()
+        return list(tags.values())
+
+    def async_get_tags_for_schedule(self, schedule_id: str):
+        """fetch a list of tags for a schedule"""
+        tags = self.async_get_tags()
+        result = filter(lambda el: schedule_id in el[const.ATTR_SCHEDULES], tags)
+        result = list(map(lambda x: x[ATTR_NAME], result))
+        result = sorted(result)
+        return result
+
+    def async_assign_tags_to_schedule(self, schedule_id: str, new_tags: list):
+        if not new_tags:
+            new_tags = []
+        old_tags = self.async_get_tags_for_schedule(schedule_id)
+        for tag_name in old_tags:
+            if tag_name not in new_tags:
+                # remove old tag
+                el = self.store.async_get_tag(tag_name)
+                if len(el[const.ATTR_SCHEDULES]) > 1:
+                    self.store.async_update_tag(tag_name, {
+                        const.ATTR_SCHEDULES: [x for x in el[const.ATTR_SCHEDULES] if x != schedule_id]
+                    })
+                else:
+                    self.store.async_delete_tag(tag_name)
+            else:
+                new_tags.remove(tag_name)
+
+        for tag_name in new_tags:
+            # assign new tag
+            el = self.store.async_get_tag(tag_name)
+            if el:
+                self.store.async_update_tag(tag_name, {
+                    const.ATTR_SCHEDULES: el[const.ATTR_SCHEDULES] + [schedule_id]
+                })
+            else:
+                self.store.async_create_tag({
+                    ATTR_NAME: tag_name,
+                    const.ATTR_SCHEDULES: [schedule_id]
+                })

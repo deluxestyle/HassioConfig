@@ -15,7 +15,7 @@ from homeassistant.const import (
     ATTR_NAME,
 )
 
-VERSION = "3.1.3"
+VERSION = "3.2.0"
 
 DOMAIN = "scheduler"
 
@@ -48,7 +48,8 @@ SERVICE_REMOVE = "remove"
 SERVICE_EDIT = "edit"
 SERVICE_ADD = "add"
 
-OffsetTimePattern = re.compile("^([a-z]+)([-|\+]{1})([0-9:]+)$")
+OffsetTimePattern = re.compile(r"^([a-z]+)([-|\+]{1})([0-9:]+)$")
+DatePattern = re.compile(r"^[0-9]+\-[0-9]+\-[0-9]+$")
 
 ATTR_START = "start"
 ATTR_STOP = "stop"
@@ -58,15 +59,21 @@ ATTR_ENABLED = "enabled"
 ATTR_SCHEDULE_ID = "schedule_id"
 ATTR_ACTIONS = "actions"
 ATTR_VALUE = "value"
+ATTR_TAGS = "tags"
+ATTR_SCHEDULES = "schedules"
+ATTR_START_DATE = "start_date"
+ATTR_END_DATE = "end_date"
 
 EVENT_TIMER_FINISHED = "scheduler_timer_finished"
 EVENT_TIMER_UPDATED = "scheduler_timer_updated"
 EVENT_ITEM_UPDATED = "scheduler_item_updated"
 EVENT_ITEM_CREATED = "scheduler_item_created"
+EVENT_ITEM_REMOVED = "scheduler_item_removed"
 EVENT_STARTED = "scheduler_started"
 
 STATE_INIT = "init"
 STATE_READY = "ready"
+STATE_COMPLETED = "completed"
 
 
 def validate_time(time):
@@ -85,6 +92,17 @@ def validate_time(time):
             raise vol.Invalid("Invalid time entered: {}".format(time))
         else:
             return time
+
+
+def validate_date(value: str) -> str:
+    """Input must be either none or a valid date."""
+    if value is None:
+        return None
+    date = dt_util.parse_date(value)
+    if date is None:
+        raise vol.Invalid("Invalid date entered: {}".format(value))
+    else:
+        return date.strftime("%Y-%m-%d")
 
 
 CONDITION_SCHEMA = vol.Schema(
@@ -132,7 +150,7 @@ TIMESLOT_SCHEMA = vol.Schema(
 
 SCHEDULE_SCHEMA = vol.Schema(
     {
-        vol.Required(ATTR_WEEKDAYS): vol.All(
+        vol.Optional(ATTR_WEEKDAYS, default=[DAY_TYPE_DAILY]): vol.All(
             cv.ensure_list,
             vol.Unique(),
             vol.Length(min=1),
@@ -146,6 +164,8 @@ SCHEDULE_SCHEMA = vol.Schema(
                 )
             ],
         ),
+        vol.Optional(ATTR_START_DATE, default=None): validate_date,
+        vol.Optional(ATTR_END_DATE, default=None): validate_date,
         vol.Required(ATTR_TIMESLOTS): vol.All(
             cv.ensure_list, vol.Length(min=1), [TIMESLOT_SCHEMA]
         ),
@@ -157,5 +177,10 @@ SCHEDULE_SCHEMA = vol.Schema(
             ]
         ),
         vol.Optional(ATTR_NAME): vol.Any(cv.string, None),
+        vol.Optional(ATTR_TAGS): vol.All(
+            cv.ensure_list,
+            vol.Unique(),
+            [cv.string]
+        ),
     }
 )
