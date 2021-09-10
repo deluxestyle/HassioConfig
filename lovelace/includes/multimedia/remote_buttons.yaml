@@ -20,11 +20,11 @@ entities:
         tap_action:
           haptic: light
           action: toggle
-      - entity: switch.vtuner_switch
-        show_name: true
-        tap_action:
-          haptic: light
-          action: toggle
+      # - entity: switch.vtuner_switch
+      #   show_name: true
+      #   tap_action:
+      #     haptic: light
+      #     action: toggle
       - entity: switch.airplay_switch
         show_name: true
         tap_action:

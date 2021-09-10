@@ -474,7 +474,7 @@
     custom_fields:
       notification: >
         [[[
-          if (states['sensor.xiaomi_vacuum_status'].state == 'error'){
+          if (states['vacuum.roborock_vacuum'].state == 'error' || states['vacuum.roborock_vacuum'].state == 'unavailable'){
             return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`
           }
         ]]]
@@ -494,3 +494,14 @@
               [[[
                 return "rgba(var(--color-red),1)";
               ]]]
+
+####################################################
+#                                                  #
+#                      EDGE                        #
+#                                                  #
+####################################################
+
+  edge:
+    styles:
+      card:
+        - width: 0px

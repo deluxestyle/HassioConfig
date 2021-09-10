@@ -2,7 +2,7 @@
 
 title: Küche
 path: kitchen
-icon: mdi:stove
+icon: mdi:silverware
 type: custom:horizontal-layout
 layout:
   max_cols: 2

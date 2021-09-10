@@ -28,6 +28,7 @@ cards:
       - type: 'custom:button-card'
         entity: light.schlafzimmer
         name: Schlafzimmer
+        icon: hue:ceiling-round
         template: 
           - icon_info_bg
           - light
@@ -52,6 +53,7 @@ cards:
       - type: 'custom:button-card'
         entity: light.flur
         name: Flur
+        icon: hue:double-spot
         template: 
           - icon_info_bg
           - light
@@ -63,6 +65,7 @@ cards:
           !include 
             - includes/popups/light.yaml
             - light_entity: light.flur
+#################################################################
   - template: title
     type: 'custom:button-card'
   - type: grid
