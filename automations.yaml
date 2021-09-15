@@ -302,6 +302,7 @@
       input: restore-sensor
   - delay: 00:01:30
   - service: homekit.start
+  - service: automation.reload
   mode: single
 - id: '1544816542688'
   alias: 'Xiaomi Staubsauger: Error stop'

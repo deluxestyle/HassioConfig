@@ -14,7 +14,7 @@ light.gateway_light_7811dcb258d1:
   friendly_name: Flur Nachtlicht
   icon: mdi:weather-night
 sensor.humidity_158d0002239fb5:
-  friendly_name: Luftfeuchtigkeit
+  friendly_name: Luftfeuchtigkeit Küche
   icon: mdi:water-percent
 sensor.temperature_158d0002239fb5:
   friendly_name: Temperatur Küche
