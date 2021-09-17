@@ -447,7 +447,7 @@
 
   coffee_plug:
     custom_fields:
-      notification: >
+      notification_coffee: >
         [[[
           if (states['input_boolean.kaffeemaschine_steckdose'].state == 'on'){
             return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`
@@ -455,7 +455,7 @@
         ]]]
     styles:
       custom_fields:
-        notification:
+        notification_coffee:
           - border-radius: 50%
           - position: absolute
           - left: 38px
