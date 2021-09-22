@@ -14,17 +14,27 @@ cards:
     entities:
       - entity: sensor.net_download_max
         icon: mdi:cloud-download
+        name: Max Down
       - entity: sensor.net_upload_max
         icon: mdi:cloud-upload
+        name: Max Up
       - entity: sensor.fritz_box_7590_kb_s_received
         icon: mdi:cloud-download-outline
+        name: Akt Down
       - entity: sensor.fritz_box_7590_kb_s_sent
         icon: mdi:cloud-upload-outline
-      - sensor.fritz_box_7590_connection_uptime
+        name: Akt Up
+      - entity: sensor.fritz_box_7590_connection_uptime
+        name: Seit
       - entity: sensor.wireguard_iphonepro
         icon: mdi:cellphone-iphone
+        name: VPN iPhone
       - entity: sensor.wireguard_ipad
-        icon: mdi:tablet-ipad   
+        icon: mdi:tablet-ipad 
+        name: VPN iPad  
+      - entity: sensor.wireguard_hpspectre
+        icon: mdi:laptop
+        name: VPN Lpatop
   - type: entities
     entities:
       - entity: switch.pi_hole
@@ -98,4 +108,23 @@ cards:
           head:
             type: section
             label: Ports
+          padding: 5
+      - type: custom:auto-entities
+        filter:
+          include:
+            - domain: device_tracker
+              options:
+                secondary_info: last-changed
+              attributes:
+                source_type: router
+          exclude:
+            - entity_id: device_tracker.iphone_wolfgang
+            - entity_id: device_tracker.iphone_christina
+        sort:
+          method: state
+        card:
+          type: custom:fold-entity-row
+          head:
+            type: section
+            label: Netzwerkgeräte
           padding: 5

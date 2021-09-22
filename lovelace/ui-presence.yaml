@@ -60,6 +60,7 @@ views:
             padding: 5
             entities:
               - entity: automation.bewegungsmelder_alarm
+                name: Bewegungsmelder Alarm
                 tap_action: 
                   action: toggle
               - entity: script.xiaomi_gateway_alarm_stop

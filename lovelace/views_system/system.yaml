@@ -165,7 +165,7 @@ cards:
     entities:
       - entity: automation.batterie_niedriger_batteriestand
         icon: mdi:battery-alert
-        name: Benachrichtung Niedriger Batteriestand
+        name: Benachrichtung Batteriestand
         double_tap_action:
           action: navigate
           navigation_path: /config/automation/edit/1630350328215
