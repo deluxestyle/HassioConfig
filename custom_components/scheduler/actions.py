@@ -260,8 +260,8 @@ class ActionHandler:
         result = (
             all(validate_condition(self.hass, item) for item in conditions)
             if condition_type == const.CONDITION_TYPE_AND
-            else all(validate_condition(self.hass, item) for item in conditions)
-        )
+            else any(validate_condition(self.hass, item) for item in conditions)
+        ) if len(conditions) else True
         if not result:
             _LOGGER.debug("[{}]: conditions have failed, skipping execution of action {}".format(
                 self.id,
