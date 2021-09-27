@@ -64,7 +64,7 @@ harmony_action_music:
     service: remote.turn_on
   mode: single
 harmony_tv_power_off:
-  alias: 'Entertainment: Samsung UE55j6250 ausschalten'
+  alias: 'Entertainment: Samsung TV ausschalten'
   sequence:
   - data:
       command: PowerOff
@@ -100,7 +100,7 @@ harmony_mr400_power_on:
     service: remote.send_command
   mode: single
 harmony_tv_power_on:
-  alias: 'Entertainment: Samsung UE55j6250 einschalten'
+  alias: 'Entertainment: Samsung TV einschalten'
   sequence:
   - data:
       command: PowerOn
@@ -308,7 +308,6 @@ alles_ausschalten:
     target:
       entity_id:
       - switch.steckdosenleiste
-      - switch.on_off_plug_in_unit_11
       - switch.on_off_plug_in_unit_12
   mode: single
 sonos_set_volume_4:
