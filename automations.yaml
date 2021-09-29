@@ -852,16 +852,22 @@
   - choose:
     - conditions:
       - condition: time
-        after: 08:00:00
-        before: '19:00:00'
+        after: 07:00
+        before: '19:00'
       sequence:
       - scene: scene.flur_hell_tag
     - conditions:
       - condition: time
-        after: '19:00:00'
-        before: 08:00:00
+        after: '19:00'
+        before: '23:00'
       sequence:
       - scene: scene.flur_hell_nacht
+    - conditions:
+      - condition: time
+        after: '23:00'
+        before: 07:00
+      sequence:
+      - scene: scene.flur_gedimmt
     default: []
   mode: single
 - id: '1630241435170'
