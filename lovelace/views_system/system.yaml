@@ -6,6 +6,13 @@ icon: mdi:cog-outline
 popup_cards:
   sensor.samba_backup:
     title: Status
+    style:
+      .: |
+        :host {
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-box-shadow: none;
+          --ha-card-border-radius: 0px;
+        }
     card:
       type: entities
       entities:

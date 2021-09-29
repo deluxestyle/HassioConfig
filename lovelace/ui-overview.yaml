@@ -66,7 +66,7 @@ cards:
             - includes/popups/light.yaml
             - light_entity: light.flur
 #################################################################
-  - template: title
+  - template: blank
     type: 'custom:button-card'
   - type: grid
     columns: 2
@@ -74,7 +74,7 @@ cards:
     cards:
       - !include includes/multimedia/remote.yaml
 #################################################################
-  - template: title
+  - template: blank
     type: 'custom:button-card'
   - type: grid
     columns: 2
@@ -92,7 +92,7 @@ cards:
           - icon_info_bg
           - outlet_with_confirmation
 #################################################################
-  - template: title
+  - template: blank
     type: 'custom:button-card'
   - type: grid
     columns: 2
@@ -163,6 +163,10 @@ cards:
                 :host {
                   --secondary-background-color: rgba(0,0,0,0);
                 }
+                ha-card {
+                  --ha-card-box-shadow: 'none';
+                  --ha-card-border-radius: "0px";
+                }
             card:
               !include
                 - includes/multimedia/mini_media_player.yaml
@@ -171,7 +175,7 @@ cards:
           action: navigate
           navigation_path: /lovelace/bath
 #################################################################
-  - template: title
+  - template: blank
     type: 'custom:button-card'
   - type: grid
     columns: 2

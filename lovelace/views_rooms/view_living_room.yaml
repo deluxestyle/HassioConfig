@@ -33,14 +33,7 @@ cards:
         icon: mdi:desk
         name: Schreibtisch
         tap_action: 
-          action: toggle  
-  # - type: entities
-  #   entities:
-  #     - entity: switch.on_off_plug_in_unit_11
-  #       name: Alexa
-  #       icon: mdi:amazon-alexa
-  #       tap_action: 
-  #         action: toggle   
+          action: toggle    
   - !include
       - ../includes/multimedia/mini_media_player.yaml
       - entity: media_player.wohnzimmer

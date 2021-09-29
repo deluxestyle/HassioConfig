@@ -37,7 +37,7 @@
         value: unavailable
     styles:
       card:
-        - padding: 15px
+        - padding: var(--button-padding)
         - border-radius: var(--border-radius)
         - box-shadow: var(--box-shadow)
       grid:
@@ -229,7 +229,7 @@
 
 ####################################################
 #                                                  #
-#                     GRAPHE                       #
+#                     GRAPH                        #
 #                                                  #
 ####################################################
 
@@ -240,7 +240,7 @@
       name: "Default name"
     styles:
       card:
-        - border-radius: 0
+        - border-radius: var(--border-radius)
         - box-shadow: 0
         - padding: 0px
       grid:
@@ -257,9 +257,16 @@
             - generic
           styles:
             card:
-              - padding: 12px
+              - padding: var(--button-padding)
+              - padding-left: 15px
               - border-radius: 0
-              - box-shadow: 0
+              - box-shadow: none
+            icon:
+              - color: 'rgba(var(--color-theme),1)'
+            name:
+              - margin-left: 17px
+            label:
+              - margin-left: 17px
           type: 'custom:button-card'
       item2:
         card:
@@ -275,6 +282,8 @@
           style: |
             ha-card {
               box-shadow: none;
+              border-radius: var(--border-radius);
+              padding: var(--button-padding);
             }
 
 ########################################################################################################
@@ -307,26 +316,12 @@
       icon:
         - color: 'rgba(var(--color-theme),1)'
       img_cell:
-        # - background-color: 'rgba(var(--color-theme),0.05)'
         - border-radius: 50%
         - place-self: center
         - width: 42px
         - height: 42px
-        # - margin-left: 4px
       card:
-        - padding: 15px
-        # - background-blend-mode: multiply
-        # - background: >
-        #     [[[
-        #       var image = entity.attributes.entity_picture;
-        #       var bg = entity.attributes.entity_picture;
-        #       if (image == null || entity.state =='paused'){
-        #         var bg = '';
-        #       } else{
-        #         var bg = 'center / cover url(' + image + ') rgba(0, 0, 0, 0.15)';
-        #       }
-        #       return bg;
-        #     ]]]
+        - padding: var(--button-padding)
     state:
       - operator: template
         value: >
@@ -352,16 +347,10 @@
               return label;
             ]]]
         styles:
-          # label: 
-          #   - color: white
-          #   - filter: opacity(100%)
           img_cell:
             - background-color: 'rgba(var(--color-theme),0.2)'
           icon:
               - color: 'rgba(var(--color-theme),1)'
-          # name:
-          #   - color: white
-
 
 ####################################################
 #                                                  #
@@ -403,38 +392,26 @@
 
 ########################################################################################################
 #                                                                                                      #
-#                                             TITLE                                                    #
+#                                             BLANK                                                    #
 #                                                                                                      #
 ########################################################################################################
 
-  title:
+  blank:
     tap_action:
       action: none
     hold_action:
-      action:
+      action: none
     show_icon: false
-    show_label: true
-    show_name: true
+    show_label: false
+    show_name: false
     styles:
       card:
         - background-color: rgba(0,0,0,0)
         - box-shadow: none
-        - height: auto
-        - width: auto
-        - margin-left: 12px
-      grid:
-        - grid-template-areas: '"n" "l"'
-        - grid-template-columns: 1fr
-        - grid-template-rows: min-content min-content
-      name:
-        - justify-self: start
-        # - font-weight: bold
-        # - font-size: '1rem'
-      label:
-        - justify-self: start
-        # - font-weight: bold
-        - font-size: '1rem'
-        - opacity: '0.4'
+        - height: 5px
+        - width: 5px
+        - padding: 0
+        #ha-card.button-card-main
 
 ########################################################################################################
 #                                                                                                      #

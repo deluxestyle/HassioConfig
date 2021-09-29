@@ -6,6 +6,8 @@ sensor.remote_state:
     .: |
       :host {
         --secondary-background-color: rgba(0,0,0,0);
+        --ha-card-box-shadow: none;
+        --ha-card-border-radius: 0px;
       }
   card:
     type: custom:vertical-stack-in-card
@@ -18,6 +20,8 @@ remote.harmony_hub:
     .: |
       :host {
         --secondary-background-color: rgba(0,0,0,0);
+        --ha-card-box-shadow: none;
+        --ha-card-border-radius: 0px;
       }
   card:
     type: custom:vertical-stack-in-card

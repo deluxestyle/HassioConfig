@@ -1,9 +1,11 @@
 clean:
   ha-card-box-shadow: 0px 0px 0px 1px var(--border-color)
-  ha-card-border-radius: 2px
+  ha-card-border-radius: var(--border-radius) 
 
   box-shadow: 0px 0px 0px 1px var(--border-color)
-  border-radius: 8px
+  border-radius: 10px
+
+  button-padding: 10px
 
   google-grey: '#BBBBBB'
   color-theme : 68, 115, 158
