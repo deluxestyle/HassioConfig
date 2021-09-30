@@ -23,7 +23,7 @@
             notification:
               - border-radius: 50%
               - position: absolute
-              - left: 38px
+              - left: 33px
               - top: 8px
               - height: 16px
               - width: 16px
@@ -426,7 +426,7 @@
     custom_fields:
       notification_coffee: >
         [[[
-          if (states['input_boolean.kaffeemaschine_steckdose'].state == 'on'){
+          if (states['input_boolean.kaffeemaschine_steckdose'].state == 'on' ){
             return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`
           }
         ]]]
@@ -435,7 +435,7 @@
         notification_coffee:
           - border-radius: 50%
           - position: absolute
-          - left: 38px
+          - left: 33px
           - top: 8px
           - height: 16px
           - width: 16px
