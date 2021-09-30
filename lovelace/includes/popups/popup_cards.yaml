@@ -1,14 +1,18 @@
 # lovelace_gen
 
+x-anchors:
+  style: &style
+      style:
+        .: |
+          :host {
+            --secondary-background-color: rgba(0,0,0,0);
+            --ha-card-box-shadow: none;
+            --ha-card-border-radius: 0px;
+          }
+
 sensor.remote_state:
   title: Fernbedienung
-  style:
-    .: |
-      :host {
-        --secondary-background-color: rgba(0,0,0,0);
-        --ha-card-box-shadow: none;
-        --ha-card-border-radius: 0px;
-      }
+  <<: *style
   card:
     type: custom:vertical-stack-in-card
     cards:
@@ -16,14 +20,59 @@ sensor.remote_state:
 
 remote.harmony_hub:
   title: Fernbedienung
-  style:
-    .: |
-      :host {
-        --secondary-background-color: rgba(0,0,0,0);
-        --ha-card-box-shadow: none;
-        --ha-card-border-radius: 0px;
-      }
+  <<: *style
   card:
     type: custom:vertical-stack-in-card
     cards:
       - !include ../multimedia/remote_buttons.yaml
+
+automation.batterie_niedriger_batteriestand:
+  title: Batteriestatus
+  <<: *style
+  card:
+    type: custom:auto-entities
+    card:
+      type: entities 
+    filter:
+      include:
+        - entity_id: "sensor.*_battery_level"
+          options:
+            type: custom:battery-entity-row
+      exclude:
+        - entity_id: "*iphone*"
+        - entity_id: "*ipad*"
+    sort:
+      method: 
+        - name
+        
+sensor.samba_backup:
+  title: Status
+  <<: *style
+  card:
+    type: entities
+    entities:
+      - attribute: backups_local
+        entity: sensor.samba_backup
+        icon: 'mdi:file-outline'
+        name: Local Backups
+        type: attribute
+      - attribute: backups_remote
+        entity: sensor.samba_backup
+        icon: 'mdi:file-move-outline'
+        name: Remote Backups
+        type: attribute
+      - attribute: total_backups_succeeded
+        entity: sensor.samba_backup
+        icon: 'mdi:file-check-outline'
+        name: Succeded Backups
+        type: attribute
+      - attribute: total_backups_failed
+        entity: sensor.samba_backup
+        icon: 'mdi:file-cancel-outline'
+        name: Failed Backups
+        type: attribute
+      - attribute: last_backup
+        entity: sensor.samba_backup
+        icon: 'mdi:file-clock-outline'
+        name: Last Backup
+        type: attribute

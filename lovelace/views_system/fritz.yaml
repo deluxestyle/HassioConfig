@@ -1,5 +1,15 @@
 # lovelace_gen
 
+x-anchors:
+  style: &style
+      style:
+        .: |
+          :host {
+            --secondary-background-color: rgba(0,0,0,0);
+            --ha-card-box-shadow: none;
+            --ha-card-border-radius: 0px;
+          }
+
 title: FritzBox
 path: fritz
 icon: mdi:router-wireless-settings
@@ -49,13 +59,7 @@ cards:
           browser_mod:
             command: popup
             title: PI-Hole Stats
-            style:
-              .: |
-                :host {
-                  --secondary-background-color: rgba(0,0,0,0);
-                  --ha-card-box-shadow: none;
-                  --ha-card-border-radius: 0px;
-                }
+            <<: *style
             card:
               type: custom:auto-entities
               card:

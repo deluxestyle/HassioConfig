@@ -112,21 +112,6 @@ views:
             double_tap_action:
               action: navigate
               navigation_path: /config/automation/edit/1629983281720
-      # - type: entities
-      #   entities:
-      #     - entity: switch.on_off_plug_in_unit_12
-      #       name: Kamera
-      #       icon: mdi:cctv
-      # - type: conditional
-      #   conditions:
-      #     - entity: switch.on_off_plug_in_unit_12
-      #       state: "on"
-      #   card:
-      #     type: picture-entity
-      #     entity: camera.ffmpeg
-      #     camera_view: live
-      #     show_name: false
-      #     show_state: false
   - title: Karte
     path: map
     icon: mdi:map

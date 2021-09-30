@@ -1,4 +1,13 @@
 # lovelace_gen
+x-anchors:
+  style: &style
+      style:
+        .: |
+          :host {
+            --secondary-background-color: rgba(0,0,0,0);
+            --ha-card-box-shadow: none;
+            --ha-card-border-radius: 0px;
+          }
 
 title: Übersicht
 path: overview
@@ -110,13 +119,7 @@ cards:
           browser_mod:
             command: popup
             title: Sonos Wohnzimmer
-            style:
-              .: |
-                :host {
-                  --secondary-background-color: rgba(0,0,0,0);
-                  --ha-card-box-shadow: none;
-                  --ha-card-border-radius: 0px;
-                }
+            <<: *style
             card:
               !include
                 - includes/multimedia/mini_media_player.yaml
@@ -136,13 +139,7 @@ cards:
           browser_mod:
             command: popup
             title: Sonos Schlafzimmer
-            style:
-              .: |
-                :host {
-                  --secondary-background-color: rgba(0,0,0,0);
-                  --ha-card-box-shadow: none;
-                  --ha-card-border-radius: 0px;
-                }
+            <<: *style
             card:
               !include
                 - includes/multimedia/mini_media_player.yaml
@@ -162,13 +159,7 @@ cards:
           browser_mod:
             command: popup
             title: Sonos Bad
-            style:
-              .: |
-                :host {
-                  --secondary-background-color: rgba(0,0,0,0);
-                  --ha-card-box-shadow: none;
-                  --ha-card-border-radius: 0px;
-                }
+            <<: *style
             card:
               !include
                 - includes/multimedia/mini_media_player.yaml

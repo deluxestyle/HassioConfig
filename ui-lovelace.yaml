@@ -1,18 +1,13 @@
 # lovelace_gen
   
 swipe_nav:
-# -----------------------------
-popup_cards:
-  !include lovelace/includes/popups/popup_cards.yaml
-# -----------------------------
+
+popup_cards: !include lovelace/includes/popups/popup_cards.yaml
 button_card_templates: !include lovelace/includes/button_card_templates.yaml
 
 
 title: Home
 views:
-####################################
-## Work in progress
-####################################
 ###### Übersicht #####
   - !include lovelace/ui-overview.yaml
 
