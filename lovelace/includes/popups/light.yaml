@@ -12,15 +12,23 @@ browser_mod:
         --ha-card-border-radius: 0px;
       }
   card:
-    type: 'custom:vertical-stack-in-card'
-    cards:
-      - type: entities
-        entities:
-          - entity: {{ light_entity }}
-            secondary_info: last-changed
-      - type: custom:light-entity-card
-        entity: {{ light_entity }}
-        consolidate_entities: true
-        hide_header: true
-        persist_features: false
-        full_width_sliders: true
+    type: custom:more-info-card
+    entity: {{ light_entity }}
+    card_mod:
+      style: |
+        .card-header {
+          display: none
+        }
+    # title: <title>
+    # type: 'custom:vertical-stack-in-card'
+    # cards:
+    #   - type: entities
+    #     entities:
+    #       - entity: {{ light_entity }}
+    #         secondary_info: last-changed
+    #   - type: custom:light-entity-card
+    #     entity: {{ light_entity }}
+    #     consolidate_entities: true
+    #     hide_header: true
+    #     persist_features: false
+    #     full_width_sliders: true
