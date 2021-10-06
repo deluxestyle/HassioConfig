@@ -15,13 +15,13 @@
     service: script.notify_script
   mode: single
 - id: family_not_home
-  alias: 'Anwesenheit: Abwesenheitsschaltung'
+  alias: 'Abwesenheitsmodus: aktivieren (per Push)'
   description: Schaltet alle Lichter und Steckdosen aus und aktiviert den Bewegungssensor
   trigger:
-  - entity_id: group.presence
-    platform: state
-    to: not_home
-    for: 00:05:00
+  - platform: event
+    event_type: mobile_app_notification_action
+    event_data:
+      action: TURN_ON_ABSENCE
   condition: []
   action:
   - data: {}
@@ -270,7 +270,7 @@
     service: persistent_notification.create
   mode: single
 - id: '1542974689604'
-  alias: 'Anwesenheit: Anwesenheitsschaltung'
+  alias: 'Abwesenheitsmodus: deaktivieren'
   description: Deaktiviert den Bewegungssensor
   trigger:
   - entity_id: group.presence
@@ -995,4 +995,26 @@
   - service: switch.turn_off
     target:
       entity_id: switch.on_off_plug_in_unit_12
+  mode: single
+- id: '1633510940177'
+  alias: 'Abweseheitsmodus: Benachrichtigung '
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: group.presence
+    to: not_home
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  condition: []
+  action:
+  - service: notify.mobile_app_iphone11pro
+    data:
+      data:
+        actions:
+        - action: TURN_ON_ABSENCE
+          title: Abweseheitsmodus aktivieren
+      message: Niemand ist mehr zu Hause
   mode: single

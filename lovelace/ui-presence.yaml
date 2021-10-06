@@ -20,12 +20,14 @@ views:
               label: Automation
             padding: 5
             entities:
-              - entity: automation.abwesenheitsschaltung
+              - entity: automation.anwesenheit
+                name: Abwesenheitsmodus aktivieren
                 icon: mdi:account-off
                 tap_action: 
                   action: toggle
               - entity: automation.anwesenheitsschaltung
                 icon: mdi:account-outline
+                name: Abwesenheitsmodus deaktivieren
                 tap_action: 
                   action: toggle
           - type: custom:fold-entity-row
