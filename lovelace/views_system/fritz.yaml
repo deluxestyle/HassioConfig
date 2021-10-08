@@ -40,7 +40,7 @@ cards:
         icon: mdi:cellphone
         name: VPN iPhone
       - entity: sensor.wireguard_ipad
-        icon: mdi:tablet-ipad 
+        icon: mdi:tablet 
         name: VPN iPad  
       - entity: sensor.wireguard_hpspectre
         icon: mdi:laptop
