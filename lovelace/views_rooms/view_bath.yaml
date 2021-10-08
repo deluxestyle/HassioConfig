@@ -6,7 +6,7 @@ popup_cards:
 
 title: Bad
 path: bath
-icon: mdi:shower
+icon: mdi:bathtub
 type: custom:horizontal-layout
 layout:
   max_cols: 2
