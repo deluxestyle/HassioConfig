@@ -37,6 +37,6 @@
 - url: /hacsfiles/lovelace-template-entity-row/template-entity-row.js
   type: module
 - url: /hacsfiles/light-entity-card/light-entity-card.js
-  type: js
+  type: module
 - url: /hacsfiles/lovelace-more-info-card/more-info-card.js
   type: module

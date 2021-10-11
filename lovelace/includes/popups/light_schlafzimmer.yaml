@@ -14,10 +14,7 @@ card:
   entities:
     - entity: scene.schlafzimmer_nachtlicht
       icon: mdi:brightness-3
-      name: false
     - entity: scene.schlafzimmer_gedimmt
       icon: mdi:brightness-4
-      name: false
     - entity: scene.schlafzimmer_hell
       icon: mdi:brightness-5
-      name: false
