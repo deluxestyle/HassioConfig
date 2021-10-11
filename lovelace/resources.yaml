@@ -20,8 +20,6 @@
   type: module
 - url: /hacsfiles/scheduler-card/scheduler-card.js
   type: module
-# - url: /hacsfiles/simple-thermostat/simple-thermostat.js
-#   type: module
 - url: /hacsfiles/lovelace-battery-entity-row/battery-entity-row.js
   type: module
 - url: /hacsfiles/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js
@@ -35,8 +33,6 @@
 - url: /hacsfiles/hass-hue-icons/hass-hue-icons.js
   type: module
 - url: /hacsfiles/lovelace-template-entity-row/template-entity-row.js
-  type: module
-- url: /hacsfiles/light-entity-card/light-entity-card.js
   type: module
 - url: /hacsfiles/lovelace-more-info-card/more-info-card.js
   type: module
