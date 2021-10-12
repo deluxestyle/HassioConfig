@@ -981,7 +981,7 @@
           notification_id: battery
           title: Batteriewarnung
         service: script.notify_script
-      threshold: 20
+      threshold: 10
 - id: '1631286411270'
   alias: 'Kaffeemaschine: Ausschalten nach 20 Minuten'
   description: ''
