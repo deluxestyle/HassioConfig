@@ -56,6 +56,7 @@ cards:
       - switch.vtuner_switch
       - switch.wifi_steckdose
       - vacuum
+      - climate
     time_step: 1
     customize:
       script.sonos_wecker:

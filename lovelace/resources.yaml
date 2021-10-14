@@ -36,3 +36,7 @@
   type: module
 - url: /hacsfiles/lovelace-more-info-card/more-info-card.js
   type: module
+- url: /hacsfiles/mini-climate-card/mini-climate-card-bundle.js
+  type: module   
+- url: /hacsfiles/simple-thermostat/simple-thermostat.js
+  type: module                     

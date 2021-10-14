@@ -3,7 +3,29 @@
 popup_cards:
   media_player.bad:
     !include ../includes/popups/media_player_volume.yaml
-
+  climate.heizung_bad:
+    title: Heizung
+    style:
+      .: |
+        :host {
+          --secondary-background-color: rgba(0,0,0,0);
+          --ha-card-box-shadow: none;
+          --ha-card-border-radius: 0px;
+        }
+    card:
+      type: entities
+      entities: 
+        - type: custom:simple-thermostat
+          entity: climate.heizung_bad
+          header: false
+          style: |
+            ha-card {
+              --st-font-size-sensors: 14px;
+              --st-font-size-xl: 30px;
+            }
+            .sensor-heading, .mode-title {
+              font-weight: 400;
+            }
 title: Bad
 path: bath
 icon: mdi:bathtub
@@ -15,4 +37,14 @@ cards:
   - !include
       - ../includes/multimedia/mini_media_player.yaml
       - entity: media_player.bad
+  - type: custom:mini-climate
+    entity: climate.heizung_bad
+    secondary_info: last-changed
+    fan_mode: 
+      hide: true
+
+  # - type: entities
+  #   entities:
+  #     - entity: climate.heizung_bad
+  #       icon: mdi:radiator
   - !include ../includes/climate/climate_bath.yaml

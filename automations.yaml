@@ -1005,7 +1005,7 @@
     to: not_home
     for:
       hours: 0
-      minutes: 5
+      minutes: 3
       seconds: 0
       milliseconds: 0
   condition: []

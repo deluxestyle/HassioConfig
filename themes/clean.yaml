@@ -12,6 +12,9 @@ clean:
   color-blue-text: var(--primary-text-color)
   color-yellow-text: var(--primary-text-color)
 
+  mc-info-font-weight: 400
+  mini-climate-info-font-weight: 400
+
   modes:
     light:
       border-color: '#E8E8E8'
