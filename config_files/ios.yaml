@@ -20,6 +20,22 @@
 #           behavior: 'default'
 
 actions:
+  - name: absence
+    background_color: "#03a8f4"
+    label:
+      text: "Abwesenheitsmodus"
+      color:  "#ffffff"
+    icon:
+      icon: account-off
+      color:  "#ffffff"
+  - name: phonecall
+    background_color: "#03a8f4"
+    label:
+      text: "Telefonat"
+      color:  "#ffffff"
+    icon:
+      icon: phone-ring
+      color:  "#ffffff"
   - name: gotobed
     background_color: "#03a8f4"
     label:
@@ -41,12 +57,4 @@ actions:
       color:  "#ffffff"
     icon:
       icon: weather-sunny
-      color:  "#ffffff"
-  - name: phonecall
-    background_color: "#03a8f4"
-    label:
-      text: "Telefonat"
-      color:  "#ffffff"
-    icon:
-      icon: phone-ring
       color:  "#ffffff"

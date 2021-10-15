@@ -22,6 +22,10 @@
     event_type: mobile_app_notification_action
     event_data:
       action: TURN_ON_ABSENCE
+  - platform: event
+    event_type: ios.action_fired
+    event_data:
+      actionName: absence
   condition: []
   action:
   - data: {}
@@ -570,10 +574,6 @@
       actionName: gotobed
   condition: []
   action:
-  - service: script.sonos_set_volume_8
-    data: {}
-  - service: script.sonos_radio_b5_aktuell
-    data: {}
   - service: script.schlafen
     data: {}
   mode: single
