@@ -2,6 +2,8 @@ title: System
 path: system
 icon: mdi:cog-outline
 type: custom:masonry-layout
+visible:
+  - user: b6464705fc4e405abce8058610b4bcc7
 layout:
   max_cols: 2
   width: 330
@@ -84,7 +86,7 @@ cards:
             name: Raspi online
             icon: mdi:raspberry-pi
   - type: glance
-    columns: 5
+    columns: 4
     show_name: false
     entities:
       - entity: sensor.processor_use
@@ -97,6 +99,13 @@ cards:
               {% endif %}
               ;
             }     
+      - entity: sensor.memory_use_percent
+        name: Memory %
+      - entity: sensor.swap_use_percent
+        name: Swap %
+        icon: mdi:file-swap         
+      - entity: sensor.disk_use_percent
+        name: Disk %     
       - entity: sensor.cpu_temperature
         icon: mdi:thermometer
         name: CPU Temp
@@ -108,22 +117,22 @@ cards:
               {% endif %}
               ;
             }
-      - entity: sensor.memory_use_percent
-        name: Memory 
-      - entity: sensor.swap_use_percent
+      - entity: sensor.memory_use
+        name: Memory
+      - entity: sensor.swap_use
         name: Swap
-        icon: mdi:file-swap         
-      - entity: sensor.disk_use_percent
+        icon: mdi:file-swap  
+      - entity: sensor.disk_use
         name: Disk 
       - entity: sensor.influxdb_database_size
         icon: mdi:database-outline
       - entity: sensor.mariadb_database_size
-        icon: mdi:database  
+        icon: mdi:database 
       - entity: sensor.samba_backup
         icon: mdi:content-save-all
         double_tap_action:
           action: navigate
-          navigation_path: /hassio/backups      
+          navigation_path: /hassio/backups          
   - type: entities
     entities:
       - entity: automation.batterie_niedriger_batteriestand

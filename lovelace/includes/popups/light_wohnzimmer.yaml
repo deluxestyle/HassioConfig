@@ -55,6 +55,3 @@ card:
     - entity: scene.wohnzimmer_nachtlicht
       name: Nachtlicht
       icon: mdi:lightbulb-group-outline
-    - entity: scene.wohnzimmer_fernsehen
-      name: Fernsehen
-      icon: mdi:lightbulb-group-outline

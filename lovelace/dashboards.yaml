@@ -11,7 +11,7 @@ lovelace-presence:
   icon: mdi:account-multiple
   show_in_sidebar: true
   filename: lovelace/ui-presence.yaml
-  require_admin: false
+  require_admin: true
 lovelace-vacuum:
   mode: yaml
   title: Staubsauger
