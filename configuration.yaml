@@ -73,3 +73,5 @@ python_script:
 stream:
 
 ffmpeg:
+
+wake_on_lan:

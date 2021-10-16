@@ -1,6 +1,6 @@
 - platform: template
   switches:
-    ###### Fernbedienung ######
+###### Fernbedienung ######
     samsung_tv:
       unique_id: samsung_tv_switch
       friendly_name: "Samsung TV"
@@ -84,6 +84,7 @@
       turn_off:
         - service: script.turn_on
           entity_id: script.harmony_power_off
+###############################################
     vacuum:
       unique_id: vacuum_switch
       friendly_name: Staubsauger
@@ -94,4 +95,12 @@
       turn_off:
         - service: vacuum.return_to_base
           entity_id: vacuum.roborock_vacuum
-    ###############################################
+###############################################
+
+###############################################
+- platform: wake_on_lan
+  mac: 00:11:32:98:83:61
+  host: 192.168.200.41
+  name: DS118
+  turn_off:
+    service: synology_dsm.shutdown

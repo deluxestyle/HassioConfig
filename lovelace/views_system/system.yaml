@@ -1,3 +1,13 @@
+x-anchors:
+  style: &style
+      style:
+        .: |
+          :host {
+            --secondary-background-color: rgba(0,0,0,0);
+            --ha-card-box-shadow: none;
+            --ha-card-border-radius: 0px;
+          }
+
 title: System
 path: system
 icon: mdi:cog-outline
@@ -141,3 +151,24 @@ cards:
         double_tap_action:
           action: navigate
           navigation_path: /config/automation/edit/1630350328215
+  - type: entities
+    entities:
+      - entity: switch.ds118
+        icon: mdi:nas
+        tap_action:
+          action: toggle
+          confirmation:
+            text: NAS ein-/ausschalten?
+        double_tap_action:
+          action: fire-dom-event
+          browser_mod:
+            command: popup
+            title: Synology Stats
+            <<: *style
+            card:
+              type: custom:auto-entities
+              card:
+                type: entities 
+              filter:
+                  include:
+                    - entity_id: "sensor.ds118_*"

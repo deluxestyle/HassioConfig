@@ -45,16 +45,7 @@ cards:
       - script.sonos_b5_aktuell
       - script.sonos_superfly
       - script.sonos_wecker
-      - switch.airplay_switch
-      - switch.fire_tv_switch
-      - switch.music_switch
-      - switch.pi_hole
-      - switch.pi_hole_switch
-      - switch.steckdose_2
-      - switch.steckdose_3
-      - switch.tv_switch
-      - switch.vtuner_switch
-      - switch.wifi_steckdose
+      - switch
       - vacuum
       - climate
     time_step: 1
