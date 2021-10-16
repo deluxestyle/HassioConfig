@@ -1018,3 +1018,39 @@
           title: Abweseheitsmodus aktivieren
       message: Niemand ist mehr zu Hause
   mode: single
+- id: '1634394580227'
+  alias: 'DS118: Benachrichtigung shutdown'
+  description: ''
+  trigger:
+  - platform: state
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+    entity_id: switch.ds118
+  condition: []
+  action:
+  - service: notify.mobile_app_iphone11pro
+    data:
+      data:
+        actions:
+        - action: DS118_TURN_ON
+          title: DS118 einschalten
+      message: DS118 wurde herruntergefahren
+  mode: single
+- id: '1634394824204'
+  alias: 'DS118: Einschalten nach Push'
+  description: Schaltet alle Lichter und Steckdosen aus und aktiviert den Bewegungssensor
+  trigger:
+  - platform: event
+    event_type: mobile_app_notification_action
+    event_data:
+      action: DS118_TURN_ON
+  condition: []
+  action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.ds118
+  mode: single
