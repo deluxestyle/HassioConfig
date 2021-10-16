@@ -1022,3 +1022,7 @@
         # - font-weight: bold
         - font-size: '1rem'
         - opacity: '0.4'
+
+  script:
+    tap_action:
+      action: toggle

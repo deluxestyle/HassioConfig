@@ -18,14 +18,28 @@ layout:
   max_cols: 2
   width: 330
 cards:
-  - type: entities
-    entities:
-      - type: 'custom:paper-buttons-row'
-        buttons:
-          - entity: script.notify_clean_messages
-            name: Mitteilung löschen
-          - entity: script.notify_clean_badge
-            name: Badge löschen      
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - type: 'custom:button-card'
+        name: Mitteilung entf.
+        entity: script.notify_clean_messages
+        template:
+          - script
+      - type: 'custom:button-card'
+        entity: script.notify_clean_badge
+        name: Badge entf.
+        template:
+          - script
+  # - type: entities
+  #   entities:
+  #     - type: 'custom:paper-buttons-row'
+  #       buttons:
+  #         - entity: script.notify_clean_messages
+  #           name: Mitteilung löschen
+  #         - entity: script.notify_clean_badge
+  #           name: Badge löschen      
   - type: entities
     show_header_toggle: false
     entities:
