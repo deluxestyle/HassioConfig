@@ -31,11 +31,11 @@
   - data: {}
     service: script.alles_ausschalten
   - data: {}
-    entity_id: automation.benachrichtigung_bewegung_erkannt
     service: automation.turn_on
-  - service: automation.turn_on
-    data: {}
-    entity_id: automation.benachrichtigung_wohnungstur_offen
+    target:
+      entity_id:
+      - automation.benachrichtigung_bewegung_erkannt
+      - automation.benachrichtigung_wohnungstur_offen
   mode: single
 - id: xiaomi_vacuum_notification_off
   alias: 'Xiaomi Staubsauger: Benachrichtigung fertig'
@@ -1053,4 +1053,49 @@
   - service: switch.turn_on
     target:
       entity_id: switch.ds118
+  mode: single
+- id: '1634457704422'
+  alias: Abweseheitsmodus
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: group.presence
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: group.presence
+        state: not_home
+        for:
+          hours: 0
+          minutes: 3
+          seconds: 0
+          milliseconds: 0
+      sequence:
+      - service: notify.mobile_app_iphone11pro
+        data:
+          data:
+            actions:
+            - action: TURN_ON_ABSENCE
+              title: Abweseheitsmodus aktivieren
+          message: Niemand ist mehr zu Hause
+    - conditions:
+      - condition: state
+        entity_id: group.presence
+        state: home
+      sequence:
+      - data: {}
+        service: automation.turn_off
+        target:
+          entity_id:
+          - automation.benachrichtigung_bewegung_erkannt
+          - automation.bewegungsmelder_alarm
+          - automation.benachrichtigung_wohnungstur_offen
+    default: []
   mode: single

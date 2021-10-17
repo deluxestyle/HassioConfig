@@ -14,36 +14,40 @@ views:
         entities:
           - entity: person.wolfgang
           - entity: person.christina
-          - type: custom:fold-entity-row
-            head:
-              type: section
-              label: Automation
-            padding: 5
-            entities:
-              - entity: automation.anwesenheit
-                name: Abwesenheitsmodus aktivieren
-                icon: mdi:account-off
-                tap_action: 
-                  action: toggle
-              - entity: automation.anwesenheitsschaltung
-                icon: mdi:account-outline
-                name: Abwesenheitsmodus deaktivieren
-                tap_action: 
-                  action: toggle
-          - type: custom:fold-entity-row
-            head:
-              type: section
-              label: Sonos Automation
-            padding: 5
-            entities:
-              - entity: automation.sonos_starten
-                icon: mdi:music
-                tap_action: 
-                  action: toggle
-              - entity: automation.sonos_stoppen
-                icon: mdi:music-off
-                tap_action: 
-                  action: toggle
+          - entity: automation.abweseheitsmodus
+            icon: mdi:shield-account
+            tap_action: 
+              action: toggle
+          # - type: custom:fold-entity-row
+          #   head:
+          #     type: section
+          #     label: Automation
+          #   padding: 5
+          #   entities:
+          #     - entity: automation.anwesenheit
+          #       name: Abwesenheitsmodus aktivieren
+          #       icon: mdi:account-off
+          #       tap_action: 
+          #         action: toggle
+          #     - entity: automation.anwesenheitsschaltung
+          #       icon: mdi:account-outline
+          #       name: Abwesenheitsmodus deaktivieren
+          #       tap_action: 
+          #         action: toggle
+          # - type: custom:fold-entity-row
+          #   head:
+          #     type: section
+          #     label: Sonos Automation
+          #   padding: 5
+          #   entities:
+          #     - entity: automation.sonos_starten
+          #       icon: mdi:music
+          #       tap_action: 
+          #         action: toggle
+          #     - entity: automation.sonos_stoppen
+          #       icon: mdi:music-off
+          #       tap_action: 
+          #         action: toggle
       - type: entities
         show_header_toggle: false
         entities:
