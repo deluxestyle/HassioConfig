@@ -27,19 +27,15 @@ cards:
         entity: script.notify_clean_messages
         template:
           - script
+        variables:
+          entity: script.notify_clean_messages
       - type: 'custom:button-card'
         entity: script.notify_clean_badge
         name: Badge entf.
         template:
           - script
-  # - type: entities
-  #   entities:
-  #     - type: 'custom:paper-buttons-row'
-  #       buttons:
-  #         - entity: script.notify_clean_messages
-  #           name: Mitteilung löschen
-  #         - entity: script.notify_clean_badge
-  #           name: Badge löschen      
+        variables:
+          entity: script.notify_clean_badge    
   - type: entities
     show_header_toggle: false
     entities:

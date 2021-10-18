@@ -483,6 +483,8 @@
 #                                                  #
 ####################################################
   script:
+    variables:
+      entity: "entity to trigger"
     color: var(--google-grey)
     show_icon: true
     show_name: true
@@ -491,7 +493,9 @@
     layout: icon_name
     tap_action:
       action: call-service
-      service: '[[[ return entity.unique_id ]]]'
+      service: script.turn_on
+      service_data:
+        entity_id: '[[[ return variables.entity ]]]'
     double_tap_action:
       action: none
     hold_action:  
