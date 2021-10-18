@@ -1102,4 +1102,4 @@
           - automation.bewegungsmelder_alarm
           - automation.benachrichtigung_wohnungstur_offen
     default: []
-  mode: single
+  mode: restart

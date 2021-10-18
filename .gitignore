@@ -26,3 +26,5 @@ scripts/backup.sh
 home-assistant.log.1
 home-assistant.log.fault
 scripts/ds118_shutdown.sh
+.ssh/id_rsa.pub
+.ssh/id_rsa
