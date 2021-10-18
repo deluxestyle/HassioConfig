@@ -14,6 +14,8 @@ views:
         entities:
           - entity: person.wolfgang
           - entity: person.christina
+      - type: entities  
+        entities:
           - entity: automation.abweseheitsmodus
             icon: mdi:shield-account
             tap_action: 

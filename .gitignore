@@ -25,3 +25,4 @@ alexa_mediaorder@tanzer-online.compost.html
 scripts/backup.sh
 home-assistant.log.1
 home-assistant.log.fault
+scripts/ds118_shutdown.sh

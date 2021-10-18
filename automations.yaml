@@ -1065,6 +1065,10 @@
       minutes: 0
       seconds: 0
       milliseconds: 0
+    to: not_home
+  - platform: state
+    entity_id: group.presence
+    to: home
   condition: []
   action:
   - choose:
@@ -1074,7 +1078,7 @@
         state: not_home
         for:
           hours: 0
-          minutes: 3
+          minutes: 0
           seconds: 0
           milliseconds: 0
       sequence:

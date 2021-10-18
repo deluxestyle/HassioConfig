@@ -75,3 +75,6 @@ stream:
 ffmpeg:
 
 wake_on_lan:
+
+shell_command:
+    ds118_shutdown: bash /config/scripts/ds118_shutdown.sh

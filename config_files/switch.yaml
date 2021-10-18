@@ -103,4 +103,4 @@
   host: 192.168.200.41
   name: DS118
   turn_off:
-    service: synology_dsm.shutdown
+    service: shell_command.ds118_shutdown
