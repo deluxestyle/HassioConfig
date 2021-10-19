@@ -49,7 +49,7 @@ cards:
         name: VPN Lpatop
   - type: entities
     entities:
-      - entity: switch.pi_hole
+      - entity: switch.pi_hole_switch
         icon: mdi:pi-hole 
         name: AdBlocker (Pi-Hole)
         tap_action:
@@ -69,6 +69,7 @@ cards:
               filter:
                   include:
                     - entity_id: "sensor.pi_hole_*"
+      - entity: input_datetime.pi_hole_timer
   - type: entities
     entities:
       - entity: switch.fritz_box_7590_wi_fi_google_messwagen_26

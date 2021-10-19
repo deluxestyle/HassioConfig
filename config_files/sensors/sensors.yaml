@@ -34,6 +34,13 @@
   unit_of_measurement: "°C"
   value_template: '{{ value | multiply(0.001) | round(1) }}'
 
+- platform: command_line
+  name: Pihole
+  scan_interval: 10
+  command: curl -X GET 'http://192.168.200.33:88/admin/api.php?status'
+  value_template: >
+    {{ value_json.status }}
+
 - platform: authenticated
 
 - platform: influxdb

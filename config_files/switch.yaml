@@ -96,6 +96,28 @@
         - service: vacuum.return_to_base
           entity_id: vacuum.roborock_vacuum
 ###############################################
+    pi_hole_switch:
+      friendly_name: "Pi-hole"
+      value_template: "{{ is_state('sensor.pihole', 'enabled') }}"
+      turn_on:
+        - service: switch.turn_on
+          data: {}
+          target:
+            entity_id: switch.pi_hole
+        - service: homeassistant.update_entity
+          data: {}
+          target:
+            entity_id: sensor.pihole
+      turn_off:
+        - service: pi_hole.disable
+          data:
+            duration: "{{states.input_datetime.pi_hole_timer.state}}"
+          target:
+            device_id: 75c3e5a3dc174da39882183a70fc7e1a
+        - service: homeassistant.update_entity
+          data: {}
+          target:
+            entity_id: sensor.pihole
 
 ###############################################
 - platform: wake_on_lan

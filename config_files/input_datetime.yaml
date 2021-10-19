@@ -1,0 +1,6 @@
+pi_hole_timer:
+  name: Pi-Hole Timer
+  has_date: false
+  has_time: true
+  icon: mdi:timer-outline
+  initial: 00:05:00
