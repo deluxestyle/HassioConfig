@@ -34,6 +34,9 @@ card:
           hold_action:
             action: more-info
     - type: section
+    - entity: scene.wohnzimmer_fernsehen
+      name: Fernsehen
+      icon: mdi:lightbulb-group-outline
     - entity: scene.wohnzimmer_hell
       name: Hell
       icon: mdi:lightbulb-group-outline
