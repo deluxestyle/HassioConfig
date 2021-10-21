@@ -823,10 +823,10 @@
     input:
       motion_sensor: binary_sensor.tradfri_bewegungsmelder
       target_entity: light.flur
-      time_limit_after: 00:00:01
-      time_limit_before: '23:59:59'
+      time_limit_after: 07:00:00
+      time_limit_before: '23:00:00'
       no_motion_wait: 181
-      illuminance_cutoff: 0
+      illuminance_cutoff: 700
 - id: '1629983354095'
   alias: 'Licht: Bewegung Küche'
   description: ''
@@ -1055,7 +1055,7 @@
       entity_id: switch.ds118
   mode: single
 - id: '1634457704422'
-  alias: Abweseheitsmodus
+  alias: Abwesenheitsmodus
   description: ''
   trigger:
   - platform: state
@@ -1103,3 +1103,15 @@
           - automation.benachrichtigung_wohnungstur_offen
     default: []
   mode: restart
+- id: '1634642436148'
+  alias: 'Licht: Bewegung Flur Nachtlicht'
+  description: ''
+  use_blueprint:
+    path: tanzerw/motion_light.yaml
+    input:
+      motion_sensor: binary_sensor.tradfri_bewegungsmelder
+      target_entity: light.gateway_light_7811dcb258d1
+      time_limit_after: '23:00:01'
+      time_limit_before: 06:59:59
+      no_motion_wait: 181
+      illuminance_cutoff: 0

@@ -70,3 +70,53 @@ cards:
           - home
           - not_home
     title: false
+  - type: entities
+    entities:
+      - entity: automation.licht_bewegung_kuche
+        type: custom:multiple-entity-row
+        entities:
+          - entity: sensor.bewegungsmelder
+            name: Helligkeit
+            format: precision0
+          - entity: binary_sensor.bewegungsmelder
+            name: Bewegung
+        toggle: true
+        icon: mdi:motion-sensor
+        name: Küche
+        tap_action:
+          action: toggle
+        double_tap_action:
+          action: navigate
+          navigation_path: /config/automation/edit/1629983354095
+      - entity: automation.licht_bewegung_flur
+        type: custom:multiple-entity-row
+        entities:
+          - entity: sensor.illumination_7811dcb258d1
+            name: Helligkeit
+            format: precision0
+          - entity: binary_sensor.tradfri_bewegungsmelder
+            name: Bewegung
+        toggle: true
+        icon: mdi:motion-sensor
+        name: Flur
+        tap_action:
+          action: toggle
+        double_tap_action:
+          action: navigate
+          navigation_path: /config/automation/edit/1629983281720
+      - entity: automation.licht_bewegung_flur_nachtlicht
+        type: custom:multiple-entity-row
+        entities:
+          - entity: sensor.illumination_7811dcb258d1
+            name: Helligkeit
+            format: precision0
+          - entity: binary_sensor.tradfri_bewegungsmelder
+            name: Bewegung
+        toggle: true
+        icon: mdi:motion-sensor
+        name: Flur Nachtlicht
+        tap_action:
+          action: toggle
+        double_tap_action:
+          action: navigate
+          navigation_path: /config/automation/edit/1634642436148

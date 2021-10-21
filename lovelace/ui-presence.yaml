@@ -18,6 +18,7 @@ views:
         entities:
           - entity: automation.abweseheitsmodus
             icon: mdi:shield-account
+            name: Abwesenheitsmodus
             tap_action: 
               action: toggle
           # - type: custom:fold-entity-row
@@ -92,34 +93,6 @@ views:
                 icon: mdi:cellphone-message
                 tap_action: 
                   action: toggle
-      - type: entities
-        entities:
-          - entity: automation.licht_bewegung_kuche
-            type: custom:multiple-entity-row
-            entities:
-              - entity: sensor.bewegungsmelder
-                name: Helligkeit
-            toggle: true
-            icon: mdi:motion-sensor
-            name: Lichtsteuerung Küche
-            tap_action:
-              action: toggle
-            double_tap_action:
-              action: navigate
-              navigation_path: /config/automation/edit/1629983354095
-          - entity: automation.licht_bewegung_flur
-            type: custom:multiple-entity-row
-            entities:
-              - entity: sensor.illumination_7811dcb258d1
-                name: Helligkeit
-            toggle: true
-            icon: mdi:motion-sensor
-            name: Lichtsteuerung Flur
-            tap_action:
-              action: toggle
-            double_tap_action:
-              action: navigate
-              navigation_path: /config/automation/edit/1629983281720
   - title: Karte
     path: map
     icon: mdi:map

@@ -51,16 +51,16 @@ cards:
     entities:
       - entity: switch.pi_hole_switch
         icon: mdi:pi-hole 
-        name: AdBlocker (Pi-Hole)
+        name: AdBlocker (Pi-hole)
         tap_action:
           action: toggle
           confirmation:
-            text: AdBlocker (Pi-Hole) ein-/ausschalten?
+            text: AdBlocker (Pi-hole) ein-/ausschalten?
         double_tap_action:
           action: fire-dom-event
           browser_mod:
             command: popup
-            title: PI-Hole Stats
+            title: Pi-hole Stats
             <<: *style
             card:
               type: custom:auto-entities
@@ -68,8 +68,14 @@ cards:
                 type: entities 
               filter:
                   include:
+                    - entity_id: input_datetime.pi_hole_timer
+                      options:
+                        tap_action:
+                          action: none
                     - entity_id: "sensor.pi_hole_*"
-      - entity: input_datetime.pi_hole_timer
+                      options:
+                        tap_action:
+                          action: none
   - type: entities
     entities:
       - entity: switch.fritz_box_7590_wi_fi_google_messwagen_26
