@@ -14,7 +14,7 @@ filter:
     - media_player.wohnzimmer
     - media_player.bad
     - switch.vacuum
-    - switch.steckdose_1 #Schreibtisch
+    # - switch.steckdose_1 #Schreibtisch
     - switch.steckdosenleiste #Steckdosenleiste
     - switch.on_off_plug_in_unit_11 #Heizstrahler
     - switch.on_off_plug_in_unit_12 #Kaffemaschine

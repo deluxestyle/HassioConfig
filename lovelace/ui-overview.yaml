@@ -95,11 +95,11 @@ cards:
           - icon_info_bg
           - outlet
           - coffee_plug
-      - type: 'custom:button-card'
-        entity: switch.steckdose_1
-        template: 
-          - icon_info_bg
-          - outlet_with_confirmation
+      # - type: 'custom:button-card'
+      #   entity: switch.steckdose_1
+      #   template: 
+      #     - icon_info_bg
+      #     - outlet_with_confirmation
 #################################################################
   - template: blank
     type: 'custom:button-card'
