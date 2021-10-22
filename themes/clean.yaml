@@ -15,17 +15,27 @@ clean:
   mc-info-font-weight: 400
   mini-climate-info-font-weight: 400
 
+  color-yellow: 252, 214, 99
+  color-red: 241, 139, 130
+  color-blue : 137, 179, 248
+
+  google-red : '#F18B82'
+  google-green : '#80C994'
+  google-yellow : '#FCD663'
+  google-blue : '#89B3F8'
+  google-violet : '#BB86FC'
+
   modes:
     light:
       border-color: '#E8E8E8'
 
-      color-yellow : 255, 145, 1
+      color-yellow : 242, 182, 1
       color-red : 245, 68, 54
       color-blue : 68, 115, 158
 
       google-red : '#F54436'
       google-green : '#01C852'
-      google-yellow : '#FF9101'
+      google-yellow : '#f2b601'
       google-blue : '#3D5AFE'
       google-violet : '#661FFF'
 

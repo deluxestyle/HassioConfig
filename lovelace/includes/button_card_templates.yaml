@@ -5,7 +5,7 @@
 ########################################################################################################
 
   icon_info_bg:
-    color: var(--google-grey)
+    # color: var(--google-grey)
     show_icon: true
     show_name: true
     show_label: true
@@ -344,7 +344,7 @@
           img_cell:
             - background-color: 'rgba(var(--color-theme),0.2)'
           icon:
-              - color: 'rgba(var(--color-theme),1)'
+            - color: 'rgba(var(--color-theme),1)'
 
 ####################################################
 #                                                  #
@@ -522,3 +522,41 @@
         - grid-template-areas: '"i n"'
         - grid-template-columns: min-content auto
         - grid-template-rows: 1fr
+
+  button:
+    show_icon: true
+    show_name: true
+    show_label: false
+    size: 24px
+    layout: icon_name
+    styles:
+      grid:
+        - grid-template-areas: '"i n"'
+        - grid-template-columns: min-content auto
+        - grid-template-rows: 1fr
+      card:
+        - padding-left: 35px #var(--button-padding)
+      icon:
+        # - color: 'rgba(var(--color-theme),1)'
+      img_cell:
+        # - background-color: 'rgba(var(--color-theme),0.2)'
+        - border-radius: 50%
+        - place-self: center
+        - width: 28px
+        - height: 28px
+        - margin-left: 8px
+      name:
+        - font-size: 14px
+        - margin-left: 12px
+        - justify-self: start
+    state:
+      - styles:
+          icon:
+            - color: 'rgba(var(--color-yellow),1)'
+          # img_cell:
+          #   - background-color: 'rgba(var(--color-yellow), 0.2)'
+          name:
+            - color: 'rgba(var(--color-yellow-text),1)'
+          label:
+            - color: 'rgba(var(--color-yellow-text),1)'
+        value: 'on'

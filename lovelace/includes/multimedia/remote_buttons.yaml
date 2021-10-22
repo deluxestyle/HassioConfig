@@ -1,73 +1,83 @@
-type: entities
-entities:
-  - type: buttons
-    entities:
-      - entity: switch.tv_switch
-        show_name: true
-        tap_action:
-          haptic: light
-          action: toggle
-      - entity: switch.fire_tv_switch
-        show_name: true
-        tap_action:
-          haptic: light
-          action: toggle
-  - type: buttons
-    entities:
-      - entity: switch.music_switch
-        show_name: true
-        name: Plattenspieler
-        tap_action:
-          haptic: light
-          action: toggle
-      # - entity: switch.vtuner_switch
-      #   show_name: true
-      #   tap_action:
-      #     haptic: light
-      #     action: toggle
-      - entity: switch.airplay_switch
-        show_name: true
-        tap_action:
-          haptic: light
-          action: toggle
-  - type: buttons
-    entities:
-      - entity: script.harmony_power_off
-        show_name: true
+type: custom:vertical-stack-in-card
+cards:
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - type: 'custom:button-card'
+        entity: switch.tv_switch
+        template:
+          - button
+      - type: 'custom:button-card'
+        entity: switch.fire_tv_switch
+        template:
+          - button
+      - type: 'custom:button-card'
+        entity: switch.airplay_switch
+        template:
+          - button
+      - type: 'custom:button-card'
+        entity: switch.music_switch
+        template:
+          - button
+      - type: 'custom:button-card'
+        entity: script.harmony_power_off
+        variables:
+          entity: script.harmony_power_off
         name: Ausschalten
-        icon: mdi:power
-        tap_action:
-          action: toggle
-  - type: section          
-  - type: buttons
+        template:
+          - script
+          - button
+  - type: entities
     entities:
-      - entity: media_player.harman_kardon_avr
-        icon: mdi:volume-minus
-        show_name: false
-        tap_action:
-          action: call-service
-          service: media_player.volume_down
-          service_data:
-            entity_id: media_player.harman_kardon_avr
-      - entity: media_player.harman_kardon_avr
-        icon: mdi:volume-plus
-        show_name: false
-        tap_action:
-          action: call-service
-          service: media_player.volume_up
-          service_data:
-            entity_id: media_player.harman_kardon_avr
-      - entity: media_player.harman_kardon_avr
-        icon: mdi:volume-off
-        show_name: false
-        tap_action:
-          action: call-service
-          service: script.toggle
-          service_data:
-            entity_id: script.harmony_avr_mute  
-      - entity: script.harmony_surround_mode
-        show_name: false
-        tap_action:
-          action: toggle
-  - type: section
-  - input_select.avr_source
+      - type: section          
+      - type: buttons
+        entities:
+          - entity: media_player.harman_kardon_avr
+            icon: mdi:volume-minus
+            show_name: false
+            tap_action:
+              action: call-service
+              service: media_player.volume_down
+              service_data:
+                entity_id: media_player.harman_kardon_avr
+          - entity: media_player.harman_kardon_avr
+            icon: mdi:volume-plus
+            show_name: false
+            tap_action:
+              action: call-service
+              service: media_player.volume_up
+              service_data:
+                entity_id: media_player.harman_kardon_avr
+          - entity: media_player.harman_kardon_avr
+            icon: mdi:volume-off
+            show_name: false
+            tap_action:
+              action: call-service
+              service: script.toggle
+              service_data:
+                entity_id: script.harmony_avr_mute  
+          - entity: script.harmony_surround_mode
+            show_name: false
+            tap_action:
+              action: toggle
+      - type: custom:fold-entity-row
+        head:
+          type: section
+          label: Mehr...
+        padding: 5px
+        entities:
+          - entity: switch.samsung_tv
+            tap_action:
+              action: toggle
+          - entity: switch.telekom_mr_401
+            tap_action:
+              action: toggle
+          - entity: switch.avr_151
+            tap_action:
+              action: toggle
+          - entity: input_select.avr_source
+          - entity: switch.steckdosenleiste
+            name: Steckdosenleiste
+            tap_action:
+              action: toggle

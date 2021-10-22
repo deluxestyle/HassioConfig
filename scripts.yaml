@@ -29,6 +29,7 @@ xiaomi_vacuum_stop:
 harmony_power_off:
   alias: 'Harmony: Ausschaltbefehl'
   sequence:
+  - service: browser_mod.close_popup
   - condition: not
     conditions:
     - condition: state
