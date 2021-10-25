@@ -659,21 +659,6 @@
     data: {}
     entity_id: switch.telekom_mr_401
   mode: single
-- id: '1610972882769'
-  alias: 'Sonos: Wohnzimmer'
-  description: ''
-  trigger:
-  - device_id: ca5c7f2d9583f824073381bc650902cd
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  condition: []
-  action:
-  - service: media_player.media_play_pause
-    data: {}
-    entity_id: media_player.wohnzimmer
-  mode: single
 - id: '1612343173377'
   alias: 'iOS: Telefonat'
   description: ''
@@ -762,37 +747,6 @@
         actions:
         - action: START_VACUUM
           title: Starten
-  mode: single
-- id: '1626850123321'
-  alias: 'Alexa: Ports'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: switch.on_off_plug_in_unit_11
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: switch.on_off_plug_in_unit_11
-        state: 'on'
-      sequence:
-      - service: switch.turn_on
-        target:
-          entity_id:
-          - switch.fritz_box_7590_port_forward_http_server
-          - switch.fritz_box_7590_port_forward_https_server
-    - conditions:
-      - condition: state
-        entity_id: switch.on_off_plug_in_unit_11
-        state: 'off'
-      sequence:
-      - service: switch.turn_off
-        target:
-          entity_id:
-          - switch.fritz_box_7590_port_forward_http_server
-          - switch.fritz_box_7590_port_forward_https_server
-    default: []
   mode: single
 - id: '1629099375854'
   alias: 'Benachrichtigung: HP Spectre VPN'
@@ -1115,3 +1069,19 @@
       time_limit_before: 06:59:59
       no_motion_wait: 181
       illuminance_cutoff: 0
+- id: '1635108038795'
+  alias: 'Heizstrahler '
+  description: ''
+  trigger:
+  - device_id: ca5c7f2d9583f824073381bc650902cd
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  condition: []
+  action:
+  - type: toggle
+    device_id: 69a6167eb7eaaaa79c441b44e3424f1c
+    entity_id: switch.on_off_plug_in_unit_11
+    domain: switch
+  mode: single

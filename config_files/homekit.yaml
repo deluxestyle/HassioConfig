@@ -29,6 +29,7 @@ filter:
     - switch.pi_hole_switch
     - switch.ds118
     - climate.heizung_bad
+    - scene.schlafzimmer_wickeln
 entity_config:
     media_player.schlafzimmer:
       feature_list:

@@ -12,6 +12,9 @@ style:
 card:
   type: entities
   entities:
+    - entity: scene.schlafzimmer_wickeln
+      icon: mdi:baby
+      name: Babylicht
     - entity: scene.schlafzimmer_nachtlicht
       icon: mdi:brightness-3
     - entity: scene.schlafzimmer_gedimmt
