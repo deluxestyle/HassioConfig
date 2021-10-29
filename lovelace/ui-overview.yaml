@@ -35,6 +35,16 @@ cards:
             - includes/popups/light.yaml
             - light_entity: light.lights_living_room
       - type: 'custom:button-card'
+        entity: light.lights_kitchen
+        name: Küche
+        template: 
+          - icon_info_bg
+          - light_no_state
+        hold_action:
+          !include 
+            - includes/popups/light.yaml
+            - light_entity: light.lights_kitchen
+      - type: 'custom:button-card'
         entity: light.schlafzimmer
         name: Schlafzimmer
         icon: hue:ceiling-round
@@ -50,15 +60,15 @@ cards:
             - includes/popups/light.yaml
             - light_entity: light.schlafzimmer
       - type: 'custom:button-card'
-        entity: light.lights_kitchen
-        name: Küche
+        entity: light.yeelight_bslamp1_0x0000000005451cd6
+        name: Nachtlicht
         template: 
           - icon_info_bg
           - light_no_state
         hold_action:
           !include 
             - includes/popups/light.yaml
-            - light_entity: light.lights_kitchen
+            - light_entity: light.yeelight_bslamp1_0x0000000005451cd6
       - type: 'custom:button-card'
         entity: light.flur
         name: Flur
@@ -74,6 +84,16 @@ cards:
           !include 
             - includes/popups/light.yaml
             - light_entity: light.flur
+      - type: 'custom:button-card'
+        entity: light.gateway_light_7811dcb258d1
+        name: Nachtlicht Flur
+        template: 
+          - icon_info_bg
+          - light_no_state
+        hold_action:
+          !include 
+            - includes/popups/light.yaml
+            - light_entity: light.gateway_light_7811dcb258d1
 #################################################################
   - template: blank
     type: 'custom:button-card'
@@ -82,24 +102,6 @@ cards:
     square: false
     cards:
       - !include includes/multimedia/remote.yaml
-#################################################################
-  - template: blank
-    type: 'custom:button-card'
-  - type: grid
-    columns: 2
-    square: false
-    cards:
-      - type: 'custom:button-card'
-        entity: switch.on_off_plug_in_unit_12
-        template: 
-          - icon_info_bg
-          - outlet
-          - coffee_plug
-      # - type: 'custom:button-card'
-      #   entity: switch.steckdose_1
-      #   template: 
-      #     - icon_info_bg
-      #     - outlet_with_confirmation
 #################################################################
   - template: blank
     type: 'custom:button-card'
@@ -167,6 +169,26 @@ cards:
         double_tap_action:
           action: navigate
           navigation_path: /lovelace/bath
+#################################################################
+  - template: blank
+    type: 'custom:button-card'
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - type: 'custom:button-card'
+        entity: switch.on_off_plug_in_unit_12
+        template: 
+          - icon_info_bg
+          - outlet
+          - coffee_plug
+      - type: 'custom:button-card'
+        entity: switch.on_off_plug_in_unit_11
+        name: Heizstrahler
+        icon: mdi:radiator
+        template: 
+          - icon_info_bg
+          - outlet
 #################################################################
   - template: blank
     type: 'custom:button-card'
