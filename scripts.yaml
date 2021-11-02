@@ -234,6 +234,12 @@ schlafen:
       entity_id: scene.schlafzimmer_hell
   - service: script.harmony_power_off
     data: {}
+  - condition: state
+    entity_id: person.christina
+    state: not_home
+  - service: script.sonos_join
+  - service: script.sonos_set_volume_10
+  - service: script.sonos_radio_b5_aktuell
   mode: single
 sonos_radio_b5_aktuell:
   alias: 'Sonos: Radio BR24'
