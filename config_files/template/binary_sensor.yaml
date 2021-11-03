@@ -21,10 +21,10 @@
   - name: updater_hacs
     unique_id: updater_hacs
     device_class: problem
-    state: "{{ states('sensor.hacs')|int > 0 }}"
+    state: "{{ states('sensor.hacs')|int(0) > 0 }}"
     availability: "{{ states('sensor.hacs')|lower not in ['unknown','unavailable','none'] }}"
   - name: updater_addons
     unique_id: updater_addons
     device_class: problem
-    state: "{{ states('sensor.updater_supervisor')|int > 0 }}"
+    state: "{{ states('sensor.updater_supervisor')|int(0) > 0 }}"
     availability: "{{ states('sensor.updater_supervisor')|lower not in ['unknown','unavailable','none'] }}"

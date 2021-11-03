@@ -12,39 +12,40 @@ views:
       max_cols: 2
       width: 330
     cards:
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: custom:vacuum-card
-            entity: vacuum.roborock_vacuum
-            style: |
-              :host .toolbar {
-                background: var( --ha-card-background, var(--card-background-color, white) );
-                box-shadow: var( --ha-card-box-shadow, 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) )
-              }
-            compact_view: true
-            stats:
-              default:
-                - attribute: filter_left
-                  unit: Stunden
-                  subtitle: Filter
-                - attribute: side_brush_left
-                  unit: Stunden
-                  subtitle: Seitenbürste
-                - attribute: main_brush_left
-                  unit: Stunden
-                  subtitle: Hauptbürste
-                - attribute: sensor_dirty_left
-                  unit: Stunden
-                  subtitle: Sensoren
-              cleaning:
-                - attribute: cleaned_area
-                  unit: m2
-                  subtitle: Bereich
-                - attribute: cleaning_time
-                  unit: minutes
-                  subtitle: Dauer
+      # - type: custom:vertical-stack-in-card
+      #   cards:
+          # - type: custom:vacuum-card
+          #   entity: vacuum.roborock_vacuum
+          #   style: |
+          #     :host .toolbar {
+          #       background: var( --ha-card-background, var(--card-background-color, white) );
+          #       box-shadow: var( --ha-card-box-shadow, 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) )
+          #     }
+          #   compact_view: true
+          #   stats:
+          #     default:
+          #       - attribute: filter_left
+          #         unit: Stunden
+          #         subtitle: Filter
+          #       - attribute: side_brush_left
+          #         unit: Stunden
+          #         subtitle: Seitenbürste
+          #       - attribute: main_brush_left
+          #         unit: Stunden
+          #         subtitle: Hauptbürste
+          #       - attribute: sensor_dirty_left
+          #         unit: Stunden
+          #         subtitle: Sensoren
+          #     cleaning:
+          #       - attribute: cleaned_area
+          #         unit: m2
+          #         subtitle: Bereich
+          #       - attribute: cleaning_time
+          #         unit: minutes
+          #         subtitle: Dauer
       - type: entities
         entities:
+          - entity: vacuum.roborock_vacuum
           - entity: automation.xiaomi_staubsauger_abwesenheit
             name: Saugen bei Abwesenheit
             icon: mdi:account-off
@@ -109,6 +110,16 @@ views:
                 name: Sensor kritisch
                 tap_action: 
                   action: toggle 
+          - type: custom:auto-entities
+            filter:
+              include:
+                - entity_id: "sensor.rockrobo_vacuum_v1*"
+            card:
+              type: custom:fold-entity-row
+              head:
+                type: section
+                label: Details
+              padding: 5
   - title: Valetudo
     path: valetudo
     type: panel

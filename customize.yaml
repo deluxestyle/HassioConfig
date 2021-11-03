@@ -27,12 +27,6 @@ light.lights_all:
 light.lights_living_room:
   friendly_name: Wohnzimmerlicht
   icon: mdi:ceiling-light
-sensor.xiaomi_vacuum_main_brush_left:
-  friendly_name: Hauptbürste
-  icon: mdi:blur-linear
-sensor.xiaomi_vacuum_side_brush_left:
-  friendly_name: Seitenbürste
-  icon: mdi:blur-linear
 light.dunstabzug:
   friendly_name: Dunstabzug
   icon: mdi:spotlight-beam
@@ -55,12 +49,6 @@ script.harmony_action_music:
   icon: mdi:music
 automation.bewegungsmelder_alarm:
   icon: mdi:alarm-light
-sensor.xiaomi_vacuum_filter_left:
-  friendly_name: Filter
-  icon: mdi:blur-linear
-sensor.xiaomi_vacuum_sensor_dirty_left:
-  friendly_name: Sensor
-  icon: mdi:blur-linear
 sensor.fritz_netmonitor:
   friendly_name: Fritz.Box 7590
 zone.home:

@@ -37,7 +37,6 @@ automation.batterie_niedriger_batteriestand:
       exclude:
         - entity_id: "*iphone*"
         - entity_id: "*ipad*"
-        - entity_id: sensor.xiaomi_vacuum_sensor_battery
     sort:
       method: 
         - name

@@ -2,25 +2,3 @@
   - name: xiaomi_vacuum_status
     unique_id: xiaomi_vacuum_status
     state: '{{ states.vacuum.roborock_vacuum.attributes.status }}'
-  - name: xiaomi_vacuum_main_brush_left
-    unique_id: xiaomi_vacuum_main_brush_left
-    unit_of_measurement: 'hours'
-    state: '{{ states.vacuum.roborock_vacuum.attributes.main_brush_left }}'
-  - name: xiaomi_vacuum_side_brush_left
-    unique_id: xiaomi_vacuum_side_brush_left
-    unit_of_measurement: 'hours'
-    state: '{{ states.vacuum.roborock_vacuum.attributes.side_brush_left }}'
-  - name: xiaomi_vacuum_filter_left
-    unique_id: xiaomi_vacuum_filter_left
-    unit_of_measurement: 'hours'
-    state: '{{ states.vacuum.roborock_vacuum.attributes.filter_left }}'
-  - name: xiaomi_vacuum_sensor_dirty_left
-    unique_id: xiaomi_vacuum_sensor_dirty_left
-    unit_of_measurement: 'hours'
-    state: '{{ states.vacuum.roborock_vacuum.attributes.sensor_dirty_left }}'
-  - name: xiaomi_vacuum_sensor_battery
-    unique_id: xiaomi_vacuum_sensor_battery
-    unit_of_measurement: '%'
-    device_class: battery
-    state: '{{ states.vacuum.roborock_vacuum.attributes.battery_level }}'
-    icon: '{{ states.vacuum.roborock_vacuum.attributes.battery_icon }}'

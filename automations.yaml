@@ -262,12 +262,12 @@
   alias: 'Xiaomi Staubsauger: Benachrichtigung Sensor kritisch'
   trigger:
   - below: '4'
-    entity_id: sensor.xiaomi_vacuum_sensor_dirty_left
     platform: numeric_state
+    entity_id: sensor.rockrobo_vacuum_v1_sensor_dirty_left
   condition: []
   action:
   - data:
-      message: 'Sensor reinigen: {{ states.sensor.xiaomi_vacuum_sensor_dirty_left.state
+      message: 'Sensor reinigen: {{ states.sensor.rockrobo_vacuum_v1_sensor_dirty_left.state
         }} h übrig'
       notification_id: xiaomi_sensor
       title: Xiaomi StaubRobo
@@ -366,13 +366,13 @@
 - id: '1563024961089'
   alias: 'Xiaomi Staubsauger: Hauptbürste wechseln'
   trigger:
-  - below: 3
-    entity_id: sensor.xiaomi_vacuum_main_brush_left
+  - below: '3'
     platform: numeric_state
+    entity_id: sensor.rockrobo_vacuum_v1_main_brush_left
   condition: []
   action:
   - data:
-      message: 'Hauptbürste reinigen: {{ states.sensor.xiaomi_vacuum_main_brush_left.state
+      message: 'Hauptbürste reinigen: {{ states.sensor.rockrobo_vacuum_v1_main_brush_left.state
         }} h übrig'
       notification_id: xiaomi_brush
       title: Xiaomi StaubRobo Hauptbürste
@@ -399,15 +399,15 @@
   alias: 'Xiaomi Staubsauger: Benachrichtigung Filter kritisch'
   trigger:
   - below: '2'
-    entity_id: sensor.xiaomi_vacuum_filter_left
     platform: numeric_state
+    entity_id: sensor.rockrobo_vacuum_v1_filter_left
   condition: []
   action:
   - data:
       entity_id: input_boolean.persistent_notification
     service: input_boolean.turn_on
   - data:
-      message: 'Filter wechseln: {{ states.sensor.xiaomi_vacuum_filter_left.state
+      message: 'Filter wechseln: {{ states.sensor.rockrobo_vacuum_v1_filter_left.state
         }} h übrig'
       notification_id: xiaomi_filter
       title: Xiaomi StaubRobo
