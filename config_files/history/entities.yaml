@@ -28,6 +28,7 @@ entities:
   - sensor.wireguard_ipad
   - sensor.wireguard_iphonepro
   - sensor.wireguard_laptoperlau
+  - sensor.wireguard_hpspectre
   - binary_sensor.fenster_turkontaktsensor
   - sensor.last_boot
   - sensor.xiaomi_bed_room_battery_level        
