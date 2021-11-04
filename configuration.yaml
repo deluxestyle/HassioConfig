@@ -30,8 +30,13 @@ lovelace:
     
 logger:
   default: info
-  # logs:
-  #   hacs: debug
+  logs:
+    fritzconnection: info
+  filters:
+    homeassistant.components.rest.data:
+      - "Error fetching data:*"
+    homeassistant.components.rest.sensor:
+      - "Empty reply found when expecting JSON data"
    
 history: !include config_files/history/history.yaml
 recorder: !include config_files/history/recorder.yaml
