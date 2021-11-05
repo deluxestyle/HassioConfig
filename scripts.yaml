@@ -7,6 +7,7 @@ sonos_radio_superfly:
       source: 'Radio: Superfly.fm'
     service: media_player.select_source
   mode: single
+  icon: mdi:radio
 sonos_stopp:
   alias: 'Sonos: ausschalten'
   sequence:
@@ -20,6 +21,8 @@ xiaomi_vacuum_start:
   - data:
       entity_id: vacuum.roborock_vacuum
     service: vacuum.turn_on
+  mode: single
+  icon: mdi:robot-vacuum
 xiaomi_vacuum_stop:
   alias: 'Xiaomi Staubsauger: ausschalten'
   sequence:
@@ -252,6 +255,7 @@ sonos_radio_b5_aktuell:
     target:
       entity_id: media_player.schlafzimmer
   mode: single
+  icon: mdi:radio
 harmony_action_vtuner:
   alias: 'Harmony:  vTuner'
   sequence:
@@ -334,6 +338,7 @@ sonos_mute:
       is_volume_muted: true
     service: media_player.volume_mute
   mode: single
+  icon: mdi:volume-mute
 sonos_set_wake_up_volume:
   alias: 'Sonos: Set wake up volume'
   sequence:
