@@ -4,7 +4,6 @@ type: entities
 show_header_toggle: false
 entities:
   - entity: light.schlafzimmer
-    icon: hue:ceiling-round
     name: Decke
     tap_action:
       action: toggle

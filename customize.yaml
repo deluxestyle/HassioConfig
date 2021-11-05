@@ -53,9 +53,6 @@ sensor.fritz_netmonitor:
   friendly_name: Fritz.Box 7590
 zone.home:
   track_ios: 'false'
-light.lights_bed_room:
-  friendly_name: Schlafzimmerlicht
-  icon: mdi:ceiling-light
 light.wohnzimmer_decke:
   icon: mdi:ceiling-light
 light.wohnzimmer_couch:
@@ -113,9 +110,6 @@ switch.wifi_steckdose:
   icon: mdi:power-socket-eu
 switch.steckdosenleiste:
   icon: mdi:power-socket-eu
-light.schlafzimmer:
-  icon: mdi:ceiling-light
-  friendly_name: Decke
 sensor.fritzbox:
   icon: mdi:phone-voip
 switch.fire_tv_switch:
@@ -124,5 +118,3 @@ sensor.mariadb_database_size:
   icon: mdi:database
 sensor.influxdb_database_size:
   icon: mdi:database-outline
-light.flur:
-  icon: mdi:lightbulb-group

@@ -16,7 +16,6 @@ cards:
     entities:
       - entity: light.schlafzimmer
         name: Schlafzimmerlicht
-        icon: hue:ceiling-round
         tap_action: 
           action: toggle
         hold_action:

@@ -12,7 +12,6 @@ cards:
     entities:
       - entity: light.flur
         name: Flurlicht
-        icon: hue:double-spot
         tap_action:
           action: toggle
         hold_action:

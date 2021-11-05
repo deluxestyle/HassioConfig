@@ -28,7 +28,6 @@ card:
             action: more-info
         - entity: light.wohnzimmer_wand
           name: Wand
-          icon: hue:wall-spot
           tap_action:
             action: toggle
           hold_action:
