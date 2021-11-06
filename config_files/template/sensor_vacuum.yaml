@@ -2,3 +2,30 @@
   - name: xiaomi_vacuum_status
     unique_id: xiaomi_vacuum_status
     state: '{{ states.vacuum.roborock_vacuum.attributes.status }}'
+  - name: xiaomi_vacuum_main_brush_left
+    unique_id: xiaomi_vacuum_main_brush_left
+    unit_of_measurement: 'hours'
+    state: '{{ (states.sensor.rockrobo_vacuum_v1_main_brush_left.state | float(0) / 3600) | round(0) }}'
+  - name: xiaomi_vacuum_side_brush_left
+    unique_id: xiaomi_vacuum_side_brush_left
+    unit_of_measurement: 'hours'
+    state: '{{ (states.sensor.rockrobo_vacuum_v1_side_brush_left.state | float(0) / 3600) | round(0) }}'
+  - name: xiaomi_vacuum_filter_left
+    unique_id: xiaomi_vacuum_filter_left
+    unit_of_measurement: 'hours'
+    state: '{{ (states.sensor.rockrobo_vacuum_v1_filter_left.state | float(0) / 3600) | round(0) }}'
+  - name: xiaomi_vacuum_sensor_dirty_left
+    unique_id: xiaomi_vacuum_sensor_dirty_left
+    unit_of_measurement: 'hours'
+    state: '{{ (states.sensor.rockrobo_vacuum_v1_sensor_dirty_left.state | float(0) / 3600) | round(0) }}'
+  - name: xiaomi_vacuum_v1_last_clean_duration
+    unique_id: xiaomi_vacuum_v1_last_clean_duration
+    unit_of_measurement: 'minutes'
+    state: '{{ (states.sensor.rockrobo_vacuum_v1_last_clean_duration.state | float(0) / 60) | round(0) }}'
+  - name: xiaomi_vacuum_last_clean_area
+    unique_id: xiaomi_vacuum_last_clean_area
+    unit_of_measurement: 'm2'
+    state: '{{ (states.sensor.rockrobo_vacuum_v1_last_clean_area.state | float(0) ) | round(0) }}'
+
+
+    

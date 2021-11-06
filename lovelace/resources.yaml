@@ -37,4 +37,6 @@
 - url: /hacsfiles/mini-climate-card/mini-climate-card-bundle.js
   type: module   
 - url: /hacsfiles/simple-thermostat/simple-thermostat.js
-  type: module                     
+  type: module    
+- url: /hacsfiles/light-entity-card/light-entity-card.js
+  type: module
