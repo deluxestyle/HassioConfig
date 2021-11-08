@@ -30,7 +30,6 @@ filter:
     - switch.ds118
     - climate.heizung_bad
     - scene.schlafzimmer_wickeln
-    - light.smart_star_projector
 entity_config:
     media_player.schlafzimmer:
       feature_list:
