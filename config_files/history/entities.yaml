@@ -43,6 +43,7 @@ entities:
   - sensor.wandsender_2_fach_battery_level
   - sensor.dimmschalter_schlafzimmer_battery_level
   - sensor.dimmschalter_battery_level
+  - sensor.heizung_bad_battery
   - sensor.influxdb_database_size
   - sensor.mariadb_database_size
   - person.wolfgang

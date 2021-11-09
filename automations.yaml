@@ -701,8 +701,7 @@
   description: nach IP wechsel DuckDns und Wireguard neustarten
   trigger:
   - platform: state
-    entity_id: sensor.fritz_netmonitor
-    attribute: external_ip
+    entity_id: sensor.fritz_box_7590_external_ip
   condition: []
   action:
   - delay:
