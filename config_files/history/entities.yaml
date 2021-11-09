@@ -44,6 +44,8 @@ entities:
   - sensor.dimmschalter_schlafzimmer_battery_level
   - sensor.dimmschalter_battery_level
   - sensor.heizung_bad_battery
+  - sensor.tradfri_bewegungsmelder_battery_level
+  - sensor.tradfri_fernbedienung_battery_level
   - sensor.influxdb_database_size
   - sensor.mariadb_database_size
   - person.wolfgang

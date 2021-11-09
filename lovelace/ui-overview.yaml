@@ -39,7 +39,7 @@ cards:
         name: Küche
         template: 
           - icon_info_bg
-          - light_no_state
+          - light
         hold_action:
           !include 
             - includes/popups/light.yaml
@@ -63,7 +63,7 @@ cards:
         name: Nachtlicht
         template: 
           - icon_info_bg
-          - light_no_state
+          - light
         hold_action:
           !include 
             - includes/popups/light.yaml
@@ -87,7 +87,7 @@ cards:
         name: Nachtlicht Flur
         template: 
           - icon_info_bg
-          - light_no_state
+          - light
         hold_action:
           !include 
             - includes/popups/light.yaml

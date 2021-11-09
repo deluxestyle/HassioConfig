@@ -72,3 +72,27 @@ sensor.samba_backup:
         icon: 'mdi:file-clock-outline'
         name: Last Backup
         type: attribute
+
+climate.heizung_bad:
+  title: Heizung
+  style:
+    .: |
+      :host {
+        --secondary-background-color: rgba(0,0,0,0);
+        --ha-card-box-shadow: none;
+        --ha-card-border-radius: 0px;
+      }
+  card:
+    type: entities
+    entities: 
+      - type: custom:simple-thermostat
+        entity: climate.heizung_bad
+        header: false
+        style: |
+          ha-card {
+            --st-font-size-sensors: 14px;
+            --st-font-size-xl: 30px;
+          }
+          .sensor-heading, .mode-title {
+            font-weight: 400;
+          }
