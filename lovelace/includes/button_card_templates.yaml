@@ -394,6 +394,23 @@
         - padding: 0
         #ha-card.button-card-main
 
+  blank_popup:
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    show_icon: false
+    show_label: false
+    show_name: false
+    styles:
+      card:
+        - background-color: rgba(0,0,0,0)
+        - box-shadow: none
+        - height: 15px
+        - width: 5px
+        - padding: 0
+        #ha-card.button-card-main
+
 ########################################################################################################
 #                                                                                                      #
 #                                 SPECIAL TEMPLATES                                                    #

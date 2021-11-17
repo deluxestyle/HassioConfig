@@ -18,3 +18,33 @@ entities:
             action: fire-dom-event
             browser_mod:
               !include ../popups/light_wohnzimmer.yaml
+  - type: custom:fold-entity-row
+    head:
+      type: section
+      label: Lampen
+    padding: 5
+    entities:
+      - entity: light.wohnzimmer_decke
+        name: Decke
+        tap_action:
+          action: toggle
+        hold_action:
+          !include 
+            - ../popups/light.yaml
+            - light_entity: light.wohnzimmer_decke
+      - entity: light.wohnzimmer_couch
+        name: Couch
+        tap_action:
+          action: toggle
+        hold_action:
+          !include 
+            - ../popups/light.yaml
+            - light_entity: light.wohnzimmer_couch
+      - entity: light.wohnzimmer_wand
+        name: Wand
+        tap_action:
+          action: toggle
+        hold_action:
+          !include 
+            - ../popups/light.yaml
+            - light_entity: light.wohnzimmer_wand

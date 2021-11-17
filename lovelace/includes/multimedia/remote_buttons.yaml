@@ -1,8 +1,8 @@
 type: custom:vertical-stack-in-card
 cards:
-  - template: blank
+  - template: blank_popup
     type: 'custom:button-card'
-  - template: blank
+  - template: blank_popup
     type: 'custom:button-card'
   - type: grid
     columns: 2
