@@ -118,3 +118,29 @@ sensor.mariadb_database_size:
   icon: mdi:database
 sensor.influxdb_database_size:
   icon: mdi:database-outline
+scene.wohnzimmer_fernsehen:
+  friendly_name: Fernsehen
+  icon: mdi:lightbulb-group-outline
+scene.wohnzimmer_energie_tanken:
+  friendly_name: Energie tanken
+  icon: mdi:lightbulb-group-outline
+scene.wohnzimmer_entspannen:
+  friendly_name: Entspannen
+  icon: mdi:lightbulb-group-outline
+scene.wohnzimmer_gedimmt:
+  friendly_name: Gedimmt
+  icon: mdi:lightbulb-group-outline
+scene.wohnzimmer_hell:
+  friendly_name: Hell
+  icon: mdi:lightbulb-group-outline
+scene.wohnzimmer_konzentrieren:
+  friendly_name: Konzentrieren
+  icon: mdi:lightbulb-group-outline
+scene.wohnzimmer_lesen:
+  friendly_name: Lesen
+  icon: mdi:lightbulb-group-outline
+scene.wohnzimmer_nachtlicht:
+  friendly_name: Nachtlicht
+  icon: mdi:lightbulb-group-outline
+scene.wohnzimmer_licht:
+  friendly_name: Licht

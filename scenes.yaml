@@ -66,3 +66,75 @@
       friendly_name: Steckdose 1
       state: 'on'
   icon: mdi:laptop
+- id: '1637249025488'
+  name: Wohnzimmer Licht
+  entities:
+    light.wohnzimmer_decke:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      supported_color_modes:
+      - color_temp
+      - hs
+      - xy
+      color_mode: color_temp
+      brightness: 254
+      color_temp: 343
+      hs_color:
+      - 27.971
+      - 59.254
+      rgb_color:
+      - 255
+      - 174
+      - 103
+      xy_color:
+      - 0.505
+      - 0.385
+      is_deconz_group: false
+      friendly_name: Wohnzimmer Decke
+      supported_features: 44
+      icon: mdi:ceiling-light
+      state: 'on'
+    light.wohnzimmer_couch:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      supported_color_modes:
+      - color_temp
+      - hs
+      - xy
+      color_mode: color_temp
+      brightness: 254
+      color_temp: 343
+      hs_color:
+      - 27.971
+      - 59.254
+      rgb_color:
+      - 255
+      - 174
+      - 103
+      xy_color:
+      - 0.505
+      - 0.385
+      is_deconz_group: false
+      friendly_name: Wohnzimmer Couch
+      supported_features: 44
+      icon: mdi:ceiling-light
+      state: 'on'
+    light.wohnzimmer_wand:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      supported_color_modes:
+      - color_temp
+      - hs
+      - xy
+      is_deconz_group: false
+      friendly_name: Wohnzimmer Wand
+      icon: mdi:spotlight-beam
+      supported_features: 44
+      state: 'off'
+  icon: mdi:lightbulb-group-outline
