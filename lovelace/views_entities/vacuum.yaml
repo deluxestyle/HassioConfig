@@ -16,21 +16,6 @@ views:
         cards:
           - type: custom:vacuum-card
             entity: vacuum.roborock_vacuum
-            style: |
-              :host .toolbar {
-                background: var( --ha-card-background, var(--card-background-color, white) );
-                box-shadow: var( --ha-card-box-shadow, 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) )
-              }
-              .toolbar {
-                background: transparent !important;
-                min-height: 30px;
-                display: flex;
-                flex-direction: row;
-                flex-flow: row wrap;
-                flex-wrap: wrap;
-                flex-wrap: wrap;
-                justify-content: space-evenly;
-              }
             compact_view: true
             stats:
               default:
