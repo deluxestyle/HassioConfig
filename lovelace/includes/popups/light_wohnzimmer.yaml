@@ -39,6 +39,8 @@ card:
       filter:
         include:
           - entity_id: "scene.wohnzimmer_*"
+      sort:
+        method: name
     # - entity: scene.wohnzimmer_fernsehen
     #   name: Fernsehen
     #   icon: mdi:lightbulb-group-outline

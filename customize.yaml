@@ -144,3 +144,6 @@ scene.wohnzimmer_nachtlicht:
   icon: mdi:lightbulb-group-outline
 scene.wohnzimmer_licht:
   friendly_name: Licht
+scene.wohnzimmer_tisch:
+  friendly_name: Tisch
+  icon: mdi:lightbulb-group-outline

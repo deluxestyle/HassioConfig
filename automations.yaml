@@ -43,13 +43,14 @@
   - platform: state
     entity_id: vacuum.roborock_vacuum
     to: docked
+    from: returning
   action:
   - data:
       entity_id: input_boolean.persistent_notification
     service: input_boolean.turn_on
   - data:
-      message: 'Staubsauger fertig - Dauer: {{ states.vacuum.roborock_vacuum.attributes.cleaning_time
-        }} min - gesaugte Fläche: {{ states.vacuum.roborock_vacuum.attributes.cleaned_area
+      message: 'Staubsauger fertig - Dauer: {{ states.sensor.xiaomi_vacuum_v1_last_clean_duration.state
+        }} min - gesaugte Fläche: {{ states.sensor.xiaomi_vacuum_last_clean_area.state
         }} qm | Fehler {{ states.counter.xiaomo_errors.state }}'
       notification_id: xiaomi_vacuum_status
       title: StaubRobo
@@ -1096,3 +1097,21 @@
     entity_id: switch.on_off_plug_in_unit_11
     domain: switch
   mode: single
+- id: '1637426189878'
+  alias: 'Licht: Flur ausschalten'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: light.flur
+    to: 'on'
+    for:
+      hours: 0
+      minutes: 3
+      seconds: 2
+      milliseconds: 0
+  condition: []
+  action:
+  - service: light.turn_off
+    target:
+      entity_id: light.flur
+  mode: restart
