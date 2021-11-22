@@ -7,7 +7,7 @@ x-anchors:
           :host {
             --secondary-background-color: rgba(0,0,0,0);
             --ha-card-box-shadow: none;
-            --ha-card-border-radius: 0px;
+            --ha-card-border-radius: var(--border-radius-popup);
           }
 
 sensor.remote_state:
@@ -75,13 +75,7 @@ sensor.samba_backup:
 
 climate.heizung_bad:
   title: Heizung
-  style:
-    .: |
-      :host {
-        --secondary-background-color: rgba(0,0,0,0);
-        --ha-card-box-shadow: none;
-        --ha-card-border-radius: 0px;
-      }
+  <<: *style
   card:
     type: entities
     entities: 

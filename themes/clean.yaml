@@ -2,12 +2,13 @@ clean:
   ha-card-box-shadow: 0px 0px 0px 1px var(--border-color)
   ha-card-border-radius: var(--border-radius) 
 
+  border-radius-popup: var(--border-radius) 
+
   box-shadow: 0px 0px 0px 1px var(--border-color)
   border-radius: 10px
 
   button-padding: 10px
 
-  google-grey: '#BBBBBB'
   color-theme : 68, 115, 158
   color-blue-text: var(--primary-text-color)
   color-yellow-text: var(--primary-text-color)
@@ -19,36 +20,50 @@ clean:
   color-red: 241, 139, 130
   color-blue : 137, 179, 248
 
-  google-red : '#F18B82'
-  google-green : '#80C994'
-  google-yellow : '#FCD663'
-  google-blue : '#89B3F8'
-  google-violet : '#BB86FC'
+  # google-red : '#F18B82'
+  # google-green : '#80C994'
+  # google-yellow : '#FCD663'
+  # google-blue : '#89B3F8'
+  # google-violet : '#BB86FC'
+  # google-grey: '#BBBBBB'
 
   modes:
     light:
-      border-color: '#E8E8E8'
-
-      color-yellow : 242, 182, 1
-      color-red : 245, 68, 54
-      color-blue : 68, 115, 158
-
-      google-red : '#F54436'
-      google-green : '#01C852'
-      google-yellow : '#f2b601'
-      google-blue : '#3D5AFE'
-      google-violet : '#661FFF'
-
+      !include modes/light.yaml
     dark:
-      border-color: '#1F1B24'
-      primary-text-color: '#DDDDDD'
+      !include modes/dark.yaml
 
-      color-yellow: 252, 214, 99
-      color-red: 241, 139, 130
-      color-blue : 137, 179, 248
+clean_mobile:
+  ha-card-box-shadow: 0px 0px 0px 1px var(--border-color)
+  ha-card-border-radius: var(--border-radius) 
 
-      google-red : '#F18B82'
-      google-green : '#80C994'
-      google-yellow : '#FCD663'
-      google-blue : '#89B3F8'
-      google-violet : '#BB86FC'
+  border-radius-popup: 0px
+
+  box-shadow: 0px 0px 0px 1px var(--border-color)
+  border-radius: 10px
+
+  button-padding: 10px
+
+  color-theme : 68, 115, 158
+  color-blue-text: var(--primary-text-color)
+  color-yellow-text: var(--primary-text-color)
+
+  mc-info-font-weight: 400
+  mini-climate-info-font-weight: 400
+
+  color-yellow: 252, 214, 99
+  color-red: 241, 139, 130
+  color-blue : 137, 179, 248
+
+  # google-red : '#F18B82'
+  # google-green : '#80C994'
+  # google-yellow : '#FCD663'
+  # google-blue : '#89B3F8'
+  # google-violet : '#BB86FC'
+  # google-grey: '#BBBBBB'
+
+  modes:
+    light:
+      !include modes/light.yaml
+    dark:
+      !include modes/dark.yaml
