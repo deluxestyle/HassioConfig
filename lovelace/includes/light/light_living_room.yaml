@@ -25,7 +25,6 @@ entities:
     padding: 5
     entities:
       - entity: light.wohnzimmer_decke
-        name: Decke
         tap_action:
           action: toggle
         hold_action:

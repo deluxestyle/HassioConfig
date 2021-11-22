@@ -15,7 +15,6 @@ card:
     - type: "custom:paper-buttons-row"
       buttons:
         - entity: light.wohnzimmer_decke
-          name: Decke
           tap_action:
             action: toggle
           hold_action:
