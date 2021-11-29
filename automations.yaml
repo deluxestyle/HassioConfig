@@ -774,8 +774,8 @@
     input:
       motion_sensor: binary_sensor.tradfri_bewegungsmelder
       target_entity: light.flur
-      time_limit_after: 07:00:00
-      time_limit_before: '23:00:00'
+      time_limit_after: 08:00:00
+      time_limit_before: '18:00:00'
       no_motion_wait: 181
       illuminance_cutoff: 700
 - id: '1629983354095'
@@ -1056,8 +1056,8 @@
     input:
       motion_sensor: binary_sensor.tradfri_bewegungsmelder
       target_entity: light.gateway_light_7811dcb258d1
-      time_limit_after: '19:00:01'
-      time_limit_before: 06:59:59
+      time_limit_after: '18:00:01'
+      time_limit_before: 07:59:59
       no_motion_wait: 181
       illuminance_cutoff: 0
 - id: '1635108038795'
@@ -1088,7 +1088,7 @@
     for:
       hours: 0
       minutes: 10
-      seconds: 3
+      seconds: 2
       milliseconds: 0
   condition: []
   action:
