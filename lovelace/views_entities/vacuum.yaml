@@ -37,10 +37,10 @@ views:
                   unit: Stunden
                   subtitle: Sensoren
               cleaning:
-                - entity_id: sensor.xiaomi_vacuum_last_clean_area
+                - entity_id: sensor.rockrobo_vacuum_v1_last_clean_area
                   unit: m2
                   subtitle: Bereich
-                - entity_id: sensor.xiaomi_vacuum_v1_last_clean_duration
+                - entity_id: sensor.rockrobo_vacuum_v1_last_clean_duration
                   unit: minutes
                   subtitle: Dauer
       - type: entities

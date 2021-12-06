@@ -147,3 +147,6 @@ scene.wohnzimmer_licht:
 scene.wohnzimmer_tisch:
   friendly_name: Tisch
   icon: mdi:lightbulb-group-outline
+scene.wohnzimmer_weihnachten:
+  friendly_name: Weihnachten
+  icon: mdi:pine-tree
