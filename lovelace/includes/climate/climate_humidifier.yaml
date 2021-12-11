@@ -1,0 +1,6 @@
+# lovelace_gen
+
+!include
+  - thermostat.yaml
+  - sensor_temprature: sensor.mi_smart_antibacterial_humidifier_temperature
+    sensor_humidity: sensor.mi_smart_antibacterial_humidifier_humidity

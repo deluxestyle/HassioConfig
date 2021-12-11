@@ -55,6 +55,11 @@ entities:
   - binary_sensor.bewegungsmelder
   - binary_sensor.tradfri_bewegungsmelder
   - vacuum.roborock_vacuum
+  - sensor.mi_smart_antibacterial_humidifier_humidity
+  - sensor.mi_smart_antibacterial_humidifier_temperature
+  - binary_sensor.mi_smart_antibacterial_humidifier_water_tank
+  - binary_sensor.mi_smart_antibacterial_humidifier_water_tank_empty
+  - humidifier.mi_smart_antibacterial_humidifier
 domains:
   - automation
   - switch

@@ -1,0 +1,26 @@
+# lovelace_gen
+
+popup_cards: !include ../includes/popups/popup_cards.yaml
+button_card_templates: !include ../includes/button_card_templates.yaml
+
+# -----------------------------
+title: Luftbefeuchter
+
+views:
+  - title: Luftbefeuchter
+    path: humidifier
+    icon: mdi:air-humidifier
+    type: custom:horizontal-layout
+    layout:
+      max_cols: 2
+      width: 330
+    cards:
+      - type: entities
+        entities:
+          - entity: humidifier.mi_smart_antibacterial_humidifier
+            name: Luftbefeuchter
+          - entity: switch.mi_smart_antibacterial_humidifier_buzzer
+            name: Töne
+          - entity: switch.mi_smart_antibacterial_humidifier_led
+            name: LED
+      - !include ../includes/climate/climate_humidifier.yaml
