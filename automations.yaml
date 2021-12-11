@@ -210,27 +210,23 @@
 - id: '1540974552306'
   alias: 'Benachrichtigung: Luftfeuchtigkeit'
   trigger:
-  - above: '45'
+  - above: '55'
     entity_id: sensor.humidity_158d0001b8c96c
     platform: numeric_state
-  - above: '45'
+  - above: '55'
     entity_id: sensor.humidity_158d0001b8c998
     platform: numeric_state
-  - above: '45'
+  - above: '55'
     entity_id: sensor.humidity_158d0002239fb5
     platform: numeric_state
-  condition:
-  - condition: state
-    entity_id: person.wolfgang
-    state: home
+  condition: []
   action:
   - data:
       entity_id: input_boolean.persistent_notification
     service: input_boolean.turn_on
   - data:
-      message: 'Luftfeuchtigkeit zu hoch - Schlafzimmer: {{ states.sensor.humidity_158d0001b8c96c.state
-        }} % - Wohnzimmer {{ states.sensor.humidity_158d0001b8c998.state }} % - Küche:
-        {{ states.sensor.humidity_158d0002239fb5.state }} % '
+      message: '{{ trigger.from_state.attributes.friendly_name }} zu hoch: {{ trigger.to_state.state
+        }} % '
       notification_id: Luftfeuchtigkeit
       title: Luftfeuchtigkeit
     service: script.notify_script
@@ -1115,3 +1111,23 @@
     target:
       entity_id: light.flur
   mode: restart
+- id: '1639242456615'
+  alias: 'Benachrichtung: Wassertank leer'
+  description: ''
+  trigger:
+  - type: turned_on
+    platform: device
+    device_id: 151931228f0463f79e68b6c6ee957201
+    entity_id: binary_sensor.mi_smart_antibacterial_humidifier_water_tank_empty
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.persistent_notification
+  - data:
+      message: Wassertank leer
+      notification_id: water_tank
+      title: Wassertank
+    service: script.notify_script
+  mode: single
