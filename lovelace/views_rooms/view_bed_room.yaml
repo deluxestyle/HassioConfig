@@ -1,14 +1,5 @@
 # lovelace_gen
 
-x-anchors:
-  camera: &camera
-    entities:
-      - entity: switch.steckdose_1
-        name: Kamera
-        icon: mdi:cctv
-        tap_action:
-          action: toggle
-
 popup_cards:
   media_player.schlafzimmer:
     !include ../includes/popups/media_player_volume.yaml
@@ -71,11 +62,17 @@ cards:
           show_name: false
           show_state: false
         - type: entities
-          <<: *camera
+          entities:
+              - entity: switch.steckdose_1
+                tap_action:
+                  action: toggle
   - type: conditional
     conditions:
       - entity: switch.steckdose_1
         state: "off"
     card:
-      - type: entities
-        <<: *camera
+      type: entities
+      entities:
+        - entity: switch.steckdose_1
+          tap_action:
+            action: toggle
