@@ -93,26 +93,26 @@ views:
                 icon: mdi:cellphone-message
                 tap_action: 
                   action: toggle
-  - title: Baby
-    path: baby
-    icon: mdi:baby
-    panel: false
-    cards:
-      - type: conditional
-        conditions:
-          - entity: switch.steckdose_1
-            state: "on"
-        card:
-          type: picture-entity
-          entity: camera.ffmpeg
-          camera_view: live
-          show_name: false
-          show_state: false
-      - type: entities
-        entities:
-          - entity: switch.steckdose_1
-            name: Kamera
-            icon: mdi:cctv
+  # - title: Baby
+  #   path: baby
+  #   icon: mdi:baby
+  #   panel: false
+  #   cards:
+  #     - type: conditional
+  #       conditions:
+  #         - entity: switch.steckdose_1
+  #           state: "on"
+  #       card:
+  #         type: picture-entity
+  #         entity: camera.hikam_mainstream
+  #         camera_view: live
+  #         show_name: false
+  #         show_state: false
+  #     - type: entities
+  #       entities:
+  #         - entity: switch.steckdose_1
+  #           name: Kamera
+  #           icon: mdi:cctv
   - title: Karte
     path: map
     icon: mdi:map

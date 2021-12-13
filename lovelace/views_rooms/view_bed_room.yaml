@@ -1,5 +1,14 @@
 # lovelace_gen
 
+x-anchors:
+  camera: &camera
+    entities:
+      - entity: switch.steckdose_1
+        name: Kamera
+        icon: mdi:cctv
+        tap_action:
+          action: toggle
+
 popup_cards:
   media_player.schlafzimmer:
     !include ../includes/popups/media_player_volume.yaml
@@ -49,3 +58,24 @@ cards:
         tap_action:
           action: toggle
   - !include ../includes/climate/climate_bed_room.yaml
+  - type: conditional
+    conditions:
+      - entity: switch.steckdose_1
+        state: "on"
+    card:
+      type: 'custom:vertical-stack-in-card'
+      cards:
+        - type: picture-entity
+          entity: camera.hikam_mainstream
+          camera_view: live
+          show_name: false
+          show_state: false
+        - type: entities
+          <<: *camera
+  - type: conditional
+    conditions:
+      - entity: switch.steckdose_1
+        state: "off"
+    card:
+      - type: entities
+        <<: *camera

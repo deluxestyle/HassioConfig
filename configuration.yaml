@@ -12,6 +12,7 @@ system_health:
 api:
 zeroconf:
 updater:
+stream:
 
 http:
   use_x_forwarded_for: true
@@ -68,7 +69,7 @@ ios: !include config_files/ios.yaml
 homekit: !include config_files/homekit.yaml
 browser_mod: !include config_files/browser_mod.yaml
 device_tracker: !include config_files/device_tracker.yaml
-camera: !include config_files/camera.yaml
+# camera: !include config_files/camera.yaml
 sensor: !include_dir_merge_list config_files/sensors/
 template:  !include_dir_merge_list config_files/template/
 binary_sensor: !include_dir_merge_list config_files/binary_sensors/
@@ -76,8 +77,6 @@ timer:
 input_text:
 
 python_script:
-
-stream:
 
 ffmpeg:
 
