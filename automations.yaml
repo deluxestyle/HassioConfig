@@ -1111,23 +1111,3 @@
     target:
       entity_id: light.flur
   mode: restart
-- id: '1639242456615'
-  alias: 'Benachrichtung: Wassertank leer'
-  description: ''
-  trigger:
-  - type: turned_on
-    platform: device
-    device_id: 151931228f0463f79e68b6c6ee957201
-    entity_id: binary_sensor.mi_smart_antibacterial_humidifier_water_tank_empty
-    domain: binary_sensor
-  condition: []
-  action:
-  - service: input_boolean.turn_on
-    target:
-      entity_id: input_boolean.persistent_notification
-  - data:
-      message: Wassertank leer
-      notification_id: water_tank
-      title: Wassertank
-    service: script.notify_script
-  mode: single

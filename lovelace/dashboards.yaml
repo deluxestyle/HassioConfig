@@ -19,10 +19,10 @@ lovelace-vacuum:
   show_in_sidebar: true
   filename: lovelace/views_entities/vacuum.yaml
   require_admin: false
-lovelace-humidifier:
-  mode: yaml
-  title: Luftbefeuchter
-  icon: mdi:air-humidifier
-  show_in_sidebar: true
-  filename: lovelace/views_entities/humidifier.yaml
-  require_admin: false
+# lovelace-humidifier:
+#   mode: yaml
+#   title: Luftbefeuchter
+#   icon: mdi:air-humidifier
+#   show_in_sidebar: true
+#   filename: lovelace/views_entities/humidifier.yaml
+#   require_admin: false
