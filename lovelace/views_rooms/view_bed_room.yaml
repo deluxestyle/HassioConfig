@@ -22,14 +22,18 @@ cards:
           !include 
             - ../includes/popups/light.yaml
             - light_entity: light.schlafzimmer
-        extend_paper_buttons_row:
-          buttons:
-            - name: Szenen
-              icon: mdi:lightbulb-group-outline
-              tap_action: 
-                action: fire-dom-event
-                browser_mod:
-                  !include ../includes/popups/light_schlafzimmer.yaml
+        double_tap_action: 
+          action: fire-dom-event
+          browser_mod:
+            !include ../includes/popups/light_schlafzimmer.yaml
+        # extend_paper_buttons_row:
+        #   buttons:
+        #     - name: Szenen
+        #       icon: mdi:lightbulb-group-outline
+        #       tap_action: 
+        #         action: fire-dom-event
+        #         browser_mod:
+        #           !include ../includes/popups/light_schlafzimmer.yaml
       - entity: light.yeelight_bslamp1_0x0000000005451cd6
         name: Nachtlicht
         tap_action:
@@ -57,6 +61,11 @@ cards:
       type: 'custom:vertical-stack-in-card'
       cards:
         - type: picture-entity
+          style: |
+            :host {
+              background: var( --ha-card-background, var(--card-background-color, white) );
+              box-shadow: var( --ha-card-box-shadow, 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) )
+            }
           entity: camera.hikam_mainstream
           camera_view: live
           show_name: false

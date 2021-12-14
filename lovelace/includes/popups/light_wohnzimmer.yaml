@@ -10,36 +10,41 @@ style:
       --ha-card-border-radius: var(--border-radius-popup);
     }
 card:
-  type: entities
-  entities:
-    - type: "custom:paper-buttons-row"
-      buttons:
-        - entity: light.wohnzimmer_decke
-          tap_action:
-            action: toggle
-          hold_action:
-            action: more-info
-        - entity: light.wohnzimmer_couch
-          name: Couch
-          tap_action:
-            action: toggle
-          hold_action:
-            action: more-info
-        - entity: light.wohnzimmer_wand
-          name: Wand
-          tap_action:
-            action: toggle
-          hold_action:
-            action: more-info
-    - type: section
-    - type: custom:auto-entities
-      card:
-        type: entities
-      filter:
-        include:
-          - entity_id: "scene.wohnzimmer_*"
-      sort:
-        method: name
+  # type: entities
+  # entities:
+  #   - type: "custom:paper-buttons-row"
+  #     buttons:
+  #       - entity: light.wohnzimmer_decke
+  #         tap_action:
+  #           action: toggle
+  #         hold_action:
+  #           action: more-info
+  #       - entity: light.wohnzimmer_couch
+  #         name: Couch
+  #         tap_action:
+  #           action: toggle
+  #         hold_action:
+  #           action: more-info
+  #       - entity: light.wohnzimmer_wand
+  #         name: Wand
+  #         tap_action:
+  #           action: toggle
+  #         hold_action:
+  #           action: more-info
+  #   - type: section
+    type: custom:auto-entities
+    card:
+      type: entities
+      style:
+        .: |
+          :host {
+            box-shadow: none;
+          }
+    filter:
+      include:
+        - entity_id: "scene.wohnzimmer_*"
+    sort:
+      method: name
     # - entity: scene.wohnzimmer_fernsehen
     #   name: Fernsehen
     #   icon: mdi:lightbulb-group-outline

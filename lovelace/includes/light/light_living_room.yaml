@@ -10,14 +10,18 @@ entities:
       !include 
         - ../popups/light.yaml
         - light_entity: light.lights_living_room
-    extend_paper_buttons_row:
-      buttons:
-        - name: Szenen
-          icon: mdi:lightbulb-group-outline
-          tap_action: 
-            action: fire-dom-event
-            browser_mod:
-              !include ../popups/light_wohnzimmer.yaml
+    double_tap_action: 
+      action: fire-dom-event
+      browser_mod:
+        !include ../popups/light_wohnzimmer.yaml
+    # extend_paper_buttons_row:
+    #   buttons:
+    #     - name: Szenen
+    #       icon: mdi:lightbulb-group-outline
+    #       tap_action: 
+    #         action: fire-dom-event
+    #         browser_mod:
+    #           !include ../popups/light_wohnzimmer.yaml
   - type: custom:fold-entity-row
     head:
       type: section
