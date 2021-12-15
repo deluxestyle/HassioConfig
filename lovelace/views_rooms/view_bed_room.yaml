@@ -58,17 +58,13 @@ cards:
       - entity: switch.steckdose_1
         tap_action:
         action: toggle            
-  # - type: conditional
-  #   conditions:
-  #     - entity: switch.steckdose_1
-  #       state: "on"
-  #   card:
-  #     type: picture-entity
-  #     style: |
-  #       :host {
-  #         box-shadow: none
-  #       }
-  #     entity: camera.hikam_mainstream
-  #     camera_view: live
-  #     show_name: false
-  #     show_state: false
+  - type: conditional
+    conditions:
+      - entity: switch.steckdose_1
+        state: "on"
+    card:
+      type: picture-entity
+      entity: camera.hikam_mainstream
+      camera_view: live
+      show_name: false
+      show_state: false
