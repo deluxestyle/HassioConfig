@@ -53,34 +53,22 @@ cards:
         tap_action:
           action: toggle
   - !include ../includes/climate/climate_bed_room.yaml
-  - type: conditional
-    conditions:
+  - type: entities
+    entities:
       - entity: switch.steckdose_1
-        state: "on"
-    card:
-      type: 'custom:vertical-stack-in-card'
-      cards:
-        - type: picture-entity
-          style: |
-            :host {
-              box-shadow: none
-            }
-          entity: camera.hikam_mainstream
-          camera_view: live
-          show_name: false
-          show_state: false
-        - type: entities
-          entities:
-              - entity: switch.steckdose_1
-                tap_action:
-                  action: toggle
-  - type: conditional
-    conditions:
-      - entity: switch.steckdose_1
-        state: "off"
-    card:
-      type: entities
-      entities:
-        - entity: switch.steckdose_1
-          tap_action:
-            action: toggle
+        tap_action:
+        action: toggle            
+  # - type: conditional
+  #   conditions:
+  #     - entity: switch.steckdose_1
+  #       state: "on"
+  #   card:
+  #     type: picture-entity
+  #     style: |
+  #       :host {
+  #         box-shadow: none
+  #       }
+  #     entity: camera.hikam_mainstream
+  #     camera_view: live
+  #     show_name: false
+  #     show_state: false
