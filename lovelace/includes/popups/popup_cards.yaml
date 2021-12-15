@@ -8,6 +8,7 @@ x-anchors:
             --secondary-background-color: rgba(0,0,0,0);
             --ha-card-box-shadow: none;
             --ha-card-border-radius: var(--border-radius-popup);
+            box-shadow: none;
           }
 
 sensor.remote_state:
