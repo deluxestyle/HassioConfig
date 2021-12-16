@@ -120,3 +120,7 @@ cards:
         double_tap_action:
           action: navigate
           navigation_path: /config/automation/edit/1634642436148
+      - type: weblink
+        url: /config/automation/dashboard
+        name: Automatisierungen
+        icon: mdi:home-automation

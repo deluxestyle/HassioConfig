@@ -497,40 +497,6 @@
   action:
   - scene: scene.nachtlicht_hell
   mode: single
-- id: '1604680008982'
-  alias: 'Schreibtisch: Steckdose'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: device_tracker.hp_spectre
-    to: home
-  - platform: state
-    entity_id: device_tracker.hp_spectre
-    to: not_home
-    for: 00:05:00
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: device_tracker.hp_spectre
-        state: home
-      sequence:
-      - type: turn_on
-        device_id: cca9aaba4959ef500db7488b34736ac6
-        entity_id: switch.steckdose_1
-        domain: switch
-    - conditions:
-      - condition: state
-        entity_id: device_tracker.hp_spectre
-        state: not_home
-      sequence:
-      - type: turn_off
-        device_id: cca9aaba4959ef500db7488b34736ac6
-        entity_id: switch.steckdose_1
-        domain: switch
-    default: []
-  mode: single
 - id: '1604932069752'
   alias: 'Benachrichtigung: Wohnungstür offen'
   description: ''
@@ -1005,7 +971,6 @@
       hours: 0
       minutes: 0
       seconds: 0
-      milliseconds: 0
     to: not_home
   - platform: state
     entity_id: group.presence
@@ -1021,7 +986,6 @@
           hours: 0
           minutes: 0
           seconds: 0
-          milliseconds: 0
       sequence:
       - service: notify.mobile_app_iphone11pro
         data:
