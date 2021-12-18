@@ -182,8 +182,6 @@ cards:
           - coffee_plug
       - type: 'custom:button-card'
         entity: switch.on_off_plug_in_unit_11
-        name: Heizstrahler
-        icon: mdi:radiator
         template: 
           - icon_info_bg
           - outlet

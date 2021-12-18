@@ -113,16 +113,16 @@ views:
   #         - entity: switch.steckdose_1
   #           name: Kamera
   #           icon: mdi:cctv
-  - title: Karte
-    path: map
-    icon: mdi:map
-    panel: true
-    cards:
-      - type: map
-        default_zoom: 15
-        entities:
-          - entity: device_tracker.iphone11pro_2
-          - zone.home
-          - zone.agcs
-          - zone.christina
-          - zone.eltern
+  # - title: Karte
+  #   path: map
+  #   icon: mdi:map
+  #   panel: true
+  #   cards:
+  #     - type: map
+  #       default_zoom: 15
+  #       entities:
+  #         - entity: device_tracker.iphone11pro_2
+  #         - zone.home
+  #         - zone.agcs
+  #         - zone.christina
+  #         - zone.eltern

@@ -1075,3 +1075,30 @@
     target:
       entity_id: light.flur
   mode: restart
+- id: '1639749213579'
+  alias: 'Babykamera: Surveillance'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: switch.steckdose_1
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: device
+        type: is_on
+        device_id: cca9aaba4959ef500db7488b34736ac6
+        entity_id: switch.steckdose_1
+        domain: switch
+      sequence:
+      - service: shell_command.ds118_surveillance_start
+    - conditions:
+      - condition: device
+        type: is_off
+        device_id: cca9aaba4959ef500db7488b34736ac6
+        entity_id: switch.steckdose_1
+        domain: switch
+      sequence:
+      - service: shell_command.ds118_surveillance_stop
+    default: []
+  mode: single
