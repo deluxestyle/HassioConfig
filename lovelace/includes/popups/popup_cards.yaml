@@ -87,6 +87,7 @@ climate.heizung_bad:
           ha-card {
             --st-font-size-sensors: 14px;
             --st-font-size-xl: 30px;
+            box-shadow: none;
           }
           .sensor-heading, .mode-title {
             font-weight: 400;
