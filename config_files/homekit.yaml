@@ -29,12 +29,7 @@ filter:
     - switch.pi_hole_switch
     # - switch.ds118
     - climate.heizung_bad
-    - scene.schlafzimmer_wickeln
-    # - sensor.mi_smart_antibacterial_humidifier_humidity
-    # - sensor.mi_smart_antibacterial_humidifier_temperature
-    # - binary_sensor.mi_smart_antibacterial_humidifier_water_tank
-    # - binary_sensor.mi_smart_antibacterial_humidifier_water_tank_empty
-    # - humidifier.mi_smart_antibacterial_humidifier
+    - switch.wifi_steckdose #Weihnachtsbaum
 entity_config:
     media_player.schlafzimmer:
       feature_list:
