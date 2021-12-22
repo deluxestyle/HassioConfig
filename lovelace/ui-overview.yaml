@@ -207,3 +207,15 @@ cards:
         double_tap_action:
           action: navigate
           navigation_path: /lovelace-vacuum/vacuum
+#################################################################
+  - template: blank
+    type: 'custom:button-card'
+  - type: conditional
+    conditions:
+      - entity: input_boolean.batteriewarnung
+        state: "on"
+    card:
+      type: 'custom:button-card'
+      template: icon_info_alert
+      entity: input_boolean.batteriewarnung
+      show_last_changed: false

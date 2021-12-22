@@ -596,3 +596,74 @@
         - place-self: center
         - width: 42px
         - height: 42px
+
+  card_binary_sensor_alert:
+    template:
+      - icon_info_alert
+    name: "[[[ return entity.attributes.friendly_name != '' ? entity.attributes.friendly_name : entity.entity_id ]]]"
+    show_last_changed: false
+
+  icon_info_alert:
+    color: 'var(--google-grey)'
+    show_icon: true
+    show_label: false
+    show_name: true
+    state:
+      - operator: template
+        value: "[[[ if (entity.state == 'unavailable' || entity.state == 'on'){ return true; } ]]]"
+        styles:
+          icon:
+            - color: rgba(var(--color-blue),1)
+          label:
+            - color: rgba(var(--color-blue-text),1)
+          name:
+            - color: rgba(var(--color-blue-text),1)
+          img_cell:
+            - background-color: rgba(var(--color-blue), 0.2)
+          card:
+            # - background-color: "rgba(var(--color-background-blue), var(--opacity-bg))"
+          custom_fields:
+            notification:
+              - border-radius: 50%
+              - position: absolute
+              - left: 33px
+              - top: 8px
+              - height: 16px
+              - width: 16px
+              - border: 2px solid var(--card-background-color)
+              - font-size: 12px
+              - line-height: 14px
+              - background-color: >
+                  [[[
+                    return "rgba(var(--color-red),1)";
+                  ]]]
+    styles:
+      card:
+        - padding: var(--button-padding)
+        - border-radius: var(--border-radius)
+        - box-shadow: var(--box-shadow)
+      grid:
+        - grid-template-areas: '"i n"'
+        - grid-template-columns: min-content auto
+        - grid-template-rows: 1fr
+      name:
+        - font-size: 14px
+        - margin-left: 10px
+        - justify-self: start
+        - align-self: center
+      icon:
+        - color: 'rgba(var(--color-theme),1)'
+      img_cell:
+        # - background-color: 'rgba(var(--color-theme),0.2)'
+        - border-radius: 50%
+        - place-self: center
+        - width: 40px
+        - height: 40px
+    custom_fields:
+      notification: >
+        [[[
+          if (entity.state =="unavailable" || entity.state == "on"){
+            return `<ha-icon icon="mdi:exclamation" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`
+          }
+        ]]]
+    size: "24px"
