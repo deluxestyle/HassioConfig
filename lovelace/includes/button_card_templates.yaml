@@ -4,6 +4,32 @@
 #                                                                                                      #
 ########################################################################################################
 
+  standard_style:
+    styles:
+      card:
+        - padding: var(--button-padding)
+        - border-radius: var(--border-radius)
+        - box-shadow: var(--box-shadow)
+      grid:
+        - grid-template-areas: '"i n"'
+        - grid-template-columns: min-content auto
+        - grid-template-rows: 1fr
+      name:
+        - font-size: 14px
+        - margin-left: 10px
+        - justify-self: start
+        - align-self: center
+      icon:
+        - color: 'rgba(var(--color-theme),1)'
+      img_cell:
+        # - background-color: 'rgba(var(--color-theme),0.2)'
+        - border-radius: 50%
+        - place-self: center
+        - width: 40px
+        - height: 40px
+
+########################################################################################################
+
   icon_info_bg:
     # color: var(--google-grey)
     show_icon: true
@@ -47,7 +73,6 @@
       icon:
         - color: 'rgba(var(--color-theme),1)'
       img_cell:
-        # - background-color: 'rgba(var(--color-theme),0.2)'
         - border-radius: 50%
         - place-self: center
         - width: 40px
@@ -63,12 +88,8 @@
         - font-size: 12px
         - filter: opacity(40%)
         - margin-left: 10px
-      # state:
-      #   - justify-self: start
-      #   - align-self: start
-      #   - font-size: 12px
-      #   - filter: opacity(40%)
-      #   - margin-left: 10px
+
+#-------------------------------------------------
 
   icon_info_no_button:
     styles:
@@ -82,7 +103,6 @@
         - margin-left: 16px
     template: 
       - icon_info_bg
-
 
 ########################################################################################################
 #                                                                                                      #
@@ -128,6 +148,8 @@
     template: 
       - blue
 
+#-------------------------------------------------
+
   generic_with_state:
     label: >-
       [[[ 
@@ -153,22 +175,13 @@
     show_name: true
     show_label: false
     layout: icon_name
-    styles:
-      grid:
-        - grid-template-areas: '"i n"'
-        - grid-template-columns: min-content auto
-        - grid-template-rows: 1fr
-      name:
-        - font-size: 14px
-        - margin-left: 10px
-        - justify-self: start
-        - align-self: center
     tap_action:
       action: toggle
     hold_action:
       action: more-info
     template: 
       - yellow
+      - standard_style
 
 ########################################################################################################
 #                                                                                                      #
@@ -187,26 +200,18 @@
     template: 
       - outlet
 
+#-------------------------------------------------
+
   outlet:
     show_icon: true
     show_name: true
     show_label: false
     layout: icon_name
-    styles:
-      grid:
-        - grid-template-areas: '"i n"'
-        - grid-template-columns: min-content auto
-        - grid-template-rows: 1fr
-      name:
-        - font-size: 14px
-        - margin-left: 10px
-        - justify-self: start
-        - align-self: center
     tap_action:
       action: toggle 
     template: 
       - blue
-
+      - standard_style
 
 ####################################################
 #                                                  #
@@ -333,11 +338,11 @@
           icon:
             - color: 'rgba(var(--color-theme),1)'
 
-####################################################
-#                                                  #
-#                      COLORS                      #
-#                                                  #
-####################################################
+########################################################################################################
+#                                                                                                      #
+#                      COLORS                                                                          #
+#                                                                                                      #
+########################################################################################################
 
   yellow:
     state:
@@ -354,7 +359,7 @@
             - color: 'rgba(var(--color-yellow-text),1)'
         value: 'on'
 
-  ########################################################################################################
+#-------------------------------------------------
 
   blue:
     state:
@@ -363,8 +368,6 @@
             - color: 'rgba(var(--color-blue),1)'
           img_cell:
             - background-color: 'rgba(var(--color-blue), 0.2)'
-          card:
-            # - background-color: 'rgba(var(--color-background-blue), var(--opacity-bg))'
           name:
             - color: 'rgba(var(--color-blue-text),1)'
           label:
@@ -392,7 +395,8 @@
         - height: 5px
         - width: 5px
         - padding: 0
-        #ha-card.button-card-main
+
+#-------------------------------------------------
 
   blank_popup:
     tap_action:
@@ -409,7 +413,6 @@
         - height: 15px
         - width: 5px
         - padding: 0
-        #ha-card.button-card-main
 
 ########################################################################################################
 #                                                                                                      #
@@ -444,6 +447,8 @@
               [[[
                 return "rgba(var(--color-red),1)";
               ]]]
+
+#-------------------------------------------------
 
   vacuum:
     custom_fields:
@@ -504,28 +509,17 @@
       action: none
     hold_action:  
       action: none
+    template:
+      - standard_style
     styles:
-      card:
-        - padding: var(--button-padding)
-        - border-radius: var(--border-radius)
-        - box-shadow: var(--box-shadow)
-      icon:
-        - color: 'rgba(var(--color-theme),1)'
       img_cell:
-        # - background-color: 'rgba(var(--color-theme),0.2)'
-        - border-radius: 50%
-        - place-self: center
-        - width: 40px
-        - height: 40px
         - margin-left: 8px
       name:
         - font-size: 14px
         - margin-left: 12px
         - justify-self: start
-      grid:
-        - grid-template-areas: '"i n"'
-        - grid-template-columns: min-content auto
-        - grid-template-rows: 1fr
+
+#-------------------------------------------------
 
   button:
     show_icon: true
@@ -539,11 +533,8 @@
         - grid-template-columns: min-content auto
         - grid-template-rows: 1fr
       card:
-        - padding-left: 35px #var(--button-padding)
-      icon:
-        # - color: 'rgba(var(--color-theme),1)'
+        - padding-left: 35px 
       img_cell:
-        # - background-color: 'rgba(var(--color-theme),0.2)'
         - border-radius: 50%
         - place-self: center
         - width: 28px
@@ -557,13 +548,13 @@
       - styles:
           icon:
             - color: 'rgba(var(--color-yellow),1)'
-          # img_cell:
-          #   - background-color: 'rgba(var(--color-yellow), 0.2)'
           name:
             - color: 'rgba(var(--color-yellow-text),1)'
           label:
             - color: 'rgba(var(--color-yellow-text),1)'
         value: 'on'
+
+#-------------------------------------------------
 
   scene:
     size: 20px
@@ -597,17 +588,20 @@
         - width: 42px
         - height: 42px
 
-  card_binary_sensor_alert:
-    template:
-      - icon_info_alert
-    name: "[[[ return entity.attributes.friendly_name != '' ? entity.attributes.friendly_name : entity.entity_id ]]]"
-    show_last_changed: false
+#-------------------------------------------------
 
   icon_info_alert:
     color: 'var(--google-grey)'
     show_icon: true
     show_label: false
     show_name: true
+    tap_action:
+      action: toggle 
+      confirmation: |
+          [[[
+            return entity.state === "on"
+            ? {"text": 'Soll die Warnung ausgeschaltet werden?' } : null
+          ]]]
     state:
       - operator: template
         value: "[[[ if (entity.state == 'unavailable' || entity.state == 'on'){ return true; } ]]]"
@@ -617,11 +611,9 @@
           label:
             - color: rgba(var(--color-blue-text),1)
           name:
-            - color: rgba(var(--color-blue-text),1)
+            - color: rgba(var(--color-red),1)
           img_cell:
             - background-color: rgba(var(--color-blue), 0.2)
-          card:
-            # - background-color: "rgba(var(--color-background-blue), var(--opacity-bg))"
           custom_fields:
             notification:
               - border-radius: 50%
@@ -637,28 +629,6 @@
                   [[[
                     return "rgba(var(--color-red),1)";
                   ]]]
-    styles:
-      card:
-        - padding: var(--button-padding)
-        - border-radius: var(--border-radius)
-        - box-shadow: var(--box-shadow)
-      grid:
-        - grid-template-areas: '"i n"'
-        - grid-template-columns: min-content auto
-        - grid-template-rows: 1fr
-      name:
-        - font-size: 14px
-        - margin-left: 10px
-        - justify-self: start
-        - align-self: center
-      icon:
-        - color: 'rgba(var(--color-theme),1)'
-      img_cell:
-        # - background-color: 'rgba(var(--color-theme),0.2)'
-        - border-radius: 50%
-        - place-self: center
-        - width: 40px
-        - height: 40px
     custom_fields:
       notification: >
         [[[
@@ -667,3 +637,5 @@
           }
         ]]]
     size: "24px"
+    template: 
+      - standard_style
