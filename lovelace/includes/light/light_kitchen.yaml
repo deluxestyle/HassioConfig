@@ -6,9 +6,9 @@ entities:
     name: Küchenlicht
     tap_action:
       action: toggle
-    hold_action:
+    double_tap_action:
       !include 
-        - ../popups/light.yaml
+        - ../popups/light_more_info.yaml
         - light_entity: light.kuche_decke
   - entity: light.dunstabzug
     name: Dunstabzug

@@ -26,13 +26,13 @@ cards:
         template: 
           - icon_info_bg
           - light
-        double_tap_action: 
+        hold_action: 
           action: fire-dom-event
           browser_mod:
             !include includes/popups/light_wohnzimmer.yaml
-        hold_action:
+        double_tap_action:
           !include 
-            - includes/popups/light.yaml
+            - includes/popups/light_more_info.yaml
             - light_entity: light.lights_living_room
       - type: 'custom:button-card'
         entity: light.lights_kitchen
@@ -40,9 +40,9 @@ cards:
         template: 
           - icon_info_bg
           - light
-        hold_action:
+        double_tap_action:
           !include 
-            - includes/popups/light.yaml
+            - includes/popups/light_more_info.yaml
             - light_entity: light.lights_kitchen
       - type: 'custom:button-card'
         entity: light.schlafzimmer
@@ -50,13 +50,13 @@ cards:
         template: 
           - icon_info_bg
           - light
-        double_tap_action: 
+        hold_action: 
           action: fire-dom-event
           browser_mod:
             !include includes/popups/light_schlafzimmer.yaml
-        hold_action:
+        double_tap_action:
           !include 
-            - includes/popups/light.yaml
+            - includes/popups/light_more_info.yaml
             - light_entity: light.schlafzimmer
       - type: 'custom:button-card'
         entity: light.yeelight_bslamp1_0x0000000005451cd6
@@ -64,9 +64,9 @@ cards:
         template: 
           - icon_info_bg
           - light
-        hold_action:
+        double_tap_action:
           !include 
-            - includes/popups/light.yaml
+            - includes/popups/light_more_info.yaml
             - light_entity: light.yeelight_bslamp1_0x0000000005451cd6
       - type: 'custom:button-card'
         entity: light.flur
@@ -74,13 +74,13 @@ cards:
         template: 
           - icon_info_bg
           - light
-        double_tap_action: 
+        hold_action: 
           action: fire-dom-event
           browser_mod:
             !include includes/popups/light_floor.yaml
-        hold_action:
+        double_tap_action:
           !include 
-            - includes/popups/light.yaml
+            - includes/popups/light_more_info.yaml
             - light_entity: light.flur
       - type: 'custom:button-card'
         entity: light.gateway_light_7811dcb258d1
@@ -88,9 +88,9 @@ cards:
         template: 
           - icon_info_bg
           - light
-        hold_action:
+        double_tap_action:
           !include 
-            - includes/popups/light.yaml
+            - includes/popups/light_more_info.yaml
             - light_entity: light.gateway_light_7811dcb258d1
 #################################################################
   - template: blank

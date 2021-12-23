@@ -6,22 +6,18 @@ entities:
     name: Wohnzimmerlicht
     tap_action: 
       action: toggle
-    hold_action:
+    double_tap_action:
       !include 
-        - ../popups/light.yaml
+        - ../popups/light_more_info.yaml
         - light_entity: light.lights_living_room
-    double_tap_action: 
-      action: fire-dom-event
-      browser_mod:
-        !include ../popups/light_wohnzimmer.yaml
-    # extend_paper_buttons_row:
-    #   buttons:
-    #     - name: Szenen
-    #       icon: mdi:lightbulb-group-outline
-    #       tap_action: 
-    #         action: fire-dom-event
-    #         browser_mod:
-    #           !include ../popups/light_wohnzimmer.yaml
+    extend_paper_buttons_row:
+      buttons:
+        - name: Szenen
+          icon: mdi:lightbulb-group-outline
+          tap_action: 
+            action: fire-dom-event
+            browser_mod:
+              !include ../popups/light_wohnzimmer.yaml
   - type: custom:fold-entity-row
     head:
       type: section
@@ -31,23 +27,23 @@ entities:
       - entity: light.wohnzimmer_decke
         tap_action:
           action: toggle
-        hold_action:
+        double_tap_action:
           !include 
-            - ../popups/light.yaml
+            - ../popups/light_more_info.yaml
             - light_entity: light.wohnzimmer_decke
       - entity: light.wohnzimmer_couch
         name: Couch
         tap_action:
           action: toggle
-        hold_action:
+        double_tap_action:
           !include 
-            - ../popups/light.yaml
+            - ../popups/light_more_info.yaml
             - light_entity: light.wohnzimmer_couch
       - entity: light.wohnzimmer_wand
         name: Wand
         tap_action:
           action: toggle
-        hold_action:
+        double_tap_action:
           !include 
-            - ../popups/light.yaml
+            - ../popups/light_more_info.yaml
             - light_entity: light.wohnzimmer_wand

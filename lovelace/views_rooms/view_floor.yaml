@@ -14,9 +14,9 @@ cards:
         name: Flurlicht
         tap_action:
           action: toggle
-        hold_action:
+        double_tap_action:
           !include 
-            - ../includes/popups/light.yaml
+            - ../includes/popups/light_more_info.yaml
             - light_entity: light.flur
         extend_paper_buttons_row:
           buttons:
@@ -30,7 +30,7 @@ cards:
         name: Flur Nachtlicht
         tap_action:
           action: toggle
-        hold_action:
+        double_tap_action:
           !include 
-            - ../includes/popups/light.yaml
+            - ../includes/popups/light_more_info.yaml
             - light_entity: light.gateway_light_7811dcb258d1

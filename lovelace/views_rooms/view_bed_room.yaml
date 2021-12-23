@@ -18,29 +18,25 @@ cards:
         name: Schlafzimmerlicht
         tap_action: 
           action: toggle
-        hold_action:
+        double_tap_action:
           !include 
-            - ../includes/popups/light.yaml
+            - ../includes/popups/light_more_info.yaml
             - light_entity: light.schlafzimmer
-        double_tap_action: 
-          action: fire-dom-event
-          browser_mod:
-            !include ../includes/popups/light_schlafzimmer.yaml
-        # extend_paper_buttons_row:
-        #   buttons:
-        #     - name: Szenen
-        #       icon: mdi:lightbulb-group-outline
-        #       tap_action: 
-        #         action: fire-dom-event
-        #         browser_mod:
-        #           !include ../includes/popups/light_schlafzimmer.yaml
+        extend_paper_buttons_row:
+          buttons:
+            - name: Szenen
+              icon: mdi:lightbulb-group-outline
+              tap_action: 
+                action: fire-dom-event
+                browser_mod:
+                  !include ../includes/popups/light_schlafzimmer.yaml
       - entity: light.yeelight_bslamp1_0x0000000005451cd6
         name: Nachtlicht
         tap_action:
           action: toggle
-        hold_action:
+        double_tap_action:
           !include 
-            - ../includes/popups/light.yaml
+            - ../includes/popups/light_more_info.yaml
             - light_entity: light.yeelight_bslamp1_0x0000000005451cd6
   - !include
       - ../includes/multimedia/mini_media_player.yaml
