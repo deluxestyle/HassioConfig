@@ -267,23 +267,6 @@
       title: Xiaomi StaubRobo
     service: persistent_notification.create
   mode: single
-- id: '1542974689604'
-  alias: 'Abwesenheitsmodus: deaktivieren'
-  description: Deaktiviert den Bewegungssensor
-  trigger:
-  - entity_id: group.presence
-    platform: state
-    to: home
-  condition: []
-  action:
-  - data: {}
-    service: automation.turn_off
-    target:
-      entity_id:
-      - automation.benachrichtigung_bewegung_erkannt
-      - automation.bewegungsmelder_alarm
-      - automation.benachrichtigung_wohnungstur_offen
-  mode: single
 - id: '1543619209115'
   alias: 'Startup: Restart Services'
   trigger:
@@ -302,22 +285,6 @@
   - service: homekit.start
   - service: automation.reload
   mode: single
-- id: '1544816542688'
-  alias: 'Xiaomi Staubsauger: Error stop'
-  trigger:
-  - entity_id: sensor.xiaomi_vacuum_status
-    platform: state
-    to: Error
-  condition: []
-  action:
-  - data:
-      entity_id: automation.xiaomi_staubsauger_taglich_saugen
-    service: automation.turn_off
-  - data:
-      message: Automatisierungen deaktiviert
-      notification_id: xiaomi_sensor
-      title: Xiaomi StaubRobo
-    service: persistent_notification.create
 - id: '1548418632803'
   alias: 'Xiaomi Staubsauger: Zähler zurücksetzen'
   trigger:
@@ -905,28 +872,6 @@
   - service: switch.turn_off
     target:
       entity_id: switch.on_off_plug_in_unit_12
-  mode: single
-- id: '1633510940177'
-  alias: 'Abweseheitsmodus: Benachrichtigung '
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: group.presence
-    to: not_home
-    for:
-      hours: 0
-      minutes: 3
-      seconds: 0
-      milliseconds: 0
-  condition: []
-  action:
-  - service: notify.mobile_app_iphone11pro
-    data:
-      data:
-        actions:
-        - action: TURN_ON_ABSENCE
-          title: Abweseheitsmodus aktivieren
-      message: Niemand ist mehr zu Hause
   mode: single
 - id: '1634394580227'
   alias: 'DS118: Benachrichtigung shutdown'
