@@ -878,7 +878,7 @@
         - sensor.iphone11pro_battery_level
         - sensor.iphone11pro_battery_state
         - sensor.ipad_battery_level
-      time: '19:00:00'
+      time: '10:00:00'
       actions:
       - service: input_boolean.turn_on
         target:
@@ -891,7 +891,7 @@
       - service: input_boolean.turn_on
         target:
           entity_id: input_boolean.batteriewarnung
-      threshold: 10
+      threshold: 5
 - id: '1631286411270'
   alias: 'Kaffeemaschine: Ausschalten nach 20 Minuten'
   description: ''

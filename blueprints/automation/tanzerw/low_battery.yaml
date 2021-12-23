@@ -60,6 +60,9 @@ variables:
 trigger:
 - platform: time
   at: !input 'time'
+- platform: state
+  entity_id: input_boolean.batteriewarnung
+  to: 'off'
 condition:
 - '{{ sensors != '''' and (day | int == 0 or day | int == now().isoweekday()) }}'
 action:
