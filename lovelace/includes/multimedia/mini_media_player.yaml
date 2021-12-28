@@ -1,31 +1,52 @@
 # lovelace_gen
-type: custom:mini-media-player
-entity: {{ entity }}
-name: {{ name }}
-icon: 'mdi:speaker-wireless'
-volume_stateless: true
-group: false
-# artwork: material
-sound_mode: icon
-hide:
-  power: true
-  source: false
-  progress: false
-  shuffle: false
-source: icon
-info: scroll
-speaker_group:
-  platform: sonos
-  show_group_count: true
-  sync_volume: false
-  entities:
-    - entity_id: media_player.wohnzimmer
-      name: Sonos Wohnzimmer 
-    - entity_id: media_player.bad
-      name: Sonos Bad
-    - entity_id: media_player.schlafzimmer
-      name: Sonos Schlafzimmer
-idle_view:
-  when_idle: true
-  when_paused: true
-  when_standby: true
+type: 'custom:vertical-stack-in-card'
+cards:
+  - type: custom:mini-media-player
+    entity: {{ entity }}
+    name: {{ name }}
+    icon: 'mdi:speaker-wireless'
+    volume_stateless: true
+    group: false
+    # artwork: material
+    sound_mode: icon
+    hide:
+      power: true
+      source: false
+      progress: false
+      shuffle: false
+    source: icon
+    info: scroll
+    speaker_group:
+      platform: sonos
+      show_group_count: true
+      sync_volume: false
+      entities:
+        - entity_id: media_player.wohnzimmer
+          name: Sonos Wohnzimmer 
+        - entity_id: media_player.bad
+          name: Sonos Bad
+        - entity_id: media_player.schlafzimmer
+          name: Sonos Schlafzimmer
+    idle_view:
+      when_idle: true
+      when_paused: true
+      when_standby: true
+  - type: entities
+    entities:
+      - type: custom:fold-entity-row
+        padding: 5
+        head:
+          type: section
+          label: Details
+        entities:
+          {% if entity == 'media_player.bad' %}
+          - entity: number.bad_bass
+          - entity: number.bad_treble
+          {% elif entity == 'media_player.wohnzimmer'  %}
+          - entity: number.wohnzimmer_bass
+          - entity: number.wohnzimmer_treble
+          {% elif entity == 'media_player.schlafzimmer'  %}
+          - entity: number.schlafzimmer_bass
+          - entity:  number.schlafzimmer_treble
+          {% endif %}
+          - entity:  input_boolean.sync_volume

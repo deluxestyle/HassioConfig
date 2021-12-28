@@ -129,9 +129,6 @@ cards:
               !include
                 - includes/multimedia/mini_media_player.yaml
                 - entity: media_player.wohnzimmer
-        double_tap_action:
-          action: navigate
-          navigation_path: /lovelace/living_room
       - entity: media_player.schlafzimmer
         variables:
           name: Schlafzimmer
@@ -149,9 +146,6 @@ cards:
               !include
                 - includes/multimedia/mini_media_player.yaml
                 - entity: media_player.schlafzimmer
-        double_tap_action:
-          action: navigate
-          navigation_path: /lovelace/bed_room
       - entity: media_player.bad
         variables:
           name: Bad
@@ -169,9 +163,6 @@ cards:
               !include
                 - includes/multimedia/mini_media_player.yaml
                 - entity: media_player.bad
-        double_tap_action:
-          action: navigate
-          navigation_path: /lovelace/bath
 #################################################################
   - template: blank
     type: 'custom:button-card'
