@@ -1,5 +1,11 @@
 # lovelace_gen
 
+popup_cards:
+  media_player.wohnzimmer:
+    !include 
+      - ../includes/popups/media_player_volume.yaml
+      - entity: media_player.wohnzimmer
+
 title: Wohnzimmer
 path: living_room
 icon: mdi:sofa

@@ -1,5 +1,11 @@
 # lovelace_gen
 
+popup_cards:
+  media_player.bad:
+    !include 
+      - ../includes/popups/media_player_volume.yaml
+      - entity: media_player.bad
+
 title: Bad
 path: bath
 icon: mdi:bathtub

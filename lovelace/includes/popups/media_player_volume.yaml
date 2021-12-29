@@ -1,6 +1,6 @@
 # lovelace_gen
 
-title: Lautstärke
+title: EQ
 style:
   .: |
     :host {
@@ -11,4 +11,26 @@ style:
 card:
   type: entities
   entities:
-    - input_boolean.sync_volume
+    {% if entity == 'media_player.bad' %}
+    - entity: number.bad_bass
+      tap_action: 
+        action: none
+    - entity: number.bad_treble
+      tap_action: 
+        action: none
+    {% elif entity == 'media_player.wohnzimmer'  %}
+    - entity: number.wohnzimmer_bass
+      tap_action: 
+        action: none    
+    - entity: number.wohnzimmer_treble
+      tap_action: 
+        action: none
+    {% elif entity == 'media_player.schlafzimmer'  %}
+    - entity: number.schlafzimmer_bass
+      tap_action: 
+        action: none
+    - entity:  number.schlafzimmer_treble
+      tap_action: 
+        action: none
+    {% endif %}
+    - entity:  input_boolean.sync_volume
