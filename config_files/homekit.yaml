@@ -29,7 +29,6 @@ filter:
     - switch.pi_hole_switch
     # - switch.ds118
     - climate.heizung_bad
-    - switch.wifi_steckdose #Weihnachtsbaum
 entity_config:
     media_player.schlafzimmer:
       feature_list:

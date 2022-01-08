@@ -7,9 +7,7 @@ entities:
     tap_action: 
       action: toggle
     double_tap_action:
-      !include 
-        - ../popups/light_more_info.yaml
-        - light_entity: light.lights_living_room
+      action: more-info
     extend_paper_buttons_row:
       buttons:
         - name: Szenen
@@ -28,22 +26,16 @@ entities:
         tap_action:
           action: toggle
         double_tap_action:
-          !include 
-            - ../popups/light_more_info.yaml
-            - light_entity: light.wohnzimmer_decke
+          action: more-info
       - entity: light.wohnzimmer_couch
         name: Couch
         tap_action:
           action: toggle
         double_tap_action:
-          !include 
-            - ../popups/light_more_info.yaml
-            - light_entity: light.wohnzimmer_couch
+          action: more-info
       - entity: light.wohnzimmer_wand
         name: Wand
         tap_action:
           action: toggle
         double_tap_action:
-          !include 
-            - ../popups/light_more_info.yaml
-            - light_entity: light.wohnzimmer_wand
+          action: more-info

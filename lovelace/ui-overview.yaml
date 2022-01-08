@@ -31,9 +31,7 @@ cards:
           browser_mod:
             !include includes/popups/light_wohnzimmer.yaml
         double_tap_action:
-          !include 
-            - includes/popups/light_more_info.yaml
-            - light_entity: light.lights_living_room
+          action: more-info
       - type: 'custom:button-card'
         entity: light.lights_kitchen
         name: Küche
@@ -41,9 +39,7 @@ cards:
           - icon_info_bg
           - light
         double_tap_action:
-          !include 
-            - includes/popups/light_more_info.yaml
-            - light_entity: light.lights_kitchen
+          action: more-info
       - type: 'custom:button-card'
         entity: light.schlafzimmer
         name: Schlafzimmer
@@ -55,9 +51,7 @@ cards:
           browser_mod:
             !include includes/popups/light_schlafzimmer.yaml
         double_tap_action:
-          !include 
-            - includes/popups/light_more_info.yaml
-            - light_entity: light.schlafzimmer
+          action: more-info
       - type: 'custom:button-card'
         entity: light.yeelight_bslamp1_0x0000000005451cd6
         name: Nachtlicht
@@ -65,9 +59,7 @@ cards:
           - icon_info_bg
           - light
         double_tap_action:
-          !include 
-            - includes/popups/light_more_info.yaml
-            - light_entity: light.yeelight_bslamp1_0x0000000005451cd6
+          action: more-info
       - type: 'custom:button-card'
         entity: light.flur
         name: Flur
@@ -79,9 +71,7 @@ cards:
           browser_mod:
             !include includes/popups/light_floor.yaml
         double_tap_action:
-          !include 
-            - includes/popups/light_more_info.yaml
-            - light_entity: light.flur
+          action: more-info
       - type: 'custom:button-card'
         entity: light.gateway_light_7811dcb258d1
         name: Nachtlicht Flur
@@ -89,9 +79,7 @@ cards:
           - icon_info_bg
           - light
         double_tap_action:
-          !include 
-            - includes/popups/light_more_info.yaml
-            - light_entity: light.gateway_light_7811dcb258d1
+          action: more-info
 #################################################################
   - template: blank
     type: 'custom:button-card'
@@ -100,11 +88,6 @@ cards:
     square: false
     cards:
       - !include includes/multimedia/remote.yaml
-      - type: 'custom:button-card'
-        entity: switch.wifi_steckdose
-        template: 
-          - icon_info_bg
-          - light
 #################################################################
   - template: blank
     type: 'custom:button-card'

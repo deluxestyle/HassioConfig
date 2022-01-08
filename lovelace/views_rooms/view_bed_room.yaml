@@ -21,9 +21,7 @@ cards:
         tap_action: 
           action: toggle
         double_tap_action:
-          !include 
-            - ../includes/popups/light_more_info.yaml
-            - light_entity: light.schlafzimmer
+          action: more-info
         extend_paper_buttons_row:
           buttons:
             - name: Szenen
@@ -37,9 +35,7 @@ cards:
         tap_action:
           action: toggle
         double_tap_action:
-          !include 
-            - ../includes/popups/light_more_info.yaml
-            - light_entity: light.yeelight_bslamp1_0x0000000005451cd6
+          action: more-info
   - !include
       - ../includes/multimedia/mini_media_player.yaml
       - entity: media_player.schlafzimmer

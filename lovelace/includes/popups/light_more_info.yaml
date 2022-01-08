@@ -11,30 +11,34 @@ browser_mod:
         --ha-card-box-shadow: none;
         --ha-card-border-radius: var(--border-radius-popup);
       }
+
   card:
     type: custom:vertical-stack-in-card
     cards:
-      - template: blank_popup
-        type: 'custom:button-card'
-      - template: blank_popup
-        type: 'custom:button-card'
-      - type: custom:more-info-card
-        entity: {{ light_entity }}
-        card_mod:
-          style: |
-            .card-header {
-              display: none
-            }
+      # - template: blank_popup
+      #   type: 'custom:button-card'
+      # - template: blank_popup
+      #   type: 'custom:button-card'
+      # - type: custom:more-info-card
+      #   entity: {{ light_entity }}
+      #   card_mod:
+      #     style: |
+      #       .card-header {
+      #         display: none
+      #       }
+      #       .title {
+      #         margin-top: 20px
+      #       }
         # title: <title>
-        # type: 'custom:vertical-stack-in-card'
-        # cards:
-        #   - type: entities
-        #     entities:
-        #       - entity: {{ light_entity }}
-        #         secondary_info: last-changed
-        #   - type: custom:light-entity-card
-        #     entity: {{ light_entity }}
-        #     consolidate_entities: true
-        #     hide_header: true
-        #     persist_features: false
-        #     full_width_sliders: true
+      # type: 'custom:vertical-stack-in-card'
+      # cards:
+      - type: entities
+        entities:
+          - entity: {{ light_entity }}
+            secondary_info: last-changed
+      - type: custom:light-entity-card
+        entity: {{ light_entity }}
+        consolidate_entities: true
+        hide_header: true
+        persist_features: false
+        full_width_sliders: true

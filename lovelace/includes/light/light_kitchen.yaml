@@ -7,9 +7,7 @@ entities:
     tap_action:
       action: toggle
     double_tap_action:
-      !include 
-        - ../popups/light_more_info.yaml
-        - light_entity: light.kuche_decke
+      action: more-info
   - entity: light.dunstabzug
     name: Dunstabzug
     tap_action:
