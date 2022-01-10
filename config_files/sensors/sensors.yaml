@@ -37,7 +37,7 @@
 - platform: command_line
   name: Pihole
   scan_interval: 10
-  command: curl -X GET 'http://192.168.200.33:88/admin/api.php?status'
+  command: curl -X GET 'http://192.168.200.33:88/admin/api.php'
   value_template: >
     {{ value_json.status }}
 
