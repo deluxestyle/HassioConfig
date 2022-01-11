@@ -707,9 +707,9 @@
     input:
       motion_sensor: binary_sensor.tradfri_bewegungsmelder
       target_entity: light.flur
-      time_limit_after: 08:00:00
-      time_limit_before: '18:00:00'
-      no_motion_wait: 181
+      time_limit_after: 08:30:00
+      time_limit_before: '17:30:00'
+      no_motion_wait: 180
       illuminance_cutoff: 700
 - id: '1629983354095'
   alias: 'Licht: Bewegung Küche'

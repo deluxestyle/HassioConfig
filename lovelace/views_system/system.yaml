@@ -114,7 +114,7 @@ cards:
         style: |
             :host {
               color: 
-              {% if (states('sensor.processor_use')  | int) > 30 %}
+              {% if (states('sensor.processor_use')  | int(0)) > 30 %}
                 red
               {% endif %}
               ;
@@ -132,7 +132,7 @@ cards:
         style: |
             :host {
               color: 
-              {% if (states('sensor.cpu_temperature')  | int) > 65 %}
+              {% if (states('sensor.cpu_temperature')  | int(0)) > 65 %}
                 red
               {% endif %}
               ;
