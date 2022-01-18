@@ -75,3 +75,10 @@
   - laptoperlau
   - hp-spectre
   value_template: "OK"
+
+# - platform: mvglive
+#   nextdeparture:
+#     - station: St.-Martins-Platz
+#       number: 5
+#     - station: Untersbergstraße
+#       number: 5
