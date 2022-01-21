@@ -170,6 +170,9 @@
     event_type: mobile_app_notification_action
     event_data:
       action: STOP_VACUUM
+  - platform: state
+    entity_id: person.christina
+    to: home
   condition: []
   action:
   - data:
