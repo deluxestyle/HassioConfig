@@ -1,7 +1,7 @@
-xiaomo_errors:
-    initial: 0
-    step: 1
+# xiaomo_errors:
+#     initial: 0
+#     step: 1
 
-badge_counter:
-    initial: 0
-    step: 1
+# badge_counter:
+#     initial: 0
+#     step: 1

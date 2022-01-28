@@ -61,11 +61,6 @@ views:
                 icon: mdi:restart
                 tap_action: 
                   action: toggle
-              - entity: automation.xiaomi_staubsauger_error_stop
-                name: Deaktivieren (b. Fehler)
-                icon: mdi:restart-off
-                tap_action: 
-                  action: toggle
               - counter.xiaomo_errors
               - entity: script.xiaomi_vacuum_sensor_cleaned
                 name: Sensor gereinigt

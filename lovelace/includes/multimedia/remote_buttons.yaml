@@ -2,8 +2,8 @@ type: custom:vertical-stack-in-card
 cards:
   - template: blank_popup
     type: 'custom:button-card'
-  - template: blank_popup
-    type: 'custom:button-card'
+  # - template: blank_popup
+  #   type: 'custom:button-card'
   - type: grid
     columns: 2
     square: false
@@ -39,7 +39,6 @@ cards:
         entities:
           - entity: media_player.harman_kardon_avr
             icon: mdi:volume-minus
-            show_name: false
             tap_action:
               action: call-service
               service: media_player.volume_down
@@ -47,7 +46,6 @@ cards:
                 entity_id: media_player.harman_kardon_avr
           - entity: media_player.harman_kardon_avr
             icon: mdi:volume-plus
-            show_name: false
             tap_action:
               action: call-service
               service: media_player.volume_up
@@ -55,16 +53,18 @@ cards:
                 entity_id: media_player.harman_kardon_avr
           - entity: media_player.harman_kardon_avr
             icon: mdi:volume-off
-            show_name: false
             tap_action:
               action: call-service
               service: script.toggle
               service_data:
                 entity_id: script.harmony_avr_mute  
           - entity: script.harmony_surround_mode
-            show_name: false
             tap_action:
               action: toggle
+          # - entity: script.harmony_power_off
+          #   show_name: false
+          #   tap_action:
+          #     action: toggle
       - type: custom:fold-entity-row
         head:
           type: section
@@ -81,7 +81,8 @@ cards:
             tap_action:
               action: toggle
           - entity: input_select.avr_source
-          - entity: switch.steckdosenleiste
-            name: Steckdosenleiste
-            tap_action:
-              action: toggle
+      - type: section
+      - entity: switch.steckdosenleiste
+        name: Steckdosenleiste
+        tap_action:
+          action: toggle
