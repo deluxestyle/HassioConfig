@@ -42,3 +42,6 @@
   type: module
 - url: /local/mvg-card.js
   type: js
+- url: /hacsfiles/history-explorer-card/history-explorer-card.js
+  type: module
+                

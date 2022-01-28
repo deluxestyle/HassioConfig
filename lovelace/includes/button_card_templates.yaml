@@ -463,7 +463,7 @@
         notification:
           - border-radius: 50%
           - position: absolute
-          - left: 38px
+          - left: 33px
           - top: 8px
           - height: 16px
           - width: 16px

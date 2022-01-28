@@ -164,7 +164,7 @@
     service: media_player.volume_down
   mode: single
 - id: '1533984172028'
-  alias: 'Xiaomi Staubsauger: Stoppen nach Push'
+  alias: 'Xiaomi Staubsauger: Stoppen '
   trigger:
   - platform: event
     event_type: mobile_app_notification_action
