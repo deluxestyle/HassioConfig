@@ -44,4 +44,7 @@
   type: js
 - url: /hacsfiles/history-explorer-card/history-explorer-card.js
   type: module
-                
+- url: /hacsfiles/my-cards/my-cards.js
+  type: module
+- url: /hacsfiles/light-entity-row/light-entity-row.js
+  type: module

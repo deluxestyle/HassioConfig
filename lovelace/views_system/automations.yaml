@@ -29,7 +29,6 @@ cards:
       - media_player.wohnzimmer
       - person.christina
       - person.wolfgang
-      - scene.arbeit
       - scene.nachtlicht_hell
       - scene.schlafzimmer_gedimmt
       - scene.schlafzimmer_hell
