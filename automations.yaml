@@ -307,6 +307,10 @@
     event_type: mobile_app_notification_action
     event_data:
       action: START_VACUUM
+  - platform: event
+    event_type: ios.action_fired
+    event_data:
+      actionName: start_vacuum
   condition: []
   action:
   - data:
@@ -498,35 +502,6 @@
       title: Bewegungsmelder
     service: script.notify_script
   mode: restart
-- id: '1605645794887'
-  alias: 'iOS: Schlafenszeit'
-  description: ''
-  trigger:
-  - platform: event
-    event_type: ios.action_fired
-    event_data:
-      actionName: gotobed
-  condition: []
-  action:
-  - service: script.schlafen
-    data: {}
-  mode: single
-- id: '1605647273709'
-  alias: 'iOS: Aufwachen'
-  description: ''
-  trigger:
-  - platform: event
-    event_type: ios.action_fired
-    event_data:
-      actionName: wakeup
-  condition: []
-  action:
-  - service: light.turn_on
-    data: {}
-    entity_id: light.yeelight_bslamp1_0x0000000005451cd6
-  - service: script.sonos_wecker
-    data: {}
-  mode: single
 - id: '1584265149080'
   alias: 'Benachrichtigung: CPU Auslastung zu hoch'
   description: ''
@@ -559,19 +534,6 @@
     device_id: bb881aa6bf2611acde09720184bbf7af
     entity_id: switch.steckdosenleiste
     domain: switch
-  mode: single
-- id: '1610484235278'
-  alias: 'iOS: Schlafen'
-  description: ''
-  trigger:
-  - platform: event
-    event_type: ios.action_fired
-    event_data:
-      actionName: sleep
-  condition: []
-  action:
-  - service: script.alles_ausschalten
-    data: {}
   mode: single
 - id: '1610907140746'
   alias: 'Harmony: Airplay - Telekom'

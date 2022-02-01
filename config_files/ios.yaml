@@ -1,24 +1,3 @@
-# push:
-#   categories:
-#     - name: Vacuum
-#       identifier: 'vacuum_trigger'
-#       actions:
-#         - identifier: 'TRIGGER_VACUUM'
-#           title: 'Staubsauger einschalten'
-#           activationMode: 'foreground'
-#           authenticationRequired: yes
-#           destructive: no
-#           behavior: 'default'
-#     - name: Vacuum
-#       identifier: 'vacuum_stop'
-#       actions:
-#         - identifier: 'STOP_VACUUM'
-#           title: 'Staubsauger ausschalten'
-#           activationMode: 'background'
-#           authenticationRequired: yes
-#           destructive: no
-#           behavior: 'default'
-
 actions:
   - name: absence
     background_color: "#03a8f4"
@@ -28,6 +7,14 @@ actions:
     icon:
       icon: account-off
       color:  "#ffffff"
+  - name: start_vacuum
+    background_color: "#03a8f4"
+    label:
+      text: "Staubsauger"
+      color:  "#ffffff"
+    icon:
+      icon: robot-vacuum
+      color:  "#ffffff"
   - name: phonecall
     background_color: "#03a8f4"
     label:
@@ -35,26 +22,4 @@ actions:
       color:  "#ffffff"
     icon:
       icon: phone-ring
-      color:  "#ffffff"
-  - name: gotobed
-    background_color: "#03a8f4"
-    label:
-      text: "Schlafenszeit"
-      color:  "#ffffff"
-    icon:
-      icon: bed
-  - name: sleep
-    background_color: "#03a8f4"
-    label:
-      text: "Schlafen"
-      color:  "#ffffff"
-    icon:
-      icon: sleep
-  - name: wakeup
-    background_color: "#03a8f4"
-    label:
-      text: "Aufwachen"
-      color:  "#ffffff"
-    icon:
-      icon: weather-sunny
       color:  "#ffffff"
