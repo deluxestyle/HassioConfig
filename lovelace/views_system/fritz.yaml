@@ -143,3 +143,18 @@ cards:
             type: section
             label: Netzwerkgeräte
           padding: 5
+      - type: custom:auto-entities
+        filter:
+          include:
+            - entity_id: "button.fritz_*"
+              options:
+                tap_action:
+                  action: toggle
+        sort:
+          method: name
+        card:
+          type: custom:fold-entity-row
+          head:
+            type: section
+            label: Sonstiges
+          padding: 5

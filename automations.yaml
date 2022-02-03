@@ -285,8 +285,8 @@
       addon: 15d21743_samba_backup
       input: restore-sensor
   - delay: 00:01:30
-  - service: homekit.start
   - service: automation.reload
+    data: {}
   mode: single
 - id: '1548418632803'
   alias: 'Xiaomi Staubsauger: Zähler zurücksetzen'
