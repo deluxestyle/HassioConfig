@@ -40,32 +40,6 @@
       supported_features: 63
       icon: mdi:lamp
       state: 'on'
-- id: '1604996477257'
-  name: Arbeit
-  entities:
-    light.lights_living_room:
-      min_mireds: 153
-      max_mireds: 500
-      effect_list:
-      - colorloop
-      supported_color_modes:
-      - color_temp
-      - hs
-      color_mode: color_temp
-      brightness: 254
-      color_temp: 230
-      entity_id:
-      - light.wohnzimmer_couch
-      - light.wohnzimmer_decke
-      - light.wohnzimmer_wand
-      friendly_name: Wohnzimmerlicht
-      icon: mdi:ceiling-light
-      supported_features: 44
-      state: 'on'
-    switch.steckdose_1:
-      friendly_name: Steckdose 1
-      state: 'on'
-  icon: mdi:laptop
 - id: '1637249025488'
   name: Wohnzimmer Licht
   entities:
