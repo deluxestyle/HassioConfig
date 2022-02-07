@@ -13,6 +13,7 @@ api:
 zeroconf:
 updater:
 stream:
+diagnostics:
 
 http:
   use_x_forwarded_for: true
