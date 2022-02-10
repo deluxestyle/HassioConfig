@@ -1019,3 +1019,16 @@
       - service: shell_command.ds118_surveillance_stop
     default: []
   mode: single
+- id: '1644489340800'
+  alias: 'Sonos: unjoin'
+  description: ''
+  trigger:
+  - platform: time
+    at: 01:00
+  condition: []
+  action:
+  - service: sonos.unjoin
+    data: {}
+    target:
+      entity_id: media_player.schlafzimmer
+  mode: single

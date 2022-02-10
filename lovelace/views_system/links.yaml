@@ -1,0 +1,52 @@
+# lovelace_gen
+
+title: Links
+path: links
+icon: mdi:link-variant
+type: custom:masonry-layout
+visible:
+  - user: b6464705fc4e405abce8058610b4bcc7
+layout:
+  max_cols: 2
+  width: 330
+cards:
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - type: entities
+        entities:
+          - type: weblink
+            url: http://192.168.200.33:88/admin/index.php
+            name: Pi-hole
+            icon: mdi:pi-hole
+            new_tab: true
+          - type: weblink
+            url: https://fritz.box/
+            name: Frizt.Box
+            icon: mdi:router-wireless
+            new_tab: true
+      - type: entities
+        entities:
+          - type: weblink
+            url: http://192.168.200.33:9000/#/home
+            name: Portainer
+            icon: mdi:docker
+            new_tab: true
+          - type: weblink
+            url: http://192.168.200.33:8080/pwa/index.html
+            name: Phoscon
+            icon: mdi:zigbee
+            new_tab: true
+      - type: entities
+        entities:
+          - type: weblink
+            url: https://192.168.200.41:5001/
+            name: DS118
+            icon: mdi:nas
+            new_tab: true
+          - type: weblink
+            url: https://192.168.200.41:8384/
+            name: Syncthing
+            icon: mdi:cloud-sync-outline
+            new_tab: true
