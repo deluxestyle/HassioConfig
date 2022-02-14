@@ -25,7 +25,7 @@ speaker_group:
       name: Sonos Bad
     - entity_id: media_player.schlafzimmer
       name: Sonos Schlafzimmer
-idle_view:
-  when_idle: true
-  when_paused: true
-  when_standby: true
+# idle_view:
+#   when_idle: true
+#   when_paused: true
+#   when_standby: true

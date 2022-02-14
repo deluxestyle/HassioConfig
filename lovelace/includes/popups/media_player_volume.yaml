@@ -1,6 +1,6 @@
 # lovelace_gen
 
-title: EQ
+title: Sonos
 style:
   .: |
     :host {
@@ -9,28 +9,37 @@ style:
       --ha-card-border-radius: var(--border-radius-popup);
     }
 card:
-  type: entities
-  entities:
-    {% if entity == 'media_player.bad' %}
-    - entity: number.bad_bass
-      tap_action: 
-        action: none
-    - entity: number.bad_treble
-      tap_action: 
-        action: none
-    {% elif entity == 'media_player.wohnzimmer'  %}
-    - entity: number.wohnzimmer_bass
-      tap_action: 
-        action: none    
-    - entity: number.wohnzimmer_treble
-      tap_action: 
-        action: none
-    {% elif entity == 'media_player.schlafzimmer'  %}
-    - entity: number.schlafzimmer_bass
-      tap_action: 
-        action: none
-    - entity:  number.schlafzimmer_treble
-      tap_action: 
-        action: none
-    {% endif %}
-    - entity:  input_boolean.sync_volume
+  type: custom:vertical-stack-in-card
+  cards:
+    - type: custom:more-info-card
+      entity: {{ entity }}
+      card_mod:
+        style: |
+          .card-header {
+            display: none
+          }
+    - type: entities
+      entities:
+        {% if entity == 'media_player.bad' %}
+        - entity: number.bad_bass
+          tap_action: 
+            action: none
+        - entity: number.bad_treble
+          tap_action: 
+            action: none
+        {% elif entity == 'media_player.wohnzimmer'  %}
+        - entity: number.wohnzimmer_bass
+          tap_action: 
+            action: none    
+        - entity: number.wohnzimmer_treble
+          tap_action: 
+            action: none
+        {% elif entity == 'media_player.schlafzimmer'  %}
+        - entity: number.schlafzimmer_bass
+          tap_action: 
+            action: none
+        - entity:  number.schlafzimmer_treble
+          tap_action: 
+            action: none
+        {% endif %}
+        - entity:  input_boolean.sync_volume

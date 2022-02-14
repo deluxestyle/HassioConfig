@@ -261,7 +261,16 @@
   - below: '2'
     platform: numeric_state
     entity_id: sensor.xiaomi_vacuum_sensor_dirty_left
-  condition: []
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+  condition:
+  - condition: device
+    device_id: d395d1f0c190ee5b6e5c1bb4424f0515
+    domain: vacuum
+    entity_id: vacuum.roborock_vacuum
+    type: is_docked
   action:
   - data:
       message: 'Sensor reinigen: {{ states.sensor.xiaomi_vacuum_sensor_dirty_left.state
@@ -337,7 +346,16 @@
   - below: '3'
     platform: numeric_state
     entity_id: sensor.xiaomi_vacuum_main_brush_left
-  condition: []
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+  condition:
+  - condition: device
+    device_id: d395d1f0c190ee5b6e5c1bb4424f0515
+    domain: vacuum
+    entity_id: vacuum.roborock_vacuum
+    type: is_docked
   action:
   - data:
       message: 'Hauptbürste reinigen: {{ states.sensor.xiaomi_vacuum_main_brush_left.state
@@ -369,7 +387,16 @@
   - below: '2'
     platform: numeric_state
     entity_id: sensor.xiaomi_vacuum_filter_left
-  condition: []
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+  condition:
+  - condition: device
+    device_id: d395d1f0c190ee5b6e5c1bb4424f0515
+    domain: vacuum
+    entity_id: vacuum.roborock_vacuum
+    type: is_docked
   action:
   - data:
       entity_id: input_boolean.persistent_notification
