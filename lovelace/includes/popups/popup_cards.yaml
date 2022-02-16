@@ -23,6 +23,21 @@ remote.harmony_hub:
   card:
     !include ../multimedia/remote_buttons.yaml
 
+media_player.wohnzimmer:
+  !include 
+    - ../popups/media_player_popup.yaml
+    - entity: media_player.wohnzimmer
+
+media_player.schlafzimmer:
+  !include 
+    - ../popups/media_player_popup.yaml
+    - entity: media_player.schlafzimmer
+
+media_player.bad:
+  !include 
+    - ../popups/media_player_popup.yaml
+    - entity: media_player.bad
+
 automation.batterie_niedriger_batteriestand:
   title: Batteriestatus
   <<: *style

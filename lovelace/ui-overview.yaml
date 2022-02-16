@@ -115,16 +115,6 @@ cards:
           - icon_info_bg
           - media
         type: 'custom:button-card'
-        tap_action: 
-          action: fire-dom-event
-          browser_mod:
-            command: popup
-            title: Sonos Wohnzimmer
-            <<: *style
-            card:
-              !include
-                - includes/multimedia/mini_media_player.yaml
-                - entity: media_player.wohnzimmer
       - entity: media_player.schlafzimmer
         variables:
           name: Schlafzimmer
@@ -132,16 +122,6 @@ cards:
           - icon_info_bg
           - media
         type: 'custom:button-card'
-        tap_action: 
-          action: fire-dom-event
-          browser_mod:
-            command: popup
-            title: Sonos Schlafzimmer
-            <<: *style
-            card:
-              !include
-                - includes/multimedia/mini_media_player.yaml
-                - entity: media_player.schlafzimmer
       - entity: media_player.bad
         variables:
           name: Bad
@@ -149,16 +129,6 @@ cards:
           - icon_info_bg
           - media
         type: 'custom:button-card'
-        tap_action: 
-          action: fire-dom-event
-          browser_mod:
-            command: popup
-            title: Sonos Bad
-            <<: *style
-            card:
-              !include
-                - includes/multimedia/mini_media_player.yaml
-                - entity: media_player.bad
 #################################################################
   - template: blank
     type: 'custom:button-card'

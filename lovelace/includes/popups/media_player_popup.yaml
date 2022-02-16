@@ -11,13 +11,9 @@ style:
 card:
   type: custom:vertical-stack-in-card
   cards:
-    - type: custom:more-info-card
-      entity: {{ entity }}
-      card_mod:
-        style: |
-          .card-header {
-            display: none
-          }
+    - !include
+        - ../multimedia/mini_media_player.yaml
+        - entity: {{ entity }}
     - type: entities
       entities:
         {% if entity == 'media_player.bad' %}
@@ -27,6 +23,9 @@ card:
         - entity: number.bad_treble
           tap_action: 
             action: none
+        - entity: switch.sonos_bad_touch_controls
+          tap_action:
+            action: toggle
         {% elif entity == 'media_player.wohnzimmer'  %}
         - entity: number.wohnzimmer_bass
           tap_action: 
@@ -34,6 +33,9 @@ card:
         - entity: number.wohnzimmer_treble
           tap_action: 
             action: none
+        - entity: switch.sonos_wohnzimmer_touch_controls
+          tap_action:
+            action: toggle
         {% elif entity == 'media_player.schlafzimmer'  %}
         - entity: number.schlafzimmer_bass
           tap_action: 
@@ -41,5 +43,8 @@ card:
         - entity:  number.schlafzimmer_treble
           tap_action: 
             action: none
+        - entity: switch.sonos_schlafzimmer_touch_controls
+          tap_action:
+            action: toggle
         {% endif %}
         - entity:  input_boolean.sync_volume

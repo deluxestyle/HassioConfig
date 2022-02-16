@@ -1,11 +1,5 @@
 # lovelace_gen
 
-popup_cards:
-  media_player.schlafzimmer:
-    !include 
-      - ../includes/popups/media_player_volume.yaml
-      - entity: media_player.schlafzimmer
-
 title: Schlafzimmer
 path: bed_room
 icon: mdi:bed

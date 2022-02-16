@@ -1,11 +1,5 @@
 # lovelace_gen
 
-popup_cards:
-  media_player.bad:
-    !include 
-      - ../includes/popups/media_player_volume.yaml
-      - entity: media_player.bad
-
 title: Bad
 path: bath
 icon: mdi:bathtub
@@ -17,12 +11,6 @@ cards:
   - !include
       - ../includes/multimedia/mini_media_player.yaml
       - entity: media_player.bad
-  # - type: custom:mini-climate
-  #   entity: climate.heizung_bad
-  #   secondary_info: last-changed
-  #   fan_mode: 
-  #     hide: true
-
   - type: entities
     entities:
       - entity: climate.heizung_bad
