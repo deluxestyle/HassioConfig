@@ -5,14 +5,15 @@ name: {{ name }}
 icon: 'mdi:speaker-wireless'
 volume_stateless: true
 group: false
-# artwork: material
+artwork: material
 sound_mode: icon
 hide:
   power: true
-  source: false
+  source: true
   progress: false
   shuffle: false
-source: icon
+  repeat: false
+source: full
 info: scroll
 speaker_group:
   platform: sonos
@@ -25,7 +26,7 @@ speaker_group:
       name: Sonos Bad
     - entity_id: media_player.schlafzimmer
       name: Sonos Schlafzimmer
-# idle_view:
-#   when_idle: true
-#   when_paused: true
-#   when_standby: true
+idle_view:
+  when_idle: true
+  when_paused: true
+  when_standby: true

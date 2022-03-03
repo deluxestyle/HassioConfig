@@ -78,7 +78,7 @@ cards:
                           action: none
   - type: entities
     entities:
-      - entity: switch.fritz_box_7590_wi_fi_google_messwagen_26
+      - entity: switch.fritz_box_7590_wi_fi_google_messwagen_26_2_4ghz
         name: 'Wi-Fi FRITZ!Box 2.4Ghz'
         tap_action: 
           action: toggle 

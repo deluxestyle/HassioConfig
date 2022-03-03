@@ -11,9 +11,19 @@ style:
 card:
   type: custom:vertical-stack-in-card
   cards:
-    - !include
-        - ../multimedia/mini_media_player.yaml
-        - entity: {{ entity }}
+    # - !include
+    #     - ../multimedia/mini_media_player.yaml
+    #     - entity: {{ entity }}
+    - type: custom:more-info-card
+      entity: {{ entity }}
+      card_mod:
+        style: |
+          .card-header {
+            display: none
+          }
+          .card-content {
+            margin-top: 20px
+          }
     - type: entities
       entities:
         {% if entity == 'media_player.bad' %}
