@@ -2,12 +2,10 @@
 
 x-anchors:
   style: &style
-      style:
-        .: |
-          :host {
-            --secondary-background-color: rgba(0,0,0,0);
+    card_mod:
+      style: |
+        ha-card {
             --ha-card-box-shadow: none;
-            --ha-card-border-radius: var(--border-radius-popup);
           }
 
 title: FritzBox
@@ -61,11 +59,11 @@ cards:
           browser_mod:
             command: popup
             title: Pi-hole Stats
-            <<: *style
             card:
               type: custom:auto-entities
               card:
-                type: entities 
+                type: entities
+                <<: *style 
               filter:
                   include:
                     - entity_id: input_datetime.pi_hole_timer

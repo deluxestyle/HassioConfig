@@ -1,12 +1,3 @@
-x-anchors:
-  style: &style
-      style:
-        .: |
-          :host {
-            --secondary-background-color: rgba(0,0,0,0);
-            --ha-card-box-shadow: none;
-            --ha-card-border-radius: var(--border-radius-popup);
-          }
 
 title: System
 path: system
@@ -169,16 +160,3 @@ cards:
           action: toggle
           confirmation:
             text: NAS ein-/ausschalten?
-        double_tap_action:
-          action: fire-dom-event
-          browser_mod:
-            command: popup
-            title: Synology Stats
-            <<: *style
-            card:
-              type: custom:auto-entities
-              card:
-                type: entities 
-              filter:
-                  include:
-                    - entity_id: "sensor.ds118_*"

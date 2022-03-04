@@ -9,7 +9,7 @@ artwork: material
 sound_mode: icon
 hide:
   power: true
-  source: true
+  source: false
   progress: false
   shuffle: false
   repeat: false

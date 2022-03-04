@@ -2,27 +2,19 @@
 
 x-anchors:
   style: &style
-      style:
-        .: |
-          :host {
-            --secondary-background-color: rgba(0,0,0,0);
+    card_mod:
+      style: |
+        ha-card {
             --ha-card-box-shadow: none;
-            --ha-card-border-radius: var(--border-radius-popup);
-            box-shadow: none;
-          }
-          .app-toolbar{
-            --secondary-background-color: rgba(0,0,0,0);
           }
 
 sensor.remote_state:
   title: Fernbedienung
-  <<: *style
   card:
     !include ../multimedia/remote_buttons.yaml
 
 remote.harmony_hub:
   title: Fernbedienung
-  <<: *style
   card:
     !include ../multimedia/remote_buttons.yaml
 
@@ -48,6 +40,7 @@ automation.batterie_niedriger_batteriestand:
     type: custom:auto-entities
     card:
       type: entities 
+      <<: *style
     filter:
       include:
         - entity_id: "sensor.*_battery*"
@@ -62,9 +55,9 @@ automation.batterie_niedriger_batteriestand:
         
 sensor.samba_backup:
   title: Status
-  <<: *style
   card:
     type: entities
+    <<: *style
     entities:
       - attribute: backups_local
         entity: sensor.samba_backup
@@ -94,9 +87,9 @@ sensor.samba_backup:
 
 climate.heizung_bad:
   title: Heizung
-  <<: *style
   card:
     type: entities
+    <<: *style
     entities: 
       - type: custom:simple-thermostat
         entity: climate.heizung_bad

@@ -2,70 +2,17 @@
 
 command: popup
 title: Lampen
-style:
-  .: |
-    :host {
-      --secondary-background-color: rgba(0,0,0,0);
-      --ha-card-box-shadow: none;
-      --ha-card-border-radius: var(--border-radius-popup);
-    }
 card:
-  # type: entities
-  # entities:
-  #   - type: "custom:paper-buttons-row"
-  #     buttons:
-  #       - entity: light.wohnzimmer_decke
-  #         tap_action:
-  #           action: toggle
-  #         hold_action:
-  #           action: more-info
-  #       - entity: light.wohnzimmer_couch
-  #         name: Couch
-  #         tap_action:
-  #           action: toggle
-  #         hold_action:
-  #           action: more-info
-  #       - entity: light.wohnzimmer_wand
-  #         name: Wand
-  #         tap_action:
-  #           action: toggle
-  #         hold_action:
-  #           action: more-info
-  #   - type: section
     type: custom:auto-entities
     card:
       type: entities
-      style:
-        .: |
-          :host {
-            box-shadow: none;
-          }
+      card_mod:
+        style: |
+          ha-card {
+              --ha-card-box-shadow: none;
+            }
     filter:
       include:
         - entity_id: "scene.wohnzimmer_*"
     sort:
       method: name
-    # - entity: scene.wohnzimmer_fernsehen
-    #   name: Fernsehen
-    #   icon: mdi:lightbulb-group-outline
-    # - entity: scene.wohnzimmer_hell
-    #   name: Hell
-    #   icon: mdi:lightbulb-group-outline
-    # - entity: scene.wohnzimmer_lesen
-    #   name: Lesen
-    #   icon: mdi:lightbulb-group-outline
-    # - entity: scene.wohnzimmer_entspannen
-    #   name: Entspannen
-    #   icon: mdi:lightbulb-group-outline
-    # - entity: scene.wohnzimmer_energie_tanken
-    #   name: Energie tanken
-    #   icon: mdi:lightbulb-group-outline
-    # - entity: scene.wohnzimmer_konzentrieren
-    #   name: Konzentrieren
-    #   icon: mdi:lightbulb-group-outline
-    # - entity: scene.wohnzimmer_gedimmt
-    #   name: Gedimmt
-    #   icon: mdi:lightbulb-group-outline
-    # - entity: scene.wohnzimmer_nachtlicht
-    #   name: Nachtlicht
-    #   icon: mdi:lightbulb-group-outline

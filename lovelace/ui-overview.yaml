@@ -1,13 +1,4 @@
 # lovelace_gen
-x-anchors:
-  style: &style
-      style:
-        .: |
-          :host {
-            --secondary-background-color: rgba(0,0,0,0);
-            --ha-card-box-shadow: none;
-            --ha-card-border-radius: var(--border-radius-popup);
-          }
 
 title: Übersicht
 path: overview

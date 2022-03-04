@@ -4,6 +4,8 @@ clean:
 
   border-radius-popup: var(--border-radius) 
 
+  secondary-background-color: '#ffffff'
+
   box-shadow: 0px 0px 0px 1px var(--border-color)
   border-radius: 10px
 
@@ -60,8 +62,12 @@ clean:
 clean_mobile:
   ha-card-box-shadow: 0px 0px 0px 1px var(--border-color)
   ha-card-border-radius: var(--border-radius) 
+  ha-dialog-border-radius: var(--border-radius-popup)  
+  mdc-dialog-box-shadow: 0px 0px 0px 0px
 
   border-radius-popup: 0px
+
+  secondary-background-color: '#ffffff'
 
   box-shadow: 0px 0px 0px 1px var(--border-color)
   border-radius: 10px

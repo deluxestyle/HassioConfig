@@ -1,4 +1,10 @@
 type: custom:vertical-stack-in-card
+card_mod:
+  style: |
+    ha-card {
+        --ha-card-box-shadow: none;
+      }
+
 cards:
   - template: blank_popup
     type: 'custom:button-card'

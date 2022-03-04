@@ -1,15 +1,15 @@
 # lovelace_gen
 
 title: Sonos
-style:
-  .: |
-    :host {
-      --secondary-background-color: rgba(0,0,0,0);
-      --ha-card-box-shadow: none;
-      --ha-card-border-radius: var(--border-radius-popup);
-    }
+
 card:
   type: custom:vertical-stack-in-card
+  card_mod:
+    style:
+      .: |
+        :host {
+          --ha-card-box-shadow: none;
+        }
   cards:
     # - !include
     #     - ../multimedia/mini_media_player.yaml

@@ -2,15 +2,13 @@
 
 command: popup
 title: Szenen
-style:
-  .: |
-    :host {
-      --secondary-background-color: rgba(0,0,0,0);
-      --ha-card-box-shadow: none;
-      --ha-card-border-radius: var(--border-radius-popup);
-    }
 card:
   type: entities
+  card_mod:
+    style: |
+      ha-card {
+          --ha-card-box-shadow: none;
+        }
   entities:
     - entity: scene.flur_gedimmt
       icon: mdi:brightness-3
