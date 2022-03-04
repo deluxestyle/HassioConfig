@@ -10,6 +10,9 @@ x-anchors:
             --ha-card-border-radius: var(--border-radius-popup);
             box-shadow: none;
           }
+          .app-toolbar{
+            --secondary-background-color: rgba(0,0,0,0);
+          }
 
 sensor.remote_state:
   title: Fernbedienung
