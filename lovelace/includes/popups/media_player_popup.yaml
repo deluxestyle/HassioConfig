@@ -1,31 +1,23 @@
 # lovelace_gen
 
 title: Sonos
-
 card:
   type: custom:vertical-stack-in-card
   card_mod:
-    style:
-      .: |
-        :host {
+    style: |
+      ha-card {
           --ha-card-box-shadow: none;
+          --ha-card-border-radius: 0px;
         }
   cards:
-    # - !include
-    #     - ../multimedia/mini_media_player.yaml
-    #     - entity: {{ entity }}
-    - type: custom:more-info-card
+    - type: media-control
       entity: {{ entity }}
-      card_mod:
-        style: |
-          .card-header {
-            display: none
-          }
-          .card-content {
-            margin-top: 20px
-          }
     - type: entities
       entities:
+        - !include
+            - ../multimedia/mini_media_player.yaml
+            - entity: {{ entity }}
+              popup: true      
         {% if entity == 'media_player.bad' %}
         - entity: number.bad_bass
           tap_action: 

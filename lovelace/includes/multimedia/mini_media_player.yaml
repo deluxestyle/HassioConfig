@@ -4,15 +4,23 @@ entity: {{ entity }}
 name: {{ name }}
 icon: 'mdi:speaker-wireless'
 volume_stateless: true
-group: false
-artwork: material
+group: {{ popup }}
+# artwork: none
 sound_mode: icon
 hide:
   power: true
-  source: false
+  source: true
   progress: false
   shuffle: false
   repeat: false
+  next: true
+  prev: true
+  play_pause: {{ popup }}
+  play_stop: {{ popup }}
+  controls: {{ popup }}
+  info: {{ popup }}
+  name: {{ popup }}
+  icon: {{ popup }}
 source: full
 info: scroll
 speaker_group:
@@ -27,6 +35,6 @@ speaker_group:
     - entity_id: media_player.schlafzimmer
       name: Sonos Schlafzimmer
 idle_view:
-  when_idle: true
-  when_paused: true
-  when_standby: true
+  when_idle: {% if popup %}false{% else %}true{% endif %}
+  when_paused: {% if popup %}false{% else %}true{% endif %}
+  when_standby: {% if popup %}false{% else %}true{% endif %}
