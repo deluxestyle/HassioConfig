@@ -11,42 +11,22 @@ card:
         }
   cards:
     - type: media-control
-      entity: {{ entity }}
+      entity: media_player.{{ entity }}
     - type: entities
       entities:
         - !include
             - ../multimedia/mini_media_player.yaml
-            - entity: {{ entity }}
+            - entity: media_player.{{ entity }}
               popup: true      
-        {% if entity == 'media_player.bad' %}
-        - entity: number.bad_bass
+        - entity: number.{{ entity }}_bass
           tap_action: 
             action: none
-        - entity: number.bad_treble
+        - entity: number.{{ entity }}_treble
           tap_action: 
             action: none
-        - entity: switch.sonos_bad_touch_controls
+        - entity: switch.sonos_{{ entity }}_touch_controls
           tap_action:
-            action: toggle
-        {% elif entity == 'media_player.wohnzimmer'  %}
-        - entity: number.wohnzimmer_bass
-          tap_action: 
-            action: none    
-        - entity: number.wohnzimmer_treble
-          tap_action: 
-            action: none
-        - entity: switch.sonos_wohnzimmer_touch_controls
-          tap_action:
-            action: toggle
-        {% elif entity == 'media_player.schlafzimmer'  %}
-        - entity: number.schlafzimmer_bass
-          tap_action: 
-            action: none
-        - entity:  number.schlafzimmer_treble
-          tap_action: 
-            action: none
-        - entity: switch.sonos_schlafzimmer_touch_controls
-          tap_action:
-            action: toggle
-        {% endif %}
+            action: toggle              d
         - entity:  input_boolean.sync_volume
+          tap_action:
+            action: toggle
