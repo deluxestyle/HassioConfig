@@ -9,7 +9,7 @@ group: {{ popup }}
 sound_mode: icon
 hide:
   power: true
-  source: true
+  source: {{ popup }}
   progress: false
   shuffle: false
   repeat: false

@@ -20,17 +20,17 @@ remote.harmony_hub:
 
 media_player.wohnzimmer:
   !include 
-    - ../popups/media_player_popup.yaml
+    - ../popups/sonos_popup.yaml
     - entity: wohnzimmer
 
 media_player.schlafzimmer:
   !include 
-    - ../popups/media_player_popup.yaml
+    - ../popups/sonos_popup.yaml
     - entity: schlafzimmer
 
 media_player.bad:
   !include 
-    - ../popups/media_player_popup.yaml
+    - ../popups/sonos_popup.yaml
     - entity: bad
 
 automation.batterie_niedriger_batteriestand:
