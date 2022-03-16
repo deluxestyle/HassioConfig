@@ -26,7 +26,7 @@ card:
             action: none
         - entity: switch.sonos_{{ entity }}_touch_controls
           tap_action:
-            action: toggle              d
+            action: toggle
         - entity:  input_boolean.sync_volume
           tap_action:
             action: toggle
