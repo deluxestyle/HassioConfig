@@ -8,10 +8,6 @@ layout:
   max_cols: 2
   width: 330
 cards:
-  - !include
-      - ../includes/multimedia/mini_media_player.yaml
-      - entity: media_player.bad
-        popup: false
   - type: entities
     entities:
       - entity: climate.heizung_bad

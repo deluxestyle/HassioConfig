@@ -113,9 +113,9 @@ cards:
           - icon_info_bg
           - media
         type: 'custom:button-card'
-      - entity: media_player.bad
+      - entity: media_player.kuche
         variables:
-          name: Bad
+          name: Küche
         template: 
           - icon_info_bg
           - media

@@ -34,7 +34,8 @@ lovelace:
 logger:
   default: info
   logs:
-    fritzconnection: info
+    homeassistant.components.fritz: debug
+    fritzconnection: debug
   filters:
     homeassistant.components.rest.data:
       - "Error fetching data:*"

@@ -9,6 +9,10 @@ layout:
   width: 330
 cards:
   - !include ../includes/light/light_kitchen.yaml
+  - !include
+      - ../includes/multimedia/mini_media_player.yaml
+      - entity: media_player.kuche
+        popup: false
   - type: entities
     entities:
       - entity: switch.on_off_plug_in_unit_12

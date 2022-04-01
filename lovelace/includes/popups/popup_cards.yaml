@@ -28,10 +28,10 @@ media_player.schlafzimmer:
     - ../popups/sonos_popup.yaml
     - entity: schlafzimmer
 
-media_player.bad:
+media_player.kuche:
   !include 
     - ../popups/sonos_popup.yaml
-    - entity: bad
+    - entity: kuche
 
 automation.batterie_niedriger_batteriestand:
   title: Batteriestatus
