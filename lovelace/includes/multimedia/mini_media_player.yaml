@@ -30,8 +30,8 @@ speaker_group:
   entities:
     - entity_id: media_player.wohnzimmer
       name: Sonos Wohnzimmer 
-    - entity_id: media_player.bad
-      name: Sonos Bad
+    - entity_id: media_player.kuche
+      name: Sonos Küche
     - entity_id: media_player.schlafzimmer
       name: Sonos Schlafzimmer
 idle_view:
