@@ -2,7 +2,7 @@
 
 type: entities
 entities:
-  - entity: light.lights_living_room
+  - entity: light.wohnzimmer_decke
     name: Wohnzimmerlicht
     tap_action: 
       action: toggle
@@ -16,26 +16,26 @@ entities:
             action: fire-dom-event
             browser_mod:
               !include ../popups/light_wohnzimmer.yaml
-  - type: custom:fold-entity-row
-    head:
-      type: section
-      label: Lampen
-    padding: 5
-    entities:
-      - entity: light.wohnzimmer_decke
-        tap_action:
-          action: toggle
-        double_tap_action:
-          action: more-info
-      - entity: light.wohnzimmer_couch
-        name: Couch
-        tap_action:
-          action: toggle
-        double_tap_action:
-          action: more-info
-      - entity: light.wohnzimmer_wand
-        name: Wand
-        tap_action:
-          action: toggle
-        double_tap_action:
-          action: more-info
+  # - type: custom:fold-entity-row
+  #   head:
+  #     type: section
+  #     label: Lampen
+  #   padding: 5
+  #   entities:
+  #     - entity: light.wohnzimmer_decke
+  #       tap_action:
+  #         action: toggle
+  #       double_tap_action:
+  #         action: more-info
+  #     - entity: light.wohnzimmer_couch
+  #       name: Couch
+  #       tap_action:
+  #         action: toggle
+  #       double_tap_action:
+  #         action: more-info
+  #     - entity: light.wohnzimmer_wand
+  #       name: Wand
+  #       tap_action:
+  #         action: toggle
+  #       double_tap_action:
+  #         action: more-info

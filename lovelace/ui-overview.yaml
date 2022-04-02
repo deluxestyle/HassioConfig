@@ -25,7 +25,7 @@ cards:
     square: false
     cards:
       - type: 'custom:button-card'
-        entity: light.lights_living_room
+        entity: light.wohnzimmer_decke
         name: Wohnzimmer
         template: 
           - icon_info_bg
@@ -37,7 +37,7 @@ cards:
         double_tap_action:
           action: more-info
       - type: 'custom:button-card'
-        entity: light.lights_kitchen
+        entity: light.kuche
         name: Küche
         template: 
           - icon_info_bg
@@ -76,14 +76,14 @@ cards:
             !include includes/popups/light_floor.yaml
         double_tap_action:
           action: more-info
-      - type: 'custom:button-card'
-        entity: light.gateway_light_7811dcb258d1
-        name: Nachtlicht Flur
-        template: 
-          - icon_info_bg
-          - light
-        double_tap_action:
-          action: more-info
+      # - type: 'custom:button-card'
+      #   entity: light.gateway_light_7811dcb258d1
+      #   name: Nachtlicht Flur
+      #   template: 
+      #     - icon_info_bg
+      #     - light
+      #   double_tap_action:
+      #     action: more-info
 #################################################################
   - template: blank
     type: 'custom:button-card'
@@ -121,23 +121,23 @@ cards:
           - media
         type: 'custom:button-card'
 #################################################################
-  - template: blank
-    type: 'custom:button-card'
-  - type: grid
-    columns: 2
-    square: false
-    cards:
-      - type: 'custom:button-card'
-        entity: switch.on_off_plug_in_unit_12
-        template: 
-          - icon_info_bg
-          - outlet
-          - coffee_plug
-      - type: 'custom:button-card'
-        entity: switch.on_off_plug_in_unit_11
-        template: 
-          - icon_info_bg
-          - outlet
+  # - template: blank
+  #   type: 'custom:button-card'
+  # - type: grid
+  #   columns: 2
+  #   square: false
+  #   cards:
+  #     - type: 'custom:button-card'
+  #       entity: switch.on_off_plug_in_unit_12
+  #       template: 
+  #         - icon_info_bg
+  #         - outlet
+  #         - coffee_plug
+  #     - type: 'custom:button-card'
+  #       entity: switch.on_off_plug_in_unit_11
+  #       template: 
+  #         - icon_info_bg
+  #         - outlet
 #################################################################
   - template: blank
     type: 'custom:button-card'

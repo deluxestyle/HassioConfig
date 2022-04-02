@@ -2,13 +2,9 @@
 
 type: entities
 entities:
-  - entity: light.kuche_decke
+  - entity: light.kuche
     name: Küchenlicht
     tap_action:
       action: toggle
     double_tap_action:
       action: more-info
-  - entity: light.dunstabzug
-    name: Dunstabzug
-    tap_action:
-      action: toggle   

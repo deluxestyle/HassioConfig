@@ -8,8 +8,8 @@ layout:
   max_cols: 2
   width: 330
 cards:
-  - type: entities
-    entities:
-      - entity: climate.heizung_bad
-        icon: mdi:radiator
+  # - type: entities
+  #   entities:
+  #     - entity: climate.heizung_bad
+  #       icon: mdi:radiator
   - !include ../includes/climate/climate_bath.yaml
