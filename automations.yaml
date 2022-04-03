@@ -964,22 +964,6 @@
       time_limit_before: 07:59:59
       no_motion_wait: 181
       illuminance_cutoff: 0
-- id: '1635108038795'
-  alias: 'Heizstrahler '
-  description: ''
-  trigger:
-  - device_id: ca5c7f2d9583f824073381bc650902cd
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  condition: []
-  action:
-  - type: toggle
-    device_id: 69a6167eb7eaaaa79c441b44e3424f1c
-    entity_id: switch.on_off_plug_in_unit_11
-    domain: switch
-  mode: single
 - id: '1636811820030'
   alias: Heizstrahler ausschalten
   description: Heizstrahler nach 10 Minuten ausschalten
@@ -1088,5 +1072,92 @@
         data: {}
         target:
           entity_id: switch.sonos_schlafzimmer_touch_controls
+    default: []
+  mode: single
+- id: '1648892553661'
+  alias: 'Sonos: Küche'
+  description: ''
+  trigger:
+  - device_id: 055f6416a4714103c74a8e75080ec589
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+    id: bayern_1
+  - device_id: 055f6416a4714103c74a8e75080ec589
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: dim_up
+    id: br24
+  - device_id: 055f6416a4714103c74a8e75080ec589
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: dim_down
+    id: arabella
+  - device_id: 055f6416a4714103c74a8e75080ec589
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: left
+    id: leiser
+  - device_id: 055f6416a4714103c74a8e75080ec589
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: right
+    id: lauter
+  - device_id: 055f6416a4714103c74a8e75080ec589
+    domain: deconz
+    platform: device
+    type: remote_button_long_press
+    subtype: turn_on
+    id: stop
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: bayern_1
+      sequence:
+      - service: script.sonos_kuche_bayern_1
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: br24
+      sequence:
+      - service: script.sonos_kuche_bayern_1_2
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: arabella
+      sequence:
+      - service: script.sonos_kuche_arabella
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: leiser
+      sequence:
+      - service: media_player.volume_down
+        data: {}
+        target:
+          entity_id: media_player.kuche
+    - conditions:
+      - condition: trigger
+        id: lauter
+      sequence:
+      - service: media_player.volume_up
+        data: {}
+        target:
+          entity_id: media_player.kuche
+    - conditions:
+      - condition: trigger
+        id: stop
+      sequence:
+      - service: media_player.turn_off
+        data: {}
+        target:
+          entity_id: media_player.kuche
     default: []
   mode: single

@@ -11,14 +11,15 @@ cards:
   - !include ../includes/light/light_living_room.yaml
   - type: entities
     entities:
-      - entity: sensor.remote_state
-        name: Fernbedienung
-        extend_paper_buttons_row:
-          position: right
-          buttons:
-            - entity: script.harmony_power_off
-              name: false
-              icon: mdi:power
+      # - entity: sensor.remote_state
+      #   name: Fernbedienung
+      #   extend_paper_buttons_row:
+      #     position: right
+      #     buttons:
+      #       - entity: script.harmony_power_off
+      #         name: false
+      #         icon: mdi:power
+      - entity: media_player.samsung_q60aa_43_tv
       - entity: switch.steckdosenleiste
         name: Steckdosenleiste
         tap_action: 

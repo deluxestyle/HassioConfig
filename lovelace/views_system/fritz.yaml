@@ -28,10 +28,10 @@ cards:
       - entity: sensor.net_upload_max
         icon: mdi:cloud-upload
         name: Max Up
-      - entity: sensor.fritz_box_7590_kb_s_received
+      - entity: sensor.fritz_box_7590_download_throughput
         icon: mdi:cloud-download-outline
         name: Akt Down
-      - entity: sensor.fritz_box_7590_kb_s_sent
+      - entity: sensor.fritz_box_7590_upload_throughput
         icon: mdi:cloud-upload-outline
         name: Akt Up
       - entity: sensor.fritz_box_7590_connection_uptime

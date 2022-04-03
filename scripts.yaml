@@ -455,3 +455,57 @@ harmony_surround_mode:
   mode: parallel
   icon: mdi:surround-sound
   max: 10
+sonos_kuche_bayern_1:
+  alias: 'Sonos: Küche Bayern 1'
+  sequence:
+  - service: sonos.unjoin
+    data: {}
+    target:
+      device_id: 2094b86c2a0d860eeddf623406678e39
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.08
+    target:
+      device_id: 2094b86c2a0d860eeddf623406678e39
+  - service: media_player.select_source
+    data:
+      source: Bayern 1
+    target:
+      device_id: 2094b86c2a0d860eeddf623406678e39
+  mode: single
+sonos_kuche_bayern_1_2:
+  alias: 'Sonos: Küche BR24'
+  sequence:
+  - service: sonos.unjoin
+    data: {}
+    target:
+      device_id: 2094b86c2a0d860eeddf623406678e39
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.08
+    target:
+      device_id: 2094b86c2a0d860eeddf623406678e39
+  - service: media_player.select_source
+    data:
+      source: BR24
+    target:
+      device_id: 2094b86c2a0d860eeddf623406678e39
+  mode: single
+sonos_kuche_arabella:
+  alias: 'Sonos: Küche Arabella'
+  sequence:
+  - service: sonos.unjoin
+    data: {}
+    target:
+      device_id: 2094b86c2a0d860eeddf623406678e39
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.08
+    target:
+      device_id: 2094b86c2a0d860eeddf623406678e39
+  - service: media_player.select_source
+    data:
+      source: Arabella München
+    target:
+      device_id: 2094b86c2a0d860eeddf623406678e39
+  mode: single

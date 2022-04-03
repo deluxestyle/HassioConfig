@@ -1,23 +1,15 @@
 filter:
   include_entities:
-    - light.yeelight_bslamp1_0x0000000005451cd6
-    - light.kuche_decke
-    - light.dunstabzug 
-    - light.schlafzimmer
-    - light.wohnzimmer_couch
+    # - light.yeelight_bslamp1_0x0000000005451cd6
     - light.wohnzimmer_decke
-    - light.wohnzimmer_wand
-    # - light.lights_living_room
-    - light.gateway_light_7811dcb258d1
+    - light.kuche
     - light.flur
+    - light.schlafzimmer
     - media_player.schlafzimmer
     - media_player.wohnzimmer
-    - media_player.bad
+    - media_player.kuche
     - switch.vacuum
-    - switch.steckdose_1 #Babykamera
     - switch.steckdosenleiste #Steckdosenleiste
-    - switch.on_off_plug_in_unit_11 #Heizstrahler
-    - switch.on_off_plug_in_unit_12 #Kaffemaschine
     - sensor.humidity_158d0001b8c96c
     - sensor.humidity_158d0001b8c998
     - sensor.humidity_158d0002239fb5
@@ -26,9 +18,7 @@ filter:
     - sensor.temperature_158d0001b8c96c
     - sensor.temperature_158d00023258bd
     - sensor.temperature_158d0001b8c998
-    - switch.pi_hole_switch
-    # - switch.ds118
-    - climate.heizung_bad
+    - switch.pi_hole_switchs
 entity_config:
     media_player.schlafzimmer:
       feature_list:
@@ -36,7 +26,7 @@ entity_config:
     media_player.wohnzimmer:
       feature_list:
         - feature: play_pause
-    media_player.bad:
+    media_player.kuche:
       feature_list:
         - feature: play_pause
     sensor.humidity_158d0001b8c998:
@@ -55,5 +45,3 @@ entity_config:
       low_battery_threshold: 0
     sensor.temperature_158d0001b8c96c:
       low_battery_threshold: 0
-    switch.on_off_plug_in_unit_11:
-      name: Alexa
