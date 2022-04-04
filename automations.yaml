@@ -34,7 +34,6 @@
     service: automation.turn_on
     target:
       entity_id:
-      - automation.benachrichtigung_bewegung_erkannt
       - automation.benachrichtigung_wohnungstur_offen
   mode: single
 - id: xiaomi_vacuum_notification_off
@@ -442,18 +441,15 @@
   - at: 00:01
     platform: time
   - platform: state
-    entity_id: remote.harmony_hub
     to: 'off'
     for:
       hours: 0
       minutes: 15
       seconds: 0
+    entity_id: media_player.samsung_q60aa_43_tv
   condition: []
   action:
   - delay: 00:01:00
-  - condition: state
-    entity_id: remote.harmony_hub
-    state: 'off'
   - data:
       entity_id: switch.steckdosenleiste
     service: switch.turn_off
@@ -698,9 +694,9 @@
     path: tanzerw/motion_light.yaml
     input:
       motion_sensor: binary_sensor.tradfri_bewegungsmelder
-      target_entity: light.flur
-      time_limit_after: 08:30:00
-      time_limit_before: '17:30:00'
+      target_entity: light.flur_2
+      time_limit_after: 06:30:00
+      time_limit_before: '19:30:00'
       no_motion_wait: 180
       illuminance_cutoff: 700
 - id: '1629983354095'
@@ -712,7 +708,7 @@
       motion_sensor: binary_sensor.bewegungsmelder
       time_limit_after: 00:00:01
       time_limit_before: '23:59:59'
-      target_entity: light.kuche_decke
+      target_entity: light.kuche
       illuminance_sensor: sensor.bewegungsmelder
       no_motion_wait: 65
       illuminance_cutoff: 300
@@ -947,8 +943,6 @@
         service: automation.turn_off
         target:
           entity_id:
-          - automation.benachrichtigung_bewegung_erkannt
-          - automation.bewegungsmelder_alarm
           - automation.benachrichtigung_wohnungstur_offen
     default: []
   mode: restart

@@ -318,18 +318,22 @@ sonos_set_volume_8:
 alles_ausschalten:
   alias: Alles ausschalten
   sequence:
-  - service: script.harmony_power_off
-    data: {}
   - service: light.turn_off
     data: {}
-    entity_id: light.lights_all
+    target:
+      entity_id:
+      - light.kuche
+      - light.wohnzimmer_decke
+      - light.yeelight_bslamp1_0x0000000005451cd6
+      - light.schlafzimmer
+      - light.gruppe_flur
   - service: switch.turn_off
     data: {}
     target:
       entity_id:
       - switch.steckdosenleiste
-      - switch.on_off_plug_in_unit_12
   - service: script.sonos_stopp
+    data: {}
   mode: single
   icon: mdi:toggle-switch-off-outline
 sonos_set_volume_4:

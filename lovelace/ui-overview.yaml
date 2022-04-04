@@ -65,7 +65,7 @@ cards:
         double_tap_action:
           action: more-info
       - type: 'custom:button-card'
-        entity: light.flur
+        entity: light.flur_2
         name: Flur
         template: 
           - icon_info_bg

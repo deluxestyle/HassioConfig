@@ -3,7 +3,7 @@ filter:
     # - light.yeelight_bslamp1_0x0000000005451cd6
     - light.wohnzimmer_decke
     - light.kuche
-    - light.flur
+    - light.flur_2
     - light.schlafzimmer
     - media_player.schlafzimmer
     - media_player.wohnzimmer
@@ -18,7 +18,7 @@ filter:
     - sensor.temperature_158d0001b8c96c
     - sensor.temperature_158d00023258bd
     - sensor.temperature_158d0001b8c998
-    - switch.pi_hole_switchs
+    - switch.pi_hole_switch
 entity_config:
     media_player.schlafzimmer:
       feature_list:
