@@ -10,7 +10,7 @@ layout:
 cards:
   - type: entities
     entities:
-      - entity: light.flur_2
+      - entity: light.flur
         name: Flurlicht
         tap_action:
           action: toggle

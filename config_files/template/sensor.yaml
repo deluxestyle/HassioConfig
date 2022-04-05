@@ -1,7 +1,7 @@
 - sensor:
-  - name: remote_state
-    unique_id: remote_state
-    state: '{{ states.remote.harmony_hub.attributes.current_activity }}'
+  # - name: remote_state
+  #   unique_id: remote_state
+  #   state: '{{ states.remote.harmony_hub.attributes.current_activity }}'
   - name: Anzahl Automationen
     unique_id: count_automation
     state: '{{ states.automation | count }}'

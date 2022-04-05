@@ -3,7 +3,7 @@ filter:
     # - light.yeelight_bslamp1_0x0000000005451cd6
     - light.wohnzimmer_decke
     - light.kuche
-    - light.flur_2
+    - light.flur
     - light.schlafzimmer
     - media_player.schlafzimmer
     - media_player.wohnzimmer

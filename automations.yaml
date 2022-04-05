@@ -214,13 +214,13 @@
   trigger:
   - entity_id: sensor.humidity_158d0001b8c96c
     platform: numeric_state
-    above: '60'
+    above: '65'
   - entity_id: sensor.humidity_158d0001b8c998
     platform: numeric_state
-    above: '60'
+    above: '65'
   - entity_id: sensor.humidity_158d0002239fb5
     platform: numeric_state
-    above: '60'
+    above: '65'
   condition: []
   action:
   - data:
@@ -694,11 +694,11 @@
     path: tanzerw/motion_light.yaml
     input:
       motion_sensor: binary_sensor.tradfri_bewegungsmelder
-      target_entity: light.flur_2
+      target_entity: light.flur
       time_limit_after: 06:30:00
       time_limit_before: '19:30:00'
       no_motion_wait: 180
-      illuminance_cutoff: 700
+      illuminance_cutoff: 1
 - id: '1629983354095'
   alias: 'Licht: Bewegung Küche'
   description: ''
@@ -710,8 +710,8 @@
       time_limit_before: '23:59:59'
       target_entity: light.kuche
       illuminance_sensor: sensor.bewegungsmelder
-      no_motion_wait: 65
-      illuminance_cutoff: 300
+      no_motion_wait: 158
+      illuminance_cutoff: 157
 - id: '1630062290073'
   alias: 'Licht: Flur Szene'
   description: ''
@@ -1115,8 +1115,21 @@
       - condition: trigger
         id: bayern_1
       sequence:
-      - service: script.sonos_kuche_bayern_1
-        data: {}
+      - choose:
+        - conditions:
+          - condition: device
+            device_id: 2094b86c2a0d860eeddf623406678e39
+            domain: media_player
+            entity_id: media_player.kuche
+            type: is_playing
+          sequence:
+          - service: media_player.media_pause
+            data: {}
+            target:
+              device_id: 2094b86c2a0d860eeddf623406678e39
+        default:
+        - service: script.sonos_kuche_bayern_1
+          data: {}
     - conditions:
       - condition: trigger
         id: br24
