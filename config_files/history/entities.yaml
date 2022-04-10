@@ -18,8 +18,8 @@ entities:
   - sensor.temperature_158d0001b8c998
   - sensor.temperature_158d0002239fb5
   - sensor.temperature_158d00023258bd
-  - sensor.net_download_cur
-  - sensor.net_download_max
+  # - sensor.net_download_cur
+  # - sensor.net_download_max
   - sensor.net_upload_cur
   - sensor.net_upload_max
   - sensor.net_uptime

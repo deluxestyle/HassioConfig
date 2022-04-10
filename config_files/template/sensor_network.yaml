@@ -9,16 +9,16 @@
     state: "{{ (states.sensor.fritz_box_7590_max_connection_upload_throughput.state | float(0) / 1000)|round(1) }}"
     unit_of_measurement: "Mbit/s"
     icon: mdi:cloud-upload
-  - name: net_download_cur
-    unique_id: net_download_cur
-    state: "{{ (states.sensor.fritz_box_7590_kb_s_received.state | float(0) / 1000)|round(1) }}"
-    unit_of_measurement: "Mbit/s"
-    icon: mdi:cloud-download-outline
-  - name: net_upload_cur
-    unique_id: net_upload_cur
-    state: "{{ (states.sensor.fritz_box_7590_kb_s_sent.state | float(0) / 1000)|round(1) }}"
-    unit_of_measurement: "Mbit/s"
-    icon: mdi:cloud-upload-outline
+  # - name: net_download_cur
+  #   unique_id: net_download_cur
+  #   state: "{{ (states.sensor.fritz_box_7590_kb_s_received.state | float(0) / 1000)|round(1) }}"
+  #   unit_of_measurement: "Mbit/s"
+  #   icon: mdi:cloud-download-outline
+  # - name: net_upload_cur
+  #   unique_id: net_upload_cur
+  #   state: "{{ (states.sensor.fritz_box_7590_kb_s_sent.state | float(0) / 1000)|round(1) }}"
+  #   unit_of_measurement: "Mbit/s"
+  #   icon: mdi:cloud-upload-outline
   - name: net_uptime
     unique_id: net_uptime
     state: "{{ (state_attr('sensor.fritz_netmonitor', 'uptime')|float(0) / 86400)|round(1) }}"
