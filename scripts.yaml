@@ -326,7 +326,7 @@ alles_ausschalten:
       - light.wohnzimmer_decke
       - light.yeelight_bslamp1_0x0000000005451cd6
       - light.schlafzimmer
-      - light.gruppe_flur
+      - light.flur
   - service: switch.turn_off
     data: {}
     target:

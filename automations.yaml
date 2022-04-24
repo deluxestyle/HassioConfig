@@ -441,12 +441,12 @@
   - at: 00:01
     platform: time
   - platform: state
-    to: 'off'
     for:
       hours: 0
       minutes: 15
       seconds: 0
-    entity_id: media_player.samsung_q60aa_43_tv
+    entity_id: device_tracker.telekom_mr401
+    to: not_home
   condition: []
   action:
   - delay: 00:01:00
@@ -934,6 +934,10 @@
             - action: TURN_ON_ABSENCE
               title: Abweseheitsmodus aktivieren
           message: Niemand ist mehr zu Hause
+      - service: automation.turn_on
+        data: {}
+        target:
+          entity_id: automation.benachrichtigung_wohnungstur_offen
     - conditions:
       - condition: state
         entity_id: group.presence
