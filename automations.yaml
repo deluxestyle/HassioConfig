@@ -549,12 +549,12 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: remote.harmony_hub
-    from: 'off'
+    entity_id: device_tracker.telekom_mr401
+    to: home
   condition: []
   action:
   - type: turn_on
-    device_id: bb881aa6bf2611acde09720184bbf7af
+    device_id: d140a8b718ed69ff5c2ae91ab0a9f5d7
     entity_id: switch.steckdosenleiste
     domain: switch
   mode: single
