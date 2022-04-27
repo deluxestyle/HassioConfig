@@ -557,6 +557,18 @@
     device_id: d140a8b718ed69ff5c2ae91ab0a9f5d7
     entity_id: switch.steckdosenleiste
     domain: switch
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
+  - condition: state
+    entity_id: media_player.samsung_q60aa_43_tv
+    state: 'off'
+  - service: media_player.turn_on
+    data: {}
+    target:
+      device_id: 646f2e14e652f2dedb82b2df4b8a67a5
   mode: single
 - id: '1610907140746'
   alias: 'Harmony: Airplay - Telekom'
