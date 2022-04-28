@@ -7,19 +7,6 @@ type: custom:masonry-layout
 layout:
   max_cols: 1
 cards:
-#   - type: grid
-#     columns: 2
-#     square: false
-#     cards:
-#       - type: 'custom:button-card'
-#         entity: light.lights_all
-#         name: Licht
-#         template: 
-#           - icon_info_bg
-#           - light
-#         double_tap_action:
-#           action: more-info
-# #################################################################
   - type: grid
     columns: 2
     square: false
