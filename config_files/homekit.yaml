@@ -1,6 +1,6 @@
 filter:
   include_entities:
-    # - light.yeelight_bslamp1_0x0000000005451cd6
+    - light.yeelight_bslamp1_0x0000000005451cd6
     - light.wohnzimmer_decke
     - light.kuche
     - light.flur
