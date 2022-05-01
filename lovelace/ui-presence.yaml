@@ -60,23 +60,23 @@ views:
             secondary_info: last-changed
           - entity: binary_sensor.bewegungsmelder
             secondary_info: last-changed
-          - entity: binary_sensor.tradfri_bewegungsmelder
-            secondary_info: last-changed
-          - type: custom:fold-entity-row
-            head:
-              type: section
-              label: Alarm
-            padding: 5
-            entities:
-              - entity: automation.bewegungsmelder_alarm
-                name: Bewegungsmelder Alarm
-                tap_action: 
-                  action: toggle
-              - entity: script.xiaomi_gateway_alarm_stop
-                name: Alarm ausschalten
-                icon: mdi:volume-off
-                tap_action: 
-                  action: toggle
+          # - entity: binary_sensor.tradfri_bewegungsmelder
+          #   secondary_info: last-changed
+          # - type: custom:fold-entity-row
+          #   head:
+          #     type: section
+          #     label: Alarm
+          #   padding: 5
+          #   entities:
+          #     - entity: automation.bewegungsmelder_alarm
+          #       name: Bewegungsmelder Alarm
+          #       tap_action: 
+          #         action: toggle
+          #     - entity: script.xiaomi_gateway_alarm_stop
+          #       name: Alarm ausschalten
+          #       icon: mdi:volume-off
+          #       tap_action: 
+          #         action: toggle
           - type: custom:fold-entity-row
             head:
               type: section
