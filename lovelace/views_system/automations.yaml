@@ -24,7 +24,7 @@ cards:
       - light.wohnzimmer_decke
       - light.wohnzimmer_wand
       - light.yeelight_bslamp1_0x0000000005451cd6
-      - media_player.bad
+      - media_player.kuche
       - media_player.schlafzimmer
       - media_player.wohnzimmer
       - person.christina
@@ -69,24 +69,24 @@ cards:
           - home
           - not_home
     title: false
-  - type: entities
-    entities:
-      - entity: automation.licht_bewegung_kuche
-        type: custom:multiple-entity-row
-        entities:
-          - entity: sensor.bewegungsmelder
-            name: Helligkeit
-            format: precision0
-          - entity: binary_sensor.bewegungsmelder
-            name: Bewegung
-        toggle: true
-        icon: mdi:motion-sensor
-        name: Küche
-        tap_action:
-          action: toggle
-        double_tap_action:
-          action: navigate
-          navigation_path: /config/automation/edit/1629983354095
+  # - type: entities
+  #   entities:
+  #     - entity: automation.licht_bewegung_kuche
+  #       type: custom:multiple-entity-row
+  #       entities:
+  #         - entity: sensor.bewegungsmelder
+  #           name: Helligkeit
+  #           format: precision0
+  #         - entity: binary_sensor.bewegungsmelder
+  #           name: Bewegung
+  #       toggle: true
+  #       icon: mdi:motion-sensor
+  #       name: Küche
+  #       tap_action:
+  #         action: toggle
+  #       double_tap_action:
+  #         action: navigate
+  #         navigation_path: /config/automation/edit/1629983354095
       # - entity: automation.licht_bewegung_flur
       #   type: custom:multiple-entity-row
       #   entities:
@@ -119,7 +119,7 @@ cards:
       #   double_tap_action:
       #     action: navigate
       #     navigation_path: /config/automation/edit/1634642436148
-      - type: weblink
-        url: /config/automation/dashboard
-        name: Automatisierungen
-        icon: mdi:home-automation
+      # - type: weblink
+      #   url: /config/automation/dashboard
+      #   name: Automatisierungen
+      #   icon: mdi:home-automation

@@ -11,9 +11,13 @@ sonos_radio_superfly:
 sonos_stopp:
   alias: 'Sonos: ausschalten'
   sequence:
-  - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+  - data: {}
     service: media_player.media_stop
+    target:
+      device_id:
+      - 2094b86c2a0d860eeddf623406678e39
+      - 92073219792f52aad47fe04301cb2789
+      - 6e06a6ef3694161efade1a7369ca21cf
   mode: single
 xiaomi_vacuum_start:
   alias: 'Xiaomi Staubsauger: einschalten'
@@ -294,7 +298,7 @@ sonos_set_volume_10:
   alias: 'Sonos: Set volume 10'
   sequence:
   - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
       volume_level: '0.10'
     service: media_player.volume_set
   mode: single
@@ -303,7 +307,7 @@ sonos_join:
   sequence:
   - service: sonos.join
     data:
-      entity_id: media_player.schlafzimmer, media_player.bad, media_player.wohnzimmer
+      entity_id: media_player.schlafzimmer, media_player.kuche, media_player.wohnzimmer
       master: media_player.schlafzimmer
   mode: single
   icon: mdi:set-center
@@ -311,7 +315,7 @@ sonos_set_volume_8:
   alias: 'Sonos: Set volume 8'
   sequence:
   - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
       volume_level: '0.08'
     service: media_player.volume_set
   mode: single
@@ -340,7 +344,7 @@ sonos_set_volume_4:
   alias: 'Sonos: Set volume 4'
   sequence:
   - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
       volume_level: '0.04'
     service: media_player.volume_set
   mode: single
@@ -348,7 +352,7 @@ sonos_mute:
   alias: 'Sonos: Set volume - Mute'
   sequence:
   - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
       is_volume_muted: true
     service: media_player.volume_mute
   mode: single
@@ -360,7 +364,7 @@ sonos_set_wake_up_volume:
       volume_level: 0.01
     service: media_player.volume_set
     target:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
   - service: media_player.volume_mute
     target:
       device_id:
@@ -378,7 +382,7 @@ sonos_set_wake_up_volume:
       volume_level: 0.02
     service: media_player.volume_set
     target:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
   - delay:
       hours: 0
       minutes: 1
@@ -388,7 +392,7 @@ sonos_set_wake_up_volume:
       volume_level: 0.03
     service: media_player.volume_set
     target:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
   - delay:
       hours: 0
       minutes: 1
@@ -398,7 +402,7 @@ sonos_set_wake_up_volume:
       volume_level: 0.04
     service: media_player.volume_set
     target:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
   - delay:
       hours: 0
       minutes: 1
@@ -408,7 +412,7 @@ sonos_set_wake_up_volume:
       volume_level: 0.05
     service: media_player.volume_set
     target:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.bad
+      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
   mode: single
   icon: mdi:volume-medium
 sonos_wecker:

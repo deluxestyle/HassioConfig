@@ -329,16 +329,6 @@
       fan_speed: Turbo
     service: vacuum.set_fan_speed
   mode: single
-- id: '1554536389566'
-  alias: 'Sonos: stoppen'
-  trigger:
-  - entity_id: person.wolfgang
-    from: home
-    platform: state
-  condition: []
-  action:
-  - data: {}
-    service: script.sonos_stopp
 - id: '1563024961089'
   alias: 'Xiaomi Staubsauger: Hauptbürste wechseln'
   trigger:
@@ -705,7 +695,7 @@
   use_blueprint:
     path: tanzerw/motion_light.yaml
     input:
-      motion_sensor: binary_sensor.tradfri_bewegungsmelder
+      motion_sensor: binary_sensor.bewegungsmelder
       target_entity: light.flur
       time_limit_after: 06:30:00
       time_limit_before: '19:30:00'
