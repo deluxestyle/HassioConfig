@@ -550,7 +550,7 @@
   - delay:
       hours: 0
       minutes: 0
-      seconds: 5
+      seconds: 10
       milliseconds: 0
   - condition: state
     entity_id: media_player.samsung_q60aa_43_tv
@@ -701,43 +701,6 @@
       time_limit_before: '19:30:00'
       no_motion_wait: 180
       illuminance_cutoff: 1
-- id: '1629983354095'
-  alias: 'Licht: Bewegung Küche'
-  description: ''
-  use_blueprint:
-    path: tanzerw/motion_light.yaml
-    input:
-      motion_sensor: binary_sensor.bewegungsmelder
-      time_limit_after: 00:00:01
-      time_limit_before: '23:59:59'
-      target_entity: light.kuche
-      illuminance_sensor: sensor.bewegungsmelder
-      no_motion_wait: 158
-      illuminance_cutoff: 103
-- id: '1630062290073'
-  alias: 'Licht: Flur Szene'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: light.flur
-    to: 'on'
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: time
-        after: 07:00
-        before: '19:00'
-      sequence:
-      - scene: scene.flur_hell_tag
-    - conditions:
-      - condition: time
-        after: '19:00'
-        before: 07:00
-      sequence:
-      - scene: scene.flur_gedimmt
-    default: []
-  mode: single
 - id: '1630241435170'
   alias: 'Kaffeemaschine: Benachrichtigung Steckdose'
   description: ''
@@ -952,18 +915,6 @@
           - automation.benachrichtigung_wohnungstur_offen
     default: []
   mode: restart
-- id: '1634642436148'
-  alias: 'Licht: Bewegung Flur Nachtlicht'
-  description: ''
-  use_blueprint:
-    path: tanzerw/motion_light.yaml
-    input:
-      motion_sensor: binary_sensor.tradfri_bewegungsmelder
-      target_entity: light.gateway_light_7811dcb258d1
-      time_limit_after: '18:00:01'
-      time_limit_before: 07:59:59
-      no_motion_wait: 181
-      illuminance_cutoff: 0
 - id: '1636811820030'
   alias: Heizstrahler ausschalten
   description: Heizstrahler nach 10 Minuten ausschalten
@@ -985,24 +936,6 @@
     entity_id: switch.on_off_plug_in_unit_11
     domain: switch
   mode: single
-- id: '1637426189878'
-  alias: 'Licht: Flur ausschalten'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: light.flur
-    to: 'on'
-    for:
-      hours: 0
-      minutes: 3
-      seconds: 2
-      milliseconds: 0
-  condition: []
-  action:
-  - service: light.turn_off
-    target:
-      entity_id: light.flur
-  mode: restart
 - id: '1639749213579'
   alias: 'Babykamera: Surveillance'
   description: ''
@@ -1174,3 +1107,37 @@
           entity_id: media_player.kuche
     default: []
   mode: single
+- id: '1651490190900'
+  alias: 'Licht: Bewegung Flur (neu)'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.bewegungsmelder
+    to: 'on'
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: time
+        after: 07:00:00
+        before: '19:30:00'
+      sequence:
+      - service: scene.turn_on
+        data: {}
+        target:
+          entity_id: scene.flur_tageslicht
+    default:
+    - service: scene.turn_on
+      data: {}
+      target:
+        entity_id: scene.flur_nachtlicht
+  - delay:
+      hours: 0
+      minutes: 3
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.flur
+  mode: restart

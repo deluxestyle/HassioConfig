@@ -240,22 +240,6 @@ harmony_action_fire_tv:
     service: remote.turn_on
   mode: single
   icon: mdi:youtube-tv
-schlafen:
-  alias: Schlafen gehen
-  sequence:
-  - service: scene.turn_on
-    target:
-      entity_id: scene.schlafzimmer_hell
-  - service: script.harmony_power_off
-    data: {}
-  - condition: state
-    entity_id: person.christina
-    state: not_home
-  - service: script.sonos_join
-  - service: script.sonos_set_volume_10
-  - service: script.sonos_radio_b5_aktuell
-  mode: single
-  icon: mdi:sleep
 sonos_radio_b5_aktuell:
   alias: 'Sonos: Radio BR24'
   sequence:
