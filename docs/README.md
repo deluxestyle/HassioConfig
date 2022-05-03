@@ -48,13 +48,13 @@
 * HACS - https://github.com/hacs/integration
 * scheduler-component - https://github.com/nielsfaber/scheduler-component
 * browser_mod - https://github.com/thomasloven/hass-browser_mod
-* sonos-alarm - https://github.com/AaronDavidSchneider/SonosAlarm
+~~* sonos-alarm - https://github.com/AaronDavidSchneider/SonosAlarm~~
 * Attributes extractor - https://github.com/pilotak/homeassistant-attributes
 * lovelace_gen (very helpful to split the lovelace set up and reduce redudant code) - https://github.com/thomasloven/hass-lovelace_gen
 * iPhone Device Tracker - https://github.com/mudape/iphonedetect
 
-#### Alexa connection via Home Assistant Alexa Skill Adapter
-* https://github.com/mike-grant/haaska
+~~#### Alexa connection via Home Assistant Alexa Skill Adapter~~
+~~* https://github.com/mike-grant/haaska~~
 
 #### Lovelace
 ![demo](https://github.com/deluxestyle/documentation/blob/master/homeassistant.gif?raw=true)
