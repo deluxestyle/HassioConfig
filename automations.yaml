@@ -1119,7 +1119,7 @@
   - choose:
     - conditions:
       - condition: time
-        after: 07:00:00
+        after: 06:30:00
         before: '19:30:00'
       sequence:
       - service: scene.turn_on
@@ -1131,13 +1131,22 @@
       data: {}
       target:
         entity_id: scene.flur_nachtlicht
-  - delay:
-      hours: 0
-      minutes: 3
-      seconds: 0
-      milliseconds: 0
-  - service: light.turn_off
-    data: {}
-    target:
-      entity_id: light.flur
+  - repeat:
+      until:
+      - condition: state
+        entity_id: sensor.bewegungsmelder
+        state: 'off'
+      sequence:
+      - delay:
+          hours: 0
+          minutes: 2
+          seconds: 0
+          milliseconds: 0
+      - condition: state
+        entity_id: binary_sensor.bewegungsmelder
+        state: 'off'
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.flur
   mode: restart

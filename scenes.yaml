@@ -4,6 +4,8 @@
     light.flur:
       supported_color_modes:
       - brightness
+      color_mode: brightness
+      brightness: 8
       entity_id:
       - light.flur1
       - light.flur2
@@ -11,8 +13,6 @@
       icon: mdi:lightbulb-group
       friendly_name: Flur
       supported_features: 40
-      color_mode: brightness
-      brightness: 36
       state: 'on'
 - id: '1651475965685'
   name: Flur Tageslicht
