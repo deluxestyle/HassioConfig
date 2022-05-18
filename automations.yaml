@@ -359,6 +359,10 @@
   - above: 80
     entity_id: sensor.memory_use_percent
     platform: numeric_state
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
   condition: []
   action:
   - data:
@@ -542,7 +546,10 @@
   - platform: state
     entity_id: device_tracker.telekom_mr401
     to: home
-  condition: []
+  condition:
+  - condition: state
+    entity_id: binary_sensor.presence
+    state: 'on'
   action:
   - type: turn_on
     device_id: d140a8b718ed69ff5c2ae91ab0a9f5d7
@@ -1150,4 +1157,37 @@
         data: {}
         target:
           entity_id: light.flur
+  mode: restart
+- id: '1652181291403'
+  alias: 'Licht: Bewegung Küche (neu)'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.tradfri_motion_sensor
+    to: 'on'
+  condition: []
+  action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.kuche
+  - repeat:
+      until:
+      - condition: state
+        state: 'off'
+        entity_id: binary_sensor.tradfri_motion_sensor
+      sequence:
+      - delay:
+          hours: 0
+          minutes: 3
+          seconds: 0
+          milliseconds: 0
+      - condition: state
+        entity_id: binary_sensor.bewegungsmelder
+        state: 'off'
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.kuche
   mode: restart
