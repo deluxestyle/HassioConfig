@@ -10,6 +10,7 @@ filter:
     - media_player.kuche
     - switch.vacuum
     - switch.steckdosenleiste #Steckdosenleiste
+    - switch.steckdose_3 #Kaffeemaschine
     - sensor.humidity_158d0001b8c96c
     - sensor.humidity_158d0001b8c998
     - sensor.humidity_158d0002239fb5
