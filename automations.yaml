@@ -548,8 +548,8 @@
     to: home
   condition:
   - condition: state
-    entity_id: binary_sensor.presence
-    state: 'on'
+    entity_id: group.presence
+    state: home
   action:
   - type: turn_on
     device_id: d140a8b718ed69ff5c2ae91ab0a9f5d7
@@ -1166,7 +1166,10 @@
     entity_id:
     - binary_sensor.tradfri_motion_sensor
     to: 'on'
-  condition: []
+  condition:
+  - condition: sun
+    before: sunrise
+    after: sunset
   action:
   - service: light.turn_on
     data: {}
