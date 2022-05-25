@@ -18,4 +18,18 @@ cards:
       - entity: switch.steckdose_3
         tap_action:
           action: toggle
+        double_tap_action: 
+          action: fire-dom-event
+          browser_mod:  
+            command: popup
+            title: Timer
+            card:
+              type: custom:timer-bar-card
+              entities:
+                - timer.kaffeemaschine
+              card_mod:
+                style: |
+                  ha-card {
+                      --ha-card-box-shadow: none;
+                    } 
   - !include ../includes/climate/climate_kitchen.yaml

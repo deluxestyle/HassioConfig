@@ -746,11 +746,13 @@
   condition: []
   action:
   - service: switch.turn_off
+    data: {}
     target:
-      entity_id: switch.on_off_plug_in_unit_12
+      entity_id: switch.steckdose_3
   - service: timer.cancel
     target:
       entity_id: timer.kaffeemaschine
+    data: {}
   mode: single
 - id: '1610972932012'
   alias: 'Kaffeemaschine: ein/ausschalten'
@@ -772,14 +774,15 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: switch.on_off_plug_in_unit_12
+    entity_id:
+    - switch.steckdose_3
   condition: []
   action:
   - choose:
     - conditions:
       - condition: state
-        entity_id: switch.on_off_plug_in_unit_12
         state: 'on'
+        entity_id: switch.steckdose_3
       sequence:
       - service: timer.start
         data:
@@ -788,15 +791,17 @@
           entity_id: timer.kaffeemaschine
     - conditions:
       - condition: state
-        entity_id: switch.on_off_plug_in_unit_12
         state: 'off'
+        entity_id: switch.steckdose_3
       sequence:
       - service: timer.cancel
         target:
           entity_id: timer.kaffeemaschine
+        data: {}
       - service: input_boolean.turn_off
         target:
           entity_id: input_boolean.kaffeemaschine_steckdose
+        data: {}
     default: []
   mode: single
 - id: '1630350328215'

@@ -103,3 +103,11 @@ climate.heizung_bad:
           .sensor-heading, .mode-title {
             font-weight: 400;
           }
+
+switch.steckdose_3:
+  title: Timer
+  card:
+    type: entities
+    <<: *style
+    entities: 
+      - entity: ctimer.kaffeemaschine

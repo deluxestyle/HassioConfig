@@ -38,3 +38,6 @@
   type: js
 - url: /hacsfiles/lovelace-mushroom/mushroom.js
   type: module
+- url: /hacsfiles/timer-bar-card/timer-bar-card.js
+  type: module
+                
