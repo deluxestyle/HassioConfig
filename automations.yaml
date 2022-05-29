@@ -466,9 +466,13 @@
   alias: 'Benachrichtigung: CPU Temp zu hoch'
   description: ''
   trigger:
-  - above: 80
+  - above: '75'
     entity_id: sensor.cpu_temperature
-    for: 00:10:00
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+      milliseconds: 0
     platform: numeric_state
   condition: []
   action:
@@ -851,10 +855,10 @@
     to: 'off'
     for:
       hours: 0
-      minutes: 0
+      minutes: 3
       seconds: 0
-      milliseconds: 0
-    entity_id: switch.ds118
+    entity_id:
+    - switch.ds118
   condition: []
   action:
   - service: notify.mobile_app_iphone11pro
