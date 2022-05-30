@@ -4,9 +4,9 @@
     device_class: presence
     state: >
         {% if is_state('person.wolfgang', 'home') or is_state('person.christina', 'home') %}
-          home
+          on
         {% else %}
-          not_home
+          off
         {% endif %}
 
 #### Update Senors ####
