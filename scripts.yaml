@@ -289,10 +289,17 @@ sonos_set_volume_10:
 sonos_join:
   alias: 'Sonos: join'
   sequence:
-  - service: sonos.join
+  - service: media_player.join
     data:
-      entity_id: media_player.schlafzimmer, media_player.kuche, media_player.wohnzimmer
-      master: media_player.schlafzimmer
+      group_members: media_player.kuche
+    target:
+      entity_id:
+      - media_player.schlafzimmer
+  - service: media_player.join
+    data:
+      group_members: media_player.wohnzimmer
+    target:
+      entity_id: media_player.schlafzimmer
   mode: single
   icon: mdi:set-center
 sonos_set_volume_8:
@@ -450,10 +457,10 @@ harmony_surround_mode:
 sonos_kuche_bayern_1:
   alias: 'Sonos: Küche Bayern 1'
   sequence:
-  - service: sonos.unjoin
+  - service: media_player.unjoin
     data: {}
     target:
-      device_id: 2094b86c2a0d860eeddf623406678e39
+      entity_id: media_player.kuche
   - service: media_player.volume_set
     data:
       volume_level: 0.08
@@ -468,10 +475,10 @@ sonos_kuche_bayern_1:
 sonos_kuche_bayern_1_2:
   alias: 'Sonos: Küche BR24'
   sequence:
-  - service: sonos.unjoin
+  - service: media_player.unjoin
     data: {}
     target:
-      device_id: 2094b86c2a0d860eeddf623406678e39
+      entity_id: media_player.kuche
   - service: media_player.volume_set
     data:
       volume_level: 0.08
@@ -486,10 +493,10 @@ sonos_kuche_bayern_1_2:
 sonos_kuche_arabella:
   alias: 'Sonos: Küche Arabella'
   sequence:
-  - service: sonos.unjoin
+  - service: media_player.unjoin
     data: {}
     target:
-      device_id: 2094b86c2a0d860eeddf623406678e39
+      entity_id: media_player.kuche
   - service: media_player.volume_set
     data:
       volume_level: 0.08

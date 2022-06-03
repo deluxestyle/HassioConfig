@@ -988,7 +988,7 @@
     at: 01:00
   condition: []
   action:
-  - service: sonos.unjoin
+  - service: media_player.unjoin
     data: {}
     target:
       entity_id: media_player.schlafzimmer
