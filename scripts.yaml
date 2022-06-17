@@ -14,10 +14,10 @@ sonos_stopp:
   - data: {}
     service: media_player.media_stop
     target:
-      device_id:
-      - 2094b86c2a0d860eeddf623406678e39
-      - 92073219792f52aad47fe04301cb2789
-      - 6e06a6ef3694161efade1a7369ca21cf
+      entity_id:
+      - media_player.kuche
+      - media_player.wohnzimmer
+      - media_player.schlafzimmer
   mode: single
 xiaomi_vacuum_start:
   alias: 'Xiaomi Staubsauger: einschalten'

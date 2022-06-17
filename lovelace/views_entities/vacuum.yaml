@@ -120,5 +120,5 @@ views:
     type: panel
     cards:
       - type: iframe
-        url: http://192.168.200.29
+        url: https://roborock.tanzer-cloud.de
         aspect_ratio: 100%

@@ -1203,3 +1203,25 @@
         target:
           entity_id: light.kuche
   mode: restart
+- id: '1655032424438'
+  alias: 'Benachrichtigung:  Laptop Erlau online'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.wireguard_laptoperlau
+    to: Verbunden
+  condition:
+  - condition: time
+    after: 08:00:00
+    before: '21:00:00'
+  action:
+  - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
+      message: Laptop Erlau ist online
+      notification_id: vpn_update
+      title: VPN
+    service: script.notify_script
+  mode: single
