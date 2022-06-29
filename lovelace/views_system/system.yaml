@@ -44,7 +44,7 @@ cards:
           action: fire-dom-event
           browser_mod:
             command: navigate
-            navigation_path: /hassio
+            navigation_path: /config/dashboard
       - entity:  sensor.updater_supervisor
         type: custom:multiple-entity-row
         name: Supervisor
@@ -59,7 +59,7 @@ cards:
           action: fire-dom-event
           browser_mod:
             command: navigate
-            navigation_path: /hassio
+            navigation_path: /config/dashboard
       - entity:  sensor.updater_supervisor
         type: custom:multiple-entity-row
         name: Add-ons

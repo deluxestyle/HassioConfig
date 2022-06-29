@@ -17,36 +17,36 @@ cards:
       - type: entities
         entities:
           - type: weblink
-            url: http://192.168.200.33:88/admin/index.php
+            url: https://pihole.tanzer-cloud.de/admin/
             name: Pi-hole
             icon: mdi:pi-hole
             new_tab: true
           - type: weblink
-            url: https://fritz.box/
+            url: http://fritz.box/
             name: Frizt.Box
             icon: mdi:router-wireless
             new_tab: true
       - type: entities
         entities:
           - type: weblink
-            url: http://192.168.200.33:9000/#/home
+            url: https://portainer.tanzer-cloud.de
             name: Portainer
             icon: mdi:docker
             new_tab: true
           - type: weblink
-            url: http://192.168.200.33:8080/pwa/index.html
+            url: http://phoscon.tanzer-cloud.de
             name: Phoscon
             icon: mdi:zigbee
             new_tab: true
       - type: entities
         entities:
           - type: weblink
-            url: https://192.168.200.41:5001/
+            url: https://synology.tanzer-cloud.de
             name: DS118
             icon: mdi:nas
             new_tab: true
           - type: weblink
-            url: https://192.168.200.41:8384/
+            url: https://syncthing.tanzer-cloud.de/
             name: Syncthing
             icon: mdi:cloud-sync-outline
             new_tab: true
