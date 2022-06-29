@@ -60,8 +60,8 @@ views:
             secondary_info: last-changed
           - entity: binary_sensor.bewegungsmelder
             secondary_info: last-changed
-          # - entity: binary_sensor.tradfri_bewegungsmelder
-          #   secondary_info: last-changed
+          - entity: binary_sensor.tradfri_motion_sensor
+            secondary_info: last-changed
           # - type: custom:fold-entity-row
           #   head:
           #     type: section
