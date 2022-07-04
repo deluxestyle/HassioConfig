@@ -1176,9 +1176,9 @@
     - binary_sensor.tradfri_motion_sensor
     to: 'on'
   condition:
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon
+  - condition: sun
+    after: sunset
+    after_offset: -00:45:00
   action:
   - service: light.turn_on
     data: {}

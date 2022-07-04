@@ -24,6 +24,7 @@ cards:
       - vacuum
       - climate
       - media_player
+      - button
     exclude:
       - media_player.airport_express
       - media_player.harman_kardon_avr
