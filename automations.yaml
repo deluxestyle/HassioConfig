@@ -730,6 +730,7 @@
         actions:
         - action: SWITCH_OFF_COFFEE
           title: Steckdose ausschalten
+        tag: Kaffeemaschine
   - service: timer.start
     data:
       duration: 00:10:00
@@ -738,6 +739,7 @@
   - service: input_boolean.turn_on
     target:
       entity_id: input_boolean.kaffeemaschine_steckdose
+    data: {}
   mode: single
 - id: '1630241702798'
   alias: 'Kaffeemaschine: Steckdose aus nach Push'
@@ -753,10 +755,6 @@
     data: {}
     target:
       entity_id: switch.steckdose_3
-  - service: timer.cancel
-    target:
-      entity_id: timer.kaffeemaschine
-    data: {}
   mode: single
 - id: '1610972932012'
   alias: 'Kaffeemaschine: ein/ausschalten'
@@ -806,6 +804,11 @@
         target:
           entity_id: input_boolean.kaffeemaschine_steckdose
         data: {}
+      - service: notify.mobile_app_iphone11pro
+        data:
+          message: clear_notification
+          data:
+            tag: Kaffeemaschine
     default: []
   mode: single
 - id: '1630350328215'
@@ -1176,9 +1179,9 @@
     - binary_sensor.tradfri_motion_sensor
     to: 'on'
   condition:
-  - condition: sun
-    after: sunset
-    after_offset: -00:45:00
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
   action:
   - service: light.turn_on
     data: {}
