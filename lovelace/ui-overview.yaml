@@ -72,13 +72,18 @@ cards:
       #   double_tap_action:
       #     action: more-info
 #################################################################
-  # - template: blank
-  #   type: 'custom:button-card'
-  # - type: grid
-  #   columns: 2
-  #   square: false
-  #   cards:
-  #     - !include includes/multimedia/remote.yaml
+  - template: blank
+    type: 'custom:button-card'
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - !include includes/multimedia/remote.yaml
+      - type: 'custom:button-card'
+        entity: switch.steckdosenleiste
+        template: 
+          - icon_info_bg
+          - outlet
 #################################################################
   - template: blank
     type: 'custom:button-card'
@@ -114,11 +119,6 @@ cards:
     columns: 2
     square: false
     cards:
-      - type: 'custom:button-card'
-        entity: switch.steckdosenleiste
-        template: 
-          - icon_info_bg
-          - outlet
       - type: 'custom:button-card'
         entity: switch.steckdose_3
         template: 
