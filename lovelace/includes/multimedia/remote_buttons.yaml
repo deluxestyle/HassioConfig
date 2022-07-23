@@ -30,47 +30,30 @@ cards:
         entity: switch.music_switch
         template:
           - button
-      - type: 'custom:button-card'
-        entity: script.harmony_power_off
-        variables:
-          entity: script.harmony_power_off
-        name: Ausschalten
-        template:
-          - script
-          - button
+      # - type: 'custom:button-card'
+      #   entity: script.harmony_power_off
+      #   variables:
+      #     entity: script.harmony_power_off
+      #   name: Ausschalten
+      #   template:
+      #     - script
+      #     - button
   - type: entities
     entities:
-      - type: section          
-      - type: buttons
-        entities:
-          - entity: media_player.harman_kardon_avr
-            icon: mdi:volume-minus
-            tap_action:
-              action: call-service
-              service: media_player.volume_down
-              service_data:
-                entity_id: media_player.harman_kardon_avr
-          - entity: media_player.harman_kardon_avr
-            icon: mdi:volume-plus
-            tap_action:
-              action: call-service
-              service: media_player.volume_up
-              service_data:
-                entity_id: media_player.harman_kardon_avr
-          - entity: media_player.harman_kardon_avr
-            icon: mdi:volume-off
-            tap_action:
-              action: call-service
-              service: script.toggle
-              service_data:
-                entity_id: script.harmony_avr_mute  
+      - type: "custom:paper-buttons-row"
+        buttons:        
+          - entity: script.harmony_volume_down
+            name: false
+          - entity: script.harmony_volume_up
+            name: false
+          - entity: script.harmony_mute
+            name: false 
           - entity: script.harmony_surround_mode
+            name: false
             tap_action:
               action: toggle
-          # - entity: script.harmony_power_off
-          #   show_name: false
-          #   tap_action:
-          #     action: toggle
+          - entity: script.harmony_power_off
+            name: false
       - type: custom:fold-entity-row
         head:
           type: section

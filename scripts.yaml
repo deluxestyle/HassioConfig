@@ -508,3 +508,39 @@ sonos_kuche_arabella:
     target:
       device_id: 2094b86c2a0d860eeddf623406678e39
   mode: single
+harmony_volume_up:
+  alias: 'Harmony: Volume up'
+  sequence:
+  - service: remote.send_command
+    data:
+      device: '57574103'
+      command: VolumeUp
+    target:
+      entity_id: remote.harmony_hub
+  mode: parallel
+  icon: mdi:volume-plus
+  max: 10
+harmony_volume_down:
+  alias: 'Harmony: Volume down'
+  sequence:
+  - service: remote.send_command
+    data:
+      device: '57574103'
+      command: VolumeDown
+    target:
+      entity_id: remote.harmony_hub
+  mode: parallel
+  icon: mdi:volume-minus
+  max: 10
+harmony_mute:
+  alias: 'Harmony: Mute'
+  sequence:
+  - service: remote.send_command
+    data:
+      device: '57574103'
+      command: Mute
+    target:
+      entity_id: remote.harmony_hub
+  mode: parallel
+  icon: mdi:volume-mute
+  max: 10
