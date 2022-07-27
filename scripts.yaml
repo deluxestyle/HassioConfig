@@ -544,3 +544,12 @@ harmony_mute:
   mode: parallel
   icon: mdi:volume-mute
   max: 10
+fritzbox_restart:
+  alias: 'FritzBox: Restart'
+  sequence:
+  - device_id: 36a8d6e82781d3f1100027ab2637239a
+    domain: button
+    entity_id: button.fritz_box_7590_reboot
+    type: press
+  mode: single
+  icon: mdi:lan-pending

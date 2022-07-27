@@ -620,21 +620,13 @@
   mode: queued
   max: 10
 - id: '1615913010852'
-  alias: Restart DuckDns + Wireguard
-  description: nach IP wechsel DuckDns und Wireguard neustarten
+  alias: Restart Wireguard
+  description: nach IP Wechsel Wireguard neustarten
   trigger:
   - platform: state
     entity_id: sensor.fritz_box_7590_external_ip
   condition: []
   action:
-  - delay:
-      hours: 0
-      minutes: 1
-      seconds: 0
-      milliseconds: 0
-  - service: hassio.addon_restart
-    data:
-      addon: core_duckdns
   - delay:
       hours: 0
       minutes: 2
@@ -1214,4 +1206,23 @@
       notification_id: vpn_update
       title: VPN
     service: script.notify_script
+  mode: single
+- id: '1658949383573'
+  alias: 'Internet: Neustart'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.internet
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 30
+      seconds: 0
+  condition: []
+  action:
+  - device_id: 36a8d6e82781d3f1100027ab2637239a
+    domain: button
+    entity_id: button.fritz_box_7590_reboot
+    type: press
   mode: single
