@@ -1225,4 +1225,19 @@
     domain: button
     entity_id: button.fritz_box_7590_reboot
     type: press
+  - repeat:
+      until:
+      - condition: state
+        entity_id: binary_sensor.internet
+        state: 'on'
+      sequence:
+      - delay:
+          hours: 1
+          minutes: 0
+          seconds: 0
+          milliseconds: 0
+      - device_id: 36a8d6e82781d3f1100027ab2637239a
+        domain: button
+        entity_id: button.fritz_box_7590_reboot
+        type: press
   mode: single
