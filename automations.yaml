@@ -914,27 +914,6 @@
           - automation.benachrichtigung_wohnungstur_offen
     default: []
   mode: restart
-- id: '1636811820030'
-  alias: Heizstrahler ausschalten
-  description: Heizstrahler nach 10 Minuten ausschalten
-  trigger:
-  - platform: device
-    type: turned_on
-    device_id: 69a6167eb7eaaaa79c441b44e3424f1c
-    entity_id: switch.on_off_plug_in_unit_11
-    domain: switch
-    for:
-      hours: 0
-      minutes: 10
-      seconds: 2
-      milliseconds: 0
-  condition: []
-  action:
-  - type: turn_off
-    device_id: 69a6167eb7eaaaa79c441b44e3424f1c
-    entity_id: switch.on_off_plug_in_unit_11
-    domain: switch
-  mode: single
 - id: '1639749213579'
   alias: 'Babykamera: Surveillance'
   description: ''

@@ -45,6 +45,7 @@ cards:
       - entity: sensor.wireguard_hpspectre
         icon: mdi:laptop
         name: VPN Lpatop
+      - entity: binary_sensor.internet
   - type: entities
     entities:
       - entity: switch.pi_hole_switch

@@ -18,9 +18,9 @@ entities:
   - sensor.temperature_158d0001b8c998
   - sensor.temperature_158d0002239fb5
   - sensor.temperature_158d00023258bd
-  # - sensor.net_download_cur
-  # - sensor.net_download_max
-  - sensor.net_upload_cur
+  - sensor.fritz_box_7590_download_throughput
+  - sensor.net_download_max
+  - sensor.fritz_box_7590_upload_throughput
   - sensor.net_upload_max
   - sensor.net_uptime
   - sensor.fritz_box_7590_kb_s_received
@@ -55,6 +55,7 @@ entities:
   - binary_sensor.bewegungsmelder
   - binary_sensor.tradfri_bewegungsmelder
   - vacuum.roborock_vacuum
+  - binary_sensor.internet
 domains:
   - automation
   - switch
