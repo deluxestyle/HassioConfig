@@ -1192,12 +1192,12 @@
   trigger:
   - platform: state
     entity_id:
-    - binary_sensor.internet
-    to: 'off'
+    - binary_sensor.fritz_box_7590_connection
     for:
       hours: 0
       minutes: 30
       seconds: 0
+    from: 'on'
   condition: []
   action:
   - device_id: 36a8d6e82781d3f1100027ab2637239a
@@ -1207,8 +1207,8 @@
   - repeat:
       until:
       - condition: state
-        entity_id: binary_sensor.internet
         state: 'on'
+        entity_id: binary_sensor.fritz_box_7590_connection
       sequence:
       - delay:
           hours: 1

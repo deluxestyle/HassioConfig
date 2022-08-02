@@ -50,3 +50,10 @@ cards:
             name: Syncthing
             icon: mdi:cloud-sync-outline
             new_tab: true
+      - type: entities
+        entities:
+          - type: weblink
+            url: /history
+            name: Verlauf
+            icon: mdi:clipboard-text-clock-outline
+            new_tab: false

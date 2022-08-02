@@ -55,7 +55,7 @@ entities:
   - binary_sensor.bewegungsmelder
   - binary_sensor.tradfri_bewegungsmelder
   - vacuum.roborock_vacuum
-  - binary_sensor.internet
+  - binary_sensor.fritz_box_7590_connection
 domains:
   - automation
   - switch

@@ -45,4 +45,4 @@ include:
     - sensor.fritz_box_7590_kb_s_received
     - sensor.fritz_box_7590_kb_s_sent
     - sensor.net_uptime
-    - binary_sensor.internet
+    - binary_sensor.fritz_box_7590_connection
