@@ -164,9 +164,9 @@ cards:
         filter:
           include:
             - entity_id: "sensor.ynzvpg2*"
-              options:
-                tap_action:
-                  action: none
+              # options:
+              #   tap_action:
+              #     action: none
         sort:
           method: name
         card:

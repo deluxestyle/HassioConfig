@@ -1078,7 +1078,8 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: binary_sensor.tradfri_motion_sensor
+    entity_id:
+    - binary_sensor.bewegungsmelder
     to: 'on'
   condition: []
   action:
@@ -1100,7 +1101,7 @@
   - repeat:
       until:
       - condition: state
-        entity_id: sensor.tradfri_motion_sensor
+        entity_id: binary_sensor.bewegungsmelder
         state: 'off'
       sequence:
       - delay:
@@ -1109,7 +1110,7 @@
           seconds: 0
           milliseconds: 0
       - condition: state
-        entity_id: binary_sensor.tradfri_motion_sensor
+        entity_id: binary_sensor.bewegungsmelder
         state: 'off'
       - service: light.turn_off
         data: {}
@@ -1122,7 +1123,7 @@
   trigger:
   - platform: state
     entity_id:
-    - binary_sensor.bewegungsmelder
+    - binary_sensor.tradfri_motion_sensor
     to: 'on'
   condition:
   - condition: state
@@ -1137,7 +1138,7 @@
       until:
       - condition: state
         state: 'off'
-        entity_id: binary_sensor.bewegungsmelder
+        entity_id: binary_sensor.tradfri_motion_sensor
       sequence:
       - delay:
           hours: 0
@@ -1145,7 +1146,7 @@
           seconds: 0
           milliseconds: 0
       - condition: state
-        entity_id: binary_sensor.bewegungsmelder
+        entity_id: binary_sensor.tradfri_motion_sensor
         state: 'off'
       - service: light.turn_off
         data: {}

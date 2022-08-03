@@ -60,3 +60,5 @@ domains:
   - automation
   - switch
   - device_tracker
+entity_globs:
+  - sensor.ynzvpg2*
