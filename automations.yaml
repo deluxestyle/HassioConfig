@@ -1006,7 +1006,7 @@
     platform: device
     type: remote_button_short_press
     subtype: dim_down
-    id: arabella
+    id: bayern2
   - device_id: 055f6416a4714103c74a8e75080ec589
     domain: deconz
     platform: device
@@ -1055,9 +1055,9 @@
         data: {}
     - conditions:
       - condition: trigger
-        id: arabella
+        id: bayern2
       sequence:
-      - service: script.sonos_kuche_arabella
+      - service: script.sonos_kuche_bayern_2
         data: {}
     - conditions:
       - condition: trigger
@@ -1090,7 +1090,8 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: binary_sensor.bewegungsmelder
+    entity_id:
+    - binary_sensor.tradfri_motion_sensor
     to: 'on'
   condition: []
   action:
@@ -1110,18 +1111,15 @@
       target:
         entity_id: scene.flur_nachtlicht
   - repeat:
-      until:
-      - condition: state
-        entity_id: sensor.bewegungsmelder
-        state: 'off'
+      until: []
       sequence:
       - delay:
           hours: 0
-          minutes: 2
+          minutes: 3
           seconds: 0
           milliseconds: 0
       - condition: state
-        entity_id: binary_sensor.bewegungsmelder
+        entity_id: binary_sensor.tradfri_motion_sensor
         state: 'off'
       - service: light.turn_off
         data: {}
@@ -1134,7 +1132,7 @@
   trigger:
   - platform: state
     entity_id:
-    - binary_sensor.tradfri_motion_sensor
+    - binary_sensor.bewegungsmelder
     to: 'on'
   condition:
   - condition: state
@@ -1149,7 +1147,7 @@
       until:
       - condition: state
         state: 'off'
-        entity_id: binary_sensor.tradfri_motion_sensor
+        entity_id: binary_sensor.bewegungsmelder
       sequence:
       - delay:
           hours: 0

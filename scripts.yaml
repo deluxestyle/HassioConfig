@@ -553,3 +553,21 @@ fritzbox_restart:
     type: press
   mode: single
   icon: mdi:lan-pending
+sonos_kuche_bayern_2:
+  alias: 'Sonos: Küche Bayern 2'
+  sequence:
+  - service: media_player.unjoin
+    data: {}
+    target:
+      entity_id: media_player.kuche
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.08
+    target:
+      device_id: 2094b86c2a0d860eeddf623406678e39
+  - service: media_player.select_source
+    data:
+      source: Bayern 2
+    target:
+      device_id: 2094b86c2a0d860eeddf623406678e39
+  mode: single
