@@ -30,30 +30,30 @@ cards:
   - type: entities
     show_header_toggle: false
     entities:
-      - entity:  sensor.updater_core
+      - entity:  update.home_assistant_core_update
         type: custom:multiple-entity-row
         name: Core
         show_state: false
         icon: mdi:update
         entities:
-          - attribute: current_version
+          - attribute: installed_version
             name: Installiert
-          - attribute: newest_version
+          - attribute: latest_version
             name: Verfügbar
         tap_action: 
           action: fire-dom-event
           browser_mod:
             command: navigate
             navigation_path: /config/dashboard
-      - entity:  sensor.updater_supervisor
+      - entity:  update.home_assistant_supervisor_update
         type: custom:multiple-entity-row
         name: Supervisor
         icon: mdi:update
         show_state: false
         entities:
-          - attribute: current_version
+          - attribute: installed_version
             name: Installiert
-          - attribute: newest_version
+          - attribute: latest_version
             name: Verfügbar
         tap_action: 
           action: fire-dom-event
