@@ -5,7 +5,7 @@
       supported_color_modes:
       - brightness
       color_mode: brightness
-      brightness: 8
+      brightness: 23
       entity_id:
       - light.flur1
       - light.flur2
@@ -14,6 +14,7 @@
       friendly_name: Flur
       supported_features: 40
       state: 'on'
+  metadata: {}
 - id: '1651475965685'
   name: Flur Tageslicht
   entities:

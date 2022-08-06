@@ -567,7 +567,7 @@ sonos_kuche_bayern_2:
       device_id: 2094b86c2a0d860eeddf623406678e39
   - service: media_player.select_source
     data:
-      source: Bayern 2
+      source: Bayern 2 Süd
     target:
       device_id: 2094b86c2a0d860eeddf623406678e39
   mode: single
