@@ -1,37 +1,38 @@
 
 action: fire-dom-event
 browser_mod:
-  command: popup
-  title: Szenen
-  style:
-    .: |
-      :host {
-        --secondary-background-color: rgba(0,0,0,0);
-      }
-  card:
-    type: entities
-    entities: 
-        - entity: scene.wohnzimmer_hell
-          name: Hell
-          icon: mdi:lightbulb-group-outline
-        - entity: scene.wohnzimmer_lesen
-          name: Lesen
-          icon: mdi:lightbulb-group-outline
-        - entity: scene.wohnzimmer_entspannen
-          name: Entspannen
-          icon: mdi:lightbulb-group-outline
-        - entity: scene.wohnzimmer_energie_tanken
-          name: Energie tanken
-          icon: mdi:lightbulb-group-outline
-        - entity: scene.wohnzimmer_konzentrieren
-          name: Konzentrieren
-          icon: mdi:lightbulb-group-outline
-        - entity: scene.wohnzimmer_gedimmt
-          name: Gedimmt
-          icon: mdi:lightbulb-group-outline
-        - entity: scene.wohnzimmer_nachtlicht
-          name: Nachtlicht
-          icon: mdi:lightbulb-group-outline
-        - entity: scene.wohnzimmer_fernsehen
-          name: Fernsehen
-          icon: mdi:lightbulb-group-outline
+  service: browser_mod.popup
+  data:
+    title: Szenen
+    style:
+      .: |
+        :host {
+          --secondary-background-color: rgba(0,0,0,0);
+        }
+    content:
+      type: entities
+      entities: 
+          - entity: scene.wohnzimmer_hell
+            name: Hell
+            icon: mdi:lightbulb-group-outline
+          - entity: scene.wohnzimmer_lesen
+            name: Lesen
+            icon: mdi:lightbulb-group-outline
+          - entity: scene.wohnzimmer_entspannen
+            name: Entspannen
+            icon: mdi:lightbulb-group-outline
+          - entity: scene.wohnzimmer_energie_tanken
+            name: Energie tanken
+            icon: mdi:lightbulb-group-outline
+          - entity: scene.wohnzimmer_konzentrieren
+            name: Konzentrieren
+            icon: mdi:lightbulb-group-outline
+          - entity: scene.wohnzimmer_gedimmt
+            name: Gedimmt
+            icon: mdi:lightbulb-group-outline
+          - entity: scene.wohnzimmer_nachtlicht
+            name: Nachtlicht
+            icon: mdi:lightbulb-group-outline
+          - entity: scene.wohnzimmer_fernsehen
+            name: Fernsehen
+            icon: mdi:lightbulb-group-outline

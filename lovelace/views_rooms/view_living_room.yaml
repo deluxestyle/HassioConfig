@@ -19,21 +19,17 @@ cards:
             - entity: script.harmony_power_off
               name: false
               icon: mdi:power
-      # - entity: media_player.samsung_q60aa_43_tv
+        tap_action: 
+          action: fire-dom-event
+          browser_mod:  
+            service: browser_mod.popup
+            data:
+              !include ../includes/multimedia/remote_buttons.yaml
       - entity: switch.steckdosenleiste
         name: Steckdosenleiste
         tap_action: 
           action: toggle
-  # - type: entities
-  #   entities:
-  #     - entity: switch.steckdose_1
-  #       icon: mdi:desk
-  #       name: Schreibtisch
-  #       tap_action: 
-  #         action: toggle   
-
   - !include
       - ../includes/multimedia/mini_media_player.yaml
       - entity: media_player.wohnzimmer
-        popup: false
   - !include ../includes/climate/climate_living_room.yaml

@@ -1,18 +1,14 @@
 # lovelace_gen
 
-command: popup
-title: Lampen
-card:
-    type: custom:auto-entities
-    card:
-      type: entities
-      card_mod:
-        style: |
-          ha-card {
-              --ha-card-box-shadow: none;
-            }
-    filter:
-      include:
-        - entity_id: "scene.wohnzimmer_*"
-    sort:
-      method: name
+service: browser_mod.popup
+data:
+  title: Lampen
+  content:
+      type: custom:auto-entities
+      card:
+        type: entities
+      filter:
+        include:
+          - entity_id: "scene.wohnzimmer_*"
+      sort:
+        method: name

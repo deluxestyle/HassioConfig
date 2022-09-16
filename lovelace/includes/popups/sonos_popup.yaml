@@ -1,23 +1,48 @@
 # lovelace_gen
 
 title: Sonos
-card:
-  type: custom:vertical-stack-in-card
-  card_mod:
-    style: |
-      ha-card {
-          --ha-card-box-shadow: none;
-          --ha-card-border-radius: 0px;
-        }
+content:
+  type: custom:vertical-stack-in-card 
   cards:
     - type: media-control
       entity: media_player.{{ entity }}
     - type: entities
       entities:
-        - !include
-            - ../multimedia/mini_media_player.yaml
-            - entity: media_player.{{ entity }}
-              popup: true      
+        - type: custom:mini-media-player
+          entity: media_player.{{ entity }}
+          icon: 'mdi:speaker-wireless'
+          volume_stateless: true
+          group: true
+          sound_mode: icon
+          hide:
+            power: true
+            source: true
+            progress: false
+            shuffle: false
+            repeat: false
+            next: true
+            prev: true
+            play_pause: true
+            play_stop: true
+            controls: true
+            info: true
+            name: true
+            icon: true
+          idle_view:
+            when_idle: false
+            when_paused: false
+            when_standby: false   
+          speaker_group:
+            platform: sonos
+            show_group_count: true
+            sync_volume: false
+            entities:
+              - entity_id: media_player.wohnzimmer
+                name: Sonos Wohnzimmer 
+              - entity_id: media_player.kuche
+                name: Sonos Küche
+              - entity_id: media_player.schlafzimmer
+                name: Sonos Schlafzimmer
         - entity: number.{{ entity }}_bass
           name: Bass
           tap_action: 

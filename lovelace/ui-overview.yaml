@@ -63,14 +63,6 @@ cards:
             !include includes/popups/light_floor.yaml
         double_tap_action:
           action: more-info
-      # - type: 'custom:button-card'
-      #   entity: light.gateway_light_7811dcb258d1
-      #   name: Nachtlicht Flur
-      #   template: 
-      #     - icon_info_bg
-      #     - light
-      #   double_tap_action:
-      #     action: more-info
 #################################################################
   - template: blank
     type: 'custom:button-card'
@@ -98,6 +90,14 @@ cards:
           - icon_info_bg
           - media
         type: 'custom:button-card'
+        tap_action: 
+          action: fire-dom-event
+          browser_mod:  
+            service: browser_mod.popup
+            data:
+              !include 
+                - includes/popups/sonos_popup.yaml
+                - entity: wohnzimmer
       - entity: media_player.schlafzimmer
         variables:
           name: Schlafzimmer
@@ -105,6 +105,14 @@ cards:
           - icon_info_bg
           - media
         type: 'custom:button-card'
+        tap_action: 
+          action: fire-dom-event
+          browser_mod:  
+            service: browser_mod.popup
+            data:
+              !include 
+                - includes/popups/sonos_popup.yaml
+                - entity: schlafzimmer
       - entity: media_player.kuche
         variables:
           name: Küche
@@ -112,6 +120,14 @@ cards:
           - icon_info_bg
           - media
         type: 'custom:button-card'
+        tap_action: 
+          action: fire-dom-event
+          browser_mod:  
+            service: browser_mod.popup
+            data:
+              !include 
+                - includes/popups/sonos_popup.yaml
+                - entity: kuche
 #################################################################
   - template: blank
     type: 'custom:button-card'
@@ -128,17 +144,18 @@ cards:
         double_tap_action: 
           action: fire-dom-event
           browser_mod:  
-            command: popup
-            title: Timer
-            card:
-              type: custom:timer-bar-card
-              entities:
-                - timer.kaffeemaschine
-              card_mod:
-                style: |
-                  ha-card {
-                      --ha-card-box-shadow: none;
-                    } 
+            service: browser_mod.popup
+            data:
+              title: Timer
+              content:
+                type: custom:timer-bar-card
+                entities:
+                  - timer.kaffeemaschine
+                card_mod:
+                  style: |
+                    ha-card {
+                        --ha-card-box-shadow: none;
+                      } 
       # - type: 'custom:button-card'
       #   entity: media_player.samsung_q60aa_43_tv
       #   template: 

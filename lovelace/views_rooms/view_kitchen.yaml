@@ -12,7 +12,6 @@ cards:
   - !include
       - ../includes/multimedia/mini_media_player.yaml
       - entity: media_player.kuche
-        popup: false
   - type: entities
     entities:
       - entity: switch.steckdose_3
@@ -21,15 +20,16 @@ cards:
         double_tap_action: 
           action: fire-dom-event
           browser_mod:  
-            command: popup
-            title: Timer
-            card:
-              type: custom:timer-bar-card
-              entities:
-                - timer.kaffeemaschine
-              card_mod:
-                style: |
-                  ha-card {
-                      --ha-card-box-shadow: none;
-                    } 
+            service: browser_mod.popup
+            data:
+              title: Timer
+              content:
+                type: custom:timer-bar-card
+                entities:
+                  - timer.kaffeemaschine
+                card_mod:
+                  style: |
+                    ha-card {
+                        --ha-card-box-shadow: none;
+                      } 
   - !include ../includes/climate/climate_kitchen.yaml

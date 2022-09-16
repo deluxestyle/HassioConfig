@@ -1,3 +1,4 @@
+
 type: 'custom:button-card'
 entity: remote.harmony_hub
 name: Fernbedienung
@@ -6,3 +7,9 @@ template:
   - icon_info_bg
   - generic_no_unit
   - remote
+tap_action: 
+  action: fire-dom-event
+  browser_mod:  
+    service: browser_mod.popup
+    data:
+      !include remote_buttons.yaml

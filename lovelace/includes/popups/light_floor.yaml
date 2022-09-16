@@ -1,18 +1,19 @@
 # lovelace_gen
 
-command: popup
-title: Szenen
-card:
-  type: entities
-  card_mod:
-    style: |
-      ha-card {
-          --ha-card-box-shadow: none;
-        }
-  entities:
-    - entity: scene.flur_gedimmt
-      icon: mdi:brightness-3
-    - entity: scene.flur_hell_nacht
-      icon: mdi:brightness-4
-    - entity: scene.flur_hell_tag
-      icon: mdi:brightness-5
+service: browser_mod.popup
+data:
+  title: Szenen
+  content:
+    type: entities
+    card_mod:
+      style: |
+        ha-card {
+            --ha-card-box-shadow: none;
+          }
+    entities:
+      - entity: scene.flur_gedimmt
+        icon: mdi:brightness-3
+      - entity: scene.flur_hell_nacht
+        icon: mdi:brightness-4
+      - entity: scene.flur_hell_tag
+        icon: mdi:brightness-5

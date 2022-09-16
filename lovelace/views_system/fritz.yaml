@@ -58,23 +58,23 @@ cards:
         double_tap_action:
           action: fire-dom-event
           browser_mod:
-            command: popup
-            title: Pi-hole Stats
-            card:
-              type: custom:auto-entities
-              card:
-                type: entities
-                <<: *style 
-              filter:
-                  include:
-                    - entity_id: input_datetime.pi_hole_timer
-                      options:
-                        tap_action:
-                          action: none
-                    - entity_id: "sensor.pi_hole_*"
-                      options:
-                        tap_action:
-                          action: none
+            service: browser_mod.popup
+            data:
+              title: Pi-hole Stats
+              content:
+                type: custom:auto-entities
+                card:
+                  type: entities
+                filter:
+                    include:
+                      - entity_id: input_datetime.pi_hole_timer
+                        options:
+                          tap_action:
+                            action: none
+                      - entity_id: "sensor.pi_hole_*"
+                        options:
+                          tap_action:
+                            action: none
   - type: entities
     entities:
       - entity: switch.fritz_box_7590_wi_fi_google_messwagen_26_2_4ghz

@@ -1,21 +1,14 @@
 # lovelace_gen
 
-command: popup
-title: Szenen
-card:
-  type: entities
-  card_mod:
-    style: |
-      ha-card {
-          --ha-card-box-shadow: none;
-        }
-  entities:
-    - entity: scene.schlafzimmer_wickeln
-      icon: mdi:baby
-      name: Babylicht
-    - entity: scene.schlafzimmer_nachtlicht
-      icon: mdi:brightness-3
-    - entity: scene.schlafzimmer_gedimmt
-      icon: mdi:brightness-4
-    - entity: scene.schlafzimmer_hell
-      icon: mdi:brightness-5
+service: browser_mod.popup
+data:
+  title: Szenen
+  content:
+    type: entities
+    entities:
+      - entity: scene.schlafzimmer_nachtlicht
+        icon: mdi:brightness-3
+      - entity: scene.schlafzimmer_gedimmt
+        icon: mdi:brightness-4
+      - entity: scene.schlafzimmer_hell
+        icon: mdi:brightness-5

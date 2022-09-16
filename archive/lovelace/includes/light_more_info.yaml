@@ -1,0 +1,25 @@
+# lovelace_gen
+
+action: fire-dom-event
+browser_mod:
+  service: browser_mod.popup
+  data:
+    title: Licht
+    content:
+      type: custom:vertical-stack-in-card
+      card_mod:
+        style: |
+          ha-card {
+              --ha-card-box-shadow: none;
+            }
+      cards:
+        - type: entities
+          entities:
+            - entity: {{ light_entity }}
+              secondary_info: last-changed
+        - type: custom:light-entity-card
+          entity: {{ light_entity }}
+          consolidate_entities: true
+          hide_header: true
+          persist_features: false
+          full_width_sliders: true
