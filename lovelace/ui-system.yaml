@@ -1,7 +1,6 @@
 # lovelace_gen
 
 button_card_templates: !include includes/button_card_templates.yaml
-popup_cards: !include includes/popups/popup_cards.yaml
 
 title: System
 

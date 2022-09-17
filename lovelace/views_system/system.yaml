@@ -41,10 +41,8 @@ cards:
           - attribute: latest_version
             name: Verfügbar
         tap_action: 
-          action: fire-dom-event
-          browser_mod:
-            command: navigate
-            navigation_path: /config/dashboard
+          action: navigate
+          navigation_path:  /config/dashboard
       - entity:  update.home_assistant_supervisor_update
         type: custom:multiple-entity-row
         name: Supervisor
@@ -56,26 +54,23 @@ cards:
           - attribute: latest_version
             name: Verfügbar
         tap_action: 
-          action: fire-dom-event
-          browser_mod:
-            command: navigate
-            navigation_path: /config/dashboard
+          action: navigate
+          navigation_path:  /config/dashboard
       - entity:  sensor.updater_supervisor
         type: custom:multiple-entity-row
         name: Add-ons
         icon: mdi:update
         tap_action: 
-          action: fire-dom-event
-          browser_mod:
-            command: navigate
-            navigation_path: /hassio
+          action: navigate
+          navigation_path: /hassio
+          # browser_mod:
+          #   command: navigate
+          #   navigation_path: /hassio
       - entity: sensor.hacs
         name: Hacs
         tap_action: 
-          action: fire-dom-event
-          browser_mod:
-            command: navigate 
-            navigation_path: /hacs
+          action: navigate
+          navigation_path: /hacs
       - type: custom:fold-entity-row
         padding: 5
         head:

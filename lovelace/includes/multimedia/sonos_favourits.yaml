@@ -1,0 +1,57 @@
+list:
+  - name: Arabella München
+    type: service
+    id: media_player.play_media
+    data: 
+      entity_id: {{ entity }}
+      media_content_id: FV:2/30
+      media_content_type: favorite_item_id
+  - name: Bayern 1
+    type: service
+    id: media_player.play_media
+    data: 
+      entity_id: {{ entity }}
+      media_content_id: FV:2/53
+      media_content_type: favorite_item_id
+  - name: Bayern 2 Süd
+    type: service
+    id: media_player.play_media
+    data: 
+      entity_id: {{ entity }}
+      media_content_id: FV:2/52
+      media_content_type: favorite_item_id
+  - name: BR24
+    type: service
+    id: media_player.play_media
+    data: 
+      entity_id: {{ entity }}
+      media_content_id: FV:2/54
+      media_content_type: favorite_item_id
+  - name: Deutschlandfunk
+    type: service
+    id: media_player.play_media
+    data: 
+      entity_id: {{ entity }}
+      media_content_id: FV:2/36
+      media_content_type: favorite_item_id
+  - name: egoFM
+    type: service
+    id: media_player.play_media
+    data: 
+      entity_id: {{ entity }}
+      media_content_id: FV:2/31
+      media_content_type: favorite_item_id
+  - name: FM4
+    type: service
+    id: media_player.play_media
+    data: 
+      entity_id: {{ entity }}
+      media_content_id: FV:2/32
+      media_content_type: favorite_item_id
+  - name: Superfly.fm
+    type: service
+    id: media_player.play_media
+    data: 
+      entity_id: {{ entity }}
+      media_content_id: FV:2/44
+      media_content_type: favorite_item_id
