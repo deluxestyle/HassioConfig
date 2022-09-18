@@ -12,16 +12,9 @@ hide:
   power: true
   source: false
   progress: false
-  shuffle: false
-  repeat: false
-  next: true
-  prev: true
   play_pause: false
-  play_stop: false
-  controls: false
-  info: false
-  name: false
-  icon: false
+  play_stop: true
+  controls: true
 source: full
 info: scroll
 speaker_group:
@@ -39,65 +32,65 @@ idle_view:
   when_idle: true
   when_paused: true
   when_standby: true
-# shortcuts:
-#   label: 'Favoriten'
-#   list:
-#     - name: Arabella München
-#       type: service
-#       id: media_player.play_media
-#       data: 
-#         entity_id: {{ entity }}
-#         media_content_id: FV:2/30
-#         media_content_type: favorite_item_id
-#     - name: Bayern 1
-#       type: service
-#       id: media_player.play_media
-#       data: 
-#         entity_id: {{ entity }}
-#         media_content_id: FV:2/53
-#         media_content_type: favorite_item_id
-#     - name: Bayern 2 Süd
-#       type: service
-#       id: media_player.play_media
-#       data: 
-#         entity_id: {{ entity }}
-#         media_content_id: FV:2/52
-#         media_content_type: favorite_item_id
-#     - name: BR24
-#       type: service
-#       id: media_player.play_media
-#       data: 
-#         entity_id: {{ entity }}
-#         media_content_id: FV:2/54
-#         media_content_type: favorite_item_id
-#     - name: Deutschlandfunk
-#       type: service
-#       id: media_player.play_media
-#       data: 
-#         entity_id: {{ entity }}
-#         media_content_id: FV:2/36
-#         media_content_type: favorite_item_id
-#     - name: egoFM
-#       type: service
-#       id: media_player.play_media
-#       data: 
-#         entity_id: {{ entity }}
-#         media_content_id: FV:2/31
-#         media_content_type: favorite_item_id
-#     - name: FM4
-#       type: service
-#       id: media_player.play_media
-#       data: 
-#         entity_id: {{ entity }}
-#         media_content_id: FV:2/32
-#         media_content_type: favorite_item_id
-#     - name: Superfly.fm
-#       type: service
-#       id: media_player.play_media
-#       data: 
-#         entity_id: {{ entity }}
-#         media_content_id: FV:2/44
-#         media_content_type: favorite_item_id
+shortcuts:
+  label: 'Sender'
+  list:
+    - name: Arabella München
+      type: service
+      id: media_player.play_media
+      data: 
+        entity_id: {{ entity }}
+        media_content_id: FV:2/30
+        media_content_type: favorite_item_id
+    - name: Bayern 1
+      type: service
+      id: media_player.play_media
+      data: 
+        entity_id: {{ entity }}
+        media_content_id: FV:2/53
+        media_content_type: favorite_item_id
+    - name: Bayern 2 Süd
+      type: service
+      id: media_player.play_media
+      data: 
+        entity_id: {{ entity }}
+        media_content_id: FV:2/52
+        media_content_type: favorite_item_id
+    - name: BR24
+      type: service
+      id: media_player.play_media
+      data: 
+        entity_id: {{ entity }}
+        media_content_id: FV:2/54
+        media_content_type: favorite_item_id
+    - name: Deutschlandfunk
+      type: service
+      id: media_player.play_media
+      data: 
+        entity_id: {{ entity }}
+        media_content_id: FV:2/36
+        media_content_type: favorite_item_id
+    - name: egoFM
+      type: service
+      id: media_player.play_media
+      data: 
+        entity_id: {{ entity }}
+        media_content_id: FV:2/31
+        media_content_type: favorite_item_id
+    - name: FM4
+      type: service
+      id: media_player.play_media
+      data: 
+        entity_id: {{ entity }}
+        media_content_id: FV:2/32
+        media_content_type: favorite_item_id
+    - name: Superfly.fm
+      type: service
+      id: media_player.play_media
+      data: 
+        entity_id: {{ entity }}
+        media_content_id: FV:2/44
+        media_content_type: favorite_item_id
 tap_action: 
   action: fire-dom-event
   browser_mod:  

@@ -41,7 +41,7 @@
   value_template: >
     {{ value_json.status }}
 
-- platform: authenticated
+# - platform: authenticated
 
 - platform: influxdb
   host: 192.168.200.33

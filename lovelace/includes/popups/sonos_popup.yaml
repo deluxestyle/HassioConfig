@@ -1,14 +1,12 @@
 # lovelace_gen
 
 title: Sonos
+size: normal
 content:
   # type: custom:vertical-stack-in-card 
-  # cards:
-  #   # - type: media-control
-  #   #   entity: media_player.{{ entity }}
+  # cards: 
   type: entities
-  entities:
-    # - entity: media_player.{{ entity }}
+  entities:       
     - type: custom:mini-media-player
       entity: media_player.{{ entity }}
       icon: 'mdi:speaker-wireless'
@@ -20,36 +18,17 @@ content:
         power: true
         source: false
         progress: false
-        shuffle: false
-        repeat: false
-        next: true
-        prev: true
         play_pause: false
-        play_stop: false
-        controls: false
-        info: false
-        name: false
-        icon: false
+        play_stop: true
+        icon: true
+        control: false
       source: full
-      info: scroll
-      idle_view:
-        when_idle: false
-        when_paused: false
-        when_standby: false   
-      speaker_group:
-        platform: sonos
-        show_group_count: true
-        sync_volume: false
-        entities:
-          - entity_id: media_player.wohnzimmer
-            name: Sonos Wohnzimmer 
-          - entity_id: media_player.kuche
-            name: Sonos Küche
-          - entity_id: media_player.schlafzimmer
-            name: Sonos Schlafzimmer
+      info: scroll 
+      tap_action: 
+        action: none
       shortcuts:
-        label: 'Favoriten'
-        buttons:
+        label: 'Sender'
+        list:
           - name: Arabella München
             type: service
             id: media_player.play_media
@@ -106,6 +85,34 @@ content:
               entity_id: media_player.{{ entity }}
               media_content_id: FV:2/44
               media_content_type: favorite_item_id
+    - type: custom:mini-media-player
+      tap_action: 
+        action: none
+      entity: media_player.{{ entity }}
+      artwork: none
+      group: true
+      hide:
+        power: true
+        source: true
+        progress: true
+        controls: true
+        icon: true
+        name: true
+        volume: true
+        info: true
+      speaker_group:
+        platform: sonos
+        show_group_count: true
+        sync_volume: false
+        expanded: true
+        entities:
+          - entity_id: media_player.wohnzimmer
+            name: Sonos Wohnzimmer 
+          - entity_id: media_player.kuche
+            name: Sonos Küche
+          - entity_id: media_player.schlafzimmer
+            name: Sonos Schlafzimmer   
+     
     - entity: number.{{ entity }}_bass
       name: Bass
       tap_action: 
@@ -125,3 +132,4 @@ content:
     - entity:  input_boolean.sync_volume
       tap_action:
         action: toggle
+      

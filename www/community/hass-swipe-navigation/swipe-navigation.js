@@ -76,8 +76,8 @@ e.prevent_default=t.prevent_default),null!=t.swipe_amount&&(e.swipe_amount=t.swi
 null!=t.skip_tabs&&(e.skip_tabs=String(t.skip_tabs).replace(/\s+/g,"").split(",").map(function(t){return parseInt(t,10)})),null!=t.logger_level
 )switch(t.logger_level){case"verbose":e.logger_level=d.VERBOSE;break;case"debug":e.logger_level=d.DEBUG;break;case"info":e.logger_level=d.INFO;break;
 case"warn":e.logger_level=d.WARN;break;case"error":e.logger_level=d.ERROR;break;default:e.logger_level=d.WARN,J(
-'Unknown logger_level: "'+t.logger_level+'"')}else logger_level=d.WARN}}]),e}(),w=(e(m,"animate","none"),e(m,"wrap",!0),e(m,"prevent_default",!1),e(m,
-"swipe_amount",.15),e(m,"skip_hidden",!0),e(m,"skip_tabs",[]),e(m,"logger_level",d._ALL),new WeakMap),g=new WeakMap,b=new WeakMap,k=new WeakMap,
+'Unknown logger_level: "'+t.logger_level+'"')}else e.logger_level=d.WARN}}]),e}(),w=(e(m,"animate","none"),e(m,"wrap",!0),e(m,"prevent_default",!1),e(
+m,"swipe_amount",.15),e(m,"skip_hidden",!0),e(m,"skip_tabs",[]),e(m,"logger_level",d._ALL),new WeakMap),g=new WeakMap,b=new WeakMap,k=new WeakMap,
 E=new WeakMap,_=new WeakMap,S=new WeakMap,x=new WeakMap,D=new WeakSet,K=new WeakSet,Q=new WeakSet,Z=new WeakSet,tt=new WeakSet,et=new WeakSet,
 nt=new WeakSet,rt=new WeakSet,R=function(){function r(t,e,n){p(this,r),l(this,rt),l(this,nt),l(this,et),l(this,tt),l(this,Z),l(this,Q),l(this,K),l(
 this,D),s(this,w,{writable:!0,value:null}),s(this,g,{writable:!0,value:null}),s(this,b,{writable:!0,value:null}),s(this,k,{writable:!0,value:null}),s(
@@ -143,4 +143,4 @@ case 18:if(e)return y("Configuration read."),t.abrupt("return",!0);t.next=23;bre
 case 25:case"end":return t.stop()}},t,null,[[5,11]])}))).apply(this,arguments)}function Lt(){C.haPanelLovelace.watchChanges({
 onDomNodeRefreshedCallback:function(){kt().then(function(t){t&&O.init()})},onDomNodeRemovedCallback:null}),kt().then(function(t){
 C.haAppLayout.watchChanges({onDomNodeRefreshedCallback:function(){O.init()},onDomNodeRemovedCallback:null}),t&&null!=C.haAppLayout.getDomNode(
-)&&O.init()})}Lt(),console.info("%c↔️ Swipe navigation ↔️ - v1.6.0","color: #2980b9; font-weight: 700;");
+)&&O.init()})}Lt(),console.info("%c↔️ Swipe navigation ↔️ - v1.6.1","color: #2980b9; font-weight: 700;");
