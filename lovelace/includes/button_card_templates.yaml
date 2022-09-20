@@ -9,14 +9,14 @@
       card:
         - padding: var(--button-padding)
         - border-radius: var(--border-radius)
-        - box-shadow: var(--box-shadow)
+        - box-shadow: var(--button-box-shadow)
       grid:
         - grid-template-areas: '"i n"'
         - grid-template-columns: min-content auto
         - grid-template-rows: 1fr
       name:
         - font-size: 14px
-        - margin-left: 10px
+        - margin-left: 5px
         - justify-self: start
         - align-self: center
       icon:
@@ -65,7 +65,7 @@
       card:
         - padding: var(--button-padding)
         - border-radius: var(--border-radius)
-        - box-shadow: var(--box-shadow)
+        - box-shadow: var(--button-box-shadow)
       grid:
         - grid-template-areas: '"i n" "i l"'
         - grid-template-columns: min-content auto
@@ -81,13 +81,13 @@
         - align-self: end
         - justify-self: start
         - font-size: 14px
-        - margin-left: 10px
+        - margin-left: 5px
       label:
         - justify-self: start
         - align-self: start
         - font-size: 12px
         - filter: opacity(40%)
-        - margin-left: 10px
+        - margin-left: 5px
 
 #-------------------------------------------------
 

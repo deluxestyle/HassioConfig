@@ -8,25 +8,7 @@ visible:
 layout:
   max_cols: 2
   width: 330
-cards:
-  - type: grid
-    columns: 2
-    square: false
-    cards:
-      - type: 'custom:button-card'
-        name: Mitteilung entf.
-        entity: script.notify_clean_messages
-        template:
-          - script
-        variables:
-          entity: script.notify_clean_messages
-      - type: 'custom:button-card'
-        entity: script.notify_clean_badge
-        name: Badge entf.
-        template:
-          - script
-        variables:
-          entity: script.notify_clean_badge    
+cards:   
   - type: entities
     show_header_toggle: false
     entities:
@@ -225,3 +207,21 @@ cards:
             type: section
             label: Syncthing Status
           padding: 5
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - type: 'custom:button-card'
+        name: Mitteilung entf.
+        entity: script.notify_clean_messages
+        template:
+          - script
+        variables:
+          entity: script.notify_clean_messages
+      - type: 'custom:button-card'
+        entity: script.notify_clean_badge
+        name: Badge entf.
+        template:
+          - script
+        variables:
+          entity: script.notify_clean_badge           

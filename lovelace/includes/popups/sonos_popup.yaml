@@ -4,15 +4,15 @@ title: Sonos
 size: normal
 content:
   # type: custom:vertical-stack-in-card 
-  # cards: 
+  # cards:
   type: entities
-  entities:       
+  entities:   
     - type: custom:mini-media-player
       entity: media_player.{{ entity }}
       icon: 'mdi:speaker-wireless'
       volume_stateless: true
-      group: false
-      artwork: material 
+      group: true
+      # artwork: none 
       sound_mode: icon
       hide:
         power: true
@@ -20,12 +20,23 @@ content:
         progress: false
         play_pause: false
         play_stop: true
-        icon: true
         control: false
       source: full
       info: scroll 
       tap_action: 
         action: none
+      speaker_group:
+        platform: sonos
+        show_group_count: true
+        sync_volume: false
+        expanded: true
+        entities:
+          - entity_id: media_player.wohnzimmer
+            name: Sonos Wohnzimmer 
+          - entity_id: media_player.kuche
+            name: Sonos Küche
+          - entity_id: media_player.schlafzimmer
+            name: Sonos Schlafzimmer   
       shortcuts:
         label: 'Sender'
         list:
@@ -85,34 +96,26 @@ content:
               entity_id: media_player.{{ entity }}
               media_content_id: FV:2/44
               media_content_type: favorite_item_id
-    - type: custom:mini-media-player
-      tap_action: 
-        action: none
-      entity: media_player.{{ entity }}
-      artwork: none
-      group: true
-      hide:
-        power: true
-        source: true
-        progress: true
-        controls: true
-        icon: true
-        name: true
-        volume: true
-        info: true
-      speaker_group:
-        platform: sonos
-        show_group_count: true
-        sync_volume: false
-        expanded: true
-        entities:
-          - entity_id: media_player.wohnzimmer
-            name: Sonos Wohnzimmer 
-          - entity_id: media_player.kuche
-            name: Sonos Küche
-          - entity_id: media_player.schlafzimmer
-            name: Sonos Schlafzimmer   
-     
+  
+  # - type: entities
+  #   entities:       
+      # - type: custom:mini-media-player
+      #   tap_action: 
+      #     action: none
+      #   entity: media_player.{{ entity }}
+      #   artwork: none
+      #   group: true
+      #   hide:
+      #     power: true
+      #     source: true
+      #     progress: true
+      #     controls: true
+      #     icon: true
+      #     name: true
+      #     volume: true
+      #     info: true
+
+      
     - entity: number.{{ entity }}_bass
       name: Bass
       tap_action: 
@@ -132,4 +135,5 @@ content:
     - entity:  input_boolean.sync_volume
       tap_action:
         action: toggle
-      
+    # - template: blank
+    #   type: 'custom:button-card' 
