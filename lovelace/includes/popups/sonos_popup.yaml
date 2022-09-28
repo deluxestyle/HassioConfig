@@ -21,6 +21,8 @@ content:
         play_pause: false
         play_stop: true
         control: false
+        shuffle: false
+        repeat: false
       source: full
       info: scroll 
       tap_action: 
@@ -95,27 +97,7 @@ content:
             data: 
               entity_id: media_player.{{ entity }}
               media_content_id: FV:2/44
-              media_content_type: favorite_item_id
-  
-  # - type: entities
-  #   entities:       
-      # - type: custom:mini-media-player
-      #   tap_action: 
-      #     action: none
-      #   entity: media_player.{{ entity }}
-      #   artwork: none
-      #   group: true
-      #   hide:
-      #     power: true
-      #     source: true
-      #     progress: true
-      #     controls: true
-      #     icon: true
-      #     name: true
-      #     volume: true
-      #     info: true
-
-      
+              media_content_type: favorite_item_id      
     - entity: number.{{ entity }}_bass
       name: Bass
       tap_action: 
@@ -135,5 +117,3 @@ content:
     - entity:  input_boolean.sync_volume
       tap_action:
         action: toggle
-    # - template: blank
-    #   type: 'custom:button-card' 

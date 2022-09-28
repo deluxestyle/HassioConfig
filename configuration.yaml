@@ -67,7 +67,7 @@ counter: !include config_files/counter.yaml
 media_player: !include config_files/media_player.yaml
 ios: !include config_files/ios.yaml
 homekit: !include config_files/homekit.yaml
-browser_mod: !include config_files/browser_mod.yaml
+# browser_mod: !include config_files/browser_mod.yaml
 device_tracker: !include config_files/device_tracker.yaml
 # camera: !include config_files/camera.yaml
 sensor: !include_dir_merge_list config_files/sensors/

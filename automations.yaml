@@ -418,12 +418,13 @@
   alias: 'iOS: Badge zurücksetzen'
   trigger:
   - event_data:
-      sourceDeviceID: iphone11pro
+      sourceDeviceName: iPhone11Pro
     event_type: ios.became_active
     platform: event
   condition: []
   action:
   - service: script.notify_clean_badge
+    data: {}
   mode: single
 - id: '1571050762220'
   alias: 'Xiaomi Staubsauger: Fehler Hinweis'

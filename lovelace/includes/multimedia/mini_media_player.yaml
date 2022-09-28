@@ -12,9 +12,9 @@ hide:
   power: true
   source: false
   progress: false
-  play_pause: false
-  play_stop: true
-  controls: true
+  controls: false
+  shuffle: false
+  repeat: false
 source: full
 info: scroll
 speaker_group:
