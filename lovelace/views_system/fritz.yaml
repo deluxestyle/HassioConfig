@@ -12,8 +12,6 @@ title: FritzBox
 path: fritz
 icon: mdi:router-wireless-settings
 type: custom:masonry-layout
-visible:
-  - user: b6464705fc4e405abce8058610b4bcc7
 layout:
   max_cols: 2
   width: 330

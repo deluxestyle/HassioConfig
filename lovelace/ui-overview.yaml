@@ -83,51 +83,18 @@ cards:
     columns: 2
     square: false
     cards:
-      - entity: media_player.wohnzimmer
-        variables:
-          name: Wohnzimmer
-        template: 
-          - icon_info_bg
-          - media
-        type: 'custom:button-card'
-        tap_action: 
-          action: fire-dom-event
-          browser_mod:  
-            service: browser_mod.popup
-            data:
-              !include 
-                - includes/popups/sonos_popup.yaml
-                - entity: wohnzimmer
-      - entity: media_player.schlafzimmer
-        variables:
-          name: Schlafzimmer
-        template: 
-          - icon_info_bg
-          - media
-        type: 'custom:button-card'
-        tap_action: 
-          action: fire-dom-event
-          browser_mod:  
-            service: browser_mod.popup
-            data:
-              !include 
-                - includes/popups/sonos_popup.yaml
-                - entity: schlafzimmer
-      - entity: media_player.kuche
-        variables:
-          name: Küche
-        template: 
-          - icon_info_bg
-          - media
-        type: 'custom:button-card'
-        tap_action: 
-          action: fire-dom-event
-          browser_mod:  
-            service: browser_mod.popup
-            data:
-              !include 
-                - includes/popups/sonos_popup.yaml
-                - entity: kuche
+      - !include 
+            - includes/multimedia/media_player_small.yaml
+            - entity: wohnzimmer
+              name: Wohnzimmer
+      - !include 
+            - includes/multimedia/media_player_small.yaml
+            - entity: schlafzimmer
+              name: Schlafzimmer
+      - !include 
+            - includes/multimedia/media_player_small.yaml
+            - entity: kuche
+              name: Küche
 #################################################################
   - template: blank
     type: 'custom:button-card'

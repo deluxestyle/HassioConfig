@@ -871,7 +871,8 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: group.presence
+    entity_id:
+    - group.presence
     for:
       hours: 0
       minutes: 0
@@ -1161,6 +1162,10 @@
       - condition: state
         entity_id: binary_sensor.tradfri_motion_sensor
         state: 'off'
+        for:
+          hours: 0
+          minutes: 1
+          seconds: 0
       - service: light.turn_off
         data: {}
         target:
