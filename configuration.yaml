@@ -75,6 +75,8 @@ template:  !include_dir_merge_list config_files/template/
 binary_sensor: !include_dir_merge_list config_files/binary_sensors/
 timer:
 input_text:
+input_button:
+schedule:
 
 python_script:
 
