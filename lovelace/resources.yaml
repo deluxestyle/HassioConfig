@@ -40,4 +40,6 @@
   type: module
 - url: /hacsfiles/timer-bar-card/timer-bar-card.js
   type: module
-                
+- url: /hacsfiles/lovelace-badge-card/badge-card.js
+  type: module
+                                
