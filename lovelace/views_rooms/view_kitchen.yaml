@@ -32,12 +32,19 @@ cards:
                     ha-card {
                         --ha-card-box-shadow: none;
                       } 
-  - !include ../includes/climate/climate_kitchen.yaml
   - type: entities
     entities:
       - entity: sensor.402060518382006939_bsh_common_status_operationstate
         tap_action:
           action: none
+      - type: custom:fold-entity-row
+        padding: 5
+        head:
+          type: section
+          label: Status
+        entities:
+          - entity: sensor.402060518382006939_bsh_common_option_programprogress
+          - entity: sensor.402060518382006939_bsh_common_option_remainingprogramtime 
       - type: custom:fold-entity-row
         padding: 5
         head:
@@ -49,6 +56,7 @@ cards:
           - entity: select.402060518382006939_programs
           - entity: button.402060518382006939_start_pause
           - entity: button.402060518382006939_stop 
+          - entity: number.402060518382006939_bsh_common_option_startinrelative
       - type: custom:auto-entities
         filter:
           include:
@@ -60,7 +68,10 @@ cards:
               options:
                 tap_action:
                   action: none
-          
+          exclude:
+            - entity_id: sensor.402060518382006939_bsh_common_option_programprogress
+            - entity_id: sensor.402060518382006939_bsh_common_option_remainingprogramtime 
+            - entity_id: sensor.402060518382006939_bsh_common_status_operationstate
         sort:
           method: name
         card:
@@ -69,3 +80,4 @@ cards:
             type: section
             label: Details
           padding: 5
+  - !include ../includes/climate/climate_kitchen.yaml
