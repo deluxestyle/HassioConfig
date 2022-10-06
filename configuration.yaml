@@ -13,6 +13,7 @@ api:
 zeroconf:
 stream:
 diagnostics:
+my:
 
 http:
   use_x_forwarded_for: true
@@ -88,3 +89,10 @@ shell_command:
   ds118_shutdown: bash /config/scripts/ds118_shutdown.sh
   ds118_surveillance_start: bash /config/scripts/ds118_surveillance_start.sh
   ds118_surveillance_stop: bash /config/scripts/ds118_surveillance_stop.sh
+
+home_connect_alt:
+  client_id: !secret client_id
+  client_secret: !secret client_secret
+  name_template: $brand $appliance - $name
+  language: de 
+  sensor_value_translation: <server | local> 

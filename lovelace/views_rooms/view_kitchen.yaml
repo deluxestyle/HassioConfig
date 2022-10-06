@@ -33,3 +33,39 @@ cards:
                         --ha-card-box-shadow: none;
                       } 
   - !include ../includes/climate/climate_kitchen.yaml
+  - type: entities
+    entities:
+      - entity: sensor.402060518382006939_bsh_common_status_operationstate
+        tap_action:
+          action: none
+      - type: custom:fold-entity-row
+        padding: 5
+        head:
+          type: section
+          label: Programm
+        entities:
+          - entity: switch.402060518382006939_bsh_common_setting_powerstate
+          - entity: switch.402060518382006939_dishcare_dishwasher_option_silenceondemand
+          - entity: select.402060518382006939_programs
+          - entity: button.402060518382006939_start_pause
+          - entity: button.402060518382006939_stop 
+      - type: custom:auto-entities
+        filter:
+          include:
+            - entity_id: "sensor.402060518382006939*"
+              options:
+                tap_action:
+                  action: none
+            - entity_id: "binary_sensor.402060518382006939*"
+              options:
+                tap_action:
+                  action: none
+          
+        sort:
+          method: name
+        card:
+          type: custom:fold-entity-row
+          head:
+            type: section
+            label: Details
+          padding: 5

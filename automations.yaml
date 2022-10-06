@@ -1227,3 +1227,41 @@
         entity_id: button.fritz_box_7590_reboot
         type: press
   mode: single
+- id: '1664976725414'
+  alias: 'DS118: Raspi Backup'
+  description: ''
+  trigger:
+  - platform: time
+    at: 02:00:00
+  condition:
+  - condition: time
+    weekday:
+    - wed
+  - condition: state
+    entity_id: switch.ds118
+    state: 'off'
+  action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.ds118
+  mode: single
+- id: '1665052551714'
+  alias: 'Spülmaschine: Benachrichtigung'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.402060518382006939_bsh_common_status_operationstate
+    to: BSH.Common.EnumType.OperationState.Inactive
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
+      message: Spülmaschine ist fertig
+      notification_id: dishwasher
+      title: Spülmaschine
+    service: script.notify_script
+  mode: single

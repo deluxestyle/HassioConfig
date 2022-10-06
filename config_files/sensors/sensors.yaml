@@ -18,8 +18,8 @@
       - type: swap_use_percent
       - type: last_boot
 
-- platform: uptime
-  name: online_time
+# - platform: uptime
+#   name: online_time
 
 - platform: time_date
   display_options:
