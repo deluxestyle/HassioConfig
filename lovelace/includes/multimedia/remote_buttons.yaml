@@ -12,19 +12,19 @@ content:
       square: false
       cards:
         - type: 'custom:button-card'
-          entity: switch.tv_switch
+          entity: switch.harmony_hub_magenta_tv
           template:
             - button
         - type: 'custom:button-card'
-          entity: switch.fire_tv_switch
+          entity: switch.harmony_hub_fire_tv
           template:
             - button
         - type: 'custom:button-card'
-          entity: switch.airplay_switch
+          entity: switch.harmony_hub_airplay
           template:
             - button
         - type: 'custom:button-card'
-          entity: switch.music_switch
+          entity: switch.harmony_hub_musik
           template:
             - button
         # - type: 'custom:button-card'
@@ -66,6 +66,7 @@ content:
             - entity: switch.avr_151
               tap_action:
                 action: toggle
+            - entity: select.harmony_hub_activities
             - entity: input_select.avr_source
         - type: section
         - entity: switch.steckdosenleiste

@@ -63,7 +63,7 @@
     platform: state
     to: cleaning
   action:
-  - service: notify.mobile_app_iphone11pro
+  - service: notify.all_ios_devices
     data:
       message: Staubsauger gestartet
       data:
@@ -174,9 +174,10 @@
     to: home
   condition: []
   action:
-  - data:
+  - service: vacuum.stop
+    data: {}
+    target:
       entity_id: vacuum.roborock_vacuum
-    service: vacuum.return_to_base
   mode: single
 - id: '1540494970737'
   alias: 'Benachrichtigung: Bewegung erkannt'
@@ -418,7 +419,7 @@
   alias: 'iOS: Badge zurücksetzen'
   trigger:
   - event_data:
-      sourceDeviceName: iPhone11Pro
+      sourceDeviceName: iPhone14Pro
     event_type: ios.became_active
     platform: event
   condition: []
@@ -657,14 +658,11 @@
     platform: state
     to: not_home
   condition:
-  - condition: state
-    entity_id: vacuum.roborock_vacuum
-    state: docked
   - after: 07:00
     before: '19:00'
     condition: time
   action:
-  - service: notify.mobile_app_iphone11pro
+  - service: notify.all_ios_devices
     data:
       message: Staubsauger starten?
       data:
@@ -703,7 +701,7 @@
       entity_id: timer.kaffeemaschine
   condition: []
   action:
-  - service: notify.mobile_app_iphone11pro
+  - service: notify.all_ios_devices
     data:
       message: Kaffeemaschine ist noch an
       data:
@@ -784,7 +782,7 @@
         target:
           entity_id: input_boolean.kaffeemaschine_steckdose
         data: {}
-      - service: notify.mobile_app_iphone11pro
+      - service: notify.all_ios_devices
         data:
           message: clear_notification
           data:
@@ -844,7 +842,7 @@
     - switch.ds118
   condition: []
   action:
-  - service: notify.mobile_app_iphone11pro
+  - service: notify.all_ios_devices
     data:
       data:
         actions:
@@ -893,7 +891,7 @@
           minutes: 0
           seconds: 0
       sequence:
-      - service: notify.mobile_app_iphone11pro
+      - service: notify.all_ios_devices
         data:
           data:
             actions:
@@ -1100,7 +1098,7 @@
   - choose:
     - conditions:
       - condition: time
-        after: 06:00:00
+        after: 07:00:00
         before: '19:00:00'
       sequence:
       - service: scene.turn_on

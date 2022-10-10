@@ -96,3 +96,10 @@ home_connect_alt:
   name_template: $brand $appliance - $name
   language: de 
   sensor_value_translation: <server | local> 
+
+notify:  
+  - name: all_ios_devices
+    platform: group
+    services:
+      # - service: mobile_app_iphone11pro
+      - service: mobile_app_iphone14pro

@@ -56,8 +56,8 @@
           entity_id: script.harmony_power_off
     music_switch:
       unique_id: music_switch
-      friendly_name: "Musik"
-      value_template: "{{ is_state('sensor.remote_state', 'Musik') and is_state('switch.steckdosenleiste', 'on')}}"
+      friendly_name: "Plattenspieler"
+      value_template: "{{ is_state('sensor.remote_state', 'Plattenspieler') and is_state('switch.steckdosenleiste', 'on')}}"
       turn_on:
         - service: script.turn_on
           entity_id: script.harmony_action_music
