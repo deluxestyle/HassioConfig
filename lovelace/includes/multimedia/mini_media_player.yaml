@@ -75,4 +75,5 @@ cards:
         .card-content {
           padding-bottom: 5px;
           margin-top: -10px;
+          border-radius: 10px
         }

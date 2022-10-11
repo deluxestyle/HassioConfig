@@ -1,4 +1,7 @@
 clean:
+  app-header-text-color: var(--primary-text-color)
+  app-header-background-color: "var(--card-background-color)"
+
   ha-card-box-shadow: 0px 0px 0px 1px var(--border-color)
   ha-card-border-radius: var(--border-radius) 
   
@@ -8,8 +11,6 @@ clean:
   border-radius-popup: var(--border-radius) 
 
   button-box-shadow: var(--box-shadow) #rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
-  # secondary-background-color: var(--primary-color) #'#ffffff'
 
   box-shadow: 0px 0px 0px 1px var(--border-color)
   border-radius: 10px
@@ -23,19 +24,13 @@ clean:
   mc-info-font-weight: 400
   mini-climate-info-font-weight: 400
 
-  color-yellow: 252, 214, 99
-  color-red: 241, 139, 130
-  color-blue: 137, 179, 248
-
-  # google-red: '#F18B82'
-  # google-green: '#80C994'
-  # google-yellow: '#FCD663'
-  # google-blue: '#89B3F8'
-  # google-violet: '#BB86FC'
-  # google-grey: '#BBBBBB'
+  # color-yellow: 252, 214, 99
+  # color-red: 241, 139, 130
+  # color-blue: 137, 179, 248
 
   modes:
     light:
+      primary-background-color: "#F7F7F7"
       secondary-background-color: '#ffffff'
       border-color: '#E8E8E8'
 
@@ -65,68 +60,3 @@ clean:
       google-violet: '#BB86FC'
       google-grey: '#BBBBBB'
 
-clean_mobile:
-  ha-card-box-shadow: 0px 0px 0px 1px var(--border-color)
-  ha-card-border-radius: var(--border-radius) 
-  ha-dialog-border-radius: var(--border-radius-popup)  
-
-  mush-chip-border-radius: var(--border-radius) 
-  mush-chip-font-weight: normal
-
-  mdc-dialog-box-shadow: 0px 0px 0px 0px
-
-  border-radius-popup: 10px
-
-  box-shadow: 0px 0px 0px 1px var(--border-color)
-  border-radius: 10px
-
-  button-padding: 10px
-
-  color-theme: 68, 115, 158
-  color-blue-text: var(--primary-text-color)
-  color-yellow-text: var(--primary-text-color)
-
-  mc-info-font-weight: 400
-  mini-climate-info-font-weight: 400
-
-  color-yellow: 252, 214, 99
-  color-red: 241, 139, 130
-  color-blue: 137, 179, 248
-
-  # google-red: '#F18B82'
-  # google-green: '#80C994'
-  # google-yellow: '#FCD663'
-  # google-blue: '#89B3F8'
-  # google-violet: '#BB86FC'
-  # google-grey: '#BBBBBB'
-
-  modes:
-    light:
-      secondary-background-color: '#ffffff'
-      border-color: '#E8E8E8'
-
-      color-yellow: 242, 182, 1
-      color-red: 245, 68, 54
-      color-blue: 68, 115, 158
-
-      google-red: '#F54436'
-      google-green: '#01C852'
-      google-yellow: '#f2b601'
-      google-blue: '#3D5AFE'
-      google-violet: '#661FFF'
-      google-grey: '#BBBBBB'
-
-    dark:
-      border-color: '#1F1B24'
-      primary-text-color: '#DDDDDD'
-
-      color-yellow: 252, 214, 99
-      color-red: 241, 139, 130
-      color-blue: 137, 179, 248
-
-      google-red: '#F18B82'
-      google-green: '#80C994'
-      google-yellow: '#FCD663'
-      google-blue: '#89B3F8'
-      google-violet: '#BB86FC'
-      google-grey: '#BBBBBB'

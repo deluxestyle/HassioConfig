@@ -1,0 +1,188 @@
+---
+button_card_templates: !include_dir_merge_named "../../custom_components/ui_lovelace_minimalist/__ui_minimalist__/ulm_templates/"
+
+title: "Übersicht"
+theme: "minimalist-desktop"
+background: "var(--background-image)"
+# views: !include_dir_merge_list "views/"
+views:
+  - title: "Example View"
+    path: 0
+    icon: "mdi:flower"
+    type: custom:masonry-layout
+    layout:
+      max_cols: 1
+    cards:
+      - type: grid
+        columns: 4
+        square: false
+        cards:
+          - type: "custom:button-card"
+            template: chip_mdi_icon_state
+            variables:
+              ulm_chip_mdi_icon_state_entity: sensor.temperature_158d0001b8c96c
+      - type: "custom:button-card"
+        template: "card_title"
+        label: "Lichter"    
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: 'custom:button-card'
+            entity: light.wohnzimmer_decke
+            name: Wohnzimmer
+            template: "card_light"
+            variables:
+              ulm_card_light_enable_popup: true
+          - type: 'custom:button-card'
+            entity: light.kuche
+            name: Küche
+            template: "card_light"
+            variables:
+              ulm_card_light_enable_popup: true
+          - type: 'custom:button-card'
+            entity: light.schlafzimmer
+            name: Schlafzimmer
+            template: "card_light"
+            variables:
+              ulm_card_light_enable_popup: true
+          - type: 'custom:button-card'
+            entity: light.yeelight_bslamp1_0x0000000005451cd6
+            name: Nachtlicht
+            template: "card_light"
+            variables:
+              ulm_card_light_enable_popup: true
+          - type: 'custom:button-card'
+            entity: light.flur
+            name: Flur
+            template: "card_light"
+            variables:
+              ulm_card_light_enable_popup: true
+      - type: "custom:button-card"
+        template: "card_title"
+        label: "Media Player"    
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: "custom:button-card"
+            template: card_media_player
+            entity: media_player.wohnzimmer
+            variables:
+              ulm_card_media_player_enable_controls: true
+          - type: "custom:button-card"
+            template: card_media_player
+            entity: media_player.schlafzimmer
+            variables:
+              ulm_card_media_player_enable_controls: true
+          - type: "custom:button-card"
+            template: card_media_player
+            entity: media_player.kuche
+            variables:
+              ulm_card_media_player_enable_controls: true
+      # - type: "vertical-stack"
+      #   cards:
+      #     - type: "custom:button-card"
+      #       template: "card_title"
+      #       name: "Congrats with your installation 🎉"
+      #       label: "Explore some of the wonderful 'Minimalistic-UI' cards we offer here"
+      #     - type: "custom:auto-entities"
+      #       card:
+      #         type: "grid"
+      #         columns: 1
+      #         square: false
+      #       card_param: "cards"
+      #       sort:
+      #         count: 1
+      #       filter:
+      #         include:
+      #           - domain: "weather"
+      #             options:
+      #               type: "custom:button-card"
+      #               template: "card_welcome_scenes"
+      #               variables:
+      #                 ulm_weather: "this.entity_id"
+      #     - type: "custom:button-card"
+      #       template: "card_title"
+      #       name: "[[[ hass.resources[hass['language']]['ui.panel.lovelace.editor.card.light.name'] ]]]"
+      #       label: "This is the Minimalist-light-card"
+      #     - type: "custom:auto-entities"
+      #       card:
+      #         type: "grid"
+      #         columns: 2
+      #         square: false
+      #       card_param: "cards"
+      #       sort:
+      #         count: 4
+      #       filter:
+      #         include:
+      #           - domain: "light"
+      #             options:
+      #               type: "custom:button-card"
+      #               template: "card_light"
+      #               variables:
+      #                 ulm_card_light_enable_slider: true
+      #                 ulm_card_light_enable_color: true
+      #                 ulm_card_light_enable_popup: true
+      #     - type: "custom:button-card"
+      #       template: "card_title"
+      #       name: "Binary Sensors"
+      #       label: "This is the Minimalist-binary_sensor-card"
+      #     - type: "custom:auto-entities"
+      #       card:
+      #         type: "grid"
+      #         columns: 2
+      #         square: false
+      #       card_param: "cards"
+      #       sort:
+      #         count: 4
+      #       filter:
+      #         include:
+      #           - domain: "binary_sensor"
+      #             options:
+      #               type: "custom:button-card"
+      #               template: "card_binary_sensor_alert"
+      #               variables:
+      #                 - ulm_card_binary_sensor_alert: true
+      #     - type: "custom:button-card"
+      #       template: "card_title"
+      #       name: "[[[ hass.resources[hass['language']]['ui.panel.lovelace.editor.card.sensor.name'] ]]]"
+      #       label: "This is the Minimalist-sensor-card"
+      #     - type: "custom:auto-entities"
+      #       card:
+      #         type: "grid"
+      #         columns: 2
+      #         square: false
+      #       card_param: "cards"
+      #       sort:
+      #         count: 4
+      #       filter:
+      #         include:
+      #           - domain: "sensor"
+      #             options:
+      #               type: "custom:button-card"
+      #               template: "card_generic"
+      #     - type: "custom:button-card"
+      #       template: "card_title"
+      #       name: "[[[ hass.resources[hass['language']]['ui.dialogs.entity_registry.editor.device_classes.binary_sensor.battery'] ]]]"
+      #       label: "This is the Minimalist-battery-card"
+      #     - type: "custom:auto-entities"
+      #       card:
+      #         type: "grid"
+      #         columns: 2
+      #         square: false
+      #       card_param: "cards"
+      #       sort:
+      #         count: 4
+      #       filter:
+      #         include:
+      #           - attributes:
+      #               unit_of_measurement: "%"
+      #               device_class: "battery"
+      #             options:
+      #               type: "custom:button-card"
+      #               template: "card_battery"
+      #               variables:
+      #                 ulm_card_battery_battery_state_entity_id: "this.entity_id"
+      #                 ulm_card_battery_battery_level_danger: 30
+      #                 ulm_card_battery_battery_level_warning: 80

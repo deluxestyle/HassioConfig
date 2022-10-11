@@ -42,4 +42,8 @@
   type: module
 - url: /hacsfiles/lovelace-badge-card/badge-card.js
   type: module
-                                
+- url: /hacsfiles/my-cards/my-cards.js
+  type: module
+- url: /hacsfiles/light-entity-card/light-entity-card.js
+  type: module
+                                                               

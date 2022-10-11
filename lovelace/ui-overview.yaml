@@ -6,32 +6,8 @@ icon: mdi:home
 type: custom:masonry-layout
 layout:
   max_cols: 1
-cards:
-#   - type: custom:mushroom-chips-card
-#     alignment: center
-#     chips:
-#       - type: entity
-#         entity: sensor.temperature_158d0001b8c96c
-#       - type: entity
-#         entity: sensor.temperature_158d0001b8c998
-#       - type: entity
-#         entity: sensor.temperature_158d0002239fb5
-#       - type: entity
-#         entity: sensor.temperature_158d00023258bd
-#   - type: custom:mushroom-chips-card
-#     alignment: center
-#     chips:
-#       - type: entity
-#         entity: sensor.humidity_158d0001b8c96c
-#       - type: entity
-#         entity: sensor.humidity_158d0001b8c998
-#       - type: entity
-#         entity: sensor.humidity_158d0002239fb5
-#       - type: entity
-#         entity: sensor.humidity_158d00023258bd
-# #################################################################
-#   - template: blank
-#     type: 'custom:button-card'
+cards:  
+
   - type: grid
     columns: 2
     square: false
@@ -154,12 +130,12 @@ cards:
       #     - icon_info_bg
       #     - media
 #################################################################
-  - template: blank
-    type: 'custom:button-card'
-  - type: grid
-    columns: 2
-    square: false
-    cards:
+  # - template: blank
+  #   type: 'custom:button-card'
+  # - type: grid
+  #   columns: 2
+  #   square: false
+    # cards:
       - type: 'custom:button-card'
         entity: vacuum.roborock_vacuum
         name: Staubsauger
@@ -203,3 +179,27 @@ cards:
   #       name: Küche
   #     - entity: sensor.humidity_158d00023258bd
   #       name: Bad
+  - template: blank
+    type: 'custom:button-card'
+  - type: custom:mushroom-chips-card
+    alignment: center
+    chips:
+      - type: entity
+        entity: sensor.temperature_158d0001b8c96c
+      - type: entity
+        entity: sensor.temperature_158d0001b8c998
+      - type: entity
+        entity: sensor.temperature_158d0002239fb5
+      - type: entity
+        entity: sensor.temperature_158d00023258bd
+  - type: custom:mushroom-chips-card
+    alignment: center
+    chips:
+      - type: entity
+        entity: sensor.humidity_158d0001b8c96c
+      - type: entity
+        entity: sensor.humidity_158d0001b8c998
+      - type: entity
+        entity: sensor.humidity_158d0002239fb5
+      - type: entity
+        entity: sensor.humidity_158d00023258bd
