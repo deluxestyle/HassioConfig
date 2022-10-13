@@ -12,4 +12,5 @@ cards:
   #   entities:
   #     - entity: climate.heizung_bad
   #       icon: mdi:radiator
+  
   - !include ../includes/climate/climate_bath.yaml

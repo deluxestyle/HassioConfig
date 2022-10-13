@@ -6,8 +6,35 @@ icon: mdi:home
 type: custom:masonry-layout
 layout:
   max_cols: 1
-cards:  
-
+cards: 
+  - template: title
+    type: 'custom:button-card'
+    label: Klima
+  - type: custom:mushroom-chips-card
+    alignment: center
+    chips:
+      - type: entity
+        entity: sensor.temperature_158d0001b8c96c
+      - type: entity
+        entity: sensor.temperature_158d0001b8c998
+      - type: entity
+        entity: sensor.temperature_158d0002239fb5
+      - type: entity
+        entity: sensor.temperature_158d00023258bd
+  - type: custom:mushroom-chips-card
+    alignment: center
+    chips:
+      - type: entity
+        entity: sensor.humidity_158d0001b8c96c
+      - type: entity
+        entity: sensor.humidity_158d0001b8c998
+      - type: entity
+        entity: sensor.humidity_158d0002239fb5
+      - type: entity
+        entity: sensor.humidity_158d00023258bd
+  - template: title
+    type: 'custom:button-card'
+    label: Lichter        
   - type: grid
     columns: 2
     square: false
@@ -23,7 +50,9 @@ cards:
           browser_mod:
             !include includes/popups/light_wohnzimmer.yaml
         double_tap_action:
-          action: more-info
+          !include 
+            - includes/popups/light_popup.yaml
+            - entity: light.wohnzimmer_decke
       - type: 'custom:button-card'
         entity: light.kuche
         name: Küche
@@ -31,7 +60,9 @@ cards:
           - icon_info_bg
           - light
         double_tap_action:
-          action: more-info
+          !include 
+            - includes/popups/light_popup.yaml
+            - entity: light.kuche
       - type: 'custom:button-card'
         entity: light.schlafzimmer
         name: Schlafzimmer
@@ -43,7 +74,9 @@ cards:
           browser_mod:
             !include includes/popups/light_schlafzimmer.yaml
         double_tap_action:
-          action: more-info
+          !include 
+            - includes/popups/light_popup.yaml
+            - entity: light.schlafzimmer
       - type: 'custom:button-card'
         entity: light.yeelight_bslamp1_0x0000000005451cd6
         name: Nachtlicht
@@ -51,7 +84,9 @@ cards:
           - icon_info_bg
           - light
         double_tap_action:
-          action: more-info
+          !include 
+            - includes/popups/light_popup.yaml
+            - entity: light.yeelight_bslamp1_0x0000000005451cd6
       - type: 'custom:button-card'
         entity: light.flur
         name: Flur
@@ -63,10 +98,13 @@ cards:
           browser_mod:
             !include includes/popups/light_floor.yaml
         double_tap_action:
-          action: more-info
+          !include 
+            - includes/popups/light_popup.yaml
+            - entity: light.flur
 #################################################################
-  - template: blank
+  - template: title
     type: 'custom:button-card'
+    label: Multimedia
   - type: grid
     columns: 2
     square: false
@@ -78,8 +116,9 @@ cards:
           - icon_info_bg
           - outlet
 #################################################################
-  - template: blank
+  - template: title
     type: 'custom:button-card'
+    label: Musik
   - type: grid
     columns: 2
     square: false
@@ -97,8 +136,9 @@ cards:
             - entity: kuche
               name: Küche
 #################################################################
-  - template: blank
+  - template: title
     type: 'custom:button-card'
+    label: Sonstiges
   - type: grid
     columns: 2
     square: false
@@ -158,48 +198,5 @@ cards:
       template: icon_info_alert
       entity: input_boolean.batteriewarnung
       show_last_changed: false
-
-  # - type: custom:badge-card
-  #   badges:
-  #     - entity: sensor.temperature_158d0001b8c96c
-  #       name: Whz
-  #     - entity: sensor.temperature_158d0001b8c998
-  #       name: Sz
-  #     - entity: sensor.temperature_158d0002239fb5
-  #       name: Küche
-  #     - entity: sensor.temperature_158d00023258bd
-  #       name: Bad
-  # - type: custom:badge-card
-  #   badges:
-  #     - entity: sensor.humidity_158d0001b8c96c
-  #       name: Whz
-  #     - entity: sensor.humidity_158d0001b8c998
-  #       name: Sz
-  #     - entity: sensor.humidity_158d0002239fb5
-  #       name: Küche
-  #     - entity: sensor.humidity_158d00023258bd
-  #       name: Bad
   - template: blank
     type: 'custom:button-card'
-  - type: custom:mushroom-chips-card
-    alignment: center
-    chips:
-      - type: entity
-        entity: sensor.temperature_158d0001b8c96c
-      - type: entity
-        entity: sensor.temperature_158d0001b8c998
-      - type: entity
-        entity: sensor.temperature_158d0002239fb5
-      - type: entity
-        entity: sensor.temperature_158d00023258bd
-  - type: custom:mushroom-chips-card
-    alignment: center
-    chips:
-      - type: entity
-        entity: sensor.humidity_158d0001b8c96c
-      - type: entity
-        entity: sensor.humidity_158d0001b8c998
-      - type: entity
-        entity: sensor.humidity_158d0002239fb5
-      - type: entity
-        entity: sensor.humidity_158d00023258bd

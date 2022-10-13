@@ -7,4 +7,6 @@ entities:
     tap_action:
       action: toggle
     double_tap_action:
-      action: more-info
+        !include 
+          - ../popups/light_popup.yaml
+          - entity: light.kuche

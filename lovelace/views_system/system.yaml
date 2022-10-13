@@ -222,4 +222,6 @@ cards:
         template:
           - script
         variables:
-          entity: script.notify_clean_badge         
+          entity: script.notify_clean_badge       
+  - template: blank
+    type: 'custom:button-card'  

@@ -25,8 +25,8 @@
         # - background-color: 'rgba(var(--color-theme),0.2)'
         - border-radius: 50%
         - place-self: center
-        - width: 40px
-        - height: 40px
+        - width: 35px
+        - height: 35px
 
 ########################################################################################################
 
@@ -75,8 +75,8 @@
       img_cell:
         - border-radius: 50%
         - place-self: center
-        - width: 40px
-        - height: 40px
+        - width: 35px
+        - height: 35px
       name:
         - align-self: end
         - justify-self: start
@@ -233,6 +233,7 @@
         - grid-template-areas: '"item1" "item2"'
         - grid-template-columns: 1fr
         - grid-template-rows: min-content  min-content
+
     custom_fields:
       item1:
         card:
@@ -247,6 +248,11 @@
               - padding-left: 15px
               - border-radius: 0
               - box-shadow: none
+            img_cell:
+              - border-radius: 50%
+              - place-self: center
+              - width: 42px
+              - height: 42px
             icon:
               - color: 'rgba(var(--color-theme),1)'
             name:
@@ -304,8 +310,8 @@
       img_cell:
         - border-radius: 50%
         - place-self: center
-        - width: 42px
-        - height: 42px
+        - width: 35px
+        - height: 35px
       card:
         - padding: var(--button-padding)
     state:
@@ -585,8 +591,8 @@
         - background-color: 'rgba(var(--color-theme),0.05)'
         - border-radius: 50%
         - place-self: center
-        - width: 42px
-        - height: 42px
+        - width: 35px
+        - height: 35px
 
 #-------------------------------------------------
 
@@ -665,3 +671,32 @@
         - padding: 0px 6px
         - font-weight: bold
         - font-size: 14px
+
+  title:
+    tap_action:
+      action: none
+    show_icon: false
+    show_label: true
+    show_name: false
+    styles:
+      card:
+        - background-color: rgba(0,0,0,0)
+        - box-shadow: none
+        - height: auto
+        - width: auto
+        - margin-top: 12px
+        - margin-left: 24px
+        - margin-bottom: 0px
+      grid:
+        - grid-template-areas: '"n" "l"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: min-content min-content
+      name:
+        - justify-self: start
+        - font-weight: bold
+        - font-size: '1.5rem'
+      label:
+        - justify-self: start
+        - font-weight: normal
+        - font-size: '1rem'
+        - opacity: '0.4'

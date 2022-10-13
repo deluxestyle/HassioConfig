@@ -24,6 +24,9 @@ clean:
   mc-info-font-weight: 400
   mini-climate-info-font-weight: 400
 
+  card-primary-font-weight: normal
+
+
   # color-yellow: 252, 214, 99
   # color-red: 241, 139, 130
   # color-blue: 137, 179, 248
@@ -31,32 +34,34 @@ clean:
   modes:
     light:
       primary-background-color: "#F7F7F7"
-      secondary-background-color: '#ffffff'
-      border-color: '#E8E8E8'
+      secondary-background-color: "#ffffff"
+      border-color: "#E8E8E8"
 
       color-yellow: 242, 182, 1
       color-red: 245, 68, 54
       color-blue: 68, 115, 158
 
-      google-red: '#F54436'
-      google-green: '#01C852'
-      google-yellow:  '#f2b601'
-      google-blue: '#3D5AFE'
-      google-violet: '#661FFF'
-      google-grey: '#BBBBBB'
+      google-red: "#F54436"
+      google-green: "#01C852"
+      google-yellow:  "#f2b601"
+      google-blue: "#3D5AFE"
+      google-violet: "#661FFF"
+      google-grey: "#BBBBBB"
+
+      primary-text-color: "#000000"
       
     dark:
-      border-color: '#1F1B24'
-      primary-text-color: '#DDDDDD'
+      border-color: "#1F1B24"
+      primary-text-color: "#DDDDDD"
 
       color-yellow: 252, 214, 99
       color-red: 241, 139, 130
       color-blue: 137, 179, 248
 
-      google-red: '#F18B82'
-      google-green: '#80C994'
-      google-yellow: '#FCD663'
-      google-blue: '#89B3F8'
-      google-violet: '#BB86FC'
-      google-grey: '#BBBBBB'
+      google-red: "#F18B82"
+      google-green: "#80C994"
+      google-yellow: "#FCD663"
+      google-blue: "#89B3F8"
+      google-violet: "#BB86FC"
+      google-grey: "#BBBBBB"
 

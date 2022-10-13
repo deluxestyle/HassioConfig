@@ -15,7 +15,9 @@ cards:
         tap_action: 
           action: toggle
         double_tap_action:
-          action: more-info
+          !include 
+            - ../includes/popups/light_popup.yaml
+            - entity: light.schlafzimmer
         extend_paper_buttons_row:
           buttons:
             - name: Szenen

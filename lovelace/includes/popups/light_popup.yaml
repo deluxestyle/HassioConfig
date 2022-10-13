@@ -1,0 +1,17 @@
+# lovelace_gen
+
+action: fire-dom-event
+browser_mod:
+  service: browser_mod.popup
+  data:
+    title: Licht
+    content:
+      type: custom:mushroom-light-card
+      entity: {{ entity }}
+      use_light_color: true
+      show_color_temp_control: true
+      show_color_control: true
+      show_brightness_control: true
+      layout: vertical
+      collapsible_controls: false
+      fill_container: true         
