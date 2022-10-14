@@ -98,22 +98,29 @@ content:
           #         entity_id: media_player.{{ entity }}
           #         media_content_id: FV:2/44
           #         media_content_type: favorite_item_id      
-        - entity: number.{{ entity }}_bass
-          name: Bass
-          tap_action: 
-            action: none
-        - entity: number.{{ entity }}_treble
-          name: Höhen
-          tap_action: 
-            action: none
-        - entity: switch.sonos_{{ entity }}_touch_controls
-          name: Touchsteuerung
-          tap_action:
-            action: toggle
-        - entity: switch.sonos_{{ entity }}_status_light
-          name: Statusleuchte
-          tap_action:
-            action: toggle
-        - entity:  input_boolean.sync_volume
-          tap_action:
-            action: toggle
+        - type: custom:fold-entity-row
+          open: true
+          padding: 5
+          head:
+            type: section
+            label: Einstellungen
+          entities:
+            - entity: number.{{ entity }}_bass
+              name: Bass
+              tap_action: 
+                action: none
+            - entity: number.{{ entity }}_treble
+              name: Höhen
+              tap_action: 
+                action: none
+            - entity: switch.sonos_{{ entity }}_touch_controls
+              name: Touchsteuerung
+              tap_action:
+                action: toggle
+            - entity: switch.sonos_{{ entity }}_status_light
+              name: Statusleuchte
+              tap_action:
+                action: toggle
+            - entity:  input_boolean.sync_volume
+              tap_action:
+                action: toggle

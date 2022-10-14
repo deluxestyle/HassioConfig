@@ -47,6 +47,7 @@ cards:
           - light
         hold_action: 
           action: fire-dom-event
+          haptic: medium
           browser_mod:
             !include includes/popups/light_wohnzimmer.yaml
         double_tap_action:
@@ -150,6 +151,7 @@ cards:
           - outlet
           - coffee_plug 
         double_tap_action: 
+          haptic: medium
           action: fire-dom-event
           browser_mod:  
             service: browser_mod.popup
@@ -184,6 +186,7 @@ cards:
           - generic_with_state
           - vacuum
         double_tap_action:
+          haptic: medium
           action: navigate
           navigation_path: /lovelace-vacuum/vacuum
 #################################################################

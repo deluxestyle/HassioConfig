@@ -19,17 +19,17 @@ cards:
       repeat: true
     source: full
     info: scroll
-    # speaker_group:
-    #   platform: sonos
-    #   show_group_count: true
-    #   sync_volume: false
-    #   entities:
-    #     - entity_id: media_player.wohnzimmer
-    #       name: Sonos Wohnzimmer 
-    #     - entity_id: media_player.kuche
-    #       name: Sonos Küche
-    #     - entity_id: media_player.schlafzimmer
-    #       name: Sonos Schlafzimmer
+    speaker_group:
+      platform: sonos
+      show_group_count: true
+      sync_volume: false
+      entities:
+        - entity_id: media_player.wohnzimmer
+          name: Sonos Wohnzimmer 
+        - entity_id: media_player.kuche
+          name: Sonos Küche
+        - entity_id: media_player.schlafzimmer
+          name: Sonos Schlafzimmer
     idle_view:
       when_idle: true
       when_paused: true

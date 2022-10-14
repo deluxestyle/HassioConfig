@@ -11,42 +11,10 @@ cards:
     type: 'custom:button-card'
     tap_action: 
       action: fire-dom-event
+      haptic: medium
       browser_mod:  
         service: browser_mod.popup
         data:
           !include 
             - ../popups/sonos_popup.yaml
             - entity: {{ entity }}
-  # - type: custom:more-info-card
-  #   entity: media_player.{{ entity }}
-  #   style:
-  #     more-info-media_player$: |
-  #       div.controls {
-  #         margin-top: 0px;
-  #         padding-top: 0px;
-  #         justify-content: flex-end;
-  #         max-width: 100%;
-  #         margin-left: auto;
-  #         margin-right: 0px;
-  #         flex: 1 1 0%;
-  #         width: auto;
-  #       }
-  #       div.basic-controls {
-  #         display: none;
-  #       }
-  #       div.volume {
-  #         display: none;
-  #       }
-  #       div.source-input {
-  #         display: none;
-  #       }
-  #     .: |
-  #       state-card-content {
-  #         display: none;
-  #       }
-  #       h1.card-header {
-  #         display: none;
-  #       }
-  #       .card-content {
-  #         padding-bottom: 5px
-  #       }

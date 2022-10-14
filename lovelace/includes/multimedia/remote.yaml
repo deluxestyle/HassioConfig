@@ -9,6 +9,7 @@ template:
   - remote
 tap_action: 
   action: fire-dom-event
+  haptic: medium
   browser_mod:  
     service: browser_mod.popup
     data:

@@ -28,6 +28,11 @@ cards:
     exclude:
       - media_player.airport_express
       - media_player.harman_kardon_avr
+      - light.flur1
+      - light.flur2
+      - light.flur3
+      - light.gruppe*
+      - light.rwl021_23
     time_step: 1
     customize:
       script.sonos_wecker:

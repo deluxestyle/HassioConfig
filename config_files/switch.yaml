@@ -34,56 +34,56 @@
         - service: script.turn_on
           entity_id: script.harmony_mr400_power_off
       icon_template: mdi:set-top-box
-    tv_switch:
-      unique_id: tv_switch
-      friendly_name: "Magenta TV"
-      value_template: "{{ is_state('sensor.remote_state', 'Magenta TV') and is_state('switch.steckdosenleiste', 'on')}}"
-      turn_on:
-        - service: script.turn_on
-          entity_id: script.harmony_action_telekom
-      turn_off:
-        - service: script.turn_on
-          entity_id: script.harmony_power_off
-    fire_tv_switch:
-      unique_id: fire_tv_switch
-      friendly_name: "Fire TV"
-      value_template: "{{ is_state('sensor.remote_state', 'Fire TV') and is_state('switch.steckdosenleiste', 'on')}}"
-      turn_on:
-        - service: script.turn_on
-          entity_id: script.harmony_action_fire_tv
-      turn_off:
-        - service: script.turn_on
-          entity_id: script.harmony_power_off
-    music_switch:
-      unique_id: music_switch
-      friendly_name: "Plattenspieler"
-      value_template: "{{ is_state('sensor.remote_state', 'Plattenspieler') and is_state('switch.steckdosenleiste', 'on')}}"
-      turn_on:
-        - service: script.turn_on
-          entity_id: script.harmony_action_music
-      turn_off:
-        - service: script.turn_on
-          entity_id: script.harmony_power_off
-    vtuner_switch:
-      unique_id: vtuner_switch
-      friendly_name: "vTuner"
-      value_template: "{{ is_state('sensor.remote_state', 'vTuner') and is_state('switch.steckdosenleiste', 'on')}}"
-      turn_on:
-        - service: script.turn_on
-          entity_id: script.harmony_action_vtuner
-      turn_off:
-        - service: script.turn_on
-          entity_id: script.harmony_power_off
-    airplay_switch:
-      unique_id: airplay_switch
-      friendly_name: "AirPlay"
-      value_template: "{{ is_state('sensor.remote_state', 'AirPlay') and is_state('switch.steckdosenleiste', 'on')}}"
-      turn_on:
-        - service: script.turn_on
-          entity_id: script.harmony_action_airplay
-      turn_off:
-        - service: script.turn_on
-          entity_id: script.harmony_power_off
+    # tv_switch:
+    #   unique_id: tv_switch
+    #   friendly_name: "Magenta TV"
+    #   value_template: "{{ is_state('sensor.remote_state', 'Magenta TV') and is_state('switch.steckdosenleiste', 'on')}}"
+    #   turn_on:
+    #     - service: script.turn_on
+    #       entity_id: script.harmony_action_telekom
+    #   turn_off:
+    #     - service: script.turn_on
+    #       entity_id: script.harmony_power_off
+    # fire_tv_switch:
+    #   unique_id: fire_tv_switch
+    #   friendly_name: "Fire TV"
+    #   value_template: "{{ is_state('sensor.remote_state', 'Fire TV') and is_state('switch.steckdosenleiste', 'on')}}"
+    #   turn_on:
+    #     - service: script.turn_on
+    #       entity_id: script.harmony_action_fire_tv
+    #   turn_off:
+    #     - service: script.turn_on
+    #       entity_id: script.harmony_power_off
+    # music_switch:
+    #   unique_id: music_switch
+    #   friendly_name: "Plattenspieler"
+    #   value_template: "{{ is_state('sensor.remote_state', 'Plattenspieler') and is_state('switch.steckdosenleiste', 'on')}}"
+    #   turn_on:
+    #     - service: script.turn_on
+    #       entity_id: script.harmony_action_music
+    #   turn_off:
+    #     - service: script.turn_on
+    #       entity_id: script.harmony_power_off
+    # vtuner_switch:
+    #   unique_id: vtuner_switch
+    #   friendly_name: "vTuner"
+    #   value_template: "{{ is_state('sensor.remote_state', 'vTuner') and is_state('switch.steckdosenleiste', 'on')}}"
+    #   turn_on:
+    #     - service: script.turn_on
+    #       entity_id: script.harmony_action_vtuner
+    #   turn_off:
+    #     - service: script.turn_on
+    #       entity_id: script.harmony_power_off
+    # airplay_switch:
+    #   unique_id: airplay_switch
+    #   friendly_name: "AirPlay"
+    #   value_template: "{{ is_state('sensor.remote_state', 'AirPlay') and is_state('switch.steckdosenleiste', 'on')}}"
+    #   turn_on:
+    #     - service: script.turn_on
+    #       entity_id: script.harmony_action_airplay
+    #   turn_off:
+    #     - service: script.turn_on
+    #       entity_id: script.harmony_power_off
 ###############################################
     vacuum:
       unique_id: vacuum_switch

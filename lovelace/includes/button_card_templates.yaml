@@ -36,6 +36,7 @@
     show_name: true
     show_label: true
     size: 24px
+    haptic: medium
     custom_fields:
       notification: >
         [[[
@@ -177,8 +178,10 @@
     layout: icon_name
     tap_action:
       action: toggle
+      haptic: medium
     hold_action:
       action: more-info
+      haptic: medium
     template: 
       - yellow
       - standard_style
@@ -192,6 +195,7 @@
   outlet_with_confirmation:
     tap_action:
       action: toggle 
+      haptic: medium
       confirmation: |
           [[[
             return entity.state === "on"
@@ -209,6 +213,7 @@
     layout: icon_name
     tap_action:
       action: toggle 
+      haptic: medium
     template: 
       - blue
       - standard_style
@@ -507,6 +512,7 @@
     size: 24px
     layout: icon_name
     tap_action:
+      haptic: medium
       action: call-service
       service: script.turn_on
       service_data:
@@ -533,6 +539,7 @@
     show_label: false
     size: 24px
     layout: icon_name
+    haptic: medium
     styles:
       grid:
         - grid-template-areas: '"i n"'
@@ -603,6 +610,7 @@
     show_name: true
     tap_action:
       action: toggle 
+      haptic: medium
       confirmation: |
           [[[
             return entity.state === "on"
@@ -649,6 +657,7 @@
   chips:
     tap_action:
       action: more-info
+      haptic: medium
     show_icon: true
     show_name: true
     show_state: true
