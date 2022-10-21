@@ -2,6 +2,10 @@
 
 title: Sonos
 size: normal
+style: |
+  --popup-border-width: 0px;
+card_mod:
+  !include ../popups/popup_styles.yaml
 content:
   type: custom:vertical-stack-in-card 
   cards:
@@ -25,8 +29,6 @@ content:
             repeat: false
           source: full
           info: scroll 
-          # tap_action: 
-          #   action: more
           speaker_group:
             platform: sonos
             show_group_count: true
@@ -39,88 +41,22 @@ content:
                 name: Sonos Küche
               - entity_id: media_player.schlafzimmer
                 name: Sonos Schlafzimmer   
-          # shortcuts:
-          #   label: 'Sender'
-          #   list:
-          #     - name: Arabella München
-          #       type: service
-          #       id: media_player.play_media
-          #       data: 
-          #         entity_id: media_player.{{ entity }}
-          #         media_content_id: FV:2/30
-          #         media_content_type: favorite_item_id
-          #     - name: Bayern 1
-          #       type: service
-          #       id: media_player.play_media
-          #       data: 
-          #         entity_id: media_player.{{ entity }}
-          #         media_content_id: FV:2/53
-          #         media_content_type: favorite_item_id
-          #     - name: Bayern 2 Süd
-          #       type: service
-          #       id: media_player.play_media
-          #       data: 
-          #         entity_id: media_player.{{ entity }}
-          #         media_content_id: FV:2/52
-          #         media_content_type: favorite_item_id
-          #     - name: BR24
-          #       type: service
-          #       id: media_player.play_media
-          #       data: 
-          #         entity_id: media_player.{{ entity }}
-          #         media_content_id: FV:2/54
-          #         media_content_type: favorite_item_id
-          #     - name: Deutschlandfunk
-          #       type: service
-          #       id: media_player.play_media
-          #       data: 
-          #         entity_id: media_player.{{ entity }}
-          #         media_content_id: FV:2/36
-          #         media_content_type: favorite_item_id
-          #     - name: egoFM
-          #       type: service
-          #       id: media_player.play_media
-          #       data: 
-          #         entity_id: media_player.{{ entity }}
-          #         media_content_id: FV:2/31
-          #         media_content_type: favorite_item_id
-          #     - name: FM4
-          #       type: service
-          #       id: media_player.play_media
-          #       data: 
-          #         entity_id: media_player.{{ entity }}
-          #         media_content_id: FV:2/32
-          #         media_content_type: favorite_item_id
-          #     - name: Superfly.fm
-          #       type: service
-          #       id: media_player.play_media
-          #       data: 
-          #         entity_id: media_player.{{ entity }}
-          #         media_content_id: FV:2/44
-          #         media_content_type: favorite_item_id      
-        - type: custom:fold-entity-row
-          open: true
-          padding: 5
-          head:
-            type: section
-            label: Einstellungen
-          entities:
-            - entity: number.{{ entity }}_bass
-              name: Bass
-              tap_action: 
-                action: none
-            - entity: number.{{ entity }}_treble
-              name: Höhen
-              tap_action: 
-                action: none
-            - entity: switch.sonos_{{ entity }}_touch_controls
-              name: Touchsteuerung
-              tap_action:
-                action: toggle
-            - entity: switch.sonos_{{ entity }}_status_light
-              name: Statusleuchte
-              tap_action:
-                action: toggle
-            - entity:  input_boolean.sync_volume
-              tap_action:
-                action: toggle
+        - entity: number.{{ entity }}_bass
+          name: Bass
+          tap_action: 
+            action: none
+        - entity: number.{{ entity }}_treble
+          name: Höhen
+          tap_action: 
+            action: none
+        - entity: switch.sonos_{{ entity }}_touch_controls
+          name: Touchsteuerung
+          tap_action:
+            action: toggle
+        - entity: switch.sonos_{{ entity }}_status_light
+          name: Statusleuchte
+          tap_action:
+            action: toggle
+        - entity:  input_boolean.sync_volume
+          tap_action:
+            action: toggle

@@ -1,5 +1,9 @@
 
 title: Fernbedienung
+style: |
+  --popup-border-width: 0px;
+card_mod:
+  !include ../popups/popup_styles.yaml
 content:
   type: custom:vertical-stack-in-card
   cards:

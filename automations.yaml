@@ -874,7 +874,7 @@
     for:
       hours: 0
       minutes: 0
-      seconds: 0
+      seconds: 45
     to: not_home
   - platform: state
     entity_id: group.presence
@@ -1098,7 +1098,7 @@
   - choose:
     - conditions:
       - condition: time
-        after: 07:00:00
+        after: 07:30:00
         before: '19:00:00'
       sequence:
       - service: scene.turn_on
@@ -1261,5 +1261,24 @@
       message: Spülmaschine ist fertig
       notification_id: dishwasher
       title: Spülmaschine
+    service: script.notify_script
+  mode: single
+- id: '1666206359083'
+  alias: 'Benachrichtigung: Docker Update'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.docker_images_updates
+    from: 'off'
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
+      message: Update für Docker Images verfügbar
+      notification_id: system_update
+      title: Update
     service: script.notify_script
   mode: single

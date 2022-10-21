@@ -6,6 +6,10 @@ browser_mod:
   service: browser_mod.popup
   data:
     title: Licht
+    style: |
+      --popup-border-width: 0px;
+    card_mod:
+      !include popup_styles.yaml
     content:
       type: custom:vertical-stack-in-card 
       cards:

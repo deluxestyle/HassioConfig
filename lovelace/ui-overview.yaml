@@ -157,6 +157,10 @@ cards:
             service: browser_mod.popup
             data:
               title: Timer
+              style: |
+                --popup-border-width: 0px;
+              card_mod:
+                !include includes/popups/popup_styles.yaml
               content:
                 type: custom:timer-bar-card
                 entities:

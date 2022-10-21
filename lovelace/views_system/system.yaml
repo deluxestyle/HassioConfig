@@ -51,6 +51,21 @@ cards:
         tap_action: 
           action: navigate
           navigation_path: /hacs
+      - type: custom:auto-entities
+        filter:
+          include:
+            - entity_id: "binary_sensor.wud_container*"
+              options:
+                tap_action:
+                  action: none
+        sort:
+          method: name
+        card:
+          type: custom:fold-entity-row
+          head: binary_sensor.docker_images_updates
+          tap_action:
+            action: none
+          padding: 5
       - type: custom:fold-entity-row
         padding: 5
         head:
@@ -122,6 +137,10 @@ cards:
             service: browser_mod.popup
             data:
               title: Status
+              style: |
+                --popup-border-width: 0px;
+              card_mod:
+                !include ../includes/popups/popup_styles.yaml
               content:
                 type: entities
                 entities:
@@ -164,6 +183,10 @@ cards:
             service: browser_mod.popup
             data:
               title: Status
+              style: |
+                --popup-border-width: 0px;
+              card_mod:
+                !include ../includes/popups/popup_styles.yaml
               content:
                 type: custom:auto-entities
                 card:

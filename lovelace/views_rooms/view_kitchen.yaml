@@ -23,15 +23,14 @@ cards:
             service: browser_mod.popup
             data:
               title: Timer
+              style: |
+                --popup-border-width: 0px;
+              card_mod:
+                !include ../includes/popups/popup_styles.yaml
               content:
                 type: custom:timer-bar-card
                 entities:
                   - timer.kaffeemaschine
-                card_mod:
-                  style: |
-                    ha-card {
-                        --ha-card-box-shadow: none;
-                      } 
   - type: entities
     entities:
       - entity: sensor.402060518382006939_bsh_common_status_operationstate

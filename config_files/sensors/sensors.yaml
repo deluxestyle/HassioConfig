@@ -18,9 +18,6 @@
       - type: swap_use_percent
       - type: last_boot
 
-# - platform: uptime
-#   name: online_time
-
 - platform: time_date
   display_options:
     - 'time'
@@ -41,8 +38,6 @@
   value_template: >
     {{ value_json.status }}
 
-# - platform: authenticated
-
 - platform: influxdb
   host: 192.168.200.33
   port: 8086
@@ -58,14 +53,6 @@
       where: 'time > now() - 1m AND "database"=''homeassistant'''
       field: diskBytes
 
-# - platform: sql
-#   db_url: mysql://homeassistant:homeassistant@core-mariadb/homeassistant
-#   queries:
-#     - name: MariaDB Database Size
-#       query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;'
-#       column: "value"
-#       unit_of_measurement: MB  
-
 - platform: rest
   name: wireguard
   resource: http://192.168.200.33:9090/
@@ -75,10 +62,3 @@
   - laptoperlau
   - hp-spectre
   value_template: "OK"
-
-# - platform: mvglive
-#   nextdeparture:
-#     - station: St.-Martins-Platz
-#       number: 5
-#     - station: Untersbergstraße
-#       number: 5
