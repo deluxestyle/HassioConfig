@@ -1282,3 +1282,27 @@
       title: Update
     service: script.notify_script
   mode: single
+- id: '1666460813767'
+  alias: 'Benachrichtigung: RAM zu hoch'
+  description: ''
+  trigger:
+  - above: 75
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+      milliseconds: 0
+    platform: numeric_state
+    entity_id: sensor.memory_use_percent
+  condition: []
+  action:
+  - data: {}
+    entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
+      message: 'RAM Auslastung zu hoch: {{ states ( "sensor.memory_use_percent" )
+        }}%'
+      notification_id: ram
+      title: RAM Auslastung
+    service: script.notify_script
+  mode: single

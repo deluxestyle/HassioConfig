@@ -13,6 +13,7 @@ data:
         type: entities
       filter:
         include:
+          - entity_id: scene.baby_schlafenszeit
           - entity_id: "scene.schlafzimmer_*"
       sort:
         method: name
