@@ -7,85 +7,6 @@ layout:
   max_cols: 2
   width: 330
 cards:   
-  - type: entities
-    show_header_toggle: false
-    entities:
-      - entity:  update.home_assistant_core_update
-        type: custom:multiple-entity-row
-        name: Core
-        show_state: false
-        icon: mdi:update
-        entities:
-          - attribute: installed_version
-            name: Installiert
-          - attribute: latest_version
-            name: Verfügbar
-        tap_action: 
-          action: navigate
-          navigation_path:  /config/dashboard
-      - entity:  update.home_assistant_supervisor_update
-        type: custom:multiple-entity-row
-        name: Supervisor
-        icon: mdi:update
-        show_state: false
-        entities:
-          - attribute: installed_version
-            name: Installiert
-          - attribute: latest_version
-            name: Verfügbar
-        tap_action: 
-          action: navigate
-          navigation_path:  /config/dashboard
-      - entity:  sensor.updater_supervisor
-        type: custom:multiple-entity-row
-        name: Add-ons
-        icon: mdi:update
-        tap_action: 
-          action: navigate
-          navigation_path: /hassio
-          # browser_mod:
-          #   command: navigate
-          #   navigation_path: /hassio
-      - entity: sensor.hacs
-        name: Hacs
-        tap_action: 
-          action: navigate
-          navigation_path: /hacs
-      - type: custom:auto-entities
-        filter:
-          include:
-            - entity_id: "binary_sensor.wud_container*"
-              options:
-                tap_action:
-                  action: none
-        sort:
-          method: name
-        card:
-          type: custom:fold-entity-row
-          head: binary_sensor.docker_images_updates
-          tap_action:
-            action: none
-          padding: 5
-      - type: custom:fold-entity-row
-        padding: 5
-        head:
-          type: section
-          label: Details
-        entities:
-          - entity: sensor.anzahl_automationen
-            tap_action:
-              action: navigate
-              navigation_path: /config/automation/dashboard
-          - entity: sensor.anzahl_skripte
-            tap_action:
-              action: navigate
-              navigation_path: /config/script/dashboard
-          - entity: sensor.online_time
-            name: Hass online
-            icon: mdi:home-assistant
-          - entity: sensor.last_boot
-            name: Raspi online
-            icon: mdi:raspberry-pi
   - type: glance
     columns: 4
     show_name: false
@@ -172,6 +93,85 @@ cards:
         double_tap_action:
           action: navigate
           navigation_path: /hassio/backups          
+  - type: entities
+    show_header_toggle: false
+    entities:
+      - entity:  update.home_assistant_core_update
+        type: custom:multiple-entity-row
+        name: Core
+        show_state: false
+        icon: mdi:update
+        entities:
+          - attribute: installed_version
+            name: Installiert
+          - attribute: latest_version
+            name: Verfügbar
+        tap_action: 
+          action: navigate
+          navigation_path:  /config/dashboard
+      - entity:  update.home_assistant_supervisor_update
+        type: custom:multiple-entity-row
+        name: Supervisor
+        icon: mdi:update
+        show_state: false
+        entities:
+          - attribute: installed_version
+            name: Installiert
+          - attribute: latest_version
+            name: Verfügbar
+        tap_action: 
+          action: navigate
+          navigation_path:  /config/dashboard
+      - entity:  sensor.updater_supervisor
+        type: custom:multiple-entity-row
+        name: Add-ons
+        icon: mdi:update
+        tap_action: 
+          action: navigate
+          navigation_path: /hassio
+          # browser_mod:
+          #   command: navigate
+          #   navigation_path: /hassio
+      - entity: sensor.hacs
+        name: Hacs
+        tap_action: 
+          action: navigate
+          navigation_path: /hacs
+      - type: custom:auto-entities
+        filter:
+          include:
+            - entity_id: "binary_sensor.wud_container*"
+              options:
+                tap_action:
+                  action: none
+        sort:
+          method: name
+        card:
+          type: custom:fold-entity-row
+          head: binary_sensor.docker_images_updates
+          tap_action:
+            action: none
+          padding: 5
+      - type: custom:fold-entity-row
+        padding: 5
+        head:
+          type: section
+          label: Details
+        entities:
+          - entity: sensor.anzahl_automationen
+            tap_action:
+              action: navigate
+              navigation_path: /config/automation/dashboard
+          - entity: sensor.anzahl_skripte
+            tap_action:
+              action: navigate
+              navigation_path: /config/script/dashboard
+          - entity: sensor.online_time
+            name: Hass online
+            icon: mdi:home-assistant
+          - entity: sensor.last_boot
+            name: Raspi online
+            icon: mdi:raspberry-pi
   - type: entities
     entities:
       - entity: automation.batterie_niedriger_batteriestand

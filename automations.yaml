@@ -369,7 +369,7 @@
 - id: '1564908105933'
   alias: 'Benachrichtigung: RAM zu hoch'
   trigger:
-  - above: 80
+  - above: 75
     entity_id: sensor.memory_use_percent
     platform: numeric_state
     for:
@@ -1283,26 +1283,61 @@
     service: script.notify_script
   mode: single
 - id: '1666460813767'
-  alias: 'Benachrichtigung: RAM zu hoch'
+  alias: 'Benachrichtigung: Swap zu hoch'
   description: ''
   trigger:
-  - above: 75
+  - above: 40
     for:
       hours: 0
       minutes: 10
       seconds: 0
       milliseconds: 0
     platform: numeric_state
-    entity_id: sensor.memory_use_percent
+    entity_id: sensor.swap_use_percent
   condition: []
   action:
   - data: {}
     entity_id: input_boolean.persistent_notification
     service: input_boolean.turn_on
   - data:
-      message: 'RAM Auslastung zu hoch: {{ states ( "sensor.memory_use_percent" )
-        }}%'
-      notification_id: ram
-      title: RAM Auslastung
+      message: 'Swap Auslastung zu hoch: {{ states ( "sensor.swap_use_percent" ) }}%'
+      notification_id: swap
+      title: swap Auslastung
     service: script.notify_script
+  mode: single
+- id: '1666943176581'
+  alias: 'Licht: Schlafzimmer'
+  description: ''
+  trigger:
+  - device_id: bccc8cdab09f27a2259f4e10cbcdda96
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+    id: ein
+  - device_id: bccc8cdab09f27a2259f4e10cbcdda96
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_off
+    id: aus
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: ein
+      sequence:
+      - service: scene.turn_on
+        data: {}
+        target:
+          entity_id: scene.schlafzimmer_hell
+    - conditions:
+      - condition: trigger
+        id: aus
+      sequence:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.schlafzimmer
   mode: single
