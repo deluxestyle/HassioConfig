@@ -1341,3 +1341,22 @@
         target:
           entity_id: light.schlafzimmer
   mode: single
+- id: '1667402945500'
+  alias: 'Benachrichgung: Geschirrspüler fertig'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.402060518382006939_bsh_common_status_operationstate
+    to: BSH.Common.EnumType.OperationState.Finished
+  condition: []
+  action:
+  - data: {}
+    entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
+      message: Geschirrspüler fertig
+      notification_id: dish_washer
+      title: Geschirrspüler
+    service: script.notify_script
+  mode: single

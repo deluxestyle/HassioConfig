@@ -32,8 +32,8 @@
   type: module
 - url: /hacsfiles/lovelace-more-info-card/more-info-card.js
   type: module 
-- url: /hacsfiles/simple-thermostat/simple-thermostat.js
-  type: module    
+# - url: /hacsfiles/simple-thermostat/simple-thermostat.js
+#   type: module    
 - url: /local/mvg-card.js
   type: js
 - url: /hacsfiles/lovelace-mushroom/mushroom.js

@@ -35,6 +35,37 @@ layout:
   max_cols: 2
   width: 330
 cards: 
+  - type: custom:vertical-stack-in-card
+    cards: 
+      - type: entities
+        entities:
+          - entity: sensor.docker_containers_running
+            type: custom:multiple-entity-row
+            name: Docker Container
+            show_state: false
+            tap_action:
+              action: none
+            entities:
+              - entity: sensor.docker_containers_total
+                name: Total
+              - entity: sensor.docker_containers_running
+                name: Running
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: 'custom:button-card'
+            template: graph_small
+            variables:
+              entity: sensor.docker_1cpu
+              color: "var(--google-green)"
+              name: "CPU"
+          - type: 'custom:button-card'
+            template: graph_small
+            variables:
+              entity: sensor.docker_memory
+              color: "var(--google-grey)"
+              name: "Memory"
   {{ monitor ("addon_15d21743_samba_backup") }}
   {{ monitor ("addon_a0d7b954_wireguard") }}
   {{ monitor ("addon_core_mosquitto") }}

@@ -56,6 +56,8 @@ entities:
   - binary_sensor.tradfri_bewegungsmelder
   - vacuum.roborock_vacuum
   - binary_sensor.fritz_box_7590_connection
+  - sensor.docker_1cpu
+  - sensor.docker_memory
 domains:
   - automation
   - switch
