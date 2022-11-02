@@ -46,8 +46,8 @@ cards:
         icon: mdi:file-swap  
       - entity: sensor.disk_use
         name: Disk 
-      - entity: sensor.influxdb_database_size
-        icon: mdi:database-outline
+      # - entity: sensor.influxdb_database_size
+      #   icon: mdi:database-outline
       - entity: sensor.mariadb_database_size
         icon: mdi:database 
       - entity: sensor.samba_backup
@@ -152,6 +152,42 @@ cards:
           tap_action:
             action: none
           padding: 5
+      - type: custom:auto-entities
+        filter:
+          include:
+            - entity_id: "sensor.docker_*_memory"
+        sort:
+          method: name
+        card:
+          type: custom:fold-entity-row
+          head:
+            type: section
+            label: Docker Memory
+          padding: 5
+      - type: custom:auto-entities
+        filter:
+          include:
+            - entity_id: "sensor.docker_*_1cpu"
+        sort:
+          method: name
+        card:
+          type: custom:fold-entity-row
+          head:
+            type: section
+            label: Docker CPU
+          padding: 5
+      - type: custom:auto-entities
+        filter:
+          include:
+            - entity_id: "switch.docker_*"
+        sort:
+          method: name
+        card:
+          type: custom:fold-entity-row
+          head:
+            type: section
+            label: Docker Schalter
+          padding: 5
       - type: custom:fold-entity-row
         padding: 5
         head:
@@ -228,6 +264,7 @@ cards:
             type: section
             label: Syncthing Status
           padding: 5
+
   - type: grid
     columns: 2
     square: false

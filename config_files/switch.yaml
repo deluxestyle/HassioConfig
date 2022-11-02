@@ -118,7 +118,6 @@
           data: {}
           target:
             entity_id: sensor.pihole
-
 ###############################################
 - platform: wake_on_lan
   mac: 00:11:32:98:83:61

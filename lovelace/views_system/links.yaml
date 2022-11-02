@@ -27,6 +27,11 @@ cards:
           name: HACS
           icon: hacs:hacs
           new_tab: false
+        - type: weblink
+          url: https://eu-central-1-1.aws.cloud2.influxdata.com/orgs/493ff594d5432447/data-explorer
+          name: InfluxDB
+          icon: mdi:database
+          new_tab: true
     - type: entities
       entities:
         - type: weblink

@@ -1,30 +1,42 @@
-host: 192.168.200.33
-database: homeassistant
-username: homeassistant
-password: !secret influxdb_password
+api_version: 2
+ssl: true
+host: eu-central-1-1.aws.cloud2.influxdata.com
+# port: 9999
+token: JJnzphvHw8tJ9D_ICQsN7h6G8xG-F9i6tB-FtRaDbuvZipAeB6346DJDeOdPPvpR7mNaxGE3S46LDZnYPtF7GQ==
+organization: 493ff594d5432447
+bucket: HA
+tags:
+  source: HA
+tags_attributes:
+  - friendly_name
+
+# host: 192.168.200.33
+# database: homeassistant
+# username: homeassistant
+# password: !secret influxdb_password
 default_measurement: state
 include:
   entities:
-    - sensor.xiaomi_bed_room_battery_level        
-    - sensor.xiaomi_living_room_battery_level
-    - sensor.xiaomi_kitchen_battery_level
-    - sensor.xiaomi_bath_battery_level
-    - sensor.bewegungsmelder_battery_level
-    - sensor.fenster_turkontaktsensor_battery_level
-    - sensor.smart_switch_1_battery_level
-    - sensor.smart_switch_2_battery_level
-    - sensor.wandsender_1_fach_battery_level
-    - sensor.wandsender_2_fach_battery_level
-    - sensor.dimmschalter_schlafzimmer_battery_level
-    - sensor.dimmschalter_battery_level
-    - sensor.humidity_158d0001b8c96c
-    - sensor.humidity_158d0001b8c998
-    - sensor.humidity_158d0002239fb5
-    - sensor.humidity_158d00023258bd
-    - sensor.temperature_158d0001b8c96c
-    - sensor.temperature_158d0001b8c998
-    - sensor.temperature_158d0002239fb5
-    - sensor.temperature_158d00023258bd
+    # - sensor.xiaomi_bed_room_battery_level        
+    # - sensor.xiaomi_living_room_battery_level
+    # - sensor.xiaomi_kitchen_battery_level
+    # - sensor.xiaomi_bath_battery_level
+    # - sensor.bewegungsmelder_battery_level
+    # - sensor.fenster_turkontaktsensor_battery_level
+    # - sensor.smart_switch_1_battery_level
+    # - sensor.smart_switch_2_battery_level
+    # - sensor.wandsender_1_fach_battery_level
+    # - sensor.wandsender_2_fach_battery_level
+    # - sensor.dimmschalter_schlafzimmer_battery_level
+    # - sensor.dimmschalter_battery_level
+    # - sensor.humidity_158d0001b8c96c
+    # - sensor.humidity_158d0001b8c998
+    # - sensor.humidity_158d0002239fb5
+    # - sensor.humidity_158d00023258bd
+    # - sensor.temperature_158d0001b8c96c
+    # - sensor.temperature_158d0001b8c998
+    # - sensor.temperature_158d0002239fb5
+    # - sensor.temperature_158d00023258bd
     - sensor.memory_use
     - sensor.memory_use_percent
     - sensor.disk_use
@@ -46,3 +58,7 @@ include:
     - sensor.fritz_box_7590_kb_s_sent
     - sensor.net_uptime
     - binary_sensor.fritz_box_7590_connection
+  entity_globs:
+    - sensor.ynzvpg2*
+    - sensor.docker_*_memory
+    - sensor.docker_*_1cpu

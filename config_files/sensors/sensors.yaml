@@ -38,20 +38,20 @@
   value_template: >
     {{ value_json.status }}
 
-- platform: influxdb
-  host: 192.168.200.33
-  port: 8086
-  username: homeassistant
-  password: !secret influxdb_password
-  queries:
-    - name: InfluxDB Database Size
-      unit_of_measurement: MB
-      value_template: '{{ (value | float / 1024 /1024) | round(1) }}'
-      group_function: mean
-      measurement: '"monitor"."shard"'
-      database: _internal
-      where: 'time > now() - 1m AND "database"=''homeassistant'''
-      field: diskBytes
+# - platform: influxdb
+#   host: 192.168.200.33
+#   port: 8086
+#   username: homeassistant
+#   password: !secret influxdb_password
+#   queries:
+#     - name: InfluxDB Database Size
+#       unit_of_measurement: MB
+#       value_template: '{{ (value | float / 1024 /1024) | round(1) }}'
+#       group_function: mean
+#       measurement: '"monitor"."shard"'
+#       database: _internal
+#       where: 'time > now() - 1m AND "database"=''homeassistant'''
+#       field: diskBytes
 
 - platform: rest
   name: wireguard

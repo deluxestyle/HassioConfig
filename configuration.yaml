@@ -108,3 +108,39 @@ notify:
     platform: group
     services:
       - service: mobile_app_iphone14pro
+
+monitor_docker:
+  - name: Docker
+    url: tcp://192.168.200.33:2375
+    containers:
+      - addon_15d21743_samba_backup	
+#      - addon_a0d7b954_influxdb	
+      - addon_a0d7b954_wireguard	
+      - addon_core_mosquitto	
+      - addon_core_samba	
+      - deconz	
+      - docker_admin	
+      - hassio_audio	
+      - hassio_cli	
+      - hassio_dns	
+      - hassio_multicast	
+      - hassio_observer	
+      - hassio_supervisor	
+      - homeassistant	
+      - mariadb	
+      - nginx-proxy-manager	
+      - pihole	
+      - vaultwarden	
+      - wud
+      - dockerproxy
+    monitored_conditions:
+      - version
+      - containers_running
+      - containers_total
+      - state
+      - status
+      - memory
+      - 1cpu_percentage
+      - containers_1cpu_percentage
+      - containers_memory
+      - containers_memory_percentage
