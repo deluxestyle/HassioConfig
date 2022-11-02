@@ -6,93 +6,134 @@ type: custom:masonry-layout
 layout:
   max_cols: 2
   width: 330
-cards:   
-  - type: glance
-    columns: 4
-    show_name: false
-    entities:
-      - entity: sensor.processor_use
-        name: CPU   
-        style: |
-            :host {
-              color: 
-              {% if (states('sensor.processor_use')  | int(0)) > 30 %}
-                red
-              {% endif %}
-              ;
-            }     
-      - entity: sensor.memory_use_percent
-        name: Memory %
-      - entity: sensor.swap_use_percent
-        name: Swap %
-        icon: mdi:file-swap         
-      - entity: sensor.disk_use_percent
-        name: Disk %     
-      - entity: sensor.cpu_temperature
-        icon: mdi:thermometer
-        name: CPU Temp
-        style: |
-            :host {
-              color: 
-              {% if (states('sensor.cpu_temperature')  | int(0)) > 65 %}
-                red
-              {% endif %}
-              ;
-            }
-      - entity: sensor.memory_use
-        name: Memory
-      - entity: sensor.swap_use
-        name: Swap
-        icon: mdi:file-swap  
-      - entity: sensor.disk_use
-        name: Disk 
-      # - entity: sensor.influxdb_database_size
-      #   icon: mdi:database-outline
-      - entity: sensor.mariadb_database_size
-        icon: mdi:database 
-      - entity: sensor.samba_backup
-        icon: mdi:content-save-all
-        tap_action:
-          action: fire-dom-event
-          browser_mod:
-            service: browser_mod.popup
-            data:
-              title: Status
-              style: |
-                --popup-border-width: 0px;
-              card_mod:
-                !include ../includes/popups/popup_styles.yaml
-              content:
-                type: entities
-                entities:
-                  - attribute: backups_local
-                    entity: sensor.samba_backup
-                    icon: 'mdi:file-outline'
-                    name: Local Backups
-                    type: attribute
-                  - attribute: backups_remote
-                    entity: sensor.samba_backup
-                    icon: 'mdi:file-move-outline'
-                    name: Remote Backups
-                    type: attribute
-                  - attribute: total_backups_succeeded
-                    entity: sensor.samba_backup
-                    icon: 'mdi:file-check-outline'
-                    name: Succeded Backups
-                    type: attribute
-                  - attribute: total_backups_failed
-                    entity: sensor.samba_backup
-                    icon: 'mdi:file-cancel-outline'
-                    name: Failed Backups
-                    type: attribute
-                  - attribute: last_backup
-                    entity: sensor.samba_backup
-                    icon: 'mdi:file-clock-outline'
-                    name: Last Backup
-                    type: attribute
-        double_tap_action:
-          action: navigate
-          navigation_path: /hassio/backups          
+cards:  
+  - type: custom:vertical-stack-in-card
+    cards: 
+      - type: glance
+        columns: 4
+        show_name: false
+        entities:
+          - entity: sensor.processor_use
+            name: CPU   
+            style: |
+                :host {
+                  color: 
+                  {% if (states('sensor.processor_use')  | int(0)) > 30 %}
+                    red
+                  {% endif %}
+                  ;
+                }     
+          - entity: sensor.memory_use_percent
+            name: Memory %
+          - entity: sensor.swap_use_percent
+            name: Swap %
+            icon: mdi:file-swap         
+          - entity: sensor.disk_use_percent
+            name: Disk %     
+          - entity: sensor.cpu_temperature
+            icon: mdi:thermometer
+            name: CPU Temp
+            style: |
+                :host {
+                  color: 
+                  {% if (states('sensor.cpu_temperature')  | int(0)) > 65 %}
+                    red
+                  {% endif %}
+                  ;
+                }
+          - entity: sensor.memory_use
+            name: Memory
+          - entity: sensor.swap_use
+            name: Swap
+            icon: mdi:file-swap  
+          - entity: sensor.disk_use
+            name: Disk 
+          # - entity: sensor.influxdb_database_size
+          #   icon: mdi:database-outline
+          - entity: sensor.mariadb_database_size
+            icon: mdi:database 
+          - entity: sensor.samba_backup
+            icon: mdi:content-save-all
+            tap_action:
+              action: fire-dom-event
+              browser_mod:
+                service: browser_mod.popup
+                data:
+                  title: Status
+                  style: |
+                    --popup-border-width: 0px;
+                  card_mod:
+                    !include ../includes/popups/popup_styles.yaml
+                  content:
+                    type: entities
+                    entities:
+                      - attribute: backups_local
+                        entity: sensor.samba_backup
+                        icon: 'mdi:file-outline'
+                        name: Local Backups
+                        type: attribute
+                      - attribute: backups_remote
+                        entity: sensor.samba_backup
+                        icon: 'mdi:file-move-outline'
+                        name: Remote Backups
+                        type: attribute
+                      - attribute: total_backups_succeeded
+                        entity: sensor.samba_backup
+                        icon: 'mdi:file-check-outline'
+                        name: Succeded Backups
+                        type: attribute
+                      - attribute: total_backups_failed
+                        entity: sensor.samba_backup
+                        icon: 'mdi:file-cancel-outline'
+                        name: Failed Backups
+                        type: attribute
+                      - attribute: last_backup
+                        entity: sensor.samba_backup
+                        icon: 'mdi:file-clock-outline'
+                        name: Last Backup
+                        type: attribute
+            double_tap_action:
+              action: navigate
+              navigation_path: /hassio/backups 
+      # - type: entities
+      #   show_header_toggle: false
+      #   entities:
+      #     - type: custom:auto-entities
+      #       filter:
+      #         include:
+      #           - entity_id: "sensor.docker_*_memory"
+      #       sort:
+      #         method: name
+      #       card:
+      #         type: custom:fold-entity-row
+      #         head:
+      #           type: section
+      #           label: Docker Memory
+      #         padding: 5
+      #     - type: custom:auto-entities
+      #       filter:
+      #         include:
+      #           - entity_id: "sensor.docker_*_1cpu"
+      #       sort:
+      #         method: name
+      #       card:
+      #         type: custom:fold-entity-row
+      #         head:
+      #           type: section
+      #           label: Docker CPU
+      #         padding: 5
+      #     - type: custom:auto-entities
+      #       filter:
+      #         include:
+      #           - entity_id: "switch.docker_*"
+      #       sort:
+      #         method: name
+      #       card:
+      #         type: custom:fold-entity-row
+      #         head:
+      #           type: section
+      #           label: Docker Schalter
+      #         padding: 5                      
   - type: entities
     show_header_toggle: false
     entities:
@@ -151,42 +192,6 @@ cards:
           head: binary_sensor.docker_images_updates
           tap_action:
             action: none
-          padding: 5
-      - type: custom:auto-entities
-        filter:
-          include:
-            - entity_id: "sensor.docker_*_memory"
-        sort:
-          method: name
-        card:
-          type: custom:fold-entity-row
-          head:
-            type: section
-            label: Docker Memory
-          padding: 5
-      - type: custom:auto-entities
-        filter:
-          include:
-            - entity_id: "sensor.docker_*_1cpu"
-        sort:
-          method: name
-        card:
-          type: custom:fold-entity-row
-          head:
-            type: section
-            label: Docker CPU
-          padding: 5
-      - type: custom:auto-entities
-        filter:
-          include:
-            - entity_id: "switch.docker_*"
-        sort:
-          method: name
-        card:
-          type: custom:fold-entity-row
-          head:
-            type: section
-            label: Docker Schalter
           padding: 5
       - type: custom:fold-entity-row
         padding: 5
