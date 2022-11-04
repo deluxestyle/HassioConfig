@@ -5,15 +5,11 @@ data:
   title: Szenen
   style: |
     --popup-border-width: 0px;
+    --ha-card-border-color: var(--popup-border-color);
   card_mod:
     !include popup_styles.yaml
   content:
     type: entities
-    card_mod:
-      style: |
-        ha-card {
-            --ha-card-box-shadow: none;
-          }
     entities:
       - entity: scene.flur_gedimmt
         icon: mdi:brightness-3

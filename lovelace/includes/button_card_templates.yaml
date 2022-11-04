@@ -9,7 +9,7 @@
       card:
         - padding: var(--button-padding)
         - border-radius: var(--border-radius)
-        - box-shadow: var(--button-box-shadow)
+        # - box-shadow: var(--button-box-shadow)
       grid:
         - grid-template-areas: '"i n"'
         - grid-template-columns: min-content auto
@@ -66,7 +66,7 @@
       card:
         - padding: var(--button-padding)
         - border-radius: var(--border-radius)
-        - box-shadow: var(--button-box-shadow)
+        # - box-shadow: var(--button-box-shadow)
       grid:
         - grid-template-areas: '"i n" "i l"'
         - grid-template-columns: min-content auto
@@ -252,8 +252,7 @@
               - padding-top: var(--button-padding)
               - padding-left: 15px
               - padding-button: 0px
-              - border-radius: 0
-              - box-shadow: none
+              - border: 0px
             img_cell:
               - border-radius: 50%
               - place-self: center
@@ -280,9 +279,10 @@
             state: false
           style: |
             ha-card {
-              box-shadow: none;
+              box-shadow: 0;
               border-radius: var(--border-radius);
               padding: 0;
+              border: 0px;
             }
 
 
@@ -294,7 +294,7 @@
     styles:
       card:
         - border-radius: var(--border-radius)
-        - box-shadow: 0
+        - box-shadow: 0px
         - padding: 0px
       grid:
         - grid-template-areas: '"item1" "item2"'
@@ -313,7 +313,7 @@
               - padding: 0px
               - padding-left: 15px
               - border-radius: 0
-              - box-shadow: none
+              - border: 0px
             img_cell:
               - border-radius: 50%
               - place-self: center
@@ -340,9 +340,10 @@
             state: false
           style: |
             ha-card {
-              box-shadow: none;
+              box-shadow: 0px;
               border-radius: 0px;
-              padding: 0px
+              padding: 0px;
+              border: 0px;
             }
 
 ########################################################################################################
@@ -468,6 +469,7 @@
         - height: 5px
         - width: 5px
         - padding: 0
+        - border: 0
 
 #-------------------------------------------------
 
@@ -639,7 +641,7 @@
     styles:
       card:
         - border-radius: var(--border-radius)
-        - box-shadow: var(--box-shadow)
+        # - box-shadow: var(--box-shadow)
         - padding: 10px 0px 8px 0px 
       grid:
         - grid-template-areas: '"i" "n" "l"'
@@ -730,7 +732,7 @@
         - width: 24px
       card:
         - border-radius: 18px
-        - box-shadow: var(--box-shadow)
+        # - box-shadow: var(--box-shadow)
         - height: 36px
         - width: auto
         - padding-left: 6px
@@ -749,15 +751,23 @@
     show_icon: false
     show_label: true
     show_name: false
+    style: |
+      ha-card {
+        box-shadow: 0px;
+        border-radius: 0px;
+        padding: 0px;
+        border: 0px;
+      }
     styles:
       card:
         - background-color: rgba(0,0,0,0)
-        - box-shadow: none
+        - border: 0px;
         - height: auto
         - width: auto
         - margin-top: 12px
         - margin-left: 24px
         - margin-bottom: 0px
+        - box-shadow: 0
       grid:
         - grid-template-areas: '"n" "l"'
         - grid-template-columns: 1fr

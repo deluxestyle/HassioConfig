@@ -4,13 +4,15 @@ title: Sonos
 size: normal
 style: |
   --popup-border-width: 0px;
+  --ha-card-border-color: var(--popup-border-color);
+  border-radius: 0px;
 card_mod:
   !include ../popups/popup_styles.yaml
 content:
   type: custom:vertical-stack-in-card 
   cards:
     - type: entities
-      entities:  
+      entities: 
         - type: custom:mini-media-player
           entity: media_player.{{ entity }}
           icon: 'mdi:speaker-wireless'

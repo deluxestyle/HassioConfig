@@ -1,19 +1,12 @@
-clean:
+theme:
   app-header-text-color: var(--primary-text-color)
   app-header-background-color: "var(--card-background-color)"
 
-  # ha-card-box-shadow: 0; #0px 0px 0px 1px var(--border-color)
-  ha-card-border-radius: var(--border-radius) 
-  
   mush-chip-border-radius: var(--border-radius) 
   mush-chip-font-weight: normal
-  
-  border-radius-popup: var(--border-radius) 
 
-  # button-box-shadow: 0; #var(--box-shadow) #rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
-  # box-shadow: 0; #0px 0px 0px 1px var(--border-color)
   border-radius: 10px
+  popup-border-radius: 0px;
 
   button-padding: 10px
 
@@ -21,21 +14,17 @@ clean:
   color-blue-text: var(--primary-text-color)
   color-yellow-text: var(--primary-text-color)
 
-  mc-info-font-weight: 400
-  mini-climate-info-font-weight: 400
-
   card-primary-font-weight: normal
 
-
-  # color-yellow: 252, 214, 99
-  # color-red: 241, 139, 130
-  # color-blue: 137, 179, 248
+  # ha-card-box-shadow: none
+  # ha-card-border-width: 0
 
   modes:
     light:
       primary-background-color: "#F7F7F7"
       secondary-background-color: "#ffffff"
-      border-color: "#E8E8E8"
+      # border-color: "#E8E8E8"
+      popup-border-color: "#ffffff"
 
       color-yellow: 242, 182, 1
       color-red: 245, 68, 54
@@ -51,8 +40,9 @@ clean:
       primary-text-color: "#000000"
       
     dark:
-      border-color: "#1F1B24"
+      # border-color: "#1F1B24"
       primary-text-color: "#DDDDDD"
+      popup-border-color: "#1c1c1c"
 
       color-yellow: 252, 214, 99
       color-red: 241, 139, 130
@@ -64,4 +54,3 @@ clean:
       google-blue: "#89B3F8"
       google-violet: "#BB86FC"
       google-grey: "#BBBBBB"
-

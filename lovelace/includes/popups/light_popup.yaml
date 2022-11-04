@@ -7,20 +7,31 @@ browser_mod:
   data:
     title: Licht
     style: |
+      style: |
       --popup-border-width: 0px;
+      --ha-card-border-color: var(--popup-border-color);
     card_mod:
       !include popup_styles.yaml
     content:
-      type: custom:vertical-stack-in-card 
-      cards:
-        - type: custom:mushroom-light-card
-          entity: {{ entity }}
-          use_light_color: true
-          show_color_temp_control: true
-          show_color_control: true
-          show_brightness_control: true
-          layout: vertical
-          collapsible_controls: false
-          fill_container: true 
-        - template: blank
-          type: 'custom:button-card'        
+      # type: custom:vertical-stack-in-card 
+      # cards:
+      #   - type: custom:mushroom-light-card
+      #     entity: {{ entity }}
+      #     use_light_color: true
+      #     show_color_temp_control: true
+      #     show_color_control: true
+      #     show_brightness_control: true
+      #     layout: vertical
+      #     collapsible_controls: false
+      #     fill_container: true 
+      #   - template: blank
+      #     type: 'custom:button-card'       
+      type: custom:more-info-card 
+      style: |
+        .card-header {
+          display: none;
+        }
+        #summary {
+          display: none;
+        }
+      entity: {{ entity }}

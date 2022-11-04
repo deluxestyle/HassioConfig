@@ -1,6 +1,6 @@
   style:
     ha-dialog$: |
-      @media (max-width: 450px), (max-height: 500px) {
+      @media (max-width: 450px) {
         div.mdc-dialog div.mdc-dialog__container {
           --mdc-dialog-min-height: 100vh;
           --mdc-dialog-min-width: 100vw;

@@ -19,6 +19,7 @@ sonos_stopp:
       - media_player.wohnzimmer
       - media_player.schlafzimmer
   mode: single
+  icon: mdi:music-note-off
 xiaomi_vacuum_start:
   alias: 'Xiaomi Staubsauger: einschalten'
   sequence:
@@ -49,30 +50,6 @@ harmony_power_off:
     service: remote.turn_off
   mode: single
   icon: mdi:power
-# harmony_action_telekom:
-#   alias: 'Harmony: Telekom'
-#   sequence:
-#   - data:
-#       entity_id: switch.steckdosenleiste
-#     service: switch.turn_on
-#   - delay: 00:00:02
-#   - data:
-#       activity: Magenta TV
-#       entity_id: remote.harmony_hub
-#     service: remote.turn_on
-#   mode: single
-# harmony_action_music:
-#   alias: 'Harmony: Plattenspieler'
-#   sequence:
-#   - data:
-#       entity_id: switch.steckdosenleiste
-#     service: switch.turn_on
-#   - delay: 00:00:02
-#   - data:
-#       activity: Plattenspieler
-#       entity_id: remote.harmony_hub
-#     service: remote.turn_on
-#   mode: single
 harmony_tv_power_off:
   alias: 'Entertainment: Samsung TV ausschalten'
   sequence:
@@ -186,6 +163,8 @@ notify_clean_badge:
   - data:
       entity_id: counter.badge_counter
     service: counter.reset
+  mode: single
+  icon: mdi:message-bulleted-off
 notify_script:
   alias: Benachrichtigungen (nicht actionable)
   fields:
@@ -227,19 +206,6 @@ notify_clean_messages:
   - data: {}
     service: python_script.dismiss_notifications
   mode: single
-# harmony_action_fire_tv:
-#   alias: 'Harmony: Fire TV'
-#   sequence:
-#   - data:
-#       entity_id: switch.steckdosenleiste
-#     service: switch.turn_on
-#   - delay: 00:00:02
-#   - data:
-#       activity: Fire TV
-#       entity_id: remote.harmony_hub
-#     service: remote.turn_on
-#   mode: single
-#   icon: mdi:youtube-tv
 sonos_radio_b5_aktuell:
   alias: 'Sonos: Radio BR24'
   sequence:
@@ -252,32 +218,6 @@ sonos_radio_b5_aktuell:
       entity_id: media_player.schlafzimmer
   mode: single
   icon: mdi:radio
-# harmony_action_vtuner:
-#   alias: 'Harmony:  vTuner'
-#   sequence:
-#   - data:
-#       entity_id: switch.steckdosenleiste
-#     service: switch.turn_on
-#   - delay: 00:00:02
-#   - data:
-#       activity: vTuner
-#       entity_id: remote.harmony_hub
-#     service: remote.turn_on
-#   mode: single
-#   icon: mdi:radio
-# harmony_action_airplay:
-#   alias: 'Harmony: AirPlay'
-#   sequence:
-#   - data:
-#       entity_id: switch.steckdosenleiste
-#     service: switch.turn_on
-#   - delay: 00:00:02
-#   - data:
-#       activity: AirPlay
-#       entity_id: remote.harmony_hub
-#     service: remote.turn_on
-#   mode: single
-#   icon: mdi:music-box-outline
 sonos_set_volume_10:
   alias: 'Sonos: Set volume 10'
   sequence:
@@ -329,6 +269,10 @@ alles_ausschalten:
       - switch.steckdosenleiste
   - service: script.sonos_stopp
     data: {}
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.steckdose_4
   mode: single
   icon: mdi:toggle-switch-off-outline
 sonos_set_volume_4:

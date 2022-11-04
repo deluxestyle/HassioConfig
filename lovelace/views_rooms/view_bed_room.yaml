@@ -37,4 +37,9 @@ cards:
   - !include
       - ../includes/multimedia/mini_media_player.yaml
       - entity: media_player.schlafzimmer
+  - type: entities
+    entities:
+      - entity: switch.steckdose_4
+        tap_action:
+          action: toggle
   - !include ../includes/climate/climate_bed_room.yaml

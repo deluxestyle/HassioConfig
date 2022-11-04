@@ -1122,8 +1122,8 @@
           seconds: 0
           milliseconds: 0
       - condition: state
-        entity_id: binary_sensor.bewegungsmelder
         state: 'off'
+        entity_id: binary_sensor.bewegungsmelder
       - service: light.turn_off
         data: {}
         target:
@@ -1244,25 +1244,6 @@
     target:
       entity_id: switch.ds118
   mode: single
-- id: '1665052551714'
-  alias: 'Spülmaschine: Benachrichtigung'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - sensor.402060518382006939_bsh_common_status_operationstate
-    to: BSH.Common.EnumType.OperationState.Inactive
-  condition: []
-  action:
-  - data:
-      entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
-  - data:
-      message: Spülmaschine ist fertig
-      notification_id: dishwasher
-      title: Spülmaschine
-    service: script.notify_script
-  mode: single
 - id: '1666206359083'
   alias: 'Benachrichtigung: Docker Update'
   description: ''
@@ -1305,44 +1286,8 @@
       title: swap Auslastung
     service: script.notify_script
   mode: single
-- id: '1666943176581'
-  alias: 'Licht: Schlafzimmer'
-  description: ''
-  trigger:
-  - device_id: bccc8cdab09f27a2259f4e10cbcdda96
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-    id: ein
-  - device_id: bccc8cdab09f27a2259f4e10cbcdda96
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_off
-    id: aus
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: trigger
-        id: ein
-      sequence:
-      - service: scene.turn_on
-        data: {}
-        target:
-          entity_id: scene.schlafzimmer_hell
-    - conditions:
-      - condition: trigger
-        id: aus
-      sequence:
-      - service: light.turn_off
-        data: {}
-        target:
-          entity_id: light.schlafzimmer
-  mode: single
 - id: '1667402945500'
-  alias: 'Benachrichgung: Geschirrspüler fertig'
+  alias: 'Benachrichtigung: Geschirrspüler fertig'
   description: ''
   trigger:
   - platform: state
@@ -1359,4 +1304,20 @@
       notification_id: dish_washer
       title: Geschirrspüler
     service: script.notify_script
+  mode: single
+- id: '1667588047117'
+  alias: 'Licht: Nachtlicht'
+  description: ''
+  trigger:
+  - device_id: 675814098aa35a2beec63d074cf3616f
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: left
+  condition: []
+  action:
+  - service: light.toggle
+    data: {}
+    target:
+      entity_id: light.yeelight_bslamp1_0x0000000005451cd6
   mode: single
