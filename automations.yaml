@@ -1260,7 +1260,7 @@
   - data:
       message: Update für Docker Images verfügbar
       notification_id: system_update
-      title: Update
+      title: Docker Update
     service: script.notify_script
   mode: single
 - id: '1666460813767'
