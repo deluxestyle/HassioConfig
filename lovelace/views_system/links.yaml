@@ -27,10 +27,16 @@ cards:
           name: HACS
           icon: hacs:hacs
           new_tab: false
+        - type: divider
         - type: weblink
           url: https://eu-central-1-1.aws.cloud2.influxdata.com/orgs/493ff594d5432447/data-explorer
           name: InfluxDB
           icon: mdi:database
+          new_tab: true
+        - type: weblink
+          url: https://tanzercloud.grafana.net/d/KISALVvVz/raspberry?orgId=1&refresh=10s
+          name: Grafana
+          icon: mdi:chart-areaspline
           new_tab: true
     - type: entities
       entities:
