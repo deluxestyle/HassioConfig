@@ -50,22 +50,6 @@ cards:
                 name: Total
               - entity: sensor.docker_containers_running
                 name: Running
-      - type: grid
-        columns: 2
-        square: false
-        cards:
-          - type: 'custom:button-card'
-            template: graph_small
-            variables:
-              entity: sensor.docker_1cpu
-              color: "var(--google-green)"
-              name: "CPU"
-          - type: 'custom:button-card'
-            template: graph_small
-            variables:
-              entity: sensor.docker_memory
-              color: "var(--google-grey)"
-              name: "Memory"
   {{ monitor ("addon_15d21743_samba_backup") }}
   {{ monitor ("addon_a0d7b954_wireguard") }}
   {{ monitor ("addon_core_mosquitto") }}

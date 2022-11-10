@@ -5,7 +5,7 @@ size: normal
 style: |
   --popup-border-width: 0px;
   --ha-card-border-color: var(--popup-border-color);
-  border-radius: 0px;
+
 card_mod:
   !include ../popups/popup_styles.yaml
 content:
@@ -18,7 +18,7 @@ content:
           icon: 'mdi:speaker-wireless'
           volume_stateless: true
           group: true
-          # artwork: material 
+          # artwork: cover 
           sound_mode: icon
           hide:
             power: true
