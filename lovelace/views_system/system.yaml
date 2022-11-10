@@ -95,46 +95,7 @@ cards:
                         type: attribute
             double_tap_action:
               action: navigate
-              navigation_path: /hassio/backups 
-      # - type: entities
-      #   show_header_toggle: false
-      #   entities:
-      #     - type: custom:auto-entities
-      #       filter:
-      #         include:
-      #           - entity_id: "sensor.docker_*_memory"
-      #       sort:
-      #         method: name
-      #       card:
-      #         type: custom:fold-entity-row
-      #         head:
-      #           type: section
-      #           label: Docker Memory
-      #         padding: 5
-      #     - type: custom:auto-entities
-      #       filter:
-      #         include:
-      #           - entity_id: "sensor.docker_*_1cpu"
-      #       sort:
-      #         method: name
-      #       card:
-      #         type: custom:fold-entity-row
-      #         head:
-      #           type: section
-      #           label: Docker CPU
-      #         padding: 5
-      #     - type: custom:auto-entities
-      #       filter:
-      #         include:
-      #           - entity_id: "switch.docker_*"
-      #       sort:
-      #         method: name
-      #       card:
-      #         type: custom:fold-entity-row
-      #         head:
-      #           type: section
-      #           label: Docker Schalter
-      #         padding: 5                      
+              navigation_path: /hassio/backups                     
   - type: entities
     show_header_toggle: false
     entities:
@@ -171,9 +132,6 @@ cards:
         tap_action: 
           action: navigate
           navigation_path: /hassio
-          # browser_mod:
-          #   command: navigate
-          #   navigation_path: /hassio
       - entity: sensor.hacs
         name: Hacs
         tap_action: 

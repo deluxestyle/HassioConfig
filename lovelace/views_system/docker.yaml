@@ -35,37 +35,35 @@ layout:
   max_cols: 2
   width: 330
 cards: 
-  - type: custom:vertical-stack-in-card
-    cards: 
-      - type: entities
-        entities:
-          - entity: sensor.docker_containers_running
-            type: custom:multiple-entity-row
-            name: Docker Container
-            show_state: false
-            tap_action:
-              action: none
-            entities:
-              - entity: sensor.docker_containers_total
-                name: Total
-              - entity: sensor.docker_containers_running
-                name: Running
-  {{ monitor ("addon_15d21743_samba_backup") }}
-  {{ monitor ("addon_a0d7b954_wireguard") }}
-  {{ monitor ("addon_core_mosquitto") }}
-  {{ monitor ("addon_core_samba") }}
-  {{ monitor ("deconz") }}
-  {{ monitor ("docker_admin") }}
-  {{ monitor ("hassio_audio") }}
+  {{ monitor ("homeassistant") }}
+  {{ monitor ("hassio_supervisor") }}
   {{ monitor ("hassio_cli") }}
+  {{ monitor ("hassio_audio") }}
   {{ monitor ("hassio_dns") }}
   {{ monitor ("hassio_multicast") }}
   {{ monitor ("hassio_observer") }}
-  {{ monitor ("hassio_supervisor") }}
-  {{ monitor ("homeassistant") }}
+  {{ monitor ("addon_a0d7b954_wireguard") }}
+  {{ monitor ("addon_15d21743_samba_backup") }}
+  {{ monitor ("addon_core_mosquitto") }}
+  {{ monitor ("addon_core_samba") }}
+  {{ monitor ("deconz") }}
   {{ monitor ("mariadb") }}
   {{ monitor ("nginx_proxy_manager") }}
   {{ monitor ("pihole") }}
   {{ monitor ("vaultwarden") }}
   {{ monitor ("wud") }}
+  {{ monitor ("docker_admin") }}
   {{ monitor ("dockerproxy") }}
+    # - type: entities
+    #   entities:
+    #     - entity: sensor.docker_containers_running
+    #       type: custom:multiple-entity-row
+    #       name: Docker Container
+    #       show_state: false
+    #       tap_action:
+    #         action: none
+    #       entities:
+    #         - entity: sensor.docker_containers_total
+    #           name: Total
+    #         - entity: sensor.docker_containers_running
+    #           name: Running

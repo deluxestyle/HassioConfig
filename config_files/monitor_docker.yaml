@@ -46,9 +46,6 @@
     - containers_total
     - state
     - status
-    - memory
-    - memory_percentage
-    - 1cpu_percentage
     - containers_1cpu_percentage
     - containers_memory
     - containers_memory_percentage
