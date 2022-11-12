@@ -5,7 +5,6 @@ size: normal
 style: |
   --popup-border-width: 0px;
   --ha-card-border-color: var(--popup-border-color);
-
 card_mod:
   !include ../popups/popup_styles.yaml
 content:

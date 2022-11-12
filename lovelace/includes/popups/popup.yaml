@@ -1,15 +1,13 @@
-data:
-  title: Licht
-  style: |
-    --popup-border-width: 0px;
-  card_mod:
-    style:
-      ha-dialog$: |
-        @media (max-width: 450px), (max-height: 500px) {
-          div.mdc-dialog div.mdc-dialog__container {
-            --mdc-dialog-min-height: 100vh;
-            --mdc-dialog-min-width: 100vw;
-            --ha-dialog-border-radius: 0px ; 
-            --popup-border-radius: 0px;
-          }
+     |
+  --popup-border-width: 0px;
+  --ha-card-border-color: var(--popup-border-color);
+card_mod:
+  style:
+    ha-dialog$: |
+      @media (max-width: 450px) {
+        div.mdc-dialog div.mdc-dialog__container {
+          --mdc-dialog-min-height: 100vh;
+          --mdc-dialog-min-width: 100vw;
+          --ha-dialog-border-radius: 0px ;
         }
+      }
