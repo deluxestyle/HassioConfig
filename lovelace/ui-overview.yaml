@@ -198,11 +198,8 @@ cards:
     type: 'custom:button-card'
     label: Wetter
   - type: custom:simple-weather-card
-    entity: weather.home
+    entity: weather.openweathermap
     primary_info: humidity
-    name: zu Hause
-    tap_action:
-      action: none
   - template: blank
     type: 'custom:button-card'
   - type: conditional
@@ -216,4 +213,3 @@ cards:
       show_last_changed: false
   - template: blank
     type: 'custom:button-card'
-    

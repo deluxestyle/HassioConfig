@@ -35,6 +35,10 @@
     target:
       entity_id:
       - automation.benachrichtigung_wohnungstur_offen
+  - service: input_boolean.turn_on
+    data: {}
+    target:
+      entity_id: input_boolean.abwesenheitsmodus
   mode: single
 - id: xiaomi_vacuum_notification_off
   alias: 'Xiaomi Staubsauger: Benachrichtigung fertig'
@@ -874,7 +878,7 @@
     for:
       hours: 0
       minutes: 0
-      seconds: 45
+      seconds: 0
     to: not_home
   - platform: state
     entity_id: group.presence
@@ -890,6 +894,9 @@
           hours: 0
           minutes: 0
           seconds: 0
+      - condition: state
+        entity_id: input_boolean.abwesenheitsmodus
+        state: 'off'
       sequence:
       - service: notify.all_ios_devices
         data:
@@ -912,6 +919,10 @@
         target:
           entity_id:
           - automation.benachrichtigung_wohnungstur_offen
+      - service: input_boolean.turn_off
+        data: {}
+        target:
+          entity_id: input_boolean.abwesenheitsmodus
     default: []
   mode: restart
 - id: '1639749213579'
@@ -1098,7 +1109,7 @@
   - choose:
     - conditions:
       - condition: time
-        after: 07:30:00
+        after: 07:00:00
         before: '19:00:00'
       sequence:
       - service: scene.turn_on

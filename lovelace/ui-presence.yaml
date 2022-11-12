@@ -18,65 +18,12 @@ views:
         entities:
           - entity: automation.abweseheitsmodus
             icon: mdi:shield-account
-            name: Abwesenheitsmodus
+            name: Abwesenheitsmodus 
             tap_action: 
               action: toggle
-          # - type: custom:fold-entity-row
-          #   head:
-          #     type: section
-          #     label: Automation
-          #   padding: 5
-          #   entities:
-          #     - entity: automation.anwesenheit
-          #       name: Abwesenheitsmodus aktivieren
-          #       icon: mdi:account-off
-          #       tap_action: 
-          #         action: toggle
-          #     - entity: automation.anwesenheitsschaltung
-          #       icon: mdi:account-outline
-          #       name: Abwesenheitsmodus deaktivieren
-          #       tap_action: 
-          #         action: toggle
-          # - type: custom:fold-entity-row
-          #   head:
-          #     type: section
-          #     label: Sonos Automation
-          #   padding: 5
-          #   entities:
-          #     - entity: automation.sonos_starten
-          #       icon: mdi:music
-          #       tap_action: 
-          #         action: toggle
-          #     - entity: automation.sonos_stoppen
-          #       icon: mdi:music-off
-          #       tap_action: 
-          #         action: toggle
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: binary_sensor.fenster_turkontaktsensor
-            name: Wohnungstür
-            icon: mdi:door
-            secondary_info: last-changed
-          - entity: binary_sensor.bewegungsmelder
-            secondary_info: last-changed
-          - entity: binary_sensor.tradfri_motion_sensor
-            secondary_info: last-changed
-          # - type: custom:fold-entity-row
-          #   head:
-          #     type: section
-          #     label: Alarm
-          #   padding: 5
-          #   entities:
-          #     - entity: automation.bewegungsmelder_alarm
-          #       name: Bewegungsmelder Alarm
-          #       tap_action: 
-          #         action: toggle
-          #     - entity: script.xiaomi_gateway_alarm_stop
-          #       name: Alarm ausschalten
-          #       icon: mdi:volume-off
-          #       tap_action: 
-          #         action: toggle
+          - entity: input_boolean.abwesenheitsmodus
+            tap_action: 
+              action: toggle
           - type: custom:fold-entity-row
             head:
               type: section
@@ -93,6 +40,17 @@ views:
                 icon: mdi:cellphone-message
                 tap_action: 
                   action: toggle
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: binary_sensor.fenster_turkontaktsensor
+            name: Wohnungstür
+            icon: mdi:door
+            secondary_info: last-changed
+          - entity: binary_sensor.bewegungsmelder
+            secondary_info: last-changed
+          - entity: binary_sensor.tradfri_motion_sensor
+            secondary_info: last-changed
   # - title: Baby
   #   path: baby
   #   icon: mdi:baby
