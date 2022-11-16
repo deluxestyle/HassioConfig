@@ -1332,3 +1332,30 @@
     target:
       entity_id: light.yeelight_bslamp1_0x0000000005451cd6
   mode: single
+- id: '1668452168948'
+  alias: 'Harmony: Set Bass'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - remote.harmony_hub
+    attribute: current_activity
+    to: AirPlay
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 15
+  - platform: state
+    entity_id:
+    - remote.harmony_hub
+    attribute: current_activity
+    to: Plattenspieler
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 15
+  condition: []
+  action:
+  - service: script.harmony_tone
+    data: {}
+  mode: single

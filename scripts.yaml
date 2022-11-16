@@ -515,3 +515,51 @@ sonos_kuche_bayern_2:
     target:
       device_id: 2094b86c2a0d860eeddf623406678e39
   mode: single
+harmony_tone:
+  alias: 'Harmony: Tone (Bass)'
+  sequence:
+  - service: remote.send_command
+    data:
+      device: 57574103
+      command: Tone
+    target:
+      entity_id: remote.harmony_hub
+  - service: remote.send_command
+    data:
+      command: DirectionDown
+      device: '57574103'
+    target:
+      entity_id: remote.harmony_hub
+  - service: remote.send_command
+    data:
+      command: DirectionRight
+      device: '57574103'
+    target:
+      entity_id: remote.harmony_hub
+  - service: remote.send_command
+    data:
+      command: DirectionRight
+      device: '57574103'
+    target:
+      entity_id: remote.harmony_hub
+  - service: remote.send_command
+    data:
+      command: DirectionRight
+      device: '57574103'
+    target:
+      entity_id: remote.harmony_hub
+  - service: remote.send_command
+    data:
+      command: DirectionRight
+      device: '57574103'
+    target:
+      entity_id: remote.harmony_hub
+  - service: remote.send_command
+    data:
+      command: DirectionRight
+      device: '57574103'
+    target:
+      entity_id: remote.harmony_hub
+  mode: parallel
+  icon: mdi:equalizer
+  max: 10
