@@ -170,18 +170,6 @@ cards:
                     ha-card {
                         --ha-card-box-shadow: none;
                       } 
-      # - type: 'custom:button-card'
-      #   entity: media_player.samsung_q60aa_43_tv
-      #   template: 
-      #     - icon_info_bg
-      #     - media
-#################################################################
-  # - template: blank
-  #   type: 'custom:button-card'
-  # - type: grid
-  #   columns: 2
-  #   square: false
-    # cards:
       - type: 'custom:button-card'
         entity: vacuum.roborock_vacuum
         name: Staubsauger
@@ -189,7 +177,7 @@ cards:
           - icon_info_bg
           - generic_with_state
           - vacuum
-        double_tap_action:
+        tap_action:
           haptic: medium
           action: navigate
           navigation_path: /lovelace-vacuum/vacuum
