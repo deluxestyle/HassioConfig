@@ -16,7 +16,7 @@ content:
       square: false
       cards:
         - type: 'custom:button-card'
-          entity: switch.harmony_hub_magenta_tv
+          entity: switch.harmony_hub_airtv
           template:
             - button
         - type: 'custom:button-card'
@@ -37,15 +37,36 @@ content:
       entities:
         - type: "custom:paper-buttons-row"
           buttons:        
-            - entity: script.harmony_volume_down
-              name: false
-              tooltip: Leiser
-            - entity: script.harmony_volume_up
-              name: false
-              tooltip: Lauter 
-            - entity: script.harmony_mute
-              name: false 
-              tooltip: Stumm
+            - icon: mdi:volume-minus   
+              tooltip: Leiser   
+              tap_action:
+                action: call-service
+                service: remote.send_command
+                service_data:
+                  command: VolumeDown
+                  device: '57574103'
+                target:
+                  entity_id: remote.harmony_hub 
+            - icon: mdi:volume-plus   
+              tooltip: Leiser   
+              tap_action:
+                action: call-service
+                service: remote.send_command
+                service_data:
+                  command: VolumeUp
+                  device: '57574103'
+                target:
+                  entity_id: remote.harmony_hub 
+            - icon: mdi:volume-off   
+              tooltip: Stumm   
+              tap_action:
+                action: call-service
+                service: remote.send_command
+                service_data:
+                  command: Mute
+                  device: '57574103'
+                target:
+                  entity_id: remote.harmony_hub 
             - icon: mdi:blank
               tap_action:
                 action: none  
@@ -381,7 +402,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: Menu
-                      device: '57574101'
+                      device: '78764380'
                     target:
                       entity_id: remote.harmony_hub 
                 - icon: mdi:blank
@@ -393,7 +414,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: DirectionUp
-                      device: '57574101'
+                      device: '78764380'
                     target:
                       entity_id: remote.harmony_hub 
                 - icon: mdi:blank
@@ -406,7 +427,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: PowerToggle
-                      device: '57574101'
+                      device: '78764380'
                     target:
                       entity_id: remote.harmony_hub  
 #################################################################
@@ -419,7 +440,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: SmartHub
-                      device: '57574101'
+                      device: '78764380'
                     target:
                       entity_id: remote.harmony_hub 
                 - icon: mdi:chevron-left       
@@ -428,7 +449,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: DirectionLeft
-                      device: '57574101'
+                      device: '78764380'
                     target:
                       entity_id: remote.harmony_hub   
                 - icon: "mdi:checkbox-blank-circle-outline"
@@ -438,7 +459,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: Select
-                      device: '57574101'
+                      device: '78764380'
                     target:
                       entity_id: remote.harmony_hub 
                 - icon: "mdi:chevron-right"                       
@@ -447,7 +468,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: DirectionRight
-                      device: '57574101'
+                      device: '78764380'
                     target:
                       entity_id: remote.harmony_hub 
                 - icon: mdi:blank
@@ -463,7 +484,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: Return
-                      device: '57574101'
+                      device: '78764380'
                     target:
                       entity_id: remote.harmony_hub    
                 - icon: mdi:blank
@@ -476,7 +497,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: DirectionDown
-                      device: '57574101'
+                      device: '78764380'
                     target:
                       entity_id: remote.harmony_hub  
                 - icon: mdi:blank
@@ -489,7 +510,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: Exit
-                      device: '57574101'
+                      device: '78764380'
                     target:
                       entity_id: remote.harmony_hub                 
 #################################################################
@@ -505,9 +526,9 @@ content:
             # - entity: switch.samsung_tv
             #   tap_action:
             #     action: toggle
-            - entity: switch.telekom_mr_401
-              tap_action:
-                action: toggle
+            # - entity: switch.telekom_mr_401
+            #   tap_action:
+            #     action: toggle
             # - entity: switch.avr_151
             #   tap_action:
             #     action: toggle

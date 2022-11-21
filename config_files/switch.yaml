@@ -23,17 +23,6 @@
         - service: script.turn_on
           entity_id: script.harmony_avr_power_off
       icon_template: mdi:speaker
-    telekom_mr_401:
-      unique_id: telekom_mr_401_switch
-      friendly_name: "Telekom MR 401"
-      value_template: "{{ is_state('device_tracker.telekom_mr401', 'home') }}"
-      turn_on:
-        - service: script.turn_on
-          entity_id: script.harmony_mr400_power_on
-      turn_off:
-        - service: script.turn_on
-          entity_id: script.harmony_mr400_power_off
-      icon_template: mdi:set-top-box
     # tv_switch:
     #   unique_id: tv_switch
     #   friendly_name: "Magenta TV"

@@ -577,26 +577,6 @@
     entity_id: switch.steckdosenleiste
     domain: switch
   mode: single
-- id: '1610907140746'
-  alias: 'Harmony: Airplay - Telekom'
-  description: teilweise schlatet sich der Receiver ein - hiermit wird er wieder ausgeschaltet
-  trigger:
-  - platform: state
-    entity_id: sensor.remote_state
-    to: AirPlay
-  condition: []
-  action:
-  - delay: 00:10:00
-  - condition: state
-    entity_id: sensor.remote_state
-    state: AirPlay
-  - condition: state
-    entity_id: switch.telekom_mr_401
-    state: 'on'
-  - service: switch.turn_off
-    data: {}
-    entity_id: switch.telekom_mr_401
-  mode: single
 - id: '1612343173377'
   alias: 'iOS: Telefonat'
   description: ''
@@ -1036,12 +1016,22 @@
     type: remote_button_long_press
     subtype: turn_on
     id: stop
+  - device_id: 93e695d3c6444a3632bca4fa556f8c04
+    domain: deconz
+    platform: device
+    type: remote_button_short_press
+    subtype: dim_up
+    id: dimmer
   condition: []
   action:
   - choose:
     - conditions:
-      - condition: trigger
-        id: bayern_1
+      - condition: or
+        conditions:
+        - condition: trigger
+          id: bayern_1
+        - condition: trigger
+          id: dimmer
       sequence:
       - choose:
         - conditions:
