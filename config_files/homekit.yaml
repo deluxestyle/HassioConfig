@@ -21,6 +21,7 @@ filter:
     - sensor.temperature_158d0001b8c998
     - switch.pi_hole_switch
     - switch.steckdose_2
+    - switch.steckdose_1
 entity_config:
     media_player.schlafzimmer:
       feature_list:

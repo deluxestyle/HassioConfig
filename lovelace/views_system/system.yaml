@@ -137,21 +137,28 @@ cards:
         tap_action: 
           action: navigate
           navigation_path: /hacs
-      - type: custom:auto-entities
-        filter:
-          include:
-            - entity_id: "binary_sensor.wud_container*"
-              options:
-                tap_action:
-                  action: none
-        sort:
-          method: name
-        card:
-          type: custom:fold-entity-row
-          head: binary_sensor.docker_images_updates
-          tap_action:
-            action: none
-          padding: 5
+      - entity: binary_sensor.docker_images_updates
+        tap_action:
+          action: fire-dom-event
+          browser_mod:
+            service: browser_mod.popup
+            data:
+              title: Docker Container
+              style: |
+                --popup-border-width: 0px;
+                --ha-card-border-color: var(--popup-border-color);
+              card_mod:
+                !include ../includes/popups/popup_styles.yaml
+              content:
+                  type: custom:auto-entities
+                  card:
+                    type: entities
+                  filter:
+                    include:
+                      - entity_id: "binary_sensor.wud_container*"
+        double_tap_action:
+          action: url
+          url_path: https://wud.tanzer-cloud.de/
       - type: custom:fold-entity-row
         padding: 5
         head:

@@ -27,11 +27,12 @@ browser_mod:
       #   - template: blank
       #     type: 'custom:button-card'       
       type: custom:more-info-card 
-      style: |
-        .card-header {
-          display: none;
-        }
-        #summary {
-          display: none;
-        }
+      style: 
+        $: |
+          h1.card-header {
+            display: none;
+          }
+          #summary {
+            display: none;
+          }
       entity: {{ entity }}

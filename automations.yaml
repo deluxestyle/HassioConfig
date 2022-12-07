@@ -980,47 +980,61 @@
   alias: 'Sonos: Küche'
   description: ''
   trigger:
-  - device_id: 055f6416a4714103c74a8e75080ec589
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_fernbedienung
+      unique_id: 5c:02:72:ff:fe:40:3a:25
+      event: 1002
+      device_id: 055f6416a4714103c74a8e75080ec589
     id: bayern_1
-  - device_id: 055f6416a4714103c74a8e75080ec589
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: dim_up
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_fernbedienung
+      unique_id: 5c:02:72:ff:fe:40:3a:25
+      event: 3002
+      device_id: 055f6416a4714103c74a8e75080ec589
     id: br24
-  - device_id: 055f6416a4714103c74a8e75080ec589
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: dim_down
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_fernbedienung
+      unique_id: 5c:02:72:ff:fe:40:3a:25
+      event: 2002
+      device_id: 055f6416a4714103c74a8e75080ec589
     id: bayern2
-  - device_id: 055f6416a4714103c74a8e75080ec589
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: left
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_fernbedienung
+      unique_id: 5c:02:72:ff:fe:40:3a:25
+      event: 4002
+      device_id: 055f6416a4714103c74a8e75080ec589
     id: leiser
-  - device_id: 055f6416a4714103c74a8e75080ec589
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: right
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_fernbedienung
+      unique_id: 5c:02:72:ff:fe:40:3a:25
+      event: 5002
+      device_id: 055f6416a4714103c74a8e75080ec589
     id: lauter
-  - device_id: 055f6416a4714103c74a8e75080ec589
-    domain: deconz
-    platform: device
-    type: remote_button_long_press
-    subtype: turn_on
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_fernbedienung
+      unique_id: 5c:02:72:ff:fe:40:3a:25
+      event: 1001
+      device_id: 055f6416a4714103c74a8e75080ec589
     id: stop
-  - device_id: 93e695d3c6444a3632bca4fa556f8c04
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: dim_up
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: dimmschalter_whz
+      unique_id: 00:17:88:01:10:6f:26:73
+      event: 2002
+      device_id: 93e695d3c6444a3632bca4fa556f8c04
     id: dimmer
   condition: []
   action:
@@ -1223,7 +1237,7 @@
           milliseconds: 0
       - device_id: 36a8d6e82781d3f1100027ab2637239a
         domain: button
-        entity_id: button.fritz_box_7590_reboot
+        entity_id: button.fritz_box_7590_reconnect
         type: press
   mode: single
 - id: '1664976725414'
@@ -1259,7 +1273,7 @@
       entity_id: input_boolean.persistent_notification
     service: input_boolean.turn_on
   - data:
-      message: Update für Docker Images verfügbar
+      message: Update für Docker Container verfügbar
       notification_id: system_update
       title: Docker Update
     service: script.notify_script

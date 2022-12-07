@@ -44,7 +44,7 @@ cards:
             - entity: {{ entity | replace("media_player.", "") }}
   - type: custom:more-info-card
     entity: {{ entity }}
-    style:
+    style: 
       more-info-media_player$: |
         div.controls {
           margin-top: 0px;
@@ -69,11 +69,12 @@ cards:
         state-card-content {
           display: none;
         }
-        h1.card-header {
-          display: none;
-        }
         .card-content {
           padding-bottom: 5px;
           margin-top: -10px;
           border-radius: 10px
+        }
+      $: |
+        h1.card-header {
+          display: none;
         }
