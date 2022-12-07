@@ -255,6 +255,10 @@ alles_ausschalten:
     data: {}
     target:
       entity_id: switch.steckdose_4
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.steckdose_1
   mode: single
   icon: mdi:toggle-switch-off-outline
 sonos_set_volume_4:
