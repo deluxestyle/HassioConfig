@@ -1363,3 +1363,26 @@
   - service: script.harmony_tone
     data: {}
   mode: single
+- id: '1670512862313'
+  alias: 'Entertainment: Fix FireTV'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - remote.harmony_hub
+    attribute: current_activity
+    to: Fire TV
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+  condition:
+  - condition: state
+    entity_id: media_player.samsung_q60aa_43_tv
+    state: 'off'
+  action:
+  - service: media_player.turn_on
+    data: {}
+    target:
+      entity_id: media_player.samsung_q60aa_43_tv
+  mode: single
