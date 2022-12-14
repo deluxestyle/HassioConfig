@@ -53,12 +53,12 @@
 #       where: 'time > now() - 1m AND "database"=''homeassistant'''
 #       field: diskBytes
 
-- platform: rest
-  name: wireguard
-  resource: http://192.168.200.33:9090/
-  json_attributes:
-  - iphonepro
-  - ipad
-  - laptoperlau
-  - hp-spectre
-  value_template: "OK"
+# - platform: rest
+#   name: wireguard
+#   resource: http://192.168.200.33:9090/
+#   json_attributes:
+#   - iphonepro
+#   - ipad
+#   - laptoperlau
+#   - hp-spectre
+#   value_template: "OK"

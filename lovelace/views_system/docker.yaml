@@ -42,7 +42,6 @@ cards:
   {{ monitor ("hassio_dns") }}
   {{ monitor ("hassio_multicast") }}
   {{ monitor ("hassio_observer") }}
-  {{ monitor ("addon_a0d7b954_wireguard") }}
   {{ monitor ("addon_15d21743_samba_backup") }}
   {{ monitor ("addon_core_mosquitto") }}
   {{ monitor ("addon_core_samba") }}

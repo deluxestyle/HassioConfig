@@ -1,49 +1,49 @@
-- sensor:
-  - name: wireguard_iphonepro
-    unique_id: wireguard_iphonepro
-    state: >-
-      {% if is_state('sensor.wireguard', 'unavailable') %}
-        {{ states('sensor.wireguard_iphonepro') }}
-      {% else %}
-        {% if state_attr('sensor.wireguard', 'iphonepro').latest_handshake > ( as_timestamp(now()) ) -300 %}
-          Verbunden
-        {% else %}
-          kein VPN
-        {% endif %}
-      {% endif %}
-  - name: wireguard_ipad
-    unique_id: wireguard_ipad
-    state: >-
-      {% if is_state('sensor.wireguard', 'unavailable') %}
-        {{ states('sensor.wireguard_ipad') }}
-      {% else %}
-        {% if state_attr('sensor.wireguard', 'ipad').latest_handshake > ( as_timestamp(now()) ) -300 %}
-          Verbunden
-        {% else %}
-          kein VPN
-        {% endif %}
-      {% endif %}
-  - name: wireguard_laptoperlau
-    unique_id: wireguard_laptoperlau
-    state: >-
-      {% if is_state('sensor.wireguard', 'unavailable') %}
-        {{ states('sensor.wireguard_laptoperlau') }}
-      {% else %}
-        {% if state_attr('sensor.wireguard', 'laptoperlau').latest_handshake > ( as_timestamp(now()) ) -300 %}
-          Verbunden
-        {% else %}
-          kein VPN
-        {% endif %}
-      {% endif %}
-  - name: wireguard_hpspectre
-    unique_id: wireguard_hpspectre
-    state: >-
-      {% if is_state('sensor.wireguard', 'unavailable') %}
-        {{ states('sensor.wireguard_hpspectre') }}
-      {% else %}
-        {% if state_attr('sensor.wireguard', 'hp-spectre').latest_handshake > ( as_timestamp(now()) ) -300 %}
-          Verbunden
-        {% else %}
-          kein VPN
-        {% endif %}
-      {% endif %}
+# - sensor:
+#   - name: wireguard_iphonepro
+#     unique_id: wireguard_iphonepro
+#     state: >-
+#       {% if is_state('sensor.wireguard', 'unavailable') %}
+#         {{ states('sensor.wireguard_iphonepro') }}
+#       {% else %}
+#         {% if state_attr('sensor.wireguard', 'iphonepro').latest_handshake > ( as_timestamp(now()) ) -300 %}
+#           Verbunden
+#         {% else %}
+#           kein VPN
+#         {% endif %}
+#       {% endif %}
+#   - name: wireguard_ipad
+#     unique_id: wireguard_ipad
+#     state: >-
+#       {% if is_state('sensor.wireguard', 'unavailable') %}
+#         {{ states('sensor.wireguard_ipad') }}
+#       {% else %}
+#         {% if state_attr('sensor.wireguard', 'ipad').latest_handshake > ( as_timestamp(now()) ) -300 %}
+#           Verbunden
+#         {% else %}
+#           kein VPN
+#         {% endif %}
+#       {% endif %}
+#   - name: wireguard_laptoperlau
+#     unique_id: wireguard_laptoperlau
+#     state: >-
+#       {% if is_state('sensor.wireguard', 'unavailable') %}
+#         {{ states('sensor.wireguard_laptoperlau') }}
+#       {% else %}
+#         {% if state_attr('sensor.wireguard', 'laptoperlau').latest_handshake > ( as_timestamp(now()) ) -300 %}
+#           Verbunden
+#         {% else %}
+#           kein VPN
+#         {% endif %}
+#       {% endif %}
+#   - name: wireguard_hpspectre
+#     unique_id: wireguard_hpspectre
+#     state: >-
+#       {% if is_state('sensor.wireguard', 'unavailable') %}
+#         {{ states('sensor.wireguard_hpspectre') }}
+#       {% else %}
+#         {% if state_attr('sensor.wireguard', 'hp-spectre').latest_handshake > ( as_timestamp(now()) ) -300 %}
+#           Verbunden
+#         {% else %}
+#           kein VPN
+#         {% endif %}
+#       {% endif %}
