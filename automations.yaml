@@ -1259,25 +1259,6 @@
     target:
       entity_id: switch.ds118
   mode: single
-- id: '1666206359083'
-  alias: 'Benachrichtigung: Docker Update'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.docker_images_updates
-    from: 'off'
-  condition: []
-  action:
-  - data:
-      entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
-  - data:
-      message: Update für Docker Container verfügbar
-      notification_id: system_update
-      title: Docker Update
-    service: script.notify_script
-  mode: single
 - id: '1666460813767'
   alias: 'Benachrichtigung: Swap zu hoch'
   description: ''
@@ -1386,3 +1367,21 @@
     target:
       entity_id: media_player.samsung_q60aa_43_tv
   mode: single
+- id: '1671118865832'
+  alias: 'Benachrichtigung: Docker Updates'
+  description: ''
+  use_blueprint:
+    path: mdegat01/update_notifications.yaml
+    input:
+      reminder_hours: None
+      update_entities:
+      - update.wud_container_local_deconz
+      - update.wud_container_local_dockerproxy
+      - update.wud_container_local_mariadb
+      - update.wud_container_local_nginx_proxy_manager
+      - update.wud_container_local_pihole
+      - update.wud_container_local_vaultwarden
+      - update.wud_container_local_wud
+      mobile_app_device: ef3094ac8106c9a744660ee38c6bf27b
+      send_to_ha: true
+      take_backup: false

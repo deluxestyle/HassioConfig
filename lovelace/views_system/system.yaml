@@ -137,7 +137,7 @@ cards:
         tap_action: 
           action: navigate
           navigation_path: /hacs
-      - entity: binary_sensor.docker_images_updates
+      - entity: automation.benachrichtigung_docker_updates
         tap_action:
           action: fire-dom-event
           browser_mod:
@@ -155,7 +155,7 @@ cards:
                     type: entities
                   filter:
                     include:
-                      - entity_id: "binary_sensor.wud_container*"
+                      - entity_id: "update.wud_container*"
         double_tap_action:
           action: url
           url_path: https://wud.tanzer-cloud.de/
