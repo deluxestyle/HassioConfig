@@ -109,6 +109,11 @@ cards:
           !include 
             - includes/popups/light_popup.yaml
             - entity: light.flur
+      - type: 'custom:button-card'
+        entity: switch.steckdose_1
+        template: 
+          - icon_info_bg
+          - light
 #################################################################
   - template: title
     type: 'custom:button-card'

@@ -220,21 +220,21 @@
   trigger:
   - entity_id: sensor.humidity_158d0001b8c96c
     platform: numeric_state
-    above: 75
+    above: 60
     for:
       hours: 0
       minutes: 10
       seconds: 0
   - entity_id: sensor.humidity_158d0001b8c998
     platform: numeric_state
-    above: 75
+    above: 60
     for:
       hours: 0
       minutes: 10
       seconds: 0
   - entity_id: sensor.humidity_158d0002239fb5
     platform: numeric_state
-    above: 75
+    above: 60
     for:
       hours: 0
       minutes: 10

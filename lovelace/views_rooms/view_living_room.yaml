@@ -8,7 +8,27 @@ layout:
   max_cols: 2
   width: 330
 cards:
-  - !include ../includes/light/light_living_room.yaml
+  - type: entities
+    entities:
+      - entity: light.wohnzimmer_decke
+        name: Wohnzimmerlicht
+        tap_action: 
+          action: toggle
+        double_tap_action:
+            !include 
+              - ../includes/popups/light_popup.yaml
+              - entity: light.wohnzimmer_decke
+        extend_paper_buttons_row:
+          buttons:
+            - name: Szenen
+              icon: mdi:lightbulb-group-outline
+              tap_action: 
+                action: fire-dom-event
+                browser_mod:
+                  !include ../includes/popups/light_wohnzimmer.yaml
+      - entity: switch.steckdose_1
+        tap_action: 
+          action: toggle
   - type: entities
     entities:
       - entity: sensor.remote_state
@@ -33,8 +53,3 @@ cards:
       - ../includes/multimedia/mini_media_player.yaml
       - entity: media_player.wohnzimmer
   - !include ../includes/climate/climate_living_room.yaml
-  - type: entities
-    entities:
-      - entity: switch.steckdose_1
-        tap_action: 
-          action: toggle
