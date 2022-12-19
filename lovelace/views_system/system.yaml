@@ -137,7 +137,7 @@ cards:
         tap_action: 
           action: navigate
           navigation_path: /hacs
-      - entity: automation.benachrichtigung_docker_updates
+      - entity: binary_sensor.docker_update
         tap_action:
           action: fire-dom-event
           browser_mod:

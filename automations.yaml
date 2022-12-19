@@ -1031,7 +1031,7 @@
   - platform: event
     event_type: deconz_event
     event_data:
-      id: dimmschalter_whz
+      id: dimmschalter
       unique_id: 00:17:88:01:10:6f:26:73
       event: 2002
       device_id: 93e695d3c6444a3632bca4fa556f8c04
@@ -1170,7 +1170,7 @@
       - delay:
           hours: 0
           minutes: 3
-          seconds: 0
+          seconds: 30
           milliseconds: 0
       - condition: state
         entity_id: binary_sensor.tradfri_motion_sensor

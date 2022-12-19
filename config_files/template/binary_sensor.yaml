@@ -28,3 +28,20 @@
     device_class: problem
     state: "{{ states('sensor.updater_supervisor')|int(0) > 0 }}"
     availability: "{{ states('sensor.updater_supervisor')|lower not in ['unknown','unavailable','none'] }}"
+
+  - name: docker_update
+    unique_id: docker_update
+    device_class: update
+    state: >
+        {% if is_state('update.wud_container_local_deconz', 'on') 
+            or is_state('update.wud_container_local_dockerproxy', 'on') 
+            or is_state('update.wud_container_local_mariadb', 'on') 
+            or is_state('update.wud_container_local_nginx_proxy_manager', 'on') 
+            or is_state('update.wud_container_local_pihole', 'on') 
+            or is_state('update.wud_container_local_vaultwarden', 'on') 
+            or is_state('update.wud_container_local_wud', 'on') 
+            %}
+          on
+        {% else %}
+          off
+        {% endif %}
