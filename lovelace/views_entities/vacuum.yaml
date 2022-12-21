@@ -10,7 +10,7 @@ views:
     type: custom:horizontal-layout
     layout:
       max_cols: 2
-      width: 330
+      height: auto
     cards:
           
       - type: custom:vertical-stack-in-card

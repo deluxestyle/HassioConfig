@@ -10,8 +10,8 @@ card_mod:
 content:
   type: custom:vertical-stack-in-card 
   cards:
-    - type: entities
-      entities: 
+      - type: entities
+        entities: 
         - type: custom:mini-media-player
           entity: media_player.{{ entity }}
           icon: 'mdi:speaker-wireless'
@@ -42,22 +42,42 @@ content:
                 name: Sonos Küche
               - entity_id: media_player.schlafzimmer
                 name: Sonos Schlafzimmer   
-        - entity: number.{{ entity }}_bass
-          name: Bass
-          tap_action: 
-            action: none
-        - entity: number.{{ entity }}_treble
-          name: Höhen
-          tap_action: 
-            action: none
-        - entity: switch.sonos_{{ entity }}_touch_controls
-          name: Touchsteuerung
-          tap_action:
-            action: toggle
-        - entity: switch.sonos_{{ entity }}_status_light
-          name: Statusleuchte
-          tap_action:
-            action: toggle
-        - entity:  input_boolean.sync_volume
-          tap_action:
-            action: toggle
+        - type: custom:fold-entity-row
+          padding: 5
+          head:
+            type: section
+            label: Einstellungen
+          entities:
+            - entity: number.{{ entity }}_bass
+              name: Bass
+              tap_action: 
+                action: none
+            - entity: number.{{ entity }}_treble
+              name: Höhen
+              tap_action: 
+                action: none
+            - entity: switch.sonos_{{ entity }}_touch_controls
+              name: Touchsteuerung
+              tap_action:
+                action: toggle
+            - entity: switch.sonos_{{ entity }}_status_light
+              name: Statusleuchte
+              tap_action:
+                action: toggle
+            - entity:  input_boolean.sync_volume
+              tap_action:
+                action: toggle
+        - type: custom:fold-entity-row
+          padding: 5
+          head:
+            type: section
+            label: Favoriten
+          entities:
+            - type: custom:sonos-media-browser
+              entityId: media_player.{{ entity }}
+              mediaBrowserItemsAsList: true
+              mediaTitle: ' '
+              layout:
+                mediaItem:
+                  width: 50%
+                  # mobileWidth: 100%

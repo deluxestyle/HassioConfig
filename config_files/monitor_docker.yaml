@@ -3,7 +3,6 @@
   containers:
     - addon_15d21743_samba_backup
     - addon_a0d7b954_wireguard
-    - addon_core_mosquitto
     - addon_core_samba
     - deconz
     - docker_admin
@@ -20,10 +19,10 @@
     - vaultwarden
     - wud
     - dockerproxy
+    - mosquitto
   rename:
     addon_15d21743_samba_backup: "HA Samba Backup"
     addon_a0d7b954_wireguard: "HA Wireguard"
-    addon_core_mosquitto: "HA Mosquitto"
     addon_core_samba: "HA Samba"
     deconz: Deconz
     docker_admin: Portainer
@@ -40,6 +39,7 @@
     vaultwarden: Vaultwarden
     wud: "What's up docker"
     dockerproxy: "Docker Proxy"
+    mosquitto: Mosquitto
   monitored_conditions:
     - version
     - containers_running

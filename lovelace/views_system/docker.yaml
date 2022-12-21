@@ -30,10 +30,10 @@
 title: Docker
 path: docker
 icon: mdi:docker
-type: custom:masonry-layout
-layout:
-  max_cols: 2
-  width: 330
+# type: custom:masonry-layout
+# layout:
+#   max_cols: 2
+#   width: 330
 cards: 
   {{ monitor ("homeassistant") }}
   {{ monitor ("hassio_supervisor") }}
@@ -43,7 +43,6 @@ cards:
   {{ monitor ("hassio_multicast") }}
   {{ monitor ("hassio_observer") }}
   {{ monitor ("addon_15d21743_samba_backup") }}
-  {{ monitor ("addon_core_mosquitto") }}
   {{ monitor ("addon_core_samba") }}
   {{ monitor ("deconz") }}
   {{ monitor ("mariadb") }}
@@ -53,6 +52,7 @@ cards:
   {{ monitor ("wud") }}
   {{ monitor ("docker_admin") }}
   {{ monitor ("dockerproxy") }}
+  {{ monitor ("mosquitto") }}
     # - type: entities
     #   entities:
     #     - entity: sensor.docker_containers_running

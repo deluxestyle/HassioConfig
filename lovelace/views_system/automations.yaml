@@ -6,14 +6,9 @@ icon: mdi:calendar-multiple-check
 type: custom:masonry-layout
 layout:
   max_cols: 2
-  width: 330
+  height: auto
 cards:
   - type: custom:scheduler-card
-    display_options:
-      primary_info:
-        - name
-        - additional-tasks
-      secondary_info: relative-time
     include:
       - light
       - person.christina
@@ -33,25 +28,27 @@ cards:
       - light.flur3
       - light.gruppe*
       - light.rwl021_23
-    time_step: 1
-    customize:
-      script.sonos_wecker:
-        actions:
-          - service: script.sonos_wecker
-            name: Weckton
-            icon: mdi:alarm
-            variables:
-              alarm_source:
-                name: Quelle
-                options:
-                  - value: 'Radio: BR24'
-                  - value: 'Radio: Superfly.fm'
-      person.wolfgang:
-        states:
-          - home
-          - not_home
-      person.christina:
-        states:
-          - home
-          - not_home
-    title: false
+      - switch.docker*
+      - switch.*_internet_access
+# '    time_step: 1
+#     customize:
+#       script.sonos_wecker:
+#         actions:
+#           - service: script.sonos_wecker
+#             name: Weckton
+#             icon: mdi:alarm
+#             variables:
+#               alarm_source:
+#                 name: Quelle
+#                 options:
+#                   - value: 'Radio: BR24'
+#                   - value: 'Radio: Superfly.fm'
+#       person.wolfgang:
+#         states:
+#           - home
+#           - not_home
+#       person.christina:
+#         states:
+#           - home
+#           - not_home'
+    title: ''

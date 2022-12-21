@@ -16,6 +16,8 @@ theme:
 
   card-primary-font-weight: normal
 
+  sonos-border-width: "0rem"
+
   # ha-card-box-shadow: none
   # ha-card-border-width: 0
 

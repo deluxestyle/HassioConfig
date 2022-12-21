@@ -6,11 +6,6 @@ icon: mdi:bathtub
 type: custom:horizontal-layout
 layout:
   max_cols: 2
-  width: 330
+  height: auto
 cards:
-  # - type: entities
-  #   entities:
-  #     - entity: climate.heizung_bad
-  #       icon: mdi:radiator
-  
   - !include ../includes/climate/climate_bath.yaml

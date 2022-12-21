@@ -5,7 +5,7 @@ icon: mdi:cog-outline
 type: custom:masonry-layout
 layout:
   max_cols: 2
-  width: 330
+  height: auto
 cards:  
   - type: custom:vertical-stack-in-card
     cards: 

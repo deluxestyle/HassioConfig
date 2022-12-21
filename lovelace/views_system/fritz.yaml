@@ -14,7 +14,7 @@ icon: mdi:router-wireless-settings
 type: custom:masonry-layout
 layout:
   max_cols: 2
-  width: 330
+  height: auto
 cards:
   - type: glance
     columns: 4

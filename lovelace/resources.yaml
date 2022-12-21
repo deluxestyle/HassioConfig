@@ -52,4 +52,6 @@
   type: module
 - url: /hacsfiles/weather-card/weather-card.js
   type: module
-                                                                                             
+- url: /hacsfiles/custom-sonos-card/custom-sonos-card.js
+  type: module
+                                                                                                           

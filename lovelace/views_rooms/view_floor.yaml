@@ -6,7 +6,7 @@ icon: mdi:floor-plan
 type: custom:horizontal-layout
 layout:
   max_cols: 2
-  width: 330
+  height: auto
 cards:
   - type: entities
     entities:

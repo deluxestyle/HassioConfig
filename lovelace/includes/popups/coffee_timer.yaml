@@ -1,0 +1,20 @@
+# lovelace_gen
+
+action: fire-dom-event
+haptic: medium
+browser_mod:  
+  service: browser_mod.popup
+  data:
+    title: Timer
+    style: |
+      --popup-border-width: 0px;
+      --ha-card-border-color: var(--popup-border-color);
+    card_mod:
+      !include popup_styles.yaml
+    content:
+      type: custom:timer-bar-card
+      bar_direction: rtl 
+      invert: true
+      layout: full_row
+      entities:
+        - timer.kaffeemaschine
