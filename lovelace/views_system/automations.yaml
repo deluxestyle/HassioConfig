@@ -3,10 +3,10 @@
 title: Automations
 path: automations
 icon: mdi:calendar-multiple-check
-type: custom:masonry-layout
-layout:
-  max_cols: 2
-  height: auto
+# type: custom:masonry-layout
+# layout:
+#   max_cols: 2
+#   height: auto
 cards:
   - type: custom:scheduler-card
     include:

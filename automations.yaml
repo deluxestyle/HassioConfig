@@ -223,21 +223,21 @@
     above: 60
     for:
       hours: 0
-      minutes: 10
+      minutes: 5
       seconds: 0
   - entity_id: sensor.humidity_158d0001b8c998
     platform: numeric_state
     above: 60
     for:
       hours: 0
-      minutes: 10
+      minutes: 5
       seconds: 0
   - entity_id: sensor.humidity_158d0002239fb5
     platform: numeric_state
     above: 60
     for:
       hours: 0
-      minutes: 10
+      minutes: 5
       seconds: 0
   condition: []
   action:
@@ -249,7 +249,7 @@
         }} % '
       notification_id: Luftfeuchtigkeit
       title: Luftfeuchtigkeit
-    service: script.notify_script
+    service: script.benachrichtigungen_nicht_actionable_duplizieren
   mode: single
 - id: '1541096569503'
   alias: 'Anwesenheit: Bewegungsmelder - Alarm'

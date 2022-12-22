@@ -549,3 +549,42 @@ harmony_tone:
   mode: parallel
   icon: mdi:equalizer
   max: 10
+benachrichtigungen_nicht_actionable_duplizieren:
+  alias: Benachrichtigungen (nicht actionable) (critical)
+  sequence:
+  - data:
+      entity_id: counter.badge_counter
+    service: counter.increment
+  - data_template:
+      message: '{{ message }}'
+      data:
+        push:
+          badge: '{{ states.counter.badge_counter.state }}'
+          sound:
+            name: default
+            critical: 1
+            volume: 1
+    service: notify.all_ios_devices
+  - condition: state
+    entity_id: input_boolean.persistent_notification
+    state: 'on'
+  - data_template:
+      message: '{{ message }}'
+      notification_id: '{{ notification_id }}'
+      title: '{{ title }}'
+    service: persistent_notification.create
+  - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_off
+  fields:
+    notification_id:
+      description: ID für die Gruppierung
+      example: ids
+    message:
+      description: Die Nachricht
+      example: text
+    title:
+      description: Title der Nachricht
+      example: blabal
+  mode: single
+  icon: mdi:message-badge
