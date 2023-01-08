@@ -244,12 +244,25 @@
   - data:
       entity_id: input_boolean.persistent_notification
     service: input_boolean.turn_on
-  - data:
-      message: '{{ trigger.from_state.attributes.friendly_name }} zu hoch: {{ trigger.to_state.state
-        }} % '
-      notification_id: Luftfeuchtigkeit
-      title: Luftfeuchtigkeit
-    service: script.benachrichtigungen_nicht_actionable_duplizieren
+  - choose:
+    - conditions:
+      - condition: time
+        after: 08:00:00
+        before: '18:45:00'
+      sequence:
+      - data:
+          message: '{{ trigger.from_state.attributes.friendly_name }} zu hoch: {{
+            trigger.to_state.state }} % '
+          notification_id: Luftfeuchtigkeit
+          title: Luftfeuchtigkeit
+        service: script.benachrichtigungen_nicht_actionable_duplizieren
+    default:
+    - data:
+        message: '{{ trigger.from_state.attributes.friendly_name }} zu hoch: {{ trigger.to_state.state
+          }} % '
+        notification_id: Luftfeuchtigkeit
+        title: Luftfeuchtigkeit
+      service: script.notify_script
   mode: single
 - id: '1541096569503'
   alias: 'Anwesenheit: Bewegungsmelder - Alarm'
