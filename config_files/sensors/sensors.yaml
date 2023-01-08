@@ -32,9 +32,10 @@
   value_template: '{{ value | multiply(0.001) | round(1) }}'
 
 - platform: command_line
-  name: Pihole
+  unique_id: pihole
+  name: pihole
   scan_interval: 10
-  command: curl -X GET 'http://192.168.200.33:88/admin/api.php'
+  command: curl -X GET 'http://192.168.200.33:88/admin/api.php?status&auth=d150ea5c83cfc740a884f6d2ced8c836a2d65504c438002cda5cc023dd71d8c6'
   value_template: >
     {{ value_json.status }}
 
