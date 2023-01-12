@@ -731,21 +731,6 @@
     target:
       entity_id: switch.steckdose_3
   mode: single
-- id: '1610972932012'
-  alias: 'Kaffeemaschine: ein/ausschalten'
-  description: ''
-  trigger:
-  - device_id: a955261a32066a37020dbc5ffa64788c
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  condition: []
-  action:
-  - service: switch.toggle
-    target:
-      entity_id: switch.on_off_plug_in_unit_12
-  mode: single
 - id: '1630242296075'
   alias: 'Kaffeemaschine: Timer'
   description: ''
