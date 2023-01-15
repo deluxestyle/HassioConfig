@@ -807,8 +807,9 @@
   condition: []
   action:
   - service: switch.turn_off
+    data: {}
     target:
-      entity_id: switch.on_off_plug_in_unit_12
+      entity_id: switch.steckdose_3
   mode: single
 - id: '1634394580227'
   alias: 'DS118: Benachrichtigung shutdown'
@@ -1342,29 +1343,6 @@
   - service: script.harmony_tone
     data: {}
   mode: single
-- id: '1670512862313'
-  alias: 'Entertainment: Fix FireTV'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - remote.harmony_hub
-    attribute: current_activity
-    to: Fire TV
-    for:
-      hours: 0
-      minutes: 1
-      seconds: 0
-  condition:
-  - condition: state
-    entity_id: media_player.samsung_q60aa_43_tv
-    state: 'off'
-  action:
-  - service: media_player.turn_on
-    data: {}
-    target:
-      entity_id: media_player.samsung_q60aa_43_tv
-  mode: single
 - id: '1671118865832'
   alias: 'Benachrichtigung: Docker Updates'
   description: ''
@@ -1383,3 +1361,52 @@
       mobile_app_device: ef3094ac8106c9a744660ee38c6bf27b
       send_to_ha: true
       take_backup: false
+- id: '1673599304677'
+  alias: 'Entertainment: Fix TV'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - remote.harmony_hub
+    attribute: current_activity
+    to: TV
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    id: TV
+  - platform: state
+    entity_id:
+    - remote.harmony_hub
+    attribute: current_activity
+    to: Fire TV
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    id: FIRETV
+  condition:
+  - condition: state
+    entity_id: media_player.samsung_q60aa_43_tv
+    state: 'off'
+  action:
+  - service: remote.send_command
+    data:
+      device: '78764380'
+      command: PowerOn
+    target:
+      entity_id: remote.harmony_hub
+  - condition: trigger
+    id: TV
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 30
+      milliseconds: 0
+  - service: remote.send_command
+    data:
+      device: '78764380'
+      command: 78764380
+    target:
+      entity_id: remote.harmony_hub
+  mode: single

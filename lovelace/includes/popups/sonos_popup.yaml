@@ -45,13 +45,6 @@ content:
         shortcuts:
           label: Favoriten
           list:
-            - name: "Radio: Arabella München"
-              type: service
-              id: media_player.play_media
-              data: 
-                entity_id: media_player.{{ entity }}
-                media_content_id: "FV:2/30"
-                media_content_type: favorite_item_id
             - name: "Radio: Bayern 1"
               type: service
               id: media_player.play_media
@@ -80,13 +73,6 @@ content:
                 entity_id: media_player.{{ entity }}
                 media_content_id: "FV:2/36"
                 media_content_type: favorite_item_id
-            - name: "Radio: egoFM"
-              type: service
-              id: media_player.play_media
-              data: 
-                entity_id: media_player.{{ entity }}
-                media_content_id: "FV:2/31"
-                media_content_type: favorite_item_id
             - name: "Radio: FM4"
               type: service
               id: media_player.play_media
@@ -100,13 +86,6 @@ content:
               data: 
                 entity_id: media_player.{{ entity }}
                 media_content_id: "FV:2/44"
-                media_content_type: favorite_item_id
-            - name: "PL: DJ Robert Smith"
-              type: service
-              id: media_player.play_media
-              data: 
-                entity_id: media_player.{{ entity }}
-                media_content_id: "FV:2/57"
                 media_content_type: favorite_item_id
             - name: "PL: Michael Kiwanuka"
               type: service
