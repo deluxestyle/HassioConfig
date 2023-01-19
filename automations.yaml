@@ -1100,7 +1100,7 @@
     default: []
   mode: single
 - id: '1651490190900'
-  alias: 'Licht: Bewegung Flur (neu)'
+  alias: 'Licht: Bewegung Flur '
   description: ''
   trigger:
   - platform: state

@@ -183,6 +183,7 @@ cards:
   - type: custom:simple-weather-card
     entity: weather.openweathermap
     primary_info: humidity
+    name: " "
   - template: blank
     type: 'custom:button-card'
   - type: conditional

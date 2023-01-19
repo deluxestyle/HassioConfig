@@ -1,4 +1,17 @@
 theme:
+
+  card-mod-theme: theme
+  card-mod-more-info-yaml: |    
+    $: |
+      .mdc-dialog {
+        backdrop-filter: blur(5px) !important;
+        -webkit-backdrop-filter: blur(4px) !important;
+        background: rgba(0,0,0,0.1);
+      }
+
+  dialog-backdrop-filter: blur(5px)
+  popup-max-width: 560px
+        
   app-header-text-color: var(--primary-text-color)
   app-header-background-color: "var(--card-background-color)"
 

@@ -87,7 +87,7 @@ schedule:
 
 python_script:
 
-ffmpeg:
+# ffmpeg:
 
 wake_on_lan:
 
