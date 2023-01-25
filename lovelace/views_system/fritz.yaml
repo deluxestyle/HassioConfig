@@ -34,15 +34,6 @@ cards:
         name: Akt Up
       - entity: sensor.fritz_box_7590_connection_uptime
         name: Seit
-      # - entity: sensor.wireguard_iphonepro
-      #   icon: mdi:cellphone
-      #   name: VPN iPhone
-      # - entity: sensor.wireguard_ipad
-      #   icon: mdi:tablet 
-      #   name: VPN iPad  
-      # - entity: sensor.wireguard_hpspectre
-      #   icon: mdi:laptop
-      #   name: VPN Lpatop
       - entity: binary_sensor.fritz_box_7590_connection
   - type: entities
     entities:
