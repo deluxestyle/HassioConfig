@@ -159,6 +159,7 @@ cards:
         double_tap_action:
           action: url
           url_path: https://wud.tanzer-cloud.de/
+      - entity: sensor.nextcloud_system_version
       - type: custom:fold-entity-row
         padding: 5
         head:

@@ -110,3 +110,8 @@ notify:
       - service: mobile_app_iphone14pro
 
 monitor_docker: !include config_files/monitor_docker.yaml
+
+nextcloud:
+  url: !secret next_url
+  username: !secret next_user
+  password: !secret next_pw
