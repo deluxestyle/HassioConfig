@@ -1410,3 +1410,22 @@
     target:
       entity_id: remote.harmony_hub
   mode: single
+- id: '1675160702723'
+  alias: 'Benachrichtigung: Nextcloud Update'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.nextcloud_update
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
+      message: Update für Nextcloud verfügbar
+      notification_id: system_update
+      title: Update
+    service: script.notify_script
+  mode: single

@@ -46,3 +46,8 @@
         {% else %}
           off
         {% endif %}
+
+  - name: nextcloud_update
+    unique_id: nextcloud_update
+    device_class: update
+    state: "{{ states('sensor.nextcloud_server_latest_release')  | regex_replace(find='v', replace='', ignorecase=False)  > states ('sensor.nextcloud_server_latest_release') }}"
