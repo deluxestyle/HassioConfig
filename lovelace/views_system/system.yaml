@@ -159,7 +159,7 @@ cards:
         double_tap_action:
           action: url
           url_path: https://wud.tanzer-cloud.de/
-      - entity: sensor.nextcloud_server_latest_release 
+      - entity: sensor.nextcloud_release 
         type: custom:multiple-entity-row
         state_header: Verfügbar
         entities:

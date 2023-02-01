@@ -1,0 +1,8 @@
+{
+  "domain": "custom_update_entities",
+  "name": "Custom Update Entities",
+  "requirements": [],
+  "dependencies": [],
+  "codeowners": [],
+  "version": "0.0.3"
+}

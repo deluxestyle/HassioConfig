@@ -50,4 +50,4 @@
   - name: nextcloud_update
     unique_id: nextcloud_update
     device_class: update
-    state: "{{ states('sensor.nextcloud_server_latest_release')  | regex_replace(find='v', replace='', ignorecase=False)  > states ('sensor.nextcloud_server_latest_release') }}"
+    state: "{{ states('sensor.nextcloud_release')   > states ('sensor.nextcloud_system_version') }}"
