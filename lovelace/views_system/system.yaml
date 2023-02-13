@@ -159,20 +159,15 @@ cards:
         double_tap_action:
           action: url
           url_path: https://wud.tanzer-cloud.de/
-      # - entity: update.nextcloud_hub_update 
-      #   type: custom:multiple-entity-row
-      #   # state_header: Verfügbar
-      #   entities:
-      #     - attribute: installed_version
-      #       name: Installiert
-      #     - attribute: latest_version
-      #       name: Verfügbar
       - entity: sensor.nextcloud_release 
         type: custom:multiple-entity-row
         state_header: Verfügbar
         entities:
           - entity: sensor.nextcloud_system_version 
             name: Installiert
+        double_tap_action:
+          action: url
+          url_path: https://next.tanzer-online.com
       - type: custom:fold-entity-row
         padding: 5
         head:
