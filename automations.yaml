@@ -223,7 +223,7 @@
       hours: 0
       minutes: 5
       seconds: 0
-    enabled: false
+    enabled: true
   condition: []
   action:
   - data:
@@ -762,16 +762,12 @@
   use_blueprint:
     path: tanzerw/low_battery.yaml
     input:
-      exclude:
-        entity_id:
-        - sensor.iphone11pro_battery_level
-        - sensor.iphone11pro_battery_state
-        - sensor.ipad_battery_level
       time: '10:00:00'
       actions:
       - service: input_boolean.turn_on
         target:
           entity_id: input_boolean.persistent_notification
+        data: {}
       - data:
           message: 'Batteriewarnung für: {{sensors}}'
           notification_id: battery
@@ -780,7 +776,12 @@
       - service: input_boolean.turn_on
         target:
           entity_id: input_boolean.batteriewarnung
+        data: {}
       threshold: 5
+      exclude:
+        entity_id:
+        - sensor.ipad_battery_level
+        - sensor.iphone14pro_battery_level
 - id: '1631286411270'
   alias: 'Kaffeemaschine: Ausschalten nach 20 Minuten'
   description: ''
@@ -1397,3 +1398,47 @@
     target:
       entity_id: remote.harmony_hub
   mode: single
+- id: '1677167905640'
+  alias: 'Licht: Bewegung Flur (Sonoff)'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.presence_51
+    to: 'on'
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: time
+        after: 07:00:00
+        before: '19:00:00'
+      sequence:
+      - service: scene.turn_on
+        data: {}
+        target:
+          entity_id: scene.flur_tageslicht
+    default:
+    - service: scene.turn_on
+      data: {}
+      target:
+        entity_id: scene.flur_nachtlicht
+  - repeat:
+      until:
+      - condition: state
+        entity_id: binary_sensor.presence_51
+        state: 'off'
+      sequence:
+      - delay:
+          hours: 0
+          minutes: 3
+          seconds: 0
+          milliseconds: 0
+      - condition: state
+        state: 'off'
+        entity_id: binary_sensor.presence_51
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.flur
+  mode: restart

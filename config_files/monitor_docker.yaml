@@ -20,6 +20,7 @@
     - wud
     - dockerproxy
     - mosquitto
+    - dnscrypt
   rename:
     addon_15d21743_samba_backup: "HA Samba Backup"
     addon_a0d7b954_wireguard: "HA Wireguard"
@@ -40,6 +41,7 @@
     wud: "What's up docker"
     dockerproxy: "Docker Proxy"
     mosquitto: Mosquitto
+    dnscrypt: DNScrypt
   monitored_conditions:
     - version
     - containers_running

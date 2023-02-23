@@ -53,6 +53,8 @@ cards:
   {{ monitor ("docker_admin") }}
   {{ monitor ("dockerproxy") }}
   {{ monitor ("mosquitto") }}
+  {{ monitor ("dnscrypt") }}
+  
     # - type: entities
     #   entities:
     #     - entity: sensor.docker_containers_running
