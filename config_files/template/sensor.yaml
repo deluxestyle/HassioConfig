@@ -10,4 +10,7 @@
     state: '{{ states.script | count }}'
   - name: nextcloud_release
     unique_id: nextcloud_release
-    state: "{{ states('sensor.nextcloud_server_latest_release')  | regex_replace(find='v', replace='', ignorecase=False) }}"
+    state: "{{ states('sensor.nextcloud_server_latest_tag')  | regex_replace(find='v', replace='', ignorecase=False) }}"
+  - name: nextcloud_release_url
+    unique_id: nextcloud_release_url
+    state: "{{ state_attr('sensor.nextcloud_server_latest_release', 'url')  }}"
