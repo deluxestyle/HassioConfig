@@ -100,3 +100,11 @@ class CustomUpdateEntity(UpdateEntity):
         _LOGGER.debug("Executing update script")
         await self._update_script.async_run(params, context=self._context)
         _LOGGER.debug("Update complete")
+
+    def release_notes(self) -> str | None:
+        """Return the release notes."""
+        return "No Summary"
+
+    async def async_release_notes(self) -> str | None:
+        """Return the release notes."""
+        return "No Summary"
