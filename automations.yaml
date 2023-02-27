@@ -1427,3 +1427,47 @@
       title: Update
     service: script.notify_script
   mode: single
+- id: '1677513658141'
+  alias: 'Licht: Bewegung Flur (2 Sensor)'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.bewegung_flur
+    to: 'on'
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: time
+        after: 07:00:00
+        before: '19:00:00'
+      sequence:
+      - service: scene.turn_on
+        data: {}
+        target:
+          entity_id: scene.flur_tageslicht
+    default:
+    - service: scene.turn_on
+      data: {}
+      target:
+        entity_id: scene.flur_nachtlicht
+  - repeat:
+      until:
+      - condition: state
+        entity_id: binary_sensor.bewegung_flur
+        state: 'off'
+      sequence:
+      - delay:
+          hours: 0
+          minutes: 3
+          seconds: 0
+          milliseconds: 0
+      - condition: state
+        state: 'off'
+        entity_id: binary_sensor.bewegung_flur
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.flur
+  mode: restart

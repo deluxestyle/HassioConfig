@@ -54,3 +54,5 @@ views:
             secondary_info: last-changed
           - entity: binary_sensor.presence_51
             secondary_info: last-changed
+          - entity: binary_sensor.bewegung_flur
+            secondary_info: last-changed
