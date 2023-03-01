@@ -8,8 +8,8 @@ from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
 
-from .common import InteractiveEntityBase, EntityManager, is_boolean_enum
-from .const import DEVICE_ICON_MAP, DOMAIN, SPECIAL_ENTITIES
+from .common import InteractiveEntityBase, EntityManager, is_boolean_enum, Configuration
+from .const import DEVICE_ICON_MAP, DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -23,21 +23,22 @@ async def async_setup_entry(hass:HomeAssistant , config_entry:ConfigType, async_
             device = ProgramSelect(appliance)
             entity_manager.add(device)
 
+        conf = Configuration()
         if appliance.available_programs:
             for program in appliance.available_programs.values():
                 if program.options:
                     for option in program.options.values():
-                        if option.key in SPECIAL_ENTITIES['delayed_start']:
-                            device = DelayedStartSelect(appliance, option.key)
+                        if conf.get_entity_setting(option.key, "type") == "DelayedOperation":
+                            device = DelayedOperationSelect(appliance, option.key, conf, option)
                             entity_manager.add(device)
-                        elif option.key not in SPECIAL_ENTITIES['ignore'] and option.allowedvalues and len(option.allowedvalues)>1:
-                            device = OptionSelect(appliance, option.key)
+                        elif option.allowedvalues and len(option.allowedvalues)>1:
+                            device = OptionSelect(appliance, option.key, conf)
                             entity_manager.add(device)
 
         if appliance.settings:
             for setting in appliance.settings.values():
-                if setting.key not in SPECIAL_ENTITIES['ignore'] and setting.allowedvalues and len(setting.allowedvalues)>1 and not is_boolean_enum(setting.allowedvalues):
-                    device = SettingsSelect(appliance, setting.key)
+                if setting.allowedvalues and len(setting.allowedvalues)>1 and not is_boolean_enum(setting.allowedvalues):
+                    device = SettingsSelect(appliance, setting.key, conf)
                     entity_manager.add(device)
 
         entity_manager.register()
@@ -131,7 +132,7 @@ class OptionSelect(InteractiveEntityBase, SelectEntity):
 
     @property
     def icon(self) -> str:
-        return self._conf.get('icon', 'mdi:office-building-cog')
+        return self.get_entity_setting('icon', 'mdi:office-building-cog')
 
     @property
     def available(self) -> bool:
@@ -201,7 +202,7 @@ class SettingsSelect(InteractiveEntityBase, SelectEntity):
 
     @property
     def icon(self) -> str:
-        return self._conf.get('icon', 'mdi:tune')
+        return self.get_entity_setting('icon', 'mdi:tune')
 
     @property
     def available(self) -> bool:
@@ -239,15 +240,20 @@ class SettingsSelect(InteractiveEntityBase, SelectEntity):
         self.async_write_ha_state()
 
 
-class DelayedStartSelect(InteractiveEntityBase, SelectEntity):
+class DelayedOperationSelect(InteractiveEntityBase, SelectEntity):
     """ Class for delayed start select box """
-    def __init__(self, appliance: Appliance, key: str = None, conf: dict = None) -> None:
-        super().__init__(appliance, key, conf)
+    def __init__(self, appliance: Appliance, key: str = None, conf: dict = None, hc_obj = None) -> None:
+        super().__init__(appliance, key, conf, hc_obj)
         self._current = '0:00'
 
     @property
     def icon(self) -> str:
-        return self._conf.get('icon', 'mdi:clock-outline')
+        return self.get_entity_setting('icon', 'mdi:clock-outline')
+
+    @property
+    def name_ext(self) -> str|None:
+        """ Provide the suffix of the name, can be be overriden by sub-classes to provide a custom or translated display name """
+        return self._hc_obj.name if self._hc_obj.name else "Delayed operation"
 
     @property
     def available(self) -> bool:
@@ -263,7 +269,7 @@ class DelayedStartSelect(InteractiveEntityBase, SelectEntity):
 
         if self._appliance.selected_program and self._appliance.selected_program.options and self._key in self._appliance.selected_program.options:
             selected_program_time = self._appliance.selected_program.options[self._key].value
-            start = selected_program_time//1800 + (selected_program_time % 1800 > 0)
+            start = 1 if "StartInRelative" in self._key else selected_program_time//1800 + (selected_program_time % 1800 > 0)
             #end = self._appliance.available_programs[self._appliance.selected_program.key].options[self._key].max
             end = 49
             for t in range(start, end):

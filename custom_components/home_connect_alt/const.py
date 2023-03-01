@@ -13,6 +13,7 @@ CONF_SENSORS_TRANSLATION = "sensor_value_translation"
 CONF_SENSORS_TRANSLATION_SERVER = "server"
 CONF_NAME_TEMPLATE = "name_template"
 CONF_LOG_MODE = "log_mode"
+CONF_ENTITY_SETTINGS = "entity_settings"
 
 HOME_CONNECT_DEVICE = {
     "identifiers": {(DOMAIN, "homeconnect")},
@@ -20,22 +21,16 @@ HOME_CONNECT_DEVICE = {
     "manufacturer": "BSH"
 }
 
-SPECIAL_ENTITIES = {
-    "ignore": [
-        "BSH.Common.Option.FinishInRelative"
-    ],
-    "status": {
-        "BSH.Common.Status.DoorState": { "type": "binary_sensor", "class": "door", "icon": None, "on_state": "BSH.Common.EnumType.DoorState.Open" },
-    },
-    "delayed_start": [
-        "BSH.Common.Option.FinishInRelative"
-    ],
-    "options": {
-        "BSH.Common.Option.FinishInRelative": { "unit": None, "class": f"{DOMAIN}__timespan"},
+ENTITY_SETTINGS = {
+    CONF_ENTITY_SETTINGS: {
+        "BSH.Common.Option.FinishInRelative": { "type": "DelayedOperation", "unit": None, "class": f"{DOMAIN}__timespan"},
+        "BSH.Common.Option.StartInRelative": { "type": "DelayedOperation", "unit": None, "class": f"{DOMAIN}__timespan"},
         "BSH.Common.Option.ElapsedProgramTime": { "unit": None, "class": f"{DOMAIN}__timespan"},
         "BSH.Common.Option.EstimatedTotalProgramTime": { "unit": None, "class": f"{DOMAIN}__timespan"},
-        "BSH.Common.Option.RemainingProgramTime": {"unit": None, "class": "timestamp" }
-   }
+        "BSH.Common.Option.RemainingProgramTime": {"unit": None, "class": "timestamp" },
+        "BSH.Common.Status.DoorState": { "type": "Boolean", "class": "door", "icon": None, "on_state": "BSH.Common.EnumType.DoorState.Open" },
+        "Connected": { "class": "connectivity" },
+    }
 }
 
 DEVICE_ICON_MAP = {
