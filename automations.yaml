@@ -1428,12 +1428,12 @@
     service: script.notify_script
   mode: single
 - id: '1677513658141'
-  alias: 'Licht: Bewegung Flur (2 Sensor)'
+  alias: 'Licht: Bewegung Flur (Sonoff)'
   description: ''
   trigger:
   - platform: state
     entity_id:
-    - binary_sensor.bewegung_flur
+    - binary_sensor.presence_51
     to: 'on'
   condition: []
   action:
@@ -1455,7 +1455,7 @@
   - repeat:
       until:
       - condition: state
-        entity_id: binary_sensor.bewegung_flur
+        entity_id: binary_sensor.presence_51
         state: 'off'
       sequence:
       - delay:
@@ -1465,7 +1465,7 @@
           milliseconds: 0
       - condition: state
         state: 'off'
-        entity_id: binary_sensor.bewegung_flur
+        entity_id: binary_sensor.presence_51
       - service: light.turn_off
         data: {}
         target:
