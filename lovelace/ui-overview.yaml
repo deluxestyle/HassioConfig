@@ -53,15 +53,8 @@ cards:
         template: 
           - icon_info_bg
           - light
-        hold_action: 
-          action: fire-dom-event
-          haptic: medium
-          browser_mod:
-            !include includes/popups/light_wohnzimmer.yaml
         double_tap_action:
-          !include 
-            - includes/popups/light_popup.yaml
-            - entity: light.wohnzimmer_decke
+          action: more-info
       - type: 'custom:button-card'
         entity: light.kuche
         name: Küche
@@ -69,23 +62,15 @@ cards:
           - icon_info_bg
           - light
         double_tap_action:
-          !include 
-            - includes/popups/light_popup.yaml
-            - entity: light.kuche
+          action: more-info
       - type: 'custom:button-card'
         entity: light.schlafzimmer
         name: Schlafzimmer
         template: 
           - icon_info_bg
           - light
-        hold_action: 
-          action: fire-dom-event
-          browser_mod:
-            !include includes/popups/light_schlafzimmer.yaml
         double_tap_action:
-          !include 
-            - includes/popups/light_popup.yaml
-            - entity: light.schlafzimmer
+          action: more-info
       - type: 'custom:button-card'
         entity: light.yeelight_bslamp1_0x0000000005451cd6
         name: Nachtlicht
@@ -93,23 +78,15 @@ cards:
           - icon_info_bg
           - light
         double_tap_action:
-          !include 
-            - includes/popups/light_popup.yaml
-            - entity: light.yeelight_bslamp1_0x0000000005451cd6
+          action: more-info
       - type: 'custom:button-card'
         entity: light.flur
         name: Flur
         template: 
           - icon_info_bg
           - light
-        hold_action: 
-          action: fire-dom-event
-          browser_mod:
-            !include includes/popups/light_floor.yaml
         double_tap_action:
-          !include 
-            - includes/popups/light_popup.yaml
-            - entity: light.flur
+          action: more-info
       - type: 'custom:button-card'
         entity: switch.steckdose_1
         template: 

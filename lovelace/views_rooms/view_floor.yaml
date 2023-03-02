@@ -15,9 +15,11 @@ cards:
         tap_action:
           action: toggle
         double_tap_action:
-          !include 
-            - ../includes/popups/light_popup.yaml
-            - entity: light.flur
+          action: more-info
+        # double_tap_action:
+        #   !include 
+        #     - ../includes/popups/light_popup.yaml
+        #     - entity: light.flur
         # extend_paper_buttons_row:
         #   buttons:
         #     - name: Szenen

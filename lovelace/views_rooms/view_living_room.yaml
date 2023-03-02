@@ -15,9 +15,7 @@ cards:
         tap_action: 
           action: toggle
         double_tap_action:
-            !include 
-              - ../includes/popups/light_popup.yaml
-              - entity: light.wohnzimmer_decke
+          action: more-info
         extend_paper_buttons_row:
           buttons:
             - name: Szenen

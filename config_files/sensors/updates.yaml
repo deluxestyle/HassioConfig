@@ -1,7 +1,7 @@
   # Alternate updater sensor for core since binary_sensor.updater is very slow to recognize updates
 - platform: command_line
   name: Updater Core
-  command: 'curl http://supervisor/core/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version}'''
+  command: 'curl -s http://supervisor/core/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version}'''
   value_template: "{% if value_json.newest_version != value_json.current_version %}on{% else %}off{% endif %}"
   json_attributes:
     - newest_version
@@ -11,7 +11,7 @@
   
 - platform: command_line
   name: Updater Supervisor
-  command: 'curl http://supervisor/supervisor/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version,"addons":[.data.addons[] | select(.version != .version_latest)]}'''
+  command: 'curl -s http://supervisor/supervisor/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version,"addons":[.data.addons[] | select(.version != .version_latest)]}'''
   value_template: "{{ value_json.addons | length }}"
   json_attributes:
     - newest_version
