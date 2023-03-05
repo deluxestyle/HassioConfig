@@ -1329,26 +1329,6 @@
   - service: script.harmony_tone
     data: {}
   mode: single
-- id: '1671118865832'
-  alias: 'Benachrichtigung: Updates'
-  description: ''
-  use_blueprint:
-    path: mdegat01/update_notifications.yaml
-    input:
-      reminder_hours: None
-      update_entities:
-      - update.wud_container_local_deconz
-      - update.wud_container_local_dockerproxy
-      - update.wud_container_local_mariadb
-      - update.wud_container_local_nginx_proxy_manager
-      - update.wud_container_local_pihole
-      - update.wud_container_local_vaultwarden
-      - update.wud_container_local_wud
-      - update.nextcloud_hub_update
-      - update.home_assistant_core_update
-      mobile_app_device: ef3094ac8106c9a744660ee38c6bf27b
-      send_to_ha: true
-      take_backup: false
 - id: '1673599304677'
   alias: 'Entertainment: Fix TV'
   description: ''
@@ -1399,7 +1379,7 @@
       entity_id: remote.harmony_hub
   mode: single
 - id: '1677324816990'
-  alias: 'Benachrichtigung: Docker Update'
+  alias: 'Benachrichtigung: Updates'
   description: ''
   trigger:
   - platform: state
@@ -1414,6 +1394,8 @@
     - update.wud_container_local_vaultwarden
     - update.wud_container_local_wud
     - update.nextcloud_hub_update
+    - update.home_assistant_core_update
+    - binary_sensor.updater_hacs
     to: 'on'
   condition: []
   action:
@@ -1435,6 +1417,11 @@
     entity_id:
     - binary_sensor.presence_51
     to: 'on'
+  - type: opened
+    platform: device
+    device_id: 221d658c5eb3ca91fa4a4a3d41598c66
+    entity_id: binary_sensor.fenster_turkontaktsensor
+    domain: binary_sensor
   condition: []
   action:
   - choose:
