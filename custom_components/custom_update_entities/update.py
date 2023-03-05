@@ -51,7 +51,7 @@ class CustomUpdateEntity(UpdateEntity):
         """Initialize a Core Update entity."""
         self._hass = hass
         self.config = config
-        self._attr_name = config[CONF_NAME] + ": Update"
+        self._attr_name = config[CONF_NAME]
         self._update_script = Script(hass, config[CONF_UPDATE_ACTION], 
                                      self._attr_name, DOMAIN)
         self._attr_latest_version = None

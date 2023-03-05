@@ -1393,7 +1393,7 @@
     - update.wud_container_local_pihole
     - update.wud_container_local_vaultwarden
     - update.wud_container_local_wud
-    - update.nextcloud_hub_update
+    - update.nextcloud_hub
     - update.home_assistant_core_update
     - binary_sensor.updater_hacs
     to: 'on'

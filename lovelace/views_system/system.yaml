@@ -168,7 +168,7 @@ cards:
       #   double_tap_action:
       #     action: url
       #     url_path: https://next.tanzer-online.com
-      - entity:  update.nextcloud_hub_update
+      - entity:  update.nextcloud_hub
         type: custom:multiple-entity-row
         name: Nextcloud Hub
         icon: mdi:update
