@@ -52,50 +52,50 @@ cards:
           #   icon: mdi:database-outline
           - entity: sensor.mariadb_database_size
             icon: mdi:database 
-          - entity: sensor.samba_backup
-            icon: mdi:content-save-all
-            tap_action:
-              action: fire-dom-event
-              browser_mod:
-                service: browser_mod.popup
-                data:
-                  title: Status
-                  style: |
-                    --popup-border-width: 0px;
-                    --ha-card-border-color: var(--popup-border-color);
-                  card_mod:
-                    !include ../includes/popups/popup_styles.yaml
-                  content:
-                    type: entities
-                    entities:
-                      - attribute: backups_local
-                        entity: sensor.samba_backup
-                        icon: 'mdi:file-outline'
-                        name: Local Backups
-                        type: attribute
-                      - attribute: backups_remote
-                        entity: sensor.samba_backup
-                        icon: 'mdi:file-move-outline'
-                        name: Remote Backups
-                        type: attribute
-                      - attribute: total_backups_succeeded
-                        entity: sensor.samba_backup
-                        icon: 'mdi:file-check-outline'
-                        name: Succeded Backups
-                        type: attribute
-                      - attribute: total_backups_failed
-                        entity: sensor.samba_backup
-                        icon: 'mdi:file-cancel-outline'
-                        name: Failed Backups
-                        type: attribute
-                      - attribute: last_backup
-                        entity: sensor.samba_backup
-                        icon: 'mdi:file-clock-outline'
-                        name: Last Backup
-                        type: attribute
-            double_tap_action:
-              action: navigate
-              navigation_path: /hassio/backups                     
+          # - entity: sensor.samba_backup
+          #   icon: mdi:content-save-all
+          #   tap_action:
+          #     action: fire-dom-event
+          #     browser_mod:
+          #       service: browser_mod.popup
+          #       data:
+          #         title: Status
+          #         style: |
+          #           --popup-border-width: 0px;
+          #           --ha-card-border-color: var(--popup-border-color);
+          #         card_mod:
+          #           !include ../includes/popups/popup_styles.yaml
+          #         content:
+          #           type: entities
+          #           entities:
+          #             - attribute: backups_local
+          #               entity: sensor.samba_backup
+          #               icon: 'mdi:file-outline'
+          #               name: Local Backups
+          #               type: attribute
+          #             - attribute: backups_remote
+          #               entity: sensor.samba_backup
+          #               icon: 'mdi:file-move-outline'
+          #               name: Remote Backups
+          #               type: attribute
+          #             - attribute: total_backups_succeeded
+          #               entity: sensor.samba_backup
+          #               icon: 'mdi:file-check-outline'
+          #               name: Succeded Backups
+          #               type: attribute
+          #             - attribute: total_backups_failed
+          #               entity: sensor.samba_backup
+          #               icon: 'mdi:file-cancel-outline'
+          #               name: Failed Backups
+          #               type: attribute
+          #             - attribute: last_backup
+          #               entity: sensor.samba_backup
+          #               icon: 'mdi:file-clock-outline'
+          #               name: Last Backup
+          #               type: attribute
+          #   double_tap_action:
+          #     action: navigate
+          #     navigation_path: /hassio/backups                     
   - type: entities
     show_header_toggle: false
     entities:

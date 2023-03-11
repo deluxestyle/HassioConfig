@@ -42,8 +42,6 @@ cards:
   {{ monitor ("hassio_dns") }}
   {{ monitor ("hassio_multicast") }}
   {{ monitor ("hassio_observer") }}
-  {{ monitor ("addon_15d21743_samba_backup") }}
-  {{ monitor ("addon_core_samba") }}
   {{ monitor ("deconz") }}
   {{ monitor ("mariadb") }}
   {{ monitor ("nginx_proxy_manager") }}
