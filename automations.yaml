@@ -1394,7 +1394,7 @@
   trigger:
   - platform: state
     entity_id:
-    - binary_sensor.presence_51
+    - binary_sensor.bewegung_flur
     to: 'on'
   - type: opened
     platform: device
@@ -1421,8 +1421,8 @@
   - repeat:
       until:
       - condition: state
-        entity_id: binary_sensor.presence_51
         state: 'off'
+        entity_id: binary_sensor.bewegung_flur
       sequence:
       - delay:
           hours: 0
@@ -1431,7 +1431,7 @@
           milliseconds: 0
       - condition: state
         state: 'off'
-        entity_id: binary_sensor.presence_51
+        entity_id: binary_sensor.bewegung_flur
       - service: light.turn_off
         data: {}
         target:
