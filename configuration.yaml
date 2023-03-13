@@ -18,6 +18,7 @@ my:
 homeassistant_alerts:
 
 http:
+  server_port: 8124
   use_x_forwarded_for: true
   # trusted_proxies:
   #   - 172.30.33.0/24

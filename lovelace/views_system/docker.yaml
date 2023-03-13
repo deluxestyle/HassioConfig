@@ -35,15 +35,7 @@ icon: mdi:docker
 #   max_cols: 2
 #   width: 330
 cards: 
-  {{ monitor ("homeassistant") }}
-  {{ monitor ("hassio_supervisor") }}
-  {{ monitor ("hassio_cli") }}
-  {{ monitor ("hassio_audio") }}
-  {{ monitor ("hassio_dns") }}
-  {{ monitor ("hassio_multicast") }}
-  {{ monitor ("hassio_observer") }}
-  {{ monitor ("addon_15d21743_samba_backup") }}
-  {{ monitor ("addon_core_samba") }}
+  {{ monitor ("homeassistant_docker") }}
   {{ monitor ("deconz") }}
   {{ monitor ("mariadb") }}
   {{ monitor ("nginx_proxy_manager") }}
