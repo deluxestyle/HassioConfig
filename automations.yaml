@@ -295,7 +295,8 @@
     service: persistent_notification.create
   mode: single
 - id: '1543619209115'
-  alias: 'Startup: Restart Services'
+  alias: 'HomeAssistant: Restart'
+  description: ''
   trigger:
   - event: start
     platform: homeassistant
@@ -1437,3 +1438,15 @@
         target:
           entity_id: light.flur
   mode: restart
+- id: '1678891141768'
+  alias: 'HomeAssistant: Stop'
+  description: ''
+  trigger:
+  - platform: homeassistant
+    event: shutdown
+  condition: []
+  action:
+  - service: homeassistant.disable_config_entry
+    data:
+      config_entry_id: d3bd095efc0273661c4231c26f928ded
+  mode: single
