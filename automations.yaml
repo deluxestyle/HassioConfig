@@ -632,27 +632,6 @@
         - action: START_VACUUM
           title: Starten
   mode: single
-- id: '1629099375854'
-  alias: 'Benachrichtigung: HP Spectre VPN'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: sensor.wireguard_hpspectre
-    to: Verbunden
-  condition:
-  - condition: state
-    entity_id: device_tracker.hp_spectre
-    state: home
-  action:
-  - service: input_boolean.turn_on
-    target:
-      entity_id: input_boolean.persistent_notification
-  - data:
-      message: HP Spectre mit VPN verbunden
-      notification_id: vpn
-      title: VPN HP Spectre
-    service: script.notify_script
-  mode: single
 - id: '1630241435170'
   alias: 'Kaffeemaschine: Benachrichtigung Steckdose'
   description: ''
@@ -870,33 +849,6 @@
           entity_id: input_boolean.abwesenheitsmodus
     default: []
   mode: restart
-- id: '1639749213579'
-  alias: 'Babykamera: Surveillance'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: switch.steckdose_1
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: device
-        type: is_on
-        device_id: cca9aaba4959ef500db7488b34736ac6
-        entity_id: switch.steckdose_1
-        domain: switch
-      sequence:
-      - service: shell_command.ds118_surveillance_start
-    - conditions:
-      - condition: device
-        type: is_off
-        device_id: cca9aaba4959ef500db7488b34736ac6
-        entity_id: switch.steckdose_1
-        domain: switch
-      sequence:
-      - service: shell_command.ds118_surveillance_stop
-    default: []
-  mode: single
 - id: '1644489340800'
   alias: 'Sonos: unjoin'
   description: ''
@@ -1149,28 +1101,6 @@
         target:
           entity_id: light.kuche
   mode: restart
-- id: '1655032424438'
-  alias: 'Benachrichtigung:  Laptop Erlau online'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - sensor.wireguard_laptoperlau
-    to: Verbunden
-  condition:
-  - condition: time
-    after: 08:00:00
-    before: '21:00:00'
-  action:
-  - data:
-      entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
-  - data:
-      message: Laptop Erlau ist online
-      notification_id: vpn_update
-      title: VPN
-    service: script.notify_script
-  mode: single
 - id: '1658949383573'
   alias: 'Internet: Neustart'
   description: ''
