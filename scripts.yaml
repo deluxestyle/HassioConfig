@@ -593,8 +593,16 @@ benachrichtigungen_nicht_actionable_duplizieren:
   mode: single
   icon: mdi:message-badge
 bosch_home_connect_starten:
-  alias: Bosch Home Connect starten
+  alias: Home Connect neustarten
   sequence:
+  - service: homeassistant.disable_config_entry
+    data:
+      config_entry_id: d3bd095efc0273661c4231c26f928ded
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 30
+      milliseconds: 0
   - service: homeassistant.enable_config_entry
     data:
       config_entry_id: d3bd095efc0273661c4231c26f928ded
