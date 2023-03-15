@@ -66,7 +66,6 @@ script: !include scripts.yaml
 automation: !include automations.yaml
 scene: !include scenes.yaml
 
-#alexa: !include config_files/alexa.yaml
 switch: !include config_files/switch.yaml  
 light: !include config_files/light.yaml
 input_select: !include config_files/input_selects.yaml
@@ -77,7 +76,6 @@ counter: !include config_files/counter.yaml
 media_player: !include config_files/media_player.yaml
 ios: !include config_files/ios.yaml
 homekit: !include config_files/homekit.yaml
-# browser_mod: !include config_files/browser_mod.yaml
 device_tracker: !include config_files/device_tracker.yaml
 # camera: !include config_files/camera.yaml
 sensor: !include_dir_merge_list config_files/sensors/
@@ -119,13 +117,13 @@ nextcloud:
   username: !secret next_user
   password: !secret next_pw
 
-custom_update_entities:
-  updaters:
-    - name: Nextcloud Hub
-      latest_version_entity: sensor.nextcloud_release
-      installed_version_entity: sensor.nextcloud_system_version
-      release_notes_url: https://nextcloud.com/de/changelog/
-      update_action:
-        - service: browser_mod.navigate
-          data:
-            path: https://next.tanzer-online.com
+# custom_update_entities:
+#   updaters:
+#     - name: Nextcloud Hub
+#       latest_version_entity: sensor.nextcloud_release
+#       installed_version_entity: sensor.nextcloud_system_version
+#       release_notes_url: https://nextcloud.com/de/changelog/
+#       update_action:
+#         - service: browser_mod.navigate
+#           data:
+#             path: https://next.tanzer-online.com

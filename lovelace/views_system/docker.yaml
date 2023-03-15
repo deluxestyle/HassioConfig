@@ -35,14 +35,14 @@ icon: mdi:docker
 #   max_cols: 2
 #   width: 330
 cards: 
-  {{ monitor ("homeassistant_docker") }}
+  {{ monitor ("homeassistant") }}
   {{ monitor ("deconz") }}
   {{ monitor ("mariadb") }}
   {{ monitor ("nginx_proxy_manager") }}
   {{ monitor ("pihole") }}
   {{ monitor ("vaultwarden") }}
   {{ monitor ("wud") }}
-  {{ monitor ("docker_admin") }}
+  {{ monitor ("portainer") }}
   {{ monitor ("dockerproxy") }}
   {{ monitor ("mosquitto") }}
   {{ monitor ("dnscrypt") }}

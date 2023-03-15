@@ -1372,9 +1372,9 @@
     - update.wud_container_local_pihole
     - update.wud_container_local_vaultwarden
     - update.wud_container_local_wud
-    - update.nextcloud_hub
-    - update.home_assistant_core_update
+    - binary_sensor.nextcloud_update
     - binary_sensor.updater_hacs
+    - binary_sensor.docker_hub_update_available
     to: 'on'
   condition: []
   action:
@@ -1383,8 +1383,8 @@
     target:
       entity_id: input_boolean.persistent_notification
   - data:
-      message: '{{ trigger.from_state.attributes.friendly_name }} verfügbar '
-      notification_id: Update
+      message: '{{ trigger.from_state.attributes.friendly_name }} Update verfügbar '
+      notification_id: '{{ trigger.from_state.attributes.friendly_name }} Update '
       title: Update
     service: script.notify_script
   mode: single

@@ -1,18 +1,8 @@
 - name: Docker
   url: tcp://192.168.200.33:2375
   containers:
-    # - addon_15d21743_samba_backup
-    # - addon_a0d7b954_wireguard
-    # - addon_core_samba
     - deconz
-    - docker_admin
-    # - hassio_audio
-    # - hassio_cli
-    # - hassio_dns
-    # - hassio_multicast
-    # - hassio_observer
-    # - hassio_supervisor
-    # - homeassistant
+    - portainer
     - mariadb
     - nginx-proxy-manager
     - pihole
@@ -21,20 +11,11 @@
     - dockerproxy
     - mosquitto
     - dnscrypt
-    - homeassistant_docker
+    - homeassistant
   rename:
-    # addon_15d21743_samba_backup: "HA Samba Backup"
-    # addon_a0d7b954_wireguard: "HA Wireguard"
-    # addon_core_samba: "HA Samba"
     deconz: Deconz
-    docker_admin: Portainer
-    # hassio_audio: "Hassio Audio"
-    # hassio_cli: "Hassio Cli"
-    # hassio_dns: "Hassio DNS"
-    # hassio_multicast: "Hassio Multicast"
-    # hassio_observer: "Hassio Observer"
-    # hassio_supervisor: "HA Supervisor"
-    homeassistant_docker: "Home Assistant"
+    portainer: Portainer
+    homeassistant: "Home Assistant"
     mariadb: MariaDB
     nginx-proxy-manager: "Nginx Proxy Manager"
     pihole: "Pi-Hole"

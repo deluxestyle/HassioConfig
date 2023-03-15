@@ -38,28 +38,3 @@
   command: curl -s -X GET 'http://192.168.200.33:88/admin/api.php?status&auth=d150ea5c83cfc740a884f6d2ced8c836a2d65504c438002cda5cc023dd71d8c6'
   value_template: >
     {{ value_json.status }}
-
-# - platform: influxdb
-#   host: 192.168.200.33
-#   port: 8086
-#   username: homeassistant
-#   password: !secret influxdb_password
-#   queries:
-#     - name: InfluxDB Database Size
-#       unit_of_measurement: MB
-#       value_template: '{{ (value | float / 1024 /1024) | round(1) }}'
-#       group_function: mean
-#       measurement: '"monitor"."shard"'
-#       database: _internal
-#       where: 'time > now() - 1m AND "database"=''homeassistant'''
-#       field: diskBytes
-
-# - platform: rest
-#   name: wireguard
-#   resource: http://192.168.200.33:9090/
-#   json_attributes:
-#   - iphonepro
-#   - ipad
-#   - laptoperlau
-#   - hp-spectre
-#   value_template: "OK"

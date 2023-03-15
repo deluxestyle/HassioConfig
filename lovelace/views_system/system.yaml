@@ -56,6 +56,14 @@ cards:
     show_header_toggle: false
     entities:
       - entity: binary_sensor.docker_hub_update_available
+        style: |
+          :host {
+            color: 
+            {% if is_state('binary_sensor.docker_hub_update_available', 'on') %}
+              red
+            {% endif %}
+            ;
+          }
         type: custom:multiple-entity-row
         show_state: false
         entities:
@@ -64,11 +72,27 @@ cards:
           - entity: sensor.docker_hub
             name: Verfügbar
       - entity: sensor.hacs
+        style: |
+          :host {
+            color: 
+            {% if is_state('binary_sensor.updater_hacs', 'on') %}
+              orange
+            {% endif %}
+            ;
+          }
         name: Hacs
         tap_action: 
           action: navigate
           navigation_path: /hacs
       - entity: binary_sensor.docker_update
+        style: |
+          :host {
+            color: 
+            {%if is_state('binary_sensor.docker_update', 'on') %}
+              orange
+            {% endif %}
+            ;
+          }
         tap_action:
           action: fire-dom-event
           browser_mod:
@@ -87,6 +111,15 @@ cards:
                   filter:
                     include:
                       - entity_id: "update.wud_container*"
+                        options: 
+                          type: custom:template-entity-row
+                          icon: >
+                             {{state_attr(config.entity,'icon')}}
+                          state: >
+                            {% if states(config.entity) == 'off' %}
+                              Aktuell
+                            {% else %} Update verfügbar
+                            {% endif %}
         double_tap_action:
           action: url
           url_path: https://wud.tanzer-cloud.de/
@@ -99,15 +132,23 @@ cards:
       #   double_tap_action:
       #     action: url
       #     url_path: https://next.tanzer-online.com
-      - entity:  update.nextcloud_hub
+      - entity: binary_sensor.nextcloud_update
+        style: |
+          :host {
+            color: 
+            {% if is_state('binary_sensor.nextcloud_update', 'on') %}
+              red
+            {% endif %}
+            ;
+          }
         type: custom:multiple-entity-row
         name: Nextcloud Hub
-        icon: mdi:update
+        icon: si:nextcloud
         show_state: false
         entities:
-          - attribute: installed_version
+          - entity: sensor.nextcloud_system_version
             name: Installiert
-          - attribute: latest_version
+          - entity: sensor.nextcloud_release
             name: Verfügbar
       - type: custom:fold-entity-row
         padding: 5
