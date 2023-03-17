@@ -97,22 +97,6 @@
   - data:
       entity_id: counter.xiaomo_errors
     service: counter.increment
-- id: '1532176861984'
-  alias: 'Sonos: automatisch starten'
-  trigger:
-  - entity_id: device_tracker.iphone11pro
-    platform: state
-    to: home
-  condition:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: person.christina
-      state: not_home
-  action:
-  - service: script.sonos_set_volume_8
-  - service: script.sonos_radio_b5_aktuell
-  mode: single
 - id: '1532273712071'
   alias: 'Entertainment: AVR - Quelle auswählen'
   trigger:
@@ -252,7 +236,8 @@
 - id: '1541096569503'
   alias: 'Anwesenheit: Bewegungsmelder - Alarm'
   trigger:
-  - entity_id: binary_sensor.tradfri_bewegungsmelder
+  - entity_id:
+    - binary_sensor.bewegungsmelder
     platform: state
     to: 'on'
   condition:
@@ -463,19 +448,6 @@
       entity_id: switch.steckdosenleiste
     service: switch.turn_off
   mode: restart
-- id: '1578168461545'
-  alias: 'Benachrichtigung: Snapshot Fehler'
-  trigger:
-  - platform: state
-    entity_id: sensor.samba_backup
-    attribute: total_backups_failed
-  action:
-  - service: persistent_notification.create
-    data:
-      message: Snapshot Fehler
-      title: Snapshot Fehler
-      notification_id: snapshot_error
-  mode: single
 - id: '1584265149079'
   alias: 'Benachrichtigung: CPU Temp zu hoch'
   description: ''
@@ -498,19 +470,6 @@
       notification_id: cpu_temp
       title: CPU Temp
     service: script.notify_script
-- id: '1603141534875'
-  alias: 'Licht: Nachtlicht Helligkeit'
-  description: ''
-  trigger:
-  - platform: device
-    type: turned_on
-    device_id: 9c9d0c210c7d11eba05f8b9968791799
-    entity_id: light.yeelight_bslamp1_0x0000000005451cd6
-    domain: light
-  condition: []
-  action:
-  - scene: scene.nachtlicht_hell
-  mode: single
 - id: '1604932069752'
   alias: 'Benachrichtigung: Wohnungstür offen'
   description: ''
@@ -623,6 +582,11 @@
   - after: 07:00
     before: '19:00'
     condition: time
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: vacuum.roborock_vacuum
+      state: cleaning
   action:
   - service: notify.all_ios_devices
     data:
@@ -1374,6 +1338,20 @@
   trigger:
   - platform: homeassistant
     event: shutdown
+  condition: []
+  action:
+  - service: homeassistant.disable_config_entry
+    data:
+      config_entry_id: d3bd095efc0273661c4231c26f928ded
+  mode: single
+- id: '1679052124637'
+  alias: Home Connect
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.home_connect_status
+    to: blocked
   condition: []
   action:
   - service: homeassistant.disable_config_entry

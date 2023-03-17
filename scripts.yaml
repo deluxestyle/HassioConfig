@@ -204,9 +204,13 @@ sonos_set_volume_10:
   alias: 'Sonos: Set volume 10'
   sequence:
   - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
       volume_level: '0.10'
     service: media_player.volume_set
+    target:
+      entity_id:
+      - media_player.wohnzimmer
+      - media_player.schlafzimmer
+      - media_player.kuche
   mode: single
 sonos_join:
   alias: 'Sonos: join'
@@ -228,9 +232,13 @@ sonos_set_volume_8:
   alias: 'Sonos: Set volume 8'
   sequence:
   - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
       volume_level: '0.08'
     service: media_player.volume_set
+    target:
+      entity_id:
+      - media_player.wohnzimmer
+      - media_player.schlafzimmer
+      - media_player.kuche
   mode: single
 alles_ausschalten:
   alias: Alles ausschalten
@@ -269,17 +277,25 @@ sonos_set_volume_4:
   alias: 'Sonos: Set volume 4'
   sequence:
   - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
       volume_level: '0.04'
     service: media_player.volume_set
+    target:
+      entity_id:
+      - media_player.wohnzimmer
+      - media_player.schlafzimmer
+      - media_player.kuche
   mode: single
 sonos_mute:
   alias: 'Sonos: Set volume - Mute'
   sequence:
   - data:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
       is_volume_muted: true
     service: media_player.volume_mute
+    target:
+      entity_id:
+      - media_player.schlafzimmer
+      - media_player.wohnzimmer
+      - media_player.kuche
   mode: single
   icon: mdi:volume-mute
 sonos_set_wake_up_volume:

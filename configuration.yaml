@@ -42,14 +42,13 @@ lovelace:
     
 logger:
   default: info
-  # logs:
-  #   homeassistant.components.fritz: debug
-  #   fritzconnection: debug
   filters:
     homeassistant.components.rest.data:
       - "Error fetching data:*"
     homeassistant.components.rest.sensor:
       - "Empty reply found when expecting JSON data"
+    custom_components.monitor_docker.helpers:
+      - ": *Container not available anymore*"
    
 history: !include config_files/history/history.yaml
 recorder: !include config_files/history/recorder.yaml
