@@ -37,8 +37,7 @@ async def async_setup_entry(hass:HomeAssistant , config_entry:ConfigType, async_
 
         if appliance.settings:
             for setting in appliance.settings.values():
-                if (setting.allowedvalues and len(setting.allowedvalues)>1 and not is_boolean_enum(setting.allowedvalues)) \
-                    and "writ" in setting.access :
+                if setting.allowedvalues and len(setting.allowedvalues)>1 and not is_boolean_enum(setting.allowedvalues):
                     device = SettingsSelect(appliance, setting.key, conf)
                     entity_manager.add(device)
 

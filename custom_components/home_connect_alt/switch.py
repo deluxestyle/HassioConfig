@@ -34,10 +34,9 @@ async def async_setup_entry(hass:HomeAssistant , config_entry:ConfigType, async_
 
         if appliance.settings:
             for setting in appliance.settings.values():
-                if ( (not conf.has_entity_setting(setting.key, "type")
+                if (not conf.has_entity_setting(setting.key, "type")
                     and ( setting.type == "Boolean" or isinstance(setting.value, bool) or is_boolean_enum(setting.allowedvalues))) \
-                    or conf.get_entity_setting(setting.key, "type") == "Boolean") \
-                    and "writ" in setting.access :
+                    or conf.get_entity_setting(setting.key, "type") == "Boolean":
                     device = SettingsSwitch(appliance, setting.key, conf)
                     entity_manager.add(device)
 
