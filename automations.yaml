@@ -46,10 +46,11 @@
 - id: xiaomi_vacuum_notification_on
   alias: 'Xiaomi Staubsauger: Benachrichtigung gestartet'
   trigger:
-  - entity_id: vacuum.roborock_vacuum
-    from: docked
+  - entity_id:
+    - vacuum.roborock_vacuum
     platform: state
     to: cleaning
+    from: docked
   action:
   - service: notify.all_ios_devices
     data:
