@@ -99,6 +99,10 @@ class ProgramSensor(EntityBase, SensorEntity):
         return f"{self._conf['program_type'].capitalize()} Program"
 
     @property
+    def translation_key(self) -> str:
+        return "programs"
+
+    @property
     def icon(self) -> str:
         if self._appliance.type in DEVICE_ICON_MAP:
             return DEVICE_ICON_MAP[self._appliance.type]
@@ -111,7 +115,7 @@ class ProgramSensor(EntityBase, SensorEntity):
     @property
     def native_value(self):
         """Return the state of the sensor."""
-        prog = self._appliance.selected_program if self._conf["program_type"] != "selected" else self._appliance.active_program
+        prog = self._appliance.selected_program if self._conf["program_type"] == "selected" else self._appliance.active_program
         if prog:
             if (prog.name and self._conf[CONF_SENSORS_TRANSLATION] == CONF_SENSORS_TRANSLATION_SERVER):
                 return prog.name
@@ -120,6 +124,7 @@ class ProgramSensor(EntityBase, SensorEntity):
         return None
 
     async def async_on_update(self, appliance: Appliance, key: str, value) -> None:
+        _LOGGER.debug("Updating sensor %s => %s", self.unique_id, self.native_value)
         self.async_write_ha_state()
 
 
@@ -132,6 +137,10 @@ class ProgramOptionSensor(EntityBase, SensorEntity):
             return self.get_entity_setting("class")
         return f"{DOMAIN}__options"
 
+    @property
+    def translation_key(self) -> str:
+        return "options"
+    
     @property
     def icon(self) -> str:
         return self.get_entity_setting("icon", "mdi:office-building-cog")
@@ -239,6 +248,10 @@ class StatusSensor(EntityBase, SensorEntity):
         return f"{DOMAIN}__status"
 
     @property
+    def translation_key(self) -> str:
+        return "statuses"
+
+    @property
     def name_ext(self) -> str:
         if self._key in self._appliance.status:
             status = self._appliance.status[self._key]
@@ -274,11 +287,15 @@ class StatusSensor(EntityBase, SensorEntity):
 
 
 class SettingsSensor(EntityBase, SensorEntity):
-    """Status sensor"""
+    """Settings sensor"""
 
     @property
     def device_class(self) -> str:
         return f"{DOMAIN}__settings"
+
+    @property
+    def translation_key(self) -> str:
+        return "settings"
 
     @property
     def name_ext(self) -> str:

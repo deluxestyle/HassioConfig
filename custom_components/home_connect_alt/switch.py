@@ -34,9 +34,10 @@ async def async_setup_entry(hass:HomeAssistant , config_entry:ConfigType, async_
 
         if appliance.settings:
             for setting in appliance.settings.values():
-                if (not conf.has_entity_setting(setting.key, "type")
+                if ( (not conf.has_entity_setting(setting.key, "type")
                     and ( setting.type == "Boolean" or isinstance(setting.value, bool) or is_boolean_enum(setting.allowedvalues))) \
-                    or conf.get_entity_setting(setting.key, "type") == "Boolean":
+                    or conf.get_entity_setting(setting.key, "type") == "Boolean") \
+                    and setting.access != "read" :
                     device = SettingsSwitch(appliance, setting.key, conf)
                     entity_manager.add(device)
 
@@ -46,7 +47,7 @@ async def async_setup_entry(hass:HomeAssistant , config_entry:ConfigType, async_
     def remove_appliance(appliance:Appliance) -> None:
         entity_manager.remove_appliance(appliance)
 
-    homeconnect.register_callback(add_appliance, [Events.PAIRED, Events.PROGRAM_SELECTED])
+    homeconnect.register_callback(add_appliance, [Events.PAIRED, Events.PROGRAM_SELECTED, Events.PROGRAM_STARTED ,Events.PROGRAM_FINISHED])
     homeconnect.register_callback(remove_appliance, Events.DEPAIRED)
     for appliance in homeconnect.appliances.values():
         add_appliance(appliance)
