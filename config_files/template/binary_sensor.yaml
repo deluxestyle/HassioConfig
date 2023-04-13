@@ -42,7 +42,4 @@
           off
         {% endif %}
 
-  - name: nextcloud_update
-    unique_id: nextcloud_update
-    device_class: update
-    state: "{{ states('sensor.nextcloud_release')   > states ('sensor.nextcloud_version') }}"
+

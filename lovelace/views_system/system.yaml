@@ -123,24 +123,17 @@ cards:
         double_tap_action:
           action: url
           url_path: https://wud.tanzer-cloud.de/
-      - entity: binary_sensor.nextcloud_update
+      - entity: binary_sensor.nextcloud_update_status
         style: |
           :host {
             color: 
-            {% if is_state('binary_sensor.nextcloud_update', 'on') %}
+            {% if is_state('binary_sensor.nextcloud_update_status', 'on') %}
               red
             {% endif %}
             ;
           }
-        type: custom:multiple-entity-row
         name: Nextcloud Hub
         icon: si:nextcloud
-        show_state: false
-        entities:
-          - entity: sensor.nextcloud_version
-            name: Installiert
-          - entity: sensor.nextcloud_release
-            name: Verfügbar
       - type: custom:fold-entity-row
         padding: 5
         head:

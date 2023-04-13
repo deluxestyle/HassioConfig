@@ -1228,9 +1228,8 @@
     - update.wud_container_local_pihole
     - update.wud_container_local_vaultwarden
     - update.wud_container_local_wud
-    - binary_sensor.nextcloud_update
+    - binary_sensor.nextcloud_update_status
     - binary_sensor.updater_hacs
-    - binary_sensor.docker_hub_update_available
     to: 'on'
   condition: []
   action:

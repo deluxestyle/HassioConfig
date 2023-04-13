@@ -8,7 +8,3 @@
   - name: Anzahl Skripte
     unique_id: count_script
     state: '{{ states.script | count }}'
-  - name: nextcloud_release
-    unique_id: nextcloud_release
-    # state: "{{ state_attr('sensor.nextcloud_server_latest_release', 'tag')  | regex_replace(find='v', replace='', ignorecase=False) }}"
-    state: "{{ states('sensor.nextcloud_server_latest_tag')  | regex_replace(find='v', replace='', ignorecase=False) }}"
