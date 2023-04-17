@@ -28,8 +28,8 @@
   alias: 'Xiaomi Staubsauger: Benachrichtigung fertig'
   trigger:
   - platform: state
-    entity_id: vacuum.roborock_vacuum
-    to: docked
+    entity_id:
+    - vacuum.roborock_vacuum
     from: returning
   action:
   - data:

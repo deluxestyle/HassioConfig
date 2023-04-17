@@ -2,11 +2,11 @@
   country: DE
   province: BY
 
-- platform: rest
-  unique_id: nextcloud_update_status
-  name: nextcloud_update_status
-  scan_interval: 1200
-  device_class: update
-  resource: https://www.tanzer-online.com/nextcloud_fixes/update_check.php
-  value_template: >
-    {{ value_json.update | default('', true) }}
+# - platform: rest
+#   unique_id: nextcloud_update_status
+#   name: nextcloud_update_status
+#   scan_interval: 1200
+#   device_class: update
+#   resource: https://www.tanzer-online.com/nextcloud_fixes/update_check.php
+#   value_template: >
+#     {{ value_json.update | default('', true) }}

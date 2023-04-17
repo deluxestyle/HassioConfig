@@ -42,4 +42,9 @@
           off
         {% endif %}
 
+  - name: nextcloud_update_status
+    unique_id: nextcloud_update_status
+    device_class: update
+    state: "{{ state_attr('sensor.nextcloud_update', 'update') }}"
+
 

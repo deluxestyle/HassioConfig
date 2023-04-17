@@ -46,3 +46,15 @@
   command: curl -s -X GET 'https://next.tanzer-online.com/status.php'
   value_template: >
     {{ value_json.versionstring }}
+
+- platform: rest
+  unique_id: nextcloud_update
+  name: nextcloud_update
+  scan_interval: 1200
+  # device_class: update
+  resource: https://www.tanzer-online.com/nextcloud_fixes/update_check.php
+  json_attributes:
+      - desc
+      - update
+  value_template: >
+    {{ value_json.update }}
