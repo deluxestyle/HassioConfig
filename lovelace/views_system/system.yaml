@@ -136,6 +136,9 @@ cards:
         icon: si:nextcloud
         tap_action:
           action: none
+        double_tap_action:
+          action: url
+          url_path: https://next.tanzer-online.com/
       - type: custom:fold-entity-row
         padding: 5
         head:
