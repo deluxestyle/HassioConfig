@@ -8,3 +8,15 @@
   - name: Anzahl Skripte
     unique_id: count_script
     state: '{{ states.script | count }}'
+
+
+  - name: nextcloud_latest_version
+    unique_id: nextcloud_latest_version
+    state: >
+        {%
+          if ( 'Nextcloud' in state_attr('sensor.nextcloud_update', 'desc') )
+        %}
+          {{ (state_attr('sensor.nextcloud_update', 'desc').split(" ")[1]) }}
+        {% else %}
+          {{ states('sensor.nextcloud_version')}}
+        {% endif %}

@@ -28,6 +28,9 @@ theme:
   color-yellow-text: var(--primary-text-color)
 
   card-primary-font-weight: normal
+  mush-card-primary-font-weight: normal
+  card-secondary-font-weight: normal
+  mush-card-secondary-font-weight: normal
 
   sonos-border-width: "0rem"
 

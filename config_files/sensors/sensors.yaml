@@ -57,4 +57,4 @@
       - desc
       - update
   value_template: >
-    {{ value_json.update }}
+    {{ value_json.update | default('OFF', true) }}
