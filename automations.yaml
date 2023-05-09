@@ -1222,7 +1222,6 @@
     - update.wud_container_local_deconz
     - update.wud_container_local_dockerproxy
     - update.wud_container_local_dnscrypt
-    - update.wud_container_local_mariadb
     - update.wud_container_local_mosquitto
     - update.wud_container_local_nginx_proxy_manager
     - update.wud_container_local_pihole
