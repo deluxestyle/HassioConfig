@@ -7,39 +7,39 @@ layout:
   max_cols: 1
   height: auto
 cards: 
-  - template: title
-    type: 'custom:button-card'
-    label: Klima
-  - type: custom:mushroom-chips-card
-    alignment: center
-    chips:
-      - type: entity
-        entity: sensor.temperature_158d0001b8c96c
-        icon_color: orange
-      - type: entity
-        entity: sensor.temperature_158d0001b8c998
-        icon_color: orange
-      - type: entity
-        entity: sensor.temperature_158d0002239fb5
-        icon_color: orange
-      - type: entity
-        entity: sensor.temperature_158d00023258bd
-        icon_color: orange
-  - type: custom:mushroom-chips-card
-    alignment: center
-    chips:
-      - type: entity
-        entity: sensor.humidity_158d0001b8c96c
-        icon_color: indigo
-      - type: entity
-        entity: sensor.humidity_158d0001b8c998
-        icon_color: indigo
-      - type: entity
-        entity: sensor.humidity_158d0002239fb5 
-        icon_color: indigo
-      - type: entity 
-        entity: sensor.humidity_158d00023258bd
-        icon_color: indigo
+  # - template: title
+  #   type: 'custom:button-card'
+  #   label: Klima
+  # - type: custom:mushroom-chips-card
+  #   alignment: justify
+  #   chips:
+  #     - type: entity
+  #       entity: sensor.temperature_158d0001b8c96c
+  #       icon_color: orange
+  #     - type: entity
+  #       entity: sensor.temperature_158d0001b8c998
+  #       icon_color: orange
+  #     - type: entity
+  #       entity: sensor.temperature_158d0002239fb5
+  #       icon_color: orange
+  #     - type: entity
+  #       entity: sensor.temperature_158d00023258bd
+  #       icon_color: orange
+  # - type: custom:mushroom-chips-card
+  #   # alignment: justify
+  #   chips:
+  #     - type: entity
+  #       entity: sensor.humidity_158d0001b8c96c
+  #       icon_color: indigo
+  #     - type: entity
+  #       entity: sensor.humidity_158d0001b8c998
+  #       icon_color: indigo
+  #     - type: entity
+  #       entity: sensor.humidity_158d0002239fb5 
+  #       icon_color: indigo
+  #     - type: entity 
+  #       entity: sensor.humidity_158d00023258bd
+  #       icon_color: indigo
   - template: title
     type: 'custom:button-card'
     label: Lichter 
@@ -154,13 +154,13 @@ cards:
           action: navigate
           navigation_path: /lovelace-vacuum/vacuum
 #################################################################
-  - template: title
-    type: 'custom:button-card'
-    label: Wetter
-  - type: custom:simple-weather-card
-    entity: weather.openweathermap
-    primary_info: humidity
-    name: " "
+  # - template: title
+  #   type: 'custom:button-card'
+  #   label: Wetter
+  # - type: custom:simple-weather-card
+  #   entity: weather.openweathermap
+  #   primary_info: humidity
+  #   name: " "
   - template: blank
     type: 'custom:button-card'
   - type: conditional

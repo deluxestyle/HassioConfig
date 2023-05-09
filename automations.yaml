@@ -1228,7 +1228,6 @@
     - update.wud_container_local_pihole
     - update.wud_container_local_vaultwarden
     - update.wud_container_local_wud
-    - binary_sensor.nextcloud_update_status
     - binary_sensor.updater_hacs
     to: 'on'
   condition: []
