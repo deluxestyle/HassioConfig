@@ -50,7 +50,7 @@ logger:
     custom_components.monitor_docker.helpers:
       - ": *Container not available anymore*"
    
-history: !include config_files/history/history.yaml
+history: #!include config_files/history/history.yaml
 recorder: !include config_files/history/recorder.yaml
 influxdb: !include config_files/history/influxdb.yaml
 

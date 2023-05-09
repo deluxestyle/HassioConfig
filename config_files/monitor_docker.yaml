@@ -3,7 +3,6 @@
   containers:
     - deconz
     - portainer
-    - mariadb
     - nginx-proxy-manager
     - pihole
     - vaultwarden

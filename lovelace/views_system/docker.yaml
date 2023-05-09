@@ -37,7 +37,6 @@ icon: mdi:docker
 cards: 
   {{ monitor ("homeassistant") }}
   {{ monitor ("deconz") }}
-  {{ monitor ("mariadb") }}
   {{ monitor ("nginx_proxy_manager") }}
   {{ monitor ("pihole") }}
   {{ monitor ("vaultwarden") }}
