@@ -48,8 +48,8 @@ cards:
             icon: mdi:file-swap  
           - entity: sensor.disk_use
             name: Disk 
-          # - entity: sensor.mariadb_database_size
-          #   icon: mdi:database                    
+          - entity: sensor.sqlite_db_grosse
+            icon: mdi:database                    
   - type: entities
     show_header_toggle: false
     entities:

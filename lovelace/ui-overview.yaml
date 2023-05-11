@@ -120,12 +120,12 @@ cards:
               name: Wohnzimmer
       - !include 
             - includes/multimedia/media_player_small.yaml
-            - entity: schlafzimmer
-              name: Schlafzimmer
+            - entity: kuche
+              name: Küche              
       - !include 
             - includes/multimedia/media_player_small.yaml
-            - entity: kuche
-              name: Küche
+            - entity: schlafzimmer
+              name: Schlafzimmer
 #################################################################
   - template: title
     type: 'custom:button-card'

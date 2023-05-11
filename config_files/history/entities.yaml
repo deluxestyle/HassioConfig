@@ -25,10 +25,6 @@ entities:
   - sensor.net_uptime
   - sensor.fritz_box_7590_kb_s_received
   - sensor.fritz_box_7590_kb_s_sent
-  - sensor.wireguard_ipad
-  - sensor.wireguard_iphonepro
-  - sensor.wireguard_laptoperlau
-  - sensor.wireguard_hpspectre
   - binary_sensor.fenster_turkontaktsensor
   - sensor.last_boot
   - sensor.xiaomi_bed_room_battery_level        
@@ -46,8 +42,7 @@ entities:
   - sensor.heizung_bad_battery
   - sensor.tradfri_bewegungsmelder_battery_level
   - sensor.tradfri_fernbedienung_battery_level
-  - sensor.influxdb_database_size
-  - sensor.mariadb_database_size
+  - sensor.sqlite_db_grosse
   - person.wolfgang
   - device_tracker.iphone_wolfgang
   - sensor.bewegungsmelder
