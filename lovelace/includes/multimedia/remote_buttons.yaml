@@ -20,11 +20,11 @@ content:
           template:
             - button
         - type: 'custom:button-card'
-          entity: switch.harmony_hub_fire_tv
+          entity: switch.harmony_hub_apple_tv
           template:
             - button
         - type: 'custom:button-card'
-          entity: switch.harmony_hub_airplay
+          entity: switch.harmony_hub_airplay_2
           template:
             - button
         - type: 'custom:button-card'
@@ -75,12 +75,12 @@ content:
               tooltip: Ausschalten
 
 #################################################################
-# Fire TV
+# Aple TV
 #################################################################
         - type: custom:fold-entity-row
           head:
             type: section
-            label: Fire TV
+            label: Apple TV
           padding: 5px
           entities:
             - type: "custom:paper-buttons-row"
@@ -92,7 +92,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: Home
-                      device: '68917313'
+                      device: '79706594'
                     target:
                       entity_id: remote.harmony_hub 
                 - icon: mdi:blank
@@ -104,7 +104,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: DirectionUp
-                      device: '68917313'
+                      device: '79706594'
                     target:
                       entity_id: remote.harmony_hub 
                 - icon: mdi:blank
@@ -117,7 +117,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: Menu
-                      device: '68917313'
+                      device: '79706594'
                     target:
                       entity_id: remote.harmony_hub                      
 #################################################################
@@ -132,7 +132,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: DirectionLeft
-                      device: '68917313'
+                      device: '79706594'
                     target:
                       entity_id: remote.harmony_hub   
                 - icon: "mdi:checkbox-blank-circle-outline"
@@ -141,8 +141,8 @@ content:
                     action: call-service
                     service: remote.send_command
                     service_data:
-                      command: OK
-                      device: '68917313'
+                      command: Select
+                      device: '79706594'
                     target:
                       entity_id: remote.harmony_hub 
                 - icon: "mdi:chevron-right"                       
@@ -151,7 +151,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: DirectionRight
-                      device: '68917313'
+                      device: '79706594'
                     target:
                       entity_id: remote.harmony_hub 
                 - icon: mdi:blank
@@ -167,7 +167,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: Back
-                      device: '68917313'
+                      device: '79706594'
                     target:
                       entity_id: remote.harmony_hub    
                 - icon: mdi:blank
@@ -180,22 +180,15 @@ content:
                     service: remote.send_command
                     service_data:
                       command: DirectionDown
-                      device: '68917313'
+                      device: '79706594'
                     target:
                       entity_id: remote.harmony_hub 
                 - icon: mdi:blank
                   tap_action:
                     action: none                       
-                - icon: mdi:exit-to-app  
-                  tooltip: Beenden   
+                - icon: mdi:blank
                   tap_action:
-                    action: call-service
-                    service: remote.send_command
-                    service_data:
-                      command: Exit
-                      device: '68917313'
-                    target:
-                      entity_id: remote.harmony_hub 
+                    action: none 
 #################################################################
             - type: "custom:paper-buttons-row"
               buttons:  
@@ -206,7 +199,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: Rewind
-                      device: '68917313'
+                      device: '79706594'
                     target:
                       entity_id: remote.harmony_hub 
                 - icon: mdi:stop
@@ -216,7 +209,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: Stop
-                      device: '68917313'
+                      device: '79706594'
                     target:
                       entity_id: remote.harmony_hub                 
                 - icon: mdi:pause
@@ -226,7 +219,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: Pause
-                      device: '68917313'
+                      device: '79706594'
                     target:
                       entity_id: remote.harmony_hub                 
                 - icon: mdi:play
@@ -236,7 +229,7 @@ content:
                     service: remote.send_command
                     service_data:
                       command: Play
-                      device: '68917313'
+                      device: '79706594'
                     target:
                       entity_id: remote.harmony_hub                 
                 - icon: mdi:skip-forward    
@@ -246,10 +239,10 @@ content:
                     service: remote.send_command
                     service_data:
                       command: FastForward
-                      device: '68917313'
+                      device: '79706594'
                     target:
                       entity_id: remote.harmony_hub                         
-#################################################################
+# #################################################################
 
 #################################################################
 # AVR
@@ -523,16 +516,8 @@ content:
             label: Mehr...
           padding: 5px
           entities:
-            # - entity: switch.samsung_tv
-            #   tap_action:
-            #     action: toggle
-            # - entity: switch.telekom_mr_401
-            #   tap_action:
-            #     action: toggle
-            # - entity: switch.avr_151
-            #   tap_action:
-            #     action: toggle
             - entity: select.harmony_hub_activities
+            # - entity: remote.appletv
         - type: section
         - entity: switch.steckdosenleiste
           name: Steckdosenleiste

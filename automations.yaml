@@ -158,7 +158,7 @@
   - platform: state
     to: 'on'
     entity_id:
-    - binary_sensor.bewegungsmelder
+    - binary_sensor.presence_51
   condition:
   - condition: not
     conditions:
@@ -1145,7 +1145,7 @@
     entity_id:
     - remote.harmony_hub
     attribute: current_activity
-    to: AirPlay
+    to: AirPlay 2
     for:
       hours: 0
       minutes: 0
@@ -1182,7 +1182,7 @@
     entity_id:
     - remote.harmony_hub
     attribute: current_activity
-    to: Fire TV
+    to: Apple TV
     for:
       hours: 0
       minutes: 1

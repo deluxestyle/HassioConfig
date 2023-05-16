@@ -3,7 +3,7 @@ avr_source:
     icon: mdi:playlist-play
     options:
         - --
-        - Telekom
+        - Apple TV
         - TV
         - AirPlay
         - Turntable
