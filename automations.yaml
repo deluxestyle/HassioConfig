@@ -109,7 +109,7 @@
   action:
   - data_template:
       entity_id: media_player.harman_kardon_avr
-      source: '{% if states.input_select.avr_source.state == "Telekom" %}STB {% elif
+      source: '{% if states.input_select.avr_source.state == "AppleTV" %}STB {% elif
         states.input_select.avr_source.state ==  "AirPlay" %}Audio {% elif states.input_select.avr_source.state
         ==  "TV" %}TV {% elif states.input_select.avr_source.state ==  "Home Network"
         %}Home Network {% elif states.input_select.avr_source.state ==  "vTuner" %}vTuner
@@ -1150,6 +1150,7 @@
       hours: 0
       minutes: 0
       seconds: 15
+    id: Airplay
   - platform: state
     entity_id:
     - remote.harmony_hub
@@ -1159,10 +1160,50 @@
       hours: 0
       minutes: 0
       seconds: 15
+    id: turntable
+  - platform: state
+    entity_id:
+    - remote.harmony_hub
+    attribute: current_activity
+    to: Apple TV
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 15
+    id: appletv
+  - platform: state
+    entity_id:
+    - remote.harmony_hub
+    attribute: current_activity
+    to: TV
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 15
+    id: tv
   condition: []
   action:
-  - service: script.harmony_tone
-    data: {}
+  - choose:
+    - conditions:
+      - condition: or
+        conditions:
+        - condition: trigger
+          id: Airplay
+        - condition: trigger
+          id: turntable
+      sequence:
+      - service: script.harmony_tone
+        data: {}
+    - conditions:
+      - condition: or
+        conditions:
+        - condition: trigger
+          id: appletv
+        - condition: trigger
+          id: tv
+      sequence:
+      - service: script.harmony_tone_bass_verringern
+        data: {}
   mode: single
 - id: '1673599304677'
   alias: 'Entertainment: Fix TV'
@@ -1315,4 +1356,15 @@
   - service: homeassistant.disable_config_entry
     data:
       config_entry_id: d3bd095efc0273661c4231c26f928ded
+  mode: single
+- id: '1684614441041'
+  alias: 'Sonos: Volume anpassen'
+  description: ''
+  trigger:
+  - platform: time
+    at: 00:00:01
+  condition: []
+  action:
+  - service: script.sonos_set_volume_4
+    data: {}
   mode: single
