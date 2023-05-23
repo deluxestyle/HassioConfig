@@ -1250,7 +1250,7 @@
   - service: remote.send_command
     data:
       device: '78764380'
-      command: 78764380
+      command: PowerOn
     target:
       entity_id: remote.harmony_hub
   mode: single
