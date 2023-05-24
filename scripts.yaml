@@ -43,10 +43,10 @@ harmony_power_off:
   - condition: not
     conditions:
     - condition: state
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
       state: 'off'
   - data:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
     service: remote.turn_off
   mode: single
   icon: mdi:power
@@ -56,7 +56,7 @@ harmony_tv_power_off:
   - data:
       command: PowerOff
       device: '57574101'
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
     service: remote.send_command
   mode: single
 harmony_avr_power_off:
@@ -64,8 +64,8 @@ harmony_avr_power_off:
   sequence:
   - data:
       command: PowerOff
-      device: '57574103'
-      entity_id: remote.harmony_hub
+      device: '79732408'
+      entity_id: remote.harmony_hub_2
     service: remote.send_command
   mode: single
 harmony_tv_power_on:
@@ -74,7 +74,7 @@ harmony_tv_power_on:
   - data:
       command: PowerOn
       device: '57574101'
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
     service: remote.send_command
   mode: single
 harmony_avr_power_on:
@@ -82,8 +82,8 @@ harmony_avr_power_on:
   sequence:
   - data:
       command: PowerOn
-      device: '57574103'
-      entity_id: remote.harmony_hub
+      device: '79732408'
+      entity_id: remote.harmony_hub_2
     service: remote.send_command
   mode: single
 xiaomi_gateway_alarm_stop:
@@ -270,7 +270,7 @@ alles_ausschalten:
   - service: remote.turn_off
     data: {}
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   mode: single
   icon: mdi:toggle-switch-off-outline
 sonos_set_volume_4:
@@ -398,8 +398,8 @@ harmony_surround_mode:
   sequence:
   - service: remote.send_command
     data:
-      entity_id: remote.harmony_hub
-      device: 57574103
+      entity_id: remote.harmony_hub_2
+      device: 79732408
       command: SurroundMode
   mode: parallel
   icon: mdi:surround-sound
@@ -463,10 +463,10 @@ harmony_volume_up:
   sequence:
   - service: remote.send_command
     data:
-      device: '57574103'
+      device: '79732408'
       command: VolumeUp
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   mode: parallel
   icon: mdi:volume-plus
   max: 10
@@ -475,10 +475,10 @@ harmony_volume_down:
   sequence:
   - service: remote.send_command
     data:
-      device: '57574103'
+      device: '79732408'
       command: VolumeDown
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   mode: parallel
   icon: mdi:volume-minus
   max: 10
@@ -487,10 +487,10 @@ harmony_mute:
   sequence:
   - service: remote.send_command
     data:
-      device: '57574103'
+      device: '79732408'
       command: Mute
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   mode: parallel
   icon: mdi:volume-mute
   max: 10
@@ -526,46 +526,46 @@ harmony_tone:
   sequence:
   - service: remote.send_command
     data:
-      device: 57574103
+      device: 79732408
       command: Tone
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   - service: remote.send_command
     data:
       command: DirectionDown
-      device: '57574103'
+      device: '79732408'
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   - service: remote.send_command
     data:
       command: DirectionRight
-      device: '57574103'
+      device: '79732408'
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   - service: remote.send_command
     data:
       command: DirectionRight
-      device: '57574103'
+      device: '79732408'
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   - service: remote.send_command
     data:
       command: DirectionRight
-      device: '57574103'
+      device: '79732408'
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   - service: remote.send_command
     data:
       command: DirectionRight
-      device: '57574103'
+      device: '79732408'
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   - service: remote.send_command
     data:
       command: DirectionRight
-      device: '57574103'
+      device: '79732408'
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   mode: parallel
   icon: mdi:equalizer
   max: 10
@@ -629,46 +629,46 @@ harmony_tone_bass_verringern:
   sequence:
   - service: remote.send_command
     data:
-      device: 57574103
+      device: 79732408
       command: Tone
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   - service: remote.send_command
     data:
       command: DirectionDown
-      device: '57574103'
+      device: '79732408'
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   - service: remote.send_command
     data:
       command: DirectionLeft
-      device: '57574103'
+      device: '79732408'
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   - service: remote.send_command
     data:
       command: DirectionLeft
-      device: '57574103'
+      device: '79732408'
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   - service: remote.send_command
     data:
       command: DirectionLeft
-      device: '57574103'
+      device: '79732408'
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   - service: remote.send_command
     data:
       command: DirectionLeft
-      device: '57574103'
+      device: '79732408'
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   - service: remote.send_command
     data:
       command: DirectionLeft
-      device: '57574103'
+      device: '79732408'
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   mode: parallel
   icon: mdi:equalizer
   max: 10

@@ -1,6 +1,6 @@
 
 type: 'custom:button-card'
-entity: remote.harmony_hub
+entity: remote.harmony_hub_2
 name: Fernbedienung
 icon: mdi:remote-tv
 template: 

@@ -440,7 +440,7 @@
       minutes: 15
       seconds: 0
     entity_id:
-    - remote.harmony_hub
+    - remote.harmony_hub_2
     to: 'off'
   condition: []
   action:
@@ -523,7 +523,7 @@
   trigger:
   - platform: state
     entity_id:
-    - remote.harmony_hub
+    - remote.harmony_hub_2
     to: 'on'
   condition: []
   action:
@@ -1143,7 +1143,7 @@
   trigger:
   - platform: state
     entity_id:
-    - remote.harmony_hub
+    - remote.harmony_hub_2
     attribute: current_activity
     to: AirPlay 2
     for:
@@ -1153,7 +1153,7 @@
     id: Airplay
   - platform: state
     entity_id:
-    - remote.harmony_hub
+    - remote.harmony_hub_2
     attribute: current_activity
     to: Plattenspieler
     for:
@@ -1163,7 +1163,7 @@
     id: turntable
   - platform: state
     entity_id:
-    - remote.harmony_hub
+    - remote.harmony_hub_2
     attribute: current_activity
     to: Apple TV
     for:
@@ -1173,7 +1173,7 @@
     id: appletv
   - platform: state
     entity_id:
-    - remote.harmony_hub
+    - remote.harmony_hub_2
     attribute: current_activity
     to: TV
     for:
@@ -1211,7 +1211,7 @@
   trigger:
   - platform: state
     entity_id:
-    - remote.harmony_hub
+    - remote.harmony_hub_2
     attribute: current_activity
     to: TV
     for:
@@ -1221,7 +1221,7 @@
     id: TV
   - platform: state
     entity_id:
-    - remote.harmony_hub
+    - remote.harmony_hub_2
     attribute: current_activity
     to: Apple TV
     for:
@@ -1236,10 +1236,10 @@
   action:
   - service: remote.send_command
     data:
-      device: '78764380'
+      device: '79732412'
       command: PowerOn
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   - condition: trigger
     id: TV
   - delay:
@@ -1249,10 +1249,10 @@
       milliseconds: 0
   - service: remote.send_command
     data:
-      device: '78764380'
+      device: '79732412'
       command: PowerOn
     target:
-      entity_id: remote.harmony_hub
+      entity_id: remote.harmony_hub_2
   mode: single
 - id: '1677324816990'
   alias: 'Benachrichtigung: Updates'
@@ -1269,6 +1269,7 @@
     - update.wud_container_local_vaultwarden
     - update.wud_container_local_wud
     - binary_sensor.updater_hacs
+    - binary_sensor.docker_hub_update_available
     to: 'on'
   condition: []
   action:
