@@ -1149,7 +1149,7 @@
     for:
       hours: 0
       minutes: 0
-      seconds: 15
+      seconds: 30
     id: Airplay
   - platform: state
     entity_id:
@@ -1159,7 +1159,7 @@
     for:
       hours: 0
       minutes: 0
-      seconds: 15
+      seconds: 30
     id: turntable
   - platform: state
     entity_id:
@@ -1169,7 +1169,7 @@
     for:
       hours: 0
       minutes: 0
-      seconds: 15
+      seconds: 30
     id: appletv
   - platform: state
     entity_id:
@@ -1179,7 +1179,7 @@
     for:
       hours: 0
       minutes: 0
-      seconds: 15
+      seconds: 30
     id: tv
   condition: []
   action:
