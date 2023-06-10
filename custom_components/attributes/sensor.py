@@ -20,7 +20,7 @@ from homeassistant.helpers.restore_state import RestoreEntity
 from homeassistant.helpers import template as template_helper
 from homeassistant.util import slugify
 
-__version__ = '1.2.0'
+__version__ = '1.2.1'
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -41,8 +41,12 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
 })
 
 
-@asyncio.coroutine
-def async_setup_platform(hass, config, async_add_devices, discovery_info=None):
+async def async_setup_platform(
+    hass,
+    config,
+    async_add_devices,
+    discovery_info=None
+):
     """Set up the attributes sensors."""
     _LOGGER.info("Starting attribute sensor")
     sensors = []
@@ -54,7 +58,7 @@ def async_setup_platform(hass, config, async_add_devices, discovery_info=None):
         if (attr == "last_triggered" or
                 attr == "last_changed") and time_format:
 
-            state_template = ("{{% if states('{0}') != '{2}' "
+            state_template = ("{{% if states('{0}') != '{3}' "
                               "and states('{0}') != '{4}' %}}\
                               {{{{ as_timestamp(state_attr('{0}', '{1}'))\
                               | int | timestamp_local()\
@@ -200,10 +204,9 @@ class AttributeSensor(RestoreEntity):
         self._icon = None
         self._entity = entity_id
 
-    @asyncio.coroutine
-    def async_added_to_hass(self):
+    async def async_added_to_hass(self):
         """Register callbacks."""
-        state = yield from self.async_get_last_state()
+        state = await self.async_get_last_state()
         if state:
             self._state = state.state
 
@@ -258,8 +261,7 @@ class AttributeSensor(RestoreEntity):
         """No polling needed."""
         return False
 
-    @asyncio.coroutine
-    def async_update(self):
+    async def async_update(self):
         """Update the state from the template and the friendly name."""
 
         entity_state = self.hass.states.get(self._entity)

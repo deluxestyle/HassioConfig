@@ -84,6 +84,7 @@ timer:
 input_text:
 input_button:
 schedule:
+command_line: !include config_files/command_line.yaml
 
 python_script:
 

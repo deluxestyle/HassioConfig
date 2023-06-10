@@ -1,0 +1,21 @@
+- sensor:
+    name: CPU Temperature
+    command: "cat /sys/class/thermal/thermal_zone0/temp"
+    unit_of_measurement: "°C"
+    value_template: '{{ value | multiply(0.001) | round(1) }}'
+
+- sensor:
+    unique_id: pihole
+    name: pihole
+    scan_interval: 10
+    command: curl -s -X GET 'http://192.168.200.33:88/admin/api.php?status&auth=d150ea5c83cfc740a884f6d2ced8c836a2d65504c438002cda5cc023dd71d8c6'
+    value_template: >
+      {{ value_json.status }}
+
+- sensor:
+    unique_id: nextcloud_version
+    name: nextcloud_version
+    scan_interval: 6000
+    command: curl -s -X GET 'https://next.tanzer-online.com/status.php'
+    value_template: >
+      {{ value_json.versionstring }}
