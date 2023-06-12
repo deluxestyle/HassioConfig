@@ -185,8 +185,16 @@ notify_script:
 notify_clean_messages:
   alias: Mitteilungen löschen
   sequence:
-  - data: {}
-    service: python_script.dismiss_notifications
+  - alias: Repeat Dismiss action for all
+    repeat:
+      for_each: '{{ states.persistent_notification | map(attribute=''object_id'')
+        | list }}
+
+        '
+      sequence:
+      - service: persistent_notification.dismiss
+        data:
+          notification_id: '{{ repeat.item }}'
   mode: single
 sonos_radio_b5_aktuell:
   alias: 'Sonos: Radio BR24'
