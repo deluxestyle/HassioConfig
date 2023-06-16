@@ -96,7 +96,8 @@ cards:
           browser_mod:
             service: browser_mod.popup
             data:
-              title: Docker Container
+              # title: Docker Container
+              right_button: Schließen
               style: |
                 --popup-border-width: 0px;
                 --ha-card-border-color: var(--popup-border-color);
@@ -172,7 +173,8 @@ cards:
           browser_mod:
             service: browser_mod.popup
             data:
-              title: Status
+              # title: Status
+              right_button: Schließen
               style: |
                 --popup-border-width: 0px;
                 --ha-card-border-color: var(--popup-border-color);

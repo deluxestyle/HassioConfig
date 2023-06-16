@@ -49,7 +49,8 @@ cards:
           browser_mod:
             service: browser_mod.popup
             data:
-              title: Pi-hole Stats
+              # title: Pi-hole Stats
+              right_button: Schließen
               style: |
                 --popup-border-width: 0px;
                 --ha-card-border-color: var(--popup-border-color);

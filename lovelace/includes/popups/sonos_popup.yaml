@@ -1,6 +1,7 @@
 # lovelace_gen
 
-title: Sonos
+# title: ' ' #Sonos
+right_button: Schließen
 size: normal
 style: |
   --popup-border-width: 0px;

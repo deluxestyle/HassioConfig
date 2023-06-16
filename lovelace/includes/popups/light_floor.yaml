@@ -2,7 +2,8 @@
 
 service: browser_mod.popup
 data:
-  title: Szenen
+  # title: ' ' #Szenen
+  right_button: Schließen
   style: |
     --popup-border-width: 0px;
     --ha-card-border-color: var(--popup-border-color);

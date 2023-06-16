@@ -1,5 +1,6 @@
 
-title: Fernbedienung
+# title: ' ' #Fernbedienung
+right_button: Schließen
 style: |
   --popup-border-width: 0px;
   --ha-card-border-color: var(--popup-border-color);
