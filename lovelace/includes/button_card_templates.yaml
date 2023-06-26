@@ -686,33 +686,6 @@
     template: 
       - standard_style
 
-  chips:
-    tap_action:
-      action: more-info
-      haptic: medium
-    show_icon: true
-    show_name: true
-    show_state: true
-    show_label: true
-    size: 80%
-    styles:
-      img_cell:
-        - width: 24px
-      card:
-        - border-radius: 18px
-        # - box-shadow: var(--box-shadow)
-        - height: 36px
-        - width: auto
-        - padding-left: 6px
-        - padding-right: 6px
-      grid:
-        - grid-template-areas: '"l"'
-      label:
-        - justify-self: center
-        - padding: 0px 6px
-        - font-weight: bold
-        - font-size: 14px
-
   title:
     tap_action:
       action: none

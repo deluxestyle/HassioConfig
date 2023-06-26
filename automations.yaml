@@ -982,50 +982,6 @@
           entity_id: media_player.kuche
     default: []
   mode: single
-- id: '1651490190900'
-  alias: 'Licht: Bewegung Flur '
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.bewegungsmelder
-    to: 'on'
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: time
-        after: 07:00:00
-        before: '19:00:00'
-      sequence:
-      - service: scene.turn_on
-        data: {}
-        target:
-          entity_id: scene.flur_tageslicht
-    default:
-    - service: scene.turn_on
-      data: {}
-      target:
-        entity_id: scene.flur_nachtlicht
-  - repeat:
-      until:
-      - condition: state
-        entity_id: binary_sensor.bewegungsmelder
-        state: 'off'
-      sequence:
-      - delay:
-          hours: 0
-          minutes: 3
-          seconds: 0
-          milliseconds: 0
-      - condition: state
-        state: 'off'
-        entity_id: binary_sensor.bewegungsmelder
-      - service: light.turn_off
-        data: {}
-        target:
-          entity_id: light.flur
-  mode: restart
 - id: '1658949383573'
   alias: 'Internet: Neustart'
   description: ''
@@ -1300,19 +1256,22 @@
   action:
   - choose:
     - conditions:
+      - condition: state
+        entity_id: input_boolean.flur_dimmlicht
+        state: 'on'
       - condition: time
-        after: 07:00:00
-        before: '19:00:00'
+        after: input_datetime.flur_abends
+        before: input_datetime.flur_morgens
       sequence:
       - service: scene.turn_on
         data: {}
         target:
-          entity_id: scene.flur_tageslicht
+          entity_id: scene.flur_nachtlicht
     default:
     - service: scene.turn_on
       data: {}
       target:
-        entity_id: scene.flur_nachtlicht
+        entity_id: scene.flur_tageslicht
   - repeat:
       until:
       - condition: state

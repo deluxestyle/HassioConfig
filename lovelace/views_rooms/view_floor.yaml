@@ -12,10 +12,27 @@ cards:
     entities:
       - entity: light.flur
         name: Flurlicht
-        tap_action:
+        tap_action: 
           action: toggle
         double_tap_action:
           action: more-info
+        extend_paper_buttons_row:
+          buttons:
+            - name: Szenen
+              icon: mdi:lightbulb-group-outline
+              tap_action: 
+                action: fire-dom-event
+                browser_mod:
+                  !include ../includes/popups/light_floor.yaml
+      - type: custom:fold-entity-row
+        padding: 5
+        head:
+          type: section
+          label: Einstellungen
+        entities:
+          - entity: input_boolean.flur_dimmlicht
+          - entity: input_datetime.flur_morgens
+          - entity: input_datetime.flur_abends
         # double_tap_action:
         #   !include 
         #     - ../includes/popups/light_popup.yaml

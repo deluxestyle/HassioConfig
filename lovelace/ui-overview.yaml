@@ -118,6 +118,10 @@ cards:
             - includes/multimedia/media_player_small.yaml
             - entity: wohnzimmer
               name: Wohnzimmer
+      # - !include 
+      #       - includes/multimedia/media_player_small.yaml
+      #       - entity: era_300
+      #         name: Era 300
       - !include 
             - includes/multimedia/media_player_small.yaml
             - entity: kuche

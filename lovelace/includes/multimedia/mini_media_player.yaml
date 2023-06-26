@@ -26,6 +26,8 @@ cards:
       entities:
         - entity_id: media_player.wohnzimmer
           name: Sonos Wohnzimmer 
+        # - entity_id: media_player.era_300
+        #   name: Sonos Era 300 
         - entity_id: media_player.kuche
           name: Sonos Küche
         - entity_id: media_player.schlafzimmer

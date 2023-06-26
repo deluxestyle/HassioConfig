@@ -18,6 +18,7 @@ sonos_stopp:
       - media_player.kuche
       - media_player.wohnzimmer
       - media_player.schlafzimmer
+      - media_player.era_300
   mode: single
   icon: mdi:music-note-off
 xiaomi_vacuum_start:
@@ -219,6 +220,7 @@ sonos_set_volume_10:
       - media_player.wohnzimmer
       - media_player.schlafzimmer
       - media_player.kuche
+      - media_player.era_300
   mode: single
 sonos_join:
   alias: 'Sonos: join'
@@ -247,6 +249,7 @@ sonos_set_volume_8:
       - media_player.wohnzimmer
       - media_player.schlafzimmer
       - media_player.kuche
+      - media_player.era_300
   mode: single
 alles_ausschalten:
   alias: Alles ausschalten
@@ -292,6 +295,7 @@ sonos_set_volume_4:
       - media_player.wohnzimmer
       - media_player.schlafzimmer
       - media_player.kuche
+      - media_player.era_300
   mode: single
 sonos_mute:
   alias: 'Sonos: Set volume - Mute'
@@ -680,3 +684,21 @@ harmony_tone_bass_verringern:
   mode: parallel
   icon: mdi:equalizer
   max: 10
+spulmaschine:
+  alias: 'Spülmaschine '
+  sequence:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.402060518382006939_bsh_common_setting_powerstate
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
+  - service: button.press
+    data: {}
+    target:
+      entity_id: button.402060518382006939_start_pause
+  mode: single
+  icon: mdi:dishwasher

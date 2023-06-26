@@ -1,6 +1,5 @@
 
-# title: ' ' #Fernbedienung
-right_button: Schließen
+title: Fernbedienung
 style: |
   --popup-border-width: 0px;
   --ha-card-border-color: var(--popup-border-color);
@@ -518,7 +517,7 @@ content:
           padding: 5px
           entities:
             - entity: select.harmony_hub_2_activities
-            # - entity: remote.appletv
+            - entity: media_player.appletv
         - type: section
         - entity: switch.steckdosenleiste
           name: Steckdosenleiste

@@ -5,8 +5,7 @@ haptic: medium
 browser_mod:  
   service: browser_mod.popup
   data:
-    # title: ' ' #Timer
-    right_button: Schließen
+    title: Timer
     style: |
       --popup-border-width: 0px;
       --ha-card-border-color: var(--popup-border-color);
