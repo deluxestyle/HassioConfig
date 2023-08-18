@@ -15,10 +15,9 @@ sonos_stopp:
     service: media_player.media_stop
     target:
       entity_id:
-      - media_player.kuche
+      - media_player.fernsehzimmer
       - media_player.wohnzimmer
-      - media_player.schlafzimmer
-      - media_player.era_300
+      - media_player.office
   mode: single
   icon: mdi:music-note-off
 xiaomi_vacuum_start:
@@ -206,7 +205,7 @@ sonos_radio_b5_aktuell:
       source: 'Radio: BR24'
     service: media_player.select_source
     target:
-      entity_id: media_player.schlafzimmer
+      entity_id: media_player.office
   mode: single
   icon: mdi:radio
 sonos_set_volume_10:
@@ -218,24 +217,23 @@ sonos_set_volume_10:
     target:
       entity_id:
       - media_player.wohnzimmer
-      - media_player.schlafzimmer
-      - media_player.kuche
-      - media_player.era_300
+      - media_player.office
+      - media_player.fernsehzimmer
   mode: single
 sonos_join:
   alias: 'Sonos: join'
   sequence:
   - service: media_player.join
     data:
-      group_members: media_player.kuche
+      group_members: media_player.fernsehzimmer
     target:
       entity_id:
-      - media_player.schlafzimmer
+      - media_player.office
   - service: media_player.join
     data:
       group_members: media_player.wohnzimmer
     target:
-      entity_id: media_player.schlafzimmer
+      entity_id: media_player.office
   mode: single
   icon: mdi:set-center
 sonos_set_volume_8:
@@ -247,9 +245,8 @@ sonos_set_volume_8:
     target:
       entity_id:
       - media_player.wohnzimmer
-      - media_player.schlafzimmer
-      - media_player.kuche
-      - media_player.era_300
+      - media_player.office
+      - media_player.fernsehzimmer
   mode: single
 alles_ausschalten:
   alias: Alles ausschalten
@@ -293,9 +290,8 @@ sonos_set_volume_4:
     target:
       entity_id:
       - media_player.wohnzimmer
-      - media_player.schlafzimmer
-      - media_player.kuche
-      - media_player.era_300
+      - media_player.office
+      - media_player.fernsehzimmer
   mode: single
 sonos_mute:
   alias: 'Sonos: Set volume - Mute'
@@ -305,9 +301,9 @@ sonos_mute:
     service: media_player.volume_mute
     target:
       entity_id:
-      - media_player.schlafzimmer
+      - media_player.office
       - media_player.wohnzimmer
-      - media_player.kuche
+      - media_player.fernsehzimmer
   mode: single
   icon: mdi:volume-mute
 sonos_set_wake_up_volume:
@@ -317,7 +313,7 @@ sonos_set_wake_up_volume:
       volume_level: 0.01
     service: media_player.volume_set
     target:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
+      entity_id: media_player.wohnzimmer, media_player.office, media_player.fernsehzimmer
   - service: media_player.volume_mute
     target:
       device_id:
@@ -335,7 +331,7 @@ sonos_set_wake_up_volume:
       volume_level: 0.02
     service: media_player.volume_set
     target:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
+      entity_id: media_player.wohnzimmer, media_player.office, media_player.fernsehzimmer
   - delay:
       hours: 0
       minutes: 1
@@ -345,7 +341,7 @@ sonos_set_wake_up_volume:
       volume_level: 0.03
     service: media_player.volume_set
     target:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
+      entity_id: media_player.wohnzimmer, media_player.office, media_player.fernsehzimmer
   - delay:
       hours: 0
       minutes: 1
@@ -355,7 +351,7 @@ sonos_set_wake_up_volume:
       volume_level: 0.04
     service: media_player.volume_set
     target:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
+      entity_id: media_player.wohnzimmer, media_player.office, media_player.fernsehzimmer
   - delay:
       hours: 0
       minutes: 1
@@ -365,7 +361,7 @@ sonos_set_wake_up_volume:
       volume_level: 0.05
     service: media_player.volume_set
     target:
-      entity_id: media_player.wohnzimmer, media_player.schlafzimmer, media_player.kuche
+      entity_id: media_player.wohnzimmer, media_player.office, media_player.fernsehzimmer
   mode: single
   icon: mdi:volume-medium
 sonos_wecker:
@@ -422,7 +418,7 @@ sonos_kuche_bayern_1:
   - service: media_player.unjoin
     data: {}
     target:
-      entity_id: media_player.kuche
+      entity_id: media_player.fernsehzimmer
   - service: media_player.volume_set
     data:
       volume_level: 0.08
@@ -440,7 +436,7 @@ sonos_kuche_bayern_1_2:
   - service: media_player.unjoin
     data: {}
     target:
-      entity_id: media_player.kuche
+      entity_id: media_player.fernsehzimmer
   - service: media_player.volume_set
     data:
       volume_level: 0.08
@@ -458,7 +454,7 @@ sonos_kuche_arabella:
   - service: media_player.unjoin
     data: {}
     target:
-      entity_id: media_player.kuche
+      entity_id: media_player.fernsehzimmer
   - service: media_player.volume_set
     data:
       volume_level: 0.08
@@ -521,7 +517,7 @@ sonos_kuche_bayern_2:
   - service: media_player.unjoin
     data: {}
     target:
-      entity_id: media_player.kuche
+      entity_id: media_player.fernsehzimmer
   - service: media_player.volume_set
     data:
       volume_level: 0.08
@@ -690,7 +686,7 @@ spulmaschine:
   - service: switch.turn_on
     data: {}
     target:
-      entity_id: switch.402060518382006939_bsh_common_setting_powerstate
+      entity_id: switch.013050391085014163_bsh_common_setting_powerstate
   - delay:
       hours: 0
       minutes: 0
@@ -699,6 +695,6 @@ spulmaschine:
   - service: button.press
     data: {}
     target:
-      entity_id: button.402060518382006939_start_pause
+      entity_id: button.013050391085014163_start_pause
   mode: single
   icon: mdi:dishwasher

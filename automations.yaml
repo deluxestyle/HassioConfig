@@ -1,29 +1,3 @@
-- id: family_not_home
-  alias: 'Abwesenheitsmodus: aktivieren (per Push)'
-  description: Schaltet alle Lichter und Steckdosen aus und aktiviert den Bewegungssensor
-  trigger:
-  - platform: event
-    event_type: mobile_app_notification_action
-    event_data:
-      action: TURN_ON_ABSENCE
-  - platform: event
-    event_type: ios.action_fired
-    event_data:
-      actionName: absence
-  condition: []
-  action:
-  - data: {}
-    service: script.alles_ausschalten
-  - data: {}
-    service: automation.turn_on
-    target:
-      entity_id:
-      - automation.benachrichtigung_wohnungstur_offen
-  - service: input_boolean.turn_on
-    data: {}
-    target:
-      entity_id: input_boolean.abwesenheitsmodus
-  mode: single
 - id: xiaomi_vacuum_notification_off
   alias: 'Xiaomi Staubsauger: Benachrichtigung fertig'
   trigger:
@@ -151,110 +125,6 @@
     data: {}
     target:
       entity_id: vacuum.roborock_vacuum
-  mode: single
-- id: '1540494970737'
-  alias: 'Benachrichtigung: Bewegung erkannt'
-  trigger:
-  - platform: state
-    to: 'on'
-    entity_id:
-    - binary_sensor.presence_51
-  condition:
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: vacuum.roborock_vacuum
-      state: cleaning
-  action:
-  - delay:
-      hours: 0
-      minutes: 1
-      seconds: 30
-      milliseconds: 0
-  - condition: state
-    entity_id: group.presence
-    state: not_home
-  - data:
-      entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
-  - data:
-      message: Bewegung erkannt
-      notification_id: alert
-      title: Bewegungsmelder
-    service: script.notify_script
-  initial_state: false
-  mode: single
-- id: '1540974552306'
-  alias: 'Benachrichtigung: Luftfeuchtigkeit'
-  trigger:
-  - entity_id: sensor.humidity_158d0001b8c96c
-    platform: numeric_state
-    above: 60
-    for:
-      hours: 0
-      minutes: 5
-      seconds: 0
-  - entity_id: sensor.humidity_158d0001b8c998
-    platform: numeric_state
-    above: 60
-    for:
-      hours: 0
-      minutes: 5
-      seconds: 0
-  - entity_id: sensor.humidity_158d0002239fb5
-    platform: numeric_state
-    above: 60
-    for:
-      hours: 0
-      minutes: 5
-      seconds: 0
-    enabled: true
-  condition: []
-  action:
-  - data:
-      entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
-  - choose:
-    - conditions:
-      - condition: time
-        after: 08:00:00
-        before: '18:45:00'
-      sequence:
-      - data:
-          message: '{{ trigger.from_state.attributes.friendly_name }} zu hoch: {{
-            trigger.to_state.state }} % '
-          notification_id: Luftfeuchtigkeit
-          title: Luftfeuchtigkeit
-        service: script.benachrichtigungen_nicht_actionable_duplizieren
-    default:
-    - data:
-        message: '{{ trigger.from_state.attributes.friendly_name }} zu hoch: {{ trigger.to_state.state
-          }} % '
-        notification_id: Luftfeuchtigkeit
-        title: Luftfeuchtigkeit
-      service: script.notify_script
-  mode: single
-- id: '1541096569503'
-  alias: 'Anwesenheit: Bewegungsmelder - Alarm'
-  trigger:
-  - entity_id:
-    - binary_sensor.bewegungsmelder
-    platform: state
-    to: 'on'
-  condition:
-  - after: '23:30:00'
-    before: 05:00:00
-    condition: time
-  action:
-  - data:
-      gw_mac: 7811DCB258D1
-      ringtone_id: '0'
-      ringtone_vol: 20
-    service: xiaomi_aqara.play_ringtone
-  - delay: 00:02:00
-  - data: {}
-    service: script.xiaomi_gateway_alarm_stop
-  initial_state: false
   mode: single
 - id: '1542650541048'
   alias: 'Xiaomi Staubsauger: Benachrichtigung Sensor kritisch'
@@ -471,33 +341,6 @@
       notification_id: cpu_temp
       title: CPU Temp
     service: script.notify_script
-- id: '1604932069752'
-  alias: 'Benachrichtigung: Wohnungstür offen'
-  description: ''
-  trigger:
-  - platform: state
-    to: 'on'
-    entity_id: binary_sensor.fenster_turkontaktsensor
-  condition: []
-  action:
-  - delay:
-      hours: 0
-      minutes: 1
-      seconds: 30
-      milliseconds: 0
-  - condition: state
-    state: not_home
-    entity_id: person.wolfgang
-    for: 00:03:00
-  - data:
-      entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
-  - data:
-      message: Wohnungstür geöffnet
-      notification_id: alert
-      title: Bewegungsmelder
-    service: script.notify_script
-  mode: restart
 - id: '1584265149080'
   alias: 'Benachrichtigung: CPU Auslastung zu hoch'
   description: ''
@@ -597,89 +440,6 @@
         - action: START_VACUUM
           title: Starten
   mode: single
-- id: '1630241435170'
-  alias: 'Kaffeemaschine: Benachrichtigung Steckdose'
-  description: ''
-  trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.kaffeemaschine
-  condition: []
-  action:
-  - service: notify.all_ios_devices
-    data:
-      message: Kaffeemaschine ist noch an
-      data:
-        actions:
-        - action: SWITCH_OFF_COFFEE
-          title: Steckdose ausschalten
-        tag: Kaffeemaschine
-  - service: timer.start
-    data:
-      duration: 00:10:00
-    target:
-      entity_id: timer.kaffeemaschine
-  - service: input_boolean.turn_on
-    target:
-      entity_id: input_boolean.kaffeemaschine_steckdose
-    data: {}
-  mode: single
-- id: '1630241702798'
-  alias: 'Kaffeemaschine: Steckdose aus nach Push'
-  description: ''
-  trigger:
-  - platform: event
-    event_type: mobile_app_notification_action
-    event_data:
-      action: SWITCH_OFF_COFFEE
-  condition: []
-  action:
-  - service: switch.turn_off
-    data: {}
-    target:
-      entity_id: switch.steckdose_3
-  mode: single
-- id: '1630242296075'
-  alias: 'Kaffeemaschine: Timer'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - switch.steckdose_3
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: state
-        state: 'on'
-        entity_id: switch.steckdose_3
-      sequence:
-      - service: timer.start
-        data:
-          duration: 00:20:00
-        target:
-          entity_id: timer.kaffeemaschine
-    - conditions:
-      - condition: state
-        state: 'off'
-        entity_id: switch.steckdose_3
-      sequence:
-      - service: timer.cancel
-        target:
-          entity_id: timer.kaffeemaschine
-        data: {}
-      - service: input_boolean.turn_off
-        target:
-          entity_id: input_boolean.kaffeemaschine_steckdose
-        data: {}
-      - service: notify.all_ios_devices
-        data:
-          message: clear_notification
-          data:
-            tag: Kaffeemaschine
-    default: []
-  mode: single
 - id: '1630350328215'
   alias: 'Batterie: Niedriger Batteriestand'
   description: ''
@@ -706,21 +466,6 @@
         entity_id:
         - sensor.ipad_battery_level
         - sensor.iphone14pro_battery_level
-- id: '1631286411270'
-  alias: 'Kaffeemaschine: Ausschalten nach 20 Minuten'
-  description: ''
-  trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.kaffeemaschine
-  condition: []
-  action:
-  - service: switch.turn_off
-    data: {}
-    target:
-      entity_id: switch.steckdose_3
-  mode: single
 - id: '1634394580227'
   alias: 'DS118: Benachrichtigung shutdown'
   description: ''
@@ -756,231 +501,6 @@
   - service: switch.turn_on
     target:
       entity_id: switch.ds118
-  mode: single
-- id: '1634457704422'
-  alias: Abwesenheitsmodus
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - group.presence
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 0
-    to: not_home
-  - platform: state
-    entity_id: group.presence
-    to: home
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: group.presence
-        state: not_home
-        for:
-          hours: 0
-          minutes: 0
-          seconds: 0
-      - condition: state
-        entity_id: input_boolean.abwesenheitsmodus
-        state: 'off'
-      sequence:
-      - service: notify.all_ios_devices
-        data:
-          data:
-            actions:
-            - action: TURN_ON_ABSENCE
-              title: Abweseheitsmodus aktivieren
-          message: Niemand ist mehr zu Hause
-      - service: automation.turn_on
-        data: {}
-        target:
-          entity_id: automation.benachrichtigung_wohnungstur_offen
-    - conditions:
-      - condition: state
-        entity_id: group.presence
-        state: home
-      sequence:
-      - data: {}
-        service: automation.turn_off
-        target:
-          entity_id:
-          - automation.benachrichtigung_wohnungstur_offen
-      - service: input_boolean.turn_off
-        data: {}
-        target:
-          entity_id: input_boolean.abwesenheitsmodus
-    default: []
-  mode: restart
-- id: '1644489340800'
-  alias: 'Sonos: unjoin'
-  description: ''
-  trigger:
-  - platform: time
-    at: 01:00
-  condition: []
-  action:
-  - service: media_player.unjoin
-    data: {}
-    target:
-      entity_id: media_player.schlafzimmer
-  mode: single
-- id: '1644583530100'
-  alias: 'Sonos: Touch Schlafzimmer'
-  description: ''
-  trigger:
-  - platform: time
-    id: aus
-    at: '22:30'
-  - platform: time
-    at: 08:00
-    id: an
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: trigger
-        id: aus
-      sequence:
-      - service: switch.turn_off
-        data: {}
-        target:
-          entity_id: switch.sonos_schlafzimmer_touch_controls
-    - conditions:
-      - condition: trigger
-        id: an
-      sequence:
-      - service: switch.turn_on
-        data: {}
-        target:
-          entity_id: switch.sonos_schlafzimmer_touch_controls
-    default: []
-  mode: single
-- id: '1648892553661'
-  alias: 'Sonos: Küche'
-  description: ''
-  trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_fernbedienung
-      unique_id: 5c:02:72:ff:fe:40:3a:25
-      event: 1002
-      device_id: 055f6416a4714103c74a8e75080ec589
-    id: bayern_1
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_fernbedienung
-      unique_id: 5c:02:72:ff:fe:40:3a:25
-      event: 3002
-      device_id: 055f6416a4714103c74a8e75080ec589
-    id: br24
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_fernbedienung
-      unique_id: 5c:02:72:ff:fe:40:3a:25
-      event: 2002
-      device_id: 055f6416a4714103c74a8e75080ec589
-    id: bayern2
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_fernbedienung
-      unique_id: 5c:02:72:ff:fe:40:3a:25
-      event: 4002
-      device_id: 055f6416a4714103c74a8e75080ec589
-    id: leiser
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_fernbedienung
-      unique_id: 5c:02:72:ff:fe:40:3a:25
-      event: 5002
-      device_id: 055f6416a4714103c74a8e75080ec589
-    id: lauter
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: tradfri_fernbedienung
-      unique_id: 5c:02:72:ff:fe:40:3a:25
-      event: 1001
-      device_id: 055f6416a4714103c74a8e75080ec589
-    id: stop
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: dimmschalter
-      unique_id: 00:17:88:01:10:6f:26:73
-      event: 2002
-      device_id: 93e695d3c6444a3632bca4fa556f8c04
-    id: dimmer
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: or
-        conditions:
-        - condition: trigger
-          id: bayern_1
-        - condition: trigger
-          id: dimmer
-      sequence:
-      - choose:
-        - conditions:
-          - condition: device
-            device_id: 2094b86c2a0d860eeddf623406678e39
-            domain: media_player
-            entity_id: media_player.kuche
-            type: is_playing
-          sequence:
-          - service: media_player.media_pause
-            data: {}
-            target:
-              device_id: 2094b86c2a0d860eeddf623406678e39
-        default:
-        - service: script.sonos_kuche_bayern_1
-          data: {}
-    - conditions:
-      - condition: trigger
-        id: br24
-      sequence:
-      - service: script.sonos_kuche_bayern_1_2
-        data: {}
-    - conditions:
-      - condition: trigger
-        id: bayern2
-      sequence:
-      - service: script.sonos_kuche_bayern_2
-        data: {}
-    - conditions:
-      - condition: trigger
-        id: leiser
-      sequence:
-      - service: media_player.volume_down
-        data: {}
-        target:
-          entity_id: media_player.kuche
-    - conditions:
-      - condition: trigger
-        id: lauter
-      sequence:
-      - service: media_player.volume_up
-        data: {}
-        target:
-          entity_id: media_player.kuche
-    - conditions:
-      - condition: trigger
-        id: stop
-      sequence:
-      - service: media_player.turn_off
-        data: {}
-        target:
-          entity_id: media_player.kuche
-    default: []
   mode: single
 - id: '1658949383573'
   alias: 'Internet: Neustart'
@@ -1064,7 +584,7 @@
   trigger:
   - platform: state
     entity_id:
-    - sensor.402060518382006939_bsh_common_status_operationstate
+    - sensor.013050391085014163_bsh_common_status_operationstate
     to: BSH.Common.EnumType.OperationState.Finished
   condition: []
   action:
@@ -1076,22 +596,6 @@
       notification_id: dish_washer
       title: Geschirrspüler
     service: script.notify_script
-  mode: single
-- id: '1667588047117'
-  alias: 'Licht: Nachtlicht'
-  description: ''
-  trigger:
-  - device_id: 675814098aa35a2beec63d074cf3616f
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: left
-  condition: []
-  action:
-  - service: light.toggle
-    data: {}
-    target:
-      entity_id: light.yeelight_bslamp1_0x0000000005451cd6
   mode: single
 - id: '1668452168948'
   alias: 'Harmony: Set Bass'
@@ -1225,7 +729,7 @@
     - update.wud_container_local_vaultwarden
     - update.wud_container_local_wud
     - binary_sensor.updater_hacs
-    - binary_sensor.docker_hub_update_available
+    - binary_sensor.home_assistant_versions_update_available
     to: 'on'
   condition: []
   action:
@@ -1239,58 +743,6 @@
       title: Update
     service: script.notify_script
   mode: single
-- id: '1677513658141'
-  alias: 'Licht: Bewegung Flur (Sonoff)'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.presence_51
-    to: 'on'
-  - type: opened
-    platform: device
-    device_id: 221d658c5eb3ca91fa4a4a3d41598c66
-    entity_id: binary_sensor.fenster_turkontaktsensor
-    domain: binary_sensor
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: input_boolean.flur_dimmlicht
-        state: 'on'
-      - condition: time
-        after: input_datetime.flur_abends
-        before: input_datetime.flur_morgens
-      sequence:
-      - service: scene.turn_on
-        data: {}
-        target:
-          entity_id: scene.flur_nachtlicht
-    default:
-    - service: scene.turn_on
-      data: {}
-      target:
-        entity_id: scene.flur_tageslicht
-  - repeat:
-      until:
-      - condition: state
-        state: 'off'
-        entity_id: binary_sensor.presence_51
-      sequence:
-      - delay:
-          hours: 0
-          minutes: 3
-          seconds: 0
-          milliseconds: 0
-      - condition: state
-        state: 'off'
-        entity_id: binary_sensor.presence_51
-      - service: light.turn_off
-        data: {}
-        target:
-          entity_id: light.flur
-  mode: restart
 - id: '1678891141768'
   alias: 'HomeAssistant: Stop'
   description: ''
@@ -1327,4 +779,28 @@
   action:
   - service: script.sonos_set_volume_4
     data: {}
+  mode: single
+- id: '1690204816775'
+  alias: 'Benachrichtigung: Datenvolumen'
+  description: ''
+  trigger:
+  - above: 70
+    entity_id: sensor.congstar_volume
+    platform: numeric_state
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+    attribute: usedPercentage
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
+      message: 'Datenvolumen erreicht kritischen Wert: {{ states.sensor.congstar_volume.state
+        }} '
+      notification_id: congstar
+      title: Datenvolumen
+    service: script.notify_script
   mode: single

@@ -58,3 +58,19 @@
       - update
   value_template: >
     {{ value_json.update | default('OFF', true) }}
+
+
+# - platform: rest
+#   unique_id: congstar_volume
+#   name: congstar_volume
+#   scan_interval: 120
+#   unit_of_measurement: GB
+#   resource: https://pass.telekom.de/api/service/generic/v1/status
+#   json_attributes:
+#       - usedVolumeStr
+#       - initialVolumeStr
+#       - remainingTimeStr
+#       - usedPercentage
+#       - usedVolume
+#   value_template: >
+#     {{ value_json.usedVolume | float / 1024 / 1024 / 1024  }}

@@ -1,24 +1,24 @@
 filter:
   include_entities:
-    - light.yeelight_bslamp1_0x0000000005451cd6
-    - light.wohnzimmer_decke
-    - light.kuche
-    - light.flur
-    - light.schlafzimmer
+    # - light.yeelight_bslamp1_0x0000000005451cd6
+    # - light.wohnzimmer_decke
+    # - light.kuche
+    # - light.flur
+    # - light.schlafzimmer
     - media_player.schlafzimmer
     - media_player.wohnzimmer
     - media_player.kuche
     - switch.vacuum
     - switch.steckdosenleiste #Steckdosenleiste
     - switch.steckdose_3 #Kaffeemaschine
-    - sensor.humidity_158d0001b8c96c
-    - sensor.humidity_158d0001b8c998
-    - sensor.humidity_158d0002239fb5
-    - sensor.humidity_158d00023258bd
-    - sensor.temperature_158d0002239fb5
-    - sensor.temperature_158d0001b8c96c
-    - sensor.temperature_158d00023258bd
-    - sensor.temperature_158d0001b8c998
+    # - sensor.humidity_158d0001b8c96c
+    # - sensor.humidity_158d0001b8c998
+    # - sensor.humidity_158d0002239fb5
+    # - sensor.humidity_158d00023258bd
+    # - sensor.temperature_158d0002239fb5
+    # - sensor.temperature_158d0001b8c96c
+    # - sensor.temperature_158d00023258bd
+    # - sensor.temperature_158d0001b8c998
     - switch.pi_hole_switch
     - switch.steckdose_2
     - switch.steckdose_1
@@ -32,19 +32,19 @@ entity_config:
     media_player.kuche:
       feature_list:
         - feature: play_pause
-    sensor.humidity_158d0001b8c998:
-      low_battery_threshold: 0
-    sensor.humidity_158d0002239fb5:
-      low_battery_threshold: 0
-    sensor.humidity_158d00023258bd:
-      low_battery_threshold: 0
-    sensor.humidity_158d0001b8c96c:
-      low_battery_threshold: 0
-    sensor.temperature_158d0001b8c998:
-      low_battery_threshold: 0
-    sensor.temperature_158d0002239fb5:
-      low_battery_threshold: 0
-    sensor.temperature_158d00023258bd:
-      low_battery_threshold: 0
-    sensor.temperature_158d0001b8c96c:
-      low_battery_threshold: 0
+    # sensor.humidity_158d0001b8c998:
+    #   low_battery_threshold: 0
+    # sensor.humidity_158d0002239fb5:
+    #   low_battery_threshold: 0
+    # sensor.humidity_158d00023258bd:
+    #   low_battery_threshold: 0
+    # sensor.humidity_158d0001b8c96c:
+    #   low_battery_threshold: 0
+    # sensor.temperature_158d0001b8c998:
+    #   low_battery_threshold: 0
+    # sensor.temperature_158d0002239fb5:
+    #   low_battery_threshold: 0
+    # sensor.temperature_158d00023258bd:
+    #   low_battery_threshold: 0
+    # sensor.temperature_158d0001b8c96c:
+    #   low_battery_threshold: 0

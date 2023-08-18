@@ -53,11 +53,11 @@ cards:
   - type: entities
     show_header_toggle: false
     entities:
-      - entity: binary_sensor.docker_hub_update_available
+      - entity: binary_sensor.home_assistant_versions_update_available
         style: |
           :host {
             color: 
-            {% if is_state('binary_sensor.docker_hub_update_available', 'on') %}
+            {% if is_state('binary_sensor.home_assistant_versions_update_available', 'on') %}
               red
             {% endif %}
             ;
@@ -67,7 +67,7 @@ cards:
         entities:
           - entity: sensor.current_version
             name: Installiert
-          - entity: sensor.docker_hub
+          - entity: sensor.home_assistant_versions
             name: Verfügbar
       - entity: sensor.hacs
         style: |
@@ -96,7 +96,7 @@ cards:
           browser_mod:
             service: browser_mod.popup
             data:
-              # title: Docker Container
+              title: Docker Container
               right_button: Schließen
               style: |
                 --popup-border-width: 0px;
@@ -173,7 +173,7 @@ cards:
           browser_mod:
             service: browser_mod.popup
             data:
-              # title: Status
+              title: Status
               right_button: Schließen
               style: |
                 --popup-border-width: 0px;

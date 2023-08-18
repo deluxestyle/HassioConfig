@@ -14,7 +14,7 @@
     unique_id: nextcloud_latest_version
     state: >
         {%
-        if (state_attr('binary_sensor.nextcloud_update_status', 'on'))
+        if (states('binary_sensor.nextcloud_update_status') == 'on' )
         %}
           {%
             if ( 'Nextcloud' in state_attr('sensor.nextcloud_update', 'desc') )

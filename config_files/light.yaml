@@ -1,7 +1,7 @@
-- platform: group
-  name: flur
-  unique_id: lights_flur
-  entities:
-      - light.flur1
-      - light.flur2
-      - light.flur3
+# - platform: group
+#   name: flur
+#   unique_id: lights_flur
+#   entities:
+#       - light.flur1
+#       - light.flur2
+#       - light.flur3

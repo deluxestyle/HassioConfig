@@ -15,44 +15,44 @@ views:
         entities:
           - entity: person.wolfgang
           - entity: person.christina
-      - type: entities  
-        entities:
-          - entity: automation.abweseheitsmodus
-            icon: mdi:shield-account
-            name: Abwesenheitsmodus 
-            tap_action: 
-              action: toggle
-          - entity: input_boolean.abwesenheitsmodus
-            tap_action: 
-              action: toggle
-          - type: custom:fold-entity-row
-            head:
-              type: section
-              label: Benachrichtigungen
-            padding: 5
-            entities:
-              - entity: automation.benachrichtigung_bewegung_erkannt
-                name: Bewegung erkannt
-                icon: mdi:cellphone-message
-                tap_action: 
-                  action: toggle
-              - entity: automation.benachrichtigung_wohnungstur_offen
-                name: Wohnungstür offen
-                icon: mdi:cellphone-message
-                tap_action: 
-                  action: toggle
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: binary_sensor.fenster_turkontaktsensor
-            name: Wohnungstür
-            icon: mdi:door
-            secondary_info: last-changed
-          - entity: binary_sensor.bewegungsmelder
-            secondary_info: last-changed
-          - entity: binary_sensor.tradfri_motion_sensor
-            secondary_info: last-changed
-          - entity: binary_sensor.presence_51
-            secondary_info: last-changed
-          - entity: binary_sensor.bewegung_flur
-            secondary_info: last-changed
+      # - type: entities  
+      #   entities:
+      #     - entity: automation.abweseheitsmodus
+      #       icon: mdi:shield-account
+      #       name: Abwesenheitsmodus 
+      #       tap_action: 
+      #         action: toggle
+      #     - entity: input_boolean.abwesenheitsmodus
+      #       tap_action: 
+      #         action: toggle
+      #     - type: custom:fold-entity-row
+      #       head:
+      #         type: section
+      #         label: Benachrichtigungen
+      #       padding: 5
+      #       entities:
+      #         - entity: automation.benachrichtigung_bewegung_erkannt
+      #           name: Bewegung erkannt
+      #           icon: mdi:cellphone-message
+      #           tap_action: 
+      #             action: toggle
+      #         - entity: automation.benachrichtigung_wohnungstur_offen
+      #           name: Wohnungstür offen
+      #           icon: mdi:cellphone-message
+      #           tap_action: 
+      #             action: toggle
+      # - type: entities
+      #   show_header_toggle: false
+      #   entities:
+      #     - entity: binary_sensor.fenster_turkontaktsensor
+      #       name: Wohnungstür
+      #       icon: mdi:door
+      #       secondary_info: last-changed
+      #     - entity: binary_sensor.bewegungsmelder
+      #       secondary_info: last-changed
+      #     - entity: binary_sensor.tradfri_motion_sensor
+      #       secondary_info: last-changed
+      #     - entity: binary_sensor.presence_51
+      #       secondary_info: last-changed
+      #     - entity: binary_sensor.bewegung_flur
+      #       secondary_info: last-changed

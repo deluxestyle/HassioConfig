@@ -26,15 +26,28 @@ cards:
       - entity: sensor.net_upload_max
         icon: mdi:cloud-upload
         name: Max Up
-      - entity: sensor.fritz_box_7590_download_throughput
+      - entity: sensor.fritz_box_7590_download_durchsatz
         icon: mdi:cloud-download-outline
         name: Akt Down
-      - entity: sensor.fritz_box_7590_upload_throughput
+      - entity: sensor.fritz_box_7590_upload_durchsatz
         icon: mdi:cloud-upload-outline
         name: Akt Up
-      - entity: sensor.fritz_box_7590_connection_uptime
+      - entity: sensor.fritz_box_7590_verbindungsverfugbarkeit
         name: Seit
-      - entity: binary_sensor.fritz_box_7590_connection
+      - entity: binary_sensor.fritz_box_7590_verbindung  
+  # - type: entities
+  #   entities:
+  #     - entity: sensor.congstar_volume
+  #       type: custom:multiple-entity-row
+  #       show_state: false
+  #       entities:
+  #         - attribute: usedPercentage
+  #           name: Verbrauch
+  #           unit: '%'
+  #         - attribute: usedVolumeStr
+  #           name: Volumen
+  #         - attribute: remainingTimeStr
+  #           name: verbleibend
   - type: entities
     entities:
       - entity: switch.pi_hole_switch

@@ -3,29 +3,26 @@
 title: Küche
 path: kitchen
 icon: mdi:countertop
-type: custom:horizontal-layout
-layout:
-  max_cols: 2
-  height: auto
+# type: custom:horizontal-layout
+# layout:
+#   max_cols: 2
+#   height: auto
 cards:
-  - type: entities
-    entities:
-      - entity: light.kuche
-        name: Küchenlicht
-        tap_action:
-          action: toggle
-        double_tap_action:
-            action: more-info
-  - !include
-      - ../includes/multimedia/mini_media_player.yaml
-      - entity: media_player.kuche
-  - type: entities
-    entities:
-      - entity: switch.steckdose_3
-        tap_action:
-          action: toggle
-        double_tap_action: 
-          !include ../includes/popups/coffee_timer.yaml
+  # - type: entities
+  #   entities:
+  #     - entity: light.kuche
+  #       name: Küchenlicht
+  #       tap_action:
+  #         action: toggle
+  #       double_tap_action:
+  #           action: more-info
+  # - type: entities
+  #   entities:
+  #     - entity: switch.steckdose_3
+  #       tap_action:
+  #         action: toggle
+  #       double_tap_action: 
+  #         !include ../includes/popups/coffee_timer.yaml
 
   - type: conditional
     conditions:
@@ -47,7 +44,7 @@ cards:
     card: 
       type: entities
       entities:
-        - entity: sensor.402060518382006939_bsh_common_status_operationstate
+        - entity: sensor.013050391085014163_bsh_common_status_operationstate
           tap_action:
             action: none
         - type: custom:fold-entity-row
@@ -56,35 +53,35 @@ cards:
             type: section
             label: Status
           entities:
-            - entity: sensor.402060518382006939_bsh_common_option_programprogress
-            - entity: sensor.402060518382006939_bsh_common_option_remainingprogramtime 
+            - entity: sensor.013050391085014163_bsh_common_option_programprogress
+            - entity: sensor.013050391085014163_bsh_common_option_remainingprogramtime 
         - type: custom:fold-entity-row
           padding: 5
           head:
             type: section
             label: Programm
           entities:
-            - entity: switch.402060518382006939_bsh_common_setting_powerstate
-            # - entity: switch.402060518382006939_dishcare_dishwasher_option_silenceondemand
-            - entity: select.402060518382006939_programs
-            - entity: button.402060518382006939_start_pause
-            - entity: button.402060518382006939_stop 
-            # - entity: number.402060518382006939_bsh_common_option_startinrelative
+            - entity: switch.013050391085014163_bsh_common_setting_powerstate
+            # - entity: switch.013050391085014163_dishcare_dishwasher_option_silenceondemand
+            - entity: select.013050391085014163_programs
+            - entity: button.013050391085014163_start_pause
+            - entity: button.013050391085014163_stop 
+            # - entity: number.013050391085014163_bsh_common_option_startinrelative
         - type: custom:auto-entities
           filter:
             include:
-              - entity_id: "sensor.402060518382006939*"
+              - entity_id: "sensor.013050391085014163*"
                 options:
                   tap_action:
                     action: none
-              - entity_id: "binary_sensor.402060518382006939*"
+              - entity_id: "binary_sensor.013050391085014163*"
                 options:
                   tap_action:
                     action: none
             exclude:
-              - entity_id: sensor.402060518382006939_bsh_common_option_programprogress
-              - entity_id: sensor.402060518382006939_bsh_common_option_remainingprogramtime 
-              - entity_id: sensor.402060518382006939_bsh_common_status_operationstate
+              - entity_id: sensor.013050391085014163_bsh_common_option_programprogress
+              - entity_id: sensor.013050391085014163_bsh_common_option_remainingprogramtime 
+              - entity_id: sensor.013050391085014163_bsh_common_status_operationstate
           sort:
             method: name
           card:
@@ -93,4 +90,4 @@ cards:
               type: section
               label: Details
             padding: 5
-  - !include ../includes/climate/climate_kitchen.yaml
+  # - !include ../includes/climate/climate_kitchen.yaml

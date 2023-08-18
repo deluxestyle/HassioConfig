@@ -7,91 +7,92 @@ layout:
   max_cols: 1
   height: auto
 cards: 
-  - template: title
-    type: 'custom:button-card'
-    label: Klima
-  - type: custom:mushroom-chips-card
-    alignment: center
-    chips:
-      - type: entity
-        entity: sensor.temperature_158d0001b8c96c
-        icon_color: orange
-      - type: entity
-        entity: sensor.temperature_158d0001b8c998
-        icon_color: orange
-      - type: entity
-        entity: sensor.temperature_158d0002239fb5
-        icon_color: orange
-      - type: entity
-        entity: sensor.temperature_158d00023258bd
-        icon_color: orange
-  - type: custom:mushroom-chips-card
-    alignment: center
-    chips:
-      - type: entity
-        entity: sensor.humidity_158d0001b8c96c
-        icon_color: indigo
-      - type: entity
-        entity: sensor.humidity_158d0001b8c998
-        icon_color: indigo
-      - type: entity
-        entity: sensor.humidity_158d0002239fb5 
-        icon_color: indigo
-      - type: entity 
-        entity: sensor.humidity_158d00023258bd
-        icon_color: indigo
-  - template: title
-    type: 'custom:button-card'
-    label: Lichter 
-  - type: grid
-    columns: 2
-    square: false
-    cards:
-      - type: 'custom:button-card'
-        entity: light.wohnzimmer_decke
-        name: Wohnzimmer
-        template: 
-          - icon_info_bg
-          - light
-        double_tap_action:
-          action: more-info
-      - type: 'custom:button-card'
-        entity: light.kuche
-        name: Küche
-        template: 
-          - icon_info_bg
-          - light
-        double_tap_action:
-          action: more-info
-      - type: 'custom:button-card'
-        entity: light.schlafzimmer
-        name: Schlafzimmer
-        template: 
-          - icon_info_bg
-          - light
-        double_tap_action:
-          action: more-info
-      - type: 'custom:button-card'
-        entity: light.yeelight_bslamp1_0x0000000005451cd6
-        name: Nachtlicht
-        template: 
-          - icon_info_bg
-          - light
-        double_tap_action:
-          action: more-info
-      - type: 'custom:button-card'
-        entity: light.flur
-        name: Flur
-        template: 
-          - icon_info_bg
-          - light
-        double_tap_action:
-          action: more-info
-      - type: 'custom:button-card'
-        entity: switch.steckdose_1
-        template: 
-          - icon_info_bg
-          - light
+  # - template: title
+  #   type: 'custom:button-card'
+  #   label: Klima
+  # - type: custom:mushroom-chips-card
+  #   alignment: center
+  #   chips:
+  #     - type: entity
+  #       entity: sensor.temperature_158d0001b8c96c
+  #       icon_color: orange
+  #     - type: entity
+  #       entity: sensor.temperature_158d0001b8c998
+  #       icon_color: orange
+  #     - type: entity
+  #       entity: sensor.temperature_158d0002239fb5
+  #       icon_color: orange
+  #     - type: entity
+  #       entity: sensor.temperature_158d00023258bd
+  #       icon_color: orange
+  # - type: custom:mushroom-chips-card
+  #   alignment: center
+  #   chips:
+  #     - type: entity
+  #       entity: sensor.humidity_158d0001b8c96c
+  #       icon_color: indigo
+  #     - type: entity
+  #       entity: sensor.humidity_158d0001b8c998
+  #       icon_color: indigo
+  #     - type: entity
+  #       entity: sensor.humidity_158d0002239fb5 
+  #       icon_color: indigo
+  #     - type: entity 
+  #       entity: sensor.humidity_158d00023258bd
+  #       icon_color: indigo
+#################################################################
+  # - template: title
+  #   type: 'custom:button-card'
+  #   label: Lichter 
+  # - type: grid
+  #   columns: 2
+  #   square: false
+  #   cards:
+  #     - type: 'custom:button-card'
+  #       entity: light.wohnzimmer_decke
+  #       name: Wohnzimmer
+  #       template: 
+  #         - icon_info_bg
+  #         - light
+  #       double_tap_action:
+  #         action: more-info
+  #     - type: 'custom:button-card'
+  #       entity: light.kuche
+  #       name: Küche
+  #       template: 
+  #         - icon_info_bg
+  #         - light
+  #       double_tap_action:
+  #         action: more-info
+  #     - type: 'custom:button-card'
+  #       entity: light.schlafzimmer
+  #       name: Schlafzimmer
+  #       template: 
+  #         - icon_info_bg
+  #         - light
+  #       double_tap_action:
+  #         action: more-info
+  #     - type: 'custom:button-card'
+  #       entity: light.yeelight_bslamp1_0x0000000005451cd6
+  #       name: Nachtlicht
+  #       template: 
+  #         - icon_info_bg
+  #         - light
+  #       double_tap_action:
+  #         action: more-info
+  #     - type: 'custom:button-card'
+  #       entity: light.flur
+  #       name: Flur
+  #       template: 
+  #         - icon_info_bg
+  #         - light
+  #       double_tap_action:
+  #         action: more-info
+  #     - type: 'custom:button-card'
+  #       entity: switch.steckdose_1
+  #       template: 
+  #         - icon_info_bg
+  #         - light
 #################################################################
   - template: title
     type: 'custom:button-card'
@@ -118,18 +119,14 @@ cards:
             - includes/multimedia/media_player_small.yaml
             - entity: wohnzimmer
               name: Wohnzimmer
-      # - !include 
-      #       - includes/multimedia/media_player_small.yaml
-      #       - entity: era_300
-      #         name: Era 300
       - !include 
             - includes/multimedia/media_player_small.yaml
-            - entity: kuche
-              name: Küche              
+            - entity: fernsehzimmer
+              name: Fernsehzimmer              
       - !include 
             - includes/multimedia/media_player_small.yaml
-            - entity: schlafzimmer
-              name: Schlafzimmer
+            - entity: office
+              name: Büro
 #################################################################
   - template: title
     type: 'custom:button-card'
@@ -138,14 +135,14 @@ cards:
     columns: 2
     square: false
     cards:
-      - type: 'custom:button-card'
-        entity: switch.steckdose_3
-        template: 
-          - icon_info_bg
-          - outlet
-          - coffee_plug 
-        double_tap_action: 
-          !include includes/popups/coffee_timer.yaml
+      # - type: 'custom:button-card'
+      #   entity: switch.steckdose_3
+      #   template: 
+      #     - icon_info_bg
+      #     - outlet
+      #     - coffee_plug 
+      #   double_tap_action: 
+      #     !include includes/popups/coffee_timer.yaml
       - type: 'custom:button-card'
         entity: vacuum.roborock_vacuum
         name: Staubsauger
@@ -158,13 +155,13 @@ cards:
           action: navigate
           navigation_path: /lovelace-vacuum/vacuum
 #################################################################
-  - template: title
-    type: 'custom:button-card'
-    label: Wetter
-  - type: custom:simple-weather-card
-    entity: weather.openweathermap
-    primary_info: humidity
-    name: " "
+  # - template: title
+  #   type: 'custom:button-card'
+  #   label: Wetter
+  # - type: custom:simple-weather-card
+  #   entity: weather.openweathermap
+  #   primary_info: humidity
+  #   name: " "
   - template: blank
     type: 'custom:button-card'
   - type: conditional

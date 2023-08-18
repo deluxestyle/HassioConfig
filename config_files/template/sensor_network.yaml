@@ -1,12 +1,12 @@
 - sensor:
   - name: net_download_max
     unique_id: net_download_max
-    state: "{{ (states.sensor.fritz_box_7590_max_connection_download_throughput.state | float(0) / 1000)|round(1) }}"
+    state: "{{ (states.sensor.fritz_box_7590_maximaler_download_durchsatz_der_verbindung.state | float(0) / 1000)|round(1) }}"
     unit_of_measurement: "Mbit/s"
     icon: mdi:cloud-download  
   - name: net_upload_max
     unique_id: net_upload_max
-    state: "{{ (states.sensor.fritz_box_7590_max_connection_upload_throughput.state | float(0) / 1000)|round(1) }}"
+    state: "{{ (states.sensor.fritz_box_7590_maximaler_upload_durchsatz_der_verbindung.state | float(0) / 1000)|round(1) }}"
     unit_of_measurement: "Mbit/s"
     icon: mdi:cloud-upload
   # - name: net_download_cur
@@ -19,8 +19,8 @@
   #   state: "{{ (states.sensor.fritz_box_7590_kb_s_sent.state | float(0) / 1000)|round(1) }}"
   #   unit_of_measurement: "Mbit/s"
   #   icon: mdi:cloud-upload-outline
-  - name: net_uptime
-    unique_id: net_uptime
-    state: "{{ (state_attr('sensor.fritz_netmonitor', 'uptime')|float(0) / 86400)|round(1) }}"
-    unit_of_measurement: "Tage"
-    icon: mdi:calendar
+  # - name: net_uptime
+  #   unique_id: net_uptime
+  #   state: "{{ (state_attr('sensor.fritz_netmonitor', 'uptime')|float(0) / 86400)|round(1) }}"
+  #   unit_of_measurement: "Tage"
+  #   icon: mdi:calendar

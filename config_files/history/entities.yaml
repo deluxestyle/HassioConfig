@@ -53,6 +53,7 @@ entities:
   - binary_sensor.presence_51
   - vacuum.roborock_vacuum
   - binary_sensor.fritz_box_7590_connection
+  - sensor.congstar_volume
 domains:
   - automation
   - switch

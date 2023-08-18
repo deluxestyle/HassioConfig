@@ -40,10 +40,10 @@ content:
               name: Sonos Wohnzimmer 
             # - entity_id: media_player.era_300
             #   name: Sonos Era 300 
-            - entity_id: media_player.kuche
-              name: Sonos Küche
-            - entity_id: media_player.schlafzimmer
-              name: Sonos Schlafzimmer   
+            - entity_id: media_player.office
+              name: Sonos Büro
+            - entity_id: media_player.fernsehzimmer
+              name: Sonos Fernsehzimmer   
         shortcuts:
           label: Favoriten
           list:
