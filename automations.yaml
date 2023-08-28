@@ -753,7 +753,7 @@
   action:
   - service: homeassistant.disable_config_entry
     data:
-      config_entry_id: d3bd095efc0273661c4231c26f928ded
+      config_entry_id: 9c22d8b2581a4182a5dd87fb76eb89d3
   mode: single
 - id: '1679052124637'
   alias: Home Connect
@@ -780,27 +780,26 @@
   - service: script.sonos_set_volume_4
     data: {}
   mode: single
-- id: '1690204816775'
-  alias: 'Benachrichtigung: Datenvolumen'
+- id: '1692959068223'
+  alias: 'Benachrichtigung: PiHole Problem '
   description: ''
   trigger:
-  - above: 70
-    entity_id: sensor.congstar_volume
-    platform: numeric_state
+  - platform: state
+    entity_id:
+    - sensor.docker_pihole_status
+    to: unavailable
     for:
       hours: 0
-      minutes: 0
+      minutes: 1
       seconds: 0
-    attribute: usedPercentage
   condition: []
   action:
-  - data:
-      entity_id: input_boolean.persistent_notification
+  - data: {}
+    entity_id: input_boolean.persistent_notification
     service: input_boolean.turn_on
   - data:
-      message: 'Datenvolumen erreicht kritischen Wert: {{ states.sensor.congstar_volume.state
-        }} '
-      notification_id: congstar
-      title: Datenvolumen
+      message: PiHole nicht verfügbar
+      notification_id: pihole
+      title: PiHole
     service: script.notify_script
   mode: single

@@ -154,6 +154,30 @@ cards:
           haptic: medium
           action: navigate
           navigation_path: /lovelace-vacuum/vacuum
+      - type: 'custom:button-card'
+        entity: switch.013050391085014163_bsh_common_setting_powerstate
+        name: Geschirrspüler
+        icon: mdi:dishwasher
+        template: 
+          - icon_info_bg
+          - outlet
+        tap_action:
+          haptic: medium
+          action: navigate
+          navigation_path: /lovelace/kitchen
+#################################################################
+  - template: title
+    type: 'custom:button-card'
+    label: Trockner
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - type: 'custom:button-card'
+        entity: switch.steckdose_2
+        template: 
+          - icon_info_bg
+          - outlet
 #################################################################
   # - template: title
   #   type: 'custom:button-card'

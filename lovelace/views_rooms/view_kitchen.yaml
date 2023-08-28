@@ -2,11 +2,11 @@
 
 title: Küche
 path: kitchen
-icon: mdi:countertop
-# type: custom:horizontal-layout
-# layout:
-#   max_cols: 2
-#   height: auto
+icon: mdi:dishwasher
+type: custom:horizontal-layout
+layout:
+  max_cols: 2
+  height: auto
 cards:
   # - type: entities
   #   entities:
@@ -55,18 +55,22 @@ cards:
           entities:
             - entity: sensor.013050391085014163_bsh_common_option_programprogress
             - entity: sensor.013050391085014163_bsh_common_option_remainingprogramtime 
-        - type: custom:fold-entity-row
-          padding: 5
-          head:
-            type: section
-            label: Programm
-          entities:
-            - entity: switch.013050391085014163_bsh_common_setting_powerstate
-            # - entity: switch.013050391085014163_dishcare_dishwasher_option_silenceondemand
-            - entity: select.013050391085014163_programs
-            - entity: button.013050391085014163_start_pause
-            - entity: button.013050391085014163_stop 
-            # - entity: number.013050391085014163_bsh_common_option_startinrelative
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.bosch_home_connect
+        state: "on"
+    card: 
+      type: entities
+      entities:
+        - entity: switch.013050391085014163_bsh_common_setting_powerstate
+        - entity: select.013050391085014163_bsh_common_option_startinrelative
+        - entity: select.013050391085014163_programs
+        - entity: button.013050391085014163_start_pause
+        - entity: button.013050391085014163_stop 
+        - entity: switch.013050391085014163_dishcare_dishwasher_option_brilliancedry
+        - entity: switch.013050391085014163_dishcare_dishwasher_option_hygieneplus
+        - entity: switch.013050391085014163_dishcare_dishwasher_option_intensivzone
+        - entity: switch.013050391085014163_dishcare_dishwasher_option_variospeedplus
         - type: custom:auto-entities
           filter:
             include:
