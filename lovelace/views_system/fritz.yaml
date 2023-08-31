@@ -34,7 +34,11 @@ cards:
         name: Akt Up
       - entity: sensor.fritz_box_7590_verbindungsverfugbarkeit
         name: Seit
-      - entity: binary_sensor.fritz_box_7590_verbindung  
+      - entity: binary_sensor.fritz_box_7590_verbindung 
+        double_tap_action:
+          haptic: medium
+          action: navigate
+          navigation_path: /config/devices/device/36a8d6e82781d3f1100027ab2637239a
   # - type: entities
   #   entities:
   #     - entity: sensor.congstar_volume

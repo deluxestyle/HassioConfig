@@ -508,7 +508,7 @@
   trigger:
   - platform: state
     entity_id:
-    - binary_sensor.fritz_box_7590_connection
+    - binary_sensor.fritz_box_7590_verbindung
     for:
       hours: 0
       minutes: 30
@@ -524,7 +524,7 @@
       until:
       - condition: state
         state: 'on'
-        entity_id: binary_sensor.fritz_box_7590_connection
+        entity_id: binary_sensor.fritz_box_7590_verbindung
       sequence:
       - delay:
           hours: 1
@@ -802,4 +802,40 @@
       notification_id: pihole
       title: PiHole
     service: script.notify_script
+  mode: single
+- id: '1693224511002'
+  alias: Trockner
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - person.christina
+    to: home
+    id: home
+  - platform: state
+    entity_id:
+    - person.christina
+    to: not_home
+    id: away
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - home
+      sequence:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id: switch.steckdose_2
+    - conditions:
+      - condition: trigger
+        id:
+        - away
+      sequence:
+      - service: switch.turn_on
+        data: {}
+        target:
+          entity_id: switch.steckdose_2
   mode: single
