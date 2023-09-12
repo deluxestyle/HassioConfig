@@ -5,9 +5,9 @@ filter:
     # - light.kuche
     # - light.flur
     # - light.schlafzimmer
-    - media_player.schlafzimmer
+    - media_player.fernsehzimmer
     - media_player.wohnzimmer
-    - media_player.kuche
+    - media_player.office
     - switch.vacuum
     - switch.steckdosenleiste #Steckdosenleiste
     - switch.steckdose_3 #Kaffeemaschine
@@ -23,13 +23,13 @@ filter:
     - switch.steckdose_2
     - switch.steckdose_1
 entity_config:
-    media_player.schlafzimmer:
+    media_player.fernsehzimmer:
       feature_list:
         - feature: play_pause
     media_player.wohnzimmer:
       feature_list:
         - feature: play_pause
-    media_player.kuche:
+    media_player.office:
       feature_list:
         - feature: play_pause
     # sensor.humidity_158d0001b8c998:
