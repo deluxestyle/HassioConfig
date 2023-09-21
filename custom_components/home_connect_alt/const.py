@@ -1,4 +1,4 @@
-"""Constants for the Home Connect New integration."""
+"""Constants for the Home Connect Alt integration."""
 
 
 DOMAIN = "home_connect_alt"
@@ -14,6 +14,7 @@ CONF_SENSORS_TRANSLATION_SERVER = "server"
 CONF_NAME_TEMPLATE = "name_template"
 CONF_LOG_MODE = "log_mode"
 CONF_ENTITY_SETTINGS = "entity_settings"
+CONF_APPLIANCE_SETTINGS = "appliance_settings"
 
 HOME_CONNECT_DEVICE = {
     "identifiers": {(DOMAIN, "homeconnect")},
@@ -29,6 +30,8 @@ ENTITY_SETTINGS = {
         "BSH.Common.Option.EstimatedTotalProgramTime": { "unit": None, "class": f"{DOMAIN}__timespan"},
         "BSH.Common.Option.RemainingProgramTime": {"unit": None, "class": "timestamp" },
         "BSH.Common.Status.DoorState": { "type": "Boolean", "class": "door", "icon": None, "on_state": "BSH.Common.EnumType.DoorState.Open" },
+        "Refrigeration.Common.Status.Door.Freezer": { "type": "Boolean", "class": "door", "icon": None, "on_state": "Refrigeration.Common.EnumType.Door.States.Open" },
+        "Refrigeration.Common.Status.Door.Refrigerator": { "type": "Boolean", "class": "door", "icon": None, "on_state": "Refrigeration.Common.EnumType.Door.States.Open" },
         "Connected": { "class": "connectivity" },
     }
 }

@@ -803,20 +803,3 @@
       title: PiHole
     service: script.notify_script
   mode: single
-- id: '1693636849388'
-  alias: Trockner
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - group.presence
-    to: not_home
-  condition: []
-  action:
-  - service: switch.turn_on
-    data: {}
-    target:
-      entity_id:
-      - switch.steckdose_1
-      - switch.steckdose_2
-  mode: single
