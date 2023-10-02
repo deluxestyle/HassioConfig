@@ -9,6 +9,8 @@ card_mod:
   !include ../popups/popup_styles.yaml
 content:
   type: custom:sonos-card
+  dynamicVolumeSlider: true
+  showVolumeUpAndDownButtons: true
   # type: custom:vertical-stack-in-card 
   # cards:
   #   - type: entities
