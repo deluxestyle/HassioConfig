@@ -804,3 +804,21 @@
       title: PiHole
     service: script.notify_script
   mode: single
+- id: '1696409652364'
+  alias: Abwesenheit
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - group.presence
+    to: not_home
+  condition: []
+  action:
+  - service: media_player.media_stop
+    data: {}
+    target:
+      entity_id:
+      - media_player.office
+      - media_player.fernsehzimmer
+      - media_player.wohnzimmer
+  mode: single
