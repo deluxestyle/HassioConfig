@@ -15,13 +15,13 @@ views:
         entities:
           - entity: person.wolfgang
           - entity: person.christina
-      # - type: entities  
-      #   entities:
-      #     - entity: automation.abweseheitsmodus
-      #       icon: mdi:shield-account
-      #       name: Abwesenheitsmodus 
-      #       tap_action: 
-      #         action: toggle
+      - type: entities  
+        entities:
+          - entity: automation.abwesenheit
+            icon: mdi:shield-account
+            name: Abwesenheitsmodus 
+            tap_action: 
+              action: toggle
       #     - entity: input_boolean.abwesenheitsmodus
       #       tap_action: 
       #         action: toggle

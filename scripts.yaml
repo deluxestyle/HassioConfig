@@ -185,16 +185,7 @@ notify_script:
 notify_clean_messages:
   alias: Mitteilungen löschen
   sequence:
-  - alias: Repeat Dismiss action for all
-    repeat:
-      for_each: '{{ states.persistent_notification | map(attribute=''object_id'')
-        | list }}
-
-        '
-      sequence:
-      - service: persistent_notification.dismiss
-        data:
-          notification_id: '{{ repeat.item }}'
+  - service: persistent_notification.dismiss_all
   mode: single
 sonos_radio_b5_aktuell:
   alias: 'Sonos: Radio BR24'
@@ -251,15 +242,6 @@ sonos_set_volume_8:
 alles_ausschalten:
   alias: Alles ausschalten
   sequence:
-  - service: light.turn_off
-    data: {}
-    target:
-      entity_id:
-      - light.kuche
-      - light.wohnzimmer_decke
-      - light.yeelight_bslamp1_0x0000000005451cd6
-      - light.schlafzimmer
-      - light.flur
   - service: switch.turn_off
     data: {}
     target:

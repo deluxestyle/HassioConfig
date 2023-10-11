@@ -367,10 +367,10 @@
     to: 'on'
   condition: []
   action:
-  - type: turn_on
-    device_id: d140a8b718ed69ff5c2ae91ab0a9f5d7
-    entity_id: switch.steckdosenleiste
-    domain: switch
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.steckdosenleiste
   mode: single
 - id: '1612343173377'
   alias: 'iOS: Telefonat'
@@ -751,7 +751,7 @@
   action:
   - service: homeassistant.disable_config_entry
     data:
-      config_entry_id: 9c22d8b2581a4182a5dd87fb76eb89d3
+      config_entry_id: 51ada781f9fa5e08f8ee7036c1a97af2
   mode: single
 - id: '1679052124637'
   alias: Home Connect
@@ -784,12 +784,12 @@
   trigger:
   - platform: state
     entity_id:
-    - sensor.docker_pihole_status
-    to: unavailable
+    - sensor.docker_pihole_state
     for:
       hours: 0
       minutes: 1
       seconds: 0
+    from: running
   condition: []
   action:
   - data: {}
@@ -811,11 +811,6 @@
     to: not_home
   condition: []
   action:
-  - service: media_player.media_stop
+  - service: script.alles_ausschalten
     data: {}
-    target:
-      entity_id:
-      - media_player.office
-      - media_player.fernsehzimmer
-      - media_player.wohnzimmer
   mode: single
