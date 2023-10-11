@@ -146,6 +146,7 @@ cards:
           exclude:
             - entity_id: device_tracker.iphone_wolfgang
             - entity_id: device_tracker.iphone_christina
+            - entity_id: "device_tracker.wireguard_*"
         sort:
           method: state
         card:
@@ -153,6 +154,20 @@ cards:
           head:
             type: section
             label: Netzwerkgeräte
+          padding: 5
+      - type: custom:auto-entities
+        filter:
+          include:
+            - entity_id: "device_tracker.wireguard_*"
+              options:
+                secondary_info: last-changed
+        sort:
+          method: state
+        card:
+          type: custom:fold-entity-row
+          head:
+            type: section
+            label: VPN
           padding: 5
       - type: custom:auto-entities
         filter:
