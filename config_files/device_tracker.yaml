@@ -1,0 +1,20 @@
+
+  # - platform: ping
+  #   hosts:
+  #     wireguard_iphone14pro: 192.168.200.203
+  #     wireguard_iphoneSE: 192.168.200.205
+  #     wireguard_ipadWolfgang: 192.168.200.204
+  #     wireguard_HpSpectre: 192.168.200.209
+  #     wireguard_LaptopErlau: 192.168.200.206
+  #     wireguard_MacBook: 192.168.200.207
+  #     wireguard_ipadChristina: 192.168.200.208
+
+- platform: ping
+  hosts:
+    wireguard_iphone14pro: 192.168.200.203
+    wireguard_iphonese: 192.168.200.205
+    wireguard_ipadwolfgang: 192.168.200.204
+    wireguard_hpspectre: 192.168.200.209
+    wireguard_laptoperlau: 192.168.200.206
+    wireguard_macbook: 192.168.200.207
+    wireguard_ipadchristina: 192.168.200.208
