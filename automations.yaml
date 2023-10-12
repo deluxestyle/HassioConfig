@@ -765,7 +765,7 @@
   action:
   - service: homeassistant.disable_config_entry
     data:
-      config_entry_id: d3bd095efc0273661c4231c26f928ded
+      config_entry_id: 51ada781f9fa5e08f8ee7036c1a97af2
   mode: single
 - id: '1684614441041'
   alias: 'Sonos: Volume anpassen'
