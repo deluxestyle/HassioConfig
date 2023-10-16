@@ -10,22 +10,24 @@ entities:
   - sensor.swap_free
   - sensor.swap_use
   - sensor.swap_use_percent
-  - sensor.humidity_158d0001b8c96c
-  - sensor.humidity_158d0001b8c998
-  - sensor.humidity_158d0002239fb5
-  - sensor.humidity_158d00023258bd
-  - sensor.temperature_158d0001b8c96c
-  - sensor.temperature_158d0001b8c998
-  - sensor.temperature_158d0002239fb5
-  - sensor.temperature_158d00023258bd
-  - sensor.fritz_box_7590_download_throughput
+  # - sensor.humidity_158d0001b8c96c
+  # - sensor.humidity_158d0001b8c998
+  # - sensor.humidity_158d0002239fb5
+  # - sensor.humidity_158d00023258bd
+  # - sensor.temperature_158d0001b8c96c
+  # - sensor.temperature_158d0001b8c998
+  # - sensor.temperature_158d0002239fb5
+  # - sensor.temperature_158d00023258bd
+  - sensor.fritz_box_7590_download_durchsatz
+  - sensor.fritz_box_7590_upload_durchsatz
+  - binary_sensor.fritz_box_7590_connection
+  - sensor.fritz_box_7590_gb_empfangen
+  - sensor.fritz_box_7590_gb_gesendet
   - sensor.net_download_max
-  - sensor.fritz_box_7590_upload_throughput
   - sensor.net_upload_max
   - sensor.net_uptime
   - sensor.fritz_box_7590_kb_s_received
   - sensor.fritz_box_7590_kb_s_sent
-  - binary_sensor.fenster_turkontaktsensor
   - sensor.last_boot
   - sensor.xiaomi_bed_room_battery_level        
   - sensor.xiaomi_living_room_battery_level
@@ -45,16 +47,14 @@ entities:
   - sensor.sqlite_db_grosse
   - person.wolfgang
   - device_tracker.iphone_wolfgang
-  - sensor.bewegungsmelder
-  - sensor.illumination_7811dcb258d1
-  - binary_sensor.bewegungsmelder
-  - binary_sensor.tradfri_bewegungsmelder
-  - binary_sensor.bewegung_flur
-  - binary_sensor.presence_51
+  # - sensor.bewegungsmelder
+  # - sensor.illumination_7811dcb258d1
+  # - binary_sensor.bewegungsmelder
+  # - binary_sensor.tradfri_bewegungsmelder
+  # - binary_sensor.bewegung_flur
+  # - binary_sensor.presence_51
   - vacuum.roborock_vacuum
-  - binary_sensor.fritz_box_7590_connection
-  - sensor.fritz_box_7590_gb_empfangen
-  - sensor.fritz_box_7590_gb_gesendet
+
 domains:
   - automation
   - switch

@@ -49,9 +49,9 @@ include:
     - sensor.swap_free
     - sensor.swap_use_percent
     - sensor.online_time
-    - sensor.fritz_box_7590_download_throughput
+    - sensor.fritz_box_7590_download_durchsatz
+    - sensor.fritz_box_7590_upload_durchsatz
     - sensor.net_download_max
-    - sensor.fritz_box_7590_upload_throughput
     - sensor.net_upload_max
     - sensor.net_uptime
     - sensor.fritz_box_7590_kb_s_received
