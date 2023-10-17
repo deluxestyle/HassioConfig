@@ -8,10 +8,26 @@ style: |
 card_mod:
   !include ../popups/popup_styles.yaml
 content:
-  type: custom:sonos-card
-  dynamicVolumeSlider: false
-  showVolumeUpAndDownButtons: true
-  entityId: media_player.{{ entity }}
+  type: custom:vertical-stack-in-card 
+  cards:
+    - type: custom:sonos-card
+      dynamicVolumeSlider: false
+      showVolumeUpAndDownButtons: true
+      entityId: media_player.{{ entity }}
+    - type: custom:fold-entity-row
+      padding: 5
+      head:
+        type: section
+        label: Einstellungen
+      entities:
+        - entity: number.{{ entity }}_bass
+          name: Bass
+          tap_action: 
+            action: none
+        - entity: number.{{ entity }}_treble
+          name: Höhen
+          tap_action: 
+            action: none
   # type: custom:vertical-stack-in-card 
   # cards:
   #   - type: entities
