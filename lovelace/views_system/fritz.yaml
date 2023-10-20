@@ -39,19 +39,6 @@ cards:
           haptic: medium
           action: navigate
           navigation_path: /config/devices/device/36a8d6e82781d3f1100027ab2637239a
-  # - type: entities
-  #   entities:
-  #     - entity: sensor.congstar_volume
-  #       type: custom:multiple-entity-row
-  #       show_state: false
-  #       entities:
-  #         - attribute: usedPercentage
-  #           name: Verbrauch
-  #           unit: '%'
-  #         - attribute: usedVolumeStr
-  #           name: Volumen
-  #         - attribute: remainingTimeStr
-  #           name: verbleibend
   - type: entities
     entities:
       - entity: switch.pi_hole_switch
