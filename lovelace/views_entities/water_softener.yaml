@@ -1,0 +1,44 @@
+# lovelace_gen
+
+# -----------------------------
+title: Wasserenthärter
+path: watersoftener
+icon: mdi:water-sync
+type: custom:horizontal-layout
+layout:
+  max_cols: 2
+  height: auto
+cards:
+  - type: entities
+    entities:
+      - entity: number.judo_isoftsaveplus_daheim_wunschwasserhaerte
+      - entity: switch.judo_isoftsaveplus_daheim_regeneration
+      - entity: select.judo_isoftsaveplus_daheim_urlaubsmodus
+      - entity: switch.judo_isoftsaveplus_daheim_wasser_absperren
+  - type: entities
+    entities:
+      - entity: sensor.judo_isoftsaveplus_daheim_salzreichweite
+      - entity: sensor.judo_isoftsaveplus_daheim_meldung
+      - type: custom:fold-entity-row
+        padding: 5
+        head:
+          type: section
+          label: Details
+        entities:
+          - entity: number.judo_isoftsaveplus_daheim_max_entnahmedauer
+          - entity: number.judo_isoftsaveplus_daheim_max_entnahmemenge
+          - entity: number.judo_isoftsaveplus_daheim_max_wasserdurchfluss
+          - entity: number.judo_isoftsaveplus_daheim_salzvorrat
+          - entity: number.judo_isoftsaveplus_daheim_sleepmode
+          - entity: sensor.judo_isoftsaveplus_daheim_anzahl_regenerationen
+          - entity: sensor.judo_isoftsaveplus_daheim_batterierestkapazitaet
+          - entity: sensor.judo_isoftsaveplus_daheim_durchschn_regenerationsintervall
+          - entity: sensor.judo_isoftsaveplus_daheim_gesamthartwasseranteil
+          - entity: sensor.judo_isoftsaveplus_daheim_gesamtwasserverbrauch
+          - entity: sensor.judo_isoftsaveplus_daheim_gesamtweichwasseranteil
+          - entity: sensor.judo_isoftsaveplus_daheim_revision_in
+          - entity: sensor.judo_isoftsaveplus_daheim_rohwasserhaerte
+          - entity: sensor.judo_isoftsaveplus_daheim_stunden_seit_letzter_regeneration
+          - entity: sensor.judo_isoftsaveplus_daheim_verbrauch_gestern
+          - entity: sensor.judo_isoftsaveplus_daheim_verbrauch_heute
+          - entity: sensor.judo_isoftsaveplus_daheim_wasserdurchflussmenge

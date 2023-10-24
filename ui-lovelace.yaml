@@ -9,20 +9,8 @@ views:
 ###### Übersicht #####
   - !include lovelace/ui-overview.yaml
 
-##### Wohnzimmer #####
-  # - !include lovelace/views_rooms/view_living_room.yaml
-
-##### Büro #####
-  # - !include lovelace/views_rooms/view_office.yaml
-
-##### Schlafzimmer #####
-#   - !include lovelace/views_rooms/view_bed_room.yaml
-
 ##### Küche #####
   - !include lovelace/views_rooms/view_kitchen.yaml
 
-# ##### Bad #####
-#   - !include lovelace/views_rooms/view_bath.yaml
-
-# ###### Flur #####
-#   - !include lovelace/views_rooms/view_floor.yaml
+##### Wasserenthärter #####
+  - !include lovelace/views_entities/water_softener.yaml
