@@ -28,6 +28,9 @@ content:
           name: Höhen
           tap_action: 
             action: none
+        - entity:  input_boolean.sync_volume
+          tap_action:
+            action: toggle
   # type: custom:vertical-stack-in-card 
   # cards:
   #   - type: entities

@@ -6,7 +6,6 @@ icon: mdi:dishwasher
 type: custom:horizontal-layout
 layout:
   max_cols: 2
-  height: auto
 cards:
   # - type: entities
   #   entities:

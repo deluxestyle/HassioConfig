@@ -5,7 +5,6 @@ icon: mdi:home
 type: custom:masonry-layout
 layout:
   max_cols: 1
-  height: auto
 cards: 
   # - template: title
   #   type: 'custom:button-card'
