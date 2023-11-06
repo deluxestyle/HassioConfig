@@ -47,7 +47,7 @@ async def async_setup_entry(hass:HomeAssistant , config_entry:ConfigType, async_
     def remove_appliance(appliance:Appliance) -> None:
         entity_manager.remove_appliance(appliance)
 
-    homeconnect.register_callback(add_appliance, [Events.PAIRED, Events.PROGRAM_SELECTED, Events.PROGRAM_STARTED ,Events.PROGRAM_FINISHED])
+    homeconnect.register_callback(add_appliance, [Events.PAIRED, Events.DATA_CHANGED, Events.PROGRAM_STARTED, Events.PROGRAM_SELECTED])
     homeconnect.register_callback(remove_appliance, Events.DEPAIRED)
     for appliance in homeconnect.appliances.values():
         add_appliance(appliance)
@@ -90,8 +90,7 @@ class OptionSwitch(InteractiveEntityBase, SwitchEntity):
         except HomeConnectError as ex:
             if ex.error_description:
                 raise HomeAssistantError(f"Failed to set the option: {ex.error_description} ({ex.code})")
-            else:
-                raise HomeAssistantError(f"Failed to set the option: ({ex.code})")
+            raise HomeAssistantError(f"Failed to set the option: ({ex.code})")
 
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the entity off."""
@@ -100,8 +99,7 @@ class OptionSwitch(InteractiveEntityBase, SwitchEntity):
         except HomeConnectError as ex:
             if ex.error_description:
                 raise HomeAssistantError(f"Failed to set the option: {ex.error_description} ({ex.code})")
-            else:
-                raise HomeAssistantError(f"Failed to set the option: ({ex.code})")
+            raise HomeAssistantError(f"Failed to set the option: ({ex.code})")
 
 
     async def async_on_update(self, appliance:Appliance, key:str, value) -> None:
@@ -130,7 +128,7 @@ class SettingsSwitch(InteractiveEntityBase, SwitchEntity):
         and super().available \
         and (
             "BSH.Common.Status.RemoteControlActive" not in self._appliance.status or
-            self._appliance.status["BSH.Common.Status.RemoteControlActive"]
+            self._appliance.status["BSH.Common.Status.RemoteControlActive"].value
         )
 
     @property
@@ -140,10 +138,9 @@ class SettingsSwitch(InteractiveEntityBase, SwitchEntity):
             setting = self._appliance.settings[self._key]
             if setting.allowedvalues and setting.value.lower().endswith(".off"):
                 return False
-            elif setting.allowedvalues and setting.value.lower().endswith(".on"):
+            if setting.allowedvalues and setting.value.lower().endswith(".on"):
                 return True
-            else:
-                return setting.value
+            return setting.value
         return None
 
     def bool_to_enum(self, allowedvalues, val:bool) -> str:
@@ -164,8 +161,7 @@ class SettingsSwitch(InteractiveEntityBase, SwitchEntity):
         except HomeConnectError as ex:
             if ex.error_description:
                 raise HomeAssistantError(f"Failed to apply the setting: {ex.error_description} ({ex.code})")
-            else:
-                raise HomeAssistantError(f"Failed to apply the setting: ({ex.code})")
+            raise HomeAssistantError(f"Failed to apply the setting: ({ex.code})")
 
 
     async def async_turn_off(self, **kwargs: Any) -> None:
@@ -179,8 +175,7 @@ class SettingsSwitch(InteractiveEntityBase, SwitchEntity):
         except HomeConnectError as ex:
             if ex.error_description:
                 raise HomeAssistantError(f"Failed to apply the setting: {ex.error_description} ({ex.code})")
-            else:
-                raise HomeAssistantError(f"Failed to apply the setting: ({ex.code})")
+            raise HomeAssistantError(f"Failed to apply the setting: ({ex.code})")
 
 
     async def async_on_update(self, appliance:Appliance, key:str, value) -> None:

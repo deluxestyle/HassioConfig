@@ -1,16 +1,8 @@
 # lovelace_gen
 
-x-anchors:
-  style: &style
-    card_mod:
-      style: |
-        ha-card {
-            --ha-card-box-shadow: none;
-          }
-
 title: FritzBox
 path: fritz
-icon: mdi:router-wireless-settings
+icon: mdi:router-network
 type: custom:masonry-layout
 layout:
   max_cols: 2
@@ -19,10 +11,10 @@ cards:
     columns: 4
     show_name: false
     entities:
-      - entity: sensor.net_download_max
+      - entity: sensor.fritz_box_7590_maximaler_download_durchsatz_der_verbindung
         icon: mdi:cloud-download
         name: Max Down
-      - entity: sensor.net_upload_max
+      - entity: sensor.fritz_box_7590_maximaler_upload_durchsatz_der_verbindung
         icon: mdi:cloud-upload
         name: Max Up
       - entity: sensor.fritz_box_7590_download_durchsatz
@@ -52,8 +44,7 @@ cards:
           browser_mod:
             service: browser_mod.popup
             data:
-              # title: Pi-hole Stats
-              right_button: Schließen
+              title: Pi-hole Stats
               style: |
                 --popup-border-width: 0px;
                 --ha-card-border-color: var(--popup-border-color);
@@ -98,6 +89,11 @@ cards:
               options:
                 tap_action:
                   action: toggle
+          exclude:
+            - entity_id: switch.tab_a8_internet_access
+            - entity_id: switch.redminote6pro_redmin_internet_access
+            - entity_id: switch.mi_32c2f2a0_internet_access
+            - entity_id: switch.ds114_internet_access
         sort:
           method: name
         card:
@@ -129,6 +125,7 @@ cards:
                 secondary_info: last-changed
               attributes:
                 source_type: router
+                ip: "192.168.200.*"
           exclude:
             - entity_id: device_tracker.iphone_wolfgang
             - entity_id: device_tracker.iphone_christina
@@ -158,7 +155,11 @@ cards:
       - type: custom:auto-entities
         filter:
           include:
-            - entity_id: "button.fritz_*"
+            - entity_id: "button.fritz_box_7590_*"
+              options:
+                tap_action:
+                  action: toggle
+            - entity_id: "button.fritz_repeater_*"
               options:
                 tap_action:
                   action: toggle

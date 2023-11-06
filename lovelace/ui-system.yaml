@@ -11,3 +11,4 @@ views:
   - !include views_system/updates.yaml
   - !include views_system/automations.yaml
   - !include views_system/links.yaml
+  # - !include views_system/fritz_erlau.yaml

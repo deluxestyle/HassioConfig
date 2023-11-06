@@ -1,0 +1,107 @@
+# # lovelace_gen
+
+# title: FritzBox Erlau
+# path: fritz_erlau
+# icon: mdi:router-wireless-settings
+# type: custom:masonry-layout
+# layout:
+#   max_cols: 2
+# cards:
+#   - type: glance
+#     columns: 4
+#     show_name: false
+#     entities:
+#       - entity: sensor.fritz_box_7530_ax_maximaler_download_durchsatz_der_verbindung
+#         icon: mdi:cloud-download
+#         name: Max Down
+#       - entity: sensor.fritz_box_7530_ax_maximaler_upload_durchsatz_der_verbindung
+#         icon: mdi:cloud-upload
+#         name: Max Up
+#       - entity: sensor.fritz_box_7530_ax_download_durchsatz
+#         icon: mdi:cloud-download-outline
+#         name: Akt Down
+#       - entity: sensor.fritz_box_7530_ax_upload_durchsatz
+#         icon: mdi:cloud-upload-outline
+#         name: Akt Up
+#       - entity: sensor.fritz_box_7530_ax_verbindungsverfugbarkeit
+#         name: Seit
+#       - entity: binary_sensor.fritz_box_7530_ax_verbindung 
+#         double_tap_action:
+#           haptic: medium
+#           action: navigate
+#           navigation_path: /config/devices/device/36a8d6e82781d3f1100027ab2637239a
+#   - type: entities
+#     entities:
+#       - entity: switch.fritz_box_7530_ax_wi_fi_google_messwagen_26_erlau_2_4ghz
+#         name: 'Wi-Fi FRITZ!Box 2.4Ghz'
+#         tap_action: 
+#           action: toggle 
+#           confirmation:
+#             text: WiFi ein/ausschalten?
+#       - entity: switch.fritz_box_7530_ax_wi_fi_google_messwagen_26_erlau_5ghz
+#         name: 'Wi-Fi FRITZ!Box 5Ghz'
+#         tap_action: 
+#           action: toggle 
+#           confirmation:
+#             text: WiFi ein/ausschalten?
+#       - entity: switch.fritz_box_7530_ax_wi_fi_fritz_box_gastzugang
+#         name: 'Wi-Fi FRITZ!Box Gastzugang'
+#         tap_action: 
+#           action: toggle 
+#       - type: custom:fold-entity-row
+#         head:
+#           type: section
+#           label: Internet Zugang
+#         padding: 5
+#         entities:
+#         - entity: switch.tab_a8_internet_access
+#         - entity: switch.redminote6pro_redmin_internet_access
+#         - entity: switch.mi_32c2f2a0_internet_access
+#         - entity: switch.ds114_internet_access
+#       - type: custom:auto-entities
+#         filter:
+#           include:
+#             - entity_id: "switch.fritz_box_7530_ax_port_forward*"
+#               options:
+#                 tap_action:
+#                   action: toggle
+#         sort:
+#           method: name
+#         card:
+#           type: custom:fold-entity-row
+#           head:
+#             type: section
+#             label: Ports
+#           padding: 5
+#       - type: custom:auto-entities
+#         filter:
+#           include:
+#             - domain: device_tracker
+#               options:
+#                 secondary_info: last-changed
+#               attributes:
+#                 source_type: router
+#                 ip: "192.168.178.*"
+#         sort:
+#           method: state
+#         card:
+#           type: custom:fold-entity-row
+#           head:
+#             type: section
+#             label: Netzwerkgeräte
+#           padding: 5
+#       - type: custom:auto-entities
+#         filter:
+#           include:
+#             - entity_id: "button.fritz_box_7530_*"
+#               options:
+#                 tap_action:
+#                   action: toggle
+#         sort:
+#           method: name
+#         card:
+#           type: custom:fold-entity-row
+#           head:
+#             type: section
+#             label: Sonstiges
+#           padding: 5

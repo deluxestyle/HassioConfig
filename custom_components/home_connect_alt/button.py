@@ -26,10 +26,10 @@ async def async_setup_entry(hass:HomeAssistant , config_entry:ConfigType, async_
         entity_manager.remove_appliance(appliance)
 
     # First add the integration button
-    async_add_entities([HomeConnectRefreshButton(homeconnect), HomeConnecDebugButton(homeconnect)])
+    async_add_entities([HomeConnectRefreshButton(homeconnect), HomeConnectDebugButton(homeconnect)])
 
     # Subscribe for events and register existing appliances
-    homeconnect.register_callback(add_appliance, Events.PAIRED)
+    homeconnect.register_callback(add_appliance, [Events.PAIRED, Events.DATA_CHANGED, Events.PROGRAM_STARTED, Events.PROGRAM_SELECTED])
     homeconnect.register_callback(remove_appliance, Events.DEPAIRED)
     for appliance in homeconnect.appliances.values():
         add_appliance(appliance)
@@ -103,8 +103,7 @@ class StartButton(EntityBase, ButtonEntity):
         except HomeConnectError as ex:
             if ex.error_description:
                 raise HomeAssistantError(f"Failed to start the selected program: {ex.error_description} ({ex.code})")
-            else:
-                raise HomeAssistantError(f"Failed to start the selected program ({ex.code})")
+            raise HomeAssistantError(f"Failed to start the selected program ({ex.code})")
 
     async def async_added_to_hass(self):
         """Run when this Entity has been added to HA."""
@@ -150,7 +149,7 @@ class StopButton(EntityBase, ButtonEntity):
         and self._appliance.active_program \
         and (
             "BSH.Common.Status.RemoteControlStartAllowed" not in self._appliance.status or
-            self._appliance.status["BSH.Common.Status.RemoteControlStartAllowed"]
+            self._appliance.status["BSH.Common.Status.RemoteControlStartAllowed"].value
         )
 
     @property
@@ -164,8 +163,7 @@ class StopButton(EntityBase, ButtonEntity):
         except HomeConnectError as ex:
             if ex.error_description:
                 raise HomeAssistantError(f"Failed to stop the selected program: {ex.error_description} ({ex.code})")
-            else:
-                raise HomeAssistantError(f"Failed to stop the selected program ({ex.code})")
+            raise HomeAssistantError(f"Failed to stop the selected program ({ex.code})")
 
     async def async_added_to_hass(self):
         """Run when this Entity has been added to HA."""
@@ -229,11 +227,10 @@ class HomeConnectRefreshButton(ButtonEntity):
         except HomeConnectError as ex:
             if ex.error_description:
                 raise HomeAssistantError(f"Failed to refresh the Home Connect data: {ex.error_description} ({ex.code})")
-            else:
-                raise HomeAssistantError(f"Failed to refresh the Home Connect data ({ex.code})")
+            raise HomeAssistantError(f"Failed to refresh the Home Connect data ({ex.code})")
 
 
-class HomeConnecDebugButton(ButtonEntity):
+class HomeConnectDebugButton(ButtonEntity):
     """ Class for a button to trigger a global refresh of Home Connect data  """
 
     def __init__(self, homeconnect:HomeConnect) -> None:
