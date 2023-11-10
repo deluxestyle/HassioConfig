@@ -313,7 +313,7 @@
   action:
   - delay: 00:01:00
   - data:
-      entity_id: switch.steckdosenleiste
+      entity_id: switch.steckdosenleiste_2
     service: switch.turn_off
   mode: restart
 - id: '1584265149079'
@@ -370,7 +370,7 @@
   - service: switch.turn_on
     data: {}
     target:
-      entity_id: switch.steckdosenleiste
+      entity_id: switch.steckdosenleiste_2
   mode: single
 - id: '1612343173377'
   alias: 'iOS: Telefonat'

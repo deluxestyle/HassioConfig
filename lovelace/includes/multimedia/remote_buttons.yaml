@@ -519,7 +519,7 @@ content:
             - entity: select.harmony_hub_2_activities
             - entity: media_player.appletv
         - type: section
-        - entity: switch.steckdosenleiste
+        - entity: switch.steckdosenleiste_2
           name: Steckdosenleiste
           tap_action:
             action: toggle

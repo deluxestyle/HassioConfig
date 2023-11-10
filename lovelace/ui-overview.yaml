@@ -102,7 +102,7 @@ cards:
     cards:
       - !include includes/multimedia/remote.yaml
       - type: 'custom:button-card'
-        entity: switch.steckdosenleiste
+        entity: switch.steckdosenleiste_2
         template: 
           - icon_info_bg
           - outlet
