@@ -1,13 +1,15 @@
 
-type: 'custom:button-card'
+type: tile
 entity: remote.harmony_hub_2
 name: Fernbedienung
-icon: mdi:remote-tv
-template: 
-  - icon_info_bg
-  - generic_no_unit
-  - remote
 tap_action: 
+  action: fire-dom-event
+  haptic: medium
+  browser_mod:  
+    service: browser_mod.popup
+    data:
+      !include remote_buttons.yaml
+icon_tap_action:
   action: fire-dom-event
   haptic: medium
   browser_mod:  

@@ -97,7 +97,6 @@ cards:
             service: browser_mod.popup
             data:
               title: Docker Container
-              right_button: Schließen
               style: |
                 --popup-border-width: 0px;
                 --ha-card-border-color: var(--popup-border-color);
@@ -163,41 +162,40 @@ cards:
           - entity: sensor.last_boot
             name: Raspi online
             icon: mdi:raspberry-pi
-  - type: entities
-    entities:
-      - entity: automation.batterie_niedriger_batteriestand
-        icon: mdi:battery-alert
-        name: Benachrichtung Batteriestand
-        tap_action:
-          action: fire-dom-event
-          browser_mod:
-            service: browser_mod.popup
-            data:
-              title: Status
-              right_button: Schließen
-              style: |
-                --popup-border-width: 0px;
-                --ha-card-border-color: var(--popup-border-color);
-              card_mod:
-                !include ../includes/popups/popup_styles.yaml
-              content:
-                type: custom:auto-entities
-                card:
-                  type: entities
-                filter:
-                  include:
-                    - entity_id: "sensor.*_battery*"
-                      options:
-                        type: custom:battery-entity-row
-                  exclude:
-                    - entity_id: "*iphone*"
-                    - entity_id: "*ipad*"
-                sort:
-                  method: 
-                    - name
-        double_tap_action:
-          action: navigate
-          navigation_path: /config/automation/edit/1630350328215
+  # - type: tile
+  #   entity: automation.batterie_niedriger_batteriestand
+  #   icon: mdi:battery-alert
+  #   name: Benachrichtung Batteriestand
+  #   tap_action:
+  #     action: fire-dom-event
+  #     browser_mod:
+  #       service: browser_mod.popup
+  #       data:
+  #         title: Status
+  #         right_button: Schließen
+  #         style: |
+  #           --popup-border-width: 0px;
+  #           --ha-card-border-color: var(--popup-border-color);
+  #         card_mod:
+  #           !include ../includes/popups/popup_styles.yaml
+  #         content:
+  #           type: custom:auto-entities
+  #           card:
+  #             type: entities
+  #           filter:
+  #             include:
+  #               - entity_id: "sensor.*_battery*"
+  #                 options:
+  #                   type: custom:battery-entity-row
+  #             exclude:
+  #               - entity_id: "*iphone*"
+  #               - entity_id: "*ipad*"
+  #           sort:
+  #             method: 
+  #               - name
+  #   double_tap_action:
+  #     action: navigate
+  #     navigation_path: /config/automation/edit/1630350328215
   - type: entities
     entities:
       - entity: switch.ds118
@@ -226,19 +224,19 @@ cards:
     columns: 2
     square: false
     cards:
-      - type: 'custom:button-card'
-        name: Mitteilung entf.
+      - type: tile
+        hide_state: true
+        state_content: current_activity
+        tap_action:
+          action: toggle
         entity: script.notify_clean_messages
-        template:
-          - script
-        variables:
-          entity: script.notify_clean_messages
-      - type: 'custom:button-card'
+        icon_tap_action:
+          action: toggle 
+      - type: tile
+        hide_state: true
+        state_content: current_activity
+        tap_action:
+          action: toggle
         entity: script.notify_clean_badge
-        name: Badge entf.
-        template:
-          - script
-        variables:
-          entity: script.notify_clean_badge       
-  - template: blank
-    type: 'custom:button-card'  
+        icon_tap_action:
+          action: toggle   

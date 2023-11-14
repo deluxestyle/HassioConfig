@@ -167,25 +167,16 @@ sonos_set_volume_8:
 alles_ausschalten:
   alias: Alles ausschalten
   sequence:
-  - service: switch.turn_off
-    data: {}
-    target:
-      entity_id:
-      - switch.steckdosenleiste_2
   - service: script.sonos_stopp
     data: {}
-  - service: switch.turn_off
-    data: {}
-    target:
-      entity_id: switch.steckdose_4
-  - service: switch.turn_off
-    data: {}
-    target:
-      entity_id: switch.steckdose_1
   - service: remote.turn_off
     data: {}
     target:
       entity_id: remote.harmony_hub_2
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.steckdosenleiste_2
   mode: single
   icon: mdi:toggle-switch-off-outline
 sonos_set_volume_4:

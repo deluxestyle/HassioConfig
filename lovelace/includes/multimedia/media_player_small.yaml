@@ -1,20 +1,23 @@
 # lovelace_gen
 
-type: custom:vertical-stack-in-card 
-cards:
-  - entity: media_player.{{ entity }}
-    variables:
-      name: {{ name }}
-    template: 
-      - icon_info_bg
-      - media
-    type: 'custom:button-card'
-    tap_action: 
-      action: fire-dom-event
-      haptic: medium
-      browser_mod:  
-        service: browser_mod.popup
-        data:
-          !include 
-            - ../popups/sonos_popup.yaml
-            - entity: {{ entity }}
+type: tile
+entity: media_player.{{ entity }}
+name: {{ name }}
+tap_action: 
+  action: fire-dom-event
+  haptic: medium
+  browser_mod:  
+    service: browser_mod.popup
+    data:
+      !include 
+        - ../popups/sonos_popup.yaml
+        - entity: {{ entity }}
+icon_tap_action:
+  action: fire-dom-event
+  haptic: medium
+  browser_mod:  
+    service: browser_mod.popup
+    data:
+      !include 
+        - ../popups/sonos_popup.yaml
+        - entity: {{ entity }}

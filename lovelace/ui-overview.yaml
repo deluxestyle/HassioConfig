@@ -6,93 +6,6 @@ type: custom:masonry-layout
 layout:
   max_cols: 1
 cards: 
-  # - template: title
-  #   type: 'custom:button-card'
-  #   label: Klima
-  # - type: custom:mushroom-chips-card
-  #   alignment: center
-  #   chips:
-  #     - type: entity
-  #       entity: sensor.temperature_158d0001b8c96c
-  #       icon_color: orange
-  #     - type: entity
-  #       entity: sensor.temperature_158d0001b8c998
-  #       icon_color: orange
-  #     - type: entity
-  #       entity: sensor.temperature_158d0002239fb5
-  #       icon_color: orange
-  #     - type: entity
-  #       entity: sensor.temperature_158d00023258bd
-  #       icon_color: orange
-  # - type: custom:mushroom-chips-card
-  #   alignment: center
-  #   chips:
-  #     - type: entity
-  #       entity: sensor.humidity_158d0001b8c96c
-  #       icon_color: indigo
-  #     - type: entity
-  #       entity: sensor.humidity_158d0001b8c998
-  #       icon_color: indigo
-  #     - type: entity
-  #       entity: sensor.humidity_158d0002239fb5 
-  #       icon_color: indigo
-  #     - type: entity 
-  #       entity: sensor.humidity_158d00023258bd
-  #       icon_color: indigo
-#################################################################
-  # - template: title
-  #   type: 'custom:button-card'
-  #   label: Lichter 
-  # - type: grid
-  #   columns: 2
-  #   square: false
-  #   cards:
-  #     - type: 'custom:button-card'
-  #       entity: light.wohnzimmer_decke
-  #       name: Wohnzimmer
-  #       template: 
-  #         - icon_info_bg
-  #         - light
-  #       double_tap_action:
-  #         action: more-info
-  #     - type: 'custom:button-card'
-  #       entity: light.kuche
-  #       name: Küche
-  #       template: 
-  #         - icon_info_bg
-  #         - light
-  #       double_tap_action:
-  #         action: more-info
-  #     - type: 'custom:button-card'
-  #       entity: light.schlafzimmer
-  #       name: Schlafzimmer
-  #       template: 
-  #         - icon_info_bg
-  #         - light
-  #       double_tap_action:
-  #         action: more-info
-  #     - type: 'custom:button-card'
-  #       entity: light.yeelight_bslamp1_0x0000000005451cd6
-  #       name: Nachtlicht
-  #       template: 
-  #         - icon_info_bg
-  #         - light
-  #       double_tap_action:
-  #         action: more-info
-  #     - type: 'custom:button-card'
-  #       entity: light.flur
-  #       name: Flur
-  #       template: 
-  #         - icon_info_bg
-  #         - light
-  #       double_tap_action:
-  #         action: more-info
-  #     - type: 'custom:button-card'
-  #       entity: switch.steckdose_1
-  #       template: 
-  #         - icon_info_bg
-  #         - light
-#################################################################
   - template: title
     type: 'custom:button-card'
     label: Multimedia
@@ -101,11 +14,12 @@ cards:
     square: false
     cards:
       - !include includes/multimedia/remote.yaml
-      - type: 'custom:button-card'
+      - type: tile
         entity: switch.steckdosenleiste_2
-        template: 
-          - icon_info_bg
-          - outlet
+        tap_action:
+          action: toggle
+        icon_tap_action:
+          action: toggle
 #################################################################
   - template: title
     type: 'custom:button-card'
@@ -134,54 +48,23 @@ cards:
     columns: 2
     square: false
     cards:
-      # - type: 'custom:button-card'
-      #   entity: switch.steckdose_3
-      #   template: 
-      #     - icon_info_bg
-      #     - outlet
-      #     - coffee_plug 
-      #   double_tap_action: 
-      #     !include includes/popups/coffee_timer.yaml
-      - type: 'custom:button-card'
+      - type: tile
         entity: vacuum.roborock_vacuum
         name: Staubsauger
-        template: 
-          - icon_info_bg
-          - generic_with_state
-          - vacuum
         tap_action:
           haptic: medium
           action: navigate
           navigation_path: /lovelace-vacuum/vacuum
-      - type: 'custom:button-card'
+      - type: tile
         entity: switch.013050391085014163_bsh_common_setting_powerstate
         name: Geschirrspüler
         icon: mdi:dishwasher
-        template: 
-          - icon_info_bg
-          - outlet
         tap_action:
           haptic: medium
           action: navigate
           navigation_path: /lovelace/kitchen
-#################################################################
-  # - template: title
-  #   type: 'custom:button-card'
-  #   label: Wetter
-  # - type: custom:simple-weather-card
-  #   entity: weather.openweathermap
-  #   primary_info: humidity
-  #   name: " "
-  - template: blank
-    type: 'custom:button-card'
-  - type: conditional
-    conditions:
-      - entity: input_boolean.batteriewarnung
-        state: "on"
-    card:
-      type: 'custom:button-card'
-      template: icon_info_alert
-      entity: input_boolean.batteriewarnung
-      show_last_changed: false
-  - template: blank
-    type: 'custom:button-card'
+        icon_tap_action:
+          haptic: medium
+          action: navigate
+          navigation_path: /lovelace/kitchen
+
