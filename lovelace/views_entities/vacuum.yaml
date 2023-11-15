@@ -10,8 +10,7 @@ views:
     type: custom:horizontal-layout
     layout:
       max_cols: 2
-    cards:
-          
+    cards: 
       - type: custom:vertical-stack-in-card
         cards:
           - type: custom:vacuum-card

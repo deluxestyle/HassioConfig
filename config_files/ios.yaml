@@ -1,12 +1,12 @@
 actions:
-  - name: absence
-    background_color: "#03a8f4"
-    label:
-      text: "Abwesenheitsmodus"
-      color:  "#ffffff"
-    icon:
-      icon: account-off
-      color:  "#ffffff"
+  # - name: absence
+  #   background_color: "#03a8f4"
+  #   label:
+  #     text: "Abwesenheitsmodus"
+  #     color:  "#ffffff"
+  #   icon:
+  #     icon: account-off
+  #     color:  "#ffffff"
   - name: start_vacuum
     background_color: "#03a8f4"
     label:

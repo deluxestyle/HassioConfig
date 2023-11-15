@@ -6,7 +6,8 @@
     wireguard_iphonese: 192.168.200.205
     wireguard_ipadwolfgang: 192.168.200.204
     wireguard_hpspectre: 192.168.200.209
-    wireguard_laptoperlau: 192.168.200.206
     wireguard_macbook: 192.168.200.207
     wireguard_ipadchristina: 192.168.200.208
     wireguard_fritz_7530ax: 192.168.178.1
+    wireguard_ds114: 192.168.178.22
+    wireguard_laptoperlau: 192.168.178.21

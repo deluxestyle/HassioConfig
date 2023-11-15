@@ -30,3 +30,4 @@ scripts/ds118_shutdown.sh
 .ssh/id_rsa
 scripts/ds118_surveillance_start.sh
 scripts/ds118_surveillance_stop.sh
+scripts/fritzwol/wakeup.json
