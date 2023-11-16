@@ -171,3 +171,14 @@ cards:
             type: section
             label: Sonstiges
           padding: 5
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: device_tracker.wireguard_ds114
+        state: 'not_home'
+    card:
+      type: entities
+      entities:
+        - entity: script.ds114_wol  
+          tap_action:
+            action: none

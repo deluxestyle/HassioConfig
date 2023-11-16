@@ -1,10 +1,10 @@
 title: Updates
 path: updates
 icon: mdi:update
-type: custom:masonry-layout
-layout:
-  max_cols: 2
-  height: auto
+# type: custom:masonry-layout
+# layout:
+#   max_cols: 2
+#   height: auto
 cards:  
   - template: title
     type: 'custom:button-card'

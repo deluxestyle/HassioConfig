@@ -524,3 +524,9 @@ spulmaschine:
       entity_id: button.013050391085014163_start_pause
   mode: single
   icon: mdi:dishwasher
+ds114_wol:
+  alias: DS114 WoL
+  sequence:
+  - service: shell_command.ds114_wol
+    data: {}
+  mode: single

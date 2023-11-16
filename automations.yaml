@@ -95,20 +95,6 @@
       option: --
     service: input_select.select_option
   mode: single
-- id: '1533660030341'
-  alias: 'Entertainment: AVR - verbinden'
-  description: dummy Bedienung um Verbindung sicherzustellen
-  trigger:
-  - entity_id: device_tracker.avr_151s
-    platform: state
-    to: home
-  condition: []
-  action:
-  - delay: 00:02:00
-  - data:
-      entity_id: media_player.harman_kardon_avr
-    service: media_player.volume_down
-  mode: single
 - id: '1533984172028'
   alias: 'Xiaomi Staubsauger: Stoppen '
   trigger:
@@ -813,4 +799,27 @@
   action:
   - service: script.alles_ausschalten
     data: {}
+  mode: single
+- id: '1700051311537'
+  alias: 'DS114: WoL'
+  description: Falls DS114 nicht zur Backupzeit läuft
+  trigger:
+  - platform: time
+    at: '10:35:00'
+  condition:
+  - condition: state
+    entity_id: device_tracker.wireguard_ds114
+    state: not_home
+  action:
+  - service: shell_command.ds114_wol
+    data: {}
+  - service: input_boolean.turn_on
+    data: {}
+    target:
+      entity_id: input_boolean.persistent_notification
+  - data:
+      message: DS114 gestartet
+      notification_id: ds114
+      title: DS114
+    service: script.notify_script
   mode: single
