@@ -1,1 +1,1 @@
-python3 scripts/fritzwol/wakeup.py -c scripts/fritzwol/wakeup.json ds114
+python3 scripts/synology/wakeup.py -c scripts/synology/wakeup.json ds114

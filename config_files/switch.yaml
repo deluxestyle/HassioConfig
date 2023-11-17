@@ -33,6 +33,7 @@
       turn_off:
         - service: vacuum.return_to_base
           entity_id: vacuum.roborock_vacuum
+
 ###############################################
     pi_hole_switch:
       friendly_name: "Pi-hole"
@@ -57,6 +58,14 @@
           target:
             entity_id: binary_sensor.pi_hole
 ###############################################
+    ds114:
+      unique_id: ds114
+      friendly_name: DS114
+      value_template: "{{ is_state('device_tracker.wireguard_ds114', 'home')}}"
+      turn_on:
+        - service: shell_command.ds114_wol
+      turn_off:
+        - service: shell_command.ds114_shutdown
 - platform: wake_on_lan
   mac: 00:11:32:98:83:61
   host: 192.168.200.41
