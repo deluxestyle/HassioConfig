@@ -14,3 +14,6 @@ views:
 
 ##### Wasserenthärter #####
   - !include lovelace/views_entities/water_softener.yaml
+
+##### Klima #####
+  - !include lovelace/views_entities/climate.yaml

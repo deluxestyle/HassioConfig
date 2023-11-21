@@ -1,7 +1,7 @@
 - name: Docker
   url: tcp://192.168.200.33:2375
   containers:
-    - deconz
+    # - deconz
     - portainer
     - nginx-proxy-manager
     - pihole
@@ -11,8 +11,9 @@
     - mosquitto
     - dnscrypt
     - homeassistant
+    - zigbee2mqtt
   rename:
-    deconz: Deconz
+    # deconz: Deconz
     portainer: Portainer
     homeassistant: "Home Assistant"
     mariadb: MariaDB
@@ -23,6 +24,7 @@
     dockerproxy: "Docker Proxy"
     mosquitto: Mosquitto
     dnscrypt: DNScrypt
+    zigbee2mqtt: Zigbee2Mqtt
   monitored_conditions:
     - version
     - containers_running

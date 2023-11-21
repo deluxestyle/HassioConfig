@@ -5,24 +5,12 @@ path: kitchen
 icon: mdi:dishwasher
 type: custom:horizontal-layout
 layout:
-  max_cols: 2
+  max_cols: 1
 cards:
-  # - type: entities
-  #   entities:
-  #     - entity: light.kuche
-  #       name: Küchenlicht
-  #       tap_action:
-  #         action: toggle
-  #       double_tap_action:
-  #           action: more-info
-  # - type: entities
-  #   entities:
-  #     - entity: switch.steckdose_3
-  #       tap_action:
-  #         action: toggle
-  #       double_tap_action: 
-  #         !include ../includes/popups/coffee_timer.yaml
-
+##################################################
+  - template: title
+    type: 'custom:button-card'
+    label: Geschirrspüler 
   - type: conditional
     conditions:
       - entity: binary_sensor.bosch_home_connect
@@ -43,9 +31,15 @@ cards:
     card: 
       type: entities
       entities:
+  # - type: conditional
+  #   conditions:
+  #     - entity: binary_sensor.bosch_home_connect
+  #       state: "on"
+  #   card: 
+  #     type: entities
+  #     entities:
+        - entity: switch.013050391085014163_bsh_common_setting_powerstate
         - entity: sensor.013050391085014163_bsh_common_status_operationstate
-          tap_action:
-            action: none
         - type: custom:fold-entity-row
           padding: 5
           head:
@@ -54,22 +48,21 @@ cards:
           entities:
             - entity: sensor.013050391085014163_bsh_common_option_programprogress
             - entity: sensor.013050391085014163_bsh_common_option_remainingprogramtime 
-  - type: conditional
-    conditions:
-      - entity: binary_sensor.bosch_home_connect
-        state: "on"
-    card: 
-      type: entities
-      entities:
-        - entity: switch.013050391085014163_bsh_common_setting_powerstate
-        - entity: select.013050391085014163_bsh_common_option_startinrelative
-        - entity: select.013050391085014163_programs
+        - type: divider
         - entity: button.013050391085014163_start_pause
         - entity: button.013050391085014163_stop 
-        - entity: switch.013050391085014163_dishcare_dishwasher_option_brilliancedry
-        - entity: switch.013050391085014163_dishcare_dishwasher_option_hygieneplus
-        - entity: switch.013050391085014163_dishcare_dishwasher_option_intensivzone
-        - entity: switch.013050391085014163_dishcare_dishwasher_option_variospeedplus
+        - entity: select.013050391085014163_programs
+        - type: custom:fold-entity-row
+          padding: 5
+          head:
+            type: section
+            label: Optionen
+          entities:
+            - entity: switch.013050391085014163_dishcare_dishwasher_option_brilliancedry
+            - entity: switch.013050391085014163_dishcare_dishwasher_option_hygieneplus
+            - entity: switch.013050391085014163_dishcare_dishwasher_option_intensivzone
+            - entity: switch.013050391085014163_dishcare_dishwasher_option_variospeedplus
+            - entity: select.013050391085014163_bsh_common_option_startinrelative
         - type: custom:auto-entities
           filter:
             include:
@@ -93,4 +86,5 @@ cards:
               type: section
               label: Details
             padding: 5
-  # - !include ../includes/climate/climate_kitchen.yaml
+          tap_action:
+            action: none

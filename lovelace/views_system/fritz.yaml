@@ -7,6 +7,10 @@ type: custom:masonry-layout
 layout:
   max_cols: 2
 cards:
+##################################################
+  - template: title
+    type: 'custom:button-card'
+    label: Internet 
   - type: glance
     columns: 4
     show_name: false
@@ -30,40 +34,10 @@ cards:
           haptic: medium
           action: navigate
           navigation_path: /config/devices/device/36a8d6e82781d3f1100027ab2637239a
-  - type: entities
-    entities:
-      - entity: switch.pi_hole_switch
-        icon: mdi:pi-hole 
-        name: AdBlocker (Pi-hole)
-        tap_action:
-          action: toggle
-          confirmation:
-            text: AdBlocker (Pi-hole) ein-/ausschalten?
-        double_tap_action:
-          action: fire-dom-event
-          browser_mod:
-            service: browser_mod.popup
-            data:
-              title: Pi-hole Stats
-              style: |
-                --popup-border-width: 0px;
-                --ha-card-border-color: var(--popup-border-color);
-              card_mod:
-                !include ../includes/popups/popup_styles.yaml
-              content:
-                type: custom:auto-entities
-                card:
-                  type: entities
-                filter:
-                    include:
-                      - entity_id: input_datetime.pi_hole_timer
-                        options:
-                          tap_action:
-                            action: none
-                      - entity_id: "sensor.pi_hole_*"
-                        options:
-                          tap_action:
-                            action: none
+##################################################
+  - template: title
+    type: 'custom:button-card'
+    label: FritzBox 
   - type: entities
     entities:
       - entity: switch.fritz_box_7590_wi_fi_google_messwagen_26_2_4ghz
@@ -171,8 +145,41 @@ cards:
             type: section
             label: Sonstiges
           padding: 5
+##################################################
+  - template: title
+    type: 'custom:button-card'
+    label: Pi-Hole 
   - type: entities
     entities:
-      - entity: switch.ds114 
+      - entity: switch.pi_hole_switch
+        icon: mdi:pi-hole 
+        name: AdBlocker (Pi-Hole)
         tap_action:
-          action: none
+          action: toggle
+          confirmation:
+            text: AdBlocker (Pi-hole) ein-/ausschalten?
+        double_tap_action:
+          action: fire-dom-event
+          browser_mod:
+            service: browser_mod.popup
+            data:
+              title: Pi-hole Stats
+              style: |
+                --popup-border-width: 0px;
+                --ha-card-border-color: var(--popup-border-color);
+              card_mod:
+                !include ../includes/popups/popup_styles.yaml
+              content:
+                type: custom:auto-entities
+                card:
+                  type: entities
+                filter:
+                    include:
+                      - entity_id: input_datetime.pi_hole_timer
+                        options:
+                          tap_action:
+                            action: none
+                      - entity_id: "sensor.pi_hole_*"
+                        options:
+                          tap_action:
+                            action: none

@@ -5,51 +5,54 @@ icon: mdi:cog-outline
 type: custom:masonry-layout
 layout:
   max_cols: 2
-  height: auto
 cards:  
-  - type: custom:vertical-stack-in-card
-    cards: 
-      - type: glance
-        columns: 4
-        show_name: false
-        entities:
-          - entity: sensor.processor_use
-            name: CPU   
-            style: |
-                :host {
-                  color: 
-                  {% if (states('sensor.processor_use')  | int(0)) > 30 %}
-                    red
-                  {% endif %}
-                  ;
-                }     
-          - entity: sensor.memory_use_percent
-            name: Memory %
-          - entity: sensor.swap_use_percent
-            name: Swap %
-            icon: mdi:file-swap         
-          - entity: sensor.disk_use_percent
-            name: Disk %     
-          - entity: sensor.cpu_temperature
-            icon: mdi:thermometer
-            name: CPU Temp
-            style: |
-                :host {
-                  color: 
-                  {% if (states('sensor.cpu_temperature')  | int(0)) > 65 %}
-                    red
-                  {% endif %}
-                  ;
-                }
-          - entity: sensor.memory_use
-            name: Memory
-          - entity: sensor.swap_use
-            name: Swap
-            icon: mdi:file-swap  
-          - entity: sensor.disk_use
-            name: Disk 
-          - entity: sensor.sqlite_db_grosse
-            icon: mdi:database                    
+  - template: title
+    type: 'custom:button-card'
+    label: Übersicht 
+  - type: glance
+    columns: 4
+    show_name: false
+    entities:
+      - entity: sensor.processor_use
+        name: CPU   
+        style: |
+            :host {
+              color: 
+              {% if (states('sensor.processor_use')  | int(0)) > 30 %}
+                red
+              {% endif %}
+              ;
+            }     
+      - entity: sensor.memory_use_percent
+        name: Memory %
+      - entity: sensor.swap_use_percent
+        name: Swap %
+        icon: mdi:file-swap         
+      - entity: sensor.disk_use_percent
+        name: Disk %     
+      - entity: sensor.cpu_temperature
+        icon: mdi:thermometer
+        name: CPU Temp
+        style: |
+            :host {
+              color: 
+              {% if (states('sensor.cpu_temperature')  | int(0)) > 65 %}
+                red
+              {% endif %}
+              ;
+            }
+      - entity: sensor.memory_use
+        name: Memory
+      - entity: sensor.swap_use
+        name: Swap
+        icon: mdi:file-swap  
+      - entity: sensor.disk_use
+        name: Disk 
+      - entity: sensor.sqlite_db_grosse
+        icon: mdi:database   
+  - template: title
+    type: 'custom:button-card'
+    label: Versionen                  
   - type: entities
     show_header_toggle: false
     entities:
@@ -196,26 +199,6 @@ cards:
   #   double_tap_action:
   #     action: navigate
   #     navigation_path: /config/automation/edit/1630350328215
-  - type: entities
-    entities:
-      - entity: switch.ds118
-        icon: mdi:nas
-        tap_action:
-          action: toggle
-          confirmation:
-            text: NAS ein-/ausschalten?
-      - type: custom:auto-entities
-        filter:
-          include:
-            - entity_id: "sensor.ynzvpg2*"
-        sort:
-          method: name
-        card:
-          type: custom:fold-entity-row
-          head:
-            type: section
-            label: Syncthing Status
-          padding: 5
   - type: grid
     columns: 2
     square: false

@@ -4,18 +4,20 @@
 title: Wasserenthärter
 path: watersoftener
 icon: mdi:water-sync
-type: custom:horizontal-layout
-layout:
-  max_cols: 2
+# type: custom:horizontal-layout
+# layout:
+#   max_cols: 2
 cards:
+##################################################
+  - template: title
+    type: 'custom:button-card'
+    label: Wasserenthärter 
   - type: entities
     entities:
       - entity: number.judo_isoftsaveplus_daheim_wunschwasserhaerte
       - entity: switch.judo_isoftsaveplus_daheim_regeneration
       - entity: select.judo_isoftsaveplus_daheim_urlaubsmodus
       - entity: switch.judo_isoftsaveplus_daheim_wasser_absperren
-  - type: entities
-    entities:
       - entity: sensor.judo_isoftsaveplus_daheim_salzreichweite
       - entity: sensor.judo_isoftsaveplus_daheim_meldung
       - type: custom:fold-entity-row

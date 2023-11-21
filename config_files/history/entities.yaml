@@ -32,3 +32,5 @@ entity_globs:
   - number.judo*
   - sensor.fritz_box_*
   - binary_sensor.fritz_box_*
+  - sensor.sonoff_*
+  - sensor.aqara_*

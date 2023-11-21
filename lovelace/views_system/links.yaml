@@ -63,8 +63,8 @@ cards:
           new_tab: true
         - type: divider
         - type: weblink
-          url: http://phoscon.tanzer-cloud.de
-          name: Phoscon
+          url: https://zigbee2mqtt.tanzer-cloud.de
+          name: Zigbee2Mqtt
           icon: mdi:zigbee
           new_tab: true
         - type: divider

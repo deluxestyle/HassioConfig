@@ -4,6 +4,10 @@ title: Automations
 path: automations
 icon: mdi:calendar-multiple-check
 cards:
+##################################################
+  - template: title
+    type: 'custom:button-card'
+    label: Scheduler 
   - type: custom:scheduler-card
     include:
       - light
@@ -26,25 +30,4 @@ cards:
       - light.rwl021_23
       - switch.docker*
       - switch.*_internet_access
-# '    time_step: 1
-#     customize:
-#       script.sonos_wecker:
-#         actions:
-#           - service: script.sonos_wecker
-#             name: Weckton
-#             icon: mdi:alarm
-#             variables:
-#               alarm_source:
-#                 name: Quelle
-#                 options:
-#                   - value: 'Radio: BR24'
-#                   - value: 'Radio: Superfly.fm'
-#       person.wolfgang:
-#         states:
-#           - home
-#           - not_home
-#       person.christina:
-#         states:
-#           - home
-#           - not_home'
     title: ''

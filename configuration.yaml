@@ -123,23 +123,3 @@ custom_update_entities:
         - service: browser_mod.navigate
           data:
             path: https://next.tanzer-cloud.de
-
-emulated_hue:
-  expose_by_default: false
-  entities:
-    light.flur:
-      hidden: false
-    light.kuche:
-      hidden: false
-    light.wohnzimmer_decke:
-      hidden: false
-    light.schlafzimmer:
-      hidden: false
-    switch.steckdose_1:
-      hidden: false
-    switch.steckdose_2:
-      hidden: false
-    switch.steckdose_3:
-      hidden: false
-    switch.steckdosenleiste:
-      hidden: false

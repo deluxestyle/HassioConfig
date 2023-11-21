@@ -1,0 +1,36 @@
+# lovelace_gen
+
+# -----------------------------
+title: Klima
+path: climate
+icon: mdi:home-thermometer-outline
+type: custom:horizontal-layout
+layout:
+  max_cols: 2
+cards: 
+  - !include
+      - ../includes/climate/thermostat.yaml
+      - sensor_temprature: sensor.sonoff_technikraum_temperature
+        sensor_humidity: sensor.sonoff_technikraum_humidity
+        name: Technikraum
+
+  - !include
+      - ../includes/climate/thermostat.yaml
+      - sensor_temprature: sensor.aqara_sensor_1_temperature
+        sensor_humidity: sensor.aqara_sensor_1_humidity
+        name: Aqara Sensor 1
+  - !include
+      - ../includes/climate/thermostat.yaml
+      - sensor_temprature: sensor.aqara_sensor_2_temperature
+        sensor_humidity: sensor.aqara_sensor_2_humidity
+        name: Aqara Sensor 2
+  - !include
+      - ../includes/climate/thermostat.yaml
+      - sensor_temprature: sensor.aqara_sensor_3_temperature
+        sensor_humidity: sensor.aqara_sensor_3_humidity
+        name: Aqara Sensor 3
+  - !include
+      - ../includes/climate/thermostat.yaml
+      - sensor_temprature: sensor.aqara_sensor_4_temperature
+        sensor_humidity: sensor.aqara_sensor_4_humidity
+        name: Aqara Sensor 4
