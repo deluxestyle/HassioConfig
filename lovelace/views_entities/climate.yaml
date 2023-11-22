@@ -6,7 +6,7 @@ path: climate
 icon: mdi:home-thermometer-outline
 type: custom:horizontal-layout
 layout:
-  max_cols: 2
+  max_cols: 1
 cards: 
   - !include
       - ../includes/climate/thermostat.yaml
@@ -18,19 +18,32 @@ cards:
       - ../includes/climate/thermostat.yaml
       - sensor_temprature: sensor.aqara_sensor_1_temperature
         sensor_humidity: sensor.aqara_sensor_1_humidity
-        name: Aqara Sensor 1
+        name: Bad
   - !include
       - ../includes/climate/thermostat.yaml
       - sensor_temprature: sensor.aqara_sensor_2_temperature
         sensor_humidity: sensor.aqara_sensor_2_humidity
-        name: Aqara Sensor 2
+        name: Kinderzimmer
   - !include
       - ../includes/climate/thermostat.yaml
       - sensor_temprature: sensor.aqara_sensor_3_temperature
         sensor_humidity: sensor.aqara_sensor_3_humidity
-        name: Aqara Sensor 3
+        name: Schlafzimmer
   - !include
       - ../includes/climate/thermostat.yaml
       - sensor_temprature: sensor.aqara_sensor_4_temperature
         sensor_humidity: sensor.aqara_sensor_4_humidity
-        name: Aqara Sensor 4
+        name: Küche
+  - !include
+      - ../includes/climate/thermostat.yaml
+      - sensor_temprature: sensor.sonoff_sensor_2_temperature
+        sensor_humidity: sensor.sonoff_sensor_2_humidity
+        name: Gästezimmer
+  - !include
+      - ../includes/climate/thermostat.yaml
+      - sensor_temprature: sensor.sonoff_sensor_3_temperature
+        sensor_humidity: sensor.sonoff_sensor_3_humidity
+        name: Sonoff Sensor 3
+
+
+        

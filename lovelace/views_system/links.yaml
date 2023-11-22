@@ -38,43 +38,43 @@ cards:
           name: Grafana
           icon: mdi:chart-areaspline
           new_tab: true
-    - type: entities
-      entities:
-        - type: weblink
-          url: https://pihole.tanzer-cloud.de/admin/
-          name: Pi-hole
-          icon: mdi:pi-hole
-          new_tab: true
-        - type: weblink
-          url: http://fritz.box/
-          name: Frizt.Box
-          icon: mdi:router-wireless
-          new_tab: true
-        - type: divider
-        - type: weblink
-          url: https://portainer.tanzer-cloud.de
-          name: Portainer
-          icon: mdi:docker
-          new_tab: true
-        - type: weblink
-          url: https://wud.tanzer-cloud.de
-          name: What's up docker
-          icon: mdi:docker
-          new_tab: true
-        - type: divider
-        - type: weblink
-          url: https://zigbee2mqtt.tanzer-cloud.de
-          name: Zigbee2Mqtt
-          icon: mdi:zigbee
-          new_tab: true
-        - type: divider
-        - type: weblink
-          url: https://synology.tanzer-cloud.de
-          name: DS118
-          icon: mdi:nas
-          new_tab: true
-        - type: weblink
-          url: https://syncthing.tanzer-cloud.de/
-          name: Syncthing
-          icon: mdi:cloud-sync-outline
-          new_tab: true
+    # - type: entities
+    #   entities:
+    #     - type: weblink
+    #       url: https://pihole.tanzer-cloud.de/admin/
+    #       name: Pi-hole
+    #       icon: mdi:pi-hole
+    #       new_tab: true
+    #     - type: weblink
+    #       url: http://fritz.box/
+    #       name: Frizt.Box
+    #       icon: mdi:router-wireless
+    #       new_tab: true
+    #     - type: divider
+    #     - type: weblink
+    #       url: https://portainer.tanzer-cloud.de
+    #       name: Portainer
+    #       icon: mdi:docker
+    #       new_tab: true
+    #     - type: weblink
+    #       url: https://wud.tanzer-cloud.de
+    #       name: What's up docker
+    #       icon: mdi:docker
+    #       new_tab: true
+    #     - type: divider
+    #     - type: weblink
+    #       url: https://zigbee2mqtt.tanzer-cloud.de
+    #       name: Zigbee2Mqtt
+    #       icon: mdi:zigbee
+    #       new_tab: true
+    #     - type: divider
+    #     - type: weblink
+    #       url: https://synology.tanzer-cloud.de
+    #       name: DS118
+    #       icon: mdi:nas
+    #       new_tab: true
+    #     - type: weblink
+    #       url: https://syncthing.tanzer-cloud.de/
+    #       name: Syncthing
+    #       icon: mdi:cloud-sync-outline
+    #       new_tab: true

@@ -1,27 +1,25 @@
 filter:
   include_entities:
-    # - light.yeelight_bslamp1_0x0000000005451cd6
-    # - light.wohnzimmer_decke
-    # - light.kuche
-    # - light.flur
-    # - light.schlafzimmer
     - media_player.fernsehzimmer
     - media_player.wohnzimmer
     - media_player.office
     - switch.vacuum
-    - switch.steckdosenleiste #Steckdosenleiste
-    - switch.steckdose_3 #Kaffeemaschine
-    # - sensor.humidity_158d0001b8c96c
-    # - sensor.humidity_158d0001b8c998
-    # - sensor.humidity_158d0002239fb5
-    # - sensor.humidity_158d00023258bd
-    # - sensor.temperature_158d0002239fb5
-    # - sensor.temperature_158d0001b8c96c
-    # - sensor.temperature_158d00023258bd
-    # - sensor.temperature_158d0001b8c998
+    - switch.steckdosenleiste_2
     - switch.pi_hole_switch
-    - switch.steckdose_2
-    - switch.steckdose_1
+    - sensor.sonoff_technikraum_temperature
+    - sensor.sonoff_technikraum_humidity
+    - sensor.sonoff_2_temperature
+    - sensor.sonoff_2_humidity
+    - sensor.sonoff_3_temperature
+    - sensor.sonoff_3_humidity
+    - sensor.aqara_sensor_1_humidity
+    - sensor.aqara_sensor_1_temperature
+    - sensor.aqara_sensor_2_humidity
+    - sensor.aqara_sensor_2_temperature
+    - sensor.aqara_sensor_3_humidity
+    - sensor.aqara_sensor_3_temperature
+    - sensor.aqara_sensor_4_humidity
+    - sensor.aqara_sensor_4_temperature   
 entity_config:
     media_player.fernsehzimmer:
       feature_list:
@@ -32,19 +30,31 @@ entity_config:
     media_player.office:
       feature_list:
         - feature: play_pause
-    # sensor.humidity_158d0001b8c998:
-    #   low_battery_threshold: 0
-    # sensor.humidity_158d0002239fb5:
-    #   low_battery_threshold: 0
-    # sensor.humidity_158d00023258bd:
-    #   low_battery_threshold: 0
-    # sensor.humidity_158d0001b8c96c:
-    #   low_battery_threshold: 0
-    # sensor.temperature_158d0001b8c998:
-    #   low_battery_threshold: 0
-    # sensor.temperature_158d0002239fb5:
-    #   low_battery_threshold: 0
-    # sensor.temperature_158d00023258bd:
-    #   low_battery_threshold: 0
-    # sensor.temperature_158d0001b8c96c:
-    #   low_battery_threshold: 0
+    sensor.sonoff_technikraum_temperature:
+      name: Technikraum
+    sensor.sonoff_technikraum_humidity:
+      name: Technikraum
+    sensor.sonoff_2_temperature:
+      name: Gästezimmer
+    sensor.sonoff_2_humidity:
+      name: Gästezimmer
+    sensor.sonoff_3_temperature:
+      name: Sonoff 3
+    sensor.sonoff_3_humidity:
+      name: Sonoff 3
+    sensor.aqara_sensor_1_humidity:
+      name: Bad
+    sensor.aqara_sensor_1_temperature:
+      name: Bad
+    sensor.aqara_sensor_2_humidity:
+      name: Kinderzimmer
+    sensor.aqara_sensor_2_temperature:
+      name: Kinderzimmer
+    sensor.aqara_sensor_3_humidity:
+      name: Schlafzimmer
+    sensor.aqara_sensor_3_temperature:
+      name: Schlafzimmer
+    sensor.aqara_sensor_4_humidity:
+      name: Küche
+    sensor.aqara_sensor_4_temperature:
+      name: Küche

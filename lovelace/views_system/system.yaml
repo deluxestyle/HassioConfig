@@ -5,7 +5,8 @@ icon: mdi:cog-outline
 type: custom:masonry-layout
 layout:
   max_cols: 2
-cards:  
+cards: 
+################################################## 
   - template: title
     type: 'custom:button-card'
     label: Übersicht 
@@ -50,6 +51,7 @@ cards:
         name: Disk 
       - entity: sensor.sqlite_db_grosse
         icon: mdi:database   
+##################################################
   - template: title
     type: 'custom:button-card'
     label: Versionen                  
@@ -165,40 +167,42 @@ cards:
           - entity: sensor.last_boot
             name: Raspi online
             icon: mdi:raspberry-pi
-  # - type: tile
-  #   entity: automation.batterie_niedriger_batteriestand
-  #   icon: mdi:battery-alert
-  #   name: Benachrichtung Batteriestand
-  #   tap_action:
-  #     action: fire-dom-event
-  #     browser_mod:
-  #       service: browser_mod.popup
-  #       data:
-  #         title: Status
-  #         right_button: Schließen
-  #         style: |
-  #           --popup-border-width: 0px;
-  #           --ha-card-border-color: var(--popup-border-color);
-  #         card_mod:
-  #           !include ../includes/popups/popup_styles.yaml
-  #         content:
-  #           type: custom:auto-entities
-  #           card:
-  #             type: entities
-  #           filter:
-  #             include:
-  #               - entity_id: "sensor.*_battery*"
-  #                 options:
-  #                   type: custom:battery-entity-row
-  #             exclude:
-  #               - entity_id: "*iphone*"
-  #               - entity_id: "*ipad*"
-  #           sort:
-  #             method: 
-  #               - name
-  #   double_tap_action:
-  #     action: navigate
-  #     navigation_path: /config/automation/edit/1630350328215
+##################################################         
+  - type: entities
+    entities:
+      - entity: automation.batterie_niedriger_batteriestand
+        icon: mdi:battery-alert
+        name: Benachrichtung Batteriestand
+        tap_action:
+          action: fire-dom-event
+          browser_mod:
+            service: browser_mod.popup
+            data:
+              title: Status
+              style: |
+                --popup-border-width: 0px;
+                --ha-card-border-color: var(--popup-border-color);
+              card_mod:
+                !include ../includes/popups/popup_styles.yaml
+              content:
+                type: custom:auto-entities
+                card:
+                  type: entities
+                filter:
+                  include:
+                    - entity_id: "sensor.*_battery*"
+                      options:
+                        type: custom:battery-entity-row
+                  exclude:
+                    - entity_id: "*iphone*"
+                    - entity_id: "*ipad*"
+                sort:
+                  method: 
+                    - name
+        double_tap_action:
+          action: navigate
+          navigation_path: /config/automation/edit/1630350328215
+##################################################
   - type: grid
     columns: 2
     square: false

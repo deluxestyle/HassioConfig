@@ -18,7 +18,7 @@ actions:
   - name: phonecall
     background_color: "#03a8f4"
     label:
-      text: "Telefonat"
+      text: "Sonos aus"
       color:  "#ffffff"
     icon:
       icon: phone-ring
