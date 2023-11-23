@@ -32,7 +32,7 @@ cards:
           - entity: number.judo_isoftsaveplus_daheim_salzvorrat
           - entity: number.judo_isoftsaveplus_daheim_sleepmode
           - entity: sensor.judo_isoftsaveplus_daheim_anzahl_regenerationen
-          - entity: sensor.judo_isoftsaveplus_daheim_batterierestkapazitaet
+          - entity: sensor.judo_isoftsaveplus_daheim_battery
           - entity: sensor.judo_isoftsaveplus_daheim_durchschn_regenerationsintervall
           - entity: sensor.judo_isoftsaveplus_daheim_gesamthartwasseranteil
           - entity: sensor.judo_isoftsaveplus_daheim_gesamtwasserverbrauch

@@ -38,8 +38,9 @@ cards:
   #   card: 
   #     type: entities
   #     entities:
-        - entity: switch.013050391085014163_bsh_common_setting_powerstate
         - entity: sensor.013050391085014163_bsh_common_status_operationstate
+          tap_action:
+              action: none
         - type: custom:fold-entity-row
           padding: 5
           head:
@@ -47,10 +48,21 @@ cards:
             label: Status
           entities:
             - entity: sensor.013050391085014163_bsh_common_option_programprogress
+              tap_action:
+                  action: none
             - entity: sensor.013050391085014163_bsh_common_option_remainingprogramtime 
+              tap_action:
+                  action: none
         - type: divider
+        - entity: switch.013050391085014163_bsh_common_setting_powerstate
+          tap_action:
+              action: none        
         - entity: button.013050391085014163_start_pause
-        - entity: button.013050391085014163_stop 
+          tap_action:
+              action: none   
+        - entity: button.013050391085014163_stop
+          tap_action:
+              action: none   
         - entity: select.013050391085014163_programs
         - type: custom:fold-entity-row
           padding: 5
@@ -59,10 +71,20 @@ cards:
             label: Optionen
           entities:
             - entity: switch.013050391085014163_dishcare_dishwasher_option_brilliancedry
+              tap_action:
+                  action: none
             - entity: switch.013050391085014163_dishcare_dishwasher_option_hygieneplus
+              tap_action:
+                  action: none
             - entity: switch.013050391085014163_dishcare_dishwasher_option_intensivzone
+              tap_action:
+                  action: none
             - entity: switch.013050391085014163_dishcare_dishwasher_option_variospeedplus
+              tap_action:
+                  action: none
             - entity: select.013050391085014163_bsh_common_option_startinrelative
+              tap_action:
+                  action: none
         - type: custom:auto-entities
           filter:
             include:

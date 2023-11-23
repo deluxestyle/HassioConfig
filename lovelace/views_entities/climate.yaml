@@ -13,7 +13,6 @@ cards:
       - sensor_temprature: sensor.sonoff_technikraum_temperature
         sensor_humidity: sensor.sonoff_technikraum_humidity
         name: Technikraum
-
   - !include
       - ../includes/climate/thermostat.yaml
       - sensor_temprature: sensor.aqara_sensor_1_temperature
