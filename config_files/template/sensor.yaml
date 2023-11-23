@@ -27,6 +27,6 @@
           {{ states('sensor.nextcloud_version')}}
         {% endif %}
 
-  - name: vw_passat_gefahrene_km
-    unique_id: vw_passat_gefahrene_km
-    state: '{{ (states.sensor.vw_passat_odometer.state | int)  - (25180 | int) }}'
+  # - name: vw_passat_gefahrene_km
+  #   unique_id: vw_passat_gefahrene_km
+  #   state: '{{ (states.sensor.vw_passat_odometer.state | int)  - (25180 | int) }}'

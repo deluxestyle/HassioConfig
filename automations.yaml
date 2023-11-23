@@ -823,3 +823,34 @@
       title: DS114
     service: script.notify_script
   mode: single
+- id: '1700668485019'
+  alias: 'Benachrichtigung: Luftfeuchtigkeit'
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.aqara_sensor_1_humidity
+    - sensor.aqara_sensor_2_humidity
+    - sensor.aqara_sensor_3_humidity
+    - sensor.aqara_sensor_4_humidity
+    - sensor.sonoff_sensor_2_humidity
+    - sensor.sonoff_sensor_3_humidity
+    - sensor.sonoff_technikraum_humidity
+    for:
+      hours: 1
+      minutes: 0
+      seconds: 0
+    above: 70
+  condition: []
+  action:
+  - service: input_boolean.turn_on
+    data: {}
+    target:
+      entity_id: input_boolean.persistent_notification
+  - data_template:
+      message: '{{ trigger.from_state.attributes.friendly_name }} zu hoch: {{ trigger.to_state.state
+        }} % '
+      notification_id: humidity
+      title: Luftfeuchtigkeit
+    service: script.notify_script
+  mode: single
