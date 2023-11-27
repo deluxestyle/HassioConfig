@@ -837,7 +837,7 @@
     - sensor.sonoff_sensor_3_humidity
     - sensor.sonoff_technikraum_humidity
     for:
-      hours: 1
+      hours: 0
       minutes: 0
       seconds: 0
     above: 70
