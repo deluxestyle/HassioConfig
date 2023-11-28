@@ -1,12 +1,4 @@
 actions:
-  # - name: absence
-  #   background_color: "#03a8f4"
-  #   label:
-  #     text: "Abwesenheitsmodus"
-  #     color:  "#ffffff"
-  #   icon:
-  #     icon: account-off
-  #     color:  "#ffffff"
   - name: start_vacuum
     background_color: "#03a8f4"
     label:
@@ -15,11 +7,11 @@ actions:
     icon:
       icon: robot-vacuum
       color:  "#ffffff"
-  - name: phonecall
+  - name: sonos_off
     background_color: "#03a8f4"
     label:
       text: "Sonos aus"
       color:  "#ffffff"
     icon:
-      icon: phone-ring
+      icon: music-off
       color:  "#ffffff"

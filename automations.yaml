@@ -15,6 +15,7 @@
         }} qm | Fehler {{ states.counter.xiaomo_errors.state }}'
       notification_id: xiaomi_vacuum_status
       title: StaubRobo
+      url: /lovelace-vacuum/valetudo
     service: script.notify_script
   mode: single
 - id: xiaomi_vacuum_notification_on
@@ -53,6 +54,7 @@
         }} '
       notification_id: xiaomi_vacuum_error
       title: StaubRobo
+      url: /lovelace-vacuum/valetudo
     service: script.notify_script
   mode: single
 - id: '1523001167559'
@@ -131,6 +133,7 @@
         }} h übrig'
       notification_id: xiaomi_sensor
       title: Xiaomi StaubRobo
+      url: /lovelace-vacuum/valetudo
     service: persistent_notification.create
   mode: single
 - id: '1543619209115'
@@ -224,6 +227,7 @@
         }} % '
       notification_id: pi
       title: Raspi
+      url: /lovelace-system/system
     service: script.notify_script
   mode: single
 - id: '1568628137654'
@@ -251,6 +255,7 @@
         }} h übrig'
       notification_id: xiaomi_filter
       title: Xiaomi StaubRobo
+      url: /lovelace-vacuum/valetudo
     service: script.notify_script
   mode: single
 - id: '1570440017469'
@@ -323,6 +328,7 @@
       message: 'CPU Temp zu hoch: {{ states ( "sensor.cpu_temperature" ) }}°'
       notification_id: cpu_temp
       title: CPU Temp
+      url: /lovelace-system/system
     service: script.notify_script
 - id: '1584265149080'
   alias: 'Benachrichtigung: CPU Auslastung zu hoch'
@@ -341,6 +347,7 @@
       message: 'CPU Auslastung zu hoch: {{ states ( "sensor.processor_use" ) }}%'
       notification_id: cpu
       title: CPU Auslastung
+      url: /lovelace-system/system
     service: script.notify_script
   mode: single
 - id: '1607432908571'
@@ -359,13 +366,13 @@
       entity_id: switch.steckdosenleiste_2
   mode: single
 - id: '1612343173377'
-  alias: 'iOS: Telefonat'
+  alias: 'iOS: Sonos ausschalten'
   description: ''
   trigger:
   - platform: event
     event_type: ios.action_fired
     event_data:
-      actionName: phonecall
+      actionName: sonos_off
   condition: []
   action:
   - service: script.sonos_stopp
@@ -439,6 +446,7 @@
           message: 'Batteriewarnung für: {{sensors}}'
           notification_id: battery
           title: Batteriewarnung
+          url: /lovelace-system/system
         service: script.notify_script
       - service: input_boolean.turn_on
         target:
@@ -559,6 +567,7 @@
       message: 'Swap Auslastung zu hoch: {{ states ( "sensor.swap_use_percent" ) }}%'
       notification_id: swap
       title: swap Auslastung
+      url: /lovelace-system/system
     service: script.notify_script
   mode: single
 - id: '1667402945500'
@@ -578,6 +587,7 @@
       message: Geschirrspüler fertig
       notification_id: dish_washer
       title: Geschirrspüler
+      url: /lovelace/kitchen
     service: script.notify_script
   mode: single
 - id: '1668452168948'
@@ -703,7 +713,6 @@
   trigger:
   - platform: state
     entity_id:
-    - update.wud_container_local_deconz
     - update.wud_container_local_dockerproxy
     - update.wud_container_local_dnscrypt
     - update.wud_container_local_mosquitto
@@ -725,6 +734,7 @@
       message: '{{ trigger.from_state.attributes.friendly_name }} Update verfügbar '
       notification_id: '{{ trigger.from_state.attributes.friendly_name }} Update '
       title: Update
+      url: /lovelace-system/system
     service: script.notify_script
   mode: single
 - id: '1678891141768'
@@ -785,6 +795,7 @@
       message: PiHole nicht verfügbar
       notification_id: pihole
       title: PiHole
+      url: https://pihole.tanzer-cloud.de/admin/
     service: script.notify_script
   mode: single
 - id: '1696409652364'
@@ -852,5 +863,6 @@
         }} % '
       notification_id: humidity
       title: Luftfeuchtigkeit
+      url: /lovelace/climate
     service: script.notify_script
   mode: single

@@ -96,6 +96,11 @@ notify_script:
     title:
       description: Title der Nachricht
       example: blabal
+    url:
+      selector:
+        text:
+      default: /lovelace/overview
+      name: url
   sequence:
   - data:
       entity_id: counter.badge_counter
@@ -105,6 +110,7 @@ notify_script:
       data:
         push:
           badge: '{{ states.counter.badge_counter.state }}'
+        url: '{{ url }}'
     service: notify.all_ios_devices
   - condition: state
     entity_id: input_boolean.persistent_notification

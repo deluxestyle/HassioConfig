@@ -12,6 +12,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from plugp100.api.hub.ke100_device import KE100Device
 from plugp100.api.hub.s200b_device import S200ButtonDevice
 from plugp100.api.hub.switch_child_device import SwitchChildDevice
 from plugp100.api.hub.t100_device import T100MotionSensor
@@ -25,7 +26,7 @@ async def async_setup_entry(
 ):
     data = cast(HassTapoDeviceData, hass.data[DOMAIN][entry.entry_id])
     for child_coordinator in data.child_coordinators:
-        sensor_factories = SENSOR_MAPPING[type(child_coordinator.device)]
+        sensor_factories = SENSOR_MAPPING.get(type(child_coordinator.device), [])
         async_add_entities(
             [factory(child_coordinator) for factory in sensor_factories], True
         )
@@ -115,4 +116,5 @@ SENSOR_MAPPING = {
     T100MotionSensor: [MotionSensor, LowBatterySensor],
     SwitchChildDevice: [LowBatterySensor],
     WaterLeakDevice: [WaterLeakSensor, LowBatterySensor],
+    KE100Device: [LowBatterySensor],
 }
