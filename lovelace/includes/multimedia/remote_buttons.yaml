@@ -11,27 +11,42 @@ content:
     - template: blank_popup
       type: 'custom:button-card'
 #################################################################
+    # - type: grid
+    #   columns: 2
+    #   square: false
+    #   cards:
+    #     - type: 'custom:button-card'
+    #       entity: switch.harmony_hub_2_tv
+    #       template:
+    #         - button
+    #     - type: 'custom:button-card'
+    #       entity: switch.harmony_hub_2_apple_tv
+    #       template:
+    #         - button
+    #     - type: 'custom:button-card'
+    #       entity: switch.harmony_hub_2_airplay_2
+    #       template:
+    #         - button
     - type: grid
       columns: 2
       square: false
       cards:
-        - type: 'custom:button-card'
-          entity: switch.harmony_hub_2_tv
-          template:
-            - button
-        - type: 'custom:button-card'
+        # - type: tile
+        #   entity: switch.harmony_hub_2_tv
+        #   tap_action:
+        #     action: toggle
+        - type: tile
           entity: switch.harmony_hub_2_apple_tv
-          template:
-            - button
-        - type: 'custom:button-card'
+          vertical: true
+          hide_state: true
+          tap_action:
+            action: toggle
+        - type: tile
           entity: switch.harmony_hub_2_airplay_2
-          template:
-            - button
-        - type: 'custom:button-card'
-          entity: switch.harmony_hub_2_plattenspieler
-          template:
-            - button
-
+          vertical: true
+          hide_state: true
+          tap_action:
+            action: toggle
 #################################################################
     - type: entities
       entities:
@@ -519,7 +534,8 @@ content:
             - entity: select.harmony_hub_2_activities
             - entity: media_player.appletv
         - type: section
-        - entity: switch.steckdosenleiste_2
-          name: Steckdosenleiste
-          tap_action:
-            action: toggle
+    - type: tile
+      entity: switch.steckdosenleiste_2
+      name: Steckdosenleiste
+      tap_action:
+        action: toggle

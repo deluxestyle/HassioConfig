@@ -34,3 +34,4 @@ entity_globs:
   - binary_sensor.fritz_box_*
   - sensor.sonoff_*
   - sensor.aqara_*
+  - sensor.waschmaschine*
