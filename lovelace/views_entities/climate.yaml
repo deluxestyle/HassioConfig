@@ -42,7 +42,7 @@ cards:
       - ../includes/climate/thermostat.yaml
       - sensor_temprature: sensor.sonoff_sensor_3_temperature
         sensor_humidity: sensor.sonoff_sensor_3_humidity
-        name: Sonoff Sensor 3
+        name: Büro
 
 
         

@@ -67,4 +67,20 @@ cards:
           haptic: medium
           action: navigate
           navigation_path: /lovelace/kitchen
+  # - type: conditional
+  #   conditions:
+  #   - condition: state
+  #     entity: binary_sensor.waschmaschine
+  #     state: "on"
+  #   card:
+      - type: tile
+        entity: binary_sensor.waschmaschine
+        tap_action:
+          action: navigate
+          haptic: medium
+          navigation_path: /config/devices/device/5e5ebc553b224502b92ae3970e64ef32
+        icon_tap_action:
+          action: navigate
+          haptic: medium
+          navigation_path: /config/devices/device/5e5ebc553b224502b92ae3970e64ef32
 

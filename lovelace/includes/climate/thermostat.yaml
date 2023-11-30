@@ -20,4 +20,4 @@ cards:
     variables:
       entity: {{ sensor_humidity }}
       color: "var(--google-blue)"
-      name: Luftfeuchte 
+      name: Luftfeuchtigkeit 

@@ -771,7 +771,7 @@
     at: 00:00:01
   condition: []
   action:
-  - service: script.sonos_set_volume_4
+  - service: script.sonos_set_volume_8
     data: {}
   mode: single
 - id: '1692959068223'
@@ -864,5 +864,24 @@
       notification_id: humidity
       title: Luftfeuchtigkeit
       url: /lovelace/climate
+    service: script.notify_script
+  mode: single
+- id: '1701269486138'
+  alias: 'Benachrichtigung: Waschmaschine'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.waschmaschine
+    to: 'off'
+  condition: []
+  action:
+  - data: {}
+    entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
+      message: Waschmaschine fertig
+      notification_id: washing_machine
+      title: Waschmaschine
     service: script.notify_script
   mode: single
