@@ -15,7 +15,7 @@ cards:
   - type: entities
     entities:
       - entity: number.judo_isoftsaveplus_daheim_wunschwasserhaerte
-      - entity: switch.judo_isoftsaveplus_daheim_regeneration
+      - entity: sensor.judo_isoftsaveplus_daheim_verbrauch_heute
       - entity: select.judo_isoftsaveplus_daheim_urlaubsmodus
       - entity: switch.judo_isoftsaveplus_daheim_wasser_absperren
       - entity: sensor.judo_isoftsaveplus_daheim_salzreichweite
@@ -26,6 +26,7 @@ cards:
           type: section
           label: Details
         entities:
+          - entity: switch.judo_isoftsaveplus_daheim_regeneration
           - entity: number.judo_isoftsaveplus_daheim_max_entnahmedauer
           - entity: number.judo_isoftsaveplus_daheim_max_entnahmemenge
           - entity: number.judo_isoftsaveplus_daheim_max_wasserdurchfluss
@@ -41,5 +42,4 @@ cards:
           - entity: sensor.judo_isoftsaveplus_daheim_rohwasserhaerte
           - entity: sensor.judo_isoftsaveplus_daheim_stunden_seit_letzter_regeneration
           - entity: sensor.judo_isoftsaveplus_daheim_verbrauch_gestern
-          - entity: sensor.judo_isoftsaveplus_daheim_verbrauch_heute
           - entity: sensor.judo_isoftsaveplus_daheim_wasserdurchflussmenge
