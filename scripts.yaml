@@ -424,6 +424,7 @@ benachrichtigungen_nicht_actionable_duplizieren:
             name: default
             critical: 1
             volume: 1
+        url: '{{ url }}'
     service: notify.all_ios_devices
   - condition: state
     entity_id: input_boolean.persistent_notification
@@ -446,6 +447,11 @@ benachrichtigungen_nicht_actionable_duplizieren:
     title:
       description: Title der Nachricht
       example: blabal
+    url:
+      selector:
+        text:
+      default: /lovelace/overview
+      name: url
   mode: single
   icon: mdi:message-badge
 bosch_home_connect_starten:
