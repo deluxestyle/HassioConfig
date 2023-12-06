@@ -723,6 +723,7 @@
     - binary_sensor.updater_hacs
     - binary_sensor.home_assistant_versions_update_available
     - update.nextcloud_hub
+    - update.wud_container_local_portainer
     to: 'on'
   condition: []
   action:

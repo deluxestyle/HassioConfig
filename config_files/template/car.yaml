@@ -1,0 +1,19 @@
+- sensor:
+  - name: vw_passat_gefahrene_km
+    unique_id: vw_passat_gefahrene_km
+    state: '{{ (states.sensor.vw_passat_odometer.state | int)  - (25180 | int) }}'
+    unit_of_measurement: 'km'
+
+  - name: vw_days_in_use
+    unique_id: vw_days_in_use
+    state: '{{ (as_timestamp(now()) - as_timestamp("2023-09-20 00:00:00") ) | timestamp_custom("%j")  | int }}'
+
+  - name: vw_km_threshold
+    unique_id: vw_km_threshold
+    state: '{{ (states.sensor.vw_days_in_use.state | int) * 34 }}'
+    unit_of_measurement: 'km'
+
+  - name: vw_km_usage
+    unique_id: vw_km_usage
+    state: '{{ ( (states ( "sensor.vw_passat_gefahrene_km" ) | int) / (states ( "sensor.vw_km_threshold" ) | int) * 100 ) | round(2) }}'
+    unit_of_measurement: '%'

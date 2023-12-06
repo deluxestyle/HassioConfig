@@ -9,7 +9,6 @@
     unique_id: count_script
     state: '{{ states.script | count }}'
 
-
   - name: nextcloud_latest_version
     unique_id: nextcloud_latest_version
     state: >
@@ -26,7 +25,3 @@
         {% else %}
           {{ states('sensor.nextcloud_version')}}
         {% endif %}
-
-  # - name: vw_passat_gefahrene_km
-  #   unique_id: vw_passat_gefahrene_km
-  #   state: '{{ (states.sensor.vw_passat_odometer.state | int)  - (25180 | int) }}'
