@@ -1,0 +1,26 @@
+# lovelace_gen
+
+# -----------------------------
+title: Wärmepumpe
+path: heatpump
+icon: mdi:heat-pump-outline
+type: custom:horizontal-layout
+layout:
+  max_cols: 1
+cards: 
+  - template: title
+    type: 'custom:button-card'
+    label: Wärmepumpe 
+  - type: entities
+    entities:
+      - entity: sensor.idm_aktive_betriebsart_heizkreis_a
+      - entity: sensor.idm_betriebsart_system
+
+      - entity: binary_sensor.idm_status_verdichter_1
+      - entity: binary_sensor.idm_summenstorung_warmepumpe
+  - type: entities
+    entities:
+      - entity: sensor.idm_aktuelle_leistungsaufnahme_warmepumpe
+      - entity: sensor.idm_momentanleistung
+      - entity: sensor.idm_warmemenge_warmwasser
+      - entity: sensor.idm_warmemenge_heizen

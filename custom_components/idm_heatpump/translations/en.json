@@ -1,0 +1,112 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "title": "IDM Heat Pump",
+                "description": "If you need help with the configuration have a look here: https://github.com/kodebach/hacs-idm-heatpump",
+                "data": {
+                    "display_name": "Display Name",
+                    "hostname": "Hostname/IP"
+                }
+            },
+            "options": {
+                "data": {
+                    "refresh_interval": "Refresh Interval",
+                    "heating_circuits": "Heating Circuits",
+                    "zone_count": "Number of zone modules",
+                    "read_without_groups": "Read sensors individually"
+                }
+            },
+            "zones": {
+                "data": {
+                    "zone_0_room_count": "Zone 1: Number of rooms",
+                    "zone_1_room_count": "Zone 2: Number of rooms",
+                    "zone_2_room_count": "Zone 3: Number of rooms",
+                    "zone_3_room_count": "Zone 4: Number of rooms",
+                    "zone_4_room_count": "Zone 5: Number of rooms",
+                    "zone_5_room_count": "Zone 6: Number of rooms",
+                    "zone_6_room_count": "Zone 7: Number of rooms",
+                    "zone_7_room_count": "Zone 8: Number of rooms",
+                    "zone_8_room_count": "Zone 9: Number of rooms",
+                    "zone_9_room_count": "Zone 10: Number of rooms",
+                    "zone_0_room_9_relay": "Zone 1: Room 9 Relay",
+                    "zone_1_room_9_relay": "Zone 2: Room 9 Relay",
+                    "zone_2_room_9_relay": "Zone 3: Room 9 Relay",
+                    "zone_3_room_9_relay": "Zone 4: Room 9 Relay",
+                    "zone_4_room_9_relay": "Zone 5: Room 9 Relay",
+                    "zone_5_room_9_relay": "Zone 6: Room 9 Relay",
+                    "zone_6_room_9_relay": "Zone 7: Room 9 Relay",
+                    "zone_7_room_9_relay": "Zone 8: Room 9 Relay",
+                    "zone_8_room_9_relay": "Zone 9: Room 9 Relay",
+                    "zone_9_room_9_relay": "Zone 10: Room 9 Relay"
+                }
+            }
+        },
+        "error": {
+            "hostname": "Heat pump not found at given hostname/ip.",
+            "min_refresh_interval": "Refresh interval must be at least 1 minute"
+        },
+        "abort": {
+            "already_configured": "This hostname is already configured for a different IDM heat pump device."
+        }
+    },
+    "options": {
+        "step": {
+            "options": {
+                "data": {
+                    "refresh_interval": "Refresh Interval",
+                    "heating_circuits": "Heating Circuits",
+                    "zone_count": "Number of zone modules",
+                    "read_without_groups": "Read sensors individually",
+                    "max_power_usage": "Maximum power draw"
+                },
+                "data_description": {
+                    "max_power_usage": "The sensor 'Aktuelle Leistungsaufnahme Wärmepumpe' will be set to 'Unknown', if the heat pump sends a value above the maximum. This creates gaps in the history instead of impossibly high values, which would throw of the axis scaling. If no value is defined or it is set to 0, all values from the heat pump will be used directly."
+                }
+            },
+            "zones": {
+                "data": {
+                    "zone_0_room_count": "Zone 1: Number of rooms",
+                    "zone_1_room_count": "Zone 2: Number of rooms",
+                    "zone_2_room_count": "Zone 3: Number of rooms",
+                    "zone_3_room_count": "Zone 4: Number of rooms",
+                    "zone_4_room_count": "Zone 5: Number of rooms",
+                    "zone_5_room_count": "Zone 6: Number of rooms",
+                    "zone_6_room_count": "Zone 7: Number of rooms",
+                    "zone_7_room_count": "Zone 8: Number of rooms",
+                    "zone_8_room_count": "Zone 9: Number of rooms",
+                    "zone_9_room_count": "Zone 10: Number of rooms",
+                    "zone_0_room_9_relay": "Zone 1: Room 9 Relay",
+                    "zone_1_room_9_relay": "Zone 2: Room 9 Relay",
+                    "zone_2_room_9_relay": "Zone 3: Room 9 Relay",
+                    "zone_3_room_9_relay": "Zone 4: Room 9 Relay",
+                    "zone_4_room_9_relay": "Zone 5: Room 9 Relay",
+                    "zone_5_room_9_relay": "Zone 6: Room 9 Relay",
+                    "zone_6_room_9_relay": "Zone 7: Room 9 Relay",
+                    "zone_7_room_9_relay": "Zone 8: Room 9 Relay",
+                    "zone_8_room_9_relay": "Zone 9: Room 9 Relay",
+                    "zone_9_room_9_relay": "Zone 10: Room 9 Relay"
+                }
+            }
+        },
+        "error": {
+            "min_refresh_interval": "Refresh interval must be at least 1 minute"
+        }
+    },
+    "services": {
+        "set_power": {
+            "name": "Set power value",
+            "description": "Sends a power value to the heat pump.",
+            "fields": {
+                "target": {
+                    "name": "Target",
+                    "description": "The sensor for which to set the value."
+                },
+                "value": {
+                    "name": "Value",
+                    "description": "The value to send."
+                }
+            }
+        }
+    }
+}

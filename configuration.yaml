@@ -16,6 +16,7 @@ diagnostics:
 my:
 # conversation:
 homeassistant_alerts:
+# energy:
 
 http:
   server_port: 8124

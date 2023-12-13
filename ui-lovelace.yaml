@@ -17,3 +17,6 @@ views:
 
 ##### Klima #####
   - !include lovelace/views_entities/climate.yaml
+
+##### Klima #####
+  - !include lovelace/views_entities/heatpump.yaml

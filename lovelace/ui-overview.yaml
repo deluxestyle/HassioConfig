@@ -83,4 +83,15 @@ cards:
           action: navigate
           haptic: medium
           navigation_path: /config/devices/device/5e5ebc553b224502b92ae3970e64ef32
-
+      - type: tile
+        entity: binary_sensor.idm_status_verdichter_1
+        name: Wärmepumpe
+        icon: mdi:heat-pump-outline
+        tap_action:
+          action: navigate
+          haptic: medium
+          navigation_path: /lovelace/heatpump
+        icon_tap_action:
+          action: navigate
+          haptic: medium
+          navigation_path: /lovelace/heatpump

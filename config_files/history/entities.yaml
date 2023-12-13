@@ -37,3 +37,5 @@ entity_globs:
   - sensor.sonoff_*
   - sensor.aqara_*
   - sensor.waschmaschine*
+  - sensor.idm*
+  - binary_sensor.idm*

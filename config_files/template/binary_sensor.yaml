@@ -30,7 +30,7 @@
     unique_id: docker_update
     device_class: update
     state: >
-        {% if is_state('update.wud_container_local_deconz', 'on') 
+        {% if is_state('update.wud_container_local_zigbee2mqtt', 'on') 
             or is_state('update.wud_container_local_dockerproxy', 'on') 
             or is_state('update.wud_container_local_mariadb', 'on') 
             or is_state('update.wud_container_local_nginx_proxy_manager', 'on') 
