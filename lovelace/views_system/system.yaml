@@ -16,9 +16,10 @@ cards:
     entities:
       - entity: sensor.processor_use
         name: CPU   
-        style: |
+        card_mod:
+          style: |
             :host {
-              color: 
+              color:
               {% if (states('sensor.processor_use')  | int(0)) > 30 %}
                 red
               {% endif %}
@@ -34,9 +35,10 @@ cards:
       - entity: sensor.cpu_temperature
         icon: mdi:thermometer
         name: CPU Temp
-        style: |
+        card_mod:
+          style: |
             :host {
-              color: 
+              color:
               {% if (states('sensor.cpu_temperature')  | int(0)) > 65 %}
                 red
               {% endif %}
@@ -59,14 +61,15 @@ cards:
     show_header_toggle: false
     entities:
       - entity: binary_sensor.home_assistant_versions_update_available
-        style: |
-          :host {
-            color: 
-            {% if is_state('binary_sensor.home_assistant_versions_update_available', 'on') %}
-              red
-            {% endif %}
-            ;
-          }
+        card_mod:
+          style: |
+            :host {
+              color:
+              {% if is_state('binary_sensor.home_assistant_versions_update_available', 'on') %}
+                red
+              {% endif %}
+              ;
+            }
         type: custom:multiple-entity-row
         show_state: false
         entities:
@@ -75,27 +78,29 @@ cards:
           - entity: sensor.home_assistant_versions
             name: Verfügbar
       - entity: sensor.hacs
-        style: |
-          :host {
-            color: 
-            {% if is_state('binary_sensor.updater_hacs', 'on') %}
-              orange
-            {% endif %}
-            ;
-          }
+        card_mod:
+          style: |
+            :host {
+              color:
+              {% if is_state('binary_sensor.updater_hacs', 'on') %}
+                orange
+              {% endif %}
+              ;
+            }
         name: Hacs
         tap_action: 
           action: navigate
           navigation_path: /hacs
       - entity: binary_sensor.docker_update
-        style: |
-          :host {
-            color: 
-            {%if is_state('binary_sensor.docker_update', 'on') %}
-              orange
-            {% endif %}
-            ;
-          }
+        card_mod:
+          style: |
+            :host {
+              color:
+              {%if is_state('binary_sensor.docker_update', 'on') %}
+                orange
+              {% endif %}
+              ;
+            }
         tap_action:
           action: fire-dom-event
           browser_mod:
@@ -127,14 +132,15 @@ cards:
           action: url
           url_path: https://wud.tanzer-cloud.de/
       - entity: update.nextcloud_hub
-        style: |
-          :host {
-            color: 
-            {% if is_state('update.nextcloud_hub', 'on') %}
-              orange
-            {% endif %}
-            ;
-          }
+        card_mod:
+          style: |
+            :host {
+              color: 
+              {% if is_state('update.nextcloud_hub', 'on') %}
+                orange
+              {% endif %}
+              ;
+            }
         name: Nextcloud Hub
         icon: si:nextcloud
         type: custom:multiple-entity-row

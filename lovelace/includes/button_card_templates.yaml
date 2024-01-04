@@ -277,13 +277,18 @@
             icon: false
             legend: false
             state: false
-          style: |
-            ha-card {
-              box-shadow: 0;
-              border-radius: var(--border-radius);
-              padding: 0;
-              border: 0px;
-            }
+          styles:
+            card:
+              - border: 0px
+              - background-color: '#000044'
+          card_mod:
+            style: |
+              ha-card  {
+                box-shadow: 0;
+                border-radius: var(--border-radius);
+                padding: 0;
+                border: 0px;
+              }
 
 
   graph_small:
@@ -338,13 +343,14 @@
             icon: false
             legend: false
             state: false
-          style: |
-            ha-card {
-              box-shadow: 0px;
-              border-radius: 0px;
-              padding: 0px;
-              border: 0px;
-            }
+          card_mod:
+            style: |
+              ha-card  {
+                box-shadow: 0;
+                border-radius: var(--border-radius);
+                padding: 0;
+                border: 0px;
+              }
 
 ########################################################################################################
 #                                                                                                      #

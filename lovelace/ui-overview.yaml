@@ -95,3 +95,13 @@ cards:
           action: navigate
           haptic: medium
           navigation_path: /lovelace/heatpump
+
+      - type: tile
+        entity: switch.wifi_steckdose_1
+        name: Weihnachtsbaum
+        tap_action:
+          action: toggle
+          haptic: medium
+        icon_tap_action:
+          action: toggle
+          haptic: medium

@@ -42,11 +42,13 @@
           "language": "Language code",
           "translation_mode": "Translation mode",
           "name_template": "Entity name template",
-          "log_mode": "Verbose log mode"
+          "log_mode": "Verbose log mode",
+          "sse_timeout": "SSE Timeout"
         },
         "data_description": {
           "language": "Only use [language codes](https://api-docs.home-connect.com/general/#supported-languages) supported by Home Connect",
-          "log_mode": "Debug logging must be enabled in configuration.yaml for this setting to apply"
+          "log_mode": "Debug logging must be enabled in configuration.yaml for this setting to apply",
+          "sse_timeout": "Timeout in minutes for refreshing the SSE connection (0=disabled)"
         }
       }
     }
@@ -253,6 +255,7 @@
           "ConsumerProducts.CoffeeMaker.Program.Beverage.Espresso": "Espresso",
           "ConsumerProducts.CoffeeMaker.Program.Beverage.EspressoDoppio": "Espresso Doppio",
           "ConsumerProducts.CoffeeMaker.Program.Beverage.EspressoMacchiato": "Espresso Macchiato",
+          "ConsumerProducts.CoffeeMaker.Program.Beverage.HotWater": "Varmt vatten",
           "ConsumerProducts.CoffeeMaker.Program.Beverage.LatteMacchiato": "Latte Macchiato",
           "ConsumerProducts.CoffeeMaker.Program.Beverage.MilkFroth": "Mjulkskum",
           "ConsumerProducts.CoffeeMaker.Program.Beverage.Ristretto": "Ristretto",
@@ -320,12 +323,14 @@
           "Dishcare.Dishwasher.Program.MachineCare": "Maskinvård",
           "Dishcare.Dishwasher.Program.MagicDaily": "Magic Daily",
           "Dishcare.Dishwasher.Program.MaximumCleaning": "Maximal Rengörning",
+          "Dishcare.Dishwasher.Program.MixedLoad": "Mixed Load",
           "Dishcare.Dishwasher.Program.NightWash": "Nattdisk",
           "Dishcare.Dishwasher.Program.Normal45": "Normal 45°C",
           "Dishcare.Dishwasher.Program.Normal65": "Normal 65°C",
           "Dishcare.Dishwasher.Program.PreRinse": "Förskölj",
           "Dishcare.Dishwasher.Program.Quick45": "Snabbdisk 45°C",
           "Dishcare.Dishwasher.Program.Quick65": "Snabbdisk 65°C",
+          "Dishcare.Dishwasher.Program.QuickD": "Quick Wash & Dry",
           "Dishcare.Dishwasher.Program.SteamFresh": "Steam Fresh",
           "Dishcare.Dishwasher.Program.Super60": "Super 60°C",
           "LaundryCare.Dryer.Program.AntiShrink": "Torr: Anti Krymp",
@@ -476,6 +481,11 @@
           "Cooking.Oven.EnumType.AddedSteam.Off": "Added Steam Off",
           "Cooking.Oven.EnumType.AddedSteam.On": "Added Steam Oמ",
           "Cooking.Oven.Setting.SabbathMode": "Sabbath Mode",
+          "Refrigeration.Common.EnumType.Door.AssistantForce.HighForce": "High",
+          "Refrigeration.Common.EnumType.Door.AssistantForce.LowForce": "Low",
+          "Refrigeration.Common.EnumType.Door.AssistantForce.MiddleForce": "Middle",
+          "Refrigeration.Common.EnumType.Door.AssistantTrigger.Pull": "Pull",
+          "Refrigeration.Common.EnumType.Door.AssistantTrigger.Push": "Push",
           "Refrigeration.Common.Setting.BottleCooler.SetpointTemperature": "Flaskkylare",
           "Refrigeration.Common.Setting.ChillerCommon.SetpointTemperature": "Chiller Common",
           "Refrigeration.Common.Setting.ChillerLeft.SetpointTemperature": "Chiller Left",
@@ -490,12 +500,7 @@
           "Refrigeration.FridgeFreezer.Setting.SetpointTemperatureFreezer": "Setpoint Temperature Freezer",
           "Refrigeration.FridgeFreezer.Setting.SetpointTemperatureRefrigerator": "Setpoint Temperature Refrigerator",
           "Refrigeration.FridgeFreezer.Setting.SuperModeFreezer": "Super Mode Freezer",
-          "Refrigeration.FridgeFreezer.Setting.SuperModeRefrigerator": "Super Mode Refrigerator",
-          "Refrigeration.Common.EnumType.Door.AssistantForce.HighForce": "High",
-          "Refrigeration.Common.EnumType.Door.AssistantForce.LowForce": "Low",
-          "Refrigeration.Common.EnumType.Door.AssistantForce.MiddleForce": "Middle",
-          "Refrigeration.Common.EnumType.Door.AssistantTrigger.Pull": "Pull",
-          "Refrigeration.Common.EnumType.Door.AssistantTrigger.Push": "Push"
+          "Refrigeration.FridgeFreezer.Setting.SuperModeRefrigerator": "Super Mode Refrigerator"
         }
       },
       "statuses": {
@@ -517,6 +522,9 @@
       }
     },
     "sensor": {
+      "homeconnect_status": {
+        "name": "Home Connect Status"
+      },
       "options": {
         "state": {
           "BSH.Common.Option.Duration": "Varaktighet",
@@ -741,12 +749,14 @@
           "Dishcare.Dishwasher.Program.MachineCare": "Maskinvård",
           "Dishcare.Dishwasher.Program.MagicDaily": "Magic Daily",
           "Dishcare.Dishwasher.Program.MaximumCleaning": "Maximal Rengörning",
+          "Dishcare.Dishwasher.Program.MixedLoad": "Mixed Load",
           "Dishcare.Dishwasher.Program.NightWash": "Nattdisk",
           "Dishcare.Dishwasher.Program.Normal45": "Normal 45°C",
           "Dishcare.Dishwasher.Program.Normal65": "Normal 65°C",
           "Dishcare.Dishwasher.Program.PreRinse": "Förskölj",
           "Dishcare.Dishwasher.Program.Quick45": "Snabbdisk 45°C",
           "Dishcare.Dishwasher.Program.Quick65": "Snabbdisk 65°C",
+          "Dishcare.Dishwasher.Program.QuickD": "Quick Wash & Dry",
           "Dishcare.Dishwasher.Program.SteamFresh": "Steam Fresh",
           "Dishcare.Dishwasher.Program.Super60": "Super 60°C",
           "LaundryCare.Dryer.Program.AntiShrink": "Torr: Anti Krymp",
@@ -897,6 +907,11 @@
           "Cooking.Oven.EnumType.AddedSteam.Off": "Added Steam Off",
           "Cooking.Oven.EnumType.AddedSteam.On": "Added Steam Oמ",
           "Cooking.Oven.Setting.SabbathMode": "Sabbath Mode",
+          "Refrigeration.Common.EnumType.Door.AssistantForce.HighForce": "High",
+          "Refrigeration.Common.EnumType.Door.AssistantForce.LowForce": "Low",
+          "Refrigeration.Common.EnumType.Door.AssistantForce.MiddleForce": "Middle",
+          "Refrigeration.Common.EnumType.Door.AssistantTrigger.Pull": "Pull",
+          "Refrigeration.Common.EnumType.Door.AssistantTrigger.Push": "Push",
           "Refrigeration.Common.Setting.BottleCooler.SetpointTemperature": "Flaskkylare",
           "Refrigeration.Common.Setting.ChillerCommon.SetpointTemperature": "Chiller Common",
           "Refrigeration.Common.Setting.ChillerLeft.SetpointTemperature": "Chiller Left",
@@ -911,12 +926,7 @@
           "Refrigeration.FridgeFreezer.Setting.SetpointTemperatureFreezer": "Setpoint Temperature Freezer",
           "Refrigeration.FridgeFreezer.Setting.SetpointTemperatureRefrigerator": "Setpoint Temperature Refrigerator",
           "Refrigeration.FridgeFreezer.Setting.SuperModeFreezer": "Super Mode Freezer",
-          "Refrigeration.FridgeFreezer.Setting.SuperModeRefrigerator": "Super Mode Refrigerator",
-          "Refrigeration.Common.EnumType.Door.AssistantForce.HighForce": "High",
-          "Refrigeration.Common.EnumType.Door.AssistantForce.LowForce": "Low",
-          "Refrigeration.Common.EnumType.Door.AssistantForce.MiddleForce": "Middle",
-          "Refrigeration.Common.EnumType.Door.AssistantTrigger.Pull": "Pull",
-          "Refrigeration.Common.EnumType.Door.AssistantTrigger.Push": "Push"
+          "Refrigeration.FridgeFreezer.Setting.SuperModeRefrigerator": "Super Mode Refrigerator"
         }
       },
       "statuses": {
@@ -935,9 +945,6 @@
           "BSH.Common.EnumType.PowerState.On": "På",
           "BSH.Common.EnumType.PowerState.Standby": "Standby"
         }
-      },
-      "homeconnect_status": {
-        "name": "Home Connect Status"
       }
     }
   }

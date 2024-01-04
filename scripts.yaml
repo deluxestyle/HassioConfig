@@ -175,14 +175,18 @@ alles_ausschalten:
   sequence:
   - service: script.sonos_stopp
     data: {}
-  - service: remote.turn_off
-    data: {}
-    target:
-      entity_id: remote.harmony_hub_2
-  - service: switch.turn_off
-    data: {}
-    target:
-      entity_id: switch.steckdosenleiste_2
+  - type: turn_off
+    device_id: 919e0bb34b95e173d1e342b929cb632b
+    entity_id: 7562d580fe0d4301cb37ab75350664ed
+    domain: remote
+  - type: turn_off
+    device_id: d8ee338f498d31b2f5d611a5d4c9272d
+    entity_id: 32704a93b10ab215610fd65549eb10ad
+    domain: switch
+  - type: turn_off
+    device_id: 63ad1ab895f307fc6036afa71ec094ef
+    entity_id: 56f39d294944e06fb95036a90bc7b8e7
+    domain: switch
   mode: single
   icon: mdi:toggle-switch-off-outline
 sonos_set_volume_4:

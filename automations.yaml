@@ -772,7 +772,7 @@
     at: 00:00:01
   condition: []
   action:
-  - service: script.sonos_set_volume_8
+  - service: script.sonos_set_volume_10
     data: {}
   mode: single
 - id: '1692959068223'
@@ -885,4 +885,17 @@
       notification_id: washing_machine
       title: Waschmaschine
     service: script.notify_script
+  mode: single
+- id: '1703884418920'
+  alias: 'iOS: Alles aus'
+  description: ''
+  trigger:
+  - platform: event
+    event_type: ios.action_fired
+    event_data:
+      actionName: 'Off'
+  condition: []
+  action:
+  - service: script.alles_ausschalten
+    data: {}
   mode: single
