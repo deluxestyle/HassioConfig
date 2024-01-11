@@ -885,6 +885,30 @@
       notification_id: washing_machine
       title: Waschmaschine
     service: script.notify_script
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.waschmaschine
+    data: {}
+    enabled: false
+  - repeat:
+      sequence:
+      - service: notify.all_ios_devices
+        data:
+          message: Wäsche aufhängen
+          data:
+            actions:
+            - action: washmachine
+              title: Aufhängen
+      - delay:
+          hours: 1
+          minutes: 0
+          seconds: 0
+          milliseconds: 0
+      until:
+      - condition: state
+        entity_id: input_boolean.waschmaschine
+        state: 'off'
+    enabled: false
   mode: single
 - id: '1703884418920'
   alias: 'iOS: Alles aus'
@@ -898,4 +922,29 @@
   action:
   - service: script.alles_ausschalten
     data: {}
+  mode: single
+- id: '1704370565852'
+  alias: 'Benachrichtigung: Salz'
+  description: ''
+  trigger:
+  - entity_id:
+    - sensor.judo_isoftsaveplus_daheim_salzreichweite
+    platform: numeric_state
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+    below: 30
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
+      message: 'Salz auffüllen: noch {{ states.sensor.judo_isoftsaveplus_daheim_salzreichweite.state
+        }} Tage verbleibend '
+      notification_id: salz
+      title: Salz
+      url: /lovelace/watersoftener
+    service: script.notify_script
   mode: single

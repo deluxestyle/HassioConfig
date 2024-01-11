@@ -9,15 +9,28 @@ cards:
     label: {{ name }}
   - template: title
     type: 'custom:button-card'
-  - type: 'custom:button-card'
-    template: graph
-    variables:
-      entity: {{ sensor_temprature }}
-      color: "var(--google-red)"
-      name: Temperatur 
-  - type: 'custom:button-card'
-    template: graph
-    variables:
-      entity: {{ sensor_humidity }}
-      color: "var(--google-blue)"
-      name: Luftfeuchtigkeit 
+  # - type: 'custom:button-card'
+  #   template: graph
+  #   variables:
+  #     entity: {{ sensor_temprature }}
+  #     color: "var(--google-red)"
+  #     name: Temperatur 
+  # - type: 'custom:button-card'
+  #   template: graph
+  #   variables:
+  #     entity: {{ sensor_humidity }}
+  #     color: "var(--google-blue)"
+  #     name: Luftfeuchtigkeit 
+  - graph: line
+    type: custom:mushroom-entity-card
+    entity: {{ sensor_temprature }}
+    name: Temperatur 
+    primary_info: state
+    secondary_info: name
+    icon_color: red
+  - graph: line
+    type: custom:mushroom-entity-card
+    entity: {{ sensor_humidity }}
+    name: Luftfeuchtigkeit 
+    primary_info: state
+    secondary_info: name

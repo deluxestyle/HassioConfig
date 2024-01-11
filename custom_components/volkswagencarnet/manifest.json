@@ -17,5 +17,5 @@
         "pytz",
         "volkswagencarnet==4.4.65b2"
     ],
-    "version": "v4.5.0-beta1"
+    "version": "v4.5.0"
 }
