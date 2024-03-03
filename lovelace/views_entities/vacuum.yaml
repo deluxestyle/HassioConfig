@@ -44,6 +44,7 @@ views:
               #     subtitle: Dauer
           - type: entities
             entities:
+              - entity: switch.ikea_steckdose_2
               - type: custom:fold-entity-row
                 head:
                   type: section

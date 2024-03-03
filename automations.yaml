@@ -968,3 +968,35 @@
       url: /lovelace/watersoftener
     service: script.notify_script
   mode: single
+- id: '1709502632703'
+  alias: 'Staubsauger: Strom'
+  description: ''
+  trigger:
+  - platform: time
+    at: 08:00:00
+    id: einschalten
+  - platform: time
+    at: '18:00:00'
+    id: ausschalten
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - einschalten
+      sequence:
+      - service: switch.turn_on
+        target:
+          entity_id: switch.ikea_steckdose_2
+        data: {}
+    - conditions:
+      - condition: trigger
+        id:
+        - ausschalten
+      sequence:
+      - service: switch.turn_off
+        target:
+          entity_id: switch.ikea_steckdose_2
+        data: {}
+  mode: single

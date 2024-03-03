@@ -187,6 +187,10 @@ alles_ausschalten:
     device_id: 63ad1ab895f307fc6036afa71ec094ef
     entity_id: 56f39d294944e06fb95036a90bc7b8e7
     domain: switch
+  - type: turn_off
+    device_id: 810be42da6593e2fde79cdcd001cbd05
+    entity_id: 78b1eb7aedc32aec640207c5febe6f26
+    domain: switch
   mode: single
   icon: mdi:toggle-switch-off-outline
 sonos_set_volume_4:

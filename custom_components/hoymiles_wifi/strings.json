@@ -1,0 +1,121 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Hoymiles HMS-XXXXW-T2 connection",
+        "description": "If you need help with the configuration have a look here: https://github.com/suaveolent/ha-hoymiles-wifi",
+        "data": {
+          "host": "[%key:common::config_flow::data::host%]",
+          "update_interval": "Update Interval (seconds)",
+          "sensor_prefix" : "Sensor Prefix"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]"
+    },
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "dtu": {
+        "name": "DTU"
+      }
+    },
+    "number" : {
+      "limit_power_mypower": {
+        "name": "Power limit"
+      }
+    },
+    "sensor": {
+      "ac_power": {
+        "name": "AC power"
+      },
+      "ac_daily_energy": {
+        "name": "AC daily energy"
+      },
+      "grid_voltage": {
+        "name": "Grid voltage"
+      },
+      "grid_frequency": {
+        "name": "Grid frequency"
+      },
+      "inverter_temperature": {
+        "name": "Temperature"
+      },
+      "port_1_dc_voltage": {
+        "name": "Port 1 DC voltage"
+      },
+      "port_1_dc_current": {
+        "name": "Port 1 DC current"
+      },
+      "port_1_dc_power": {
+        "name": "Port 1 DC power"
+      },
+      "port_1_dc_total_energy": {
+        "name": "Port 1 DC total energy"
+      },
+      "port_1_dc_daily_energy": {
+        "name": "Port 1 DC daily energy"
+      },
+      "port_2_dc_voltage": {
+        "name": "Port 2 DC voltage"
+      },
+      "port_2_dc_current": {
+        "name": "Port 2 DC current"
+      },
+      "port_2_dc_power": {
+        "name": "Port 2 DC power"
+      },
+      "port_2_dc_total_energy": {
+        "name": "Port 2 DC total energy"
+      },
+      "port_2_dc_daily_energy": {
+        "name": "Port 2 DC daily energy"
+      },
+      "wifi_ssid": {
+        "name": "Wi-Fi SSID"
+      },
+      "meter_kind": {
+        "name": "Meter kind"
+      },
+      "mac_address": {
+        "name": "MAC address"
+      },
+      "ip_address": {
+        "name": "IP address"
+      },
+      "dtu_ap_ssid": {
+        "name": "AP SSID"
+      },
+      "dtu_sw_version": {
+        "name": "SW version"
+      },
+      "dtu_hw_version": {
+        "name": "HW version"
+      },
+      "pv_sw_version": {
+        "name": "SW version"
+      },
+      "pv_hw_version" : {
+        "name": "HW version"
+      },
+      "signal_strength" : {
+        "name": "Signal strength"
+      }
+    },
+    "button" : {
+      "restart" : {
+        "name" : "Restart"
+      },
+      "turn_off" : {
+        "name" : "Turn off"
+      },
+      "turn_on" : {
+        "name" : "Turn on"
+      }
+    }
+  }
+}
