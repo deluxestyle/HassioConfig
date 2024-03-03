@@ -11,26 +11,26 @@ from homeassistant.const import CONF_CLIENT_ID, CONF_CLIENT_SECRET
 from homeassistant.helpers import config_entry_oauth2_flow, config_validation as cv
 from homeassistant.helpers.selector import selector
 
-
+from .common import Configuration
 from .const import *
 
 
-class OAuth2FlowHandler2(config_entry_oauth2_flow.AbstractOAuth2FlowHandler, domain=DOMAIN):
-    """Config flow to handle Home Connect New OAuth2 authentication."""
+# class OAuth2FlowHandler2(config_entry_oauth2_flow.AbstractOAuth2FlowHandler, domain=DOMAIN):
+#     """Config flow to handle Home Connect New OAuth2 authentication."""
 
-    DOMAIN = DOMAIN
-    VERSION = 1
-    reauth_entry: ConfigEntry | None = None
+#     DOMAIN = DOMAIN
+#     VERSION = 1
+#     reauth_entry: ConfigEntry | None = None
 
-    @property
-    def logger(self) -> logging.Logger:
-        """Return logger."""
-        return logging.getLogger(__name__)
+#     @property
+#     def logger(self) -> logging.Logger:
+#         """Return logger."""
+#         return logging.getLogger(__name__)
 
-    @property
-    def extra_authorize_data(self) -> dict:
-        """Extra data that needs to be appended to the authorize url."""
-        return {"scope": SCOPES}
+#     @property
+#     def extra_authorize_data(self) -> dict:
+#         """Extra data that needs to be appended to the authorize url."""
+#         return {"scope": SCOPES}
 
 class OAuth2FlowHandler(config_entry_oauth2_flow.AbstractOAuth2FlowHandler, domain=DOMAIN):
     """Config flow to handle Home Connect New OAuth2 authentication."""
@@ -70,8 +70,10 @@ class OAuth2FlowHandler(config_entry_oauth2_flow.AbstractOAuth2FlowHandler, doma
 
         if user_input and CONF_API_HOST in user_input:
             if DOMAIN not in self.hass.data:
-                self.hass.data[DOMAIN] = {}
-            self.hass.data[DOMAIN].update(user_input)
+                self.hass.data[DOMAIN] = {"config_flow": {}}
+            elif "config_flow" not in self.hass.data[DOMAIN]:
+                self.hass.data[DOMAIN]["config_flow"] = {}
+            self.hass.data[DOMAIN]["config_flow"].update(user_input)
             user_input = None
         return await self.async_step_pick_implementation(user_input)
 
@@ -98,11 +100,14 @@ class OAuth2FlowHandler(config_entry_oauth2_flow.AbstractOAuth2FlowHandler, doma
             await self.hass.config_entries.async_reload(self.reauth_entry.entry_id)
             return self.async_abort(reason="reauth_successful")
 
-        if self._async_current_entries():
-            # Config entry already exists, only one allowed.
-            return self.async_abort(reason="single_instance_allowed")
+        # if self._async_current_entries():
+        #     # Config entry already exists, only one allowed.
+        #     return self.async_abort(reason="single_instance_allowed")
 
-        data[CONF_API_HOST] = self.hass.data[DOMAIN][CONF_API_HOST]
+        if DOMAIN in self.hass.data and "config_flow" in self.hass.data[DOMAIN] and CONF_API_HOST in self.hass.data[DOMAIN]["config_flow"]:
+            data[CONF_API_HOST] = self.hass.data[DOMAIN]["config_flow"][CONF_API_HOST]
+            del self.hass.data[DOMAIN]["config_flow"]
+
         return self.async_create_entry(
             title=NAME,
             data=data,
@@ -133,17 +138,26 @@ class OptionsFlowHandler(config_entries.OptionsFlowWithConfigEntry):
     ) -> FlowResult:
         """ Manage the options """
         if user_input is not None:
-            self.hass.data[DOMAIN].update(user_input)
+            # Save the config entry when the user input has been received
             return self.async_create_entry(title="", data=user_input)
 
         data_schema = {
             vol.Optional(CONF_LANG, default="en-GB"): cv.string,
-            vol.Optional(CONF_TRANSLATION_MODE):
+            vol.Optional(CONF_TRANSLATION_MODE, default=CONF_TRANSLATION_MODES[0]):
                 selector({
                     "select": {
                         "options": CONF_TRANSLATION_MODES,
-                        "mode": "dropdown",
+                        #"mode": "dropdown",
                         "translation_key": CONF_TRANSLATION_MODE
+                    },
+                }),
+            # vol.Optional(CONF_ABSOLUTE_DELAYED_OPS, default=False): cv.boolean,
+            vol.Optional(CONF_DELAYED_OPS, default=CONF_DELAYED_OPS_DEFAULT):
+                selector({
+                    "select": {
+                        "options": [CONF_DELAYED_OPS_DEFAULT, CONF_DELAYED_OPS_ABSOLUTE_TIME],
+                        "mode": "list",
+                        "translation_key": CONF_DELAYED_OPS
                     },
                 }),
             vol.Optional(CONF_LOG_MODE, default=0): vol.All(int, vol.Range(min=0, max=7)),
@@ -153,19 +167,23 @@ class OptionsFlowHandler(config_entries.OptionsFlowWithConfigEntry):
                 {
                     vol.Optional(CONF_NAME_TEMPLATE, default=CONF_NAME_TEMPLATE_DEFAULT): str,
                     vol.Optional(CONF_SSE_TIMEOUT, default=CONF_SSE_TIMEOUT_DEFAULT): int,
-
-                    # vol.Optional(CONF_APPLIANCE_SETTINGS): selector({
-                    #     "device": {
-                    #         "entity": [ {"integration": DOMAIN}],
-                    #         "multiple": True,
-                    #     }
-                    # }),
+                    vol.Optional(CONF_APPLIANCE_SETTINGS, default={}):
+                        selector({
+                            "object": {}
+                        }),
+                    vol.Optional(CONF_ENTITY_SETTINGS, default={}):
+                        selector({
+                            "object": {}
+                        }),
                 }
             )
 
-        defaults = self.hass.data[DOMAIN]
+        defaults = Configuration.get_global_config()
+        defaults.update(self.config_entry.options)
+
         data_schema = self.add_suggested_values_to_schema(data_schema=vol.Schema(data_schema), suggested_values=defaults)
 
         return self.async_show_form(step_id="init", data_schema=data_schema)
+
 
 

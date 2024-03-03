@@ -12,6 +12,7 @@
             "options": {
                 "data": {
                     "refresh_interval": "Refresh Interval",
+                    "request_timeout": "Communication Timeout",
                     "heating_circuits": "Heating Circuits",
                     "zone_count": "Number of zone modules",
                     "read_without_groups": "Read sensors individually"
@@ -44,7 +45,8 @@
         },
         "error": {
             "hostname": "Heat pump not found at given hostname/ip.",
-            "min_refresh_interval": "Refresh interval must be at least 1 minute"
+            "min_refresh_interval": "Refresh interval must be at least 1 minute",
+            "request_refresh_interval": "Communication timeout must be less than refresh interval"
         },
         "abort": {
             "already_configured": "This hostname is already configured for a different IDM heat pump device."
@@ -55,6 +57,7 @@
             "options": {
                 "data": {
                     "refresh_interval": "Refresh Interval",
+                    "request_timeout": "Communication Timeout",
                     "heating_circuits": "Heating Circuits",
                     "zone_count": "Number of zone modules",
                     "read_without_groups": "Read sensors individually",
@@ -90,13 +93,28 @@
             }
         },
         "error": {
-            "min_refresh_interval": "Refresh interval must be at least 1 minute"
+            "min_refresh_interval": "Refresh interval must be at least 1 minute",
+            "request_refresh_interval": "Communication timeout must be less than refresh interval"
         }
     },
     "services": {
         "set_power": {
             "name": "Set power value",
             "description": "Sends a power value to the heat pump.",
+            "fields": {
+                "target": {
+                    "name": "Target",
+                    "description": "The sensor for which to set the value."
+                },
+                "value": {
+                    "name": "Value",
+                    "description": "The value to send."
+                }
+            }
+        },
+        "set_battery": {
+            "name": "Set battery charge state value",
+            "description": "Sends a battery charge state value to the heat pump.",
             "fields": {
                 "target": {
                     "name": "Target",

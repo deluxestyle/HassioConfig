@@ -1,6 +1,6 @@
 """Constants for idm_heatpump."""
 
-from enum import IntFlag, IntEnum
+from enum import IntEnum, IntFlag
 from typing import Any
 
 
@@ -9,6 +9,7 @@ class SensorFeatures(IntFlag):
 
     NONE = 0
     SET_POWER = 1
+    SET_BATTERY = 2
 
 
 class _SensorEnum(IntEnum):
@@ -207,6 +208,7 @@ ISSUE_URL = "https://github.com/kodebach/hacs-idm-heatpump/issues"
 
 # Services
 SERVICE_SET_POWER = "set_power"
+SERVICE_SET_BATTERY = "set_battery"
 
 # Limits
 MIN_REFRESH_INTERVAL = {"hours": 0, "minutes": 1, "seconds": 0}
@@ -219,6 +221,7 @@ CONF_HOSTNAME = "hostname"
 CONF_DISPLAY_NAME = "display_name"
 
 OPT_REFRESH_INTERVAL = "refresh_interval"
+OPT_REQUEST_TIMEOUT = "request_timeout"
 OPT_HEATING_CIRCUITS = "heating_circuits"
 OPT_ZONE_COUNT = "zone_count"
 OPT_ZONE_ROOM_COUNT = [f"zone_{i}_room_count" for i in range(MAX_ZONE_COUNT)]
@@ -231,6 +234,7 @@ NAME_POWER_USAGE = "power_current_draw"
 # Defaults
 DEFAULT_NAME = DOMAIN
 DEFAULT_REFRESH_INTERVAL = {"hours": 0, "minutes": 5, "seconds": 0}
+DEFAULT_REQUEST_TIMEOUT = {"hours": 0, "minutes": 0, "seconds": 30}
 
 STARTUP_MESSAGE_TEMPLATE = """
 -------------------------------------------------------------------

@@ -1,35 +1,47 @@
 """ Implement the Select entities of this implementation """
 from __future__ import annotations
 import logging
+from custom_components.home_connect_alt.time import DelayedOperationTime
 from home_connect_async import Appliance, HomeConnect, HomeConnectError, Events, ConditionalLogger as CL
 from homeassistant.components.select import SelectEntity
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
+from homeassistant.helpers.entity_registry import async_get
 
 from .common import InteractiveEntityBase, EntityManager, is_boolean_enum, Configuration
-from .const import CONF_TRANSLATION_MODE, CONF_TRANSLATION_MODE_SERVER, DEVICE_ICON_MAP, DOMAIN
+from .const import CONF_DELAYED_OPS, CONF_DELAYED_OPS_ABSOLUTE_TIME, CONF_DELAYED_OPS_DEFAULT, CONF_TRANSLATION_MODE, CONF_TRANSLATION_MODE_SERVER, DEVICE_ICON_MAP, DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
 async def async_setup_entry(hass:HomeAssistant , config_entry:ConfigType, async_add_entities:AddEntitiesCallback) -> None:
     """Add Selects for passed config_entry in HA."""
-    homeconnect:HomeConnect = hass.data[DOMAIN]['homeconnect']
+    #homeconnect:HomeConnect = hass.data[DOMAIN]['homeconnect']
+    entry_conf:Configuration = hass.data[DOMAIN][config_entry.entry_id]
+    homeconnect:HomeConnect = entry_conf["homeconnect"]
     entity_manager = EntityManager(async_add_entities)
 
     def add_appliance(appliance:Appliance) -> None:
+        conf = entry_conf.get_config()
+
         if appliance.available_programs:
-            device = ProgramSelect(appliance)
+            device = ProgramSelect(appliance, None, conf)
             entity_manager.add(device)
 
-        conf = Configuration()
         if appliance.available_programs:
             for program in appliance.available_programs.values():
                 if program.options:
                     for option in program.options.values():
-                        if conf.get_entity_setting(option.key, "type") == "DelayedOperation":
+                        if conf.get_entity_setting(option.key, "type") == "DelayedOperation" and (
+                            entry_conf[CONF_DELAYED_OPS] == CONF_DELAYED_OPS_DEFAULT or not DelayedOperationTime.has_program_run_time(appliance)):
                             device = DelayedOperationSelect(appliance, option.key, conf, option)
+                            # remove the TIME delayed operation entity if it exists
+                            reg = async_get(hass)
+                            time_entity = reg.async_get_entity_id("time", DOMAIN, device.unique_id)
+                            if time_entity:
+                                reg.async_remove(time_entity)
+
                             entity_manager.add(device)
                         elif option.allowedvalues and len(option.allowedvalues)>1:
                             device = OptionSelect(appliance, option.key, conf)

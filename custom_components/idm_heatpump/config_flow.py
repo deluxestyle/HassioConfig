@@ -1,32 +1,34 @@
 """Adds config flow for Blueprint."""
 from datetime import timedelta
 from typing import Any
-from homeassistant.config_entries import ConfigFlow, ConfigEntry, OptionsFlow
-from homeassistant.core import callback
-from homeassistant.config import cv
-from homeassistant.const import POWER_KILO_WATT
-from homeassistant.helpers.selector import selector
-import voluptuous as vol
 
-from .idm_heatpump import IdmHeatpump
-from .sensor_addresses import HeatingCircuit
+import voluptuous as vol
+from homeassistant.config import cv
+from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
+from homeassistant.const import UnitOfPower
+from homeassistant.core import callback
+from homeassistant.helpers.selector import selector
 
 from .const import (
-    CONF_HOSTNAME,
     CONF_DISPLAY_NAME,
+    CONF_HOSTNAME,
     DEFAULT_REFRESH_INTERVAL,
+    DEFAULT_REQUEST_TIMEOUT,
     DOMAIN,
     MAX_ROOM_COUNT,
     MAX_ZONE_COUNT,
     MIN_REFRESH_INTERVAL,
     OPT_HEATING_CIRCUITS,
+    OPT_MAX_POWER_USAGE,
+    OPT_READ_WITHOUT_GROUPS,
     OPT_REFRESH_INTERVAL,
+    OPT_REQUEST_TIMEOUT,
     OPT_ZONE_COUNT,
     OPT_ZONE_ROOM_9_RELAY,
     OPT_ZONE_ROOM_COUNT,
-    OPT_READ_WITHOUT_GROUPS,
-    OPT_MAX_POWER_USAGE,
 )
+from .idm_heatpump import IdmHeatpump
+from .sensor_addresses import HeatingCircuit
 
 
 class IdmHeatpumpFlowHandler(ConfigFlow, domain=DOMAIN):
@@ -179,6 +181,10 @@ def _async_step_base_options(
                 default=options.get(OPT_REFRESH_INTERVAL, DEFAULT_REFRESH_INTERVAL),
             ): vol.All(selector({"duration": {}})),
             vol.Required(
+                OPT_REQUEST_TIMEOUT,
+                default=options.get(OPT_REQUEST_TIMEOUT, DEFAULT_REQUEST_TIMEOUT),
+            ): vol.All(selector({"duration": {}})),
+            vol.Required(
                 OPT_HEATING_CIRCUITS,
                 default=options.get(OPT_HEATING_CIRCUITS, []),
             ): vol.All(
@@ -219,7 +225,7 @@ def _async_step_base_options(
                         # "min": 0,
                         "step": "any",
                         "mode": "box",
-                        "unit_of_measurement": POWER_KILO_WATT,
+                        "unit_of_measurement": UnitOfPower.KILO_WATT,
                     }
                 }
             ),
@@ -235,6 +241,11 @@ def _async_step_base_options(
             **MIN_REFRESH_INTERVAL
         ):
             errors[OPT_REFRESH_INTERVAL] = "min_refresh_interval"
+
+        if timedelta(**options[OPT_REFRESH_INTERVAL]) < timedelta(
+            **options[OPT_REQUEST_TIMEOUT]
+        ):
+            errors[OPT_REQUEST_TIMEOUT] = "request_refresh_interval"
 
         if len(errors) == 0:
             return None

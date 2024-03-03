@@ -26,3 +26,4 @@ scripts/ds118_shutdown.sh
 .ssh/id_rsa
 scripts/*
 pyscript/*
+backups/*

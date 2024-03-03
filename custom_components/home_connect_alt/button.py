@@ -8,27 +8,38 @@ from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
 
-from .common import EntityBase, EntityManager
+from .common import Configuration, EntityBase, EntityManager
 from .const import DOMAIN, HOME_CONNECT_DEVICE
 
 _LOGGER = logging.getLogger(__name__)
 
 async def async_setup_entry(hass:HomeAssistant , config_entry:ConfigType, async_add_entities:AddEntitiesCallback) -> None:
     """ Add buttons for passed config_entry in HA """
-    homeconnect:HomeConnect = hass.data[DOMAIN]['homeconnect']
+    #homeconnect:HomeConnect = hass.data[DOMAIN]['homeconnect']
+    entry_conf:Configuration = hass.data[DOMAIN][config_entry.entry_id]
+    homeconnect:HomeConnect = entry_conf["homeconnect"]
     entity_manager = EntityManager(async_add_entities)
 
     def add_appliance(appliance:Appliance) -> None:
+        conf = entry_conf.get_config()
+
         if appliance.available_programs:
-            entity_manager.add(StartButton(appliance))
-            entity_manager.add(StopButton(appliance))
+            entity_manager.add(StartButton(appliance, None, conf))
+            entity_manager.add(StopButton(appliance, None, conf))
+        if appliance.commands:
+            for command in appliance.commands.values():
+                # The "BSH.Common.Command.AcknowledgeEvent" command is used to acknowledge the ProgramFinished state
+                if command.key not in ["BSH.Common.Command.PauseProgram", "BSH.Common.Command.ResumeProgram", "BSH.Common.Command.AcknowledgeEvent"]:
+                    button = CommandButton(appliance, command.key, conf, hc_obj=command)
+                    entity_manager.add(button)
         entity_manager.register()
 
     def remove_appliance(appliance:Appliance) -> None:
         entity_manager.remove_appliance(appliance)
 
     # First add the integration button
-    async_add_entities([HomeConnectRefreshButton(homeconnect), HomeConnectDebugButton(homeconnect)])
+    button_name_suffix = "" if entry_conf["primary_config_entry"] else "_"+config_entry.entry_id
+    async_add_entities([HomeConnectRefreshButton(homeconnect, button_name_suffix), HomeConnectDebugButton(homeconnect, button_name_suffix)])
 
     # Subscribe for events and register existing appliances
     homeconnect.register_callback(add_appliance, [Events.PAIRED, Events.DATA_CHANGED, Events.PROGRAM_STARTED, Events.PROGRAM_SELECTED])
@@ -142,6 +153,7 @@ class StartButton(EntityBase, ButtonEntity):
     async def async_on_update(self, appliance:Appliance, key:str, value) -> None:
         self.async_write_ha_state()
 
+
 class StopButton(EntityBase, ButtonEntity):
     """ Class for buttons that start the selected program """
     @property
@@ -206,12 +218,40 @@ class StopButton(EntityBase, ButtonEntity):
         self.async_write_ha_state()
 
 
+class CommandButton(EntityBase, ButtonEntity):
+    """ Class for running a HC command """
+
+    @property
+    def name_ext(self) -> str|None:
+        return self._hc_obj.name
+
+    @property
+    def icon(self) -> str:
+        return self.get_entity_setting('icon', "mdi:button-pointer")
+
+    @property
+    def available(self) -> bool:
+        return super().available and self._appliance.commands and self._key in self._appliance.commands
+
+    async def async_press(self) -> None:
+        """ Handle button press """
+        try:
+            await self._appliance.async_send_command(self._key, True)
+        except HomeConnectError as ex:
+            if ex.error_description:
+                raise HomeAssistantError(f"Failed to stop the selected program: {ex.error_description} ({ex.code})")
+            raise HomeAssistantError(f"Failed to stop the selected program ({ex.code})")
+
+    async def async_on_update(self, appliance:Appliance, key:str, value) -> None:
+        self.async_write_ha_state()
+
 class HomeConnectRefreshButton(ButtonEntity):
     """ Class for a button to trigger a global refresh of Home Connect data  """
     _attr_has_entity_name = True
 
-    def __init__(self, homeconnect:HomeConnect) -> None:
+    def __init__(self, homeconnect:HomeConnect, name_suffix:str) -> None:
         self._homeconnect = homeconnect
+        self._name_suffix = name_suffix
         self.entity_id = f'home_connect.{self.unique_id}'
 
     @property
@@ -221,7 +261,7 @@ class HomeConnectRefreshButton(ButtonEntity):
 
     @property
     def unique_id(self) -> str:
-        return "homeconnect_refresh"
+        return "homeconnect_refresh" + self._name_suffix
 
     @property
     def translation_key(self) -> str:
@@ -249,8 +289,9 @@ class HomeConnectDebugButton(ButtonEntity):
     """ Class for a button to trigger a global refresh of Home Connect data  """
     _attr_has_entity_name = True
 
-    def __init__(self, homeconnect:HomeConnect) -> None:
+    def __init__(self, homeconnect:HomeConnect, name_suffix:str) -> None:
         self._homeconnect = homeconnect
+        self._name_suffix = name_suffix
         self.entity_id = f'home_connect.{self.unique_id}'
 
     @property
@@ -260,7 +301,7 @@ class HomeConnectDebugButton(ButtonEntity):
 
     @property
     def unique_id(self) -> str:
-        return "homeconnect_debug"
+        return "homeconnect_debug" + self._name_suffix
 
     # @property
     # def name(self) -> str:

@@ -40,6 +40,12 @@ cards:
             - includes/multimedia/media_player_small.yaml
             - entity: office
               name: Büro
+      - type: tile
+        entity: switch.steckdose_2
+        tap_action:
+          action: toggle
+        icon_tap_action:
+          action: toggle
 #################################################################
   - template: title
     type: 'custom:button-card'

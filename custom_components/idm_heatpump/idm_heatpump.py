@@ -1,15 +1,15 @@
 """Abstraction over the modbus interface of IDM heatpumps."""
 
 import asyncio
-from dataclasses import dataclass
 import collections
+from dataclasses import dataclass
 from typing import TypeVar
 
 from pymodbus.client import AsyncModbusTcpClient
-from pymodbus.pdu import ModbusResponse
-from pymodbus.exceptions import ConnectionException, ModbusException
-from pymodbus.payload import BinaryPayloadDecoder, BinaryPayloadBuilder
 from pymodbus.constants import Endian
+from pymodbus.exceptions import ConnectionException, ModbusException
+from pymodbus.payload import BinaryPayloadBuilder, BinaryPayloadDecoder
+from pymodbus.pdu import ModbusResponse
 from pymodbus.register_read_message import ReadInputRegistersResponse
 
 from .const import NAME_POWER_USAGE
@@ -17,13 +17,17 @@ from .logger import LOGGER
 from .sensor_addresses import (
     BINARY_SENSOR_ADDRESSES,
     SENSOR_ADDRESSES,
-    HeatingCircuit,
     BaseSensorAddress,
+    HeatingCircuit,
     ZoneModule,
     heating_circuit_sensors,
 )
 
 _T = TypeVar("_T")
+
+
+class _FetchError(Exception):
+    pass
 
 
 class IdmHeatpump:
@@ -136,30 +140,32 @@ class IdmHeatpump:
                 await self.client.connect()
             return await self._fetch_registers(group)
 
-    async def _fetch_sensors(self, group: _SensorGroup) -> dict[str, any] | None:
+    async def _fetch_sensors(self, group: _SensorGroup) -> dict[str, any]:
         LOGGER.debug("fetching registers from %d (count=%d)", group.start, group.count)
 
         try:
             result = await self._fetch_retry(group)
         except ModbusException as exception:
-            LOGGER.error(
+            LOGGER.warn(
                 "Failed to fetch registers for group %d (count=%d): %s",
                 group.start,
                 group.count,
                 exception,
             )
-            return None
+            raise _FetchError() from exception
 
         if result.isError():
-            LOGGER.error(
+            LOGGER.warn(
                 "Failed to fetch registers for group %d (count=%d): %s",
                 group.start,
                 group.count,
                 result,
             )
-            return None
+            raise _FetchError()
 
         LOGGER.debug("got registers %d", group.start)
+
+        data: dict[str, any] = {}
 
         def decode_single(
             sensor: BaseSensorAddress,
@@ -193,8 +199,6 @@ class IdmHeatpump:
 
             LOGGER.debug("got decoder %d", group.start)
 
-            data: dict[str, any] = {}
-
             if len(group.sensors) == 1:
                 # single sensor -> don't do refetch on error
                 decode_single(group.sensors[0], result)
@@ -223,33 +227,57 @@ class IdmHeatpump:
                         decode_single(sensor, single_result)
 
         except ModbusException as exception:
-            LOGGER.error(
+            LOGGER.warn(
                 "Failed to fetch registers for group %d (count=%d): %s",
                 group.start,
                 group.count,
                 exception,
             )
-            return None
+            raise _FetchError() from exception
 
         LOGGER.debug("decoded registers %d", group.start)
 
         if NAME_POWER_USAGE in data and self.max_power_usage is not None:
             reported_power_usage = data[NAME_POWER_USAGE]
-            limited_power_usage = (
-                reported_power_usage
-                if reported_power_usage <= self.max_power_usage
-                else None
-            )
-            data[NAME_POWER_USAGE] = limited_power_usage
-            LOGGER.info(
-                "power usage value limited from %.2f to %.2f",
-                reported_power_usage,
-                limited_power_usage,
-            )
+
+            if reported_power_usage > self.max_power_usage:
+                LOGGER.info(
+                    "power usage %.2f above limit %.2f, fetching again",
+                    reported_power_usage,
+                    self.max_power_usage,
+                )
+
+                sensor = SENSOR_ADDRESSES[NAME_POWER_USAGE]
+                try:
+                    single_result = await self._fetch_retry(
+                        IdmHeatpump._SensorGroup(
+                            start=sensor.address,
+                            count=sensor.size,
+                            sensors=[sensor],
+                        )
+                    )
+
+                    decode_single(sensor, single_result)
+                except ModbusException as exception:
+                    LOGGER.warn(
+                        "Failed to fetch registers for sensor %d: %s",
+                        sensor.address,
+                        exception,
+                    )
+                    return data
+
+                second_power_usage = data[NAME_POWER_USAGE]
+                if second_power_usage > self.max_power_usage:
+                    LOGGER.info(
+                        "power usage still %.2f above limit %.2f after second fetch, reporting unknown",
+                        second_power_usage,
+                        self.max_power_usage,
+                    )
+                    data[NAME_POWER_USAGE] = None
 
         return data
 
-    async def async_get_data(self):
+    async def async_get_data(self) -> (bool, dict[str, any]):
         """Get data from the heatpump."""
 
         if not self.client.connected:
@@ -264,13 +292,21 @@ class IdmHeatpump:
         LOGGER.debug("got groups")
 
         data: dict[str, any] = {}
+        has_error = False
         for group in groups:
-            if group is not None and isinstance(group, dict):
+            if isinstance(group, dict):
                 data.update(group)
+            else:
+                has_error = True
+
+        if len(data) == 0:
+            raise next(e for e in groups if isinstance(e, Exception)) or Exception(
+                "update failed"
+            )
 
         LOGGER.debug("got data")
 
-        return data
+        return has_error, data
 
     async def async_write_value(self, address: BaseSensorAddress[_T], value: _T):
         """Write value to one of the addresses of this heat pump."""

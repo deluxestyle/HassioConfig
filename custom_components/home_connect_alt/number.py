@@ -15,25 +15,29 @@ from .const import DOMAIN, ENTITY_SETTINGS
 async def async_setup_entry(hass:HomeAssistant , config_entry:ConfigType, async_add_entities:AddEntitiesCallback) -> None:
     """Add Numbers for passed config_entry in HA."""
     #auth = hass.data[DOMAIN][config_entry.entry_id]
-    homeconnect:HomeConnect = hass.data[DOMAIN]['homeconnect']
+    #homeconnect:HomeConnect = hass.data[DOMAIN]['homeconnect']
+    entry_conf:Configuration = hass.data[DOMAIN][config_entry.entry_id]
+    homeconnect:HomeConnect = entry_conf["homeconnect"]
     entity_manager = EntityManager(async_add_entities)
 
-    conf = Configuration()
     number_types = ["Int", "Float", "Double"]
+
     def add_appliance(appliance:Appliance) -> None:
+        conf = entry_conf.get_config()
+
         if appliance.available_programs:
             for program in appliance.available_programs.values():
                 if program.options:
                     for option in program.options.values():
                         if (not conf.has_entity_setting(option.key, "type") and option.type in number_types) or conf.has_entity_setting(option.key, "type") in number_types:
-                            device = OptionNumber(appliance, option.key, hc_obj=option)
+                            device = OptionNumber(appliance, option.key, conf, hc_obj=option)
                             entity_manager.add(device)
 
         if appliance.settings:
             for setting in appliance.settings.values():
                 if ((not conf.has_entity_setting(setting.key, "type") and setting.type in number_types) or conf.has_entity_setting(setting.key, "type") in number_types) \
                     and setting.access != "read" :
-                    device = SettingsNumber(appliance, setting.key, hc_obj=setting)
+                    device = SettingsNumber(appliance, setting.key, conf, hc_obj=setting)
                     entity_manager.add(device)
 
         entity_manager.register()

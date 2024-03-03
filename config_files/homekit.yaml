@@ -21,6 +21,7 @@ filter:
     - sensor.aqara_sensor_4_humidity
     - sensor.aqara_sensor_4_temperature  
     # - switch.wifi_steckdose_1 
+    - switch.steckdose_2
 entity_config:
     media_player.fernsehzimmer:
       feature_list:

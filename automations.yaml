@@ -948,3 +948,23 @@
       url: /lovelace/watersoftener
     service: script.notify_script
   mode: single
+- id: '1708550292805'
+  alias: 'Benachrichtigung: Wasser'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.judo_isoftsaveplus_daheim_meldung
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
+      message: 'Hinweis Wasser: {{ states.sensor.judo_isoftsaveplus_daheim_meldung.state
+        }} '
+      notification_id: wasser
+      title: wasser
+      url: /lovelace/watersoftener
+    service: script.notify_script
+  mode: single

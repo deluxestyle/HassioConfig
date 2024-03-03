@@ -1,10 +1,8 @@
 """Support for Volkswagen WeConnect Platform."""
+
 import logging
-import re
-from datetime import datetime, timezone
 from typing import Any, Union
 
-import pytz
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import ToggleEntity, EntityCategory
 from volkswagencarnet.vw_dashboard import Instrument
@@ -62,7 +60,14 @@ async def async_setup_entry(hass: HomeAssistant, entry, async_add_devices):
 class VolkswagenSwitch(VolkswagenEntity, ToggleEntity):
     """Representation of a Volkswagen WeConnect Switch."""
 
-    def __init__(self, data: VolkswagenData, vin: str, component: str, attribute: str, callback=None):
+    def __init__(
+        self,
+        data: VolkswagenData,
+        vin: str,
+        component: str,
+        attribute: str,
+        callback=None,
+    ):
         """Initialize switch."""
         super().__init__(data, vin, component, attribute, callback)
 
@@ -93,6 +98,14 @@ class VolkswagenSwitch(VolkswagenEntity, ToggleEntity):
         self.notify_updated()
 
     @property
+    def entity_category(self) -> Union[EntityCategory, str, None]:
+        """Return entity category."""
+        if self.instrument.entity_type == "diag":
+            return EntityCategory.DIAGNOSTIC
+        if self.instrument.entity_type == "config":
+            return EntityCategory.CONFIG
+
+    @property
     def assumed_state(self):
         """Return state assumption."""
         return self.instrument.assumed_state
@@ -100,7 +113,10 @@ class VolkswagenSwitch(VolkswagenEntity, ToggleEntity):
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return extra state attributes."""
-        return {**super().extra_state_attributes, **(self.instrument.attributes if self.instrument is not None else {})}
+        return {
+            **super().extra_state_attributes,
+            **(self.instrument.attributes if self.instrument is not None else {}),
+        }
 
 
 class VolkswagenDepartureTimer(VolkswagenSwitch):
@@ -114,7 +130,14 @@ class VolkswagenDepartureTimer(VolkswagenSwitch):
         """Disable timer."""
         super().turn_off()
 
-    def __init__(self, data: VolkswagenData, vin: str, component: str, attribute: str, callback=None):
+    def __init__(
+        self,
+        data: VolkswagenData,
+        vin: str,
+        component: str,
+        attribute: str,
+        callback=None,
+    ):
         """Initialize class."""
         super().__init__(data, vin, component, attribute, callback)
         _LOGGER.debug("Departure Timer initialized")
@@ -133,20 +156,4 @@ class VolkswagenDepartureTimer(VolkswagenSwitch):
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return extra state attributes."""
         attribs = super(VolkswagenSwitch, self).extra_state_attributes
-        if "departure_time" in attribs:
-            if re.match(r"^\d\d:\d\d$", attribs["departure_time"]):
-                d = datetime.now()
-                d = d.replace(
-                    hour=int(attribs["departure_time"][0:2]),
-                    minute=int(attribs["departure_time"][3:5]),
-                    second=0,
-                    microsecond=0,
-                    tzinfo=timezone.utc,
-                ).astimezone(pytz.timezone(self.hass.config.time_zone))
-                attribs["departure_time"] = d.strftime("%H:%M")
-            else:
-                d = datetime.strptime(attribs["departure_time"], "%Y-%m-%dT%H:%M").replace(
-                    tzinfo=timezone.utc, second=0, microsecond=0
-                )
-                attribs["departure_time"] = d
         return attribs
