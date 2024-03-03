@@ -2,7 +2,7 @@
 
 ### My HomeAssistant Config
 
-#### Integrations
+#### Integrations (not updated)
 * Xiaomi Gateway
 * Xiaomi Vacuum Roborock
 * Xiaomi Aqara Sensors (temperature, humidity, motion) - (via deconz)
@@ -19,17 +19,7 @@
 * Homekit
 * TP-Link Kasa Smart
 
-#### Addons
-* InfluxDB
-* Grafana 
-* Wireguard 
-* DuckDns (for remote access)
-* MariaDB
-* Glances
-* Samba share
-* Samba Backup (for Backup of Snapshots to a remote storage) - https://github.com/thomasmauerer/hassio-addons/tree/master/samba-backup
-
-#### Custom cards
+#### Custom cards (not updated)
 * fold-entity-row - https://github.com/thomasloven/lovelace-fold-entity-row
 * scheduler-card (for use of scheduler-component) - https://github.com/nielsfaber/scheduler-card
 * auto-entities - https://github.com/thomasloven/lovelace-auto-entities
@@ -44,12 +34,11 @@
 * vertical-stack-in-card - https://github.com/ofekashery/vertical-stack-in-card
 * card-mod - https://github.com/thomasloven/lovelace-card-mod
 
-#### Custom Components
+#### Custom Components (not updated)
 * HACS - https://github.com/hacs/integration
 * scheduler-component - https://github.com/nielsfaber/scheduler-component
 * browser_mod - https://github.com/thomasloven/hass-browser_mod
 ~~* sonos-alarm - https://github.com/AaronDavidSchneider/SonosAlarm~~
-* Attributes extractor - https://github.com/pilotak/homeassistant-attributes
 * lovelace_gen (very helpful to split the lovelace set up and reduce redudant code) - https://github.com/thomasloven/hass-lovelace_gen
 * iPhone Device Tracker - https://github.com/mudape/iphonedetect
 
