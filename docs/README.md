@@ -45,6 +45,4 @@
 ~~#### Alexa connection via Home Assistant Alexa Skill Adapter~~
 ~~* https://github.com/mike-grant/haaska~~
 
-#### Lovelace
-![demo](https://github.com/deluxestyle/documentation/blob/master/homeassistant.gif?raw=true)
 
