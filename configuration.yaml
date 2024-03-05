@@ -16,7 +16,7 @@ diagnostics:
 my:
 # conversation:
 homeassistant_alerts:
-# energy:
+energy:
 
 http:
   server_port: 8124
@@ -99,13 +99,6 @@ shell_command:
   ds118_surveillance_stop: bash /config/scripts/ds118_surveillance_stop.sh
   ds114_wol: bash /config/scripts/ds114_wol.sh
   ds114_shutdown: bash /config/scripts/ds114_shutdown.sh
-
-# home_connect_alt:
-#   client_id: !secret client_id
-#   client_secret: !secret client_secret
-#   name_template: $brand $appliance - $name
-#   language: de 
-#   sensor_value_translation: <server | local> 
 
 notify:  
   - name: all_ios_devices

@@ -39,3 +39,4 @@ entity_globs:
   - sensor.waschmaschine*
   - sensor.idm*
   - binary_sensor.idm*
+  - sensor.hoymiles_*
