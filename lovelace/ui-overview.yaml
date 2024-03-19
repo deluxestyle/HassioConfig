@@ -101,3 +101,23 @@ cards:
           action: navigate
           haptic: medium
           navigation_path: /dashboard-strom/warmepumpe
+#################################################################
+  - template: title
+    type: 'custom:button-card'
+    label: Strom
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - type: 'custom:button-card'
+        template: graph_small
+        variables:
+          entity: sensor.smart_meter_summe_der_aktiven_momentanleistung
+          color: "var(--google-red)"
+          name: "Verbrauch"
+      - type: 'custom:button-card'
+        template: graph_small
+        variables:
+          entity: sensor.hoymiles_hms_800w_t2_ac_power
+          color: "var(--google-yellow)"
+          name: "Solar"

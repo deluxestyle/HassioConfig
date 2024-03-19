@@ -69,3 +69,4 @@ include:
     - sensor.idm*
     - binary_sensor.idm*
     - sensor.hoymiles_*
+    - sensor.smart_meter*
