@@ -18,5 +18,8 @@ views:
 ##### Klima #####
   - !include lovelace/views_entities/climate.yaml
 
+##### steckdosen #####
+  - !include lovelace/views_entities/power_plugs.yaml
+
 # ##### Klima #####
 #   - !include lovelace/views_entities/heatpump.yaml

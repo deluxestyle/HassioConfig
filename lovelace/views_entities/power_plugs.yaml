@@ -1,0 +1,38 @@
+# lovelace_gen
+
+# -----------------------------
+title: Steckdosen
+path: steckdosen
+icon: mdi:power-socket-de
+# type: custom:horizontal-layout
+# layout:
+#   max_cols: 2
+cards:
+  - square: false
+    type: grid
+    cards:
+      - type: custom:mushroom-entity-card
+        entity: switch.ikea_steckdose_1
+        tap_action:
+          action: toggle
+      - type: custom:mushroom-entity-card
+        entity: switch.ikea_steckdose_2
+        tap_action:
+          action: toggle
+      - type: custom:mushroom-entity-card
+        entity: switch.steckdose_1
+        tap_action:
+          action: toggle
+      - type: custom:mushroom-entity-card
+        entity: switch.steckdose_2
+        tap_action:
+          action: toggle
+      - type: custom:mushroom-entity-card
+        entity: switch.steckdose_3
+        tap_action:
+          action: toggle
+      - type: custom:mushroom-entity-card
+        entity: switch.steckdosenleiste_2
+        tap_action:
+          action: toggle
+    columns: 2
