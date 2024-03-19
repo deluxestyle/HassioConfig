@@ -121,6 +121,8 @@ cards:
                       - entity_id: "update.wud_container*"
                         options: 
                           type: custom:template-entity-row
+                          name: >
+                             {{state_attr(config.entity,'display_name')}}
                           icon: >
                              {{state_attr(config.entity,'icon')}}
                           state: >

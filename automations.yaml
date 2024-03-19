@@ -955,6 +955,10 @@
   - platform: state
     entity_id:
     - sensor.judo_isoftsaveplus_daheim_meldung
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 30
   condition: []
   action:
   - data:
@@ -999,4 +1003,23 @@
         target:
           entity_id: switch.ikea_steckdose_2
         data: {}
+  mode: single
+- id: '1710330926046'
+  alias: 'Benachrichtigung: Auto'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.vw_passat_vehicle_moving
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: person.wolfgang
+    state: home
+  action:
+  - service: notify.mobile_app_iphone14pro
+    metadata: {}
+    data:
+      message: Auto fährt los
+      title: Auto
   mode: single

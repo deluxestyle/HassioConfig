@@ -7,7 +7,7 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
 
 from .common import Configuration, EntityBase, EntityManager
-from .const import DOMAIN, ENTITY_SETTINGS
+from .const import DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -21,21 +21,12 @@ async def async_setup_entry(hass:HomeAssistant , config_entry:ConfigType, async_
     entity_manager = EntityManager(async_add_entities)
 
     def add_appliance(appliance:Appliance) -> None:
+        conf:Configuration = entry_conf.get_config()
         for (key, status) in appliance.status.items():
-            conf = entry_conf.get_config()
             device = None
             if isinstance(status.value, bool) or conf.get_entity_setting(key, "type") == "Boolean": # should be a binary sensor if it has a boolean value
                 device = StatusBinarySensor(appliance, key, conf)
                 entity_manager.add(device)
-
-            # if key in ENTITY_SETTINGS['status']:
-            #     conf = Configuration(ENTITY_SETTINGS['status'][key])
-            #     if conf['type'] == 'binary_sensor':
-            #         device = StatusBinarySensor(appliance, key, conf)
-            # else:
-            #     if isinstance(status.value, bool): # should be a binary sensor if it has a boolean value
-            #         device = StatusBinarySensor(appliance, key)
-            # entity_manager.add(device)
 
         if appliance.selected_program and appliance.selected_program.options:
             for option in appliance.selected_program.options.values():

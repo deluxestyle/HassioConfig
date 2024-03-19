@@ -96,8 +96,8 @@ cards:
         tap_action:
           action: navigate
           haptic: medium
-          navigation_path: /lovelace/heatpump
+          navigation_path: /dashboard-strom/warmepumpe
         icon_tap_action:
           action: navigate
           haptic: medium
-          navigation_path: /lovelace/heatpump
+          navigation_path: /dashboard-strom/warmepumpe

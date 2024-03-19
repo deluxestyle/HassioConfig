@@ -62,3 +62,10 @@ include:
     - sensor.ynzvpg2*
     - sensor.docker_*_memory
     - sensor.docker_*_1cpu
+    - sensor.judo*
+    - sensor.sonoff_*
+    - sensor.aqara_*
+    - sensor.waschmaschine*
+    - sensor.idm*
+    - binary_sensor.idm*
+    - sensor.hoymiles_*

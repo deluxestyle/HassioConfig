@@ -180,10 +180,6 @@ alles_ausschalten:
     entity_id: 7562d580fe0d4301cb37ab75350664ed
     domain: remote
   - type: turn_off
-    device_id: d8ee338f498d31b2f5d611a5d4c9272d
-    entity_id: 32704a93b10ab215610fd65549eb10ad
-    domain: switch
-  - type: turn_off
     device_id: 63ad1ab895f307fc6036afa71ec094ef
     entity_id: 56f39d294944e06fb95036a90bc7b8e7
     domain: switch
