@@ -1,7 +1,7 @@
 daily_consumption:
   friendly_name: "Tagesverbrauch"
-  unit_of_measurement: 'W'
+  unit_of_measurement: 'Wh'
 
 daily_feed:
   friendly_name: "Einspeisung"
-  unit_of_measurement: 'W'
+  unit_of_measurement: 'Wh'

@@ -7,6 +7,7 @@
           {{ ((wh) / 1000) | round(1, default=0) }}
     state_class: total
     unit_of_measurement: 'kWh'
+    device_class: energy
 
   - name: total_feed
     unique_id: total_feed
@@ -15,21 +16,24 @@
           {{ ((wh) / 1000) | round(1, default=0) }}
     state_class: total
     unit_of_measurement: 'kWh'
+    device_class: energy
 
   - name: daily_usage
     unique_id: daily_usage
     state: >
           {% set tmp1 = states.var.daily_consumption.state | float %}
           {% set tmp2 = states.sensor.smart_meter_positive_wirkenergie_insgesamt.state | float %}
-          {{ tmp2 - tmp1 }}
-    state_class: measurement
-    unit_of_measurement: 'W'
+          {{ tmp2 - tmp1 | round(2, default=0) }}
+    state_class: total_increasing
+    unit_of_measurement: 'Wh'
+    device_class: energy
 
   - name: daily_feed
     unique_id: daily_ufeed
     state: >
           {% set tmp1 = states.var.daily_feed.state | float %}
           {% set tmp2 = states.sensor.smart_meter_negative_wirkenergie_insgesamt.state | float %}
-          {{ tmp2 - tmp1 }}
-    state_class: measurement
-    unit_of_measurement: 'W'
+          {{ tmp2 - tmp1 | round(2, default=0) }}
+    state_class: total_increasing
+    unit_of_measurement: 'Wh'
+    device_class: energy
