@@ -1,14 +1,14 @@
-# - sensor:
-#   - name: net_download_max
-#     unique_id: net_download_max
-#     state: "{{ (states.sensor.fritz_box_7590_maximaler_download_durchsatz_der_verbindung.state | float(0) / 1000)|round(1) }}"
-#     unit_of_measurement: "Mbit/s"
-#     icon: mdi:cloud-download  
-#   - name: net_upload_max
-#     unique_id: net_upload_max
-#     state: "{{ (states.sensor.fritz_box_7590_maximaler_upload_durchsatz_der_verbindung.state | float(0) / 1000)|round(1) }}"
-#     unit_of_measurement: "Mbit/s"
-#     icon: mdi:cloud-upload
+- sensor:
+  - name: net_download_max
+    unique_id: net_download_max
+    state: "{{ (states.sensor.fritz_box_7590_maximaler_download_durchsatz_der_verbindung.state | float(0) / 1000)|round(1) }}"
+    unit_of_measurement: "Mbit/s"
+    icon: mdi:cloud-download  
+  - name: net_upload_max
+    unique_id: net_upload_max
+    state: "{{ (states.sensor.fritz_box_7590_maximaler_upload_durchsatz_der_verbindung.state | float(0) / 1000)|round(1) }}"
+    unit_of_measurement: "Mbit/s"
+    icon: mdi:cloud-upload
   # - name: net_download_cur
   #   unique_id: net_download_cur
   #   state: "{{ (states.sensor.fritz_box_7590_kb_s_received.state | float(0) / 1000)|round(1) }}"

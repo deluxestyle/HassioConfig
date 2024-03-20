@@ -15,10 +15,10 @@ cards:
     columns: 4
     show_name: false
     entities:
-      - entity: sensor.fritz_box_7590_maximaler_download_durchsatz_der_verbindung
+      - entity: sensor.net_download_max
         icon: mdi:cloud-download
         name: Max Down
-      - entity: sensor.fritz_box_7590_maximaler_upload_durchsatz_der_verbindung
+      - entity: sensor.net_upload_max
         icon: mdi:cloud-upload
         name: Max Up
       - entity: sensor.fritz_box_7590_download_durchsatz
