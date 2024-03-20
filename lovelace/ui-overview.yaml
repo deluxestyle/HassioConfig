@@ -111,6 +111,7 @@ cards:
     cards:
       - type: custom:mushroom-entity-card
         entity: sensor.smart_meter_summe_der_aktiven_momentanleistung
+        name: Stromverbrauch
         primary_info: state
         secondary_info: name
         tap_action:

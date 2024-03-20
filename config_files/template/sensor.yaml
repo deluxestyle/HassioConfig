@@ -26,20 +26,3 @@
           {{ states('sensor.nextcloud_version')}}
         {% endif %}
 
-
-##### smart meter ######
-  - name: total_consumtion
-    unique_id: total_consumtion
-    state: >
-          {% set wh = states('sensor.smart_meter_positive_wirkenergie_insgesamt') | float %}
-          {{ ((wh) / 1000) | round(1, default=0) }}
-    state_class: total
-    unit_of_measurement: 'kWh'
-
-  - name: total_feed
-    unique_id: total_feed
-    state: >
-          {% set wh = states('sensor.smart_meter_negative_wirkenergie_insgesamt') | float %}
-          {{ ((wh) / 1000) | round(1, default=0) }}
-    state_class: total
-    unit_of_measurement: 'kWh'

@@ -117,3 +117,5 @@ custom_update_entities:
         - service: browser_mod.navigate
           data:
             path: https://next.tanzer-cloud.de
+
+var: !include config_files/var.yaml

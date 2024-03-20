@@ -1023,3 +1023,29 @@
       message: Auto fährt los
       title: Auto
   mode: single
+- id: '1710945475467'
+  alias: 'Strom: Tagesverbrauch'
+  description: ''
+  trigger:
+  - platform: time
+    at: 00:00:00
+  condition: []
+  action:
+  - service: var.set
+    data:
+      entity_id: var.daily_consumption
+      value: '{{ states.sensor.smart_meter_positive_wirkenergie_insgesamt.state }}'
+  mode: single
+- id: '1710946413202'
+  alias: 'Strom: Einspeisung'
+  description: ''
+  trigger:
+  - platform: time
+    at: 00:00:00
+  condition: []
+  action:
+  - service: var.set
+    data:
+      entity_id: var.daily_feed
+      value: '{{ states.sensor.smart_meter_negative_wirkenergie_insgesamt.state }}'
+  mode: single

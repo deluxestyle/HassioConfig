@@ -37,6 +37,8 @@ include:
     - binary_sensor.fritz_box_7590_connection
     - sensor.total_consumtion
     - sensor.total_feed
+    - sensor.daily_usage
+      - sensor.daily_feed
   entity_globs:
     - sensor.ynzvpg2*
     - sensor.docker_*_memory

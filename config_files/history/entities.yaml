@@ -24,6 +24,8 @@ entities:
   - sensor.vw_km_threshold
   - sensor.total_consumtion
   - sensor.total_feed
+  - sensor.daily_usage
+  - sensor.daily_feed
 domains:
   - automation
   - switch
