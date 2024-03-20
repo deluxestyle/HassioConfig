@@ -22,6 +22,8 @@ entities:
   - sensor.vw_passat_last_trip_length
   - sensor.vw_km_usage
   - sensor.vw_km_threshold
+  - sensor.total_consumtion
+  - sensor.total_feed
 domains:
   - automation
   - switch
