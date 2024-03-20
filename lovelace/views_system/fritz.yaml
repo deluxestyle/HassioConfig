@@ -137,6 +137,10 @@ cards:
               options:
                 tap_action:
                   action: toggle
+            - entity_id: "button.fritz_wlan_repeater_*"
+              options:
+                tap_action:
+                  action: toggle
         sort:
           method: name
         card:
