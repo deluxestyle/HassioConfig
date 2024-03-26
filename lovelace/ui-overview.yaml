@@ -60,7 +60,7 @@ cards:
         tap_action:
           haptic: medium
           action: navigate
-          navigation_path: /lovelace-vacuum/vacuum
+          navigation_path: /dashboard-staubsauger/0
       - type: tile
         entity: switch.013050391085014163_bsh_common_setting_powerstate
         name: Geschirrspüler
