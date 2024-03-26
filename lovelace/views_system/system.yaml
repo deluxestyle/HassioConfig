@@ -2,14 +2,14 @@
 title: System
 path: system
 icon: mdi:cog-outline
-type: custom:masonry-layout
-layout:
-  max_cols: 2
+# type: custom:masonry-layout
+# layout:
+#   max_cols: 2
 cards: 
 ################################################## 
-  - template: title
-    type: 'custom:button-card'
-    label: Übersicht 
+  # - template: title
+  #   type: 'custom:button-card'
+  #   label: Übersicht 
   - type: glance
     columns: 4
     show_name: false
@@ -54,9 +54,9 @@ cards:
       - entity: sensor.sqlite_db_grosse
         icon: mdi:database   
 ##################################################
-  - template: title
-    type: 'custom:button-card'
-    label: Versionen                  
+  # - template: title
+  #   type: 'custom:button-card'
+  #   label: Versionen                  
   - type: entities
     show_header_toggle: false
     entities:

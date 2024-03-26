@@ -3,14 +3,14 @@
 title: NAS
 path: nas
 icon: mdi:nas
-type: custom:masonry-layout
-layout:
-  max_cols: 2
+# type: custom:masonry-layout
+# layout:
+#   max_cols: 2
 cards:
 ##################################################
-  - template: title
-    type: 'custom:button-card'
-    label: DS118 
+  # - template: title
+  #   type: 'custom:button-card'
+  #   label: DS118 
   - type: entities
     entities:
       - entity: switch.ds118
@@ -32,9 +32,9 @@ cards:
             label: Syncthing Status
           padding: 5
 ##################################################
-  - template: title
-    type: 'custom:button-card'
-    label: DS114 
+  # - template: title
+  #   type: 'custom:button-card'
+  #   label: DS114 
   - type: entities
     entities:
       - entity: switch.ds114 

@@ -3,14 +3,14 @@
 title: FritzBox
 path: fritz
 icon: mdi:router-network
-type: custom:masonry-layout
-layout:
-  max_cols: 2
+# type: custom:masonry-layout
+# layout:
+#   max_cols: 2
 cards:
 ##################################################
-  - template: title
-    type: 'custom:button-card'
-    label: Internet 
+  # - template: title
+  #   type: 'custom:button-card'
+  #   label: Internet 
   - type: glance
     columns: 4
     show_name: false
@@ -35,9 +35,9 @@ cards:
           action: navigate
           navigation_path: /config/devices/device/36a8d6e82781d3f1100027ab2637239a
 ##################################################
-  - template: title
-    type: 'custom:button-card'
-    label: FritzBox 
+  # - template: title
+  #   type: 'custom:button-card'
+  #   label: FritzBox 
   - type: entities
     entities:
       - entity: switch.fritz_box_7590_wi_fi_google_messwagen_26_2_4ghz
@@ -150,9 +150,9 @@ cards:
             label: Sonstiges
           padding: 5
 ##################################################
-  - template: title
-    type: 'custom:button-card'
-    label: Pi-Hole 
+  # - template: title
+  #   type: 'custom:button-card'
+  #   label: Pi-Hole 
   - type: entities
     entities:
       - entity: switch.pi_hole_switch

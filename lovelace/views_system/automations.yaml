@@ -5,9 +5,9 @@ path: automations
 icon: mdi:calendar-multiple-check
 cards:
 ##################################################
-  - template: title
-    type: 'custom:button-card'
-    label: Scheduler 
+  # - template: title
+  #   type: 'custom:button-card'
+  #   label: Scheduler 
   - type: custom:scheduler-card
     include:
       - light
