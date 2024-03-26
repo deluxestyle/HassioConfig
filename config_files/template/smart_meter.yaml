@@ -5,7 +5,7 @@
     state: >
           {% set wh = states('sensor.smart_meter_positive_wirkenergie_insgesamt') | float %}
           {{ ((wh) / 1000) | round(1, default=0) }}
-    state_class: total
+    state_class: total_increasing
     unit_of_measurement: 'kWh'
     device_class: energy
 
@@ -14,7 +14,7 @@
     state: >
           {% set wh = states('sensor.smart_meter_negative_wirkenergie_insgesamt') | float %}
           {{ ((wh) / 1000) | round(1, default=0) }}
-    state_class: total
+    state_class: total_increasing
     unit_of_measurement: 'kWh'
     device_class: energy
 
@@ -37,3 +37,27 @@
     state_class: total_increasing
     unit_of_measurement: 'Wh'
     device_class: energy
+    
+  - name: taglicher_solarverbrauch
+    unique_id: taglicher_solarverbrauch
+    state: >
+          {{ (states.sensor.hoymiles_hms_800w_t2_ac_daily_energy.state | float)  - (states.sensor.daily_feed.state | float) | round(2, default=0)}}
+    state_class: total_increasing
+    unit_of_measurement: 'Wh'
+    device_class: energy
+    
+  - name: stromverbrauch_gesamt_tag
+    unique_id: stromverbrauch_gesamt_tag
+    state: >
+          {{ (states.sensor.taglicher_solarverbrauch.state | float)  + (states.sensor.daily_usage.state | float) | round(2, default=0)}}
+    state_class: total_increasing
+    unit_of_measurement: 'Wh'
+    device_class: energy
+    
+  - name: stromverbrauch_gesamt
+    unique_id: stromverbrauch_gesamt
+    state: >
+          {{ (states.sensor.smart_meter_summe_der_aktiven_momentanleistung.state | float)  + (states.sensor.hoymiles_hms_800w_t2_ac_power.state | float) | round(2, default=0)}}
+    state_class: measurement
+    unit_of_measurement: 'W'
+    device_class: power

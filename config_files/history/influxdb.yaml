@@ -13,7 +13,7 @@ tags_attributes:
 default_measurement: state
 include:
   entities:
-
+    - sensor.taglicher_solarverbrauch
     - sensor.memory_use
     - sensor.memory_use_percent
     - sensor.disk_use
@@ -39,6 +39,9 @@ include:
     - sensor.total_feed
     - sensor.daily_usage
     - sensor.daily_feed
+    - sensor.taglicher_solarverbrauch
+    - sensor.stromverbrauch_gesamt_tag
+    - sensor.stromverbrauch_gesamt
   entity_globs:
     - sensor.ynzvpg2*
     - sensor.docker_*_memory

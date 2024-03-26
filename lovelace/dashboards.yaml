@@ -4,15 +4,15 @@ lovelace-system:
   icon: mdi:tune
   show_in_sidebar: true
   filename: lovelace/ui-system.yaml
-lovelace-presence:
-  mode: yaml
-  title: Anwesenheit
-  icon: mdi:account-multiple
-  show_in_sidebar: true
-  filename: lovelace/ui-presence.yaml
-lovelace-vacuum:
-  mode: yaml
-  title: Staubsauger
-  icon: mdi:robot-vacuum
-  show_in_sidebar: true
-  filename: lovelace/views_entities/vacuum.yaml
+#lovelace-presence:
+#  mode: yaml
+#  title: Anwesenheit
+#  icon: mdi:account-multiple
+#  show_in_sidebar: true
+#  filename: lovelace/ui-presence.yaml
+#lovelace-vacuum:
+#  mode: yaml
+#  title: Staubsauger
+#  icon: mdi:robot-vacuum
+#  show_in_sidebar: true
+#  filename: lovelace/views_entities/vacuum.yaml

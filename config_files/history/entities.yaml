@@ -26,6 +26,9 @@ entities:
   - sensor.total_feed
   - sensor.daily_usage
   - sensor.daily_feed
+  - sensor.taglicher_solarverbrauch
+  - sensor.stromverbrauch_gesamt_tag
+  - sensor.stromverbrauch_gesamt
 domains:
   - automation
   - switch
