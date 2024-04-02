@@ -5,3 +5,7 @@ daily_consumption:
 daily_feed:
   friendly_name: "Einspeisung"
   unit_of_measurement: 'Wh'
+
+daily_km:
+  friendly_name: Tageskm
+  unit_of_measurement: 'km'

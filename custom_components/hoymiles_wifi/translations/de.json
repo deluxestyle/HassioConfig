@@ -1,0 +1,117 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Hoymiles Verbindung",
+        "description": "Wenn Sie Hilfe bei der Konfiguration benötigen, schauen Sie hier vorbei: https://github.com/suaveolent/ha-hoymiles-wifi",
+        "data": {
+          "host": "Host",
+          "update_interval": "Aktualisierungsintervall (Sekunden)",
+          "sensor_prefix": "Sensorpräfix"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung nicht möglich."
+    },
+    "abort": {
+      "already_configured": "Bereits konfiguriert."
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "dtu": {
+        "name": "DTU"
+      }
+    },
+    "number": {
+      "limit_power_mypower": {
+        "name": "Leistungsbegrenzung"
+      }
+    },
+    "sensor": {
+      "ac_power": {
+        "name": "AC-Leistung"
+      },
+      "ac_daily_energy": {
+        "name": "AC-Tagesenergie"
+      },
+      "grid_voltage": {
+        "name": "Netzspannung"
+      },
+      "grid_frequency": {
+        "name": "Netzfrequenz"
+      },
+      "inverter_power_factor": {
+        "name": "Leistungsfaktor"
+      },
+      "inverter_temperature": {
+        "name": "Temperatur"
+      },
+      "port_dc_voltage": {
+        "name": "Port {port_number} Gleichspannung"
+      },
+      "port_dc_current": {
+        "name": "Port {port_number} Gleichstrom"
+      },
+      "port_dc_power": {
+        "name": "Port {port_number} DC-Leistung"
+      },
+      "port_dc_total_energy": {
+        "name": "Port {port_numbe} DC-Gesamtenergie"
+      },
+      "port_dc_daily_energy": {
+        "name": "Port {port_number} DC-Tagesenergie"
+      },
+      "wifi_ssid": {
+        "name": "WLAN-SSID"
+      },
+      "meter_kind": {
+        "name": "Zählermodell"
+      },
+      "mac_address": {
+        "name": "MAC-Adresse"
+      },
+      "ip_address": {
+        "name": "IP Adresse"
+      },
+      "dtu_ap_ssid": {
+        "name": "AP-SSID"
+      },
+      "dtu_sw_version": {
+        "name": "SW-Version"
+      },
+      "dtu_hw_version": {
+        "name": "HW-Version"
+      },
+      "pv_sw_version": {
+        "name": "SW-Version"
+      },
+      "pv_hw_version": {
+        "name": "HW-Version"
+      },
+      "signal_strength": {
+        "name": "Signalstärke"
+      }
+    },
+    "button": {
+      "restart": {
+        "name": "Neustart"
+      },
+      "turn_off": {
+        "name": "Ausschalten"
+      },
+      "turn_on": {
+        "name": "Einschalten"
+      }
+    }
+  },
+    "device": {
+    "inverter": {
+      "name": "Wechselrichter"
+    },
+    "dtu": {
+      "name": "DTU"
+    }
+  }
+}

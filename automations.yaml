@@ -1049,3 +1049,16 @@
       entity_id: var.daily_feed
       value: '{{ states.sensor.smart_meter_negative_wirkenergie_insgesamt.state }}'
   mode: single
+- id: '1711538159262'
+  alias: 'Auto: Tageskilometer'
+  description: ''
+  trigger:
+  - platform: time
+    at: 00:00:00
+  condition: []
+  action:
+  - service: var.set
+    data:
+      entity_id: var.daily_km
+      value: '{{ states.sensor.vw_passat_gefahrene_km.state }}'
+  mode: single

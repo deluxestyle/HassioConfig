@@ -17,3 +17,11 @@
     unique_id: vw_km_usage
     state: '{{ ( (states ( "sensor.vw_passat_gefahrene_km" ) | int) / (states ( "sensor.vw_km_threshold" ) | int) * 100 ) | round(2) }}'
     unit_of_measurement: '%'
+
+  - name: vw_km_daily
+    unique_id: vw_km_daily
+    state: >
+          {% set tmp1 = states.var.daily_km.state | float %}
+          {% set tmp2 = states.sensor.vw_passat_gefahrene_km.state | float %}
+          {{ tmp2 - tmp1 | round(2, default=0) }}
+    unit_of_measurement: 'km'
