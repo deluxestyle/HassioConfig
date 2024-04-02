@@ -15,7 +15,7 @@
         }} qm | Fehler {{ states.counter.xiaomo_errors.state }}'
       notification_id: xiaomi_vacuum_status
       title: StaubRobo
-      url: /lovelace-vacuum/valetudo
+      url: /dashboard-ubersicht/staubsauger
     service: script.notify_script
   mode: single
 - id: xiaomi_vacuum_notification_on
@@ -54,7 +54,7 @@
         }} '
       notification_id: xiaomi_vacuum_error
       title: StaubRobo
-      url: /lovelace-vacuum/valetudo
+      url: /dashboard-ubersicht/staubsauger
     service: script.notify_script
   mode: single
 - id: '1523001167559'
@@ -133,7 +133,7 @@
         }} h übrig'
       notification_id: xiaomi_sensor
       title: Xiaomi StaubRobo
-      url: /lovelace-vacuum/valetudo
+      url: /dashboard-ubersicht/staubsauger
     service: persistent_notification.create
   mode: single
 - id: '1543619209115'
@@ -255,7 +255,7 @@
         }} h übrig'
       notification_id: xiaomi_filter
       title: Xiaomi StaubRobo
-      url: /lovelace-vacuum/valetudo
+      url: /dashboard-ubersicht/staubsauger
     service: script.notify_script
   mode: single
 - id: '1570440017469'
@@ -587,7 +587,7 @@
       message: Geschirrspüler fertig
       notification_id: dish_washer
       title: Geschirrspüler
-      url: /lovelace/kitchen
+      url: /dashboard-ubersicht/dishwasher
     service: script.notify_script
   mode: single
 - id: '1668452168948'
@@ -864,7 +864,7 @@
         }} % '
       notification_id: humidity
       title: Luftfeuchtigkeit
-      url: /lovelace/climate
+      url: /dashboard-strom/klima
     service: script.notify_script
   mode: single
 - id: '1701269486138'
@@ -945,7 +945,7 @@
         }} Tage verbleibend '
       notification_id: salz
       title: Salz
-      url: /lovelace/watersoftener
+      url: /dashboard-strom/wasser
     service: script.notify_script
   mode: single
 - id: '1708550292805'
@@ -969,7 +969,7 @@
         }} '
       notification_id: wasser
       title: wasser
-      url: /lovelace/watersoftener
+      url: /dashboard-strom/wasser
     service: script.notify_script
   mode: single
 - id: '1709502632703'
