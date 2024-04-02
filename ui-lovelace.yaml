@@ -7,19 +7,19 @@ button_card_templates: !include lovelace/includes/button_card_templates.yaml
 title: Home
 views:
 ###### Übersicht #####
-  - !include lovelace/ui-overview.yaml
+#   - !include lovelace/ui-overview.yaml
 
-##### Küche #####
-  - !include lovelace/views_rooms/view_kitchen.yaml
+# ##### Küche #####
+#   - !include lovelace/views_rooms/view_kitchen.yaml
 
-##### Wasserenthärter #####
-  - !include lovelace/views_entities/water_softener.yaml
+# ##### Wasserenthärter #####
+#   # - !include lovelace/views_entities/water_softener.yaml
 
-##### Klima #####
-  - !include lovelace/views_entities/climate.yaml
+# ##### Klima #####
+#   - !include lovelace/views_entities/climate.yaml
 
-##### steckdosen #####
-  - !include lovelace/views_entities/power_plugs.yaml
+# ##### steckdosen #####
+#   - !include lovelace/views_entities/power_plugs.yaml
 
 # ##### Klima #####
 #   - !include lovelace/views_entities/heatpump.yaml
