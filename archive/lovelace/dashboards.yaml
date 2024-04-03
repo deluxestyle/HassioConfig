@@ -1,9 +1,9 @@
-lovelace-system:
-  mode: yaml
-  title: System
-  icon: mdi:tune
-  show_in_sidebar: true
-  filename: lovelace/ui-system.yaml
+# lovelace-system:
+#   mode: yaml
+#   title: System
+#   icon: mdi:tune
+#   show_in_sidebar: true
+#   filename: lovelace/ui-system.yaml
 #lovelace-presence:
 #  mode: yaml
 #  title: Anwesenheit

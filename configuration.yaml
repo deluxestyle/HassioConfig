@@ -34,12 +34,12 @@ frontend:
   themes: !include_dir_merge_named themes
   extra_module_url: /hacsfiles/lovelace-card-mod/card-mod.js
   
-lovelace_gen:
+# lovelace_gen:
 
 lovelace:
-  mode: yaml
-  resources: !include lovelace/resources.yaml
-  dashboards: !include lovelace/dashboards.yaml
+  # mode: yaml
+  # resources: !include lovelace/resources.yaml
+  # dashboards: !include lovelace/dashboards.yaml
     
 logger:
   default: info

@@ -23,6 +23,37 @@
         - service: script.turn_on
           entity_id: script.harmony_avr_power_off
       icon_template: mdi:speaker
+    appletv:
+      unique_id: appletv_switch
+      friendly_name: "Apple TV"
+      value_template: "{{ is_state('sensor.remote_state', 'Apple TV')  }}"
+      turn_on:
+        - service: select.select_option
+          target:
+            entity_id: select.harmony_hub_2_activities
+          data:
+            option: Apple TV
+      turn_off:
+        - service: script.turn_on
+          entity_id: script.harmony_avr_power_off
+      icon_template: si:appletv
+    airplay:
+      unique_id: airplay_switch
+      friendly_name: "AirPlay"
+      value_template: "{{ is_state('sensor.remote_state', 'AirPlay')  }}"
+      turn_on:
+        - service: select.select_option
+          target:
+            entity_id: select.harmony_hub_2_activities
+          data:
+            option: AirPlay
+      turn_off:
+        - service: script.turn_on
+          entity_id: script.harmony_avr_power_off
+      icon_template: si:airplayvideo
+
+###############################################
+
     vacuum:
       unique_id: vacuum_switch
       friendly_name: Staubsauger
