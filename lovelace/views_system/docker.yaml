@@ -46,16 +46,16 @@ cards:
   {{ monitor ("mosquitto") }}
   {{ monitor ("dnscrypt") }}
   
-    # - type: entities
-    #   entities:
-    #     - entity: sensor.docker_containers_running
-    #       type: custom:multiple-entity-row
-    #       name: Docker Container
-    #       show_state: false
-    #       tap_action:
-    #         action: none
-    #       entities:
-    #         - entity: sensor.docker_containers_total
-    #           name: Total
-    #         - entity: sensor.docker_containers_running
-    #           name: Running
+  - type: entities
+    entities:
+      - entity: sensor.docker_containers_running
+        type: custom:multiple-entity-row
+        name: Docker Container
+        show_state: false
+        tap_action:
+          action: none
+        entities:
+          - entity: sensor.docker_containers_total
+            name: Total
+          - entity: sensor.docker_containers_running
+            name: Running
