@@ -1,4 +1,5 @@
 """Config flow for Hoymiles."""
+
 from datetime import timedelta
 import logging
 from typing import Any
@@ -52,8 +53,9 @@ class HoymilesInverterConfigFlowHandler(config_entries.ConfigFlow, domain=DOMAIN
         """Handle a flow initiated by the user."""
         errors = {}
 
+        print("Called!!!")
+
         if user_input is not None:
-            self._async_abort_entries_match(user_input)
             host = user_input[CONF_HOST]
             update_interval = user_input.get(
                 CONF_UPDATE_INTERVAL, DEFAULT_UPDATE_INTERVAL_SECONDS
@@ -66,6 +68,9 @@ class HoymilesInverterConfigFlowHandler(config_entries.ConfigFlow, domain=DOMAIN
             except CannotConnect:
                 errors["base"] = "cannot_connect"
             else:
+                await self.async_set_unique_id(dtu_sn)
+                self._abort_if_unique_id_configured()
+
                 return self.async_create_entry(
                     title=host,
                     data={
@@ -80,22 +85,3 @@ class HoymilesInverterConfigFlowHandler(config_entries.ConfigFlow, domain=DOMAIN
         return self.async_show_form(
             step_id="user", data_schema=DATA_SCHEMA, errors=errors
         )
-
-    async def async_step_import(self, import_config):
-        """Import a configuration."""
-        # Validate the imported configuration, and create an entry if valid
-        return self.async_create_entry(
-            title=import_config[CONF_HOST], data=import_config
-        )
-
-
-async def get_real_data_new(
-    hass: HomeAssistant, host: str
-) -> APPInfomationData_pb2.APPInfoDataResDTO:
-    """Test if the host is reachable and is actually a Hoymiles device."""
-
-    dtu = DTU(host)
-    response = await dtu.get_real_data_new()
-    if response is None:
-        raise CannotConnect
-    return response

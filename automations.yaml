@@ -15,7 +15,7 @@
         }} qm | Fehler {{ states.counter.xiaomo_errors.state }}'
       notification_id: xiaomi_vacuum_status
       title: StaubRobo
-      url: /dashboard-ubersicht/staubsauger
+      url: /lovelace/staubsauger
     service: script.notify_script
   mode: single
 - id: xiaomi_vacuum_notification_on
@@ -54,7 +54,7 @@
         }} '
       notification_id: xiaomi_vacuum_error
       title: StaubRobo
-      url: /dashboard-ubersicht/staubsauger
+      url: /lovelace/staubsauger
     service: script.notify_script
   mode: single
 - id: '1523001167559'
@@ -227,7 +227,7 @@
         }} % '
       notification_id: pi
       title: Raspi
-      url: /lovelace-system/system
+      url: /dashboard-system/system
     service: script.notify_script
   mode: single
 - id: '1568628137654'
@@ -255,7 +255,7 @@
         }} h übrig'
       notification_id: xiaomi_filter
       title: Xiaomi StaubRobo
-      url: /dashboard-ubersicht/staubsauger
+      url: /lovelace/staubsauger
     service: script.notify_script
   mode: single
 - id: '1570440017469'
@@ -328,7 +328,7 @@
       message: 'CPU Temp zu hoch: {{ states ( "sensor.cpu_temperature" ) }}°'
       notification_id: cpu_temp
       title: CPU Temp
-      url: /lovelace-system/system
+      url: /dashboard-system/system
     service: script.notify_script
 - id: '1584265149080'
   alias: 'Benachrichtigung: CPU Auslastung zu hoch'
@@ -347,7 +347,7 @@
       message: 'CPU Auslastung zu hoch: {{ states ( "sensor.processor_use" ) }}%'
       notification_id: cpu
       title: CPU Auslastung
-      url: /lovelace-system/system
+      url: /dashboard-system/system
     service: script.notify_script
   mode: single
 - id: '1607432908571'
@@ -446,7 +446,7 @@
           message: 'Batteriewarnung für: {{sensors}}'
           notification_id: battery
           title: Batteriewarnung
-          url: /lovelace-system/system
+          url: /dashboard-system/system
         service: script.notify_script
       - service: input_boolean.turn_on
         target:
@@ -455,8 +455,8 @@
       threshold: 5
       exclude:
         entity_id:
-        - sensor.ipad_battery_level
         - sensor.iphone14pro_battery_level
+        - sensor.ipad7_battery_level
 - id: '1634394580227'
   alias: 'DS118: Benachrichtigung shutdown'
   description: ''
@@ -567,7 +567,7 @@
       message: 'Swap Auslastung zu hoch: {{ states ( "sensor.swap_use_percent" ) }}%'
       notification_id: swap
       title: swap Auslastung
-      url: /lovelace-system/system
+      url: /dashboard-system/system
     service: script.notify_script
   mode: single
 - id: '1667402945500'
@@ -735,7 +735,7 @@
       message: '{{ trigger.from_state.attributes.friendly_name }} Update verfügbar '
       notification_id: '{{ trigger.from_state.attributes.friendly_name }} Update '
       title: Update
-      url: /lovelace-system/system
+      url: /dashboard-system/system
     service: script.notify_script
   mode: single
 - id: '1678891141768'
@@ -1061,4 +1061,17 @@
     data:
       entity_id: var.daily_km
       value: '{{ states.sensor.vw_passat_gefahrene_km.state }}'
+  mode: single
+- id: '1712694254999'
+  alias: 'FritzBox: Cleanup '
+  description: ''
+  trigger:
+  - platform: time_pattern
+    minutes: '30'
+  condition: []
+  action:
+  - service: button.press
+    target:
+      entity_id: button.fritz_box_7590_aufraumen
+    data: {}
   mode: single

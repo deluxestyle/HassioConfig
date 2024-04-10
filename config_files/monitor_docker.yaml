@@ -12,6 +12,7 @@
     - dnscrypt
     - homeassistant
     - zigbee2mqtt
+    - timescaledb
   rename:
     # deconz: Deconz
     portainer: Portainer
@@ -25,6 +26,7 @@
     mosquitto: Mosquitto
     dnscrypt: DNScrypt
     zigbee2mqtt: Zigbee2Mqtt
+    timescaledb: TimeScaleDB
   monitored_conditions:
     - version
     - containers_running

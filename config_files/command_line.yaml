@@ -1,4 +1,5 @@
 - sensor:
+    unique_id: cpu_temp
     name: CPU Temperature
     command: "cat /sys/class/thermal/thermal_zone0/temp"
     unit_of_measurement: "°C"

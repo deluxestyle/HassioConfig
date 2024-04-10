@@ -54,6 +54,7 @@ logger:
 history:
 recorder: !include config_files/history/recorder.yaml
 influxdb: !include config_files/history/influxdb.yaml
+ltss: !include config_files/history/ltss.yaml
 
 logbook:
   exclude:

@@ -11,7 +11,6 @@ entities:
   - sensor.swap_use
   - sensor.swap_use_percent
   - sensor.last_boot
-  - sensor.sqlite_db_grosse
   - person.wolfgang
   - device_tracker.iphone_wolfgang
   - vacuum.roborock_vacuum
@@ -30,6 +29,8 @@ entities:
   - sensor.taglicher_solarverbrauch
   - sensor.stromverbrauch_gesamt_tag
   - sensor.stromverbrauch_gesamt
+  - sensor.timescaledb_size
+  - sensor.sqlite_db_grosse
 domains:
   - automation
   - switch
