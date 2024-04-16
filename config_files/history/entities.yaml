@@ -31,6 +31,7 @@ entities:
   - sensor.stromverbrauch_gesamt
   - sensor.timescaledb_size
   - sensor.sqlite_db_grosse
+  - sensor.victoriametrics_size
 domains:
   - automation
   - switch

@@ -25,28 +25,6 @@
     - 'date_time'
     - 'time_date'
 
-# - platform: command_line
-#   name: CPU Temperature
-#   command: "cat /sys/class/thermal/thermal_zone0/temp"
-#   unit_of_measurement: "°C"
-#   value_template: '{{ value | multiply(0.001) | round(1) }}'
-
-# - platform: command_line
-#   unique_id: pihole
-#   name: pihole
-#   scan_interval: 10
-#   command: curl -s -X GET 'http://192.168.200.33:88/admin/api.php?status&auth=d150ea5c83cfc740a884f6d2ced8c836a2d65504c438002cda5cc023dd71d8c6'
-#   value_template: >
-#     {{ value_json.status }}
-
-# - platform: command_line
-#   unique_id: nextcloud_version
-#   name: nextcloud_version
-#   scan_interval: 21600
-#   command: curl -s -X GET 'https://next.tanzer-online.com/status.php'
-#   value_template: >
-#     {{ value_json.versionstring }}
-
 - platform: rest
   unique_id: nextcloud_update
   name: nextcloud_update
@@ -59,18 +37,3 @@
   value_template: >
     {{ value_json.update | default('OFF', true) }}
 
-
-# - platform: rest
-#   unique_id: congstar_volume
-#   name: congstar_volume
-#   scan_interval: 120
-#   unit_of_measurement: GB
-#   resource: https://pass.telekom.de/api/service/generic/v1/status
-#   json_attributes:
-#       - usedVolumeStr
-#       - initialVolumeStr
-#       - remainingTimeStr
-#       - usedPercentage
-#       - usedVolume
-#   value_template: >
-#     {{ value_json.usedVolume | float / 1024 / 1024 / 1024  }}

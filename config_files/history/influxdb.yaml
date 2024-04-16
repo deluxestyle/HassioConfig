@@ -51,6 +51,7 @@ include:
     - sensor.taglicher_solarverbrauch
     - sensor.stromverbrauch_gesamt_tag
     - sensor.stromverbrauch_gesamt
+    - sensor.victoriametrics_size
   entity_globs:
     - sensor.docker_*_memory
     - sensor.docker_*_1cpu

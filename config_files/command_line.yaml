@@ -12,3 +12,10 @@
     command: curl -s -X GET 'https://next.tanzer-online.com/status.php'
     value_template: >
       {{ value_json.versionstring }}
+
+- sensor:
+    unique_id: victoriametrics_size
+    name: victoriametrics_size
+    command: "du -sm /victoriametrics | awk '{print $1}'"
+    unit_of_measurement: "MB"
+    value_template: '{{ value  }}'

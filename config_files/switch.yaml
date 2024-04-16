@@ -96,11 +96,15 @@
       turn_on:
         - service: shell_command.ds114_wol
       turn_off:
-        - service: shell_command.ds114_shutdown
+        - service: button.press
+          target:
+            entity_id: button.ds114_shutdown
         
 - platform: wake_on_lan
   mac: 00:11:32:98:83:61
   host: 192.168.200.41
   name: DS118
   turn_off:
-    service: shell_command.ds118_shutdown
+    service: button.press
+    target:
+      entity_id: button.ds118_shutdown
