@@ -54,7 +54,7 @@ logger:
 history:
 recorder: !include config_files/history/recorder.yaml
 influxdb: !include config_files/history/influxdb.yaml
-ltss: !include config_files/history/ltss.yaml
+# ltss: !include config_files/history/ltss.yaml
 
 logbook:
   exclude:
@@ -89,6 +89,8 @@ schedule:
 command_line: !include config_files/command_line.yaml
 
 python_script:
+  allow_all_imports: true
+  hass_is_global: true
 
 # ffmpeg:
 

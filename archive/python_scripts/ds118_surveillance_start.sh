@@ -1,0 +1,1 @@
+ssh -i /config/.ssh/id_rsa -o StrictHostKeyChecking=no home_assistant_ssh@192.168.200.41 -p522 "echo z5IEIT | sudo -S /usr/syno/bin/synopkg start SurveillanceStation"

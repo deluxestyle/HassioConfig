@@ -465,7 +465,8 @@ const st=1,at=t=>(...e)=>({_$litDirective$:t,values:e});class ot{constructor(t){
                 font-weight: var(--card-primary-font-weight);
                 font-size: var(--card-primary-font-size);
                 line-height: var(--card-primary-line-height);
-                color: var(--primary-text-color);
+                color: var(--card-primary-color);
+                letter-spacing: var(--card-primary-letter-spacing);
                 text-overflow: ellipsis;
                 overflow: hidden;
                 white-space: nowrap;
@@ -474,7 +475,8 @@ const st=1,at=t=>(...e)=>({_$litDirective$:t,values:e});class ot{constructor(t){
                 font-weight: var(--card-secondary-font-weight);
                 font-size: var(--card-secondary-font-size);
                 line-height: var(--card-secondary-line-height);
-                color: var(--secondary-text-color);
+                color: var(--card-secondary-color);
+                letter-spacing: var(--card-secondary-letter-spacing);
                 text-overflow: ellipsis;
                 overflow: hidden;
                 white-space: nowrap;
@@ -488,7 +490,7 @@ const st=1,at=t=>(...e)=>({_$litDirective$:t,values:e});class ot{constructor(t){
             .bar { margin-top: 0; }
             .bar-container { flex-grow: 1 }
             .text-content { text-align: start; }
-        `]}}t([rt()],Oe.prototype,"mushroom",void 0);window.customCards=window.customCards||[],window.customCards.push({type:"timer-bar-card",name:"Timer Bar Card",description:"Display timer-related information as a progress bar"}),window.customElements.define("timer-bar-entity-row",ye),window.customElements.define("timer-bar-mushroom-row",Oe),console.info("%c TIMER-BAR-CARD %c Version 1.30.1 ","font-weight: bold; color: #000; background: #aeb","font-weight: bold; color: #000; background: #ddd");let Ne=class extends Q{static getStubConfig(){return{}}setConfig(t){if(!t)throw new Error("Invalid configuration");"mushroom"in t&&t.mushroom?this.config=function(t,e){let r="var(--rgb-state-entity)";return e.icon_color&&(r=Ae(e.icon_color)),e.color&&(r=Ae(e.color)),Object.assign(Object.assign(Object.assign({},ve(t)),{bar_background:`rgba(${r}, 0.2)`,bar_foreground:`rgb(${r})`,bar_radius:"2px",translations:t.translations}),t)}(t,t.mushroom):this.config=ve(t)}render(){var t,e;const r=this.config;if(r.entity&&r.entities)return T`<hui-warning>Both entity and entities cannot be defined</hui-warning>`;if(r.entity)return"mushroom"in r?T`<timer-bar-mushroom-row .config=${r} .mushroom=${null!==(t=r.mushroom)&&void 0!==t?t:{}} style=${function(t){if(t.fill_container)return"height: 100%"}(null!==(e=r.mushroom)&&void 0!==e?e:{})} .hass=${this.hass}></timer-bar-mushroom-row>`:T`<timer-bar-entity-row .config=${r} .hass=${this.hass}></timer-bar-entity-row>`;if(r.entities&&!this._filteredEntities().length){if(this.editMode||r.show_empty){const t=void 0===r.show_empty?"No entities match the filter. This card will disappear when you finish editing.":r.show_empty;return T`<ha-card>
+        `]}}t([rt()],Oe.prototype,"mushroom",void 0);window.customCards=window.customCards||[],window.customCards.push({type:"timer-bar-card",name:"Timer Bar Card",description:"Display timer-related information as a progress bar"}),window.customElements.define("timer-bar-entity-row",ye),window.customElements.define("timer-bar-mushroom-row",Oe),console.info("%c TIMER-BAR-CARD %c Version 1.30.2 ","font-weight: bold; color: #000; background: #aeb","font-weight: bold; color: #000; background: #ddd");let Ne=class extends Q{static getStubConfig(){return{}}setConfig(t){if(!t)throw new Error("Invalid configuration");"mushroom"in t&&t.mushroom?this.config=function(t,e){let r="var(--rgb-state-entity)";return e.icon_color&&(r=Ae(e.icon_color)),e.color&&(r=Ae(e.color)),Object.assign(Object.assign(Object.assign({},ve(t)),{bar_background:`rgba(${r}, 0.2)`,bar_foreground:`rgb(${r})`,bar_radius:"2px",translations:t.translations}),t)}(t,t.mushroom):this.config=ve(t)}render(){var t,e;const r=this.config;if(r.entity&&r.entities)return T`<hui-warning>Both entity and entities cannot be defined</hui-warning>`;if(r.entity)return"mushroom"in r?T`<timer-bar-mushroom-row .config=${r} .mushroom=${null!==(t=r.mushroom)&&void 0!==t?t:{}} style=${function(t){if(t.fill_container)return"height: 100%"}(null!==(e=r.mushroom)&&void 0!==e?e:{})} .hass=${this.hass}></timer-bar-mushroom-row>`:T`<timer-bar-entity-row .config=${r} .hass=${this.hass}></timer-bar-entity-row>`;if(r.entities&&!this._filteredEntities().length){if(this.editMode||r.show_empty){const t=void 0===r.show_empty?"No entities match the filter. This card will disappear when you finish editing.":r.show_empty;return T`<ha-card>
           <h1 class="card-header">${r.name}</h1>
           <div class="card-content">${t}</div>
         </ha-card>`}return T``}return r.entities?T`<ha-card>

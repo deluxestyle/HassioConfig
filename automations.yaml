@@ -550,14 +550,15 @@
   alias: 'Benachrichtigung: Swap zu hoch'
   description: ''
   trigger:
-  - above: 40
+  - above: 50
     for:
       hours: 0
       minutes: 10
       seconds: 0
       milliseconds: 0
     platform: numeric_state
-    entity_id: sensor.swap_use_percent
+    entity_id:
+    - sensor.swap_use_percent
   condition: []
   action:
   - data: {}
@@ -587,7 +588,7 @@
       message: Geschirrspüler fertig
       notification_id: dish_washer
       title: Geschirrspüler
-      url: /dashboard-ubersicht/dishwasher
+      url: /lovelace/dishwasher
     service: script.notify_script
   mode: single
 - id: '1668452168948'
@@ -967,8 +968,8 @@
   - data:
       message: 'Hinweis Wasser: {{ states.sensor.judo_isoftsaveplus_daheim_meldung.state
         }} '
-      notification_id: wasser
-      title: wasser
+      notification_id: Wasser
+      title: Wasser
       url: /dashboard-strom/wasser
     service: script.notify_script
   mode: single
@@ -1074,4 +1075,46 @@
     target:
       entity_id: button.fritz_box_7590_aufraumen
     data: {}
+  mode: single
+- id: '1712859659808'
+  alias: Spülmaschine Solar
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.smart_meter_summe_der_aktiven_momentanleistung
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+    below: -250
+  condition: []
+  action:
+  - service: script.spulmaschine
+    data: {}
+  - service: automation.turn_off
+    target:
+      entity_id: automation.spulmaschine_solar
+    data:
+      stop_actions: false
+  mode: single
+- id: '1712859987600'
+  alias: 'Benachrichtigung: Geschirrspüler gestartet '
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.013050391085014163_bsh_common_status_operationstate
+    to: BSH.Common.EnumType.OperationState.Run
+  condition: []
+  action:
+  - data: {}
+    entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - data:
+      message: Geschirrspüler gestartet
+      notification_id: dish_washer
+      title: Geschirrspüler
+      url: /lovelace/dishwasher
+    service: script.notify_script
   mode: single

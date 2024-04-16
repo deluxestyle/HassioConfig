@@ -1,14 +1,23 @@
-api_version: 2
-ssl: true
-host: eu-central-1-1.aws.cloud2.influxdata.com
-# port: 9999
-token: JJnzphvHw8tJ9D_ICQsN7h6G8xG-F9i6tB-FtRaDbuvZipAeB6346DJDeOdPPvpR7mNaxGE3S46LDZnYPtF7GQ==
-organization: 493ff594d5432447
-bucket: HA
-tags:
-  source: HA
+# api_version: 2
+# ssl: true
+# host: eu-central-1-1.aws.cloud2.influxdata.com
+# # port: 9999
+# token: JJnzphvHw8tJ9D_ICQsN7h6G8xG-F9i6tB-FtRaDbuvZipAeB6346DJDeOdPPvpR7mNaxGE3S46LDZnYPtF7GQ==
+# organization: 493ff594d5432447
+# bucket: HA
+# tags:
+#   source: HA
+# tags_attributes:
+#   - friendly_name
+
+api_version: 1
+host: 192.168.200.33
+port: 8428
+max_retries: 3
+measurement_attr: entity_id
 tags_attributes:
   - friendly_name
+  - unit_of_measurement
 
 default_measurement: state
 include:
@@ -43,7 +52,6 @@ include:
     - sensor.stromverbrauch_gesamt_tag
     - sensor.stromverbrauch_gesamt
   entity_globs:
-    - sensor.ynzvpg2*
     - sensor.docker_*_memory
     - sensor.docker_*_1cpu
     - sensor.judo*
@@ -54,3 +62,18 @@ include:
     - binary_sensor.idm*
     - sensor.hoymiles_*
     - sensor.smart_meter*
+ignore_attributes:
+  - icon
+  - source
+  - options
+  - editable
+  - min
+  - max
+  - step
+  - mode
+  - marker_type
+  - preset_modes
+  - supported_features
+  - supported_color_modes
+  - effect_list
+  - attribution

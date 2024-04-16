@@ -41,6 +41,7 @@
             or is_state('update.wud_container_local_homeassistant', 'on') 
             or is_state('update.wud_container_local_dnscrypt', 'on') 
             or is_state('update.wud_container_local_portainer', 'on') 
+            or is_state('update.wud_container_local_timescaledb', 'on') 
             %}
           on
         {% else %}
