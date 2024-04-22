@@ -316,7 +316,6 @@ class Variable(RestoreEntity):
                         setattr(self, '_attr_extra_state_attributes', {})
                     for key, template in self._attribute_templates.items():
                         self._attr_extra_state_attributes[key] = state.attributes.get(key)
-                await self.async_update_ha_state(True)
 
     async def async_will_remove_from_hass(self):
         # Remove event listeners when the entity is removed from hass (for instance when 'reload' is triggered by user)
@@ -445,7 +444,7 @@ class Variable(RestoreEntity):
                 stop = self.hass.bus.async_listen(event_type, listener)
                 self._stop_track_events.append(stop)
 
-        self.async_write_ha_state()
+        await self.async_update_ha_state(True)
 
     async def async_force_update(self):
         await self.async_update_ha_state(True)
@@ -536,4 +535,3 @@ class Variable(RestoreEntity):
                                         ' the state is unknown.',
                                         friendly_property_name, self._friendly_name)
                         continue
-
