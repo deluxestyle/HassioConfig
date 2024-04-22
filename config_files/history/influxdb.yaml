@@ -1,15 +1,3 @@
-# api_version: 2
-# ssl: true
-# host: eu-central-1-1.aws.cloud2.influxdata.com
-# # port: 9999
-# token: JJnzphvHw8tJ9D_ICQsN7h6G8xG-F9i6tB-FtRaDbuvZipAeB6346DJDeOdPPvpR7mNaxGE3S46LDZnYPtF7GQ==
-# organization: 493ff594d5432447
-# bucket: HA
-# tags:
-#   source: HA
-# tags_attributes:
-#   - friendly_name
-
 api_version: 1
 host: 192.168.200.33
 port: 8428
