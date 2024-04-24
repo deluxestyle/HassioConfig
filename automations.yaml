@@ -960,6 +960,7 @@
       hours: 0
       minutes: 0
       seconds: 30
+    from: Initialisierung erfolgreich!
   condition: []
   action:
   - data:

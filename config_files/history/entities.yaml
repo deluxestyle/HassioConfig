@@ -38,7 +38,7 @@ domains:
   - device_tracker
 entity_globs:
   - sensor.ynzvpg2*
-  - sensor.docker_*_memory
+  - sensor.docker_*_memory*
   - sensor.docker_*_1cpu
   - sensor.judo*
   - number.judo*
