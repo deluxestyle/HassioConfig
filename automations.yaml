@@ -1091,6 +1091,20 @@
     below: -250
   condition: []
   action:
+  - service: notify.mobile_app_iphone14pro
+    metadata: {}
+    data:
+      message: Spülmaschine starten
+      title: Spülmaschine
+      data:
+        actions:
+        - action: DISHWASHER
+          title: Starten
+  - wait_for_trigger:
+    - platform: event
+      event_type: mobile_app_notification_action
+      event_data:
+        action: DISHWASHER
   - service: script.spulmaschine
     data: {}
   - service: automation.turn_off
