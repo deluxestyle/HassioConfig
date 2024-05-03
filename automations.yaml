@@ -725,6 +725,7 @@
     - binary_sensor.home_assistant_versions_update_available
     - update.nextcloud_hub
     - update.wud_container_local_portainer
+    - update.wud_container_local_zigbee2mqtt
     to: 'on'
   condition: []
   action:
