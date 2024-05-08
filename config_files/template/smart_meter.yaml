@@ -61,3 +61,11 @@
     state_class: measurement
     unit_of_measurement: 'W'
     device_class: power
+    
+  - name: stromverbrauch_gesamt_jahr
+    unique_id: stromverbrauch_gesamt_jahr
+    state: >
+          {{ (states.sensor.total_consumtion.state | float(0))  - (states.input_number.stromverbrauch_start.state | float(0)) | round(2, default=0)}}
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: power

@@ -40,6 +40,7 @@ include:
     - sensor.stromverbrauch_gesamt_tag
     - sensor.stromverbrauch_gesamt
     - sensor.victoriametrics_size
+    - sensor.stromverbrauch_gesamt_jahr
   entity_globs:
     - sensor.docker_*_memory*
     - sensor.docker_*_1cpu

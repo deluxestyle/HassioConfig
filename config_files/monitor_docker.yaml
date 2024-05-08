@@ -1,5 +1,5 @@
 - name: Docker
-  url: tcp://192.168.200.33:2375
+  # url: tcp://192.168.200.33:2375
   containers:
     # - deconz
     - portainer
@@ -7,7 +7,7 @@
     - pihole
     - vaultwarden
     - wud
-    - dockerproxy
+    # - dockerproxy
     - mosquitto
     - dnscrypt
     - homeassistant
@@ -24,7 +24,7 @@
     pihole: "Pi-Hole"
     vaultwarden: Vaultwarden
     wud: "What's up docker"
-    dockerproxy: "Docker Proxy"
+    # dockerproxy: "Docker Proxy"
     mosquitto: Mosquitto
     dnscrypt: DNScrypt
     zigbee2mqtt: Zigbee2Mqtt

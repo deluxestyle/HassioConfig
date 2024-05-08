@@ -32,8 +32,6 @@
   # device_class: update
   resource: https://www.tanzer-online.com/nextcloud_fixes/update_check.php
   json_attributes:
+      - state
       - desc
-      - update
-  value_template: >
-    {{ value_json.update | default('OFF', true) }}
-
+  value_template: "{{ value_json.state }}"

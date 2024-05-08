@@ -714,7 +714,6 @@
   trigger:
   - platform: state
     entity_id:
-    - update.wud_container_local_dockerproxy
     - update.wud_container_local_dnscrypt
     - update.wud_container_local_mosquitto
     - update.wud_container_local_nginx_proxy_manager
@@ -723,9 +722,9 @@
     - update.wud_container_local_wud
     - binary_sensor.updater_hacs
     - binary_sensor.home_assistant_versions_update_available
-    - update.nextcloud_hub
     - update.wud_container_local_portainer
     - update.wud_container_local_zigbee2mqtt
+    - binary_sensor.nextcloud_update_status
     to: 'on'
   condition: []
   action:
@@ -1133,4 +1132,32 @@
       title: Geschirrspüler
       url: /lovelace/dishwasher
     service: script.notify_script
+  mode: single
+- id: '1715000671907'
+  alias: 'Benachrichtigung: Fenster offen'
+  description: ''
+  trigger:
+  - platform: time
+    at: '20:00:00'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.kontaktsensor_1_contact
+    state: 'on'
+  action:
+  - repeat:
+      sequence:
+      - data:
+          message: Kellerfenster offen
+          notification_id: Fenster
+          title: Fenster
+        service: script.notify_script
+      - delay:
+          hours: 0
+          minutes: 15
+          seconds: 0
+          milliseconds: 0
+      until:
+      - condition: state
+        entity_id: binary_sensor.kontaktsensor_1_contact
+        state: 'off'
   mode: single

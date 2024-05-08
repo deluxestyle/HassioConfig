@@ -21,8 +21,6 @@ energy:
 http:
   server_port: 8124
   use_x_forwarded_for: true
-  # trusted_proxies:
-  #   - 172.30.33.0/24
   trusted_proxies:
     - 127.0.0.1
     - 172.30.33.0/24
@@ -54,7 +52,6 @@ logger:
 history:
 recorder: !include config_files/history/recorder.yaml
 influxdb: !include config_files/history/influxdb.yaml
-# ltss: !include config_files/history/ltss.yaml
 
 logbook:
   exclude:
@@ -111,14 +108,14 @@ notify:
 
 monitor_docker: !include config_files/monitor_docker.yaml
 
-custom_update_entities:
-  updaters:
-    - name: Nextcloud Hub
-      latest_version_entity: sensor.nextcloud_latest_version
-      installed_version_entity: sensor.nextcloud_version
-      update_action:
-        - service: browser_mod.navigate
-          data:
-            path: https://next.tanzer-cloud.de
+# custom_update_entities:
+#   updaters:
+#     - name: Nextcloud Hub
+#       latest_version_entity: sensor.nextcloud_latest_version
+#       installed_version_entity: sensor.nextcloud_version
+#       update_action:
+#         - service: browser_mod.navigate
+#           data:
+#             path: https://next.tanzer-cloud.de
 
 var: !include config_files/var.yaml
