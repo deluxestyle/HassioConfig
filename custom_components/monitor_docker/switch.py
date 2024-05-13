@@ -2,12 +2,19 @@
 
 import asyncio
 import logging
-import voluptuous as vol
+import re
 
+import voluptuous as vol
 from homeassistant.components.switch import ENTITY_ID_FORMAT, SwitchEntity
 from homeassistant.const import CONF_NAME
-from homeassistant.helpers import config_validation as cv, entity_platform
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers import config_validation as cv
+from homeassistant.helpers import entity_platform
+from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
 from homeassistant.util import slugify
+
+from custom_components.monitor_docker.helpers import DockerAPI, DockerContainerAPI
 
 from .const import (
     API,
@@ -31,11 +38,15 @@ SERVICE_RESTART_SCHEMA = vol.Schema({ATTR_NAME: cv.string, ATTR_SERVER: cv.strin
 _LOGGER = logging.getLogger(__name__)
 
 
-async def async_setup_platform(hass, config, async_add_entities, discovery_info=None):
+async def async_setup_platform(
+    hass: HomeAssistant,
+    config: ConfigType,
+    async_add_entities: AddEntitiesCallback,
+    discovery_info: DiscoveryInfoType | None = None,
+):
     """Set up the Monitor Docker Switch."""
 
-    async def async_restart(parm):
-
+    async def async_restart(parm) -> None:
         cname = parm.data[ATTR_NAME]
         cserver = parm.data.get(ATTR_SERVER, None)
 
@@ -70,13 +81,20 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
                 "Service restart failed, container '%s' is not configured", cname
             )
 
+    def find_rename(d: dict[str, str], item: str) -> str:
+        for k in d:
+            if re.match(k, item):
+                return d[k]
+
+        return item
+
     if discovery_info is None:
         return
 
-    instance = discovery_info[CONF_NAME]
-    name = discovery_info[CONF_NAME]
-    api = hass.data[DOMAIN][name][API]
-    config = hass.data[DOMAIN][name][CONFIG]
+    instance: str = discovery_info[CONF_NAME]
+    name: str = discovery_info[CONF_NAME]
+    api: DockerAPI = hass.data[DOMAIN][name][API]
+    config: ConfigType = hass.data[DOMAIN][name][CONFIG]
 
     # Set or overrule prefix
     prefix = name
@@ -84,7 +102,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
         prefix = config[CONF_PREFIX]
 
     # Don't create any switch if disabled
-    if not config[CONF_SWITCHENABLED]:
+    if config[CONF_SWITCHENABLED] == False:
         _LOGGER.debug("[%s]: Switch(es) are disabled", instance)
         return True
 
@@ -99,7 +117,6 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
         clist = api.list_containers()
 
     for cname in clist:
-
         includeContainer = False
         if cname in config[CONF_CONTAINERS] or not config[CONF_CONTAINERS]:
             includeContainer = True
@@ -108,18 +125,23 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
             includeContainer = False
 
         if includeContainer:
-            _LOGGER.debug("[%s] %s: Adding component Switch", instance, cname)
-
-            switches.append(
-                DockerContainerSwitch(
-                    api.get_container(cname),
-                    instance,
-                    prefix,
-                    cname,
-                    config[CONF_RENAME].get(cname, cname),
-                    config[CONF_SWITCHNAME],
+            if (
+                config[CONF_SWITCHENABLED] == True
+                or cname in config[CONF_SWITCHENABLED]
+            ):
+                _LOGGER.debug("[%s] %s: Adding component Switch", instance, cname)
+                switches.append(
+                    DockerContainerSwitch(
+                        api.get_container(cname),
+                        instance,
+                        prefix,
+                        cname,
+                        find_rename(config[CONF_RENAME], cname),
+                        config[CONF_SWITCHNAME],
+                    )
                 )
-            )
+            else:
+                _LOGGER.debug("[%s] %s: NOT Adding component Switch", instance, cname)
 
     if not switches:
         _LOGGER.info("[%s]: No containers set-up", instance)
@@ -138,63 +160,70 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
 
 #################################################################
 class DockerContainerSwitch(SwitchEntity):
-    def __init__(self, container, instance, prefix, cname, alias, name_format):
-        self._loop = asyncio.get_running_loop()
+    def __init__(
+        self,
+        container: DockerContainerAPI,
+        instance: str,
+        prefix: str,
+        cname: str,
+        alias: str,
+        name_format: str,
+    ):
         self._container = container
         self._instance = instance
         self._prefix = prefix
         self._cname = cname
         self._state = False
-        self._entity_id = ENTITY_ID_FORMAT.format(
+        self._entity_id: str = ENTITY_ID_FORMAT.format(
             slugify(self._prefix + "_" + self._cname)
         )
         self._name = name_format.format(name=alias)
         self._removed = False
 
     @property
-    def entity_id(self):
+    def entity_id(self) -> str:
         """Return the entity id of the switch."""
         return self._entity_id
 
     @property
-    def name(self):
+    def name(self) -> str:
         """Return the name of the sensor."""
         return self._name
 
     @property
-    def should_poll(self):
+    def should_poll(self) -> bool:
         return False
 
     @property
-    def icon(self):
+    def icon(self) -> str:
         return "mdi:docker"
 
     @property
-    def extra_state_attributes(self):
+    def extra_state_attributes(self) -> dict:
         return {}
 
     @property
-    def is_on(self):
+    def is_on(self) -> bool:
         return self._state
 
-    async def async_turn_on(self):
+    async def async_turn_on(self) -> None:
         await self._container.start()
         self._state = True
         self.async_schedule_update_ha_state()
 
-    async def async_turn_off(self):
+    async def async_turn_off(self) -> None:
         await self._container.stop()
         self._state = False
         self.async_schedule_update_ha_state()
 
-    async def async_added_to_hass(self):
+    async def async_added_to_hass(self) -> None:
         """Register callbacks."""
         self._container.register_callback(self.event_callback, "switch")
 
         # Call event callback for possible information available
         self.event_callback()
 
-    def event_callback(self, name="", remove=False):
+    def event_callback(self, name="", remove=False) -> None:
         """Callback for update of container information."""
 
         if remove:
@@ -203,7 +232,7 @@ class DockerContainerSwitch(SwitchEntity):
                 return
 
             _LOGGER.info("[%s] %s: Removing switch entity", self._instance, self._cname)
-            self._loop.create_task(self.async_remove())
+            asyncio.create_task(self.async_remove())
             self._removed = True
             return
 

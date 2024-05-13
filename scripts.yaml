@@ -540,9 +540,11 @@ spulmaschine:
       entity_id: button.013050391085014163_start_pause
   mode: single
   icon: mdi:dishwasher
-ds114_wol:
-  alias: DS114 WoL
+ds118_wol:
+  alias: 'DS118: WoL'
   sequence:
-  - service: shell_command.ds114_wol
-    data: {}
+  - service: wake_on_lan.send_magic_packet
+    data:
+      mac: 00:11:32:98:83:61
   mode: single
+  icon: mdi:lan-check

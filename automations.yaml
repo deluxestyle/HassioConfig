@@ -489,9 +489,8 @@
       action: DS118_TURN_ON
   condition: []
   action:
-  - service: switch.turn_on
-    target:
-      entity_id: switch.ds118
+  - service: script.ds118_wol
+    data: {}
   mode: single
 - id: '1658949383573'
   alias: 'Internet: Neustart'
@@ -812,29 +811,6 @@
   action:
   - service: script.alles_ausschalten
     data: {}
-  mode: single
-- id: '1700051311537'
-  alias: 'DS114: WoL'
-  description: Falls DS114 nicht zur Backupzeit läuft
-  trigger:
-  - platform: time
-    at: '10:35:00'
-  condition:
-  - condition: state
-    entity_id: device_tracker.wireguard_ds114
-    state: not_home
-  action:
-  - service: shell_command.ds114_wol
-    data: {}
-  - service: input_boolean.turn_on
-    data: {}
-    target:
-      entity_id: input_boolean.persistent_notification
-  - data:
-      message: DS114 gestartet
-      notification_id: ds114
-      title: DS114
-    service: script.notify_script
   mode: single
 - id: '1700668485019'
   alias: 'Benachrichtigung: Luftfeuchtigkeit'

@@ -51,6 +51,6 @@
   - name: nextcloud_update_status
     unique_id: nextcloud_update_status
     device_class: update
-    state: "{{ state_attr('sensor.nextcloud_update', 'state') }}"
+    state: "{{ states('sensor.nextcloud_version') != states('sensor.nextcloud_latest_version') }}"
 
 
