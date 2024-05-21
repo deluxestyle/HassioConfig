@@ -583,6 +583,7 @@
   - data: {}
     entity_id: input_boolean.persistent_notification
     service: input_boolean.turn_on
+    enabled: false
   - data:
       message: Geschirrspüler fertig
       notification_id: dish_washer
@@ -737,18 +738,6 @@
       title: Update
       url: /dashboard-system/system
     service: script.notify_script
-  mode: single
-- id: '1678891141768'
-  alias: 'HomeAssistant: Stop'
-  description: ''
-  trigger:
-  - platform: homeassistant
-    event: shutdown
-  condition: []
-  action:
-  - service: homeassistant.disable_config_entry
-    data:
-      config_entry_id: 51ada781f9fa5e08f8ee7036c1a97af2
   mode: single
 - id: '1679052124637'
   alias: Home Connect
@@ -1065,7 +1054,12 @@
       minutes: 10
       seconds: 0
     below: -250
-  condition: []
+  condition:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.013050391085014163_bsh_common_status_operationstate
+      state: BSH.Common.EnumType.OperationState.Run
   action:
   - service: notify.mobile_app_iphone14pro
     metadata: {}
@@ -1081,6 +1075,12 @@
       event_type: mobile_app_notification_action
       event_data:
         action: DISHWASHER
+    continue_on_timeout: false
+    timeout:
+      hours: 0
+      minutes: 15
+      seconds: 0
+      milliseconds: 0
   - service: script.spulmaschine
     data: {}
   - service: automation.turn_off

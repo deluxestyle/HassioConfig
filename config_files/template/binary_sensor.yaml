@@ -31,15 +31,14 @@
     device_class: update
     state: >
         {% if is_state('update.wud_container_local_zigbee2mqtt', 'on') 
-            or is_state('update.wud_container_local_dockerproxy', 'on') 
-            or is_state('update.wud_container_local_mariadb', 'on') 
+            or is_state('update.wud_container_local_dnscrypt', 'on') 
             or is_state('update.wud_container_local_nginx_proxy_manager', 'on') 
             or is_state('update.wud_container_local_pihole', 'on') 
             or is_state('update.wud_container_local_vaultwarden', 'on') 
             or is_state('update.wud_container_local_wud', 'on') 
             or is_state('update.wud_container_local_mosquitto', 'on') 
             or is_state('update.wud_container_local_homeassistant', 'on') 
-            or is_state('update.wud_container_local_dnscrypt', 'on') 
+            or is_state('update.wud_container_local_grafana', 'on') 
             or is_state('update.wud_container_local_portainer', 'on') 
             or is_state('update.wud_container_local_victoriametrics', 'on') 
             %}
