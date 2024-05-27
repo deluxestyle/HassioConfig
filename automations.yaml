@@ -990,45 +990,6 @@
       message: Auto fährt los
       title: Auto
   mode: single
-- id: '1710945475467'
-  alias: 'Strom: Tagesverbrauch'
-  description: ''
-  trigger:
-  - platform: time
-    at: 00:00:00
-  condition: []
-  action:
-  - service: var.set
-    data:
-      entity_id: var.daily_consumption
-      value: '{{ states.sensor.smart_meter_positive_wirkenergie_insgesamt.state }}'
-  mode: single
-- id: '1710946413202'
-  alias: 'Strom: Einspeisung'
-  description: ''
-  trigger:
-  - platform: time
-    at: 00:00:00
-  condition: []
-  action:
-  - service: var.set
-    data:
-      entity_id: var.daily_feed
-      value: '{{ states.sensor.smart_meter_negative_wirkenergie_insgesamt.state }}'
-  mode: single
-- id: '1711538159262'
-  alias: 'Auto: Tageskilometer'
-  description: ''
-  trigger:
-  - platform: time
-    at: 00:00:00
-  condition: []
-  action:
-  - service: var.set
-    data:
-      entity_id: var.daily_km
-      value: '{{ states.sensor.vw_passat_gefahrene_km.state }}'
-  mode: single
 - id: '1712694254999'
   alias: 'FritzBox: Cleanup '
   description: ''
@@ -1068,13 +1029,16 @@
       title: Spülmaschine
       data:
         actions:
-        - action: DISHWASHER
+        - action: DISHWASHER_START
           title: Starten
+        - action: DISHWASHER_STOP
+          title: nicht starten
   - wait_for_trigger:
     - platform: event
       event_type: mobile_app_notification_action
       event_data:
-        action: DISHWASHER
+        action: DISHWASHER_START
+      id: start
     continue_on_timeout: false
     timeout:
       hours: 0
@@ -1108,6 +1072,11 @@
       title: Geschirrspüler
       url: /lovelace/dishwasher
     service: script.notify_script
+  - service: automation.turn_off
+    target:
+      entity_id: automation.spulmaschine_solar
+    data:
+      stop_actions: true
   mode: single
 - id: '1715000671907'
   alias: 'Benachrichtigung: Fenster offen'
@@ -1136,4 +1105,22 @@
       - condition: state
         entity_id: binary_sensor.kontaktsensor_1_contact
         state: 'off'
+  mode: single
+- id: '1716576711678'
+  alias: Täglich um Mitternacht
+  description: ''
+  trigger:
+  - platform: time
+    at: 00:00:00
+  condition: []
+  action:
+  - service: script.strom_tagesverbrauch
+    metadata: {}
+    data: {}
+  - service: script.auto_tageskilometer
+    data: {}
+  - service: automation.turn_on
+    target:
+      entity_id: automation.spulmaschine_solar
+    data: {}
   mode: single

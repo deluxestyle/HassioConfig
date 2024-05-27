@@ -539,3 +539,23 @@ ds118_wol:
       mac: 00:11:32:98:83:61
   mode: single
   icon: mdi:lan-check
+strom_tagesverbrauch:
+  alias: 'Strom: Tagesverbrauch'
+  sequence:
+  - service: var.set
+    data:
+      entity_id: var.daily_consumption
+      value: '{{ states.sensor.smart_meter_positive_wirkenergie_insgesamt.state }}'
+  - service: var.set
+    data:
+      entity_id: var.daily_feed
+      value: '{{ states.sensor.smart_meter_negative_wirkenergie_insgesamt.state }}'
+  mode: single
+auto_tageskilometer:
+  alias: 'Auto: Tageskilometer'
+  sequence:
+  - service: var.set
+    data:
+      entity_id: var.daily_km
+      value: '{{ states.sensor.vw_passat_gefahrene_km.state }}'
+  mode: single

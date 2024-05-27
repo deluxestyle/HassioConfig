@@ -29,7 +29,6 @@ entities:
   - sensor.taglicher_solarverbrauch
   - sensor.stromverbrauch_gesamt_tag
   - sensor.stromverbrauch_gesamt
-  - sensor.timescaledb_size
   - sensor.sqlite_db_grosse
   - sensor.victoriametrics_size
   - sensor.stromverbrauch_gesamt_jahr
@@ -52,3 +51,4 @@ entity_globs:
   - binary_sensor.idm*
   - sensor.hoymiles_*
   - sensor.smart_meter*
+  - sensor.stromverbrauch*

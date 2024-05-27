@@ -3,8 +3,10 @@
 import asyncio
 import logging
 import re
+from typing import Any
 
 import voluptuous as vol
+from custom_components.monitor_docker.helpers import DockerAPI, DockerContainerAPI
 from homeassistant.components.switch import ENTITY_ID_FORMAT, SwitchEntity
 from homeassistant.const import CONF_NAME
 from homeassistant.core import HomeAssistant
@@ -14,8 +16,6 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
 from homeassistant.util import slugify
 
-from custom_components.monitor_docker.helpers import DockerAPI, DockerContainerAPI
-
 from .const import (
     API,
     ATTR_NAME,
@@ -24,6 +24,7 @@ from .const import (
     CONF_CONTAINERS_EXCLUDE,
     CONF_PREFIX,
     CONF_RENAME,
+    CONF_RENAME_ENITITY,
     CONF_SWITCHENABLED,
     CONF_SWITCHNAME,
     CONFIG,
@@ -66,7 +67,7 @@ async def async_setup_platform(
                 await server_api.get_container(cname).restart()
             else:
                 _LOGGER.error(
-                    "Service restart failed, container '%s'does not exist", cname
+                    "Service restart failed, container '%s' does not exist", cname
                 )
         elif cname in server_config[CONF_CONTAINERS]:
             _LOGGER.debug("Trying to restart container '%s'", cname)
@@ -130,14 +131,21 @@ async def async_setup_platform(
                 or cname in config[CONF_SWITCHENABLED]
             ):
                 _LOGGER.debug("[%s] %s: Adding component Switch", instance, cname)
+
+                # Only force rename of entityid is requested, to not break backwards compatibility
+                alias_entityid = cname
+                if config[CONF_RENAME_ENITITY]:
+                    alias_entityid = find_rename(config[CONF_RENAME], cname)
+
                 switches.append(
                     DockerContainerSwitch(
                         api.get_container(cname),
-                        instance,
-                        prefix,
-                        cname,
-                        find_rename(config[CONF_RENAME], cname),
-                        config[CONF_SWITCHNAME],
+                        instance=instance,
+                        prefix=prefix,
+                        cname=cname,
+                        alias_entityid=alias_entityid,
+                        alias_name=find_rename(config[CONF_RENAME], cname),
+                        name_format=config[CONF_SWITCHNAME],
                     )
                 )
             else:
@@ -166,7 +174,8 @@ class DockerContainerSwitch(SwitchEntity):
         instance: str,
         prefix: str,
         cname: str,
-        alias: str,
+        alias_entityid: str,
+        alias_name: str,
         name_format: str,
     ):
         self._container = container
@@ -175,9 +184,9 @@ class DockerContainerSwitch(SwitchEntity):
         self._cname = cname
         self._state = False
         self._entity_id: str = ENTITY_ID_FORMAT.format(
-            slugify(self._prefix + "_" + self._cname)
+            slugify(f"{self._prefix}_{alias_entityid}")
         )
-        self._name = name_format.format(name=alias)
+        self._name = name_format.format(name=alias_name)
         self._removed = False
 
     @property
@@ -206,12 +215,12 @@ class DockerContainerSwitch(SwitchEntity):
     def is_on(self) -> bool:
         return self._state
 
-    async def async_turn_on(self) -> None:
+    async def async_turn_on(self, **kwargs: Any) -> None:
         await self._container.start()
         self._state = True
         self.async_schedule_update_ha_state()
 
-    async def async_turn_off(self) -> None:
+    async def async_turn_off(self, **kwargs: Any) -> None:
         await self._container.stop()
         self._state = False
         self.async_schedule_update_ha_state()
