@@ -210,8 +210,9 @@
 - id: '1564908105933'
   alias: 'Benachrichtigung: RAM zu hoch'
   trigger:
-  - above: 75
-    entity_id: sensor.memory_use_percent
+  - above: 80
+    entity_id:
+    - sensor.memory_use_percent
     platform: numeric_state
     for:
       hours: 0
@@ -462,13 +463,13 @@
   description: ''
   trigger:
   - platform: state
-    to: 'off'
     for:
       hours: 0
       minutes: 3
       seconds: 0
     entity_id:
-    - switch.ds118
+    - device_tracker.ds118
+    to: not_home
   condition: []
   action:
   - service: notify.all_ios_devices
@@ -818,7 +819,7 @@
       hours: 0
       minutes: 0
       seconds: 0
-    above: 70
+    above: 60
   condition: []
   action:
   - service: input_boolean.turn_on

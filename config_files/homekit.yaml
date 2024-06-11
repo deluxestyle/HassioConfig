@@ -4,7 +4,6 @@ filter:
     - media_player.wohnzimmer
     - media_player.office
     - switch.vacuum
-    - switch.steckdosenleiste_2
     - switch.pi_hole_switch
     - sensor.sonoff_technikraum_temperature
     - sensor.sonoff_technikraum_humidity
@@ -20,7 +19,13 @@ filter:
     - sensor.aqara_sensor_3_temperature
     - sensor.aqara_sensor_4_humidity
     - sensor.aqara_sensor_4_temperature  
+    - switch.steckdose_1
     - switch.steckdose_2
+    - switch.steckdose_3
+    - switch.steckdosenleiste_2
+    - switch.ikea_steckdose_1
+    - switch.ikea_steckdose_2
+    - switch.ikea_steckdose_3
 entity_config:
     media_player.fernsehzimmer:
       feature_list:

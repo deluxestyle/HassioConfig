@@ -115,3 +115,5 @@ monitor_docker: !include config_files/monitor_docker.yaml
 #             path: https://next.tanzer-cloud.de
 
 var: !include config_files/var.yaml
+
+config_editor:

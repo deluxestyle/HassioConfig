@@ -69,3 +69,51 @@
     state_class: total_increasing
     unit_of_measurement: 'kWh'
     device_class: energy
+
+  - name: stromverbrauch_gestern_tag
+    unique_id: stromverbrauch_gestern_tag
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: > 
+          {{ state_attr('sensor.stromverbrauch_taglich', 'last_period') }}
+
+  - name: stromverbrauch_vorherige_woche
+    unique_id: stromverbrauch_vorherige_woche
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: > 
+          {{ state_attr('sensor.stromverbrauch_wochentlich', 'last_period') }}
+
+  - name: stromverbrauch_vorheriger_monat
+    unique_id: stromverbrauch_vorheriger_monat
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: > 
+          {{ state_attr('sensor.stromverbrauch_monatlich', 'last_period') }}
+
+  - name: stromverbrauch_netz_gestern_tag
+    unique_id: stromverbrauch_netz_gestern_tag
+    state_class: total_increasing
+    unit_of_measurement: 'Wh'
+    device_class: energy
+    state: > 
+          {{ state_attr('sensor.stromverbrauch_netz_taglich', 'last_period') }}
+
+  - name: stromverbrauch_netz_vorherige_woche
+    unique_id: stromverbrauch_netz_vorherige_woche
+    state_class: total_increasing
+    unit_of_measurement: 'Wh'
+    device_class: energy
+    state: > 
+          {{ state_attr('sensor.stromverbrauch_netz_wochentlich', 'last_period') }}
+
+  - name: stromverbrauch_netz_vorheriger_monat
+    unique_id: stromverbrauch_netz_vorheriger_monat
+    state_class: total_increasing
+    unit_of_measurement: 'Wh'
+    device_class: energy
+    state: > 
+          {{ state_attr('sensor.stromverbrauch_netz_monatlich', 'last_period') }}
