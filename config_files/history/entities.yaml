@@ -52,3 +52,5 @@ entity_globs:
   - sensor.hoymiles_*
   - sensor.smart_meter*
   - sensor.stromverbrauch*
+  - sensor.total_consumtion*
+  - sensor.warmepumpe*

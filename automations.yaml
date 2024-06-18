@@ -179,10 +179,6 @@
   - data:
       entity_id: vacuum.roborock_vacuum
     service: vacuum.start
-  - data:
-      entity_id: vacuum.roborock_vacuum
-      fan_speed: Turbo
-    service: vacuum.set_fan_speed
   mode: single
 - id: '1563024961089'
   alias: 'Xiaomi Staubsauger: Hauptbürste wechseln'
@@ -468,7 +464,7 @@
       minutes: 3
       seconds: 0
     entity_id:
-    - device_tracker.ds118
+    - binary_sensor.192_168_200_41
     to: not_home
   condition: []
   action:

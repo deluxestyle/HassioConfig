@@ -117,3 +117,58 @@
     device_class: energy
     state: > 
           {{ state_attr('sensor.stromverbrauch_netz_monatlich', 'last_period') }}
+
+
+#####################################################
+# Wärmepumpe
+####################################################
+  - name: total_consumtion_heat
+    unique_id: total_consumtion_heat
+    state: >
+          {% set wh = states('sensor.smart_meter_energie') | float(0) %}
+          {{ ((wh) / 1000) | round(1, default=0) }}
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+
+  - name: total_consumtion_heat_ht
+    unique_id: total_consumtion_heat_ht
+    state: >
+          {% set wh = states('sensor.smart_meter_energie_2') | float(0) %}
+          {{ ((wh) / 1000) | round(1, default=0) }}
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+
+  - name: total_consumtion_heat_nt
+    unique_id: total_consumtion_heat_nt
+    state: >
+          {% set wh = states('sensor.smart_meter_energie_3') | float(0) %}
+          {{ ((wh) / 1000) | round(1, default=0) }}
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+
+  - name: stromverbrauch_gesamt_waerme_jahr_ht
+    unique_id: stromverbrauch_gesamt_waerme_jahr_ht
+    state: >
+          {{ (states.sensor.total_consumtion_heat_ht.state | float(0))  - (states.input_number.stromverbrauch_ht_start.state | float(0)) | round(2, default=0)}}
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+
+  - name: stromverbrauch_gesamt_waerme_jahr_nt
+    unique_id: stromverbrauch_gesamt_waerme_jahr_nt
+    state: >
+          {{ (states.sensor.total_consumtion_heat_nt.state | float(0))  - (states.input_number.stromverbrauch_nt_start.state | float(0)) | round(2, default=0)}}
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+
+  - name: stromverbrauch_gesamt_waerme_jahr
+    unique_id: stromverbrauch_gesamt_waerme_jahr
+    state: >
+          {{ (states.sensor.stromverbrauch_gesamt_waerme_jahr_ht.state | float(0))  + (states.sensor.stromverbrauch_gesamt_waerme_jahr_nt.state | float(0)) | round(2, default=0)}}
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
