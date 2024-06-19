@@ -172,3 +172,75 @@
     state_class: total_increasing
     unit_of_measurement: 'kWh'
     device_class: energy
+
+  - name: stromverbrauch_waerme_gestern_tag
+    unique_id: stromverbrauch_waerme_gestern_tag
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: > 
+          {{ state_attr('sensor.warmepumpe_gesamt_tag', 'last_period') }}
+
+  - name: stromverbrauch_waerme_vorherige_woche
+    unique_id: stromverbrauch_waerme_vorherige_woche
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: > 
+          {{ state_attr('sensor.warmepumpe_gesamt_woche', 'last_period') }}
+
+  - name: stromverbrauch_waerme_vorheriger_monat
+    unique_id: stromverbrauch_waerme_vorheriger_monat
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: > 
+          {{ state_attr('sensor.warmepumpe_gesamt_monat', 'last_period') }}
+
+  - name: stromverbrauch_waerme_gestern_tag_ht
+    unique_id: stromverbrauch_waerme_gestern_tag_ht
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: > 
+          {{ state_attr('sensor.warmepumpe_ht_tag', 'last_period') }}
+
+  - name: stromverbrauch_waerme_vorherige_woche_ht
+    unique_id: stromverbrauch_waerme_vorherige_woche_ht
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: > 
+          {{ state_attr('sensor.warmepumpe_ht_woche', 'last_period') }}
+
+  - name: stromverbrauch_waerme_vorheriger_monat_ht
+    unique_id: stromverbrauch_waerme_vorheriger_monat_ht
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: > 
+          {{ state_attr('sensor.warmepumpe_ht_woche', 'last_period') }}
+
+  - name: stromverbrauch_waerme_gestern_tag_nt
+    unique_id: stromverbrauch_waerme_gestern_tag_nt
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: > 
+          {{ state_attr('sensor.warmepumpe_nt_tag', 'last_period') }}
+
+  - name: stromverbrauch_waerme_vorherige_woche_nt
+    unique_id: stromverbrauch_waerme_vorherige_woche_nt
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: > 
+          {{ state_attr('sensor.warmepumpe_nt_woche', 'last_period') }}
+
+  - name: stromverbrauch_waerme_vorheriger_monat_nt
+    unique_id: stromverbrauch_waerme_vorheriger_monat_nt
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: > 
+          {{ state_attr('sensor.warmepumpe_nt_woche', 'last_period') }}
