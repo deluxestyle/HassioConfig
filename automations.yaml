@@ -1121,3 +1121,46 @@
       entity_id: automation.spulmaschine_solar
     data: {}
   mode: single
+- id: '1718892235993'
+  alias: 'Benachrichtigung: Geschirrspüler (Salz/Klarspüler)'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.rinse_aid_nearly_empty
+    to: 'on'
+    id: rinse
+  - platform: state
+    entity_id:
+    - binary_sensor.salt_nearly_empty
+    id: salt
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.persistent_notification
+    service: input_boolean.turn_on
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - rinse
+      sequence:
+      - data:
+          message: Klarspüler auffüllen
+          notification_id: dishwasher
+          title: Geschirspüler
+          url: /lovelace/dishwasher
+        service: script.notify_script
+    - conditions:
+      - condition: trigger
+        id:
+        - salt
+      sequence:
+      - data:
+          message: Salz auffüllen
+          notification_id: dishwasher
+          title: Geschirspüler
+          url: /lovelace/dishwasher
+        service: script.notify_script
+  mode: single

@@ -1,0 +1,53 @@
+- trigger:
+    - platform: event
+      event_type: home_connect_alt_event
+      event_data:
+        device_id: "c951745c6284e4c8e44657feb7096fec"
+        key: "Dishcare.Dishwasher.Event.RinseAidNearlyEmpty"
+        value: "BSH.Common.EnumType.EventPresentState.Present"
+      id: "on"
+    - platform: state
+      entity_id: binary_sensor.dishwasher_rinse_aid_nearly_empty
+      to: "on"
+    - platform: event
+      event_type: home_connect_alt_event
+      event_data:
+        device_id: "c951745c6284e4c8e44657feb7096fec"
+        key: "Dishcare.Dishwasher.Event.RinseAidNearlyEmpty"
+        value: "BSH.Common.EnumType.EventPresentState.Off"
+      id: "off"
+    - platform: state
+      entity_id: binary_sensor.dishwasher_rinse_aid_nearly_empty
+      to: "off"
+  binary_sensor:
+    - name: "Klarspüler"
+      unique_id: binary_sensor.dishwasher_rinse_aid_nearly_empty
+      state: "{{trigger.id}}"
+      icon: "{{ 'mdi:flask-empty-off-outline' if is_state('binary_sensor.dishwasher_rinse_aid_nearly_empty', 'on') else 'mdi:flask' }}"
+
+- trigger:
+    - platform: event
+      event_type: home_connect_alt_event
+      event_data:
+        device_id: "c951745c6284e4c8e44657feb7096fec"
+        key: "Dishcare.Dishwasher.Event.SaltNearlyEmpty"
+        value: "BSH.Common.EnumType.EventPresentState.Present"
+      id: "on"
+    - platform: state
+      entity_id: binary_sensor.dishwasher_salt_nearly_empty
+      to: "on"
+    - platform: event
+      event_type: home_connect_alt_event
+      event_data:
+        device_id: "c951745c6284e4c8e44657feb7096fec"
+        key: "Dishcare.Dishwasher.Event.SaltNearlyEmpty"
+        value: "BSH.Common.EnumType.EventPresentState.Off"
+      id: "off"
+    - platform: state
+      entity_id: binary_sensor.dishwasher_salt_nearly_empty
+      to: "off"
+  binary_sensor:
+    - name: "Salz"
+      unique_id: binary_sensor.dishwasher_salt_nearly_empty
+      state: "{{trigger.id}}"
+      icon: "{{ 'mdi:octahedron-off' if is_state('binary_sensor.dishwasher_salt_nearly_empty', 'on') else 'mdi:octahedron' }}"
