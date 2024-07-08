@@ -147,7 +147,7 @@
           {% set tmp2 = states.sensor.stromverbrauch_gesamt_ablesung.state | float(0) %}
           {{ tmp2 / tmp1 | round(2, default=0) }}
 
-#####################################################
+####################################################
 # Wärmepumpe
 ####################################################
   - name: total_consumtion_heat
