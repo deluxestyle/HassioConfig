@@ -465,7 +465,7 @@
       seconds: 0
     entity_id:
     - binary_sensor.192_168_200_41
-    to: not_home
+    to: 'off'
   condition: []
   action:
   - service: notify.all_ios_devices
@@ -522,25 +522,6 @@
         domain: button
         entity_id: button.fritz_box_7590_reconnect
         type: press
-  mode: single
-- id: '1664976725414'
-  alias: 'DS118: Raspi Backup'
-  description: ''
-  trigger:
-  - platform: time
-    at: 02:00:00
-  condition:
-  - condition: time
-    weekday:
-    - wed
-  - condition: state
-    entity_id: switch.ds118
-    state: 'off'
-  action:
-  - service: switch.turn_on
-    data: {}
-    target:
-      entity_id: switch.ds118
   mode: single
 - id: '1666460813767'
   alias: 'Benachrichtigung: Swap zu hoch'
@@ -722,6 +703,7 @@
     - update.wud_container_local_portainer
     - update.wud_container_local_zigbee2mqtt
     - binary_sensor.nextcloud_update_status
+    - update.wud_container_local_grafana
     to: 'on'
   condition: []
   action:
@@ -840,28 +822,21 @@
     to: 'off'
   condition: []
   action:
-  - data: {}
-    entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
-  - data:
-      message: Waschmaschine fertig
-      notification_id: washing_machine
-      title: Waschmaschine
-    service: script.notify_script
   - service: input_boolean.turn_on
     target:
       entity_id: input_boolean.waschmaschine
     data: {}
-    enabled: false
+    enabled: true
   - repeat:
       sequence:
-      - service: notify.all_ios_devices
-        data:
-          message: Wäsche aufhängen
-          data:
-            actions:
-            - action: washmachine
-              title: Aufhängen
+      - data: {}
+        entity_id: input_boolean.persistent_notification
+        service: input_boolean.turn_on
+      - data:
+          message: Waschmaschine fertig
+          notification_id: washing_machine
+          title: Waschmaschine
+        service: script.notify_script
       - delay:
           hours: 1
           minutes: 0
@@ -871,7 +846,7 @@
       - condition: state
         entity_id: input_boolean.waschmaschine
         state: 'off'
-    enabled: false
+    enabled: true
   mode: single
 - id: '1703884418920'
   alias: 'iOS: Alles aus'
@@ -1018,6 +993,9 @@
     - condition: state
       entity_id: sensor.013050391085014163_bsh_common_status_operationstate
       state: BSH.Common.EnumType.OperationState.Run
+    - condition: state
+      entity_id: input_boolean.urlaubsmodus
+      state: 'on'
   action:
   - service: notify.mobile_app_iphone14pro
     metadata: {}
@@ -1163,4 +1141,40 @@
           title: Geschirspüler
           url: /lovelace/dishwasher
         service: script.notify_script
+  mode: single
+- id: '1664976725414'
+  alias: 'DS118: Raspi Backup'
+  description: ''
+  trigger:
+  - platform: time
+    at: 02:00:00
+  condition:
+  - condition: time
+    weekday:
+    - wed
+  - condition: state
+    entity_id: binary_sensor.192_168_200_41
+    state: 'off'
+  action:
+  - service: script.ds118_wol
+    metadata: {}
+    data: {}
+  mode: single
+- id: '1719416567346'
+  alias: 'DS118: Raspi Backup'
+  description: ''
+  trigger:
+  - platform: time
+    at: 02:00:00
+  condition:
+  - condition: time
+    weekday:
+    - wed
+  - condition: state
+    entity_id: binary_sensor.192_168_200_41
+    state: 'off'
+  action:
+  - service: script.ds118_wol
+    metadata: {}
+    data: {}
   mode: single

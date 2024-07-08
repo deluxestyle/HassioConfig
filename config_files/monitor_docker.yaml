@@ -43,3 +43,4 @@
     - 1cpu_percentage
     - memory
     - memory_percentage
+  buttonenabled: true

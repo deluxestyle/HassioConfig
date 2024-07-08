@@ -61,14 +61,6 @@
     state_class: measurement
     unit_of_measurement: 'W'
     device_class: power
-    
-  - name: stromverbrauch_gesamt_jahr
-    unique_id: stromverbrauch_gesamt_jahr
-    state: >
-          {{ (states.sensor.total_consumtion.state | float(0))  - (states.input_number.stromverbrauch_start.state | float(0)) | round(2, default=0)}}
-    state_class: total_increasing
-    unit_of_measurement: 'kWh'
-    device_class: energy
 
   - name: stromverbrauch_gestern_tag
     unique_id: stromverbrauch_gestern_tag
@@ -118,6 +110,42 @@
     state: > 
           {{ state_attr('sensor.stromverbrauch_netz_monatlich', 'last_period') }}
 
+  - name: stromverbrauch_gesamt_start
+    unique_id: stromverbrauch_gesamt_start
+    state: >
+          {{ (states.sensor.total_consumtion.state | float(0))  - (states.input_number.stromverbrauch_start.state | float(0)) | round(2, default=0)}}
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+
+  - name: stromverbrauch_gesamt_ablesung
+    unique_id: stromverbrauch_gesamt_ablesung
+    state: >
+          {{ (states.sensor.total_consumtion.state | float(0))  - (states.input_number.strom_ablesung_haustrom.state | float(0)) | round(2, default=0)}}
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+
+  - name: stromverbrauch_netz_durchschnitt_tag
+    unique_id: stromverbrauch_netz_durchschnitt_tag
+    state_class: total
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: >
+          {% set tmp1 = (((as_timestamp(now())) - states.input_datetime.stromstart.attributes.timestamp) | int /60/1440) | round(0) %}
+          {% set tmp2 = states.sensor.stromverbrauch_gesamt_start.state | float(0) %}
+          {{ tmp2 / tmp1 | round(2, default=0) }}
+
+
+  - name: stromverbrauch_netz_durchschnitt_ablesung
+    unique_id: stromverbrauch_netz_durchschnitt_ablesung
+    state_class: total
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: >
+          {% set tmp1 = (((as_timestamp(now())) - states.input_datetime.strom_ablesung.attributes.timestamp) | int /60/1440) | round(0) %}
+          {% set tmp2 = states.sensor.stromverbrauch_gesamt_ablesung.state | float(0) %}
+          {{ tmp2 / tmp1 | round(2, default=0) }}
 
 #####################################################
 # Wärmepumpe
@@ -145,30 +173,6 @@
     state: >
           {% set wh = states('sensor.smart_meter_energie_3') | float(0) %}
           {{ ((wh) / 1000) | round(1, default=0) }}
-    state_class: total_increasing
-    unit_of_measurement: 'kWh'
-    device_class: energy
-
-  - name: stromverbrauch_gesamt_waerme_jahr_ht
-    unique_id: stromverbrauch_gesamt_waerme_jahr_ht
-    state: >
-          {{ (states.sensor.total_consumtion_heat_ht.state | float(0))  - (states.input_number.stromverbrauch_ht_start.state | float(0)) | round(2, default=0)}}
-    state_class: total_increasing
-    unit_of_measurement: 'kWh'
-    device_class: energy
-
-  - name: stromverbrauch_gesamt_waerme_jahr_nt
-    unique_id: stromverbrauch_gesamt_waerme_jahr_nt
-    state: >
-          {{ (states.sensor.total_consumtion_heat_nt.state | float(0))  - (states.input_number.stromverbrauch_nt_start.state | float(0)) | round(2, default=0)}}
-    state_class: total_increasing
-    unit_of_measurement: 'kWh'
-    device_class: energy
-
-  - name: stromverbrauch_gesamt_waerme_jahr
-    unique_id: stromverbrauch_gesamt_waerme_jahr
-    state: >
-          {{ (states.sensor.stromverbrauch_gesamt_waerme_jahr_ht.state | float(0))  + (states.sensor.stromverbrauch_gesamt_waerme_jahr_nt.state | float(0)) | round(2, default=0)}}
     state_class: total_increasing
     unit_of_measurement: 'kWh'
     device_class: energy
@@ -244,3 +248,71 @@
     device_class: energy
     state: > 
           {{ state_attr('sensor.warmepumpe_nt_woche', 'last_period') }}
+
+  - name: stromverbrauch_gesamt_waerme_start_ht
+    unique_id: stromverbrauch_gesamt_waerme_start_ht
+    state: >
+          {{ (states.sensor.total_consumtion_heat_ht.state | float(0))  - (states.input_number.stromverbrauch_ht_start.state | float(0)) | round(2, default=0)}}
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+
+  - name: stromverbrauch_gesamt_waerme_start_nt
+    unique_id: stromverbrauch_gesamt_waerme_start_nt
+    state: >
+          {{ (states.sensor.total_consumtion_heat_nt.state | float(0))  - (states.input_number.stromverbrauch_nt_start.state | float(0)) | round(2, default=0)}}
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+
+  - name: stromverbrauch_gesamt_waerme_start
+    unique_id: stromverbrauch_gesamt_waerme_start
+    state: >
+          {{ (states.sensor.stromverbrauch_gesamt_waerme_start_ht.state | float(0))  + (states.sensor.stromverbrauch_gesamt_waerme_start_nt.state | float(0)) | round(2, default=0)}}
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+
+  - name: stromverbrauch_gesamt_waerme_ablesung_ht
+    unique_id: stromverbrauch_gesamt_waerme_ablesung_ht
+    state: >
+          {{ (states.sensor.total_consumtion_heat_ht.state | float(0))  - (states.input_number.strom_ablesung_warme_ht.state | float(0)) | round(2, default=0)}}
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+
+  - name: stromverbrauch_gesamt_waerme_ablesung_nt
+    unique_id: stromverbrauch_gesamt_waerme_ablesung_nt
+    state: >
+          {{ (states.sensor.total_consumtion_heat_nt.state | float(0))  - (states.input_number.strom_ablesung_warme_nt.state | float(0)) | round(2, default=0)}}
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+
+  - name: stromverbrauch_gesamt_waerme_ablesung
+    unique_id: stromverbrauch_gesamt_waerme_ablesung
+    state: >
+          {{ (states.sensor.stromverbrauch_gesamt_waerme_ablesung_ht.state | float(0))  + (states.sensor.stromverbrauch_gesamt_waerme_ablesung_nt.state | float(0)) | round(2, default=0)}}
+    state_class: total_increasing
+    unit_of_measurement: 'kWh'
+    device_class: energy
+
+  - name: stromverbrauch_warme_durchschnitt_tag
+    unique_id: stromverbrauch_warme_durchschnitt_tag
+    state_class: total
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: >
+          {% set tmp1 = (((as_timestamp(now())) - states.input_datetime.stromstart.attributes.timestamp) | int /60/1440) | round(0) %}
+          {% set tmp2 = states.sensor.stromverbrauch_gesamt_waerme_start.state | float(0) %}
+          {{ tmp2 / tmp1 | round(2, default=0) }}
+
+  - name: stromverbrauch_warme_durchschnitt_ablesung
+    unique_id: stromverbrauch_warme_durchschnitt_ablesung
+    state_class: total
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: >
+          {% set tmp1 = (((as_timestamp(now())) - states.input_datetime.strom_ablesung.attributes.timestamp) | int /60/1440) | round(0) %}
+          {% set tmp2 = states.sensor.stromverbrauch_gesamt_waerme_ablesung.state | float(0) %}
+          {{ tmp2 / tmp1 | round(2, default=0) }}

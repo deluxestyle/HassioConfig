@@ -1,6 +1,6 @@
 {
     "domain": "volkswagencarnet",
-    "name": "Volkswagen WeConnect",
+    "name": "Volkswagen Connect",
     "after_dependencies": [
         "http"
     ],
@@ -16,7 +16,7 @@
     "issue_tracker": "https://github.com/robinostlund/homeassistant-volkswagencarnet/issues",
     "requirements": [
         "pytz",
-        "volkswagencarnet==4.4.73"
+        "volkswagencarnet==5.0.2"
     ],
-    "version": "v4.6.1"
+    "version": "v5.0.3"
 }

@@ -104,16 +104,6 @@ notify:
 
 monitor_docker: !include config_files/monitor_docker.yaml
 
-# custom_update_entities:
-#   updaters:
-#     - name: Nextcloud Hub
-#       latest_version_entity: sensor.nextcloud_latest_version
-#       installed_version_entity: sensor.nextcloud_version
-#       update_action:
-#         - service: browser_mod.navigate
-#           data:
-#             path: https://next.tanzer-cloud.de
-
 var: !include config_files/var.yaml
 
 config_editor:
