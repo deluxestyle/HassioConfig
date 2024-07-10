@@ -295,9 +295,8 @@ sonos_set_volume:
       example: ids
   sequence:
   - condition: template
-    value_template: '{{ states.media_player[sonos_id].attributes["group_members"]
-      | regex_replace(find="''",replace="") | regex_replace(find="[\[]", replace="")|
-      regex_replace(find="[\]]", replace="") !=  states.media_player[sonos_id].entity_id  }}'
+    value_template: '{{ state_attr(sonos_id, ''group_members'') | count > 1 }}'
+    enabled: false
   - delay:
       hours: 0
       minutes: 0
@@ -305,8 +304,8 @@ sonos_set_volume:
       milliseconds: 200
   - service: media_player.volume_set
     data:
-      entity_id: '{{ states.media_player[sonos_id].attributes["group_members"]  }}'
-      volume_level: '{{ states.media_player[sonos_id].attributes["volume_level"]  }}'
+      entity_id: '{{ state_attr(sonos_id, ''group_members'') }}'
+      volume_level: '{{ state_attr(sonos_id, ''volume_level'') }}'
   mode: single
   icon: mdi:volume-plus
 harmony_surround_mode:

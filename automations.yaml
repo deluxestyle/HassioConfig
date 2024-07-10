@@ -397,9 +397,8 @@
     value_template: '{{ trigger.event.data.service_data.entity_id != "media_player.harman_kardon_avr"}}'
   action:
   - service: script.sonos_set_volume
-    data:
-      sonos_id: '{{ trigger.event.data.service_data.entity_id | regex_replace(find="media_player.",
-        replace="") }}'
+    data_template:
+      sonos_id: '{{ trigger.event.data.service_data.entity_id }}'
   mode: queued
   max: 10
 - id: '1620892776475'
