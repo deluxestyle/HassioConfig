@@ -1,0 +1,13 @@
+requirements:
+  - paramiko>=3.4.0 
+  # - argparse
+  # - getpass
+  # - hashlib
+  # - json
+  # - os
+  # - requests
+  # - sys
+  # - etree
+  # - version
+  # - SSLError
+  # - InsecureRequestWarning

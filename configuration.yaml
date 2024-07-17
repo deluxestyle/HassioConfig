@@ -85,11 +85,7 @@ input_button:
 schedule:
 command_line: !include config_files/command_line.yaml
 
-python_script:
-  allow_all_imports: true
-  hass_is_global: true
-
-# ffmpeg:
+python_script: !include config_files/python_requirements.yaml
 
 wake_on_lan:
 

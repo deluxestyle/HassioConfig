@@ -796,7 +796,7 @@
       hours: 0
       minutes: 0
       seconds: 0
-    above: 60
+    above: 65
   condition: []
   action:
   - service: input_boolean.turn_on
@@ -1097,6 +1097,11 @@
     target:
       entity_id: automation.spulmaschine_solar
     data: {}
+  - service: automation.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: automation.benachrichtigung_fenster_offen
   mode: single
 - id: '1718892235993'
   alias: 'Benachrichtigung: Geschirrspüler (Salz/Klarspüler)'
@@ -1141,24 +1146,6 @@
           url: /lovelace/dishwasher
         service: script.notify_script
   mode: single
-- id: '1664976725414'
-  alias: 'DS118: Raspi Backup'
-  description: ''
-  trigger:
-  - platform: time
-    at: 02:00:00
-  condition:
-  - condition: time
-    weekday:
-    - wed
-  - condition: state
-    entity_id: binary_sensor.192_168_200_41
-    state: 'off'
-  action:
-  - service: script.ds118_wol
-    metadata: {}
-    data: {}
-  mode: single
 - id: '1719416567346'
   alias: 'DS118: Raspi Backup'
   description: ''
@@ -1173,7 +1160,8 @@
     entity_id: binary_sensor.192_168_200_41
     state: 'off'
   action:
-  - service: script.ds118_wol
-    metadata: {}
+  - service: switch.turn_on
+    target:
+      entity_id: switch.ds118
     data: {}
   mode: single

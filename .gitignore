@@ -25,5 +25,5 @@ scripts/ds118_shutdown.sh
 .ssh/id_rsa.pub
 .ssh/id_rsa
 scripts/*
-pyhton_scripts/*
+python_scripts/*
 backups/*

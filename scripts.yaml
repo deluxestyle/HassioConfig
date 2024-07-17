@@ -29,7 +29,6 @@ xiaomi_vacuum_stop:
 harmony_power_off:
   alias: 'Harmony: Ausschaltbefehl'
   sequence:
-  - service: browser_mod.close_popup
   - condition: not
     conditions:
     - condition: state
@@ -142,22 +141,6 @@ sonos_set_volume_10:
       - media_player.office
       - media_player.fernsehzimmer
   mode: single
-sonos_join:
-  alias: 'Sonos: join'
-  sequence:
-  - service: media_player.join
-    data:
-      group_members: media_player.fernsehzimmer
-    target:
-      entity_id:
-      - media_player.office
-  - service: media_player.join
-    data:
-      group_members: media_player.wohnzimmer
-    target:
-      entity_id: media_player.office
-  mode: single
-  icon: mdi:set-center
 sonos_set_volume_8:
   alias: 'Sonos: Set volume 8'
   sequence:
@@ -296,7 +279,7 @@ sonos_set_volume:
   sequence:
   - condition: template
     value_template: '{{ state_attr(sonos_id, ''group_members'') | count > 1 }}'
-    enabled: false
+    enabled: true
   - delay:
       hours: 0
       minutes: 0
@@ -558,3 +541,34 @@ auto_tageskilometer:
       entity_id: var.daily_km
       value: '{{ states.sensor.vw_passat_gefahrene_km.state }}'
   mode: single
+ds118_shutdown:
+  alias: DS118 Shutdown
+  sequence:
+  - service: python_script.exec
+    data:
+      file: ./python_scripts/ssh_command.py
+      host: 192.168.200.41
+      port: 522
+      command: sudo -S poweroff
+  description: ''
+  icon: mdi:power
+ds114_shutdown:
+  alias: DS114 Shutdown
+  sequence:
+  - service: python_script.exec
+    data:
+      file: ./python_scripts/ssh_command.py
+      host: 192.168.178.22
+      port: 522
+      command: sudo -S poweroff
+  description: ''
+  icon: mdi:power
+ds114_wol:
+  alias: 'DS114: Wol'
+  sequence:
+  - service: python_script.exec
+    data:
+      file: ./python_scripts/fritzwol/wol.py
+      target_mac: 00:11:32:2E:33:84
+  description: ''
+  icon: mdi:check-network
