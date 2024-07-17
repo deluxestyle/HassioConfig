@@ -45,9 +45,9 @@ entity_config:
     sensor.sonoff_2_humidity:
       name: Gästezimmer
     sensor.sonoff_3_temperature:
-      name: Sonoff 3
+      name: Büro
     sensor.sonoff_3_humidity:
-      name: Sonoff 3
+      name: Büro
     sensor.aqara_sensor_1_humidity:
       name: Bad
     sensor.aqara_sensor_1_temperature:
