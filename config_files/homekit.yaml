@@ -7,10 +7,10 @@ filter:
     - switch.pi_hole_switch
     - sensor.sonoff_technikraum_temperature
     - sensor.sonoff_technikraum_humidity
-    - sensor.sonoff_2_temperature
-    - sensor.sonoff_2_humidity
-    - sensor.sonoff_3_temperature
-    - sensor.sonoff_3_humidity
+    - sensor.sonoff_sensor_2_temperature
+    - sensor.sonoff_sensor_2_humidity
+    - sensor.sonoff_sensor_3_temperature
+    - sensor.sonoff_sensor_3_humidity
     - sensor.aqara_sensor_1_humidity
     - sensor.aqara_sensor_1_temperature
     - sensor.aqara_sensor_2_humidity
@@ -40,13 +40,13 @@ entity_config:
       name: Technikraum
     sensor.sonoff_technikraum_humidity:
       name: Technikraum
-    sensor.sonoff_2_temperature:
+    sensor.sonoff_sensor_2_temperature:
       name: Gästezimmer
-    sensor.sonoff_2_humidity:
+    sensor.sonoff_sensor_2_humidity:
       name: Gästezimmer
-    sensor.sonoff_3_temperature:
+    sensor.sonoff_sensor_3_temperature:
       name: Büro
-    sensor.sonoff_3_humidity:
+    sensor.sonoff_sensor_3_humidity:
       name: Büro
     sensor.aqara_sensor_1_humidity:
       name: Bad

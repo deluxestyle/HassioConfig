@@ -170,6 +170,14 @@ alles_ausschalten:
     device_id: 810be42da6593e2fde79cdcd001cbd05
     entity_id: 78b1eb7aedc32aec640207c5febe6f26
     domain: switch
+  - service: switch.turn_off
+    target:
+      entity_id:
+      - switch.ikea_steckdose_1
+      - switch.ikea_steckdose_3
+      - switch.steckdose_1
+      - switch.steckdose_3
+    data: {}
   mode: single
   icon: mdi:toggle-switch-off-outline
 sonos_set_volume_4:

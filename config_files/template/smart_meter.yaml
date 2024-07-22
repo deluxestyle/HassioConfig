@@ -147,6 +147,26 @@
           {% set tmp2 = states.sensor.stromverbrauch_gesamt_ablesung.state | float(0) %}
           {{ tmp2 / tmp1 | round(2, default=0) }}
 
+  - name: solarerzeugung_komplett
+    unique_id: solarerzeugung_komplett
+    state_class: total
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: >
+          {% set tmp1 = states.sensor.hoymiles_hms_800w_t2_port_1_dc_total_energy.state | float(0) %}
+          {% set tmp2 = states.sensor.hoymiles_hms_800w_t2_port_2_dc_total_energy.state | float(0) %}
+          {{ (tmp2 + tmp1)  /1000 | round(0, default=0) }}
+
+  - name: solarverbrauch_komplett
+    unique_id: solarverbrauch_komplett
+    state_class: total
+    unit_of_measurement: 'kWh'
+    device_class: energy
+    state: >
+        {% set tmp1 = states.sensor.total_feed.state | float(0) %}
+        {% set tmp2 = states.solarerzeugung_komplett.state | float(0) %}
+        {{ (tmp2 + tmp1)   | round(0, default=0) }}
+
 ####################################################
 # Wärmepumpe
 ####################################################

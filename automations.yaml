@@ -579,8 +579,8 @@
     to: AirPlay 2
     for:
       hours: 0
-      minutes: 0
-      seconds: 30
+      minutes: 1
+      seconds: 0
     id: Airplay
   - platform: state
     entity_id:
@@ -837,8 +837,8 @@
           title: Waschmaschine
         service: script.notify_script
       - delay:
-          hours: 1
-          minutes: 0
+          hours: 0
+          minutes: 30
           seconds: 0
           milliseconds: 0
       until:
