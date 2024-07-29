@@ -599,7 +599,7 @@
     to: Apple TV
     for:
       hours: 0
-      minutes: 0
+      minutes: 1
       seconds: 30
     id: appletv
   - platform: state
@@ -609,7 +609,7 @@
     to: TV
     for:
       hours: 0
-      minutes: 0
+      minutes: 1
       seconds: 30
     id: tv
   condition: []
@@ -808,7 +808,7 @@
         }} % '
       notification_id: humidity
       title: Luftfeuchtigkeit
-      url: /dashboard-strom/klima
+      url: /dashboard-home/klima
     service: script.notify_script
   mode: single
 - id: '1701269486138'
@@ -835,6 +835,7 @@
           message: Waschmaschine fertig
           notification_id: washing_machine
           title: Waschmaschine
+          url: /lovelace/home
         service: script.notify_script
       - delay:
           hours: 0
@@ -882,7 +883,7 @@
         }} Tage verbleibend '
       notification_id: salz
       title: Salz
-      url: /dashboard-strom/wasser
+      url: /dashboard-home/wasser
     service: script.notify_script
   mode: single
 - id: '1708550292805'
@@ -897,7 +898,12 @@
       minutes: 0
       seconds: 30
     from: Initialisierung erfolgreich!
-  condition: []
+  condition:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.judo_isoftsaveplus_daheim_meldung
+      state: unavailable
   action:
   - data:
       entity_id: input_boolean.persistent_notification
@@ -907,7 +913,7 @@
         }} '
       notification_id: Wasser
       title: Wasser
-      url: /dashboard-strom/wasser
+      url: /dashboard-home/wasser
     service: script.notify_script
   mode: single
 - id: '1709502632703'
@@ -960,19 +966,6 @@
     data:
       message: Auto fährt los
       title: Auto
-  mode: single
-- id: '1712694254999'
-  alias: 'FritzBox: Cleanup '
-  description: ''
-  trigger:
-  - platform: time_pattern
-    minutes: '30'
-  condition: []
-  action:
-  - service: button.press
-    target:
-      entity_id: button.fritz_box_7590_aufraumen
-    data: {}
   mode: single
 - id: '1712859659808'
   alias: Spülmaschine Solar
@@ -1069,6 +1062,7 @@
           message: Kellerfenster offen
           notification_id: Fenster
           title: Fenster
+          url: /dashboard-home/klima
         service: script.notify_script
       - delay:
           hours: 0
@@ -1164,4 +1158,68 @@
     target:
       entity_id: switch.ds118
     data: {}
+  mode: single
+- id: '1721659414494'
+  alias: Aquara Switch (Double)
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: ff8d0da73bc74c4c6902f5f45c7f587d
+    type: action
+    subtype: single_right
+    id: right
+  - platform: device
+    domain: mqtt
+    device_id: ff8d0da73bc74c4c6902f5f45c7f587d
+    type: action
+    subtype: single_left
+    id: left
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - right
+      sequence:
+      - type: toggle
+        device_id: 810be42da6593e2fde79cdcd001cbd05
+        entity_id: 78b1eb7aedc32aec640207c5febe6f26
+        domain: switch
+    - conditions:
+      - condition: trigger
+        id:
+        - left
+      sequence:
+      - type: toggle
+        device_id: 52a77be16fd9453e7929cc4b85c7032a
+        entity_id: 4b4bef1305ebafc1eb5395ada8cb6996
+        domain: switch
+  mode: single
+- id: '1722250292937'
+  alias: 'Benachrichtigung: Solarstrom vorhanden'
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.smart_meter_summe_der_aktiven_momentanleistung
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+    below: -250
+  condition:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: input_boolean.urlaubsmodus
+      state: 'on'
+  action:
+  - service: notify.mobile_app_iphone14pro
+    metadata: {}
+    data:
+      message: Genügen Solarstrom vorhanden
+      title: Strom
+      data: {}
   mode: single

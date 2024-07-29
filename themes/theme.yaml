@@ -1,47 +1,47 @@
 theme:
 
   card-mod-theme: theme
-  card-mod-more-info-yaml: |    
-    $: |
-      .mdc-dialog {
-        backdrop-filter: blur(5px) !important;
-        -webkit-backdrop-filter: blur(4px) !important;
-        background: rgba(0,0,0,0.1);
-      }
+  # card-mod-more-info-yaml: |    
+  #   $: |
+  #     .mdc-dialog {
+  #       backdrop-filter: blur(5px) !important;
+  #       -webkit-backdrop-filter: blur(4px) !important;
+  #       background: rgba(0,0,0,0.1);
+  #     }
 
-  dialog-backdrop-filter: blur(5px)
-  popup-max-width: 560px
+  # dialog-backdrop-filter: blur(5px)
+  # popup-max-width: 560px
         
   app-header-text-color: var(--primary-text-color)
-  app-header-background-color: "var(--card-background-color)"
+  app-header-background-color: var(--card-background-color)
 
-  mush-chip-border-radius: var(--border-radius) 
+  # mush-chip-border-radius: var(--border-radius) 
   mush-chip-font-weight: normal
 
-  border-radius: 10px
-  popup-border-radius: 0px;
+  # border-radius: 10px
+  # popup-border-radius: 0px;
 
-  button-padding: 10px
+  # button-padding: 10px
 
-  color-theme: 68, 115, 158
-  color-blue-text: var(--primary-text-color)
-  color-yellow-text: var(--primary-text-color)
+  # color-theme: 68, 115, 158
+  # color-blue-text: var(--primary-text-color)
+  # color-yellow-text: var(--primary-text-color)
 
   card-primary-font-weight: normal
   mush-card-primary-font-weight: normal
   card-secondary-font-weight: normal
   mush-card-secondary-font-weight: normal
 
-  sonos-border-width: "0rem"
+  # sonos-border-width: "0rem"
 
-  ha-card-header-font-size: 14px
+  # ha-card-header-font-size: 14px
 
   # ha-card-box-shadow: none
   # ha-card-border-width: 0
 
   modes:
     light:
-      primary-background-color: "#F7F7F7"
+      # primary-background-color: "#f1f1f1"
       secondary-background-color: "#ffffff"
       # border-color: "#E8E8E8"
       popup-border-color: "#ffffff"
