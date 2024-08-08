@@ -101,5 +101,3 @@ notify:
 monitor_docker: !include config_files/monitor_docker.yaml
 
 var: !include config_files/var.yaml
-
-config_editor:

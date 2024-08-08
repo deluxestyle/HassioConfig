@@ -47,6 +47,7 @@ entity_globs:
   - sensor.fritz_box_*
   - binary_sensor.fritz_box_*
   - sensor.sonoff_*
+  - sensor.tuya*
   - sensor.aqara_*
   - sensor.waschmaschine*
   - sensor.idm*

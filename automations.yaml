@@ -1028,6 +1028,7 @@
     entity_id:
     - sensor.013050391085014163_bsh_common_status_operationstate
     to: BSH.Common.EnumType.OperationState.Run
+    from: BSH.Common.EnumType.OperationState.Ready
   condition: []
   action:
   - data: {}
