@@ -156,28 +156,22 @@ sonos_set_volume_8:
 alles_ausschalten:
   alias: Alles ausschalten
   sequence:
-  - service: script.sonos_stopp
-    data: {}
+  - data: {}
+    action: script.sonos_stopp
   - type: turn_off
     device_id: 919e0bb34b95e173d1e342b929cb632b
     entity_id: 7562d580fe0d4301cb37ab75350664ed
     domain: remote
-  - type: turn_off
-    device_id: 63ad1ab895f307fc6036afa71ec094ef
-    entity_id: 56f39d294944e06fb95036a90bc7b8e7
-    domain: switch
-  - type: turn_off
-    device_id: 810be42da6593e2fde79cdcd001cbd05
-    entity_id: 78b1eb7aedc32aec640207c5febe6f26
-    domain: switch
-  - service: switch.turn_off
-    target:
+  - target:
       entity_id:
       - switch.ikea_steckdose_1
       - switch.ikea_steckdose_3
       - switch.steckdose_1
       - switch.steckdose_3
+      - switch.steckdose_2
+      - switch.steckdosenleiste_2
     data: {}
+    action: switch.turn_off
   mode: single
   icon: mdi:toggle-switch-off-outline
 sonos_set_volume_4:

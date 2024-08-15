@@ -11,6 +11,9 @@ entities:
   - sensor.swap_use
   - sensor.swap_use_percent
   - sensor.last_boot
+  - sensor.load_1m
+  - sensor.load_15m
+  - sensor.load_5m
   - person.wolfgang
   - device_tracker.iphone_wolfgang
   - vacuum.roborock_vacuum

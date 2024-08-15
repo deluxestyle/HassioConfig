@@ -1,13 +1,11 @@
 - name: Docker
   # url: tcp://192.168.200.33:2375
   containers:
-    # - deconz
     - portainer
     - nginx-proxy-manager
     - pihole
     - vaultwarden
     - wud
-    # - dockerproxy
     - mosquitto
     - dnscrypt
     - homeassistant
@@ -15,8 +13,8 @@
     - timescaledb
     - grafana
     - victoriametrics
+    - adguardhome
   rename:
-    # deconz: Deconz
     portainer: Portainer
     homeassistant: "Home Assistant"
     mariadb: MariaDB
@@ -24,13 +22,13 @@
     pihole: "Pi-Hole"
     vaultwarden: Vaultwarden
     wud: "What's up docker"
-    # dockerproxy: "Docker Proxy"
     mosquitto: Mosquitto
     dnscrypt: DNScrypt
     zigbee2mqtt: Zigbee2Mqtt
     timescaledb: TimeScaleDB
     grafana: Grafana
     victoriametrics: VictoriaMetrics
+    adguardhome: AdguardHome
   monitored_conditions:
     - version
     - containers_running

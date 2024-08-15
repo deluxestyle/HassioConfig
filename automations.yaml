@@ -405,7 +405,8 @@
   alias: 'Xiaomi Staubsauger: Abwesenheit'
   description: ''
   trigger:
-  - entity_id: group.presence
+  - entity_id:
+    - person.wolfgang
     platform: state
     to: not_home
   condition:
@@ -418,13 +419,13 @@
       entity_id: vacuum.roborock_vacuum
       state: cleaning
   action:
-  - service: notify.all_ios_devices
-    data:
+  - data:
       message: Staubsauger starten?
       data:
         actions:
         - action: START_VACUUM
           title: Starten
+    action: notify.all_ios_devices
   mode: single
 - id: '1630350328215'
   alias: 'Batterie: Niedriger Batteriestand'
@@ -694,7 +695,6 @@
     - update.wud_container_local_dnscrypt
     - update.wud_container_local_mosquitto
     - update.wud_container_local_nginx_proxy_manager
-    - update.wud_container_local_pihole
     - update.wud_container_local_vaultwarden
     - update.wud_container_local_wud
     - binary_sensor.updater_hacs
@@ -706,16 +706,16 @@
     to: 'on'
   condition: []
   action:
-  - service: input_boolean.turn_on
-    data: {}
+  - data: {}
     target:
       entity_id: input_boolean.persistent_notification
+    action: input_boolean.turn_on
   - data:
       message: '{{ trigger.from_state.attributes.friendly_name }} Update verfügbar '
       notification_id: '{{ trigger.from_state.attributes.friendly_name }} Update '
       title: Update
       url: /dashboard-system/system
-    service: script.notify_script
+    action: script.notify_script
   mode: single
 - id: '1679052124637'
   alias: Home Connect
@@ -1202,14 +1202,13 @@
   alias: 'Benachrichtigung: Solarstrom vorhanden'
   description: ''
   trigger:
-  - platform: numeric_state
+  - platform: state
     entity_id:
-    - sensor.smart_meter_summe_der_aktiven_momentanleistung
+    - binary_sensor.solarstrom
     for:
       hours: 0
       minutes: 10
       seconds: 0
-    below: -250
   condition:
   - condition: not
     conditions:
@@ -1217,10 +1216,50 @@
       entity_id: input_boolean.urlaubsmodus
       state: 'on'
   action:
-  - service: notify.mobile_app_iphone14pro
-    metadata: {}
+  - metadata: {}
     data:
       message: Genügen Solarstrom vorhanden
       title: Strom
       data: {}
+    action: notify.mobile_app_iphone14pro
+  mode: single
+- id: '1723469138890'
+  alias: 'System: Adblocker'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.docker_pihole_state
+    to: exited
+    id: pihole
+  - platform: state
+    entity_id:
+    - sensor.docker_adguardhome_state
+    id: adguard
+    to: exited
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - pihole
+      sequence:
+      - action: homeassistant.disable_config_entry
+        data:
+          config_entry_id: 879a3a123fb9406fb8e851f8fae22419
+      - action: homeassistant.enable_config_entry
+        data:
+          config_entry_id: 01J52YHBGARM6YGHAJJDFJJEHS
+    - conditions:
+      - condition: trigger
+        id:
+        - adguard
+      sequence:
+      - action: homeassistant.disable_config_entry
+        data:
+          config_entry_id: 01J52YHBGARM6YGHAJJDFJJEHS
+      - action: homeassistant.enable_config_entry
+        data:
+          config_entry_id: 879a3a123fb9406fb8e851f8fae22419
   mode: single
