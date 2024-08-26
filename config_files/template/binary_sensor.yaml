@@ -20,12 +20,6 @@
     state: "{{ states.sensor.waschmaschine_derzeitiger_verbrauch.state | float > 3 }}"
 
 #### Update Senors ####
-  - name: updater_hacs
-    unique_id: updater_hacs
-    device_class: problem
-    state: "{{ states('sensor.hacs')|int(0) > 0 }}"
-    availability: "{{ states('sensor.hacs')|lower not in ['unknown','unavailable','none'] }}"
-
   - name: docker_update
     unique_id: docker_update
     device_class: update

@@ -144,12 +144,9 @@
     platform: homeassistant
   condition: []
   action:
-  - service: homeassistant.update_entity
-    data:
-      entity_id: sensor.hacs
   - delay: 00:01:30
-  - service: automation.reload
-    data: {}
+  - data: {}
+    action: automation.reload
   mode: single
 - id: '1548418632803'
   alias: 'Xiaomi Staubsauger: Zähler zurücksetzen'
@@ -866,7 +863,7 @@
   description: ''
   trigger:
   - entity_id:
-    - sensor.judo_isoftsaveplus_daheim_salzreichweite
+    - sensor.judo_isoftsaveplus_daheim_judo_isoftsaveplus_daheim_salzreichweite
     platform: numeric_state
     for:
       hours: 0
@@ -877,14 +874,14 @@
   action:
   - data:
       entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
+    action: input_boolean.turn_on
   - data:
       message: 'Salz auffüllen: noch {{ states.sensor.judo_isoftsaveplus_daheim_salzreichweite.state
         }} Tage verbleibend '
       notification_id: salz
       title: Salz
       url: /dashboard-home/wasser
-    service: script.notify_script
+    action: script.notify_script
   mode: single
 - id: '1708550292805'
   alias: 'Benachrichtigung: Wasser'
@@ -892,7 +889,7 @@
   trigger:
   - platform: state
     entity_id:
-    - sensor.judo_isoftsaveplus_daheim_meldung
+    - sensor.judo_isoftsaveplus_daheim_judo_isoftsaveplus_daheim_meldung
     for:
       hours: 0
       minutes: 0
@@ -902,19 +899,19 @@
   - condition: not
     conditions:
     - condition: state
-      entity_id: sensor.judo_isoftsaveplus_daheim_meldung
+      entity_id: sensor.judo_isoftsaveplus_daheim_judo_isoftsaveplus_daheim_meldung
       state: unavailable
   action:
   - data:
       entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
+    action: input_boolean.turn_on
   - data:
       message: 'Hinweis Wasser: {{ states.sensor.judo_isoftsaveplus_daheim_meldung.state
         }} '
       notification_id: Wasser
       title: Wasser
       url: /dashboard-home/wasser
-    service: script.notify_script
+    action: script.notify_script
   mode: single
 - id: '1709502632703'
   alias: 'Staubsauger: Strom'
@@ -1222,44 +1219,4 @@
       title: Strom
       data: {}
     action: notify.mobile_app_iphone14pro
-  mode: single
-- id: '1723469138890'
-  alias: 'System: Adblocker'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - sensor.docker_pihole_state
-    to: exited
-    id: pihole
-  - platform: state
-    entity_id:
-    - sensor.docker_adguardhome_state
-    id: adguard
-    to: exited
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: trigger
-        id:
-        - pihole
-      sequence:
-      - action: homeassistant.disable_config_entry
-        data:
-          config_entry_id: 879a3a123fb9406fb8e851f8fae22419
-      - action: homeassistant.enable_config_entry
-        data:
-          config_entry_id: 01J52YHBGARM6YGHAJJDFJJEHS
-    - conditions:
-      - condition: trigger
-        id:
-        - adguard
-      sequence:
-      - action: homeassistant.disable_config_entry
-        data:
-          config_entry_id: 01J52YHBGARM6YGHAJJDFJJEHS
-      - action: homeassistant.enable_config_entry
-        data:
-          config_entry_id: 879a3a123fb9406fb8e851f8fae22419
   mode: single

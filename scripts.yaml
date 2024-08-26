@@ -103,14 +103,14 @@ notify_script:
   sequence:
   - data:
       entity_id: counter.badge_counter
-    service: counter.increment
+    action: counter.increment
   - data_template:
       message: '{{ message }}'
       data:
         push:
           badge: '{{ states.counter.badge_counter.state }}'
         url: '{{ url }}'
-    service: notify.all_ios_devices
+    action: notify.all_ios_devices
   - condition: state
     entity_id: input_boolean.persistent_notification
     state: 'on'
@@ -118,10 +118,10 @@ notify_script:
       message: '{{ message }}'
       notification_id: '{{ notification_id }}'
       title: '{{ title }}'
-    service: persistent_notification.create
+    action: persistent_notification.create
   - data:
       entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_off
+    action: input_boolean.turn_off
   mode: single
   icon: mdi:message-badge
 notify_clean_messages:
