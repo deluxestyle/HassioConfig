@@ -10,10 +10,10 @@
     - dnscrypt
     - homeassistant
     - zigbee2mqtt
-    - timescaledb
     - grafana
     - victoriametrics
     - adguardhome
+    - music-assistant
   rename:
     portainer: Portainer
     homeassistant: "Home Assistant"
@@ -25,10 +25,10 @@
     mosquitto: Mosquitto
     dnscrypt: DNScrypt
     zigbee2mqtt: Zigbee2Mqtt
-    timescaledb: TimeScaleDB
     grafana: Grafana
     victoriametrics: VictoriaMetrics
     adguardhome: AdguardHome
+    music-assistant: "Music Assistant"
   monitored_conditions:
     - version
     - containers_running

@@ -46,9 +46,9 @@ theme:
       # border-color: "#E8E8E8"
       popup-border-color: "#ffffff"
 
-      color-yellow: 242, 182, 1
-      color-red: 245, 68, 54
-      color-blue: 68, 115, 158
+      color-yellow: '#f2b601'
+      color-red: '#f54436'
+      color-blue: '#44739e'
 
       google-red: "#F54436"
       google-green: "#01C852"
@@ -64,9 +64,9 @@ theme:
       primary-text-color: "#DDDDDD"
       popup-border-color: "#1c1c1c"
 
-      color-yellow: 252, 214, 99
-      color-red: 241, 139, 130
-      color-blue: 137, 179, 248
+      color-yellow: '#fcd663'
+      color-red: '#f18b82'
+      color-blue: '#89b3f8'
 
       google-red: "#F18B82"
       google-green: "#80C994"

@@ -68,7 +68,7 @@
 ###############################################
     pi_hole_switch:
       friendly_name: "Pi-hole"
-      value_template: "{{ is_state('binary_sensor.pi_hole', 'on') }}"
+      value_template: "{{ is_state('binary_sensor.pi_hole_status', 'on') }}"
       turn_on:
         - service: switch.turn_on
           data: {}
@@ -77,17 +77,17 @@
         - service: homeassistant.update_entity
           data: {}
           target:
-            entity_id: binary_sensor.pi_hole
+            entity_id: binary_sensor.pi_hole_status
       turn_off:
         - service: pi_hole.disable
           data:
             duration: "{{states.input_datetime.pi_hole_timer.state}}"
           target:
-            device_id: 75c3e5a3dc174da39882183a70fc7e1a
+            device_id: ebd40264d8509d2e71bfc74cb7e4d045
         - service: homeassistant.update_entity
           data: {}
           target:
-            entity_id: binary_sensor.pi_hole
+            entity_id: binary_sensor.pi_hole_status
 ###############################################
     ds114:
       unique_id: ds114
