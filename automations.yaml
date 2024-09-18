@@ -1219,7 +1219,8 @@
     data:
       message: Genügen Solarstrom vorhanden
       title: Strom
-      data: {}
+      data:
+        url: /dashboard-home/strom
     action: notify.mobile_app_iphone14pro
   mode: single
 - id: '1724760502933'
@@ -1259,4 +1260,26 @@
     data: {}
     target:
       entity_id: switch.ds114
+  mode: single
+- id: '1726658107835'
+  alias: 'Benachrichtigung: Stromverbrauch hoch'
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.stromverbrauch_gesamt
+    for:
+      hours: 0
+      minutes: 13
+      seconds: 0
+    above: 300
+  condition: []
+  action:
+  - action: notify.mobile_app_iphone14pro
+    metadata: {}
+    data:
+      message: Stromverbrauch zu hoch
+      title: Stromverbrauch
+      data:
+        url: /dashboard-home/strom
   mode: single
