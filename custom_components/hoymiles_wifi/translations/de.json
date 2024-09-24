@@ -6,8 +6,15 @@
         "description": "Wenn Sie Hilfe bei der Konfiguration benötigen, schauen Sie hier vorbei: https://github.com/suaveolent/ha-hoymiles-wifi",
         "data": {
           "host": "Host",
-          "update_interval": "Aktualisierungsintervall (Sekunden)",
-          "sensor_prefix": "Sensorpräfix"
+          "update_interval": "Aktualisierungsintervall (Sekunden)"
+        }
+      },
+      "reconfigure": {
+        "title": "Hoymiles Verbindung",
+        "description": "Wenn Sie Hilfe bei der Konfiguration benötigen, schauen Sie hier vorbei: https://github.com/suaveolent/ha-hoymiles-wifi",
+        "data": {
+          "host": "Host",
+          "update_interval": "Aktualisierungsintervall (Sekunden)"
         }
       }
     },
@@ -110,6 +117,33 @@
       },
       "voltage_line_CA": {
         "name": "Spannung Phase CA"
+      },
+      "phase_total_power": {
+        "name": "Phasengesamtleistung"
+      },
+      "phase_A_power": {
+        "name": "Leistung Phase A"
+      },
+      "power_factor_total": {
+        "name": "Gesamtleistungsfaktor"
+      },
+      "energy_total_power": {
+        "name": "Gesamtenergie"
+      },
+      "energy_phase_A": {
+        "name": "Energie Phase A"
+      },
+      "energy_total_consumed": {
+        "name": "Gesamtverbrauchte Energie"
+      },
+      "energy_phase_A_consumed": {
+        "name": "Verbrauchte Energie Phase A"
+      },
+      "current_phase_A": {
+        "name": "Strom Phase A"
+      },
+      "power_factor_phase_A": {
+        "name": "Leistungsfaktor Phase A"
       }
     },
     "button": {
@@ -130,6 +164,9 @@
     },
     "dtu": {
       "name": "DTU"
+    },
+    "meter": {
+      "name": "Zähler"
     }
   }
 }

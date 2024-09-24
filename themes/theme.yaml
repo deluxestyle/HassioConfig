@@ -1,6 +1,6 @@
-theme:
+Home Assistant Clean:
 
-  card-mod-theme: theme
+  card-mod-theme: Home Assistant clean
   # card-mod-more-info-yaml: |    
   #   $: |
   #     .mdc-dialog {
@@ -42,13 +42,13 @@ theme:
   modes:
     light:
       # primary-background-color: "#f1f1f1"
-      secondary-background-color: "#ffffff"
+      #secondary-background-color: "#ffffff"
       # border-color: "#E8E8E8"
-      popup-border-color: "#ffffff"
+      #popup-border-color: "#ffffff"
 
-      color-yellow: '#f2b601'
-      color-red: '#f54436'
-      color-blue: '#44739e'
+      #color-yellow: '#f2b601'
+      #color-red: '#f54436'
+      #color-blue: '#44739e'
 
       google-red: "#F54436"
       google-green: "#01C852"
@@ -61,12 +61,12 @@ theme:
       
     dark:
       # border-color: "#1F1B24"
-      primary-text-color: "#DDDDDD"
-      popup-border-color: "#1c1c1c"
+      #primary-text-color: "#DDDDDD"
+      #popup-border-color: "#1c1c1c"
 
-      color-yellow: '#fcd663'
-      color-red: '#f18b82'
-      color-blue: '#89b3f8'
+      #color-yellow: '#fcd663'
+     #color-red: '#f18b82'
+      #color-blue: '#89b3f8'
 
       google-red: "#F18B82"
       google-green: "#80C994"

@@ -1208,6 +1208,7 @@
       hours: 0
       minutes: 10
       seconds: 0
+    to: 'on'
   condition:
   - condition: not
     conditions:
@@ -1273,7 +1274,12 @@
       minutes: 13
       seconds: 0
     above: 300
-  condition: []
+  condition:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.waschmaschine
+      state: 'on'
   action:
   - action: notify.mobile_app_iphone14pro
     metadata: {}
@@ -1282,4 +1288,23 @@
       title: Stromverbrauch
       data:
         url: /dashboard-home/strom
+  mode: single
+- id: '1727094203501'
+  alias: 'Benachrichtigung: Internet verbunden'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.fritz_box_7590_verbindung
+    to: 'on'
+    from: 'off'
+  condition: []
+  action:
+  - action: notify.mobile_app_iphone14pro
+    metadata: {}
+    data:
+      message: Internet verbunden
+      title: Internet
+      data:
+        url: /dashboard-system/fritz
   mode: single

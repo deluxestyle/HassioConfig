@@ -7,7 +7,14 @@
         "data": {
           "host": "[%key:common::config_flow::data::host%]",
           "update_interval": "Update Interval (seconds)",
-          "sensor_prefix" : "Sensor Prefix"
+        }
+      },
+      "reconfigure": {
+        "title": "Hoymiles DTU connection",
+        "description": "If you need help with the configuration have a look here: https://github.com/suaveolent/ha-hoymiles-wifi",
+        "data": {
+          "host": "[%key:common::config_flow::data::host%]",
+          "update_interval": "Update Interval (seconds)",
         }
       }
     },
@@ -110,6 +117,33 @@
       },
       "voltage_line_CA": {
         "name": "Voltage line CA"
+      },
+      "phase_total_power": {
+        "name": "Phase total power"
+      },
+      "phase_A_power": {
+        "name": "Phase A power"
+      },
+      "power_factor_total": {
+        "name": "Power factor total"
+      },
+      "energy_total_power": {
+        "name": "Energy total power"
+      },
+      "energy_phase_A": {
+        "name": "Energy phase A"
+      },
+      "energy_total_consumed": {
+        "name": "Energy total consumed"
+      },
+      "energy_phase_A_consumed": {
+        "name": "Energy phase A consumed"
+      },
+      "current_phase_A": {
+        "name": "Current phase A"
+      },
+      "power_factor_phase_A": {
+        "name": "Power factor phase A"
       }
     },
     "button" : {
@@ -130,6 +164,9 @@
     },
     "dtu": {
       "name": "DTU"
+    },
+    "meter": {
+      "name": "Meter"
     }
   }
 }

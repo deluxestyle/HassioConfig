@@ -37,6 +37,8 @@ entities:
   - sensor.stromverbrauch_gesamt_jahr
   - sensor.solarerzeugung_komplett
   - sensor.solarverbrauch_komplett
+  - sensor.net_upload_max
+  - sensor.net_download_max
 domains:
   - automation
   - switch
