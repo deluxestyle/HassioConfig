@@ -7,7 +7,10 @@
   - name: vw_days_in_use
     unique_id: vw_days_in_use
     #state: '{{ (as_timestamp(now()) - as_timestamp("2023-09-20 00:00:00") ) | timestamp_custom("%j")  | int }}'
-    state: '{{ ((as_timestamp(now()) - as_timestamp("2023-09-20 00:00:00") ) | int /60/1440) | round(0) }}'
+    #state: '{{ ((as_timestamp(now()) - as_timestamp("2023-09-20 00:00:00") ) | int /60/1440) | round(0) }}'
+    state: >
+          {% from 'easy_time.jinja' import count_the_days %}
+          {{ ( count_the_days('2023-09-20 00:00:00') | int ) * -1 }}
 
   - name: vw_km_threshold
     unique_id: vw_km_threshold
