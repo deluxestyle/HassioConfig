@@ -62,3 +62,4 @@ entity_globs:
   - sensor.total_consumtion*
   - sensor.warmepumpe*
   - sensor.pi_hole*
+  - sensor.adguard*

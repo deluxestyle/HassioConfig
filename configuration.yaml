@@ -26,9 +26,8 @@ http:
     - 172.30.33.0/24
     - 192.168.200.33
     - 192.168.200.75
-    - 172.17.0.6
-    - 172.17.0.4
     - 172.17.0.0/24
+    - 172.20.0.0/24
 
 frontend:
   themes: !include_dir_merge_named themes
@@ -103,3 +102,9 @@ notify:
 monitor_docker: !include config_files/monitor_docker.yaml
 
 var: !include config_files/var.yaml
+
+ssh_command:
+  host: 192.168.200.75
+  port: 22
+  user: !secret ssh_user
+  pass: !secret ssh_parssword

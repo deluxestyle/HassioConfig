@@ -10,22 +10,6 @@ sonos_stopp:
       - media_player.office
   mode: single
   icon: mdi:music-note-off
-xiaomi_vacuum_start:
-  alias: 'Xiaomi Staubsauger: einschalten'
-  sequence:
-  - data:
-      entity_id: vacuum.roborock_vacuum
-    service: vacuum.turn_on
-  mode: single
-  icon: mdi:robot-vacuum
-xiaomi_vacuum_stop:
-  alias: 'Xiaomi Staubsauger: ausschalten'
-  sequence:
-  - data:
-      entity_id: vacuum.roborock_vacuum
-    service: vacuum.turn_off
-  mode: single
-  icon: mdi:stop
 harmony_power_off:
   alias: 'Harmony: Ausschaltbefehl'
   sequence:
@@ -501,3 +485,92 @@ ds114_wol:
       target_mac: 00:11:32:2E:33:84
   description: ''
   icon: mdi:check-network
+adblocker_wechseln:
+  alias: Adblocker wechseln
+  sequence:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: sensor.docker_pihole_state
+        state: running
+      sequence:
+      - action: switch.turn_off
+        target:
+          entity_id:
+          - switch.docker_pihole
+          - switch.docker_dnscrypt
+        data: {}
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 2
+          milliseconds: 0
+      - action: switch.turn_on
+        target:
+          entity_id: switch.docker_adguardhome
+        data: {}
+    - conditions: []
+      sequence:
+      - action: switch.turn_off
+        target:
+          entity_id: switch.docker_adguardhome
+        data: {}
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 2
+          milliseconds: 0
+      - action: switch.turn_on
+        target:
+          entity_id:
+          - switch.docker_pihole
+          - switch.docker_dnscrypt
+        data: {}
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 10
+          milliseconds: 0
+      - action: homeassistant.reload_config_entry
+        target:
+          device_id: 914830a7f8345668770d6dfe270bea29
+        data: {}
+  description: ''
+  icon: si:adblock
+update_container:
+  alias: Update Container
+  sequence:
+  - action: ssh_command.exec_command
+    data_template:
+      command: ./scripts/updates/{{ container }}.sh
+  fields:
+    container:
+      selector:
+        text:
+      name: container
+      description: name of the container
+  description: ''
+  icon: mdi:docker
+restart_judo_mqtt:
+  alias: Restart Judo Mqtt
+  sequence:
+  - action: ssh_command.exec_command
+    data_template:
+      command: sudo systemctl restart getjudo.service
+  fields: {}
+  description: ''
+  icon: mdi:water-opacity
+backup_ausfuhren:
+  alias: Backup ausführen
+  sequence:
+  - action: ssh_command.exec_command
+    data_template:
+      command: ./scripts/backup/backup_{{ backup }}.sh
+  fields:
+    backup:
+      selector:
+        text:
+      name: backup
+      description: backup to execute
+  description: ''
+  icon: mdi:backup-restore

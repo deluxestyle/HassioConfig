@@ -1,0 +1,1142 @@
+streamline_templates:
+  docker:
+    card:
+      type: entities
+      entities:
+        - entity: switch.docker_[[container]]
+          tap_action:
+            action: none
+          toggle: true
+          type: custom:multiple-entity-row
+          icon: '[[icon]]'
+          entities:
+            - entity: update.wud_container_local_[[container]]
+              name: Container
+          card_mod:
+            style: |
+              :host {
+                color:
+                {% if is_state('update.wud_container_local_[[container]]', 'on') %}
+                  red
+                {% endif %}
+                ;
+              }
+        - entity: sensor.docker_[[container]]_memory
+          type: custom:multiple-entity-row
+          icon: si:docker
+          name: Docker
+          state_header: RAM
+          entities:
+            - entity: sensor.docker_[[container]]_1cpu
+              name: CPU
+        - type: custom:paper-buttons-row
+          styles:
+            justify-content: flex-start
+          buttons:
+            - entity: button.docker_[[container]]_restart
+              icon: mdi:restart
+              name: Restart
+              tap_action:
+                action: toggle
+            - entity: script.update_container
+              name: Update
+              tap_action:
+                action: call-service
+                service: script.update_container
+                service_data:
+                  container: '[[container]]'
+views:
+  - title: System
+    path: system
+    icon: mdi:cog-outline
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bar-card
+            card_mod:
+              style: |-
+                ha-card{
+                  --bar-card-border-radius: 5px;
+                  border-radius: 10px;
+                  box-shadow: 
+                }
+                bar-card-value {
+                  font-size: 12px;
+                  font-weight: bold;
+                  color: var(--secondary-text-color);
+                  }
+            entities:
+              - entity: sensor.processor_use
+                name: CPU
+                color: rgba(244, 196, 48, 1)
+              - entity: sensor.memory_use_percent
+                name: RAM
+                icon: mdi:memory
+                color: rgba(15, 82, 128, 1)
+              - entity: sensor.disk_use_percent
+                name: SDD
+                icon: mdi:harddisk
+                color: rgba(77, 163, 100, 1)
+            columns: 1
+            direction: right
+            positions:
+              icon: outside
+              indicator: 'off'
+              name: outside
+              value: inside
+            height: 20px
+            width: 85%
+            decimal: '0'
+            visibility:
+              - condition: user
+                users:
+                  - b6464705fc4e405abce8058610b4bcc7
+                  - ad15621184bb467b9a8f0395513766e1
+          - type: entities
+            entities:
+              - entity: sensor.cpu_temperature
+              - entity: sensor.memory_use
+              - entity: sensor.disk_use
+              - entity: sensor.sqlite_db_grosse
+              - entity: sensor.victoriametrics_size
+            visibility:
+              - condition: user
+                users:
+                  - ad15621184bb467b9a8f0395513766e1
+                  - b6464705fc4e405abce8058610b4bcc7
+          - type: glance
+            columns: 4
+            show_name: false
+            entities:
+              - entity: sensor.processor_use
+                name: CPU
+                card_mod:
+                  style: |
+                    :host {
+                      color:
+                      {% if (states('sensor.processor_use')  | int(0)) > 30 %}
+                        red
+                      {% endif %}
+                      ;
+                    }     
+              - entity: sensor.memory_use_percent
+                name: Memory %
+              - entity: sensor.swap_use_percent
+                name: Swap %
+                icon: mdi:file-swap
+              - entity: sensor.disk_use_percent
+                name: Disk %
+              - entity: sensor.cpu_temperature
+                icon: mdi:thermometer
+                name: CPU Temp
+                card_mod:
+                  style: |
+                    :host {
+                      color:
+                      {% if (states('sensor.cpu_temperature')  | int(0)) > 65 %}
+                        red
+                      {% endif %}
+                      ;
+                    }
+              - entity: sensor.memory_use
+                name: Memory
+              - entity: sensor.swap_use
+                name: Swap
+                icon: mdi:file-swap
+              - entity: sensor.disk_use
+                name: Disk
+              - entity: sensor.sqlite_db_grosse
+                icon: mdi:database
+              - entity: sensor.victoriametrics_size
+            visibility:
+              - condition: user
+                users: []
+      - type: grid
+        cards:
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - entity: binary_sensor.home_assistant_versions_update_available
+                type: custom:multiple-entity-row
+                show_state: false
+                entities:
+                  - entity: sensor.current_version
+                    name: Installiert
+                  - entity: sensor.home_assistant_versions
+                    name: Verfügbar
+                card_mod:
+                  style: |
+                    :host {
+                      color:
+                      {% if is_state('binary_sensor.home_assistant_versions_update_available', 'on') %}
+                        red
+                      {% endif %}
+                      ;
+                    }
+              - entity: binary_sensor.docker_update
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-system/docker
+                double_tap_action:
+                  action: url
+                  url_path: https://wud.tanzer-cloud.de/
+                card_mod:
+                  style: |
+                    :host {
+                      color:
+                      {%if is_state('binary_sensor.docker_update', 'on') %}
+                        orange
+                      {% endif %}
+                      ;
+                    }
+              - entity: binary_sensor.nextcloud_update_status
+                name: Nextcloud Hub
+                icon: si:nextcloud
+                type: custom:multiple-entity-row
+                show_state: false
+                entities:
+                  - entity: sensor.nextcloud_version
+                    name: Installiert
+                  - entity: sensor.nextcloud_latest_version
+                    name: Verfügbar
+                double_tap_action:
+                  action: url
+                  url_path: https://next.tanzer-online.com/
+                card_mod:
+                  style: |
+                    :host {
+                      color: 
+                      {% if is_state('binary_sensor.nextcloud_update_status', 'on') %}
+                        orange
+                      {% endif %}
+                      ;
+                    }
+              - type: custom:fold-entity-row
+                padding: 5
+                head:
+                  type: section
+                  label: Details
+                entities:
+                  - entity: sensor.anzahl_automationen
+                    tap_action:
+                      action: navigate
+                      navigation_path: /config/automation/dashboard
+                  - entity: sensor.anzahl_skripte
+                    tap_action:
+                      action: navigate
+                      navigation_path: /config/script/dashboard
+                  - entity: sensor.online_time
+                    name: Hass online
+                    icon: mdi:home-assistant
+                  - entity: sensor.last_boot
+          - type: entities
+            entities:
+              - entity: automation.batterie_niedriger_batteriestand
+                icon: mdi:battery-alert
+                name: Benachrichtung Batteriestand
+                tap_action:
+                  action: toggle
+                double_tap_action:
+                  action: navigate
+                  navigation_path: /config/automation/edit/1630350328215
+              - type: custom:auto-entities
+                filter:
+                  include:
+                    - entity_id: sensor.*batter*
+                      options:
+                        type: custom:battery-entity-row
+                  exclude:
+                    - entity_id: sensor.idm*
+                    - entity_id: sensor.ipad*
+                    - entity_id: sensor.iphone*
+                sort:
+                  method: name
+                card:
+                  type: custom:fold-entity-row
+                  head:
+                    type: section
+                    label: Batterien
+                  padding: 5
+          - type: custom:mushroom-chips-card
+            chips:
+              - type: action
+                icon: mdi:message-off-outline
+                tap_action:
+                  action: perform-action
+                  perform_action: script.notify_clean_messages
+                  target: {}
+              - type: action
+                icon: mdi:cellphone-message-off
+                tap_action:
+                  action: perform-action
+                  perform_action: script.notify_clean_badge
+                  target: {}
+    max_columns: 2
+    cards: []
+  - title: Docker
+    icon: mdi:docker
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: switch.docker_homeassistant
+                tap_action:
+                  action: none
+                toggle: true
+                type: custom:multiple-entity-row
+                icon: si:homeassistant
+                entities:
+                  - entity: update.wud_container_local_homeassistant
+                    name: Container
+                card_mod:
+                  style: |
+                    :host {
+                      color:
+                      {% if is_state('update.wud_container_local_homeassistant', 'on') %}
+                        red
+                      {% endif %}
+                      ;
+                    }
+              - entity: sensor.docker_homeassistant_memory
+                type: custom:multiple-entity-row
+                icon: si:docker
+                name: Docker
+                state_header: RAM
+                entities:
+                  - entity: sensor.docker_homeassistant_1cpu
+                    name: CPU
+              - type: custom:paper-buttons-row
+                styles:
+                  justify-content: flex-start
+                buttons:
+                  - entity: button.docker_homeassistant_restart
+                    icon: mdi:restart
+                    name: Restart
+                  - entity: script.update_container
+                    name: Update
+                    tap_action:
+                      action: call-service
+                      service: script.update_container
+                      service_data:
+                        container: homeassistant
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: switch.docker_zigbee2mqtt
+                tap_action:
+                  action: none
+                toggle: true
+                type: custom:multiple-entity-row
+                icon: si:zigbee
+                entities:
+                  - entity: update.wud_container_local_zigbee2mqtt
+                    name: Container
+                card_mod:
+                  style: |
+                    :host {
+                      color:
+                      {% if is_state('update.wud_container_local_zigbee2mqtt', 'on') %}
+                        red
+                      {% endif %}
+                      ;
+                    }
+              - entity: sensor.docker_zigbee2mqtt_memory
+                type: custom:multiple-entity-row
+                icon: si:docker
+                name: Docker
+                state_header: RAM
+                entities:
+                  - entity: sensor.docker_zigbee2mqtt_1cpu
+                    name: CPU
+              - type: custom:paper-buttons-row
+                styles:
+                  justify-content: flex-start
+                buttons:
+                  - entity: button.docker_zigbee2mqtt_restart
+                    icon: mdi:restart
+                    name: Restart
+                  - entity: script.update_container
+                    name: Update
+                    tap_action:
+                      action: call-service
+                      service: script.update_container
+                      service_data:
+                        container: zigbee2mqtt
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: switch.docker_nginx_proxy_manager
+                tap_action:
+                  action: none
+                toggle: true
+                type: custom:multiple-entity-row
+                icon: si:nginx
+                entities:
+                  - entity: update.wud_container_local_nginx_proxy_manager
+                    name: Container
+                card_mod:
+                  style: |
+                    :host {
+                      color:
+                      {% if is_state('update.wud_container_local_nginx_proxy_manager', 'on') %}
+                        red
+                      {% endif %}
+                      ;
+                    }
+              - entity: sensor.docker_nginx_proxy_manager_memory
+                type: custom:multiple-entity-row
+                icon: si:docker
+                name: Docker
+                state_header: RAM
+                entities:
+                  - entity: sensor.docker_nginx_proxy_manager_1cpu
+                    name: CPU
+              - type: custom:paper-buttons-row
+                styles:
+                  justify-content: flex-start
+                buttons:
+                  - entity: button.docker_nginx_proxy_manager_restart
+                    icon: mdi:restart
+                    name: Restart
+                  - entity: script.update_container
+                    name: Update
+                    tap_action:
+                      action: call-service
+                      service: script.update_container
+                      service_data:
+                        container: nginx
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: switch.docker_pihole
+                tap_action:
+                  action: none
+                toggle: true
+                type: custom:multiple-entity-row
+                icon: si:pihole
+                entities:
+                  - entity: update.wud_container_local_pihole
+                    name: Container
+                card_mod:
+                  style: |
+                    :host {
+                      color:
+                      {% if is_state('update.wud_container_local_pihole', 'on') %}
+                        red
+                      {% endif %}
+                      ;
+                    }
+              - entity: sensor.docker_pihole_memory
+                type: custom:multiple-entity-row
+                icon: si:docker
+                name: Docker
+                state_header: RAM
+                entities:
+                  - entity: sensor.docker_pihole_1cpu
+                    name: CPU
+              - type: custom:paper-buttons-row
+                styles:
+                  justify-content: flex-start
+                buttons:
+                  - entity: button.docker_pihole_restart
+                    icon: mdi:restart
+                    name: Restart
+                  - entity: script.update_container
+                    name: Update
+                    tap_action:
+                      action: call-service
+                      service: script.update_container
+                      service_data:
+                        container: pihole
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: switch.docker_dnscrypt
+                tap_action:
+                  action: none
+                toggle: true
+                type: custom:multiple-entity-row
+                icon: mdi:dns-outline
+                entities:
+                  - entity: update.wud_container_local_dnscrypt
+                    name: Container
+                card_mod:
+                  style: |
+                    :host {
+                      color:
+                      {% if is_state('update.wud_container_local_dnscrypt', 'on') %}
+                        red
+                      {% endif %}
+                      ;
+                    }
+              - entity: sensor.docker_dnscrypt_memory
+                type: custom:multiple-entity-row
+                icon: si:docker
+                name: Docker
+                state_header: RAM
+                entities:
+                  - entity: sensor.docker_dnscrypt_1cpu
+                    name: CPU
+              - type: custom:paper-buttons-row
+                styles:
+                  justify-content: flex-start
+                buttons:
+                  - entity: button.docker_dnscrypt_restart
+                    icon: mdi:restart
+                    name: Restart
+                  - entity: script.update_container
+                    name: Update
+                    tap_action:
+                      action: call-service
+                      service: script.update_container
+                      service_data:
+                        container: dnscrypt
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: switch.docker_adguardhome
+                tap_action:
+                  action: none
+                toggle: true
+                type: custom:multiple-entity-row
+                icon: mdi:music
+                entities:
+                  - entity: update.wud_container_local_adguardhome
+                    name: Container
+                card_mod:
+                  style: |
+                    :host {
+                      color:
+                      {% if is_state('update.wud_container_local_adguardhome', 'on') %}
+                        red
+                      {% endif %}
+                      ;
+                    }
+              - entity: sensor.docker_adguardhome_memory
+                type: custom:multiple-entity-row
+                icon: si:docker
+                name: Docker
+                state_header: RAM
+                entities:
+                  - entity: sensor.docker_adguardhome_1cpu
+                    name: CPU
+              - type: custom:paper-buttons-row
+                styles:
+                  justify-content: flex-start
+                buttons:
+                  - entity: button.docker_adguardhome_restart
+                    icon: mdi:restart
+                    name: Restart
+                  - entity: script.update_container
+                    name: Update
+                    tap_action:
+                      action: call-service
+                      service: script.update_container
+                      service_data:
+                        container: adguard
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: switch.docker_wud
+                tap_action:
+                  action: none
+                toggle: true
+                type: custom:multiple-entity-row
+                icon: mdi:update
+                entities:
+                  - entity: update.wud_container_local_wud
+                    name: Container
+                card_mod:
+                  style: |
+                    :host {
+                      color:
+                      {% if is_state('update.wud_container_local_wud', 'on') %}
+                        red
+                      {% endif %}
+                      ;
+                    }
+              - entity: sensor.docker_wud_memory
+                type: custom:multiple-entity-row
+                icon: si:docker
+                name: Docker
+                state_header: RAM
+                entities:
+                  - entity: sensor.docker_wud_1cpu
+                    name: CPU
+              - type: custom:paper-buttons-row
+                styles:
+                  justify-content: flex-start
+                buttons:
+                  - entity: button.docker_wud_restart
+                    icon: mdi:restart
+                    name: Restart
+                  - entity: script.update_container
+                    name: Update
+                    tap_action:
+                      action: call-service
+                      service: script.update_container
+                      service_data:
+                        container: wud
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: switch.docker_portainer
+                tap_action:
+                  action: none
+                toggle: true
+                type: custom:multiple-entity-row
+                icon: si:portainer
+                entities:
+                  - entity: update.wud_container_local_portainer
+                    name: Container
+                card_mod:
+                  style: |
+                    :host {
+                      color:
+                      {% if is_state('update.wud_container_local_portainer', 'on') %}
+                        red
+                      {% endif %}
+                      ;
+                    }
+              - entity: sensor.docker_portainer_memory
+                type: custom:multiple-entity-row
+                icon: si:docker
+                name: Docker
+                state_header: RAM
+                entities:
+                  - entity: sensor.docker_portainer_1cpu
+                    name: CPU
+              - type: custom:paper-buttons-row
+                styles:
+                  justify-content: flex-start
+                buttons:
+                  - entity: button.docker_portainer_restart
+                    icon: mdi:restart
+                    name: Restart
+                  - entity: script.update_container
+                    name: Update
+                    tap_action:
+                      action: call-service
+                      service: script.update_container
+                      service_data:
+                        container: portainer
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: switch.docker_mosquitto
+                tap_action:
+                  action: none
+                toggle: true
+                type: custom:multiple-entity-row
+                icon: si:eclipsemosquitto
+                entities:
+                  - entity: update.wud_container_local_mosquitto
+                    name: Container
+                card_mod:
+                  style: |
+                    :host {
+                      color:
+                      {% if is_state('update.wud_container_local_mosquitto', 'on') %}
+                        red
+                      {% endif %}
+                      ;
+                    }
+              - entity: sensor.docker_mosquitto_memory
+                type: custom:multiple-entity-row
+                icon: si:docker
+                name: Docker
+                state_header: RAM
+                entities:
+                  - entity: sensor.docker_mosquitto_1cpu
+                    name: CPU
+              - type: custom:paper-buttons-row
+                styles:
+                  justify-content: flex-start
+                buttons:
+                  - entity: button.docker_mosquitto_restart
+                    icon: mdi:restart
+                    name: Restart
+                  - entity: script.update_container
+                    name: Update
+                    tap_action:
+                      action: call-service
+                      service: script.update_container
+                      service_data:
+                        container: mosquitto
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: switch.docker_vaultwarden
+                tap_action:
+                  action: none
+                toggle: true
+                type: custom:multiple-entity-row
+                icon: si:bitwarden
+                entities:
+                  - entity: update.wud_container_local_vaultwarden
+                    name: Container
+                card_mod:
+                  style: |
+                    :host {
+                      color:
+                      {% if is_state('update.wud_container_local_vaultwarden', 'on') %}
+                        red
+                      {% endif %}
+                      ;
+                    }
+              - entity: sensor.docker_vaultwarden_memory
+                type: custom:multiple-entity-row
+                icon: si:docker
+                name: Docker
+                state_header: RAM
+                entities:
+                  - entity: sensor.docker_vaultwarden_1cpu
+                    name: CPU
+              - type: custom:paper-buttons-row
+                styles:
+                  justify-content: flex-start
+                buttons:
+                  - entity: button.docker_vaultwarden_restart
+                    icon: mdi:restart
+                    name: Restart
+                  - entity: script.update_container
+                    name: Update
+                    tap_action:
+                      action: call-service
+                      service: script.update_container
+                      service_data:
+                        container: vaultwarden
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: switch.docker_victoriametrics
+                tap_action:
+                  action: none
+                toggle: true
+                type: custom:multiple-entity-row
+                icon: mdi:database
+                entities:
+                  - entity: update.wud_container_local_victoriametrics
+                    name: Container
+                card_mod:
+                  style: |
+                    :host {
+                      color:
+                      {% if is_state('update.wud_container_local_victoriametrics', 'on') %}
+                        red
+                      {% endif %}
+                      ;
+                    }
+              - entity: sensor.docker_victoriametrics_memory
+                type: custom:multiple-entity-row
+                icon: si:docker
+                name: Docker
+                state_header: RAM
+                entities:
+                  - entity: sensor.docker_victoriametrics_1cpu
+                    name: CPU
+              - type: custom:paper-buttons-row
+                styles:
+                  justify-content: flex-start
+                buttons:
+                  - entity: button.docker_victoriametrics_restart
+                    icon: mdi:restart
+                    name: Restart
+                  - entity: script.update_container
+                    name: Update
+                    tap_action:
+                      action: call-service
+                      service: script.update_container
+                      service_data:
+                        container: victoriametrics
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: switch.docker_music_assistant
+                tap_action:
+                  action: none
+                toggle: true
+                type: custom:multiple-entity-row
+                icon: mdi:music
+                entities:
+                  - entity: update.wud_container_local_music_assistant
+                    name: Container
+                card_mod:
+                  style: |
+                    :host {
+                      color:
+                      {% if is_state('update.wud_container_local_music_assistant', 'on') %}
+                        red
+                      {% endif %}
+                      ;
+                    }
+              - entity: sensor.docker_music_assistant_memory
+                type: custom:multiple-entity-row
+                icon: si:docker
+                name: Docker
+                state_header: RAM
+                entities:
+                  - entity: sensor.docker_music_assistant_1cpu
+                    name: CPU
+              - type: custom:paper-buttons-row
+                styles:
+                  justify-content: flex-start
+                buttons:
+                  - entity: button.docker_music_assistant_restart
+                    icon: mdi:restart
+                    name: Restart
+                  - entity: script.update_container
+                    name: Update
+                    tap_action:
+                      action: call-service
+                      service: script.update_container
+                      service_data:
+                        container: music_assistant
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: sensor.docker_version
+                tap_action:
+                  action: none
+              - entity: sensor.docker_1cpu
+              - entity: sensor.docker_memory
+      - type: grid
+        cards:
+          - type: custom:streamline-card
+            template: docker
+            variables:
+              icon: mdi:update
+              container: wud
+              '"container"': ''
+    path: docker
+    max_columns: 3
+    cards: []
+    visible:
+      - user: b6464705fc4e405abce8058610b4bcc7
+  - title: Fritz
+    path: fritz
+    icon: mdi:router-network-wireless
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: custom:apexcharts-card
+            update_interval: 30sec
+            graph_span: 6h
+            all_series_config:
+              stroke_width: 1
+              opacity: 0.2
+              type: area
+            series:
+              - entity: sensor.fritz_box_7590_download_durchsatz
+                name: Download
+              - entity: sensor.fritz_box_7590_upload_durchsatz
+                name: Upload
+                color: rgb(15, 82, 128)
+          - type: glance
+            columns: 4
+            show_name: false
+            entities:
+              - entity: sensor.net_download_max
+                icon: mdi:cloud-download
+                name: Max Down
+              - entity: sensor.net_upload_max
+                icon: mdi:cloud-upload
+                name: Max Up
+              - entity: sensor.fritz_box_7590_verbindungsverfugbarkeit
+                name: Seit
+              - entity: binary_sensor.fritz_box_7590_verbindung
+                double_tap_action:
+                  action: navigate
+                  navigation_path: /config/devices/device/36a8d6e82781d3f1100027ab2637239a
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: switch.fritz_box_7590_wi_fi_google_messwagen_26_2_4ghz
+                name: Wi-Fi FRITZ!Box 2.4Ghz
+                tap_action:
+                  action: toggle
+                  confirmation:
+                    text: WiFi ein/ausschalten?
+              - entity: switch.fritz_box_7590_wi_fi_google_messwagen_26_5ghz
+                name: Wi-Fi FRITZ!Box 5Ghz
+                tap_action:
+                  action: toggle
+                  confirmation:
+                    text: WiFi ein/ausschalten?
+              - type: custom:auto-entities
+                filter:
+                  include:
+                    - entity_id: '*internet_access'
+                      options:
+                        tap_action:
+                          action: toggle
+                  exclude:
+                    - entity_id: switch.tab_a8_internet_access
+                    - entity_id: switch.redminote6pro_redmin_internet_access
+                    - entity_id: switch.mi_32c2f2a0_internet_access
+                    - entity_id: switch.ds114_internet_access
+                sort:
+                  method: name
+                card:
+                  type: custom:fold-entity-row
+                  head:
+                    type: section
+                    label: Internet Zugang
+                  padding: 5
+              - type: custom:auto-entities
+                filter:
+                  include:
+                    - entity_id: switch.fritz_box_7590_port_forward*
+                      options:
+                        tap_action:
+                          action: toggle
+                sort:
+                  method: name
+                card:
+                  type: custom:fold-entity-row
+                  head:
+                    type: section
+                    label: Ports
+                  padding: 5
+              - type: custom:auto-entities
+                filter:
+                  include:
+                    - domain: device_tracker
+                      options:
+                        secondary_info: last-changed
+                      attributes:
+                        source_type: router
+                        ip: 192.168.200.*
+                  exclude:
+                    - entity_id: device_tracker.iphone_wolfgang
+                    - entity_id: device_tracker.iphone_christina
+                    - entity_id: device_tracker.wireguard_*
+                sort:
+                  method: state
+                card:
+                  type: custom:fold-entity-row
+                  head:
+                    type: section
+                    label: Netzwerkgeräte
+                  padding: 5
+              - type: custom:auto-entities
+                filter:
+                  include:
+                    - entity_id: device_tracker.wireguard_*
+                      options:
+                        secondary_info: last-changed
+                sort:
+                  method: state
+                card:
+                  type: custom:fold-entity-row
+                  head:
+                    type: section
+                    label: VPN
+                  padding: 5
+              - type: custom:auto-entities
+                filter:
+                  include:
+                    - entity_id: button.fritz_box_7590_*
+                      options:
+                        tap_action:
+                          action: toggle
+                sort:
+                  method: name
+                card:
+                  type: custom:fold-entity-row
+                  head:
+                    type: section
+                    label: Sonstiges
+                  padding: 5
+              - type: section
+              - type: weblink
+                name: Fritz!Box
+                url: /config/devices/device/36a8d6e82781d3f1100027ab2637239a
+          - type: entities
+            entities:
+              - entity: switch.pi_hole_switch
+                icon: mdi:pi-hole
+                name: AdBlocker (Pi-Hole)
+                tap_action:
+                  action: toggle
+                  confirmation:
+                    text: AdBlocker (Pi-hole) ein-/ausschalten?
+              - entity: input_datetime.pi_hole_timer
+                tap_action:
+                  action: none
+              - entity: sensor.pi_hole_werbungsanteil_heute_blockiert
+                name: Blockiert
+              - type: custom:auto-entities
+                filter:
+                  exclude:
+                    - entity_id: sensor.pi_hole_werbungsanteil_heute_blockiert
+                  include:
+                    - entity_id: sensor.pi_hole_*
+                sort:
+                  method: name
+                card:
+                  type: custom:fold-entity-row
+                  head:
+                    type: section
+                    label: Pi-hole Stats
+                  padding: 5
+            state_color: true
+            visibility:
+              - condition: state
+                entity: sensor.docker_pihole_state
+                state: running
+          - type: custom:mushroom-chips-card
+            chips:
+              - type: action
+                tap_action:
+                  action: url
+                  url_path: https://pihole.tanzer-cloud.de/
+                icon: si:pihole
+              - type: action
+                tap_action:
+                  action: perform-action
+                  perform_action: script.adblocker_wechseln
+                  target: {}
+                icon: si:adblock
+            visibility:
+              - condition: state
+                entity: sensor.docker_pihole_state
+                state: running
+          - type: entities
+            entities:
+              - entity: switch.adguard_home_filterung
+              - entity: switch.adguard_home_schutz
+              - entity: switch.adguard_home_sichere_suche
+              - entity: switch.adguard_home_sicheres_surfen
+              - entity: switch.adguard_home_kindersicherung
+              - entity: switch.adguard_home_abfrageprotokoll
+              - type: custom:auto-entities
+                filter:
+                  exclude: null
+                  include:
+                    - entity_id: sensor.adguard*
+                sort:
+                  method: name
+                card:
+                  type: custom:fold-entity-row
+                  head:
+                    type: section
+                    label: Adguard Stats
+                  padding: 5
+            visibility:
+              - condition: state
+                entity: sensor.docker_adguardhome_state
+                state: running
+          - type: custom:mushroom-chips-card
+            chips:
+              - type: action
+                tap_action:
+                  action: url
+                  url_path: https://adguard.tanzer-cloud.de/
+                icon: si:adguard
+              - type: action
+                tap_action:
+                  action: perform-action
+                  perform_action: script.adblocker_wechseln
+                  target: {}
+                icon: si:adblock
+            visibility:
+              - condition: state
+                entity: sensor.docker_adguardhome_state
+                state: running
+    max_columns: 2
+    cards: []
+  - title: NAS
+    path: nas
+    icon: mdi:nas
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: switch.ds118
+              - type: custom:auto-entities
+                filter:
+                  include:
+                    - entity_id: sensor.ynzvpg2*
+                sort:
+                  method: name
+                card:
+                  type: custom:fold-entity-row
+                  head:
+                    type: section
+                    label: Syncthing Status
+                  padding: 5
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: switch.ds114
+  - title: Scheduler
+    path: scheduler
+    icon: mdi:calendar-multiple-check
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: custom:scheduler-card
+            include:
+              - button.homeassistant_reload
+              - button.homeassistant_restart
+              - person
+              - script
+              - script.sonos_stopp
+              - sensor.hoymiles_hms_800w_t2_ac_power
+              - switch.ds114
+              - switch.ds118
+              - switch.ikea_steckdose_1
+              - switch.ikea_steckdose_2
+              - switch.steckdose_1
+              - switch.steckdose_2
+              - switch.steckdose_3
+              - switch.steckdose_4
+              - switch.waschmaschine
+              - vacuum
+            exclude: []
+  - title: Links
+    path: links
+    icon: mdi:link-variant
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: entities
+            entities:
+              - type: weblink
+                url: /history
+                name: Verlauf
+                icon: mdi:clipboard-text-clock-outline
+                new_tab: false
+              - type: weblink
+                url: /logbook
+                name: Logbuch
+                icon: mdi:clipboard-text-clock-outline
+                new_tab: false
+              - type: weblink
+                url: /hacs
+                name: HACS
+                icon: hacs:hacs
+                new_tab: false

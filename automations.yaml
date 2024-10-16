@@ -202,27 +202,27 @@
     service: persistent_notification.create
 - id: '1564908105933'
   alias: 'Benachrichtigung: RAM zu hoch'
-  trigger:
-  - above: 80
+  triggers:
+  - above: 50
     entity_id:
     - sensor.memory_use_percent
-    platform: numeric_state
     for:
       hours: 0
       minutes: 15
       seconds: 0
-  condition: []
-  action:
+    trigger: numeric_state
+  conditions: []
+  actions:
   - data:
       entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
+    action: input_boolean.turn_on
   - data:
       message: 'RAM Auslastung zu hoch: {{ states.sensor.memory_use_percent.state
         }} % '
       notification_id: pi
       title: Raspi
       url: /dashboard-system/system
-    service: script.notify_script
+    action: script.notify_script
   mode: single
 - id: '1568628137654'
   alias: 'Xiaomi Staubsauger: Benachrichtigung Filter kritisch'
@@ -686,24 +686,24 @@
 - id: '1677324816990'
   alias: 'Benachrichtigung: Updates'
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - update.wud_container_local_dnscrypt
+  triggers:
+  - entity_id:
+    - update.wud_container_local_adguardhome
+    - update.wud_container_local_homeassistant
     - update.wud_container_local_mosquitto
+    - update.wud_container_local_music_assistant
     - update.wud_container_local_nginx_proxy_manager
-    - update.wud_container_local_vaultwarden
-    - update.wud_container_local_wud
-    - binary_sensor.home_assistant_versions_update_available
+    - update.wud_container_local_pihole
     - update.wud_container_local_portainer
+    - update.wud_container_local_vaultwarden
+    - update.wud_container_local_victoriametrics
+    - update.wud_container_local_wud
     - update.wud_container_local_zigbee2mqtt
     - binary_sensor.nextcloud_update_status
-    - update.wud_container_local_pihole
-    - update.wud_container_local_music_assistant
-    - update.wud_container_local_victoriametrics
     to: 'on'
-  condition: []
-  action:
+    trigger: state
+  conditions: []
+  actions:
   - data: {}
     target:
       entity_id: input_boolean.persistent_notification
@@ -739,30 +739,6 @@
   action:
   - service: script.sonos_set_volume_10
     data: {}
-  mode: single
-- id: '1692959068223'
-  alias: 'Benachrichtigung: PiHole Problem '
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - sensor.docker_pihole_state
-    for:
-      hours: 0
-      minutes: 1
-      seconds: 0
-    from: running
-  condition: []
-  action:
-  - data: {}
-    entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
-  - data:
-      message: PiHole nicht verfügbar
-      notification_id: pihole
-      title: PiHole
-      url: https://pihole.tanzer-cloud.de/admin/
-    service: script.notify_script
   mode: single
 - id: '1696409652364'
   alias: Abwesenheit
@@ -889,22 +865,22 @@
 - id: '1708550292805'
   alias: 'Benachrichtigung: Wasser'
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - sensor.judo_isoftsaveplus_daheim_judo_isoftsaveplus_daheim_meldung
     for:
       hours: 0
       minutes: 0
       seconds: 30
+    trigger: state
     from: Initialisierung erfolgreich!
-  condition:
+  conditions:
   - condition: not
     conditions:
     - condition: state
       entity_id: sensor.judo_isoftsaveplus_daheim_judo_isoftsaveplus_daheim_meldung
       state: unavailable
-  action:
+  actions:
   - data:
       entity_id: input_boolean.persistent_notification
     action: input_boolean.turn_on
@@ -1141,25 +1117,6 @@
           url: /lovelace/dishwasher
         service: script.notify_script
   mode: single
-- id: '1719416567346'
-  alias: 'DS118: Raspi Backup'
-  description: ''
-  trigger:
-  - platform: time
-    at: 02:00:00
-  condition:
-  - condition: time
-    weekday:
-    - wed
-  - condition: state
-    entity_id: binary_sensor.192_168_200_41
-    state: 'off'
-  action:
-  - service: switch.turn_on
-    target:
-      entity_id: switch.ds118
-    data: {}
-  mode: single
 - id: '1721659414494'
   alias: Aquara Switch (Double)
   description: ''
@@ -1308,4 +1265,102 @@
       title: Internet
       data:
         url: /dashboard-system/fritz
+  mode: single
+- id: '1728460062611'
+  alias: Adblocker
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - sensor.docker_adguardhome_state
+    id: adguard
+    to: running
+  - trigger: state
+    entity_id:
+    - sensor.docker_pihole_state
+    id: pihole
+    to: running
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - adguard
+      sequence:
+      - action: homeassistant.disable_config_entry
+        data:
+          config_entry_id: 01J5V9PF3AMXWZEWC3PND498VP
+      - action: homeassistant.enable_config_entry
+        data:
+          config_entry_id: 01J9P8YGG9VBY95M9CXCBMRKSS
+      - action: switch.turn_off
+        target:
+          entity_id: switch.docker_dnscrypt
+        data: {}
+    - conditions:
+      - condition: trigger
+        id:
+        - pihole
+      sequence:
+      - action: homeassistant.enable_config_entry
+        data:
+          config_entry_id: 01J5V9PF3AMXWZEWC3PND498VP
+      - action: homeassistant.disable_config_entry
+        data:
+          config_entry_id: 01J9P8YGG9VBY95M9CXCBMRKSS
+      - action: switch.turn_on
+        data: {}
+        target:
+          entity_id: switch.docker_dnscrypt
+  mode: single
+- id: '1728840955896'
+  alias: 'Benachrichtigung: Wärmepumpe'
+  description: ''
+  triggers:
+  - entity_id:
+    - binary_sensor.idm_summenstorung_warmepumpe
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 30
+    trigger: state
+    to: 'on'
+  conditions: []
+  actions:
+  - data:
+      entity_id: input_boolean.persistent_notification
+    action: input_boolean.turn_on
+  - data:
+      message: Problem mit Wärmepumpe
+      notification_id: Wärmepumpe
+      title: Wärmepumpe
+      url: /dashboard-home/warmepumpe
+    action: script.notify_script
+  mode: single
+- id: '1728990201744'
+  alias: 'Backup: Vaultwarden'
+  description: ''
+  triggers:
+  - trigger: time
+    at: '21:00:00'
+  conditions: []
+  actions:
+  - action: script.backup_ausfuhren
+    metadata: {}
+    data:
+      backup: vaultwarden
+  mode: single
+- id: '1728990292492'
+  alias: 'Backup: Home Assistant'
+  description: ''
+  triggers:
+  - trigger: time
+    at: '21:05:00'
+  conditions: []
+  actions:
+  - action: script.backup_ausfuhren
+    metadata: {}
+    data:
+      backup: homeassistant
   mode: single
