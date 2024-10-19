@@ -509,6 +509,9 @@ adblocker_wechseln:
         target:
           entity_id: switch.docker_adguardhome
         data: {}
+      - action: ssh_command.exec_command
+        data_template:
+          command: ./scripts/update_redirect.sh adguard
     - conditions: []
       sequence:
       - action: switch.turn_off
@@ -535,6 +538,9 @@ adblocker_wechseln:
         target:
           device_id: 914830a7f8345668770d6dfe270bea29
         data: {}
+      - action: ssh_command.exec_command
+        data_template:
+          command: ./scripts/update_redirect.sh pihole
   description: ''
   icon: si:adblock
 update_container:
@@ -574,3 +580,12 @@ backup_ausfuhren:
       description: backup to execute
   description: ''
   icon: mdi:backup-restore
+server_backup:
+  alias: Server Backup
+  sequence:
+  - action: ssh_command.exec_command
+    data_template:
+      command: sudo dietpi-backup 1
+  fields: {}
+  description: ''
+  icon: mdi:server

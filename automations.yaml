@@ -946,16 +946,16 @@
 - id: '1712859659808'
   alias: Spülmaschine Solar
   description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id:
+  triggers:
+  - entity_id:
     - sensor.smart_meter_summe_der_aktiven_momentanleistung
     for:
       hours: 0
       minutes: 10
       seconds: 0
     below: -250
-  condition:
+    trigger: numeric_state
+  conditions:
   - condition: not
     conditions:
     - condition: state
@@ -964,9 +964,11 @@
     - condition: state
       entity_id: input_boolean.urlaubsmodus
       state: 'on'
-  action:
-  - service: notify.mobile_app_iphone14pro
-    metadata: {}
+    - condition: state
+      entity_id: binary_sensor.bosch_home_connect
+      state: 'on'
+  actions:
+  - metadata: {}
     data:
       message: Spülmaschine starten
       title: Spülmaschine
@@ -976,25 +978,26 @@
           title: Starten
         - action: DISHWASHER_STOP
           title: nicht starten
+    action: notify.mobile_app_iphone14pro
   - wait_for_trigger:
-    - platform: event
-      event_type: mobile_app_notification_action
+    - event_type: mobile_app_notification_action
       event_data:
         action: DISHWASHER_START
       id: start
+      trigger: event
     continue_on_timeout: false
     timeout:
       hours: 0
       minutes: 15
       seconds: 0
       milliseconds: 0
-  - service: script.spulmaschine
-    data: {}
-  - service: automation.turn_off
-    target:
+  - data: {}
+    action: script.spulmaschine
+  - target:
       entity_id: automation.spulmaschine_solar
     data:
       stop_actions: false
+    action: automation.turn_off
   mode: single
 - id: '1712859987600'
   alias: 'Benachrichtigung: Geschirrspüler gestartet '

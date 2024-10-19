@@ -63,3 +63,5 @@ entity_globs:
   - sensor.warmepumpe*
   - sensor.pi_hole*
   - sensor.adguard*
+  - sensor.ds11*
+  - binary_sensor.ds11*
