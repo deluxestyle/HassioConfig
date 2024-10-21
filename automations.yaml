@@ -1367,3 +1367,22 @@
     data:
       backup: homeassistant
   mode: single
+- id: '1729504391449'
+  alias: Restart Judo
+  description: ''
+  triggers:
+  - trigger: template
+    value_template: '{{ states.sensor.judo_isoftsaveplus_daheim_judo_isoftsaveplus_daheim_verbrauch_heute.attributes.device_class
+      != ''water'' }}'
+  conditions: []
+  actions:
+  - action: script.restart_judo_mqtt
+    metadata: {}
+    data: {}
+  - data:
+      message: Judo Restart
+      notification_id: restart
+      title: Judo
+      url: /dashboard-home/wasser
+    action: script.notify_script
+  mode: single
