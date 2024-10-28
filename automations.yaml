@@ -548,23 +548,23 @@
 - id: '1667402945500'
   alias: 'Benachrichtigung: Geschirrspüler fertig'
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - sensor.013050391085014163_bsh_common_status_operationstate
-    to: BSH.Common.EnumType.OperationState.Finished
-  condition: []
-  action:
+  triggers:
+  - device_id: c951745c6284e4c8e44657feb7096fec
+    domain: home_connect_alt
+    type: program_finished
+    trigger: device
+  conditions: []
+  actions:
   - data: {}
     entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
     enabled: false
+    action: input_boolean.turn_on
   - data:
       message: Geschirrspüler fertig
       notification_id: dish_washer
       title: Geschirrspüler
       url: /lovelace/dishwasher
-    service: script.notify_script
+    action: script.notify_script
   mode: single
 - id: '1668452168948'
   alias: 'Harmony: Set Bass'
@@ -756,9 +756,8 @@
 - id: '1700668485019'
   alias: 'Benachrichtigung: Luftfeuchtigkeit'
   description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id:
+  triggers:
+  - entity_id:
     - sensor.aqara_sensor_1_humidity
     - sensor.aqara_sensor_2_humidity
     - sensor.aqara_sensor_3_humidity
@@ -772,9 +771,10 @@
       hours: 0
       minutes: 0
       seconds: 0
-    above: 65
-  condition: []
-  action:
+    above: 60
+    trigger: numeric_state
+  conditions: []
+  actions:
   - data: {}
     target:
       entity_id: input_boolean.persistent_notification
@@ -1002,28 +1002,27 @@
 - id: '1712859987600'
   alias: 'Benachrichtigung: Geschirrspüler gestartet '
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - sensor.013050391085014163_bsh_common_status_operationstate
-    to: BSH.Common.EnumType.OperationState.Run
-    from: BSH.Common.EnumType.OperationState.Ready
-  condition: []
-  action:
+  triggers:
+  - device_id: c951745c6284e4c8e44657feb7096fec
+    domain: home_connect_alt
+    type: program_started
+    trigger: device
+  conditions: []
+  actions:
   - data: {}
     entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
+    action: input_boolean.turn_on
   - data:
       message: Geschirrspüler gestartet
       notification_id: dish_washer
       title: Geschirrspüler
       url: /lovelace/dishwasher
-    service: script.notify_script
-  - service: automation.turn_off
-    target:
+    action: script.notify_script
+  - target:
       entity_id: automation.spulmaschine_solar
     data:
       stop_actions: true
+    action: automation.turn_off
   mode: single
 - id: '1715000671907'
   alias: 'Benachrichtigung: Fenster offen'
@@ -1316,6 +1315,16 @@
         data: {}
         target:
           entity_id: switch.docker_dnscrypt
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
+  - action: button.press
+    metadata: {}
+    data: {}
+    target:
+      entity_id: button.docker_wud_restart
   mode: single
 - id: '1728840955896'
   alias: 'Benachrichtigung: Wärmepumpe'
@@ -1385,4 +1394,38 @@
       title: Judo
       url: /dashboard-home/wasser
     action: script.notify_script
+  mode: single
+- id: '1729682703619'
+  alias: 'Benachrichtigung: Geschirrspüler Netzwerk'
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - sensor.013050391085014163_bsh_common_status_operationstate
+    to: unknown
+  conditions: []
+  actions:
+  - action: notify.mobile_app_iphone14pro
+    metadata: {}
+    data:
+      message: Geschirrspüler nicht verbunden
+      title: 'Geschirrspüler '
+  mode: single
+- id: '1729919610332'
+  alias: 'Benachrichtigung: Internet getrennt '
+  description: ''
+  triggers:
+  - entity_id:
+    - binary_sensor.fritz_box_7590_verbindung
+    trigger: state
+    to: 'off'
+  conditions: []
+  actions:
+  - action: notify.mobile_app_iphone14pro
+    metadata: {}
+    data:
+      message: 'Internet getrennt '
+      title: Internet
+      data:
+        url: /dashboard-system/fritz
   mode: single

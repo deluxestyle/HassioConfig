@@ -12,7 +12,7 @@
   - name: bosch_home_connect
     unique_id: bosch_home_connect
     device_class: problem
-    state: "{{ states('sensor.home_connect_status')|lower in ['unknown','unavailable','none', 'blocked', 'loading_failed'] }}"
+    state: "{{ states('sensor.home_connect_status')|lower in ['unknown','unavailable','none', 'blocked', 'loading_failed'] or states('sensor.013050391085014163_bsh_common_status_operationstate') == 'unavailable' }}"
 
   - name: Waschmaschine
     unique_id: washing_machine

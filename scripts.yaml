@@ -585,7 +585,7 @@ server_backup:
   sequence:
   - action: ssh_command.exec_command
     data_template:
-      command: sudo dietpi-backup 1
+      command: ./scripts/backup/backup_server.sh
   fields: {}
   description: ''
   icon: mdi:server
