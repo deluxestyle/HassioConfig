@@ -67,6 +67,7 @@
 
 ###############################################
     pi_hole_switch:
+      unique_id: pi_hole_switch
       friendly_name: "Pi-hole"
       value_template: "{{ is_state('binary_sensor.pi_hole_status', 'on') }}"
       turn_on:

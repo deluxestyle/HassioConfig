@@ -1,6 +1,6 @@
-persistent_notification:
-    name: Mitteilung
-    initial: off
+#persistent_notification:
+#    name: Mitteilung
+#    initial: off
 
 sync_volume:
     name: Lautstärke anpassen

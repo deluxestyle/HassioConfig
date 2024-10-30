@@ -73,17 +73,33 @@ notify_script:
     notification_id:
       description: ID für die Gruppierung
       example: ids
+      selector:
+        text:
+      name: ID
     message:
       description: Die Nachricht
       example: text
+      selector:
+        text:
+      name: Nachricht
     title:
       description: Title der Nachricht
       example: blabal
+      selector:
+        text:
+      name: Title
     url:
       selector:
         text:
       default: /lovelace/overview
-      name: url
+      name: URL
+    persistent_notification:
+      selector:
+        boolean: {}
+      name: HA Mitteilung
+      required: false
+      default: true
+      description: Home Assistant Mitteilung erstellen
   sequence:
   - data:
       entity_id: counter.badge_counter
@@ -95,17 +111,13 @@ notify_script:
           badge: '{{ states.counter.badge_counter.state }}'
         url: '{{ url }}'
     action: notify.all_ios_devices
-  - condition: state
-    entity_id: input_boolean.persistent_notification
-    state: 'on'
+  - condition: template
+    value_template: '{{ persistent_notification == true }}'
   - data_template:
       message: '{{ message }}'
       notification_id: '{{ notification_id }}'
       title: '{{ title }}'
     action: persistent_notification.create
-  - data:
-      entity_id: input_boolean.persistent_notification
-    action: input_boolean.turn_off
   mode: single
   icon: mdi:message-badge
 notify_clean_messages:
@@ -304,7 +316,7 @@ benachrichtigungen_nicht_actionable_duplizieren:
   sequence:
   - data:
       entity_id: counter.badge_counter
-    service: counter.increment
+    action: counter.increment
   - data_template:
       message: '{{ message }}'
       data:
@@ -315,26 +327,28 @@ benachrichtigungen_nicht_actionable_duplizieren:
             critical: 1
             volume: 1
         url: '{{ url }}'
-    service: notify.all_ios_devices
-  - condition: state
-    entity_id: input_boolean.persistent_notification
-    state: 'on'
+    action: notify.all_ios_devices
+  - condition: template
+    value_template: '{{ persistent_notification == true }}'
   - data_template:
       message: '{{ message }}'
       notification_id: '{{ notification_id }}'
       title: '{{ title }}'
-    service: persistent_notification.create
-  - data:
-      entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_off
+    action: persistent_notification.create
   fields:
     notification_id:
+      selector:
+        text:
       description: ID für die Gruppierung
       example: ids
     message:
+      selector:
+        text:
       description: Die Nachricht
       example: text
     title:
+      selector:
+        text:
       description: Title der Nachricht
       example: blabal
     url:
@@ -342,6 +356,13 @@ benachrichtigungen_nicht_actionable_duplizieren:
         text:
       default: /lovelace/overview
       name: url
+    persistent_notification:
+      selector:
+        boolean: {}
+      name: HA Mitteilung
+      required: false
+      default: true
+      description: Home Assistant Mitteilung erstellen
   mode: single
   icon: mdi:message-badge
 bosch_home_connect_starten:
@@ -589,3 +610,11 @@ server_backup:
   fields: {}
   description: ''
   icon: mdi:server
+server_chomd:
+  alias: 'Server: chomd'
+  sequence:
+  - action: ssh_command.exec_command
+    data:
+      command: ./scripts/chmod.sh
+  description: ''
+  icon: mdi:account-file-text-outline

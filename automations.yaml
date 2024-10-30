@@ -1,14 +1,11 @@
 - id: xiaomi_vacuum_notification_off
   alias: 'Xiaomi Staubsauger: Benachrichtigung fertig'
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - vacuum.roborock_vacuum
     from: returning
-  action:
-  - data:
-      entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
+    trigger: state
+  actions:
   - data:
       message: 'Staubsauger fertig - Dauer: {{ states.sensor.xiaomi_vacuum_v1_last_clean_duration.state
         }} min - gesaugte Fläche: {{ states.sensor.xiaomi_vacuum_last_clean_area.state
@@ -16,7 +13,8 @@
       notification_id: xiaomi_vacuum_status
       title: StaubRobo
       url: /lovelace/staubsauger
-    service: script.notify_script
+      persistent_notification: true
+    action: script.notify_script
   mode: single
 - id: xiaomi_vacuum_notification_on
   alias: 'Xiaomi Staubsauger: Benachrichtigung gestartet'
@@ -37,25 +35,23 @@
   mode: single
 - id: xiaomi_vacuum_notification_blocked
   alias: 'Xiaomi Staubsauger: Benachrichtigung Fehler'
-  trigger:
+  triggers:
   - entity_id: vacuum.roborock_vacuum
-    platform: state
     to: error
-  condition:
+    trigger: state
+  conditions:
   - condition: template
     value_template: '{{ states.vacuum.roborock_vacuum.attributes.error != ''Clean
       main brush'' }}'
-  action:
-  - data:
-      entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
+  actions:
   - data:
       message: 'Staubsauger blockiert - Error: {{ states.vacuum.roborock_vacuum.attributes.error
         }} '
       notification_id: xiaomi_vacuum_error
       title: StaubRobo
       url: /lovelace/staubsauger
-    service: script.notify_script
+      persistent_notification: true
+    action: script.notify_script
   mode: single
 - id: '1523001167559'
   alias: 'Xiaomi Staubsauger: Neustart'
@@ -113,40 +109,44 @@
   mode: single
 - id: '1542650541048'
   alias: 'Xiaomi Staubsauger: Benachrichtigung Sensor kritisch'
-  trigger:
+  triggers:
   - below: '2'
-    platform: numeric_state
     entity_id: sensor.xiaomi_vacuum_sensor_dirty_left
     for:
       hours: 0
       minutes: 2
       seconds: 0
-  condition:
+    trigger: numeric_state
+  conditions:
   - condition: device
     device_id: d395d1f0c190ee5b6e5c1bb4424f0515
     domain: vacuum
     entity_id: vacuum.roborock_vacuum
     type: is_docked
-  action:
+  actions:
   - data:
       message: 'Sensor reinigen: {{ states.sensor.xiaomi_vacuum_sensor_dirty_left.state
         }} h übrig'
       notification_id: xiaomi_sensor
       title: Xiaomi StaubRobo
-      url: /dashboard-ubersicht/staubsauger
-    service: persistent_notification.create
+      url: /lovelace/staubsauger
+      persistent_notification: true
+    action: script.notify_script
   mode: single
 - id: '1543619209115'
   alias: 'HomeAssistant: Restart'
   description: ''
-  trigger:
+  triggers:
   - event: start
-    platform: homeassistant
-  condition: []
-  action:
+    trigger: homeassistant
+  conditions: []
+  actions:
   - delay: 00:01:30
   - data: {}
     action: automation.reload
+  - action: script.server_chomd
+    metadata: {}
+    data: {}
   mode: single
 - id: '1548418632803'
   alias: 'Xiaomi Staubsauger: Zähler zurücksetzen'
@@ -179,27 +179,29 @@
   mode: single
 - id: '1563024961089'
   alias: 'Xiaomi Staubsauger: Hauptbürste wechseln'
-  trigger:
+  triggers:
   - below: '3'
-    platform: numeric_state
     entity_id: sensor.xiaomi_vacuum_main_brush_left
     for:
       hours: 0
       minutes: 2
       seconds: 0
-  condition:
+    trigger: numeric_state
+  conditions:
   - condition: device
     device_id: d395d1f0c190ee5b6e5c1bb4424f0515
     domain: vacuum
     entity_id: vacuum.roborock_vacuum
     type: is_docked
-  action:
+  actions:
   - data:
       message: 'Hauptbürste reinigen: {{ states.sensor.xiaomi_vacuum_main_brush_left.state
         }} h übrig'
       notification_id: xiaomi_brush
-      title: Xiaomi StaubRobo Hauptbürste
-    service: persistent_notification.create
+      title: Xiaomi StaubRobo Hauptbürste#
+      url: /lovelace/staubsauger
+      persistent_notification: true
+    action: script.notify_script
 - id: '1564908105933'
   alias: 'Benachrichtigung: RAM zu hoch'
   triggers:
@@ -214,43 +216,39 @@
   conditions: []
   actions:
   - data:
-      entity_id: input_boolean.persistent_notification
-    action: input_boolean.turn_on
-  - data:
       message: 'RAM Auslastung zu hoch: {{ states.sensor.memory_use_percent.state
         }} % '
       notification_id: pi
       title: Raspi
       url: /dashboard-system/system
+      persistent_notification: true
     action: script.notify_script
   mode: single
 - id: '1568628137654'
   alias: 'Xiaomi Staubsauger: Benachrichtigung Filter kritisch'
-  trigger:
+  triggers:
   - below: '2'
-    platform: numeric_state
     entity_id: sensor.xiaomi_vacuum_filter_left
     for:
       hours: 0
       minutes: 2
       seconds: 0
-  condition:
+    trigger: numeric_state
+  conditions:
   - condition: device
     device_id: d395d1f0c190ee5b6e5c1bb4424f0515
     domain: vacuum
     entity_id: vacuum.roborock_vacuum
     type: is_docked
-  action:
-  - data:
-      entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
+  actions:
   - data:
       message: 'Filter wechseln: {{ states.sensor.xiaomi_vacuum_filter_left.state
         }} h übrig'
       notification_id: xiaomi_filter
       title: Xiaomi StaubRobo
       url: /lovelace/staubsauger
-    service: script.notify_script
+      persistent_notification: true
+    action: script.notify_script
   mode: single
 - id: '1570440017469'
   alias: 'iOS: Badge zurücksetzen'
@@ -304,7 +302,7 @@
 - id: '1584265149079'
   alias: 'Benachrichtigung: CPU Temp zu hoch'
   description: ''
-  trigger:
+  triggers:
   - above: '75'
     entity_id: sensor.cpu_temperature
     for:
@@ -312,37 +310,33 @@
       minutes: 10
       seconds: 0
       milliseconds: 0
-    platform: numeric_state
-  condition: []
-  action:
-  - data: {}
-    entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
+    trigger: numeric_state
+  conditions: []
+  actions:
   - data:
       message: 'CPU Temp zu hoch: {{ states ( "sensor.cpu_temperature" ) }}°'
       notification_id: cpu_temp
       title: CPU Temp
       url: /dashboard-system/system
-    service: script.notify_script
+      persistent_notification: true
+    action: script.notify_script
 - id: '1584265149080'
   alias: 'Benachrichtigung: CPU Auslastung zu hoch'
   description: ''
-  trigger:
+  triggers:
   - above: '50'
     for: 00:10:00
-    platform: numeric_state
     entity_id: sensor.processor_use
-  condition: []
-  action:
-  - data: {}
-    entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
+    trigger: numeric_state
+  conditions: []
+  actions:
   - data:
       message: 'CPU Auslastung zu hoch: {{ states ( "sensor.processor_use" ) }}%'
       notification_id: cpu
       title: CPU Auslastung
       url: /dashboard-system/system
-    service: script.notify_script
+      persistent_notification: true
+    action: script.notify_script
   mode: single
 - id: '1607432908571'
   alias: 'Entertainment: Steckdosenleiste einschalten'
@@ -432,20 +426,17 @@
     input:
       time: '10:00:00'
       actions:
-      - service: input_boolean.turn_on
-        target:
-          entity_id: input_boolean.persistent_notification
-        data: {}
       - data:
           message: 'Batteriewarnung für: {{sensors}}'
           notification_id: battery
           title: Batteriewarnung
           url: /dashboard-system/system
-        service: script.notify_script
-      - service: input_boolean.turn_on
-        target:
+          persistent_notification: true
+        action: script.notify_script
+      - target:
           entity_id: input_boolean.batteriewarnung
         data: {}
+        action: input_boolean.turn_on
       threshold: 5
       exclude:
         entity_id:
@@ -523,27 +514,25 @@
 - id: '1666460813767'
   alias: 'Benachrichtigung: Swap zu hoch'
   description: ''
-  trigger:
+  triggers:
   - above: 50
     for:
       hours: 0
       minutes: 10
       seconds: 0
       milliseconds: 0
-    platform: numeric_state
     entity_id:
     - sensor.swap_use_percent
-  condition: []
-  action:
-  - data: {}
-    entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
+    trigger: numeric_state
+  conditions: []
+  actions:
   - data:
       message: 'Swap Auslastung zu hoch: {{ states ( "sensor.swap_use_percent" ) }}%'
       notification_id: swap
       title: swap Auslastung
       url: /dashboard-system/system
-    service: script.notify_script
+      persistent_notification: true
+    action: script.notify_script
   mode: single
 - id: '1667402945500'
   alias: 'Benachrichtigung: Geschirrspüler fertig'
@@ -555,15 +544,12 @@
     trigger: device
   conditions: []
   actions:
-  - data: {}
-    entity_id: input_boolean.persistent_notification
-    enabled: false
-    action: input_boolean.turn_on
   - data:
       message: Geschirrspüler fertig
       notification_id: dish_washer
       title: Geschirrspüler
       url: /lovelace/dishwasher
+      persistent_notification: true
     action: script.notify_script
   mode: single
 - id: '1668452168948'
@@ -704,15 +690,12 @@
     trigger: state
   conditions: []
   actions:
-  - data: {}
-    target:
-      entity_id: input_boolean.persistent_notification
-    action: input_boolean.turn_on
   - data:
       message: '{{ trigger.from_state.attributes.friendly_name }} Update verfügbar '
       notification_id: '{{ trigger.from_state.attributes.friendly_name }} Update '
       title: Update
       url: /dashboard-system/system
+      persistent_notification: true
     action: script.notify_script
   mode: single
 - id: '1679052124637'
@@ -730,28 +713,28 @@
       config_entry_id: 51ada781f9fa5e08f8ee7036c1a97af2
   mode: single
 - id: '1684614441041'
-  alias: 'Sonos: Volume anpassen'
+  alias: 'Sonos: Volume anpassen (Uhrzeit)'
   description: ''
-  trigger:
-  - platform: time
-    at: 00:00:01
-  condition: []
-  action:
-  - service: script.sonos_set_volume_10
-    data: {}
+  triggers:
+  - at: 00:00:01
+    trigger: time
+  conditions: []
+  actions:
+  - data: {}
+    action: script.sonos_set_volume_10
   mode: single
 - id: '1696409652364'
   alias: Abwesenheit
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - group.presence
-    to: not_home
-  condition: []
-  action:
-  - service: script.alles_ausschalten
-    data: {}
+  triggers:
+  - entity_id:
+    - binary_sensor.presence
+    to: 'off'
+    trigger: state
+  conditions: []
+  actions:
+  - data: {}
+    action: script.alles_ausschalten
   mode: single
 - id: '1700668485019'
   alias: 'Benachrichtigung: Luftfeuchtigkeit'
@@ -775,44 +758,39 @@
     trigger: numeric_state
   conditions: []
   actions:
-  - data: {}
-    target:
-      entity_id: input_boolean.persistent_notification
-    action: input_boolean.turn_on
   - data_template:
       message: '{{ trigger.from_state.attributes.friendly_name }} zu hoch: {{ trigger.to_state.state
         }} % '
       notification_id: humidity
       title: Luftfeuchtigkeit
       url: /dashboard-home/klima
+      persistent_notification: true
     action: script.notify_script
   mode: single
 - id: '1701269486138'
   alias: 'Benachrichtigung: Waschmaschine'
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - binary_sensor.waschmaschine
     to: 'off'
-  condition: []
-  action:
-  - service: input_boolean.turn_on
-    target:
+    trigger: state
+  conditions: []
+  actions:
+  - target:
       entity_id: input_boolean.waschmaschine
     data: {}
     enabled: true
+    action: input_boolean.turn_on
   - repeat:
       sequence:
-      - data: {}
-        entity_id: input_boolean.persistent_notification
-        service: input_boolean.turn_on
       - data:
           message: Waschmaschine fertig
           notification_id: washing_machine
           title: Waschmaschine
           url: /lovelace/home
-        service: script.notify_script
+          persistent_notification: true
+        action: script.notify_script
       - delay:
           hours: 0
           minutes: 30
@@ -840,26 +818,24 @@
 - id: '1704370565852'
   alias: 'Benachrichtigung: Salz'
   description: ''
-  trigger:
+  triggers:
   - entity_id:
     - sensor.judo_isoftsaveplus_daheim_judo_isoftsaveplus_daheim_salzreichweite
-    platform: numeric_state
     for:
       hours: 0
       minutes: 0
       seconds: 0
     below: 30
-  condition: []
-  action:
-  - data:
-      entity_id: input_boolean.persistent_notification
-    action: input_boolean.turn_on
+    trigger: numeric_state
+  conditions: []
+  actions:
   - data:
       message: 'Salz auffüllen: noch {{ states.sensor.judo_isoftsaveplus_daheim_salzreichweite.state
         }} Tage verbleibend '
       notification_id: salz
       title: Salz
       url: /dashboard-home/wasser
+      persistent_notification: true
     action: script.notify_script
   mode: single
 - id: '1708550292805'
@@ -882,14 +858,12 @@
       state: unavailable
   actions:
   - data:
-      entity_id: input_boolean.persistent_notification
-    action: input_boolean.turn_on
-  - data:
       message: 'Hinweis Wasser: {{ states.sensor.judo_isoftsaveplus_daheim_meldung.state
         }} '
       notification_id: Wasser
       title: Wasser
       url: /dashboard-home/wasser
+      persistent_notification: true
     action: script.notify_script
   mode: single
 - id: '1709502632703'
@@ -1009,14 +983,12 @@
     trigger: device
   conditions: []
   actions:
-  - data: {}
-    entity_id: input_boolean.persistent_notification
-    action: input_boolean.turn_on
   - data:
       message: Geschirrspüler gestartet
       notification_id: dish_washer
       title: Geschirrspüler
       url: /lovelace/dishwasher
+      persistent_notification: true
     action: script.notify_script
   - target:
       entity_id: automation.spulmaschine_solar
@@ -1079,22 +1051,19 @@
 - id: '1718892235993'
   alias: 'Benachrichtigung: Geschirrspüler (Salz/Klarspüler)'
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - binary_sensor.rinse_aid_nearly_empty
     to: 'on'
     id: rinse
-  - platform: state
-    entity_id:
+    trigger: state
+  - entity_id:
     - binary_sensor.salt_nearly_empty
     id: salt
     to: 'on'
-  condition: []
-  action:
-  - data:
-      entity_id: input_boolean.persistent_notification
-    service: input_boolean.turn_on
+    trigger: state
+  conditions: []
+  actions:
   - choose:
     - conditions:
       - condition: trigger
@@ -1106,7 +1075,8 @@
           notification_id: dishwasher
           title: Geschirspüler
           url: /lovelace/dishwasher
-        service: script.notify_script
+          persistent_notification: true
+        action: script.notify_script
     - conditions:
       - condition: trigger
         id:
@@ -1117,7 +1087,8 @@
           notification_id: dishwasher
           title: Geschirspüler
           url: /lovelace/dishwasher
-        service: script.notify_script
+          persistent_notification: true
+        action: script.notify_script
   mode: single
 - id: '1721659414494'
   alias: Aquara Switch (Double)
@@ -1341,13 +1312,11 @@
   conditions: []
   actions:
   - data:
-      entity_id: input_boolean.persistent_notification
-    action: input_boolean.turn_on
-  - data:
       message: Problem mit Wärmepumpe
       notification_id: Wärmepumpe
       title: Wärmepumpe
       url: /dashboard-home/warmepumpe
+      persistent_notification: true
     action: script.notify_script
   mode: single
 - id: '1728990201744'

@@ -1,5 +1,5 @@
-presence:
-  name: Anwesenheit
-  entities:
-    - person.wolfgang
-    - person.christina
+# presence:
+#   name: Anwesenheit
+#   entities:
+#     - person.wolfgang
+#     - person.christina
