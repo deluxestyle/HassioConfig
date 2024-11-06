@@ -847,9 +847,8 @@
     for:
       hours: 0
       minutes: 0
-      seconds: 30
+      seconds: 0
     trigger: state
-    from: Initialisierung erfolgreich!
   conditions:
   - condition: not
     conditions:
@@ -858,7 +857,7 @@
       state: unavailable
   actions:
   - data:
-      message: 'Hinweis Wasser: {{ states.sensor.judo_isoftsaveplus_daheim_meldung.state
+      message: 'Hinweis Wasser: {{ states.sensor.judo_isoftsaveplus_daheim_judo_isoftsaveplus_daheim_meldung.state
         }} '
       notification_id: Wasser
       title: Wasser

@@ -1,0 +1,89 @@
+type: entities
+entities:
+  - type: custom:multiple-entity-row
+    entity: sensor.tuya_sensor_1_humidity
+    name: Dachgeschoss
+    icon: mdi:water-thermometer-outline
+    format: precision0
+    state_header: Luftfeuchte
+    entities:
+      - entity: sensor.tuya_sensor_1_temperature
+        name: Temperatur
+        format: precision0
+  - type: section
+  - type: custom:multiple-entity-row
+    entity: sensor.aqara_sensor_3_humidity
+    name: Schlafzimmer
+    icon: mdi:water-thermometer-outline
+    format: precision0
+    state_header: Luftfeuchte
+    entities:
+      - entity: sensor.aqara_sensor_3_temperature
+        name: Temperatur
+        format: precision0
+  - type: section
+  - type: custom:multiple-entity-row
+    entity: sensor.tuya_sensor_2_humidity
+    name: Kinderzimmer
+    icon: mdi:water-thermometer-outline
+    format: precision0
+    state_header: Luftfeuchte
+    entities:
+      - entity: sensor.tuya_sensor_2_temperature
+        name: Temperatur
+        format: precision0
+  - type: section
+  - type: custom:multiple-entity-row
+    entity: sensor.aqara_sensor_1_humidity
+    name: Bad
+    icon: mdi:water-thermometer-outline
+    format: precision0
+    state_header: Luftfeuchte
+    entities:
+      - entity: sensor.aqara_sensor_1_temperature
+        name: Temperatur
+        format: precision0
+  - type: section
+  - type: custom:multiple-entity-row
+    entity: sensor.sonoff_sensor_3_humidity
+    name: Büro
+    icon: mdi:water-thermometer-outline
+    format: precision0
+    state_header: Luftfeuchte
+    entities:
+      - entity: sensor.sonoff_sensor_3_temperature
+        name: Temperatur
+        format: precision0
+  - type: section
+  - type: custom:multiple-entity-row
+    entity: sensor.aqara_sensor_4_humidity
+    name: Erdgeschoss
+    icon: mdi:water-thermometer-outline
+    format: precision0
+    state_header: Luftfeuchte
+    entities:
+      - entity: sensor.aqara_sensor_4_temperature
+        name: Temperatur
+        format: precision0
+  - type: section
+  - type: custom:multiple-entity-row
+    entity: sensor.sonoff_technikraum_humidity
+    name: Technikraum
+    icon: mdi:water-thermometer-outline
+    format: precision0
+    state_header: Luftfeuchte
+    entities:
+      - entity: sensor.sonoff_technikraum_temperature
+        name: Temperatur
+        format: precision0
+  - type: section
+  - type: custom:multiple-entity-row
+    entity: sensor.sonoff_sensor_2_humidity
+    name: Gästezimmer
+    icon: mdi:water-thermometer-outline
+    format: precision0
+    state_header: Luftfeuchte
+    entities:
+      - entity: sensor.sonoff_sensor_2_temperature
+        name: Temperatur
+        format: precision0
