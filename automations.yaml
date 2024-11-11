@@ -303,8 +303,9 @@
   alias: 'Benachrichtigung: CPU Temp zu hoch'
   description: ''
   triggers:
-  - above: '75'
-    entity_id: sensor.cpu_temperature
+  - above: 50
+    entity_id:
+    - sensor.cpu_temperature
     for:
       hours: 0
       minutes: 10

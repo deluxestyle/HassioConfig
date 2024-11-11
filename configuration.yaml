@@ -3,7 +3,7 @@ homeassistant:
   packages: !include_dir_named packages
 
 config:
-map:
+# map:
 mobile_app:
 person:
 ssdp:
