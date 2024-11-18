@@ -55,6 +55,7 @@ entity_globs:
   - sensor.aqara_*
   - sensor.waschmaschine*
   - sensor.idm*
+  - counter.idm*
   - binary_sensor.idm*
   - sensor.hoymiles_*
   - sensor.smart_meter*

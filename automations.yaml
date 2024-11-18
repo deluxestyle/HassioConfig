@@ -621,55 +621,6 @@
       - service: script.harmony_tone_bass_verringern
         data: {}
   mode: single
-- id: '1673599304677'
-  alias: 'Entertainment: Fix TV'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - remote.harmony_hub_2
-    attribute: current_activity
-    to: TV
-    for:
-      hours: 0
-      minutes: 1
-      seconds: 0
-    id: TV
-  - platform: state
-    entity_id:
-    - remote.harmony_hub_2
-    attribute: current_activity
-    to: Apple TV
-    for:
-      hours: 0
-      minutes: 1
-      seconds: 0
-    id: FIRETV
-  condition:
-  - condition: state
-    entity_id: media_player.samsung_q60aa_43_tv
-    state: 'off'
-  action:
-  - service: remote.send_command
-    data:
-      device: '79732412'
-      command: PowerOn
-    target:
-      entity_id: remote.harmony_hub_2
-  - condition: trigger
-    id: TV
-  - delay:
-      hours: 0
-      minutes: 0
-      seconds: 30
-      milliseconds: 0
-  - service: remote.send_command
-    data:
-      device: '79732412'
-      command: PowerOn
-    target:
-      entity_id: remote.harmony_hub_2
-  mode: single
 - id: '1677324816990'
   alias: 'Benachrichtigung: Updates'
   description: ''
@@ -988,7 +939,7 @@
       notification_id: dish_washer
       title: Geschirrspüler
       url: /lovelace/dishwasher
-      persistent_notification: true
+      persistent_notification: false
     action: script.notify_script
   - target:
       entity_id: automation.spulmaschine_solar
@@ -1028,25 +979,29 @@
 - id: '1716576711678'
   alias: Täglich um Mitternacht
   description: ''
-  trigger:
-  - platform: time
-    at: 00:00:00
-  condition: []
-  action:
-  - service: script.strom_tagesverbrauch
-    metadata: {}
+  triggers:
+  - at: 00:00:00
+    trigger: time
+  conditions: []
+  actions:
+  - metadata: {}
     data: {}
-  - service: script.auto_tageskilometer
-    data: {}
-  - service: automation.turn_on
-    target:
+    action: script.strom_tagesverbrauch
+  - data: {}
+    action: script.auto_tageskilometer
+  - target:
       entity_id: automation.spulmaschine_solar
     data: {}
-  - service: automation.turn_on
-    metadata: {}
+    action: automation.turn_on
+  - metadata: {}
     data: {}
     target:
       entity_id: automation.benachrichtigung_fenster_offen
+    action: automation.turn_on
+  - action: counter.reset
+    data: {}
+    target:
+      entity_id: counter.idm_heatpump_runs
   mode: single
 - id: '1718892235993'
   alias: 'Benachrichtigung: Geschirrspüler (Salz/Klarspüler)'
@@ -1397,4 +1352,40 @@
       title: Internet
       data:
         url: /dashboard-system/fritz
+  mode: single
+- id: '1731408344074'
+  alias: Counter Wärmepumpe
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.idm_status_verdichter_1
+    to: 'on'
+  conditions: []
+  actions:
+  - action: counter.increment
+    data: {}
+    target:
+      entity_id: counter.idm_heatpump_runs
+  mode: single
+- id: '1731875052930'
+  alias: 'Benachrichtigung: Judo Problem'
+  description: ''
+  triggers:
+  - entity_id:
+    - sensor.judo_isoftsaveplus_daheim_judo_isoftsaveplus_daheim_verbrauch_heute
+    for:
+      hours: 12
+      minutes: 0
+      seconds: 0
+    trigger: state
+  conditions: []
+  actions:
+  - data:
+      message: Fehler im Judo Script. Kein Update seit mind. 12 Stunden
+      notification_id: Wasser_problem
+      title: Wasser
+      url: /dashboard-home/wasser
+      persistent_notification: true
+    action: script.notify_script
   mode: single

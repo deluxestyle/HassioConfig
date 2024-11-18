@@ -14,6 +14,7 @@
     - victoriametrics
     - adguardhome
     - music-assistant
+    - dozzle
   rename:
     portainer: Portainer
     homeassistant: "Home Assistant"
@@ -29,6 +30,7 @@
     victoriametrics: VictoriaMetrics
     adguardhome: AdguardHome
     music-assistant: "Music Assistant"
+    dozzle: Dozzle
   monitored_conditions:
     - version
     - containers_running

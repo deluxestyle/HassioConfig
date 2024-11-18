@@ -23,12 +23,10 @@ from homeassistant.components.media_player import (
     MediaPlayerEntity,
     MediaPlayerEntityFeature,
     MediaPlayerState,
-)
-from homeassistant.components.media_player import MediaType as HAMediaType
-from homeassistant.components.media_player import (
     RepeatMode,
     async_process_play_media_url,
 )
+from homeassistant.components.media_player import MediaType as HAMediaType
 from homeassistant.config_entries import ConfigEntryState
 from homeassistant.const import STATE_OFF
 from homeassistant.core import HomeAssistant, ServiceResponse, SupportsResponse
@@ -39,9 +37,13 @@ from homeassistant.helpers.entity_platform import (
     async_get_current_platform,
 )
 from homeassistant.util.dt import utc_from_timestamp
-from music_assistant_models.enums import EventType, MediaType, PlayerFeature
+from music_assistant_models.enums import (
+    EventType,
+    MediaType,
+    PlayerFeature,
+    QueueOption,
+)
 from music_assistant_models.enums import PlayerState as MassPlayerState
-from music_assistant_models.enums import QueueOption
 from music_assistant_models.enums import RepeatMode as MassRepeatMode
 from music_assistant_models.errors import MediaNotFoundError, MusicAssistantError
 from music_assistant_models.event import MassEvent
@@ -59,6 +61,7 @@ if TYPE_CHECKING:
 SUPPORTED_FEATURES = (
     MediaPlayerEntityFeature.PAUSE
     | MediaPlayerEntityFeature.VOLUME_SET
+    | MediaPlayerEntityFeature.VOLUME_MUTE
     | MediaPlayerEntityFeature.STOP
     | MediaPlayerEntityFeature.PREVIOUS_TRACK
     | MediaPlayerEntityFeature.NEXT_TRACK
@@ -274,7 +277,7 @@ class MusicAssistantPlayer(MusicAssistantBaseEntity, MediaPlayerEntity):
                 for child_id in player.group_childs
                 if (
                     entity_id := entity_registry.async_get_entity_id(
-                        self.platform.domain, DOMAIN, child_id
+                        self.platform.domain, DOMAIN, f"mass_{child_id}"
                     )
                 )
             ]
@@ -536,8 +539,10 @@ class MusicAssistantPlayer(MusicAssistantBaseEntity, MediaPlayerEntity):
             # resolve HA entity_id to MA player_id
             if (hass_state := self.hass.states.get(source_player)) is None:
                 return  # guard
-            if (source_queue_id := hass_state.attributes.get("mass_player_id")) is None:
+            entity_registry = er.async_get(self.hass)
+            if (entity := entity_registry.async_get(hass_state.entity_id)) is None:
                 return  # guard
+            source_queue_id = entity.unique_id.split("mass_", 1)[1]
         target_queue_id = self.player_id
         await self.mass.player_queues.transfer_queue(
             source_queue_id, target_queue_id, auto_play
