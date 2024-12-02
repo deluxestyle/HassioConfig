@@ -638,6 +638,7 @@
     - update.wud_container_local_wud
     - update.wud_container_local_zigbee2mqtt
     - binary_sensor.nextcloud_update_status
+    - update.wud_container_local_dozzle
     to: 'on'
     trigger: state
   conditions: []
@@ -1388,4 +1389,107 @@
       url: /dashboard-home/wasser
       persistent_notification: true
     action: script.notify_script
+  mode: single
+- id: '1732043978416'
+  alias: Nachtlicht Schalter
+  description: ''
+  triggers:
+  - domain: mqtt
+    device_id: be116b5be9a1d396805f4e3a376e9ced
+    type: action
+    subtype: single
+    metadata: {}
+    trigger: device
+  conditions: []
+  actions:
+  - type: toggle
+    device_id: 9f75d5866ebc820a44d1a0341099d135
+    entity_id: d392ef37f3c0a53bf979f23e7cc8a45c
+    domain: switch
+  mode: single
+- id: '1732091021131'
+  alias: Nachtlicht - Motion
+  description: ''
+  use_blueprint:
+    path: Blackshome/sensor-light.yaml
+    input:
+      motion_trigger:
+      - binary_sensor.sonoff_motion_sensor_occupancy
+      light_switch:
+        entity_id: switch.ikea_steckdose_1
+      time_delay: 2
+      include_time: time_enabled
+      after_time: '19:00:00'
+      before_time: 07:00:00
+- id: '1732734522639'
+  alias: 'Benachrichtigung: Trockner fertig'
+  description: ''
+  triggers:
+  - device_id: d8dc291fa4b49f9fbb74965013538eb7
+    domain: home_connect_alt
+    type: program_finished
+    trigger: device
+  conditions: []
+  actions:
+  - data:
+      message: Trockner fertig
+      notification_id: dryer
+      title: Trockner
+      url: /lovelace/trockner
+      persistent_notification: true
+    action: script.notify_script
+  mode: single
+- id: '1732734577816'
+  alias: 'Benachrichtigung: Trockner gestartet'
+  description: ''
+  triggers:
+  - device_id: d8dc291fa4b49f9fbb74965013538eb7
+    domain: home_connect_alt
+    type: program_started
+    trigger: device
+  conditions: []
+  actions:
+  - data:
+      message: Trockner gestartet
+      notification_id: dryer
+      title: 'Trockner '
+      url: /lovelace/trockner
+      persistent_notification: false
+    action: script.notify_script
+  mode: single
+- id: '1732991567605'
+  alias: 'Licht: Weihnachtsstern'
+  description: ''
+  triggers:
+  - trigger: sun
+    event: sunset
+    offset: 0
+    id: sunset
+  - trigger: time
+    at: '20:00:00'
+    id: zeit
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.presence
+    state: 'on'
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - sunset
+      sequence:
+      - type: turn_on
+        device_id: 999649ba1cbc9d0c61b1beaad6e2b1de
+        entity_id: 621579929c50fb51e851bf33ade3036c
+        domain: switch
+    - conditions:
+      - condition: trigger
+        id:
+        - zeit
+      sequence:
+      - type: turn_off
+        device_id: 999649ba1cbc9d0c61b1beaad6e2b1de
+        entity_id: 621579929c50fb51e851bf33ade3036c
+        domain: switch
   mode: single

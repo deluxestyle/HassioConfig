@@ -4,7 +4,6 @@ filter:
     - media_player.wohnzimmer
     - media_player.office
     - switch.vacuum
-    - switch.pi_hole_switch
     - sensor.sonoff_technikraum_temperature
     - sensor.sonoff_technikraum_humidity
     - sensor.sonoff_sensor_2_temperature
@@ -22,6 +21,7 @@ filter:
     - switch.steckdose_1
     - switch.steckdose_2
     - switch.steckdose_3
+    - switch.steckdose_4
     - switch.steckdosenleiste_2
     - switch.ikea_steckdose_1
     - switch.ikea_steckdose_2

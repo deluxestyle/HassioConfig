@@ -39,6 +39,7 @@ entities:
   - sensor.solarverbrauch_komplett
   - sensor.net_upload_max
   - sensor.net_download_max
+  - binary_sensor.sonoff_motion_sensor_occupancy
 domains:
   - automation
   - switch

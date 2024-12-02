@@ -1885,7 +1885,7 @@ class MediaPlayer {
     if (this.members.length > 1 && this.config.adjustVolumeRelativeToMainPlayer) {
       volume = this.getAverageVolume();
     } else {
-      volume = 100 * this.volumePlayer.attributes.volume_level;
+      volume = 100 * (this.volumePlayer.attributes.volume_level || 0);
     }
     return Math.round(volume);
   }
@@ -1893,7 +1893,7 @@ class MediaPlayer {
     const volumes = this.members.filter((m2) => {
       var _a2;
       return !((_a2 = this.config.entitiesToIgnoreVolumeLevelFor) == null ? void 0 : _a2.includes(m2.id));
-    }).map((m2) => m2.attributes.volume_level);
+    }).map((m2) => m2.attributes.volume_level || 0);
     return 100 * volumes.reduce((a2, b2) => a2 + b2, 0) / volumes.length;
   }
 }

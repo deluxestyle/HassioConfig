@@ -15,6 +15,7 @@
     - adguardhome
     - music-assistant
     - dozzle
+    - mqdockerup
   rename:
     portainer: Portainer
     homeassistant: "Home Assistant"
@@ -31,6 +32,7 @@
     adguardhome: AdguardHome
     music-assistant: "Music Assistant"
     dozzle: Dozzle
+    mqdockerup: MqDockerUp
   monitored_conditions:
     - version
     - containers_running
