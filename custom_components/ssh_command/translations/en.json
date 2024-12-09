@@ -2,13 +2,18 @@
   "config": {
     "abort": {
       "single_instance_allowed": "Already configured. Only a single configuration possible."
-    }
+    },
+    "step": {}
   },
   "services": {
     "exec_command": {
       "name": "Execute command",
       "description": "Execute SSH command",
       "fields": {
+        "command": {
+          "name": "Command",
+          "description": ""
+        },
         "host": {
           "name": "Host",
           "description": ""
@@ -25,12 +30,16 @@
           "name": "Password",
           "description": ""
         },
-        "command": {
-          "name": "Command",
+        "private_key": {
+          "name": "Key filename",
           "description": ""
         },
-        "private_key": {
-          "name": "Private key",
+        "passphrase": {
+          "name": "Key passphrase",
+          "description": ""
+        },
+        "timeout": {
+          "name": "Connection timeout",
           "description": ""
         }
       }

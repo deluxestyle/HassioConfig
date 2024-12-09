@@ -43,7 +43,11 @@ from .const import (
     HASS_CONFIG_COORDINATOR,
     HASS_DATA_COORDINATOR,
 )
-from .entity import HoymilesCoordinatorEntity, HoymilesEntityDescription
+from .entity import (
+    HoymilesCoordinatorEntity,
+    HoymilesEntityDescription,
+    DeviceType,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -52,14 +56,6 @@ class ConversionAction(Enum):
     """Enumeration for conversion actions."""
 
     HEX = 1
-
-
-class DeviceType(Enum):
-    """Meter type."""
-
-    ALL_DEVICES = 0
-    SINGLE_PHASE_METER = 1
-    THREE_PHASE_METER = 3
 
 
 @dataclass(frozen=True)
@@ -304,7 +300,7 @@ HOYMILES_SENSORS = [
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
-        conversion_factor=0.1,
+        conversion_factor=10,
     ),
     HoymilesSensorEntityDescription(
         key="meter_data[<meter_count>].phase_A_power",
@@ -312,7 +308,7 @@ HOYMILES_SENSORS = [
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
-        conversion_factor=0.1,
+        conversion_factor=10,
     ),
     HoymilesSensorEntityDescription(
         key="meter_data[<meter_count>].phase_B_power",
@@ -320,7 +316,7 @@ HOYMILES_SENSORS = [
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
-        conversion_factor=0.1,
+        conversion_factor=10,
         requires_device_type=DeviceType.THREE_PHASE_METER,
     ),
     HoymilesSensorEntityDescription(
@@ -329,7 +325,7 @@ HOYMILES_SENSORS = [
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
-        conversion_factor=0.1,
+        conversion_factor=10,
         requires_device_type=DeviceType.THREE_PHASE_METER,
     ),
     HoymilesSensorEntityDescription(
@@ -346,6 +342,7 @@ HOYMILES_SENSORS = [
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
+        conversion_factor=10.0,
     ),
     HoymilesSensorEntityDescription(
         key="meter_data[<meter_count>].energy_phase_A",
@@ -353,6 +350,7 @@ HOYMILES_SENSORS = [
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
+        conversion_factor=10.0,
     ),
     HoymilesSensorEntityDescription(
         key="meter_data[<meter_count>].energy_phase_B",
@@ -361,6 +359,7 @@ HOYMILES_SENSORS = [
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         requires_device_type=DeviceType.THREE_PHASE_METER,
+        conversion_factor=10.0,
     ),
     HoymilesSensorEntityDescription(
         key="meter_data[<meter_count>].energy_phase_C",
@@ -369,6 +368,7 @@ HOYMILES_SENSORS = [
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         requires_device_type=DeviceType.THREE_PHASE_METER,
+        conversion_factor=10.0,
     ),
     HoymilesSensorEntityDescription(
         key="meter_data[<meter_count>].energy_total_consumed",
@@ -376,6 +376,7 @@ HOYMILES_SENSORS = [
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
+        conversion_factor=10.0,
     ),
     HoymilesSensorEntityDescription(
         key="meter_data[<meter_count>].energy_phase_A_consumed",
@@ -383,6 +384,7 @@ HOYMILES_SENSORS = [
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
+        conversion_factor=10.0,
     ),
     HoymilesSensorEntityDescription(
         key="meter_data[<meter_count>].energy_phase_B_consumed",
@@ -391,6 +393,7 @@ HOYMILES_SENSORS = [
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         requires_device_type=DeviceType.THREE_PHASE_METER,
+        conversion_factor=10.0,
     ),
     HoymilesSensorEntityDescription(
         key="meter_data[<meter_count>].energy_phase_C_consumed",
@@ -399,6 +402,7 @@ HOYMILES_SENSORS = [
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
         requires_device_type=DeviceType.THREE_PHASE_METER,
+        conversion_factor=10.0,
     ),
     HoymilesSensorEntityDescription(
         key="meter_data[<meter_count>].voltage_phase_A",
@@ -721,7 +725,12 @@ def get_sensors_for_description(
     else:
         if description.supported_dtu_types is not None:
             serial_bytes = bytes.fromhex(dtu_serial_number)
-            dtu_type = get_dtu_model_type(serial_bytes)
+
+            dtu_type = None
+            try:
+                dtu_type = get_dtu_model_type(serial_bytes)
+            except ValueError as e:
+                _LOGGER.error(f"Error getting DTU model type: {e}")
 
         if (
             description.supported_dtu_types is None

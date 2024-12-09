@@ -59,12 +59,12 @@ xiaomi_vacuum_mainbrush_changed:
 notify_clean_badge:
   alias: Badge löschen
   sequence:
-  - data:
+  - action: notify.all_ios_devices
+    data:
       message: clear_badge
-    service: notify.all_ios_devices
   - data:
       entity_id: counter.badge_counter
-    service: counter.reset
+    action: counter.reset
   mode: single
   icon: mdi:message-bulleted-off
 notify_script:
@@ -100,6 +100,13 @@ notify_script:
       required: false
       default: true
       description: Home Assistant Mitteilung erstellen
+    notify_group:
+      selector:
+        text:
+      name: notify_group
+  variables:
+    var_url: '{{ url | default(''/lovelace/overview'') }}'
+    var_notify_group: '{{ notify_group | default(''all_devices_wolfgang'') }}'
   sequence:
   - data:
       entity_id: counter.badge_counter
@@ -109,8 +116,8 @@ notify_script:
       data:
         push:
           badge: '{{ states.counter.badge_counter.state }}'
-        url: '{{ url }}'
-    action: notify.all_ios_devices
+        url: '{{ var_url }}'
+    action: notify.{{ var_notify_group }}
   - condition: template
     value_template: '{{ persistent_notification == true }}'
   - data_template:
@@ -326,8 +333,8 @@ benachrichtigungen_nicht_actionable_duplizieren:
             name: default
             critical: 1
             volume: 1
-        url: '{{ url }}'
-    action: notify.all_ios_devices
+        url: '{{ var_url }}'
+    action: notify.{{ var_notify_group }}
   - condition: template
     value_template: '{{ persistent_notification == true }}'
   - data_template:
@@ -363,6 +370,13 @@ benachrichtigungen_nicht_actionable_duplizieren:
       required: false
       default: true
       description: Home Assistant Mitteilung erstellen
+    notify_group:
+      selector:
+        text:
+      name: notify_group
+  variables:
+    var_url: '{{ url | default(''/lovelace/overview'') }}'
+    var_notify_group: '{{ notify_group | default(''all_devices_wolfgang'') }}'
   mode: single
   icon: mdi:message-badge
 bosch_home_connect_starten:

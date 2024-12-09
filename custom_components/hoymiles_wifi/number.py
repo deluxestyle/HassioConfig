@@ -1,4 +1,5 @@
 """Support for Hoymiles number sensors."""
+
 import dataclasses
 from dataclasses import dataclass
 from enum import Enum
@@ -21,6 +22,8 @@ from .const import (
     HASS_CONFIG_COORDINATOR,
 )
 from .entity import HoymilesCoordinatorEntity, HoymilesEntityDescription
+
+from hoymiles_wifi.hoymiles import DTUType, get_dtu_model_type
 
 
 class SetAction(Enum):
@@ -48,12 +51,15 @@ class HoymilesNumberSensorEntityDescription(
 
 CONFIG_CONTROL_ENTITIES = (
     HoymilesNumberSensorEntityDescription(
-        key="limit_power_mypower",
+        key="limit_power_mypower_<inverter_serial>",
         translation_key="limit_power_mypower",
         mode=NumberMode.SLIDER,
         device_class=NumberDeviceClass.POWER_FACTOR,
         set_action=SetAction.POWER_LIMIT,
         conversion_factor=0.1,
+        supported_dtu_types=[
+            DTUType.DTUBI,
+        ],
     ),
 )
 
@@ -83,15 +89,28 @@ async def async_setup_entry(
                 )
             )
         else:
-            for inverter_serial in inverters:
-                updated_description = dataclasses.replace(
-                    description, serial_number=inverter_serial
-                )
-                sensors.append(
-                    HoymilesNumberEntity(
-                        config_entry, updated_description, config_coordinator
+            if description.supported_dtu_types is not None:
+                serial_bytes = bytes.fromhex(dtu_serial_number)
+
+                dtu_type = None
+                try:
+                    dtu_type = get_dtu_model_type(serial_bytes)
+                except ValueError as e:
+                    _LOGGER.error(f"Error getting DTU model type: {e}")
+
+            if (
+                description.supported_dtu_types is None
+                or dtu_type in description.supported_dtu_types
+            ):
+                for inverter_serial in inverters:
+                    updated_description = dataclasses.replace(
+                        description, serial_number=inverter_serial
                     )
-                )
+                    sensors.append(
+                        HoymilesNumberEntity(
+                            config_entry, updated_description, config_coordinator
+                        )
+                    )
 
     async_add_entities(sensors)
 
@@ -153,7 +172,13 @@ class HoymilesNumberEntity(HoymilesCoordinatorEntity, NumberEntity):
 
     def update_state_value(self):
         """Update the state value of the entity."""
-        self._native_value = getattr(self.coordinator.data, self._attribute_name, None)
+
+        # For the moment, we can only retrive the power limit
+        self._native_value = getattr(
+            self.coordinator.data,
+            self._attribute_name.replace("_<inverter_serial>", ""),
+            None,
+        )
 
         self._assumed_state = False
 

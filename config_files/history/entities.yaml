@@ -67,3 +67,5 @@ entity_globs:
   - sensor.adguard*
   - sensor.ds11*
   - binary_sensor.ds11*
+  - sensor.p110*
+  - sensor.hs110*

@@ -612,6 +612,7 @@ var Section = /* @__PURE__ */ ((Section2) => {
   Section2["PLAYER"] = "player";
   Section2["GROUPING"] = "grouping";
   Section2["VOLUMES"] = "volumes";
+  Section2["QUEUE"] = "queue";
   return Section2;
 })(Section || {});
 var MediaPlayerEntityFeature = /* @__PURE__ */ ((MediaPlayerEntityFeature2) => {
@@ -636,13 +637,19 @@ var MediaPlayerEntityFeature = /* @__PURE__ */ ((MediaPlayerEntityFeature2) => {
   MediaPlayerEntityFeature2[MediaPlayerEntityFeature2["GROUPING"] = 524288] = "GROUPING";
   return MediaPlayerEntityFeature2;
 })(MediaPlayerEntityFeature || {});
+var mdiAlarm = "M12,20A7,7 0 0,1 5,13A7,7 0 0,1 12,6A7,7 0 0,1 19,13A7,7 0 0,1 12,20M12,4A9,9 0 0,0 3,13A9,9 0 0,0 12,22A9,9 0 0,0 21,13A9,9 0 0,0 12,4M12.5,8H11V14L15.75,16.85L16.5,15.62L12.5,13.25V8M7.88,3.39L6.6,1.86L2,5.71L3.29,7.24L7.88,3.39M22,5.72L17.4,1.86L16.11,3.39L20.71,7.25L22,5.72Z";
 var mdiCheck = "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z";
+var mdiCheckCircle = "M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z";
+var mdiCloseCircle = "M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z";
 var mdiCog = "M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z";
 var mdiDelete = "M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z";
 var mdiFastForward = "M13,6V18L21.5,12M4,18L12.5,12L4,6V18Z";
 var mdiPen = "M20.71,7.04C20.37,7.38 20.04,7.71 20.03,8.04C20,8.36 20.34,8.69 20.66,9C21.14,9.5 21.61,9.95 21.59,10.44C21.57,10.93 21.06,11.44 20.55,11.94L16.42,16.08L15,14.66L19.25,10.42L18.29,9.46L16.87,10.87L13.12,7.12L16.96,3.29C17.35,2.9 18,2.9 18.37,3.29L20.71,5.63C21.1,6 21.1,6.65 20.71,7.04M3,17.25L12.56,7.68L16.31,11.43L6.75,21H3V17.25Z";
+var mdiPlaylistEdit = "M3 6V8H14V6H3M3 10V12H14V10H3M20 10.1C19.9 10.1 19.7 10.2 19.6 10.3L18.6 11.3L20.7 13.4L21.7 12.4C21.9 12.2 21.9 11.8 21.7 11.6L20.4 10.3C20.3 10.2 20.2 10.1 20 10.1M18.1 11.9L12 17.9V20H14.1L20.2 13.9L18.1 11.9M3 14V16H10V14H3Z";
+var mdiPlaylistRemove = "M14 10H3V12H14V10M14 6H3V8H14V6M3 16H10V14H3V16M14.4 22L17 19.4L19.6 22L21 20.6L18.4 18L21 15.4L19.6 14L17 16.6L14.4 14L13 15.4L15.6 18L13 20.6L14.4 22Z";
 var mdiPlus = "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z";
 var mdiRewind = "M11.5,12L20,18V6M11,18V6L2.5,12L11,18Z";
+var mdiTrashCanOutline = "M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z";
 var mdiVolumeHigh = "M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z";
 var mdiVolumeMinus = "M3,9H7L12,4V20L7,15H3V9M14,11H22V13H14V11Z";
 var mdiVolumeMute = "M3,9H7L12,4V20L7,15H3V9M16.59,12L14,9.41L15.41,8L18,10.59L20.59,8L22,9.41L19.41,12L22,14.59L20.59,16L18,13.41L15.41,16L14,14.59L16.59,12Z";
@@ -810,131 +817,6 @@ class we extends $t {
   }
 }
 const be = e(we);
-var __defProp$p = Object.defineProperty;
-var __decorateClass$p = (decorators, target, key, kind) => {
-  var result = void 0;
-  for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
-    if (decorator = decorators[i2])
-      result = decorator(target, key, result) || result;
-  if (result) __defProp$p(target, key, result);
-  return result;
-};
-const { SHUFFLE_SET, REPEAT_SET, PLAY, PAUSE, NEXT_TRACK, PREVIOUS_TRACK, BROWSE_MEDIA } = MediaPlayerEntityFeature;
-class PlayerControls extends h {
-  constructor() {
-    super(...arguments);
-    this.volDown = async () => await this.mediaControlService.volumeDown(this.volumePlayer, !this.config.playerVolumeEntityId);
-    this.volUp = async () => await this.mediaControlService.volumeUp(this.volumePlayer, !this.config.playerVolumeEntityId);
-    this.rewind = async () => await this.mediaControlService.seek(
-      this.volumePlayer,
-      this.volumePlayer.attributes.media_position - (this.config.fastForwardAndRewindStepSizeSeconds || 15)
-    );
-    this.fastForward = async () => await this.mediaControlService.seek(
-      this.volumePlayer,
-      this.volumePlayer.attributes.media_position + (this.config.fastForwardAndRewindStepSizeSeconds || 15)
-    );
-  }
-  render() {
-    this.config = this.store.config;
-    this.activePlayer = this.store.activePlayer;
-    this.mediaControlService = this.store.mediaControlService;
-    const noUpDown = !!this.config.showVolumeUpAndDownButtons && D;
-    const noFastForwardAndRewind = !!this.config.showFastForwardAndRewindButtons && D;
-    this.volumePlayer = this.activePlayer.getMember(this.config.playerVolumeEntityId) ?? this.activePlayer;
-    return ke`
-      <div class="main" id="mediaControls">
-          <div class="icons">
-              <div class="flex-1"></div>
-              <ha-icon-button hide=${noUpDown} @click=${this.volDown} .path=${mdiVolumeMinus}></ha-icon-button>
-              <mxmp-ha-player .store=${this.store} .features=${this.showShuffle()}></mxmp-ha-player>
-              <mxmp-ha-player .store=${this.store} .features=${this.showPrev()}></mxmp-ha-player>
-              <ha-icon-button hide=${noFastForwardAndRewind} @click=${this.rewind} .path=${mdiRewind}></ha-icon-button>
-              <mxmp-ha-player .store=${this.store} .features=${[PLAY, PAUSE]} class="big-icon"></mxmp-ha-player>
-              <ha-icon-button hide=${noFastForwardAndRewind} @click=${this.fastForward} .path=${mdiFastForward}></ha-icon-button>
-              <mxmp-ha-player .store=${this.store} .features=${this.showNext()}></mxmp-ha-player>
-              <mxmp-ha-player .store=${this.store} .features=${this.showRepeat()}></mxmp-ha-player>
-              <ha-icon-button hide=${noUpDown} @click=${this.volUp} .path=${mdiVolumePlus}></ha-icon-button>
-              <div class="audio-input-format">
-                ${this.config.showAudioInputFormat && be(this.getAudioInputFormat())}
-              </div>
-              <mxmp-ha-player .store=${this.store} .features=${this.showBrowseMedia()}></mxmp-ha-player>
-          </div>
-          <mxmp-volume .store=${this.store} .player=${this.volumePlayer}
-                       .updateMembers=${!this.config.playerVolumeEntityId}></mxmp-volume>
-          <div class="icons">
-              <mxmp-ha-player .store=${this.store} .features=${this.store.showPower(true)}></mxmp-ha-player>
-          </div">
-      </div>
-  `;
-  }
-  async getAudioInputFormat() {
-    const sensors = await this.store.hassService.getRelatedEntities(this.activePlayer, "sensor");
-    const audioInputFormat = sensors.find((sensor) => sensor.entity_id.includes("audio_input_format"));
-    return audioInputFormat && audioInputFormat.state && audioInputFormat.state !== "No audio" ? ke`<div>${audioInputFormat.state}</div>` : "";
-  }
-  showShuffle() {
-    return this.config.hidePlayerControlShuffleButton ? [] : [SHUFFLE_SET];
-  }
-  showPrev() {
-    return this.config.hidePlayerControlPrevTrackButton ? [] : [PREVIOUS_TRACK];
-  }
-  showNext() {
-    return this.config.hidePlayerControlNextTrackButton ? [] : [NEXT_TRACK];
-  }
-  showRepeat() {
-    return this.config.hidePlayerControlRepeatButton ? [] : [REPEAT_SET];
-  }
-  showBrowseMedia() {
-    return this.config.showBrowseMediaInPlayerSection ? [BROWSE_MEDIA] : [];
-  }
-  static get styles() {
-    return i$2`
-      .main {
-        overflow: hidden auto;
-      }
-      .icons {
-        justify-content: center;
-        display: flex;
-        align-items: center;
-      }
-      *[hide] {
-        display: none;
-      }
-      .big-icon {
-        --mdc-icon-button-size: 5rem;
-        --mdc-icon-size: 5rem;
-      }
-      .audio-input-format {
-        flex: 1 0 0;
-        margin-bottom: 10px;
-        text-align: center;
-        align-self: stretch;
-        position: relative;
-      }
-      .audio-input-format > div {
-        color: var(--card-background-color);
-        background: var(--disabled-text-color);
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        max-width: 100%;
-        font-size: smaller;
-        line-height: normal;
-        padding: 3px;
-      }
-      .flex-1 {
-        flex: 1;
-      }
-    `;
-  }
-}
-__decorateClass$p([
-  n2({ attribute: false })
-], PlayerControls.prototype, "store");
-customElements.define("mxmp-player-controls", PlayerControls);
 const dispatchPrefix = "mxmp-dispatch-event-";
 const ACTIVE_PLAYER_EVENT_INTERNAL = "active-player";
 const ACTIVE_PLAYER_EVENT = dispatchPrefix + ACTIVE_PLAYER_EVENT_INTERNAL;
@@ -951,7 +833,7 @@ const listStyle = i$2`
     overflow: hidden;
   }
 `;
-const mediaBrowserTitleStyle = i$2`
+const mediaItemTitleStyle = i$2`
   .title {
     color: var(--secondary-text-color);
     font-weight: bold;
@@ -1009,7 +891,9 @@ function getWidth(config) {
   return getWidthOrHeight(config.widthPercentage);
 }
 function getGroupPlayerIds(hassEntity) {
-  return hassEntity.attributes.group_members || [hassEntity.entity_id];
+  let groupMembers = hassEntity.attributes.group_members;
+  groupMembers = groupMembers == null ? void 0 : groupMembers.filter((id) => id !== null && id !== void 0);
+  return (groupMembers == null ? void 0 : groupMembers.length) ? groupMembers : [hassEntity.entity_id];
 }
 function supportsTurnOn(player) {
   return ((player.attributes.supported_features || 0) & TURN_ON$1) == TURN_ON$1;
@@ -1024,33 +908,40 @@ function getGroupingChanges(groupingItems, joinedPlayers, activePlayerId) {
   }
   return { unJoin, join, newMainPlayer };
 }
-function entityMatchSonos(config, hassEntity, hassWithEntities) {
+function entityMatchSonos(config, entity, hassWithEntities) {
   var _a2, _b;
+  const entityId = entity.entity_id;
   const configEntities = [...new Set(config.entities)];
   let includeEntity = true;
   if (configEntities.length) {
-    const includesEntity = configEntities.includes(hassEntity.entity_id);
+    const includesEntity = configEntities.includes(entityId);
     includeEntity = !!config.excludeItemsInEntitiesList !== includesEntity;
   }
   let matchesPlatform = true;
+  entity.attributes.platform = (_b = (_a2 = hassWithEntities.entities) == null ? void 0 : _a2[entityId]) == null ? void 0 : _b.platform;
   if (config.entityPlatform) {
-    const platform = (_b = (_a2 = hassWithEntities.entities) == null ? void 0 : _a2[hassEntity.entity_id]) == null ? void 0 : _b.platform;
-    matchesPlatform = platform === config.entityPlatform;
+    matchesPlatform = entity.attributes.platform === config.entityPlatform;
   }
   return includeEntity && matchesPlatform;
 }
-function entityMatchMxmp(config, hassEntity, hassWithEntities) {
+function entityMatchMxmp(config, entity, hassWithEntities) {
   var _a2, _b;
+  const entityId = entity.entity_id;
   const configEntities = [...new Set(config.entities)];
+  let matchesPlatform = false;
+  entity.attributes.platform = (_b = (_a2 = hassWithEntities.entities) == null ? void 0 : _a2[entityId]) == null ? void 0 : _b.platform;
   if (config.entityPlatform) {
-    const platform = (_b = (_a2 = hassWithEntities.entities) == null ? void 0 : _a2[hassEntity.entity_id]) == null ? void 0 : _b.platform;
-    return platform === config.entityPlatform;
+    matchesPlatform = entity.attributes.platform === config.entityPlatform;
   }
+  let includeEntity = false;
   if (configEntities.length) {
-    const includesEntity = configEntities.includes(hassEntity.entity_id);
-    return !!config.excludeItemsInEntitiesList !== includesEntity;
+    const includesEntity = configEntities.includes(entityId);
+    includeEntity = !!config.excludeItemsInEntitiesList !== includesEntity;
   }
-  return false;
+  if (config.entityPlatform && configEntities.length) {
+    return matchesPlatform && includeEntity;
+  }
+  return matchesPlatform || includeEntity;
 }
 function isSonosCard(config) {
   return config.type.indexOf("sonos") > -1;
@@ -1067,37 +958,183 @@ function sortEntities(config, filtered) {
     return filtered.sort((a2, b2) => a2.entity_id.localeCompare(b2.entity_id));
   }
 }
-var __defProp$o = Object.defineProperty;
-var __decorateClass$o = (decorators, target, key, kind) => {
+function findPlayer(mediaPlayers, playerId) {
+  return mediaPlayers.find((member) => member.id === playerId);
+}
+var __defProp$r = Object.defineProperty;
+var __decorateClass$r = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$o(target, key, result);
+  if (result) __defProp$r(target, key, result);
+  return result;
+};
+const { SHUFFLE_SET: SHUFFLE_SET$1, REPEAT_SET: REPEAT_SET$1, PLAY, PAUSE, NEXT_TRACK, PREVIOUS_TRACK, BROWSE_MEDIA, STOP } = MediaPlayerEntityFeature;
+class PlayerControls extends h {
+  constructor() {
+    super(...arguments);
+    this.volDown = async () => await this.mediaControlService.volumeDown(this.volumePlayer, this.updateMemberVolumes);
+    this.volUp = async () => await this.mediaControlService.volumeUp(this.volumePlayer, this.updateMemberVolumes);
+    this.rewind = async () => await this.mediaControlService.seek(
+      this.activePlayer,
+      this.activePlayer.attributes.media_position - (this.config.fastForwardAndRewindStepSizeSeconds || 15)
+    );
+    this.fastForward = async () => await this.mediaControlService.seek(
+      this.activePlayer,
+      this.activePlayer.attributes.media_position + (this.config.fastForwardAndRewindStepSizeSeconds || 15)
+    );
+  }
+  render() {
+    this.config = this.store.config;
+    this.activePlayer = this.store.activePlayer;
+    this.mediaControlService = this.store.mediaControlService;
+    const noUpDown = !!this.config.showVolumeUpAndDownButtons && D;
+    const noFastForwardAndRewind = !!this.config.showFastForwardAndRewindButtons && D;
+    this.volumePlayer = this.getVolumePlayer();
+    this.updateMemberVolumes = !this.config.playerVolumeEntityId;
+    const pauseOrStop = this.config.stopInsteadOfPause ? STOP : PAUSE;
+    return ke`
+      <div class="main" id="mediaControls">
+          <div class="icons">
+              <div class="flex-1"></div>
+              <ha-icon-button hide=${noUpDown} @click=${this.volDown} .path=${mdiVolumeMinus}></ha-icon-button>
+              <mxmp-ha-player .store=${this.store} .features=${this.showShuffle()}></mxmp-ha-player>
+              <mxmp-ha-player .store=${this.store} .features=${this.showPrev()}></mxmp-ha-player>
+              <ha-icon-button hide=${noFastForwardAndRewind} @click=${this.rewind} .path=${mdiRewind}></ha-icon-button>
+              <mxmp-ha-player .store=${this.store} .features=${[PLAY, pauseOrStop]} class="big-icon"></mxmp-ha-player>
+              <ha-icon-button hide=${noFastForwardAndRewind} @click=${this.fastForward} .path=${mdiFastForward}></ha-icon-button>
+              <mxmp-ha-player .store=${this.store} .features=${this.showNext()}></mxmp-ha-player>
+              <mxmp-ha-player .store=${this.store} .features=${this.showRepeat()}></mxmp-ha-player>
+              <ha-icon-button hide=${noUpDown} @click=${this.volUp} .path=${mdiVolumePlus}></ha-icon-button>
+              <div class="audio-input-format">
+                ${this.config.showAudioInputFormat && be(this.getAudioInputFormat())}
+              </div>
+              <mxmp-ha-player .store=${this.store} .features=${this.showBrowseMedia()}></mxmp-ha-player>
+          </div>
+          <mxmp-volume .store=${this.store} .player=${this.volumePlayer}
+                       .updateMembers=${this.updateMemberVolumes}></mxmp-volume>
+          <div class="icons">
+              <mxmp-ha-player .store=${this.store} .features=${this.store.showPower(true)}></mxmp-ha-player>
+          </div">
+      </div>
+  `;
+  }
+  getVolumePlayer() {
+    let result;
+    if (this.config.playerVolumeEntityId) {
+      if (this.config.allowPlayerVolumeEntityOutsideOfGroup) {
+        result = findPlayer(this.store.allMediaPlayers, this.config.playerVolumeEntityId);
+      } else {
+        result = this.activePlayer.getMember(this.config.playerVolumeEntityId);
+      }
+    }
+    return result ?? this.activePlayer;
+  }
+  async getAudioInputFormat() {
+    const sensors = await this.store.hassService.getRelatedEntities(this.activePlayer, "sensor");
+    const audioInputFormat = sensors.find((sensor) => sensor.entity_id.includes("audio_input_format"));
+    return audioInputFormat && audioInputFormat.state && audioInputFormat.state !== "No audio" ? ke`<div>${audioInputFormat.state}</div>` : "";
+  }
+  showShuffle() {
+    return this.config.hidePlayerControlShuffleButton ? [] : [SHUFFLE_SET$1];
+  }
+  showPrev() {
+    return this.config.hidePlayerControlPrevTrackButton ? [] : [PREVIOUS_TRACK];
+  }
+  showNext() {
+    return this.config.hidePlayerControlNextTrackButton ? [] : [NEXT_TRACK];
+  }
+  showRepeat() {
+    return this.config.hidePlayerControlRepeatButton ? [] : [REPEAT_SET$1];
+  }
+  showBrowseMedia() {
+    return this.config.showBrowseMediaInPlayerSection ? [BROWSE_MEDIA] : [];
+  }
+  static get styles() {
+    return i$2`
+      .main {
+        overflow: hidden auto;
+      }
+      .icons {
+        justify-content: center;
+        display: flex;
+        align-items: center;
+      }
+      *[hide] {
+        display: none;
+      }
+      .big-icon {
+        --mdc-icon-button-size: 5rem;
+        --mdc-icon-size: 5rem;
+      }
+      .audio-input-format {
+        flex: 1 0 0;
+        margin-bottom: 10px;
+        text-align: center;
+        align-self: stretch;
+        position: relative;
+      }
+      .audio-input-format > div {
+        color: var(--card-background-color);
+        background: var(--disabled-text-color);
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        max-width: 100%;
+        font-size: smaller;
+        line-height: normal;
+        padding: 3px;
+      }
+      .flex-1 {
+        flex: 1;
+      }
+    `;
+  }
+}
+__decorateClass$r([
+  n2({ attribute: false })
+], PlayerControls.prototype, "store");
+customElements.define("mxmp-player-controls", PlayerControls);
+var __defProp$q = Object.defineProperty;
+var __decorateClass$q = (decorators, target, key, kind) => {
+  var result = void 0;
+  for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
+    if (decorator = decorators[i2])
+      result = decorator(target, key, result) || result;
+  if (result) __defProp$q(target, key, result);
   return result;
 };
 class PlayerHeader extends h {
   render() {
     this.config = this.store.config;
     this.activePlayer = this.store.activePlayer;
-    const speakerList = getSpeakerList(this.activePlayer, this.store.predefinedGroups);
+    return ke` <div class="info">
+      <div class="entity">${getSpeakerList(this.activePlayer, this.store.predefinedGroups)}</div>
+      <div class="song">${this.getSong()}</div>
+      <div class="artist-album">${this.getAlbum()}</div>
+      <mxmp-progress .store=${this.store}></mxmp-progress>
+    </div>`;
+  }
+  getSong() {
     let song = this.activePlayer.getCurrentTrack();
     song = song || this.config.labelWhenNoMediaIsSelected || "No media selected";
     if (this.config.showSourceInPlayer && this.activePlayer.attributes.source) {
       song = `${song} (${this.activePlayer.attributes.source})`;
     }
+    return song;
+  }
+  getAlbum() {
     let album = this.activePlayer.attributes.media_album_name;
     if (this.config.showChannelInPlayer && this.activePlayer.attributes.media_channel) {
       album = this.activePlayer.attributes.media_channel;
     } else if (!this.config.hidePlaylistInPlayer && this.activePlayer.attributes.media_playlist) {
       album = `${this.activePlayer.attributes.media_playlist} - ${album}`;
     }
-    return ke` <div class="info">
-      <div class="entity">${speakerList}</div>
-      <div class="song">${song}</div>
-      <div class="artist-album">${album}</div>
-      <mxmp-progress .store=${this.store}></mxmp-progress>
-    </div>`;
+    return album;
   }
   static get styles() {
     return i$2`
@@ -1132,7 +1169,7 @@ class PlayerHeader extends h {
     `;
   }
 }
-__decorateClass$o([
+__decorateClass$q([
   n2({ attribute: false })
 ], PlayerHeader.prototype, "store");
 customElements.define("mxmp-player-header", PlayerHeader);
@@ -1167,13 +1204,13 @@ const ee = "important", ie = " !" + ee, se = e(class extends i {
     return R;
   }
 });
-var __defProp$n = Object.defineProperty;
-var __decorateClass$n = (decorators, target, key, kind) => {
+var __defProp$p = Object.defineProperty;
+var __decorateClass$p = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$n(target, key, result);
+  if (result) __defProp$p(target, key, result);
   return result;
 };
 class Progress extends h {
@@ -1259,13 +1296,13 @@ class Progress extends h {
     `;
   }
 }
-__decorateClass$n([
+__decorateClass$p([
   n2({ attribute: false })
 ], Progress.prototype, "store");
-__decorateClass$n([
+__decorateClass$p([
   r$1()
 ], Progress.prototype, "playingProgress");
-__decorateClass$n([
+__decorateClass$p([
   e$1(".bar")
 ], Progress.prototype, "progressBar");
 const convertProgress = (duration) => {
@@ -1273,13 +1310,13 @@ const convertProgress = (duration) => {
   return date.startsWith("00:") ? date.substring(3) : date;
 };
 customElements.define("mxmp-progress", Progress);
-var __defProp$m = Object.defineProperty;
-var __decorateClass$m = (decorators, target, key, kind) => {
+var __defProp$o = Object.defineProperty;
+var __decorateClass$o = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$m(target, key, result);
+  if (result) __defProp$o(target, key, result);
   return result;
 };
 class Volume extends h {
@@ -1390,19 +1427,19 @@ class Volume extends h {
     `;
   }
 }
-__decorateClass$m([
+__decorateClass$o([
   n2({ attribute: false })
 ], Volume.prototype, "store");
-__decorateClass$m([
+__decorateClass$o([
   n2({ attribute: false })
 ], Volume.prototype, "player");
-__decorateClass$m([
+__decorateClass$o([
   n2({ type: Boolean })
 ], Volume.prototype, "updateMembers");
-__decorateClass$m([
+__decorateClass$o([
   n2()
 ], Volume.prototype, "volumeClicked");
-__decorateClass$m([
+__decorateClass$o([
   n2()
 ], Volume.prototype, "slim");
 function numberFromEvent(e2) {
@@ -1410,13 +1447,13 @@ function numberFromEvent(e2) {
   return Number.parseInt((_a2 = e2 == null ? void 0 : e2.target) == null ? void 0 : _a2.value);
 }
 customElements.define("mxmp-volume", Volume);
-var __defProp$l = Object.defineProperty;
-var __decorateClass$l = (decorators, target, key, kind) => {
+var __defProp$n = Object.defineProperty;
+var __decorateClass$n = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$l(target, key, result);
+  if (result) __defProp$n(target, key, result);
   return result;
 };
 class Player extends h {
@@ -1536,7 +1573,7 @@ class Player extends h {
     `;
   }
 }
-__decorateClass$l([
+__decorateClass$n([
   n2({ attribute: false })
 ], Player.prototype, "store");
 /**
@@ -1583,25 +1620,77 @@ class HassService {
     return mediaPlayerItem;
   }
   async getRelatedEntities(player, ...entityTypes) {
-    return new Promise(async (resolve) => {
+    return new Promise((resolve) => {
       const subscribeMessage = {
         type: "render_template",
         template: `{{ device_entities(device_id('${player.id}')) }}`
       };
       try {
-        const unsubscribe = await this.hass.connection.subscribeMessage((response) => {
+        this.hass.connection.subscribeMessage((response) => {
           try {
-            unsubscribe();
             resolve(
               response.result.filter((item) => entityTypes.some((type) => item.includes(type))).map((item) => this.hass.states[item])
             );
           } catch {
             resolve([]);
           }
-        }, subscribeMessage);
+        }, subscribeMessage).then((unsub) => unsub);
       } catch {
         resolve([]);
       }
+    });
+  }
+  async getQueue(mediaPlayer) {
+    try {
+      const ret = await this.hass.callWS({
+        type: "call_service",
+        domain: "sonos",
+        service: "get_queue",
+        target: {
+          entity_id: mediaPlayer.id
+        },
+        return_response: true
+      });
+      const queueItems = ret.response[mediaPlayer.id];
+      return queueItems.map((item) => {
+        return {
+          title: `${item.media_artist} - ${item.media_title}`
+        };
+      });
+    } catch (e2) {
+      console.error("Error getting queue", e2);
+      return [];
+    }
+  }
+  async playQueue(mediaPlayer, queuePosition) {
+    this.card.dispatchEvent(customEvent(CALL_MEDIA_STARTED, { section: this.currentSection }));
+    try {
+      await this.hass.callService("sonos", "play_queue", {
+        entity_id: mediaPlayer.id,
+        queue_position: queuePosition
+      });
+    } finally {
+      this.card.dispatchEvent(customEvent(CALL_MEDIA_DONE));
+    }
+  }
+  async removeFromQueue(mediaPlayer, queuePosition) {
+    await this.hass.callService("sonos", "remove_from_queue", {
+      entity_id: mediaPlayer.id,
+      queue_position: queuePosition
+    });
+  }
+  async clearQueue(mediaPlayer) {
+    await this.hass.callService("media_player", "clear_playlist", { entity_id: mediaPlayer.id });
+  }
+  async setSleepTimer(mediaPlayer, sleepTimer) {
+    await this.hass.callService("sonos", "set_sleep_timer", {
+      entity_id: mediaPlayer.id,
+      sleep_time: sleepTimer
+    });
+  }
+  async cancelSleepTimer(player) {
+    await this.hass.callService("sonos", "clear_sleep_timer", {
+      entity_id: player.id
     });
   }
 }
@@ -1609,21 +1698,21 @@ const DEFAULT_MEDIA_THUMBNAIL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA
 function hasItemsWithImage(items) {
   return items.some((item) => item.thumbnail);
 }
-function getValueFromKeyIgnoreSpecialChars(customThumbnails, currentTitle) {
-  for (const title in customThumbnails) {
+function getValueFromKeyIgnoreSpecialChars(customFavoriteThumbnails, currentTitle) {
+  for (const title in customFavoriteThumbnails) {
     if (removeSpecialChars(title) === removeSpecialChars(currentTitle)) {
-      return customThumbnails[title];
+      return customFavoriteThumbnails[title];
     }
   }
   return void 0;
 }
 function getThumbnail(mediaItem, config, itemsWithImage) {
   var _a2;
-  let thumbnail = getValueFromKeyIgnoreSpecialChars(config.customThumbnail, mediaItem.title) ?? mediaItem.thumbnail;
+  let thumbnail = getValueFromKeyIgnoreSpecialChars(config.customFavoriteThumbnails, mediaItem.title) ?? mediaItem.thumbnail;
   if (!thumbnail) {
-    thumbnail = getValueFromKeyIgnoreSpecialChars(config.customThumbnailIfMissing, mediaItem.title);
+    thumbnail = getValueFromKeyIgnoreSpecialChars(config.customFavoriteThumbnailsIfMissing, mediaItem.title);
     if (itemsWithImage && !thumbnail) {
-      thumbnail = ((_a2 = config.customThumbnailIfMissing) == null ? void 0 : _a2["default"]) || DEFAULT_MEDIA_THUMBNAIL;
+      thumbnail = ((_a2 = config.customFavoriteThumbnailsIfMissing) == null ? void 0 : _a2["default"]) || DEFAULT_MEDIA_THUMBNAIL;
     }
   } else if (thumbnail == null ? void 0 : thumbnail.match(/https:\/\/brands\.home-assistant\.io\/.+\/logo.png/)) {
     thumbnail = thumbnail == null ? void 0 : thumbnail.replace("logo.png", "icon.png");
@@ -1695,7 +1784,7 @@ class MediaBrowseService {
     }
   }
   getFavoritesFromStates(mediaPlayer) {
-    const titles = mediaPlayer.attributes.hasOwnProperty("source_list") ? mediaPlayer.attributes.source_list : [];
+    const titles = mediaPlayer.attributes.source_list ?? [];
     return titles.map((title) => ({ title }));
   }
 }
@@ -1829,7 +1918,7 @@ class MediaPlayer {
     var _a2;
     this.id = hassEntity.entity_id;
     this.config = config;
-    this.name = this.getEntityName(hassEntity, config);
+    this.name = this.getEntityName(hassEntity);
     this.state = hassEntity.state;
     this.attributes = hassEntity.attributes;
     this.members = mediaPlayerHassEntities ? this.createGroupMembers(hassEntity, mediaPlayerHassEntities) : [this];
@@ -1837,7 +1926,7 @@ class MediaPlayer {
     this.ignoreVolume = !!((_a2 = this.config.entitiesToIgnoreVolumeLevelFor) == null ? void 0 : _a2.includes(this.volumePlayer.id));
   }
   getMember(playerId) {
-    return this.members.find((member) => member.id === playerId);
+    return findPlayer(this.members, playerId);
   }
   hasMember(playerId) {
     return this.getMember(playerId) !== void 0;
@@ -1855,12 +1944,21 @@ class MediaPlayer {
     if (!track) {
       track = ((_a2 = this.attributes.media_content_id) == null ? void 0 : _a2.replace(/.*:\/\//g, "")) ?? "";
     }
+    if (this.config.mediaTitleRegexToReplace) {
+      track = track.replace(
+        new RegExp(this.config.mediaTitleRegexToReplace, "g"),
+        this.config.mediaTitleReplacement || ""
+      );
+    }
     return track;
   }
-  getEntityName(hassEntity, config) {
+  getEntityName(hassEntity) {
     const name = hassEntity.attributes.friendly_name || "";
-    if (config.entityNameRegexToReplace) {
-      return name.replace(new RegExp(config.entityNameRegexToReplace, "g"), config.entityNameReplacement || "");
+    if (this.config.entityNameRegexToReplace) {
+      return name.replace(
+        new RegExp(this.config.entityNameRegexToReplace, "g"),
+        this.config.entityNameReplacement || ""
+      );
     }
     return name;
   }
@@ -2034,13 +2132,13 @@ class Store {
     }
   }
 }
-var __defProp$k = Object.defineProperty;
-var __decorateClass$k = (decorators, target, key, kind) => {
+var __defProp$m = Object.defineProperty;
+var __decorateClass$m = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$k(target, key, result);
+  if (result) __defProp$m(target, key, result);
   return result;
 };
 class SectionButton extends h {
@@ -2063,29 +2161,29 @@ class SectionButton extends h {
     `;
   }
 }
-__decorateClass$k([
+__decorateClass$m([
   n2({ attribute: false })
 ], SectionButton.prototype, "config");
-__decorateClass$k([
+__decorateClass$m([
   n2()
 ], SectionButton.prototype, "icon");
-__decorateClass$k([
+__decorateClass$m([
   n2()
 ], SectionButton.prototype, "section");
-__decorateClass$k([
+__decorateClass$m([
   n2()
 ], SectionButton.prototype, "selectedSection");
 customElements.define("mxmp-section-button", SectionButton);
-var __defProp$j = Object.defineProperty;
-var __decorateClass$j = (decorators, target, key, kind) => {
+var __defProp$l = Object.defineProperty;
+var __decorateClass$l = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$j(target, key, result);
+  if (result) __defProp$l(target, key, result);
   return result;
 };
-const { GROUPING: GROUPING$1, GROUPS: GROUPS$1, MEDIA_BROWSER: MEDIA_BROWSER$1, PLAYER: PLAYER$1, VOLUMES: VOLUMES$1 } = Section;
+const { GROUPING: GROUPING$1, GROUPS: GROUPS$1, MEDIA_BROWSER: MEDIA_BROWSER$1, PLAYER: PLAYER$1, VOLUMES: VOLUMES$1, QUEUE: QUEUE$1 } = Section;
 class Footer extends h {
   render() {
     const icons = this.config.sectionButtonIcons;
@@ -2094,8 +2192,12 @@ class Footer extends h {
       [MEDIA_BROWSER$1, (icons == null ? void 0 : icons.mediaBrowser) ?? "mdi:star-outline"],
       [GROUPS$1, (icons == null ? void 0 : icons.groups) ?? "mdi:speaker-multiple"],
       [GROUPING$1, (icons == null ? void 0 : icons.grouping) ?? "mdi:checkbox-multiple-marked-circle-outline"],
+      [QUEUE$1, (icons == null ? void 0 : icons.queue) ?? "mdi:queue-first-in-last-out"],
       [VOLUMES$1, (icons == null ? void 0 : icons.volumes) ?? "mdi:tune"]
     ];
+    if (!isSonosCard(this.config)) {
+      sections = sections.filter(([section]) => section !== QUEUE$1);
+    }
     sections = sections.filter(([section]) => {
       var _a2;
       return !this.config.sections || ((_a2 = this.config.sections) == null ? void 0 : _a2.includes(section));
@@ -2120,15 +2222,15 @@ class Footer extends h {
         justify-content: space-between;
       }
       :host > * {
-        padding: 1rem;
+        align-content: center;
       }
     `;
   }
 }
-__decorateClass$j([
+__decorateClass$l([
   n2({ attribute: false })
 ], Footer.prototype, "config");
-__decorateClass$j([
+__decorateClass$l([
   n2()
 ], Footer.prototype, "section");
 customElements.define("mxmp-footer", Footer);
@@ -2143,13 +2245,13 @@ var ne = function(e2, t2, r2, n3) {
   var i2 = new Event(t2, { bubbles: void 0 === n3.bubbles || n3.bubbles, cancelable: Boolean(n3.cancelable), composed: void 0 === n3.composed || n3.composed });
   return i2.detail = r2, e2.dispatchEvent(i2), i2;
 };
-var __defProp$i = Object.defineProperty;
-var __decorateClass$i = (decorators, target, key, kind) => {
+var __defProp$k = Object.defineProperty;
+var __decorateClass$k = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$i(target, key, result);
+  if (result) __defProp$k(target, key, result);
   return result;
 };
 class BaseEditor extends h {
@@ -2180,10 +2282,10 @@ class BaseEditor extends h {
     return this.dispatchEvent(new CustomEvent("closed"));
   }
 }
-__decorateClass$i([
+__decorateClass$k([
   n2({ attribute: false })
 ], BaseEditor.prototype, "config");
-__decorateClass$i([
+__decorateClass$k([
   n2({ attribute: false })
 ], BaseEditor.prototype, "hass");
 var ConfigArea = /* @__PURE__ */ ((ConfigArea2) => {
@@ -2248,11 +2350,16 @@ const ADVANCED_SCHEMA = [
     type: "string"
   },
   {
+    name: "queueTitle",
+    type: "string",
+    cardType: "sonos"
+  },
+  {
     name: "artworkHostname",
     type: "string"
   },
   {
-    name: "mediaBrowserHideTitleForThumbnailIcons",
+    name: "favoritesHideTitleForThumbnailIcons",
     selector: { boolean: {} }
   },
   {
@@ -2287,6 +2394,10 @@ const ADVANCED_SCHEMA = [
   {
     name: "playerVolumeEntityId",
     selector: { entity: { multiple: false, filter: { domain: "media_player" } } }
+  },
+  {
+    name: "allowPlayerVolumeEntityOutsideOfGroup",
+    selector: { boolean: {} }
   },
   {
     name: "dontSwitchPlayerWhenGrouping",
@@ -2326,6 +2437,23 @@ const ADVANCED_SCHEMA = [
   {
     name: "showBrowseMediaInPlayerSection",
     selector: { boolean: {} }
+  },
+  {
+    type: "string",
+    name: "mediaTitleRegexToReplace"
+  },
+  {
+    type: "string",
+    name: "mediaTitleReplacement"
+  },
+  {
+    name: "footerHeight",
+    type: "integer",
+    valueMin: 0
+  },
+  {
+    name: "stopInsteadOfPause",
+    selector: { boolean: {} }
   }
 ];
 class AdvancedEditor extends BaseEditor {
@@ -2343,9 +2471,9 @@ class AdvancedEditor extends BaseEditor {
       <div>
         The following needs to be configured using code (YAML):
         <ul>
-          <li>customSources</li>
-          <li>customThumbnail</li>
-          <li>customThumbnailIfMissing</li>
+          <li>customFavorites</li>
+          <li>customFavoriteThumbnails</li>
+          <li>customFavoriteThumbnailsIfMissing</li>
           <li>favoritesToIgnore</li>
           <li>groupingButtonIcons</li>
           <li>sectionButtonIcons</li>
@@ -2364,39 +2492,28 @@ class AdvancedEditor extends BaseEditor {
   }
 }
 customElements.define("mxmp-advanced-editor", AdvancedEditor);
-var __defProp$h = Object.defineProperty;
-var __decorateClass$h = (decorators, target, key, kind) => {
-  var result = void 0;
-  for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
-    if (decorator = decorators[i2])
-      result = decorator(target, key, result) || result;
-  if (result) __defProp$h(target, key, result);
-  return result;
+const options = {
+  player: "Player",
+  "media browser": "Media Browser",
+  groups: "Groups",
+  grouping: "Grouping",
+  volumes: "Volumes",
+  queue: "Queue"
 };
-class CustomSourceEditor extends BaseEditor {
-  render() {
-    return ke``;
-  }
-}
-__decorateClass$h([
-  n2({ type: Number })
-], CustomSourceEditor.prototype, "index");
-customElements.define("mxmp-custom-source-editor", CustomSourceEditor);
 const GENERAL_SCHEMA = [
   {
     type: "multi_select",
-    options: {
-      player: "Player",
-      "media browser": "Media Browser",
-      groups: "Groups",
-      grouping: "Grouping",
-      volumes: "Volumes"
-    },
+    options,
     name: "sections"
   },
   {
+    type: "select",
+    options: Object.entries(options).map((entry) => entry),
+    name: "startSection"
+  },
+  {
     type: "integer",
-    name: "mediaBrowserItemsPerRow",
+    name: "favoritesItemsPerRow",
     default: 4,
     required: true,
     valueMin: 1,
@@ -2456,22 +2573,18 @@ const GENERAL_SCHEMA = [
 class GeneralEditor extends BaseEditor {
   render() {
     return ke`
-      <mxmp-editor-form
-        .schema=${GENERAL_SCHEMA}
-        .config=${this.config}
-        .hass=${this.hass}
-      ></mxmp-editor-form>
+      <mxmp-editor-form .schema=${GENERAL_SCHEMA} .config=${this.config} .hass=${this.hass}></mxmp-editor-form>
     `;
   }
 }
 customElements.define("mxmp-general-editor", GeneralEditor);
-var __defProp$g = Object.defineProperty;
-var __decorateClass$g = (decorators, target, key, kind) => {
+var __defProp$j = Object.defineProperty;
+var __decorateClass$j = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$g(target, key, result);
+  if (result) __defProp$j(target, key, result);
   return result;
 };
 const ENTITIES_RENAME_SCHEMA = [
@@ -2529,11 +2642,7 @@ class EntitiesEditor extends BaseEditor {
           .hass=${this.hass}
           @closed=${() => this.editGroup = -1}
         ></mxmp-predefined-group-editor>` : ke`
-          <mxmp-editor-form
-            .schema=${this.entitiesSchema}
-            .config=${this.config}
-            .hass=${this.hass}
-          ></mxmp-editor-form>
+          <mxmp-editor-form .schema=${this.entitiesSchema} .config=${this.config} .hass=${this.hass}></mxmp-editor-form>
           <div>
             Predefined Groups
             <ha-control-button-group>
@@ -2561,17 +2670,17 @@ class EntitiesEditor extends BaseEditor {
         `;
   }
 }
-__decorateClass$g([
+__decorateClass$j([
   r$1()
 ], EntitiesEditor.prototype, "editGroup");
 customElements.define("mxmp-entities-editor", EntitiesEditor);
-var __defProp$f = Object.defineProperty;
-var __decorateClass$f = (decorators, target, key, kind) => {
+var __defProp$i = Object.defineProperty;
+var __decorateClass$i = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$f(target, key, result);
+  if (result) __defProp$i(target, key, result);
   return result;
 };
 class PredefinedGroupEditor extends BaseEditor {
@@ -2694,20 +2803,20 @@ class PredefinedGroupEditor extends BaseEditor {
     this.dispatchClose();
   }
 }
-__decorateClass$f([
+__decorateClass$i([
   n2({ type: Number })
 ], PredefinedGroupEditor.prototype, "index");
-__decorateClass$f([
+__decorateClass$i([
   r$1()
 ], PredefinedGroupEditor.prototype, "predefinedGroup");
 customElements.define("mxmp-predefined-group-editor", PredefinedGroupEditor);
-var __defProp$e = Object.defineProperty;
-var __decorateClass$e = (decorators, target, key, kind) => {
+var __defProp$h = Object.defineProperty;
+var __decorateClass$h = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$e(target, key, result);
+  if (result) __defProp$h(target, key, result);
   return result;
 };
 class ArtworkOverridesEditor extends BaseEditor {
@@ -2738,17 +2847,17 @@ class ArtworkOverridesEditor extends BaseEditor {
         `;
   }
 }
-__decorateClass$e([
+__decorateClass$h([
   r$1()
 ], ArtworkOverridesEditor.prototype, "editItem");
 customElements.define("mxmp-artwork-overrides-editor", ArtworkOverridesEditor);
-var __defProp$d = Object.defineProperty;
-var __decorateClass$d = (decorators, target, key, kind) => {
+var __defProp$g = Object.defineProperty;
+var __decorateClass$g = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$d(target, key, result);
+  if (result) __defProp$g(target, key, result);
   return result;
 };
 const newOverride = { ifMissing: false };
@@ -2835,25 +2944,26 @@ class ArtworkOverrideEditor extends BaseEditor {
     this.configChanged();
   }
 }
-__decorateClass$d([
+__decorateClass$g([
   n2({ type: Number })
 ], ArtworkOverrideEditor.prototype, "index");
 customElements.define("mxmp-artwork-override-editor", ArtworkOverrideEditor);
-var __defProp$c = Object.defineProperty;
-var __decorateClass$c = (decorators, target, key, kind) => {
+var __defProp$f = Object.defineProperty;
+var __decorateClass$f = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$c(target, key, result);
+  if (result) __defProp$f(target, key, result);
   return result;
 };
 class Form extends BaseEditor {
   render() {
+    const schema = filterEditorSchemaOnCardType(this.schema, this.config.type);
     return ke`
       <ha-form
         .data=${this.data || this.config}
-        .schema=${this.schema}
+        .schema=${schema}
         .computeLabel=${computeLabel}
         .hass=${this.hass}
         @value-changed=${this.changed || this.valueChanged}
@@ -2869,13 +2979,13 @@ class Form extends BaseEditor {
     this.configChanged();
   }
 }
-__decorateClass$c([
+__decorateClass$f([
   n2({ attribute: false })
 ], Form.prototype, "schema");
-__decorateClass$c([
+__decorateClass$f([
   n2({ attribute: false })
 ], Form.prototype, "data");
-__decorateClass$c([
+__decorateClass$f([
   n2()
 ], Form.prototype, "changed");
 function computeLabel({ help, label, name }) {
@@ -2886,14 +2996,17 @@ function computeLabel({ help, label, name }) {
   unCamelCased = unCamelCased.charAt(0).toUpperCase() + unCamelCased.slice(1);
   return unCamelCased + (help ? ` (${help})` : "");
 }
+function filterEditorSchemaOnCardType(schema, cardType) {
+  return schema.filter((schema2) => schema2.cardType === void 0 || cardType.indexOf(schema2.cardType) > -1);
+}
 customElements.define("mxmp-editor-form", Form);
-var __defProp$b = Object.defineProperty;
-var __decorateClass$b = (decorators, target, key, kind) => {
+var __defProp$e = Object.defineProperty;
+var __decorateClass$e = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$b(target, key, result);
+  if (result) __defProp$e(target, key, result);
   return result;
 };
 const { GENERAL, ENTITIES, ADVANCED, ARTWORK } = ConfigArea;
@@ -2905,6 +3018,9 @@ class CardEditor extends BaseEditor {
   render() {
     if (!this.config.sections || this.config.sections.length === 0) {
       this.config.sections = [Section.PLAYER, Section.VOLUMES, Section.GROUPS, Section.GROUPING, Section.MEDIA_BROWSER];
+      if (isSonosCard(this.config)) {
+        this.config.sections.push(Section.QUEUE);
+      }
     }
     return ke`
       <ha-control-button-group>
@@ -2925,18 +3041,9 @@ class CardEditor extends BaseEditor {
   }
   subEditor() {
     return rr(this.configArea, [
-      [
-        GENERAL,
-        () => ke`<mxmp-general-editor .config=${this.config} .hass=${this.hass}></mxmp-general-editor>`
-      ],
-      [
-        ENTITIES,
-        () => ke`<mxmp-entities-editor .config=${this.config} .hass=${this.hass}></mxmp-entities-editor>`
-      ],
-      [
-        ADVANCED,
-        () => ke`<mxmp-advanced-editor .config=${this.config} .hass=${this.hass}></mxmp-advanced-editor>`
-      ],
+      [GENERAL, () => ke`<mxmp-general-editor .config=${this.config} .hass=${this.hass}></mxmp-general-editor>`],
+      [ENTITIES, () => ke`<mxmp-entities-editor .config=${this.config} .hass=${this.hass}></mxmp-entities-editor>`],
+      [ADVANCED, () => ke`<mxmp-advanced-editor .config=${this.config} .hass=${this.hass}></mxmp-advanced-editor>`],
       [
         ARTWORK,
         () => ke`<mxmp-artwork-overrides-editor
@@ -2954,7 +3061,7 @@ class CardEditor extends BaseEditor {
     `;
   }
 }
-__decorateClass$b([
+__decorateClass$e([
   r$1()
 ], CardEditor.prototype, "configArea");
 customElements.define("mxmp-editor", CardEditor);
@@ -2966,16 +3073,16 @@ customElements.define("mxmp-editor", CardEditor);
 function nn(n3, r2, t2) {
   return n3 ? r2(n3) : t2 == null ? void 0 : t2(n3);
 }
-var __defProp$a = Object.defineProperty;
-var __decorateClass$a = (decorators, target, key, kind) => {
+var __defProp$d = Object.defineProperty;
+var __decorateClass$d = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$a(target, key, result);
+  if (result) __defProp$d(target, key, result);
   return result;
 };
-const { GROUPING, GROUPS, MEDIA_BROWSER, PLAYER, VOLUMES } = Section;
+const { GROUPING, GROUPS, MEDIA_BROWSER, PLAYER, VOLUMES, QUEUE } = Section;
 const TITLE_HEIGHT = 2;
 const FOOTER_HEIGHT = 5;
 class Card extends h {
@@ -3032,7 +3139,8 @@ class Card extends h {
     let height = getHeight(this.config);
     const sections = this.config.sections;
     const showFooter = !sections || sections.length > 1;
-    const contentHeight = showFooter ? height - FOOTER_HEIGHT : height;
+    const footerHeight = this.config.footerHeight || FOOTER_HEIGHT;
+    const contentHeight = showFooter ? height - footerHeight : height;
     const title = this.config.title;
     height = title ? height + TITLE_HEIGHT : height;
     return ke`
@@ -3068,13 +3176,17 @@ class Card extends h {
                       ></mxmp-media-browser>
                     `
       ],
-      [VOLUMES, () => ke` <mxmp-volumes .store=${this.store}></mxmp-volumes>`]
+      [VOLUMES, () => ke` <mxmp-volumes .store=${this.store}></mxmp-volumes>`],
+      [
+        QUEUE,
+        () => ke`<mxmp-queue .store=${this.store} @item-selected=${this.onMediaItemSelected}></mxmp-queue>`
+      ]
     ]) : ke`<div class="no-players">No supported players found</div>`}
         </div>
         ${nn(
       showFooter,
       () => ke`<mxmp-footer
-              style=${this.footerStyle()}
+              style=${this.footerStyle(footerHeight)}
               .config=${this.config}
               .section=${this.section}
               @show-section=${this.showSectionListener}
@@ -3121,10 +3233,10 @@ class Card extends h {
       overflow: "hidden"
     });
   }
-  footerStyle() {
+  footerStyle(height) {
     return se({
-      height: `${FOOTER_HEIGHT}rem`,
-      paddingBottom: "1rem"
+      height: `${height}rem`,
+      padding: "0 1rem"
     });
   }
   contentStyle(height) {
@@ -3141,13 +3253,15 @@ class Card extends h {
         delete newConfig[key];
       }
     }
-    const sections = newConfig.sections;
-    if (sections) {
-      this.section = sections.includes(PLAYER) ? PLAYER : sections.includes(MEDIA_BROWSER) ? MEDIA_BROWSER : sections.includes(GROUPS) ? GROUPS : sections.includes(GROUPING) ? GROUPING : VOLUMES;
+    const sections = newConfig.sections || Object.values(Section).filter((section) => isSonosCard(newConfig) || section !== QUEUE);
+    if (newConfig.startSection && sections.includes(newConfig.startSection)) {
+      this.section = newConfig.startSection;
+    } else if (sections) {
+      this.section = sections.includes(PLAYER) ? PLAYER : sections.includes(MEDIA_BROWSER) ? MEDIA_BROWSER : sections.includes(GROUPS) ? GROUPS : sections.includes(GROUPING) ? GROUPING : sections.includes(QUEUE) && isSonosCard(newConfig) ? QUEUE : VOLUMES;
     } else {
       this.section = PLAYER;
     }
-    newConfig.mediaBrowserItemsPerRow = newConfig.mediaBrowserItemsPerRow || 4;
+    newConfig.favoritesItemsPerRow = newConfig.favoritesItemsPerRow || 4;
     if (((_a2 = newConfig.entities) == null ? void 0 : _a2.length) && newConfig.entities[0].entity) {
       newConfig.entities = newConfig.entities.map((entity) => entity.entity);
     }
@@ -3156,6 +3270,18 @@ class Card extends h {
       if (newConfig.showNonSonosPlayers) {
         newConfig.entityPlatform = void 0;
       }
+    }
+    if (newConfig.customSources) {
+      newConfig.customFavorites = newConfig.customSources;
+    }
+    if (newConfig.customThumbnail) {
+      newConfig.customFavoriteThumbnails = newConfig.customThumbnail;
+    }
+    if (newConfig.customThumbnailIfMissing) {
+      newConfig.customFavoriteThumbnailsIfMissing = newConfig.customThumbnailIfMissing;
+    }
+    if (newConfig.mediaBrowserItemsPerRow) {
+      newConfig.favoritesItemsPerRow = newConfig.mediaBrowserItemsPerRow;
     }
     this.config = newConfig;
   }
@@ -3190,37 +3316,37 @@ class Card extends h {
     `;
   }
 }
-__decorateClass$a([
+__decorateClass$d([
   n2({ attribute: false })
 ], Card.prototype, "hass");
-__decorateClass$a([
+__decorateClass$d([
   n2({ attribute: false })
 ], Card.prototype, "config");
-__decorateClass$a([
+__decorateClass$d([
   r$1()
 ], Card.prototype, "section");
-__decorateClass$a([
+__decorateClass$d([
   r$1()
 ], Card.prototype, "store");
-__decorateClass$a([
+__decorateClass$d([
   r$1()
 ], Card.prototype, "showLoader");
-__decorateClass$a([
+__decorateClass$d([
   r$1()
 ], Card.prototype, "loaderTimestamp");
-__decorateClass$a([
+__decorateClass$d([
   r$1()
 ], Card.prototype, "cancelLoader");
-__decorateClass$a([
+__decorateClass$d([
   r$1()
 ], Card.prototype, "activePlayerId");
-var __defProp$9 = Object.defineProperty;
-var __decorateClass$9 = (decorators, target, key, kind) => {
+var __defProp$c = Object.defineProperty;
+var __decorateClass$c = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$9(target, key, result);
+  if (result) __defProp$c(target, key, result);
   return result;
 };
 class GroupingButton extends h {
@@ -3228,8 +3354,10 @@ class GroupingButton extends h {
     const iconAndName = !!this.icon && !!this.name || D;
     return ke`
       <ha-control-button selected=${this.selected || D}>
-        ${this.icon ? ke` <ha-icon icon-and-name=${iconAndName} .icon=${this.icon}></ha-icon>` : ""}
-        ${this.name ? ke`<span>${this.name}</span>` : ""}
+        <div>
+          ${this.icon ? ke` <ha-icon icon-and-name=${iconAndName} .icon=${this.icon}></ha-icon>` : ""}
+          ${this.name ? ke`<span>${this.name}</span>` : ""}
+        </div>
       </ha-control-button>
     `;
   }
@@ -3237,36 +3365,26 @@ class GroupingButton extends h {
     return i$2`
       ha-control-button {
         width: fit-content;
-        --control-button-background-color: var(--accent-color);
+        --control-button-background-color: var(--secondary-text-color);
         --control-button-icon-color: var(--secondary-text-color);
       }
       ha-control-button[selected] {
         --control-button-icon-color: var(--accent-color);
       }
 
-      ha-icon {
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-      ha-icon[icon-and-name] {
-        padding-right: 0;
-      }
-
       span {
-        padding-right: 1rem;
-        padding-left: 1rem;
         font-weight: bold;
       }
     `;
   }
 }
-__decorateClass$9([
+__decorateClass$c([
   n2()
 ], GroupingButton.prototype, "icon");
-__decorateClass$9([
+__decorateClass$c([
   n2()
 ], GroupingButton.prototype, "name");
-__decorateClass$9([
+__decorateClass$c([
   n2()
 ], GroupingButton.prototype, "selected");
 customElements.define("mxmp-grouping-button", GroupingButton);
@@ -3282,13 +3400,13 @@ class GroupingItem {
     this.icon = this.isSelected ? "check-circle" : "checkbox-blank-circle-outline";
   }
 }
-var __defProp$8 = Object.defineProperty;
-var __decorateClass$8 = (decorators, target, key, kind) => {
+var __defProp$b = Object.defineProperty;
+var __decorateClass$b = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$8(target, key, result);
+  if (result) __defProp$b(target, key, result);
   return result;
 };
 class Grouping extends h {
@@ -3542,22 +3660,22 @@ class Grouping extends h {
     });
   }
 }
-__decorateClass$8([
+__decorateClass$b([
   n2({ attribute: false })
 ], Grouping.prototype, "store");
-__decorateClass$8([
+__decorateClass$b([
   r$1()
 ], Grouping.prototype, "modifiedItems");
-__decorateClass$8([
+__decorateClass$b([
   r$1()
 ], Grouping.prototype, "selectedPredefinedGroup");
-var __defProp$7 = Object.defineProperty;
-var __decorateClass$7 = (decorators, target, key, kind) => {
+var __defProp$a = Object.defineProperty;
+var __decorateClass$a = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$7(target, key, result);
+  if (result) __defProp$a(target, key, result);
   return result;
 };
 class Group extends h {
@@ -3728,23 +3846,23 @@ class Group extends h {
     `;
   }
 }
-__decorateClass$7([
+__decorateClass$a([
   n2({ attribute: false })
 ], Group.prototype, "store");
-__decorateClass$7([
+__decorateClass$a([
   n2({ attribute: false })
 ], Group.prototype, "player");
-__decorateClass$7([
+__decorateClass$a([
   n2({ type: Boolean })
 ], Group.prototype, "selected");
 customElements.define("mxmp-group", Group);
-var __defProp$6 = Object.defineProperty;
-var __decorateClass$6 = (decorators, target, key, kind) => {
+var __defProp$9 = Object.defineProperty;
+var __decorateClass$9 = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$6(target, key, result);
+  if (result) __defProp$9(target, key, result);
   return result;
 };
 class Groups extends h {
@@ -3764,16 +3882,16 @@ class Groups extends h {
     return listStyle;
   }
 }
-__decorateClass$6([
+__decorateClass$9([
   n2({ attribute: false })
 ], Groups.prototype, "store");
-var __defProp$5 = Object.defineProperty;
-var __decorateClass$5 = (decorators, target, key, kind) => {
+var __defProp$8 = Object.defineProperty;
+var __decorateClass$8 = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$5(target, key, result);
+  if (result) __defProp$8(target, key, result);
   return result;
 };
 class MediaBrowserList extends h {
@@ -3783,59 +3901,33 @@ class MediaBrowserList extends h {
       <mwc-list multi class="list">
         ${itemsWithFallbacks(this.items, this.config).map((item) => {
       return ke`
-            <mwc-list-item class="button" @click=${() => this.dispatchEvent(customEvent(MEDIA_ITEM_SELECTED, item))}>
-              <div class="row">${renderMediaBrowserItem(item)}</div>
-            </mwc-list-item>
+            <mxmp-media-row
+              @click=${() => this.dispatchEvent(customEvent(MEDIA_ITEM_SELECTED, item))}
+              .item=${item}
+            ></mxmp-media-row>
           `;
     })}
       </mwc-list>
     `;
   }
   static get styles() {
-    return [
-      i$2`
-        .button {
-          --icon-width: 35px;
-          height: 40px;
-        }
-
-        .row {
-          display: flex;
-        }
-
-        .thumbnail {
-          width: var(--icon-width);
-          height: var(--icon-width);
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: left;
-        }
-
-        .title {
-          font-size: 1.1rem;
-          align-self: center;
-          flex: 1;
-        }
-      `,
-      mediaBrowserTitleStyle,
-      listStyle
-    ];
+    return listStyle;
   }
 }
-__decorateClass$5([
+__decorateClass$8([
   n2({ attribute: false })
 ], MediaBrowserList.prototype, "store");
-__decorateClass$5([
+__decorateClass$8([
   n2({ type: Array })
 ], MediaBrowserList.prototype, "items");
 customElements.define("mxmp-media-browser-list", MediaBrowserList);
-var __defProp$4 = Object.defineProperty;
-var __decorateClass$4 = (decorators, target, key, kind) => {
+var __defProp$7 = Object.defineProperty;
+var __decorateClass$7 = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$4(target, key, result);
+  if (result) __defProp$7(target, key, result);
   return result;
 };
 class MediaBrowserIcons extends h {
@@ -3846,19 +3938,19 @@ class MediaBrowserIcons extends h {
         ${itemsWithFallbacks(this.items, this.config).map(
       (item) => ke`
             <ha-control-button
-              style=${this.buttonStyle(this.config.mediaBrowserItemsPerRow || 4)}
+              style=${this.buttonStyle(this.config.favoritesItemsPerRow || 4)}
               @click=${() => this.dispatchEvent(customEvent(MEDIA_ITEM_SELECTED, item))}
             >
-              ${renderMediaBrowserItem(item, !item.thumbnail || !this.config.mediaBrowserHideTitleForThumbnailIcons)}
+              ${renderMediaBrowserItem(item, !item.thumbnail || !this.config.favoritesHideTitleForThumbnailIcons)}
             </ha-control-button>
           `
     )}
       </div>
     `;
   }
-  buttonStyle(mediaBrowserItemsPerRow) {
+  buttonStyle(favoritesItemsPerRow) {
     const margin = "1%";
-    const size = `calc(100% / ${mediaBrowserItemsPerRow} - ${margin} * 2)`;
+    const size = `calc(100% / ${favoritesItemsPerRow} - ${margin} * 2)`;
     return se({
       width: size,
       height: size,
@@ -3867,7 +3959,7 @@ class MediaBrowserIcons extends h {
   }
   static get styles() {
     return [
-      mediaBrowserTitleStyle,
+      mediaItemTitleStyle,
       i$2`
         .icons {
           display: flex;
@@ -3895,20 +3987,20 @@ class MediaBrowserIcons extends h {
     ];
   }
 }
-__decorateClass$4([
+__decorateClass$7([
   n2({ attribute: false })
 ], MediaBrowserIcons.prototype, "store");
-__decorateClass$4([
+__decorateClass$7([
   n2({ attribute: false })
 ], MediaBrowserIcons.prototype, "items");
 customElements.define("mxmp-media-browser-icons", MediaBrowserIcons);
-var __defProp$3 = Object.defineProperty;
-var __decorateClass$3 = (decorators, target, key, kind) => {
+var __defProp$6 = Object.defineProperty;
+var __decorateClass$6 = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$3(target, key, result);
+  if (result) __defProp$6(target, key, result);
   return result;
 };
 class MediaBrowserHeader extends h {
@@ -3945,17 +4037,17 @@ class MediaBrowserHeader extends h {
     `;
   }
 }
-__decorateClass$3([
+__decorateClass$6([
   n2({ attribute: false })
 ], MediaBrowserHeader.prototype, "store");
 customElements.define("mxmp-media-browser-header", MediaBrowserHeader);
-var __defProp$2 = Object.defineProperty;
-var __decorateClass$2 = (decorators, target, key, kind) => {
+var __defProp$5 = Object.defineProperty;
+var __decorateClass$5 = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$2(target, key, result);
+  if (result) __defProp$5(target, key, result);
   return result;
 };
 const _MediaBrowser = class _MediaBrowser2 extends h {
@@ -3978,7 +4070,7 @@ const _MediaBrowser = class _MediaBrowser2 extends h {
       ${this.activePlayer && be(
       this.getFavorites(this.activePlayer).then((items) => {
         if (items == null ? void 0 : items.length) {
-          const itemsPerRow = this.config.mediaBrowserItemsPerRow || 4;
+          const itemsPerRow = this.config.favoritesItemsPerRow || 4;
           if (itemsPerRow > 1) {
             return ke`
                 <mxmp-media-browser-icons
@@ -4015,8 +4107,8 @@ const _MediaBrowser = class _MediaBrowser2 extends h {
     let favorites = await this.mediaBrowseService.getFavorites(player);
     favorites.sort((a2, b2) => this.sortOnTopFavoritesThenAlphabetically(a2.title, b2.title));
     favorites = [
-      ...((_b = (_a2 = this.config.customSources) == null ? void 0 : _a2[this.activePlayer.id]) == null ? void 0 : _b.map(_MediaBrowser2.createSource)) || [],
-      ...((_d = (_c = this.config.customSources) == null ? void 0 : _c.all) == null ? void 0 : _d.map(_MediaBrowser2.createSource)) || [],
+      ...((_b = (_a2 = this.config.customFavorites) == null ? void 0 : _a2[this.activePlayer.id]) == null ? void 0 : _b.map(_MediaBrowser2.createFavorite)) || [],
+      ...((_d = (_c = this.config.customFavorites) == null ? void 0 : _c.all) == null ? void 0 : _d.map(_MediaBrowser2.createFavorite)) || [],
       ...favorites
     ];
     return this.config.numberOfFavoritesToShow ? favorites.slice(0, this.config.numberOfFavoritesToShow) : favorites;
@@ -4035,7 +4127,7 @@ const _MediaBrowser = class _MediaBrowser2 extends h {
       return result;
     }
   }
-  static createSource(source) {
+  static createFavorite(source) {
     return { ...source, can_play: true };
   }
   static get styles() {
@@ -4047,17 +4139,83 @@ const _MediaBrowser = class _MediaBrowser2 extends h {
     `;
   }
 };
-__decorateClass$2([
+__decorateClass$5([
   n2({ attribute: false })
 ], _MediaBrowser.prototype, "store");
 let MediaBrowser = _MediaBrowser;
-var __defProp$1 = Object.defineProperty;
-var __decorateClass$1 = (decorators, target, key, kind) => {
+var __defProp$4 = Object.defineProperty;
+var __decorateClass$4 = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp$1(target, key, result);
+  if (result) __defProp$4(target, key, result);
+  return result;
+};
+class SleepTimer extends h {
+  render() {
+    const hassService = this.store.hassService;
+    if (this.player.attributes.platform !== "sonos") {
+      return ke``;
+    }
+    return ke`
+      <div id="sleepTimer">
+        <ha-icon-button id="sleepTimerAlarm" .path=${mdiAlarm}></ha-icon-button>
+        <label for="sleepTimer">Sleep Timer (s)</label>
+        <input type="number" id="sleepTimerInput" min="0" max="7200" value="300" />
+        <ha-icon-button
+          id="sleepTimerSubmit"
+          .path=${mdiCheckCircle}
+          @click=${() => hassService.setSleepTimer(this.player, this.sleepTimer.valueAsNumber)}
+        ></ha-icon-button>
+        <ha-icon-button
+          id="sleepTimerCancel"
+          .path=${mdiCloseCircle}
+          @click=${() => hassService.cancelSleepTimer(this.player)}
+        ></ha-icon-button>
+      </div>
+    `;
+  }
+  static get styles() {
+    return i$2`
+      #sleepTimer {
+        display: flex;
+        color: var(--primary-text-color);
+        gap: 7px;
+      }
+
+      #sleepTimerAlarm {
+        color: var(--paper-item-icon-color);
+      }
+
+      #sleepTimerSubmit {
+        color: var(--accent-color);
+      }
+
+      #sleepTimer > label {
+        align-content: center;
+        flex: 2;
+      }
+    `;
+  }
+}
+__decorateClass$4([
+  n2({ attribute: false })
+], SleepTimer.prototype, "store");
+__decorateClass$4([
+  n2({ attribute: false })
+], SleepTimer.prototype, "player");
+__decorateClass$4([
+  e$1("#sleepTimerInput")
+], SleepTimer.prototype, "sleepTimer");
+customElements.define("mxmp-sleep-timer", SleepTimer);
+var __defProp$3 = Object.defineProperty;
+var __decorateClass$3 = (decorators, target, key, kind) => {
+  var result = void 0;
+  for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
+    if (decorator = decorators[i2])
+      result = decorator(target, key, result) || result;
+  if (result) __defProp$3(target, key, result);
   return result;
 };
 const { SELECT_SOURCE } = MediaPlayerEntityFeature;
@@ -4108,10 +4266,10 @@ class Volumes extends h {
           show-switches=${this.showSwitches[player.id] || D}
         ></ha-icon-button>
       </div>
-      <div class="switches">
-        <mxmp-ha-player hide=${hideSwitches || D} .store=${this.store} .features=${[SELECT_SOURCE]}>
-        </mxmp-ha-player>
+      <div class="switches" hide=${hideSwitches || D}>
+        <mxmp-ha-player .store=${this.store} .features=${[SELECT_SOURCE]}> </mxmp-ha-player>
         ${be(this.getAdditionalControls(hideSwitches, player))}
+        <mxmp-sleep-timer .store=${this.store} .player=${player}></mxmp-sleep-timer>
       </div>
     </div>`;
   }
@@ -4194,20 +4352,19 @@ class Volumes extends h {
     `;
   }
 }
-__decorateClass$1([
+__decorateClass$3([
   n2({ attribute: false })
 ], Volumes.prototype, "store");
-__decorateClass$1([
+__decorateClass$3([
   r$1()
 ], Volumes.prototype, "showSwitches");
-customElements.define("mxmp-volumes", Volumes);
-var __defProp = Object.defineProperty;
-var __decorateClass = (decorators, target, key, kind) => {
+var __defProp$2 = Object.defineProperty;
+var __decorateClass$2 = (decorators, target, key, kind) => {
   var result = void 0;
   for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
     if (decorator = decorators[i2])
       result = decorator(target, key, result) || result;
-  if (result) __defProp(target, key, result);
+  if (result) __defProp$2(target, key, result);
   return result;
 };
 class HaPlayer extends h {
@@ -4222,13 +4379,233 @@ class HaPlayer extends h {
     return ke` <more-info-content .stateObj=${playerState} .hass=${this.store.hass}></more-info-content> `;
   }
 }
-__decorateClass([
+__decorateClass$2([
   n2({ attribute: false })
 ], HaPlayer.prototype, "store");
-__decorateClass([
+__decorateClass$2([
   n2({ attribute: false })
 ], HaPlayer.prototype, "features");
 customElements.define("mxmp-ha-player", HaPlayer);
+var __defProp$1 = Object.defineProperty;
+var __decorateClass$1 = (decorators, target, key, kind) => {
+  var result = void 0;
+  for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
+    if (decorator = decorators[i2])
+      result = decorator(target, key, result) || result;
+  if (result) __defProp$1(target, key, result);
+  return result;
+};
+class MediaRow extends h {
+  constructor() {
+    super(...arguments);
+    this.selected = false;
+  }
+  render() {
+    return ke`
+      <mwc-list-item hasMeta ?selected=${this.selected} ?activated=${this.selected} class="button">
+        <div class="row">${renderMediaBrowserItem(this.item)}</div>
+        <slot slot="meta"></slot>
+      </mwc-list-item>
+    `;
+  }
+  async firstUpdated(_changedProperties) {
+    super.firstUpdated(_changedProperties);
+    await this.scrollToSelected(_changedProperties);
+  }
+  async updated(_changedProperties) {
+    super.updated(_changedProperties);
+    await this.scrollToSelected(_changedProperties);
+  }
+  async scrollToSelected(_changedProperties) {
+    await new Promise((r2) => setTimeout(r2, 0));
+    if (this.selected && _changedProperties.has("selected")) {
+      this.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }
+  static get styles() {
+    return [
+      i$2`
+        .mdc-deprecated-list-item__text {
+          width: 100%;
+        }
+        .button {
+          margin: 0.3rem;
+          border-radius: 0.3rem;
+          background: var(--secondary-background-color);
+          --icon-width: 35px;
+          height: 40px;
+        }
+
+        .row {
+          display: flex;
+        }
+
+        .thumbnail {
+          width: var(--icon-width);
+          height: var(--icon-width);
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: left;
+        }
+
+        .title {
+          font-size: 1.1rem;
+          align-self: center;
+          flex: 1;
+        }
+      `,
+      mediaItemTitleStyle
+    ];
+  }
+}
+__decorateClass$1([
+  n2({ attribute: false })
+], MediaRow.prototype, "store");
+__decorateClass$1([
+  n2({ attribute: false })
+], MediaRow.prototype, "item");
+__decorateClass$1([
+  n2({ type: Boolean })
+], MediaRow.prototype, "selected");
+customElements.define("mxmp-media-row", MediaRow);
+var __defProp = Object.defineProperty;
+var __decorateClass = (decorators, target, key, kind) => {
+  var result = void 0;
+  for (var i2 = decorators.length - 1, decorator; i2 >= 0; i2--)
+    if (decorator = decorators[i2])
+      result = decorator(target, key, result) || result;
+  if (result) __defProp(target, key, result);
+  return result;
+};
+const { SHUFFLE_SET, REPEAT_SET, CLEAR_PLAYLIST } = MediaPlayerEntityFeature;
+class Queue extends h {
+  constructor() {
+    super(...arguments);
+    this.editMode = false;
+    this.firstRender = true;
+    this.onMediaItemSelected = async (index) => {
+      if (!this.editMode) {
+        await this.store.hassService.playQueue(this.activePlayer, index);
+        this.dispatchEvent(customEvent(MEDIA_ITEM_SELECTED));
+      }
+    };
+  }
+  render() {
+    this.activePlayer = this.store.activePlayer;
+    const selected = this.activePlayer.attributes.queue_position - 1;
+    return ke`${this.renderQueue(selected)}`;
+  }
+  renderQueue(selected) {
+    this.firstRender = false;
+    return ke`
+      <div class="header">
+        <div class="title">
+          ${this.store.config.queueTitle ?? (this.activePlayer.attributes.media_playlist ?? `Play Queue`) + (this.activePlayer.attributes.media_channel ? " (not active)" : "")}
+        </div>
+        <div class="header-icons">
+          <mxmp-ha-player .store=${this.store} .features=${[SHUFFLE_SET, REPEAT_SET, CLEAR_PLAYLIST]}></mxmp-ha-player>
+          <ha-icon-button .path=${mdiPlaylistRemove} @click=${this.clearQueue}></ha-icon-button>
+          <ha-icon-button
+            .path=${mdiPlaylistEdit}
+            @click=${this.toggleEditMode}
+            selected=${this.editMode || D}
+          ></ha-icon-button>
+        </div>
+      </div>
+      <div class="list">
+        <mwc-list multi>
+          ${be(
+      this.store.hassService.getQueue(this.store.activePlayer).then(
+        (queue) => queue.map((item, index) => {
+          return ke`
+                  <mxmp-media-row
+                    @click=${() => this.onMediaItemSelected(index)}
+                    .item=${item}
+                    .selected=${selected !== void 0 && selected === index}
+                    ><ha-icon-button
+                      hide=${this.editMode && D}
+                      @click=${(event) => {
+            event.stopPropagation();
+            return this.removeFromQueue(index);
+          }}
+                      .path=${mdiTrashCanOutline}
+                    ></ha-icon-button
+                  ></mxmp-media-row>
+                `;
+        })
+      )
+    )}
+        </mwc-list>
+      </div>
+    `;
+  }
+  toggleEditMode() {
+    this.editMode = !this.editMode;
+  }
+  async clearQueue() {
+    await this.store.hassService.clearQueue(this.activePlayer);
+    this.requestUpdate();
+  }
+  async removeFromQueue(index) {
+    await this.store.hassService.removeFromQueue(this.activePlayer, index);
+    this.requestUpdate();
+  }
+  static get styles() {
+    return [
+      listStyle,
+      i$2`
+        :host {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+        .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0.5rem;
+        }
+        .header-icons {
+          white-space: nowrap;
+        }
+        .header-icons > * {
+          display: inline-block;
+        }
+        .title {
+          text-align: center;
+          font-size: 1.2rem;
+          font-weight: bold;
+          align-items: center;
+          justify-content: center;
+          padding: 0.5rem;
+        }
+        .list {
+          overflow: auto;
+          --mdc-icon-button-size: 1.5rem;
+          --mdc-icon-size: 1rem;
+        }
+        *[selected] {
+          color: var(--accent-color);
+        }
+        *[hide] {
+          display: none;
+        }
+      `
+    ];
+  }
+}
+__decorateClass([
+  n2()
+], Queue.prototype, "store");
+__decorateClass([
+  r$1()
+], Queue.prototype, "activePlayer");
+__decorateClass([
+  r$1()
+], Queue.prototype, "editMode");
+__decorateClass([
+  r$1()
+], Queue.prototype, "firstRender");
 window.customCards.push({
   type: "maxi-media-player",
   name: "Maxi Media Player",
@@ -4240,3 +4617,5 @@ customElements.define("mxmp-grouping", Grouping);
 customElements.define("mxmp-groups", Groups);
 customElements.define("mxmp-media-browser", MediaBrowser);
 customElements.define("mxmp-player", Player);
+customElements.define("mxmp-volumes", Volumes);
+customElements.define("mxmp-queue", Queue);

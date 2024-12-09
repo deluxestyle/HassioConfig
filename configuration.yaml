@@ -24,7 +24,6 @@ http:
   trusted_proxies:
     - 127.0.0.1
     - 172.30.33.0/24
-    - 192.168.200.33
     - 192.168.200.75
     - 172.17.0.0/24
     - 172.20.0.0/24
@@ -94,10 +93,16 @@ shell_command:
   ds118_shutdown: bash /config/scripts/ds118_shutdown.sh
 
 notify:  
+  - name: all_devices_wolfgang
+    platform: group
+    services:
+      - action: mobile_app_iphone14pro
+
   - name: all_ios_devices
     platform: group
     services:
-      - service: mobile_app_iphone14pro
+      - action: mobile_app_iphone14pro
+      - action: mobile_app_iphonese
 
 monitor_docker: !include config_files/monitor_docker.yaml
 

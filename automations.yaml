@@ -25,7 +25,7 @@
     to: cleaning
     from: docked
   action:
-  - service: notify.all_ios_devices
+  - service: notify.all_devices_wolfgang
     data:
       message: Staubsauger gestartet
       data:
@@ -281,23 +281,24 @@
 - id: '1574071080398'
   alias: 'Entertainment: Steckdosenleiste ausschalten'
   description: ''
-  trigger:
+  triggers:
   - at: 00:01
-    platform: time
-  - platform: state
-    for:
+    trigger: time
+  - for:
       hours: 0
       minutes: 15
       seconds: 0
     entity_id:
     - remote.harmony_hub_2
     to: 'off'
-  condition: []
-  action:
+    trigger: state
+  conditions: []
+  actions:
   - delay: 00:01:00
-  - data:
-      entity_id: switch.steckdosenleiste_2
-    service: switch.turn_off
+  - type: turn_off
+    device_id: 08c221a93c56e96f9c902871a14898e4
+    entity_id: 10de0b3ac435e190245efdeda4899811
+    domain: switch
   mode: restart
 - id: '1584265149079'
   alias: 'Benachrichtigung: CPU Temp zu hoch'
@@ -342,17 +343,17 @@
 - id: '1607432908571'
   alias: 'Entertainment: Steckdosenleiste einschalten'
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - remote.harmony_hub_2
     to: 'on'
-  condition: []
-  action:
-  - service: switch.turn_on
-    data: {}
-    target:
-      entity_id: switch.steckdosenleiste_2
+    trigger: state
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 08c221a93c56e96f9c902871a14898e4
+    entity_id: 10de0b3ac435e190245efdeda4899811
+    domain: switch
   mode: single
 - id: '1612343173377'
   alias: 'iOS: Sonos ausschalten'
@@ -417,7 +418,7 @@
         actions:
         - action: START_VACUUM
           title: Starten
-    action: notify.all_ios_devices
+    action: notify.all_devices_wolfgang
   mode: single
 - id: '1630350328215'
   alias: 'Batterie: Niedriger Batteriestand'
@@ -457,7 +458,7 @@
     to: 'off'
   condition: []
   action:
-  - service: notify.all_ios_devices
+  - service: notify.all_devices_wolfgang
     data:
       data:
         actions:
@@ -551,6 +552,7 @@
       title: Geschirrspüler
       url: /lovelace/dishwasher
       persistent_notification: true
+      notify_group: all_ios_devices
     action: script.notify_script
   mode: single
 - id: '1668452168948'
@@ -1087,29 +1089,28 @@
 - id: '1722250292937'
   alias: 'Benachrichtigung: Solarstrom vorhanden'
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - binary_sensor.solarstrom
     for:
       hours: 0
       minutes: 10
       seconds: 0
     to: 'on'
-  condition:
+    trigger: state
+  conditions:
   - condition: not
     conditions:
     - condition: state
       entity_id: input_boolean.urlaubsmodus
       state: 'on'
-  action:
-  - metadata: {}
+  actions:
+  - action: notify.all_ios_devices
     data:
       message: Genügen Solarstrom vorhanden
       title: Strom
       data:
         url: /dashboard-home/strom
-    action: notify.mobile_app_iphone14pro
   mode: single
 - id: '1724760502933'
   alias: 'DS114: Shutdown nach Push'
