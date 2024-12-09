@@ -745,6 +745,7 @@
           title: Waschmaschine
           url: /lovelace/home
           persistent_notification: true
+          notify_group: all_ios_devices
         action: script.notify_script
       - delay:
           hours: 0
@@ -771,7 +772,7 @@
     data: {}
   mode: single
 - id: '1704370565852'
-  alias: 'Benachrichtigung: Salz'
+  alias: 'Benachrichtigung: Salz (Judo)'
   description: ''
   triggers:
   - entity_id:
@@ -1150,33 +1151,6 @@
     target:
       entity_id: switch.ds114
   mode: single
-- id: '1726658107835'
-  alias: 'Benachrichtigung: Stromverbrauch hoch'
-  description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id:
-    - sensor.stromverbrauch_gesamt
-    for:
-      hours: 0
-      minutes: 13
-      seconds: 0
-    above: 300
-  condition:
-  - condition: not
-    conditions:
-    - condition: state
-      entity_id: binary_sensor.waschmaschine
-      state: 'on'
-  action:
-  - action: notify.mobile_app_iphone14pro
-    metadata: {}
-    data:
-      message: Stromverbrauch zu hoch
-      title: Stromverbrauch
-      data:
-        url: /dashboard-home/strom
-  mode: single
 - id: '1727094203501'
   alias: 'Benachrichtigung: Internet verbunden'
   description: ''
@@ -1438,6 +1412,7 @@
       title: Trockner
       url: /lovelace/trockner
       persistent_notification: true
+      notify_group: all_ios_devices
     action: script.notify_script
   mode: single
 - id: '1732734577816'
@@ -1493,4 +1468,25 @@
         device_id: 999649ba1cbc9d0c61b1beaad6e2b1de
         entity_id: 621579929c50fb51e851bf33ade3036c
         domain: switch
+  mode: single
+- id: '1733755673258'
+  alias: 'Entertainment: Samsung PowerOff'
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - remote.harmony_hub_2
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10
+  conditions: []
+  actions:
+  - action: remote.send_command
+    data:
+      command: PowerOff
+      device: '79732412'
+    target:
+      entity_id: remote.harmony_hub_2
   mode: single
