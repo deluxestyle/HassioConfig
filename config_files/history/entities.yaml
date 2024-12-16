@@ -40,6 +40,7 @@ entities:
   - sensor.net_upload_max
   - sensor.net_download_max
   - binary_sensor.sonoff_motion_sensor_occupancy
+  - binary_sensor.sonoff_wassermelder_water_leak
 domains:
   - automation
   - switch

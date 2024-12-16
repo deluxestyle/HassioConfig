@@ -444,6 +444,7 @@
         entity_id:
         - sensor.iphone14pro_battery_level
         - sensor.ipad7_battery_level
+        - sensor.iphonese_battery_level
 - id: '1634394580227'
   alias: 'DS118: Benachrichtigung shutdown'
   description: ''
@@ -739,14 +740,16 @@
     action: input_boolean.turn_on
   - repeat:
       sequence:
-      - data:
+      - action: notify.all_ios_devices
+        metadata: {}
+        data:
           message: Waschmaschine fertig
-          notification_id: washing_machine
           title: Waschmaschine
-          url: /lovelace/home
-          persistent_notification: true
-          notify_group: all_ios_devices
-        action: script.notify_script
+          data:
+            actions:
+            - action: LAUNDRY
+              title: Wäsche erledigt
+            tag: laundry
       - delay:
           hours: 0
           minutes: 30
@@ -1035,6 +1038,7 @@
           title: Geschirspüler
           url: /lovelace/dishwasher
           persistent_notification: true
+          notify_group: all_ios_devices
         action: script.notify_script
     - conditions:
       - condition: trigger
@@ -1047,6 +1051,7 @@
           title: Geschirspüler
           url: /lovelace/dishwasher
           persistent_notification: true
+          notify_group: all_ios_devices
         action: script.notify_script
   mode: single
 - id: '1721659414494'
@@ -1248,7 +1253,7 @@
       title: Wärmepumpe
       url: /dashboard-home/warmepumpe
       persistent_notification: true
-    action: script.notify_script
+    action: script.notify_script_critical
   mode: single
 - id: '1728990201744'
   alias: 'Backup: Vaultwarden'
@@ -1365,23 +1370,6 @@
       persistent_notification: true
     action: script.notify_script
   mode: single
-- id: '1732043978416'
-  alias: Nachtlicht Schalter
-  description: ''
-  triggers:
-  - domain: mqtt
-    device_id: be116b5be9a1d396805f4e3a376e9ced
-    type: action
-    subtype: single
-    metadata: {}
-    trigger: device
-  conditions: []
-  actions:
-  - type: toggle
-    device_id: 9f75d5866ebc820a44d1a0341099d135
-    entity_id: d392ef37f3c0a53bf979f23e7cc8a45c
-    domain: switch
-  mode: single
 - id: '1732091021131'
   alias: Nachtlicht - Motion
   description: ''
@@ -1489,4 +1477,44 @@
       device: '79732412'
     target:
       entity_id: remote.harmony_hub_2
+  mode: single
+- id: '1733757093370'
+  alias: 'iOS: Wäsche erledigt'
+  description: ''
+  triggers:
+  - event_type: mobile_app_notification_action
+    event_data:
+      action: LAUNDRY
+    trigger: event
+  conditions: []
+  actions:
+  - target:
+      entity_id: input_boolean.waschmaschine
+    data: {}
+    enabled: true
+    action: input_boolean.turn_off
+  - action: notify.all_ios_devices
+    data:
+      message: clear_notification
+      data:
+        tag: laundry
+  mode: single
+- id: '1733943458169'
+  alias: 'Benachrichtigung: Wasser im Keller'
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.sonoff_wassermelder_water_leak
+    to: 'on'
+  conditions: []
+  actions:
+  - action: script.notify_script_critical
+    metadata: {}
+    data:
+      url: /lovelace/overview
+      persistent_notification: true
+      notification_id: leak
+      message: Wasser im Keller
+      title: Wasser
   mode: single

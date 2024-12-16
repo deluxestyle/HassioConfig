@@ -117,6 +117,7 @@ notify_script:
         push:
           badge: '{{ states.counter.badge_counter.state }}'
         url: '{{ var_url }}'
+        tag: '{{ notification_id }}'
     action: notify.{{ var_notify_group }}
   - condition: template
     value_template: '{{ persistent_notification == true }}'
@@ -173,6 +174,7 @@ alles_ausschalten:
       - switch.steckdose_3
       - switch.steckdose_2
       - switch.steckdosenleiste_2
+      - switch.p110_steckdose_1
     data: {}
     action: switch.turn_off
   mode: single
@@ -318,7 +320,7 @@ harmony_tone:
   mode: parallel
   icon: mdi:equalizer
   max: 10
-benachrichtigungen_nicht_actionable_duplizieren:
+notify_script_critical:
   alias: Benachrichtigungen (nicht actionable) (critical)
   sequence:
   - data:
